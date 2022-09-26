@@ -1,4 +1,4 @@
-package chapter_1.using_instanceof;
+package chapter_1_2.using_instanceof;
 
 /* What is instanceof?
  * 'A instanceof B'
