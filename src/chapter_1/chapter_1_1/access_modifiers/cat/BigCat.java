@@ -1,4 +1,4 @@
-package chapter_1_1.access_modifiers.cat;
+package chapter_1.chapter_1_1.access_modifiers.cat;
 
 import javax.swing.plaf.nimbus.AbstractRegionPainter;
 
