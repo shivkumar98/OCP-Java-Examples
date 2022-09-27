@@ -8,6 +8,10 @@ package chapter_1.chapter_1_5.equals_hashCode_toString;
  * Javadocs specifies what a hashCode pertains to:
  * 1) Within the same program, the hashcode value must not change.
  * 	  I.e. the hashcode should not be associated with a variable
+ * 2) For two objects to be equal when calling equals(), their hashCodes must also be equal
+ * 	  I.e. objects with different hashcodes should not be considered equal
+ * 3) It is not required that for two object considered unequal that the hashCodes also be equal
+ *    I.e. hence, two objects having the same hashCode does NOT imply the objects are equal
  */
 public class HashCodeExample {
 	
