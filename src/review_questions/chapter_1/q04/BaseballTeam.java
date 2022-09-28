@@ -1,4 +1,4 @@
-package review_questions.chapter_1.q4;
+package review_questions.chapter_1.q04;
 /* QUESTION: What is true about the following code? You may assume city and mascot are never nulL.*/
 /* OPTIONS:
 A. The class does not compile.

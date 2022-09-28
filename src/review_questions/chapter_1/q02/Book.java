@@ -1,4 +1,4 @@
-package review_questions.chapter_1.q2;
+package review_questions.chapter_1.q02;
 /* QUESTION: What is the result of compiling the following class?
  * ANSWERS:
  *  A. The code compiles.

@@ -1,4 +1,4 @@
-package review_questions.chapter_1.q5;
+package review_questions.chapter_1.q05;
 /*
  * QUESTION: Which of the following statements are true, assuming a and b are String objects? (Choose 
 			 all that apply.)

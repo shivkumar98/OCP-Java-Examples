@@ -1,4 +1,4 @@
-package review_questions.chapter_1.q3;
+package review_questions.chapter_1.q03;
 
 /* QUESTION: What is result of following code
  * ANSWER: s1.equals(s2) 

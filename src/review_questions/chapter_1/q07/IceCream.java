@@ -1,4 +1,4 @@
-package review_questions.chapter_1.q7;
+package review_questions.chapter_1.q07;
 /* QUESTION:  What is the result of the following code?
    OPTIONS:
 	A. vanilla

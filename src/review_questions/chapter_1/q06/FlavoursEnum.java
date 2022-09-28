@@ -1,4 +1,4 @@
-package review_questions.chapter_1.q6;
+package review_questions.chapter_1.q06;
 /* QUESTION:  What is the result of the following code?
    OPTIONS:
 	A. 0
