@@ -11,6 +11,6 @@ package chapter_1.chapter_1_7.creating_nested_classes;
  * 4) labelled static and same level as static variables => statiic nested class
  */
 
-public class NestedClassType {
+public class NestedClassTypes {
 
 }
