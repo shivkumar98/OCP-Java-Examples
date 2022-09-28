@@ -8,7 +8,7 @@ package chapter_1.chapter_1_7.creating_nested_classes.section_1.Member_Inner_Cla
  * 4) Cannot declare static fields or methods
  * 5) Can access members of the outer class including private members
  */
-public class OuterClass {
+public class MemberInnerClass {
 	private String str = "Hello World!";
 	protected class InnerClass{
 		public int repeat = 2;
@@ -24,7 +24,7 @@ public class OuterClass {
 		inner.start();
 	}
 	public static void main(String[] args) {
-		OuterClass outer = new OuterClass();
+		MemberInnerClass outer = new MemberInnerClass();
 		outer.outerCallsInner(); // prints Hello World! twice
 		/* You cannot instantiate the inner class from outside: 
 		InnerClass inner = new InnerClass();

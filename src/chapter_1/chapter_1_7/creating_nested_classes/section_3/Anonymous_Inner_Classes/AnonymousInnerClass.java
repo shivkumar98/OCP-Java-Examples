@@ -16,7 +16,4 @@ public class AnonymousInnerClass {
 		};
 		return basePrice - sale.poundsOff();
 	}
-	
-	
-
 }
