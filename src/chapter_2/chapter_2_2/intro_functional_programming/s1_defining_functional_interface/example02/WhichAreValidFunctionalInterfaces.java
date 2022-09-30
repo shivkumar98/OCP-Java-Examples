@@ -1,12 +1,14 @@
-package chapter_2.chapter_2_2.intro_functional_programming.example02;
+package chapter_2.chapter_2_2.intro_functional_programming.s1_defining_functional_interface.example02;
 import chapter_2.chapter_2_1.designing_an_interface.example03.Animal;
-import chapter_2.chapter_2_2.intro_functional_programming.example01.Sprint;
+import chapter_2.chapter_2_2.intro_functional_programming.s1_defining_functional_interface.example01.Sprint;
+
 /* Sprint interface definition:
 	@FunctionalInterface
 	public interface Sprint {
 		public void sprint(Animal animal);
 	}
  */
+
 
 public class WhichAreValidFunctionalInterfaces {}
 

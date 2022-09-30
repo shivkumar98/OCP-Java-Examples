@@ -1,6 +1,7 @@
-package chapter_2.chapter_2_2.intro_functional_programming.example03;
+package chapter_2.chapter_2_2.intro_functional_programming.s1_defining_functional_interface.example03;
+
 import chapter_2.chapter_2_1.designing_an_interface.example03.Animal;
-import chapter_2.chapter_2_2.intro_functional_programming.example01.Sprint;
+import chapter_2.chapter_2_2.intro_functional_programming.s1_defining_functional_interface.example01.Sprint;
 
 public class InvalidFunctionalInterfaces {}
 /* Here are some examples of invalid functional interfaces:*/

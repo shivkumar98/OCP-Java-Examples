@@ -1,0 +1,5 @@
+package chapter_2.chapter_2_2.intro_functional_programming.s2_lambdas_implementing_functional_interfaces;
+
+public class UnderstandingLambdaSyntax {
+
+}
