@@ -1,4 +1,4 @@
-package chapter_2.chapter_2_1.designing_an_interface.example03;
+package chapter_2.chapter_2_1_designing_an_interface.example03;
 
 import java.util.List;
 

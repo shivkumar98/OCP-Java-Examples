@@ -1,4 +1,4 @@
-package chapter_2.chapter_2_1.designing_an_interface.example02;
+package chapter_2.chapter_2_1_designing_an_interface.example02;
 /* an interface can extend another interface: */
 public interface Walk {
 	boolean isQuadruped();

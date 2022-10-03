@@ -1,4 +1,4 @@
-package chapter_2.chapter_2_1.designing_an_interface.example01;
+package chapter_2.chapter_2_1_designing_an_interface.example01;
 /* Below is an example of an interface and a class which implements it
 */
 public interface Fly {

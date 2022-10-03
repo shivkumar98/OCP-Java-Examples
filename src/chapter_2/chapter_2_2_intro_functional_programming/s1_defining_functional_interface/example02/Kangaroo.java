@@ -1,5 +1,0 @@
-package chapter_2.chapter_2_2.intro_functional_programming.s1_defining_functional_interface.example02;
-
-public class Kangaroo {
-
-}

@@ -1,6 +1,5 @@
-package chapter_2.chapter_2_2.intro_functional_programming.s3_ApplyingPredicateInterface;
+package chapter_2.chapter_2_2_intro_functional_programming.s3_ApplyingPredicateInterface;
 
-import java.awt.print.Printable;
 import java.util.function.Predicate;
 
 
