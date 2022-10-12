@@ -4,3 +4,5 @@ public class ComposingObjects {}
 
 /* Q: What is object-composition?
  * A: This is the property of creating a class which references another class in order to use its functionality*/
+
+/* instead of relying on inheritance, composition allows for more complex relationships between classes*/
