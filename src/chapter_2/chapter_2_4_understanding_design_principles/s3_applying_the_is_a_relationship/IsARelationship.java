@@ -1,4 +1,4 @@
-package chapter_2.chapter_2_4_understanding_design_principles;
+package chapter_2.chapter_2_4_understanding_design_principles.s3_applying_the_is_a_relationship;
 public class IsARelationship {}
 
 /*  Q: What is Is-a Relationship?
