@@ -4,7 +4,7 @@
 
 Functional interfaces are used as a basis for lambda expressions. I.e. we can pass a lambda expression as an implementation for a functional interface
 
-This chapter will cover the following design principles:
+This chapter will cover the following topics:
 1) [Defining an Interface](#1-defining-an-interface) 
 2) [Implementing Functional Interfaces With Lambdas](#2-implementing-functional-interfaces-with-lambdas) 
 3) [Applying the Predicate Interface](#3-applying-the-predicate-interface) 
