@@ -143,9 +143,17 @@ Here are some examples of **valid lambda syntax:**
     (int x) -> {}
     (int y) -> { return; }
     () -> true
+    (x,y) -> {}
+    (a, b) -> { int c = 0; return 5; }
+
 
 Here are some examples of **invalid lambda syntax:**
 
+    a,b -> a.startsWith("test")
+    c -> return 10;
+    a -> { return a.startsWith("test"); }
+    (int x) -> { int x=1; return x+1; } // you can not redeclare variable
+    (int x, y) -> {} // if you declare type of one parameter you must provide for all
 
 <hr style="border:none;background-color:white; height:3px">
 
