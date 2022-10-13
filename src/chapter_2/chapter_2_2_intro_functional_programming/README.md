@@ -159,4 +159,27 @@ Here are some examples of **invalid lambda syntax:**
 
 ## 3. Applying the Predicate Interface
 
+In the previous example, we defined a functional interface:
 
+    public interface CheckTrait {
+        public boolean test(Animal a);
+    }
+
+Java recognises this would be a common interface, so it defines a Predicate interface in java.util.function:
+
+    public interface Predicate<T> {
+        public boolean test(T t);
+    }
+
+We can now refactor our FindMatchingAnimals to use the predicate interface:
+
+    public class FindMatchingAnimals {
+        private static void print(Animal animal, Predicate<Animal> trait) {
+            if(trait.test(animal))
+            System.out.println(animal);
+        }
+        public static void main(String[] args) {
+            print(new Animal("fish", false, true), a -> a.canHop());
+            print(new Animal("kangaroo", true, false), a -> a.canHop());
+        }
+    }
