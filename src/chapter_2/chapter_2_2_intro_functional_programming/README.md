@@ -7,7 +7,7 @@ Functional interfaces are used as a basis for lambda expressions. I.e. we can pa
 This chapter will cover the following design principles:
 1) [Defining an Interface](#1-defining-an-interface) 
 2) [Implementing Functional Interfaces With Lambdas](#2-implementing-functional-interfaces-with-lambdas) 
-3) [Applying the Predicate Interface](#3-applying-the-is-a-relationship) 
+3) [Applying the Predicate Interface](#3-applying-the-predicate-interface) 
 
 
 
@@ -59,7 +59,7 @@ Implementation of functional interface:
 <hr style="border:none;background-color:gray; height:1px">
 
 ### Example 3:
-Here are some counter examples which are not functional interfaces:
+Here are some **counter examples which are not functional interfaces:**
 
 
     interface Walk{}
@@ -82,3 +82,73 @@ Two abstract methods are defined!
 <hr style="border:none;background-color:white; height:3px">
 
 ## 2. Implementing Functional Interfaces With Lambdas
+
+### Example 1
+Consider the following Animal class:
+
+    class Animal {
+        private String species; private boolean canHop, canSwin;
+        public Animal(String species, boolean canHop, boolean canSwim) {
+            this.species = species; this.canHop = canHop; this.canSwin = canSwim;
+        }
+        public boolean canHop() { return canHop; }
+        public boolean canSwim() { return canSwin; }
+        public String toString() { return species; }
+    }
+
+We define a functional interface as:
+
+    public interface CheckTrait {
+        public boolean test(Animal a);
+    }
+
+We can now use lambda syntax to create a simple program which prints an animal if it has a certain trait:
+
+    class FindMatchingAnimal{
+        public static void print(Animal animal, CheckTrait trait) {
+            if (trait.test(animal)) {
+                System.out.println(animal);
+            }
+        }
+        public static void main(String[] args) {
+            FindMatchingAnimal.print(new Animal("fish", false, true), a -> a.canHop());  
+            FindMatchingAnimal.print(new Animal("Kangaroo", true, false), a-> a.canHop()); // Kangaroo
+        }
+    }
+
+Java uses context to determine what a lambda expression means.
+
+The lamda syntax is passed as a interface parameter, therefore Java treats the interface as a functional interface
+
+<hr style="border:none;background-color:gray; height:0.5px">
+
+### Understanding Lambda Syntax
+
+The following lambda expressions are equivalent:
+
+    a -> a.canHop()
+    (Animal a) -> {return a.canHop();}
+
+Here are some rules for Lambda syntax:
+1) Round brackets are optional for 1 parameter, but mandatory for 0 or >1 parameters
+2) If curly braces are used, a return and semicolon are required
+3) If the lambda does not return anything you can write (int y) -> { return; } or (int z) -> { }
+
+Here are some examples of **valid lambda syntax:**
+
+    () -> new Duck()
+    d -> { return d.quack(); }
+    (Duck d) -> d.quack();
+    (Animal a, Duck d) -> d.quack()
+    (int x) -> {}
+    (int y) -> { return; }
+    () -> true
+
+Here are some examples of **invalid lambda syntax:**
+
+
+<hr style="border:none;background-color:white; height:3px">
+
+## 3. Applying the Predicate Interface
+
+
