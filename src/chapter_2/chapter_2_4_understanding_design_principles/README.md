@@ -9,14 +9,16 @@ This is an established principle used to facilitate software design principle
  - Allows code to be easier to modify with respect to requirements
 
 This chapter will cover the following design principles:
-1) [Encapsulation](#encapsulation) 
-2) [Creating JavaBeans](#creating-javabeans) 
-3) [Applying the is-a Relationship](#applying-the-is-a-relationship) 
-4) [Applying the has-a Relationship](#applying-the-has-a-relationship) 
+1) [Encapsulation](#1-encapsulation) 
+2) [Creating JavaBeans](#2-creating-javabeans) 
+3) [Applying the is-a Relationship](#3-applying-the-is-a-relationship) 
+4) [Applying the has-a Relationship](#4-applying-the-has-a-relationship) 
+5) [Composing Objects](#5-composing-objects) 
+
 
 ----
 
-## **Encapsulation**
+## **1. Encapsulation**
 
 **What is encapsulation?**
 
@@ -58,9 +60,9 @@ Consider the following class which *is* encapsulated
  * If we originally had the name a public field and then changed it to private => recompilation is required!
 
 ----
-## Creating JavaBeans
+## 2. Creating JavaBeans
 
-**QUESTION:**  What is a JavaBean?
+**What is a JavaBean?**
 JavaBean is another word for encapsulated Jaca class. A JavaBean is a design principle for encapsulating data in a object in java JavaBeans must obide certain properties
     
 **Rules for JavaBeans:**
@@ -88,7 +90,7 @@ Suppose a class has the following properties:
 ----
 
 
-## Applying the is-a Relationship
+## 3. Applying the is-a Relationship
 
 ### What is the Is-a Relationship?
 
@@ -118,10 +120,51 @@ We can work around hierarchal relationships by using interfaces as a way to achi
 
 ----
 
-## Applying the has-a Relationship
+## 4. Applying the has-a Relationship
 
 The has-a test is another object-oriented design. It is also known as composition test
 
 The has-a test checks if an object contains a particular property or value.
 
 This is different from inheritance, we qare now analysing the COMPOSITION of a class
+
+### Example
+
+Bird HAS-A Beak:
+
+    public class Bird {
+        Beak beak;
+    }
+    class Beak  {}
+
+Composition enforces that child classes of Bird must also have a Beak
+
+----
+
+## 5. Composing Objects
+
+**What is object-composition?**
+
+This is the property of creating a class which references another class in order to use its functionality
+
+Instead of relying on inheritance, composition allows for more complex relationships between classes
+
+### Eample
+
+    public class Penguin {
+        Flippers flipper;
+        WebbedFeet webbedFeet;
+        public Penguin() {
+            this.flipper = new Flippers();
+            this.webbedFeet = new WebbedFeet();
+        }
+        public void flap() { this.flipper.flap(); }
+        public void kick() { this.webbedFeet.kick(); }
+    }
+
+    class Flippers {
+        public void flap() { System.out.println("The flippers go back and forth"); }
+    }
+    class WebbedFeet {
+        public void kick() { System.out.println("the webbed feet kick to and from"); }
+    }
