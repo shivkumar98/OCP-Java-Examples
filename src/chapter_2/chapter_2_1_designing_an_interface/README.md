@@ -1,4 +1,4 @@
-# Chapter 2.1 Designing An Interface
+# Chapter 2.1: Designing An Interface
 
 ## What is an Interface?
 
