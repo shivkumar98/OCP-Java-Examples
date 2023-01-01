@@ -122,3 +122,28 @@ The typed parameter can be named anything.
 
 ![](2023-01-01-11-50-58.png)
 
+# 3 Generic Methods
+
+We can declare generics at method level. This is useful for static methods since they aren't part of an instance that can declare the type.
+
+## Example:
+
+	public static <T> Crate<T> ship(T t){
+		System.out.println("Preparing " + t);
+		return new Crate<T>();
+	}
+
+The parameter is generic type T, the return type is Crate&lt;T&gt;.
+Before the return type is the formal type parameter &lt;T&gt;
+
+We can have some interesting method declarations:
+
+1. public static <T> void sink(T t) { }
+
+2. public static <T> T identity(T t) { return t; }
+
+3. public static T noGood(T t){ return t; } // DOES NOT COMPILE
+
+The last declaration does not have formal type declaration, hence doesn't compile!
+
+# 4 Interacting with Legacy Code
