@@ -1,4 +1,4 @@
-package chapter_3.chapter_3_1_reviewing_oca_collections;
+package chapter_3.chapter_3_2_working_with_generics;
 
 public class multiple_generic_types {
 	public static void main(String[] args) {
