@@ -147,3 +147,14 @@ We can have some interesting method declarations:
 The last declaration does not have formal type declaration, hence doesn't compile!
 
 # 4 Interacting with Legacy Code
+
+Legacy is older code written in a different style. This section will refer to code to target Java 1.4 or lower which does not use generics.
+
+**Raw collections** are collections writter without generics. 
+Generics give us compile-time safety provided the code involved also uses generics!
+
+It is easy to fall for a false sense of security! Looking at the following code, we can see there's no compilation issues:
+
+![](2023-01-01-12-18-10.png)
+
+However, running the code yields a **ClassCastException**. The main method calls printDragons() with a raw type. Due to type erasem Java attempts to cast a Unicorn to Dragon. As a result, Java will give warnings when using raw types.
