@@ -98,4 +98,27 @@ When we use a generics, like when we replace T with Robot, the compiuler replace
 
 This means there is only one class file! The process of removing generics is called **type erasure**
 
-# 2 Generic Classes
+# 2 Generic Interfaces
+
+An interface can also declare a formal type parameter. E.g., the following interface uses a generic type as the argment to its ship method:
+
+    interface Shippable<T>{
+        void ship(T t);
+    }
+
+There are 3 ways a class can approach implementing the interface:
+
+1. Specify the generic type in the class. The following concretion:
+
+![](2023-01-01-11-46-27.png)
+
+2. Create a generic class. The caller is required to specify the generic type:
+
+![](2023-01-01-11-48-47.png)
+
+The typed parameter can be named anything.
+
+3. Using an Object reference:
+
+![](2023-01-01-11-50-58.png)
+
