@@ -158,3 +158,21 @@ It is easy to fall for a false sense of security! Looking at the following code,
 ![](2023-01-01-12-18-10.png)
 
 However, running the code yields a **ClassCastException**. The main method calls printDragons() with a raw type. Due to type erasem Java attempts to cast a Unicorn to Dragon. As a result, Java will give warnings when using raw types.
+
+# Bounds
+
+So far, generics are treated as Objects and have no methods available! Bounded wildcards solve this by restricting what types can be used in that wildcard position.
+
+A **bounded parameter type** is a generic type that specifies the bound for the generic.
+
+A **wildcard generic type** is an unknown generic type represented with a ?
+
+## Types of Bounds:
+
+| Type of Bound               | Syntax         | Example                                                          |
+|-----------------------------|----------------|------------------------------------------------------------------|
+| Unbounded wildcard          | ?              | List<?> l = new ArrayList<String>();                             |
+| Wildcard with an upperbound | ? extends type | List<? extends Exception> l = new ArrayList<RuntimeException>(); |
+| Wildcard with a lower bound | ? super type   | List<? super Exception> l = new ArrayList<Object>();             |
+
+## Unbounded Wildcards
