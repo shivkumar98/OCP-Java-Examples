@@ -11,6 +11,8 @@ Generics fix this issue by declaring the type of objects which can be put into t
     List<String> names = new ArrayList<String>();
     names.add(new StringBuilder("Webby")); // does not compile
 
+<br><hr>
+
 # 1 Generic Classes
 
 We can introduce generics into classes. We can declare a formal type paremeter using angled brackets (<>)
@@ -98,6 +100,8 @@ When we use a generics, like when we replace T with Robot, the compiuler replace
 
 This means there is only one class file! The process of removing generics is called **type erasure**
 
+<br><hr>
+
 # 2 Generic Interfaces
 
 An interface can also declare a formal type parameter. E.g., the following interface uses a generic type as the argment to its ship method:
@@ -121,6 +125,8 @@ The typed parameter can be named anything.
 3. Using an Object reference:
 
 ![](2023-01-01-11-50-58.png)
+
+<br><hr>
 
 # 3 Generic Methods
 
@@ -146,6 +152,8 @@ We can have some interesting method declarations:
 
 The last declaration does not have formal type declaration, hence doesn't compile!
 
+<br><hr>
+
 # 4 Interacting with Legacy Code
 
 Legacy is older code written in a different style. This section will refer to code to target Java 1.4 or lower which does not use generics.
@@ -158,6 +166,8 @@ It is easy to fall for a false sense of security! Looking at the following code,
 ![](2023-01-01-12-18-10.png)
 
 However, running the code yields a **ClassCastException**. The main method calls printDragons() with a raw type. Due to type erasem Java attempts to cast a Unicorn to Dragon. As a result, Java will give warnings when using raw types.
+
+<br><hr>
 
 # 5 Bounds
 
@@ -269,3 +279,76 @@ The below table demonstrates why we need a lower bound and solutions which do *n
 
 ![](2023-01-02-12-02-51.png)
 
+<br><hr>
+
+# 6 Putting It All Together
+
+We shall see some example questions regarding generics. We shall use the following classes:
+
+    class A {}
+    class B extends A {}
+    class C extends B {}
+
+## Example 1
+
+Does the following compile or not?
+
+    6: List<?> list1 = new ArrayList<A>();
+    7: List<? extends A> list2 = new ArrayList<A>();
+    8: List<? super A> list3 = new ArrayList<A>();
+    9: List<? extends B> list4 = new ArrayList<A>(); // DOES NOT COMPILE
+    10: List<? super B> list5 = new ArrayList<A>();
+    11: List<?> list6  = new ArrayList<? extends A>();
+
+Line 6 stores a list of instances of A in a variable with unbounded wildcard. This is fine!
+
+Line 7 stores a list of instances of A in n upper bounded variable. So this can store ArrayList&lt;A>, ArrayList&lt;B> or ArrayList&lt;C>.
+
+Line 8 is a lower-bounded variable meaning it can only store instances of lowest type A.
+
+Line 9 is a list upper-bounded by class B. It cannot store classes which are of supertype of B! Hence does not compile!
+
+Line 10 is a list lower bounded by B, so its fine storing instances of A!
+
+Line 11 allows an unbounded wildcard but you need to know the type which it is storing!
+
+## Example 2
+
+**Does the following method compile or not?**
+
+    <T> T method1(List<? extends T> list){
+        return list.get(0);
+    }
+
+method1() is a perfectly fine use of generics!
+
+**Does the following method compile or not?**
+
+    <T> <? extends T> method2(List<? extends T> list){
+        return list.get(0);
+    }
+
+This does not compile! The return type is not actuallya  type.
+
+**Does the following method compile or not?**
+
+    <B extends A> method3(List<B> list){
+        return new B();
+    }
+
+This does not compile!
+
+
+**Does the following method compile or not?**
+
+    void method4(List<? super B> list) { }
+
+This is a fine use for generics"
+
+**Does the following method compile or not?**
+
+    <X> void method5(List<X super B> list){
+
+    }
+
+This does not compile since X is not a wildcard! It should be a question mark!
