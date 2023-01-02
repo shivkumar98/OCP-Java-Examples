@@ -138,9 +138,9 @@ Before the return type is the formal type parameter &lt;T&gt;
 
 We can have some interesting method declarations:
 
-1. public static <T> void sink(T t) { }
+1. public static &lt;T> void sink(T t) { }
 
-2. public static <T> T identity(T t) { return t; }
+2. public static &lt;T> T identity(T t) { return t; }
 
 3. public static T noGood(T t){ return t; } // DOES NOT COMPILE
 
@@ -159,7 +159,7 @@ It is easy to fall for a false sense of security! Looking at the following code,
 
 However, running the code yields a **ClassCastException**. The main method calls printDragons() with a raw type. Due to type erasem Java attempts to cast a Unicorn to Dragon. As a result, Java will give warnings when using raw types.
 
-# Bounds
+# 5 Bounds
 
 So far, generics are treated as Objects and have no methods available! Bounded wildcards solve this by restricting what types can be used in that wildcard position.
 
@@ -171,8 +171,101 @@ A **wildcard generic type** is an unknown generic type represented with a ?
 
 | Type of Bound               | Syntax         | Example                                                          |
 |-----------------------------|----------------|------------------------------------------------------------------|
-| Unbounded wildcard          | ?              | List<?> l = new ArrayList<String>();                             |
-| Wildcard with an upperbound | ? extends type | List<? extends Exception> l = new ArrayList<RuntimeException>(); |
-| Wildcard with a lower bound | ? super type   | List<? super Exception> l = new ArrayList<Object>();             |
+| Unbounded wildcard          | ?              | List&lt;?> l = new ArrayList&lt;String>();                             |
+| Wildcard with an upperbound | ? extends type | List&lt;? extends Exception> l = new ArrayList&lt;RuntimeException>(); |
+| Wildcard with a lower bound | ? super type   | List&lt;? super Exception> l = new ArrayList&lt;Object>();             |
 
 ## Unbounded Wildcards
+
+An unbounded wildcard represents any data type. ? means any type is acceptable.
+
+Let's suppose we want to write a method that looks through a list of any type:
+
+![](2023-01-02-11-08-33.png)
+
+While String is a subclass of Object, we cannot assign List&lt;String> to List&lt;Object>
+
+Imagine there was code written like:
+
+    4:  List<Integer> numbers = new ArrayList<>();
+    5:  numbers.add(new Integer(42));
+    6:  List<Object> objects = numbers; // DOES NOT COMPILE
+    7:  objects.add("forty two");
+    8:  System.out.println(numbers.get(1));
+
+Line 4 promises that the list will be of integers. If line 6 DID compile, line 7 would break the promise so the compiler prevents this!
+
+### Storing thr Wrong Objects - Arrays vs ArrayLists
+We are unable to write List&lt;Object> l = new ArrayList&lt;String>(); because Java protects us from runtime exceptions.
+
+However, with arrays we CAN write the following:
+
+    Integer[] numbers = { new Integer(42) };
+    Object[] objects = numbers;
+    objects[0] = "forty two"; // throws ArrayStoreException
+
+Back to the problem at hand, we do not need to use List&lt;Object> in our method! We can use the unbounded wildcard:
+
+![](2023-01-02-11-22-08.png)
+
+Now printList takes a list of any type!
+
+## Upper-Bounded Wildcards
+
+Suppose we wrote a method which adds up the total of a list of numbers. We've seen before that a generic type cannot be assigned to a subclass:
+
+    ArrayList<Number> list = new ArrayList<Integer>(); // DOES NOT COMPILE
+
+We can workaround this by using a wildcard:
+
+    List<? extends Number> list = new ArrayList<Integer>();
+
+This upper-bounded wildcards says any class which extends Number or Number itself can be userd as a formal parameter type:
+
+![](2023-01-02-11-33-01.png)
+
+When we work with upper bounds or unbounded wildcards. The list becomes logically immutable! 
+
+    2: static class Sparrow extends Bird { }
+    3: static class Bird { }
+    4:
+    5: public static void main(String[] args) {
+    6: List<? extends Bird> birds = new ArrayList<Bird>();
+    7: birds.add(new Sparrow()); // DOES NOT COMPILE
+    8: birds.add(new Bird()); // DOES NOT COMPILE
+    9: }
+
+Java does not know what List&lt;? extends Bird> reall is! It could be List&lt;Bird> or List&lt;Sparrow>. Since both are possible, neither is allowed.
+
+Here's an example with interfaces. We have one interface and two implementations:
+
+    interface Flyer { void fly(); }
+    class HangGlider implements Flyer { public void fly() {} }
+    class Goose implements Flyer { public void fly() {} }
+
+We can then have methods which accepts the interface:
+
+    private void anyFlyer(List<Flyer> flyer) {}
+
+And methods which use the upperbound:
+
+    private void groupOfFlyers(List<? extends Flyer>) {}
+
+List&lt;Goose> can only be passed to the latter method!
+
+## Lower-Bounded Wildcards
+
+Let's write a method that adds a string "quack" to two lists:
+
+    List<String> strings = new ArrayList<String>();
+    strings.add("tweet");
+    List<Object> objects = new ArrayList<Object>(strings);
+    addSound(strings);
+    addSound(objects);
+
+We want to pass List&lt;String> and List&lt;Object> to the same method
+
+The below table demonstrates why we need a lower bound and solutions which do *not* solve the problem.
+
+![](2023-01-02-12-02-51.png)
+
