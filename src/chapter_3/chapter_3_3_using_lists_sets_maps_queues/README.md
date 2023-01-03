@@ -258,3 +258,65 @@ Example
     System.outl.println(set.ceiling(10));   // 10
     System.outl.println(set.higher(20));    // 21
     System.outl.println(set.ceiling(20));   // null
+
+
+<br><hr>
+
+# 4: Using the Queue Interface
+
+The Queue is used when you want to add/remove elements in a certain order. Queues are assumed FIFO (first in, first out):
+
+![](2023-01-03-14-06-20.png)
+
+<br>
+
+## **Comaring Queue Implementations**
+
+The *LinkedList* is a **double-ended queue** - elements can be added to front or back of the queue.
+
+- LinkedList is both a List and a Queue but lacks the efficiency of a pure queue.
+
+*ArrayDeque* is a "pure" double ended queue which is more efficient than LinkedList.
+
+
+<br>
+
+## **Working with Queue Methods**
+
+
+ArrayDeque inherits from Collections and has 7 additional methods:
+
+| Method             | Description                                                         | For Queue | For Stack |
+|--------------------|---------------------------------------------------------------------|-----------|-----------|
+| boolean add(E e)   | Adds element at back of queue and returns true, or throws exception | Yes       | No        |
+| E element()        | Returns next element, or if empty throws exception                  | Yes       | No        |
+| boolean offer(E e) | Adds an element to back of queue and returns whether succesful      | Yes       | No        |
+| E remove()         | Removes and returns next element or, if empty throws exception      | Yes       | No        |
+| void push(E e)     | Adds element to front of queue                                      | Yes       | Yes       |
+| E poll()           | Removes and returns next element or, if empty returns null          | Yes       | No        |
+| E peek()           | Returns next element of returns null if empty returns null          | Yes       | Yes       |
+| E pop()            | Removes and returns next element, or if empty throws exception      | No        | Yes       |
+
+<br>
+
+**Example:**
+
+    Queue<Integer> queue = new ArrayDequeue<>();
+    System.out.println(queue.offer(10));    // true
+    System.out.println(queue.offer(4));     // true
+    System.out.println(queue.peek());       // 10
+    System.out.println(queue.poll());       // 10
+    System.out.println(queue.poll());       // 4
+    System.out.println(queue.peek());       // null
+
+
+![](2023-01-03-14-36-11.png)
+
+We can insert elements at the *FRONT* of the queue using the push method!
+
+**Example:**
+
+    ArrayDeque<Integer> stack = new ArrayDeque<>();
+    stack.push(10);
+    stack.push(4);
+    System.out.println
