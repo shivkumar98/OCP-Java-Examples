@@ -14,7 +14,7 @@ This framework consists of 4 main interfaces:
 
 The below diagram displays the hierarchy of the framework:
 
-![](2023-01-03-10-40-46.png)
+![](screenshots/2023-01-03-10-40-46.png)
 
 The map interfacee does not implement the Collection interface. It is part of the Collections framework even though its not actually a Collection
 
@@ -211,7 +211,7 @@ The TreeSet is a *sorted* tree structure. While ordered, checkig and adding elem
 
 See the below which compares HashSet and TreeSet:
 
-![](2023-01-03-13-36-56.png)
+![](screenshots/2023-01-03-13-36-56.png)
 
 <br>
 
@@ -266,7 +266,7 @@ Example
 
 The Queue is used when you want to add/remove elements in a certain order. Queues are assumed FIFO (first in, first out):
 
-![](2023-01-03-14-06-20.png)
+![](screenshots/2023-01-03-14-06-20.png)
 
 <br>
 
@@ -310,7 +310,7 @@ ArrayDeque inherits from Collections and has 7 additional methods:
     System.out.println(queue.peek());       // null
 
 
-![](2023-01-03-14-36-11.png)
+![](screenshots/2023-01-03-14-36-11.png)
 
 We can insert elements at the *FRONT* of the queue using the push method!
 
@@ -324,7 +324,7 @@ We can insert elements at the *FRONT* of the queue using the push method!
     System.out.println(stack.poll());   // 10
     System.out.println(stack.peek());   // null
 
-![](2023-01-03-14-47-24.png)
+![](screenshots/2023-01-03-14-47-24.png)
 
 <br><hr>
 
@@ -446,3 +446,11 @@ The following data structures *do not allow nulls*:
 
 I need to know which collection should be used for any given scenario. The below table desribes the reasons for each type:
 
+| **Which class do you choose when want _**                                                                                | **Answer** | **Reason**                                                                                                   |
+|--------------------------------------------------------------------------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------|
+| to  pick the top zoo map off a stack of maps                                                                             | ArrayDeque | Since we need last in first out, we need a stack.                                                            |
+| to sell tickets to people in the order in which they appear in line and tell them their position in line                 | LinkedList | We need first in, first out so a queue. Indexes are needed so we used LinkedList                             |
+| to write down the first names of all the elephants so you can tell them to a person each time they ask, names not unique | ArrayList  | Duplicates means we need a list, since we are accessing more than inserting we use ArrayList over LinkedList |
+| to list unique animals that you want to see at the zoo today                                                             | HashSet    | Since we do not care about insertion order, we use the most efficient type                                   |
+| to list unique animals that you want to see at the zoo today in alphabetical order                                       | TreeSet    | We need a sorted set, so we can not use HashSet                                                              |
+| to look up animals on a unique identifier                                                                                | HashMap    | No sorting needed, so we use most basic map                                                                  |
