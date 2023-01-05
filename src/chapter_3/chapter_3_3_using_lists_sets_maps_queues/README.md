@@ -319,4 +319,130 @@ We can insert elements at the *FRONT* of the queue using the push method!
     ArrayDeque<Integer> stack = new ArrayDeque<>();
     stack.push(10);
     stack.push(4);
-    System.out.println
+    System.out.println(stack.peek());   // 4
+    System.out.println(stack.poll());   // 4
+    System.out.println(stack.poll());   // 10
+    System.out.println(stack.peek());   // null
+
+![](2023-01-03-14-47-24.png)
+
+<br><hr>
+
+# 5 Map
+
+Maps are used when you want to identify values by a key.
+
+## Comparing Map Implementations
+
+**HashMap** stores keys in a hash table, meaning it uses hashCode() method on the keys to retrieve values efficiently. Adding elements and retrieving elements occur at constant time. Ordering of map is lost.
+
+**LinkedHashMap** is like HashMap but with ordering.
+
+**TreeMap** stores keys in a sorted tree structure with the tradeoff that adding and checking if key is present occurs at logarithmic time.
+
+<br><hr>
+
+##  Working with Map Methods
+
+The Map interfaces does not extend Collection so it has more specific methods. K and V are using as generic type parameters.
+
+
+
+| Method                          | Description                                                     |
+|---------------------------------|-----------------------------------------------------------------|
+| void clear()                    | Removes all keys and values                                     |
+| boolean isEmpty()               | Returns if empty                                                |
+| int size()                      | Returns number of elements                                      |
+| V get(K key)                    | Returns value of key, otherwise null                            |
+| V put(K key, V value)           | Adds or replaces key/value pair. Returns previous value or null |
+| V remove(Object key)            | Removes value mapped to key, returns null if no key.            |
+| boolean containsKey(Object key) | Returns whether key is in map                                   |
+| boolean containsValue(Object)   | Returns where value is in map                                   |
+| Set<K> keysSet()                | Returns set of all keys                                         |
+| Collection<V> values()          | Returns Collection of all values                                |
+
+<br>
+
+**Example 1:**
+
+    Map<String, String> map = new HashMap<>();
+    map.put("koala", "bamboo");
+    map.put("lion", "meat");
+    map.put("giraffe", "leaf");
+    Strning food = map.get("koala"); // basmboo
+    for (String key: map.keySet())
+        System.out.println(key+","); // koala,giraffe,lion,
+    
+The ordering of the map is random!
+
+**£xample 2:**
+
+    Map<String, String> map = new TreeMap<>();
+    map.put("koala", "bamboo");
+    map.put("lion", "meat");
+    map.put("giraffe", "leaf");
+    for (String key: map.keySet())
+        System.out.println(key+","); // giraffe,koala,lion,
+
+Ordering is based on alphabetical order!
+
+**Example 3:**
+
+    System.out.println(map.contains("lion"));  // DOES NOT COMPILE
+    System.out.println(map.containsKey("lion"));  // true
+    System.out.println(map.containsValue("lion"));  // false
+    System.out.println(map.size()); // 3
+
+<br><hr>
+
+# 6 Comparing Collection Types
+
+## **Java Collection Framework Types**
+
+| **Type** | **Can contain duplicates?** | **Elements Ordered?** | **Has Keys and Values?** | **Must add/remove in specific order?** |
+|----------|-----------------------------|-----------------------|--------------------------|----------------------------------------|
+| List     | Yes                         | Yes                   | No                       | No                                     |
+| Map      | Yes - for values            | No                    | Yes                      | No                                     |
+| Queue    | Yes                         | Yes - by definition   | No                       | Yes                                    |
+| Set      | No                          | No                    | No                       | No                                     |
+
+<br>
+
+## **Collection Attributes**
+
+
+
+| **Type**   | **Java Collections Framework Interface** | **Sorted** | **Calls hashCode?** | **Calls compareTo** |
+|------------|------------------------------------------|------------|---------------------|---------------------|
+| ArrayList  | List                                     | No         | No                  | No                  |
+| ArrayDeque | Queue                                    | No         | No                  | No                  |
+| HashMap    | Map                                      | No         | Yes                 | No                  |
+| HashSet    | Set                                      | No         | Yes                 | No                  |
+| Hashtable  | Map                                      | No         | Yes                 | No                  |
+| LinkedList | List, Queue                              | No         | No                  | No                  |
+| Stack      | List                                     | No         | No                  | No                  |
+| TreeMap    | Map                                      | Yes        | No                  | Yes                 |
+| TreeSet    | Set                                      | Yes        | No                  | Yes                 |
+| Vector     | List                                     | No         | No                  | No                  |
+
+<br>
+
+## **Allows Nulls**
+
+The following data structures *do not allow nulls*:
+
+1. **TreeMap** - cannot contain null keys but null value is fine
+
+2. **Hashtable** - does not allow null keys or values since its old!
+
+3. **TreeSet** - can not compare null values with non nulls!
+
+4. **ArrayDeque** - null is used to display that collection is empty!
+
+
+<br>
+
+## **Choosing the right collection type**
+
+I need to know which collection should be used for any given scenario. The below table desribes the reasons for each type:
+
