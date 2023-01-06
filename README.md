@@ -26,3 +26,13 @@ I created this repo to go through the examples from the official study guide for
 - [2.3 Implementing Polymorphism](/src/chapter_2/chapter_2_3_implementing_polymorphism)
 - [2.4 Understanding Design Principles](/src/chapter_2/chapter_2_4_understanding_design_principles)
 - [2.5 Working with Design Patterns](/src/chapter_2/chapter_2_5_working_with_design_patterns)
+
+[Chapter 3: Generics and Collections](/src/chapter_3)
+- [3.1 Reviewing OCA Collections](/src/chapter_3/chapter_3_1_reviewing_oca_collections)
+- [3.2 Working with Generics](/src/chapter_3/chapter_3_2_working_with_generics)
+- [3.3 Using List, Sets, Maps and Queues](/src/chapter_3/chapter_3_3_using_lists_sets_maps_queues)
+- [3.4 Searching and Sorting](/src/chapter_3/chapter_3_4_comparator_vs_comparable)
+- [3.5 Additions in Java 8]()
+- [3.5 Summary]()
+- [3.6 Exam Essentials]()
+- [3.7 Review Questions]()
