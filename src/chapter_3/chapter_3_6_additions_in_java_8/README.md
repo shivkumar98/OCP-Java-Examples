@@ -1,4 +1,4 @@
-# 3.5 Additions in Java 8
+# 3.6 Additions in Java 8
 
 ## Table of Contents
 
