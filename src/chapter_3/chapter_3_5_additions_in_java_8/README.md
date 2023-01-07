@@ -22,11 +22,15 @@
 
 # Introduction
 
-Everything seen previously was not unique to Java 8.
+Everything seen previously was not unique to Java 8. This section will focus on **streams**.
 
-This section will focus on streams.
+We will see how to use the following methods:
 
-We will see how to use the new removeIf(), forEach(), merge(), computeIfPresent(), and computeIfAbsent() methods
+* removeIf()
+* forEach()
+* merge()
+* computeIfPresent()
+* computeIfAbsent()
 
 <br><hr>
 
