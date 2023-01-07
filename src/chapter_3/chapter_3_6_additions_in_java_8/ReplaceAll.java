@@ -1,4 +1,4 @@
-package chapter_3.chapter_3_5_additions_in_java_8;
+package chapter_3.chapter_3_6_additions_in_java_8;
 
 import java.util.Arrays;
 import java.util.List;
