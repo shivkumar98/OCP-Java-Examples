@@ -28,17 +28,21 @@ The Collection interface has many useful methods when working with lists, sets a
 
 The add method inserts a new element, and returns whether its successful:
 
+```java
     boolean add(E element)
+```
 
 For some type, the add() method always returns true but now with generics:
 
-    3:  List<String> list = new ArrayList<>();
-    4:  System.out.println(list.add("Sparrow")); // TRUE
-    5:  System.out.println(list.add("Sparrow")); // TRUE
-    6:
-    7:  Set<String> set = new HashSet<>();
-    8:  System.out.println(set.add("Sparrow")); // TRUE
-    9:  System.out.println(set.add("Sparrow")); // FALSE
+```java
+List<String> list = new ArrayList<>();
+System.out.println(list.add("Sparrow")); // TRUE
+System.out.println(list.add("Sparrow")); // TRUE
+
+Set<String> set = new HashSet<>();
+System.out.println(set.add("Sparrow")); // TRUE
+System.out.println(set.add("Sparrow")); // FALSE
+```
 
 A set cannot contain duplicates!
 
@@ -48,16 +52,20 @@ A set cannot contain duplicates!
 
 The remove() method removes a **single matching value** in the Collection and returns whether its successful:
 
+```java
     boolean remove(Object object)
+```
 
 Here is an example:
 
-    3:  List<String> birds = new ArrayList<>();
-    4:  birds.add("hawk"); // [hawk]
-    5:  birds.add("hawk"); // [hawk, hawk]
-    6:  System.out.println(birds.remove("cardinal")); // FALSE
-    7:  System.out.println(birds.remove("hawk"));  // TRUE
-    8:  System.out.println(birds); // [hawk]
+```java
+List<String> birds = new ArrayList<>();
+birds.add("hawk"); // [hawk]
+birds.add("hawk"); // [hawk, hawk]
+System.out.println(birds.remove("cardinal")); // FALSE
+System.out.println(birds.remove("hawk"));  // TRUE
+System.out.println(birds); // [hawk]
+```
 
 <br>
 
@@ -65,8 +73,10 @@ Here is an example:
 
 The isEmpty() and size() methods look into how many elements are in Collection:
 
+```java
     boolean isEmpty()
     int size()
+```
 
 Here is an example:
 
@@ -83,27 +93,35 @@ Here is an example:
 
 This method discards all elements in collection:
 
+```java
     void clear()
+```
 
 E.g.:
 
-    birds.add("hawk");  // [hawk]
-    birds.add("hawk");  // [hawk, hawk]
-    birds.clear();      // []
+```java
+birds.add("hawk");  // [hawk]
+birds.add("hawk");  // [hawk, hawk]
+birds.clear();      // []
+```
 
 <br>
 
 ## **contains()**
 
 This method checks if a Collection has a certain value:
-    
+
+```java
     boolean contains(Object object)
+```
 
 E.g.:
 
+```java
     System.out.println(birds) // [hawk]
     System.out.println(bird.contains("hawk")); // TRUE
     System.out.println(bird.contains("robin")); // FALSE
+```
 
 <br><hr>
 
@@ -164,12 +182,14 @@ Below are methods part of List interface:
 
 Here is an example
 
+```java
     list<String> list = new ArrayList<>();
     list.add("SD"); // [SD]
     list.add(0, "NY"); // [NY, SD]
     list.set(1,"FL"); // [NY, FL]
     list.remove("NY"); // [FL]
     list.remove(0); // []
+```
 
 <br>
 
@@ -177,17 +197,21 @@ Here is an example
 
 We can loop through a list using an enhanced loop:
 
+```java
     for (String string: list) {
         System.out.println(string);
     }
+```
 
 We can also use an iterator:
 
+```java
     Iterator<String> iter = list.iterator();
     while (iter.hasNext()) {
         String string = iter.next();
         System.out.println(string);
     }
+```
 
 <br><hr>
 
@@ -221,21 +245,26 @@ The Set interface doesn't not have any unique methods from Collection methods!
 
 HashSet Example:
 
-    3:      Set<Integer> set = new HashSet<>();
-    4:      boolean b1 = set.add(66);   // TRUE
-    5:      boolean b2 = set.add(10);   // TRUE
-    6:      boolean b3 = set.add(66);   // FALSE
-    7:      boolean b4 = set.add(8);    // TRUE
-    8:      for (Integer integer: set) System.out.println(integer+", ");    // 66,8,10
+
+```java
+    Set<Integer> set = new HashSet<>();
+    boolean b1 = set.add(66);   // TRUE
+    boolean b2 = set.add(10);   // TRUE
+    boolean b3 = set.add(66);   // FALSE
+    boolean b4 = set.add(8);    // TRUE
+    for (Integer integer: set) System.out.println(integer+", ");    // 66,8,10
+```
 
 Tree Example:
 
-    3:      Set<Integer> set = new TreeSet<>();
-    4:      boolean b1 = set.add(66);   // TRUE
-    5:      boolean b2 = set.add(10);   // TRUE
-    6:      boolean b3 = set.add(66);   // FALSE
-    7:      boolean b4 = set.add(8);    // TRUE
-    8:      for (Integer integer: set) System.out.println(integer+",");    // 8,10,66 
+```java
+    Set<Integer> set = new TreeSet<>();
+    boolean b1 = set.add(66);   // TRUE
+    boolean b2 = set.add(10);   // TRUE
+    boolean b3 = set.add(66);   // FALSE
+    boolean b4 = set.add(8);    // TRUE
+    for (Integer integer: set) System.out.println(integer+",");    // 8,10,66 
+```
 
 <br>
 
@@ -252,13 +281,14 @@ The TreetSet implements the **NavigableSet interface**. This interface has the f
 
 Example
 
+```java
     NavigableSet<Integer> set = new TreeSet<>();
     for (int i=1; i<=20; i++) set.add(i);
     System.outl.println(set.lower(10));     // 9
     System.outl.println(set.ceiling(10));   // 10
     System.outl.println(set.higher(20));    // 21
     System.outl.println(set.ceiling(20));   // null
-
+```
 
 <br><hr>
 
@@ -301,6 +331,7 @@ ArrayDeque inherits from Collections and has 7 additional methods:
 
 **Example:**
 
+```java
     Queue<Integer> queue = new ArrayDequeue<>();
     System.out.println(queue.offer(10));    // true
     System.out.println(queue.offer(4));     // true
@@ -308,7 +339,7 @@ ArrayDeque inherits from Collections and has 7 additional methods:
     System.out.println(queue.poll());       // 10
     System.out.println(queue.poll());       // 4
     System.out.println(queue.peek());       // null
-
+```
 
 ![](screenshots/2023-01-03-14-36-11.png)
 
@@ -316,6 +347,7 @@ We can insert elements at the *FRONT* of the queue using the push method!
 
 **Example:**
 
+```java
     ArrayDeque<Integer> stack = new ArrayDeque<>();
     stack.push(10);
     stack.push(4);
@@ -323,6 +355,7 @@ We can insert elements at the *FRONT* of the queue using the push method!
     System.out.println(stack.poll());   // 4
     System.out.println(stack.poll());   // 10
     System.out.println(stack.peek());   // null
+```
 
 ![](screenshots/2023-01-03-14-47-24.png)
 
@@ -365,6 +398,7 @@ The Map interfaces does not extend Collection so it has more specific methods. K
 
 **Example 1:**
 
+```java
     Map<String, String> map = new HashMap<>();
     map.put("koala", "bamboo");
     map.put("lion", "meat");
@@ -372,26 +406,31 @@ The Map interfaces does not extend Collection so it has more specific methods. K
     Strning food = map.get("koala"); // basmboo
     for (String key: map.keySet())
         System.out.println(key+","); // koala,giraffe,lion,
-    
+```
+
 The ordering of the map is random!
 
 **£xample 2:**
 
+```java
     Map<String, String> map = new TreeMap<>();
     map.put("koala", "bamboo");
     map.put("lion", "meat");
     map.put("giraffe", "leaf");
     for (String key: map.keySet())
         System.out.println(key+","); // giraffe,koala,lion,
+```
 
 Ordering is based on alphabetical order!
 
 **Example 3:**
 
+```java
     System.out.println(map.contains("lion"));  // DOES NOT COMPILE
     System.out.println(map.containsKey("lion"));  // true
     System.out.println(map.containsValue("lion"));  // false
     System.out.println(map.size()); // 3
+```
 
 <br><hr>
 
