@@ -1,6 +1,8 @@
-# 3.6 Additions in Java 8
+<link href="style.css" rel="stylesheet"></link>
 
-## Table of Contents
+# 🟪 3.6 Additions in Java 8
+
+## 🟦 Table of Contents
 
 [Introduction](#introduction)
 
@@ -20,25 +22,29 @@
 
 <br><hr>
 
-# Introduction
+## 🟦 Introduction
 
 Everything seen previously was not unique to Java 8. This section will focus on **streams**.
 
 We will see how to use the following methods:
 
-* removeIf()
-* forEach()
-* merge()
-* computeIfPresent()
-* computeIfAbsent()
+🎃 removeIf()
+
+🎃 forEach()
+
+🎃 merge()
+
+🎃 computeIfPresent()
+
+🎃 computeIfAbsent()
 
 <br><hr>
 
-# 1 Using Method References
+## 🟦 1 Using Method References
 
 We can make code more compact using method references - simply mentioning the method name.
 
-## Example: Using Method References to Sort
+<h3 class="example"> 🟠 Example: Using Method References to Sort 🟠 </h3>
 
 Suppose we have a Duck class with name, weight attributes.
 
@@ -65,27 +71,27 @@ This is alot of redundant code!
 
 The : : operator instructs Java to pass the parameters tgo compareByWeight automatically. 
 
-There are 4 formats for method references:
+😱 There are 4 formats for method references: 😱
 
-* Static methods
-* Instance methods on a particular instance
-* Instance methods on an instance to be determined at runtime
-* Constructors
+* ✅ Static methods
+* ✅ Instance methods on a particular instance
+* ✅ Instance methods on an instance to be determined at runtime
+* ✅ Constructors
 
-**Predicate takes one input and returns one output.**
+⚠️ Predicate takes one input and returns one output. ⚠️
 
-**Consumer takes one input and has void return.**
+⚠️ Consumer takes one input and has void return. ⚠️
 
-**Supplier has no parameters and returns any type.**
+⚠️ Supplier has no parameters and returns any type. ⚠️
 
-## Static Methods:
+### 🟥 Static Methods:
 
     Consumer<List<Integer>> methodRef1 = Collections:: sort;
     Consumer<List<Integer>> lambda1 = l -> Collections.sort(l)
 
 Top line infers which sort method to call based on context! We are using the Consumer so it looks for the implementation which only accepts one argument
 
-## Instance methods on a particular instance:
+### 🟥 Instance methods on a particular instance:
 
     String str = "abc";
     Predicate<String> methodRef2 = String::startsWith;
@@ -93,27 +99,27 @@ Top line infers which sort method to call based on context! We are using the Con
 
 The top line calls the String.startsWith() method with a single parameter.
 
-## Instance Method without knowling at runtime:
+### 🟥 Instance Method without knowling at runtime:
 
     Predicate<String> methodRef3 = String::startsWith;
     Predicate<String> lambda3 = s -> s.isEmpty();
 
-## Constructors:
+### 🟥 Constructors:
 
     Supplier<ArrayList> method4 = ArrayList::new;
     Supplier<ArrayList> lambda4 = () -> new ArraayList();
 
 <br><hr>
 
-# 2 Removing Conditionally
+## 🟦 2 Removing Conditionally
 
-## removeIf
+### 🟥 removeIf
 
 Java 8 introduces **removeIf**, method signature looks like:
 
     boolean removeIf(Predicate<? super E> filter)
 
-### Example
+#### 🟠 Example 🟠
         
     List<String> list = new ArrayList<>();
 	list.add("Magician");
@@ -124,7 +130,7 @@ Java 8 introduces **removeIf**, method signature looks like:
 
 The predicate version does not work as we are passing strings to the predicate.
 
-## Updating All Elements: replaceAll
+### 🟥 Updating All Elements: replaceAll
 
 **replaceAll()** is a new method in List which allows a lambda expression to be applied to all elements
 
@@ -132,17 +138,17 @@ The method signature is:
 
     void replaceAll(UnaryOperator<E> o)
 
-### Example:
+#### 🟠 Example 🟠
 
     List<Integers list = Arrays.asList(1,2,3);
     list.replaceAll(x->x*2);
     System.out.println(list); [2,4,6]
 
-## Looping through a Collection: forEach
+### Looping through a Collection: forEach
 
 Java 8 introduces the forEach() method to loop through a collection.
 
-### Example
+#### 🟠 Example 🟠
 
     List<String> cat = Array.asList("Annie", "Ripley");
     cats.forEach(c-> Sytstem.out.println(c));
@@ -150,7 +156,7 @@ Java 8 introduces the forEach() method to loop through a collection.
 
 The last two lines are equivalent.
 
-## Using New Java 8 Map APIs
+### 🟥 Using New Java 8 Map APIs
 
 The Map interface has the following methods:
 
@@ -177,7 +183,7 @@ The putIfAbsent() adds/updates a value if the value is null or absent:
 		favorites.putIfAbsent("Tom", "Tram");
 		System.out.println(favorites); // {Tom=Tram, Jenny=Tram}
 
-## merge
+### 🟥 merge
 
 The merge function of the Map API, lets you update a value of a key based off some logic!
 
@@ -185,6 +191,6 @@ The merge function has the following signature:
 
     V merge(K key, V value, Bifunction mappringFunction)
 
-Example:
+#### 🟠 Example 🟠
 
 ![](2023-01-07-14-32-57.png)
