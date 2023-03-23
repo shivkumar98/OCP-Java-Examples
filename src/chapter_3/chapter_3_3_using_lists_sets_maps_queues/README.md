@@ -1,4 +1,6 @@
-# 3.2 Using Lists, Sets, Maps and Queues
+<link href="../style.css" rel="stylesheet"></link>
+
+# 🟪 3.2 Using Lists, Sets, Maps and Queues
 
 A collection is a group of objects stored in a single object.
 The **Java Collections Framework** is a group of classes in java.util for storing collections
@@ -18,13 +20,13 @@ The below diagram displays the hierarchy of the framework:
 
 The map interfacee does not implement the Collection interface. It is part of the Collections framework even though its not actually a Collection
 
-<br><hr>
+<hr>
 
-# 1 Common Collection Methods
+# 🟪 1 - Common Collection Methods
 
 The Collection interface has many useful methods when working with lists, sets and queues.
 
-## **add()**
+## 🟦 add()
 
 The add method inserts a new element, and returns whether its successful:
 
@@ -46,9 +48,9 @@ System.out.println(set.add("Sparrow")); // FALSE
 
 A set cannot contain duplicates!
 
-<br>
+<hr>
 
-## **remove()**
+## 🟦 **remove()**
 
 The remove() method removes a **single matching value** in the Collection and returns whether its successful:
 
@@ -67,9 +69,9 @@ System.out.println(birds.remove("hawk"));  // TRUE
 System.out.println(birds); // [hawk]
 ```
 
-<br>
+<hr>
 
-## **isEmpty() and size()**
+## 🟦 **isEmpty() and size()**
 
 The isEmpty() and size() methods look into how many elements are in Collection:
 
@@ -78,7 +80,7 @@ The isEmpty() and size() methods look into how many elements are in Collection:
     int size()
 ```
 
-Here is an example:
+#### 🟠 Example 🟠
 
     System.out.println(birds.isEmpty()); // true
     System.out.println(bird.size());     // 0
@@ -87,9 +89,9 @@ Here is an example:
     System.out.println(bird.isEmpty());  // false
     System.out.println(bird.size());     // 2
 
-<br>
+<hr>
 
-## **clear()**
+## 🟦 **clear()**
 
 This method discards all elements in collection:
 
@@ -105,9 +107,9 @@ birds.add("hawk");  // [hawk, hawk]
 birds.clear();      // []
 ```
 
-<br>
+<hr>
 
-## **contains()**
+## 🟦 **contains()**
 
 This method checks if a Collection has a certain value:
 
@@ -123,21 +125,20 @@ E.g.:
     System.out.println(bird.contains("robin")); // FALSE
 ```
 
-<br><hr>
+<hr>
 
-# 2 Using the List Interface
+# 🟪 2 - Using the List Interface
 
 **A list is an ordered collection which allows duplicates**. Items can be accessed and inserted via an index
 
-<br>
 
-## **Comparing List Implementations**
+
+## 🟦 **Comparing List Implementations**
 
 ArrayList automatically resizes when there is no more space. **Elements can be looked up in constant time**. Adding or removing elements is slower
 
-<br>
 
-### **Big O Notation**
+### 🟥 **Big O Notation**
 
 Big O notation is used to talk about performance of algorithms. The letter n is used to represent number of items.
 
@@ -149,21 +150,18 @@ Big O notation is used to talk about performance of algorithms. The letter n is 
 
 4. O(n<sup>2</sup>) - quadratic time: code where each loop goes through the data is n squared time.
 
-<br>
 
-### **LinkedList**
+### 🟥 **LinkedList**
 
 A LinkedList implements both List and Queue. It has an additional method to facilitate adding/removing items at beginning/ending in constant time! An older implementation was Vector which was replaced by ArrayList!
 
-<br>
-
-### **Stack**
+### 🟥 **Stack**
 
 A stack is useful when you want to add/remove elements from top of the stack
 
-<br>
+<hr>
 
-## **Working with List Methods**
+## 🟦 **Working with List Methods**
 
 Below are methods part of List interface:
 
@@ -178,7 +176,6 @@ Below are methods part of List interface:
 | void remove(Element e)          | Removes specified element                          |
 | E set(int index, E e)           | Replaces element at index with e. Returns original |
 
-<br>
 
 Here is an example
 
@@ -191,9 +188,9 @@ Here is an example
     list.remove(0); // []
 ```
 
-<br>
+<hr>
 
-## **Loopng Through a List**
+## 🟦 **Loopng Through a List**
 
 We can loop through a list using an enhanced loop:
 
@@ -213,22 +210,22 @@ We can also use an iterator:
     }
 ```
 
-<br><hr>
+<hr>
 
-# 3 Using the Set Interface
+# 🟪 3 - Using the Set Interface
 
 Sets should be used when you don't want duplicates! There are different implementations of the Set interface: HashSet and TreeSet
 
-<br>
+<hr>
 
-## **HashSet Implementation**
+## 🟦 **HashSet Implementation**
 HashSet stores elements in a hashtable, meaning elements are hashed and objects are retrieved using hashCode() method - which is efficient!
 
 The **benefit** is adding elements and checking existence occurs at constant time! But you lose ordering of elements!
 
-<br>
+<hr>
 
-## **TreeSet Implementation**
+## 🟦 **TreeSet Implementation**
 
 The TreeSet is a *sorted* tree structure. While ordered, checkig and adding elements is slower at O(log n) time!
 
@@ -237,9 +234,9 @@ See the below which compares HashSet and TreeSet:
 
 ![](screenshots/2023-01-03-13-36-56.png)
 
-<br>
+<hr>
 
-## **Working with Set Methods**
+## 🟦 **Working with Set Methods**
 
 The Set interface doesn't not have any unique methods from Collection methods!
 
@@ -266,9 +263,9 @@ Tree Example:
     for (Integer integer: set) System.out.println(integer+",");    // 8,10,66 
 ```
 
-<br>
+<hr>
 
-## **The NavigableSet Interface**
+## 🟦 **The NavigableSet Interface**
 
 The TreetSet implements the **NavigableSet interface**. This interface has the following methods:
 
@@ -279,7 +276,7 @@ The TreetSet implements the **NavigableSet interface**. This interface has the f
 | E ceiling(E e) | Returns smallest element > e, or null  |
 | E higher(E e)  | Returns smallest element >= e, or null |
 
-Example
+#### 🟠 Example 🟠
 
 ```java
     NavigableSet<Integer> set = new TreeSet<>();
@@ -290,17 +287,15 @@ Example
     System.outl.println(set.ceiling(20));   // null
 ```
 
-<br><hr>
+<hr>
 
-# 4: Using the Queue Interface
+# 🟪 4 - Using the Queue Interface
 
 The Queue is used when you want to add/remove elements in a certain order. Queues are assumed FIFO (first in, first out):
 
 ![](screenshots/2023-01-03-14-06-20.png)
 
-<br>
-
-## **Comaring Queue Implementations**
+## 🟦 **Comaring Queue Implementations**
 
 The *LinkedList* is a **double-ended queue** - elements can be added to front or back of the queue.
 
@@ -308,11 +303,9 @@ The *LinkedList* is a **double-ended queue** - elements can be added to front or
 
 *ArrayDeque* is a "pure" double ended queue which is more efficient than LinkedList.
 
+<hr>
 
-<br>
-
-## **Working with Queue Methods**
-
+## 🟦 **Working with Queue Methods**
 
 ArrayDeque inherits from Collections and has 7 additional methods:
 
@@ -327,9 +320,9 @@ ArrayDeque inherits from Collections and has 7 additional methods:
 | E peek()           | Returns next element of returns null if empty returns null          | Yes       | Yes       |
 | E pop()            | Removes and returns next element, or if empty throws exception      | No        | Yes       |
 
-<br>
 
-**Example:**
+
+#### 🟠 **Example:** 🟠
 
 ```java
     Queue<Integer> queue = new ArrayDequeue<>();
@@ -345,7 +338,7 @@ ArrayDeque inherits from Collections and has 7 additional methods:
 
 We can insert elements at the *FRONT* of the queue using the push method!
 
-**Example:**
+#### 🟠 **Example:** 🟠
 
 ```java
     ArrayDeque<Integer> stack = new ArrayDeque<>();
@@ -361,11 +354,11 @@ We can insert elements at the *FRONT* of the queue using the push method!
 
 <br><hr>
 
-# 5 Map
+# 🟪 5 - Map
 
 Maps are used when you want to identify values by a key.
 
-## Comparing Map Implementations
+## 🟦 Comparing Map Implementations
 
 **HashMap** stores keys in a hash table, meaning it uses hashCode() method on the keys to retrieve values efficiently. Adding elements and retrieving elements occur at constant time. Ordering of map is lost.
 
@@ -373,9 +366,9 @@ Maps are used when you want to identify values by a key.
 
 **TreeMap** stores keys in a sorted tree structure with the tradeoff that adding and checking if key is present occurs at logarithmic time.
 
-<br><hr>
+<hr>
 
-##  Working with Map Methods
+## 🟦 Working with Map Methods
 
 The Map interfaces does not extend Collection so it has more specific methods. K and V are using as generic type parameters.
 
@@ -394,9 +387,8 @@ The Map interfaces does not extend Collection so it has more specific methods. K
 | Set<K> keysSet()                | Returns set of all keys                                         |
 | Collection<V> values()          | Returns Collection of all values                                |
 
-<br>
 
-**Example 1:**
+ #### 🟠 **Example 1:** 🟠
 
 ```java
     Map<String, String> map = new HashMap<>();
@@ -410,7 +402,7 @@ The Map interfaces does not extend Collection so it has more specific methods. K
 
 The ordering of the map is random!
 
-**£xample 2:**
+#### 🟠 **Example 2:** 🟠
 
 ```java
     Map<String, String> map = new TreeMap<>();
@@ -423,7 +415,7 @@ The ordering of the map is random!
 
 Ordering is based on alphabetical order!
 
-**Example 3:**
+#### 🟠 **Example 3:** 🟠
 
 ```java
     System.out.println(map.contains("lion"));  // DOES NOT COMPILE
@@ -432,11 +424,11 @@ Ordering is based on alphabetical order!
     System.out.println(map.size()); // 3
 ```
 
-<br><hr>
+<hr>
 
-# 6 Comparing Collection Types
+# 🟪 6 - Comparing Collection Types
 
-## **Java Collection Framework Types**
+## 🟦 **Java Collection Framework Types**
 
 | **Type** | **Can contain duplicates?** | **Elements Ordered?** | **Has Keys and Values?** | **Must add/remove in specific order?** |
 |----------|-----------------------------|-----------------------|--------------------------|----------------------------------------|
@@ -445,9 +437,9 @@ Ordering is based on alphabetical order!
 | Queue    | Yes                         | Yes - by definition   | No                       | Yes                                    |
 | Set      | No                          | No                    | No                       | No                                     |
 
-<br>
+<hr>
 
-## **Collection Attributes**
+## 🟦 **Collection Attributes**
 
 
 
@@ -464,9 +456,9 @@ Ordering is based on alphabetical order!
 | TreeSet    | Set                                      | Yes        | No                  | Yes                 |
 | Vector     | List                                     | No         | No                  | No                  |
 
-<br>
+<hr>
 
-## **Allows Nulls**
+## 🟦 **Allows Nulls**
 
 The following data structures *do not allow nulls*:
 
@@ -478,14 +470,13 @@ The following data structures *do not allow nulls*:
 
 4. **ArrayDeque** - null is used to display that collection is empty!
 
+<hr>
 
-<br>
-
-## **Choosing the right collection type**
+## 🟦 **Choosing the right collection type**
 
 I need to know which collection should be used for any given scenario. The below table desribes the reasons for each type:
 
-| **Which class do you choose when want _**                                                                                | **Answer** | **Reason**                                                                                                   |
+| **Which class do you choose when want**                                                                                | **Answer** | **Reason**                                                                                                   |
 |--------------------------------------------------------------------------------------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------|
 | to  pick the top zoo map off a stack of maps                                                                             | ArrayDeque | Since we need last in first out, we need a stack.                                                            |
 | to sell tickets to people in the order in which they appear in line and tell them their position in line                 | LinkedList | We need first in, first out so a queue. Indexes are needed so we used LinkedList                             |

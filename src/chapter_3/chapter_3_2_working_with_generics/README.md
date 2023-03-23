@@ -1,4 +1,4 @@
-<link href="style.css" rel="stylesheet"></link>
+<link href="../style.css" rel="stylesheet"></link>
 
 # 🟪 3.2 Working With Generics
 
@@ -207,7 +207,7 @@ Let's suppose we want to write a method that looks through a list of any type:
 
 ![](screenshots/2023-01-02-11-08-33.png)
 
-While String is a subclass of Object, we cannot assign List&lt;String> to List&lt;Object>
+While String is a subclass of Object, we cannot assign `List<String>` to `List<Object>`
 
 Imagine there was code written like:
 
@@ -221,8 +221,8 @@ System.out.println(numbers.get(1));
 
 Line 4 promises that the list will be of integers. If line 6 DID compile, line 7 would break the promise so the compiler prevents this!
 
-### 🟢 Storing the Wrong Objects - Arrays vs ArrayLists
-We are unable to write ```List<Object> l = new ArrayList&lt;String>(); ``` because Java protects us from runtime exceptions.
+### 🟠 Storing the Wrong Objects - Arrays vs ArrayLists
+We are unable to write ```List<Object> l = new ArrayList<String>(); ``` because Java protects us from runtime exceptions.
 
 However, with arrays we CAN write the following:
 

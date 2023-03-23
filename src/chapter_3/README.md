@@ -16,6 +16,17 @@
 
 ## Summary:
 
+* We use generics when we do not want to specify the type for a class
+
+* We can define generic interfaces and methods
+
+* We can specify the bounds for a generic type to restrict what types can be used in place of a generic
+
+    * We use `?` to represent an unknown generic type
+    * We can restrict the generic type be specifying an upper and lower bound.
+        * We can specify an upperbound using with the following syntax `? extends type`
+        * We can specify a lower bound using the following syntax `? super type`
+    * These upper and lower bounds yield compiler errors if we attempt to add unrestricted types to our array list.
 
 
 
