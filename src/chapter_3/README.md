@@ -16,9 +16,11 @@
  
  [3.6 Additions in Java 8]()
 
+<hr>
+
 ## 🟦 Summary:
 
-✅  We use generics when we do not want to specify the type for a class
+✅  We use `generics` when we do not want to specify the type for a class
 
 ✅  We can define generic interfaces and methods
 
@@ -53,8 +55,21 @@
     - `HashMap`: unordered map
     - `TreeMap`: ordered map
 
+✅ The `Comparable interface` is an interface defining the `compareTo()` method. It can be implemented to define a "natural" ordering for a class
 
+- Most classes already have an implementation of `compareTo()`. E.g. strings ordered aphabetically and numbers by size.
 
+- We can can call `Collections.sort()` to apply the natural ordering to a collection type
+
+- We can implement `compareTo()` by ourselves.
+
+    - If we want an object to come before the argument, then return should be `<0`. 
+    - If we want an object is the same as the argument, then the return should `=0`
+    - If we want an object to come after the argument, then the return should be `>0`
+
+✅ The `Comparator interface` is a class which defines a `compare()` method. We can use this to create an "artificial" ordering inside a method rather than a class!
+
+<hr>
 
 ## 🟦 Introductions:
 

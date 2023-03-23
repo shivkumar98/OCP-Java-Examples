@@ -12,7 +12,7 @@
 
 <hr>
 
-# 🟪 1 Comparable
+# 🟪 1 - Comparable
 
 The `Comparable interface` has only one method:
 
@@ -102,7 +102,7 @@ public class LegacyDuck implements java.util.Comparable {
 
 😑 If they are not consistent, collection may behave unpredictably. 😑
 
-#### Example: ⚠️ inconsistent compareTo() method ⚠️
+#### ⚠️ Example: inconsistent compareTo() method ⚠️
 
 here is a Product class with inconsistent compareTo() method:
 
@@ -130,7 +130,7 @@ here is a Product class with inconsistent compareTo() method:
 
 <hr>
 
-# 🟪 2 Compator
+# 🟪 2 - Comparator
 
 ✅ We can sort an object without implementing Comparable by defining a **`Comparator`** in the main method!
 
