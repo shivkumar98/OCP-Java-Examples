@@ -148,7 +148,7 @@ Java 8 introduces **removeIf**, method signature looks like:
 
 The predicate version does not work as we are passing strings to the predicate.
 
-### 🟥 Updating All Elements: replaceAll
+## 🟦 3 Updating All Elements: replaceAll
 
 **replaceAll()** is a new method in List which allows a lambda expression to be applied to all elements
 
@@ -158,7 +158,7 @@ The method signature is:
     void replaceAll(UnaryOperator<E> o)
 ```
 
-#### 🟠 Example 🟠
+### 🟠 Example 🟠
 
 ```java
     List<Integers list = Arrays.asList(1,2,3);
@@ -166,11 +166,11 @@ The method signature is:
     System.out.println(list); [2,4,6]
 ```
 
-### Looping through a Collection: forEach
+## 🟦 4 Looping through a Collection: forEach
 
 Java 8 introduces the forEach() method to loop through a collection.
 
-#### 🟠 Example 🟠
+### 🟠 Example 🟠
 
 ```java
     List<String> cat = Array.asList("Annie", "Ripley");
@@ -180,7 +180,7 @@ Java 8 introduces the forEach() method to loop through a collection.
 
 The last two lines are equivalent.
 
-### 🟥 Using New Java 8 Map APIs
+## 🟦 4 Using New Java 8 Map APIs
 
 The Map interface has the following methods:
 
@@ -211,7 +211,7 @@ The ```putIfAbsent()``` adds/updates a value if the value is null or absent:
     System.out.println(favorites); // {Tom=Tram, Jenny=Tram}
 ```
 
-#### 🟢 merge()
+### 🟢 merge()
 
 The merge function of the Map API, lets you update a value of a key based off some logic!
 
@@ -221,7 +221,7 @@ The merge function has the following signature:
     V merge(K key, V value, Bifunction mappingFunction)
 ```
 
-##### 🟠 Example 🟠
+#### 🟠 Example 🟠
 
 Suppose that the guests agree to let the person with longest name decide the mode of transport
 
@@ -250,7 +250,7 @@ System.out.println(favorites); // {Jenny=Submarine ride}
 * 🎃 Suppose that the biFunction maps to a null value! 🎃
 * ⚠️ Using this as the mapper will remove the key-pair value! ⚠️
 
-##### 🟠 Example 2 🟠
+#### 🟠 Example 2 🟠
 
 ```java
     // what if the bifunction returns null?
@@ -260,7 +260,7 @@ System.out.println(favorites); // {Jenny=Submarine ride}
 
 * 🎃 We can still call the ```merge()``` method without issues evem if the key is not present! In this case it behaves like a `put()` method and the mapper is not called! 🎃
 
-#### 🟢 computeIfPresent and computeIfAbsent
+### 🟢 computeIfPresent and computeIfAbsent
 
 * `computeIfPresent()` calls the BiFunction if the key is present!
 
