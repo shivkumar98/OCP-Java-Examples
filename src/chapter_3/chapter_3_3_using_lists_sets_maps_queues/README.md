@@ -1,6 +1,6 @@
 <link href="../style.css" rel="stylesheet"></link>
 
-# 🟪 3.2 Using Lists, Sets, Maps and Queues
+# 🟪 3.3 Using Lists, Sets, Maps and Queues
 
 A collection is a group of objects stored in a single object.
 The **Java Collections Framework** is a group of classes in java.util for storing collections

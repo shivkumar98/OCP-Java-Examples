@@ -1,24 +1,28 @@
-# 3.4 Comparator vs Comparable
+<link href="../style.css" rel="stylesheet" />
 
-For Strings, order is defined by Unicode mapping - numbers before letters, uppercase before lowercase.
+# 🟪 3.4 Comparator vs Comparable
 
-We can also sort created objects by implementing the Comparable interface.
+* For Strings, order is defined by Unicode mapping - numbers before letters, uppercase before lowercase.
 
-Comparable is a class which lets you specify a different order than the one provided by object.
+* We can also sort created objects by implementing the Comparable interface.
 
-We shall compare the differences between Comparable and Comparator!
+* `Comparable` is a class which lets you specify a different order than the one provided by object.
 
-<br><hr>
+* We shall compare the differences between `Comparable` and `Comparator`!
 
-# 1 Comparable
+<hr>
 
-The Comparable interface has only one method:
+# 🟪 1 Comparable
 
+The `Comparable interface` has only one method:
+
+```java
     public interface Comparable<T> {
         public int compareTo(T o);
     }
+```
 
-## **Example 1**
+#### 🟠 **Example 1** 🟠
 
 Any object can be Comparable. E.g., suppose we have ducks we want to sort by name:
 
@@ -44,20 +48,20 @@ public class Duck implements Comparable<Duck> {
 }
 ```
 
-The Duck class implements the Comparable interface and overrides the compareTo() method.
+✅ The Duck class implements the Comparable interface and overrides the compareTo() method.
 
-## **compareTo() method**
+## 🟦 **compareTo() method**
 
-In order for a class to be sorted in a custom way, it must override the compareTo() method. The return of this method determines ordering:
+In order for a class to be sorted in a custom way, it must override the `compareTo()` method. The return of this method determines ordering:
 
-1. Returns 0 - current object is equal to argument of compareTo() argument
-2. Returns <0 - current object is less than the argument of compareTo() argument.
-3. Returns >0 - current object is more than the argument of compareTo() argument.
+1. `Returns 0` - current object is equal to argument of compareTo() argument
+2. `Returns <0` - current object is less than the argument of compareTo() argument.
+3. `Returns >0` - current object is more than the argument of compareTo() argument.
 
 
-## **Example 2**
+#### 🟠  **Example 2** 🟠 
 
- In this example, we shall see an implementation of compareTo() on numbers:
+ In this example, we shall see an implementation of `compareTo()` on numbers:
 
 ```java
 public class Animal implements java.util.Comparable<Animal> {
@@ -78,9 +82,9 @@ public class Animal implements java.util.Comparable<Animal> {
 }
 ```
 
-## **Example 3**
+#### 🟠 **Example 3** 🟠
 
-When dealing with legacy code, the compareTo() method requires a cast since it is passed an Object:
+When dealing with legacy code, the `compareTo()` method requires a cast since it is passed an Object:
 
 ```java
 public class LegacyDuck implements java.util.Comparable {
@@ -92,13 +96,15 @@ public class LegacyDuck implements java.util.Comparable {
 }
 ```
 
-## compareTo() and equals() Consistency
+### 🟥 compareTo() and equals() Consistency
 
-We *should* be consistent when implementing compareTo() so that objects which are equal also return 0 when passed to compareTo().
+😅 We *should* be consistent when implementing `compareTo()` so that objects which are equal also return 0 when passed to `compareTo()`. 😅
 
-If they are not consistent, collection may behave unpredictably.
+😑 If they are not consistent, collection may behave unpredictably. 😑
 
-E.g., here is a Product class with inconsisten compareTo() method:
+#### Example: ⚠️ inconsistent compareTo() method ⚠️
+
+here is a Product class with inconsistent compareTo() method:
 
 ```java
     public class Prodcur implements Comparable<Product> {
@@ -118,23 +124,23 @@ E.g., here is a Product class with inconsisten compareTo() method:
     }
 ```
 
-The sorting is done based on name but the compareTo method is dependent on id.
+* The sorting is done based on name but the compareTo method is dependent on id.
 
-We can fix this by using Comparator to define sortr elsewhere
+😮‍💨 We can fix this by using Comparator to define sort elsewhere 😮‍💨
 
-<br><hr>
+<hr>
 
-# 2 Compator
+# 🟪 2 Compator
 
-We can sort an object without implementing Comparable by defining a **Comparator** in the main method!
+✅ We can sort an object without implementing Comparable by defining a **`Comparator`** in the main method!
 
-The Comparator **must implement the compare() method** - Comparable implements the compareTo() method
+ ✅ The Comparator **must implement the `compare()` method** - Comparable implements the `compareTo()` method
 
 It's common to use **Lambda syntax** for implementing Comparator interface.
 
-## Example
+#### 🟠 Example 🟠
 
-Suppose we add weight to our Duck class:
+Suppose we add weight to our `Duck` class:
 
 ```java
     public class Duck implements Comparable<Duck>{
@@ -153,7 +159,7 @@ Suppose we add weight to our Duck class:
     }
 ```
 
-If we wish to override the sorting of Duck object, we can do this within the main method:
+If we wish to override the sorting of `Duck` object, we can do this within the main method:
 
 ```java
 public static void main(String[] args) {
@@ -178,11 +184,11 @@ Then we used the comparator to sort the ducks by weight.
 The Comparator was written with an inner class:
 
 ```java
-Comparator<Duck> byWeight = new Comparator<Duck>(){
-    public int compare(Duck d1, Duck d2){
-        return d1.getWeight()-d2.getWeight();
-    }
-};
+    Comparator<Duck> byWeight = new Comparator<Duck>(){
+        public int compare(Duck d1, Duck d2){
+            return d1.getWeight()-d2.getWeight();
+        }
+    };
 ```
 
 Since **Comparator is a functional interface**, we can rewrite it using lambda syntaxes:
@@ -194,7 +200,7 @@ Since **Comparator is a functional interface**, we can rewrite it using lambda s
     Comparator<Duck> byWeight = (Duck d1, Duck d2) -> { return d1.getWeight()-d2.getWeight(); };
 ```
 
-## Comparison between Comparable and Comparator
+## 🟦 Comparison between Comparable and Comparator
 
 | **Difference**                                   | **Comparable** | **Comparator** |
 |--------------------------------------------------|----------------|----------------|
@@ -205,7 +211,7 @@ Since **Comparator is a functional interface**, we can rewrite it using lambda s
 | Common to declare using lambda                   | No             | Yes            |
 
 
-## Real World Scenario: An Easier Way of Comparing Multiple Fields
+## 🟦 Real World Scenario: An Easier Way of Comparing Multiple Fields
 
 Comparator can be messy for multiple instance variables.
 

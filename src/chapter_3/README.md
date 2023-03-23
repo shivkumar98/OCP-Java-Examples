@@ -1,3 +1,5 @@
+<link href="style.css" rel="stylesheet"></link>
+
 # 🟪  Chapter 3: Generics and Collections
 
 ## 🟦 Contents:
@@ -14,19 +16,43 @@
  
  [3.6 Additions in Java 8]()
 
-## Summary:
+## 🟦 Summary:
 
-* We use generics when we do not want to specify the type for a class
+✅  We use generics when we do not want to specify the type for a class
 
-* We can define generic interfaces and methods
+✅  We can define generic interfaces and methods
 
-* We can specify the bounds for a generic type to restrict what types can be used in place of a generic
+✅  We can specify the bounds for a generic type to restrict what types can be used in place of a generic
 
-    * We use `?` to represent an unknown generic type
-    * We can restrict the generic type be specifying an upper and lower bound.
-        * We can specify an upperbound using with the following syntax `? extends type`
-        * We can specify a lower bound using the following syntax `? super type`
-    * These upper and lower bounds yield compiler errors if we attempt to add unrestricted types to our array list.
+* We use `?` to represent an unknown generic type
+* We can restrict the generic type be specifying an upper and lower bound.
+    * We can specify an upperbound using with the following syntax `? extends type`
+    * We can specify a lower bound using the following syntax `? super type`
+* These upper and lower bounds yield compiler errors if we attempt to add unrestricted types to our array list.
+
+✅ The Collection framework consists of four interfaces:
+
+1) `List interface`: an ordered collection which allows duplicates
+
+    - `ArrayList`: standard resizeable list
+    - `LinkedList`: fast add/removal of end elements
+    - `Vector`: old type
+
+2) `Set interface`: unordered and no duplicates
+
+    - `HashSet`: fast retrieval and unordered
+    - `TreeSet`: ordered set
+
+3) `Queue interface`: assumed FIFO
+
+    - `LinkedList': both list and queue, and double-ended
+    - `ArrayDeque`: pure double-ended queue
+
+4) `Map interface`: key-value pairs
+
+    - `HashMap`: unordered map
+    - `TreeMap`: ordered map
+
 
 
 
