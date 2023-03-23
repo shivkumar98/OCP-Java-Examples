@@ -1,6 +1,6 @@
 # 🟪  Chapter 3: Generics and Collections
 
-## Contents:
+## 🟦 Contents:
 
  [3.1: Reviewing OCA Collections]()
 
@@ -14,8 +14,12 @@
  
  [3.6 Additions in Java 8]()
 
+## Summary:
 
-## Introductions:
+
+
+
+## 🟦 Introductions:
 
 - The only collections datatype we have seen so far is the **ArrayList**, this chapter will focus on the other data structures of the collections framework for **lists, maps, sets and queues.**
 

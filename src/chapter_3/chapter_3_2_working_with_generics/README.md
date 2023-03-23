@@ -1,8 +1,10 @@
-# 3.2 Working With Generics
+<link href="style.css" rel="stylesheet"></link>
+
+# 🟪 3.2 Working With Generics
 
 Why do we need generics? We would need to expect the caller to not put something in the list we didn't expect.
 
-![](2023-01-01-10-25-58.png)
+![](screenshots/2023-01-01-10-25-58.png)
 
 Executing the above code throws a ClassCastException. We added a StringBuilder to the list which is legal as a List can contain anythiung. Then the StringBuilder is casted to a String which cannot happen.
 
@@ -10,12 +12,12 @@ Generics fix this issue by declaring the type of objects which can be put into t
 
 ```java
     List<String> names = new ArrayList<String>();
-    names.add(new StringBuilder("Webby")); // does not compile
+    names.add(new StringBuilder("Webby")); // DOES NOT COMPILE
 ```
 
-<br><hr>
+<hr>
 
-# 1 Generic Classes
+# 🟪 1 Generic Classes
 
 We can introduce generics into classes. We can declare a formal type paremeter using angled brackets (<>)
 
@@ -35,7 +37,7 @@ class Crate<T> {
 
 The generic type T is available anywhere within the Crate class. When you instantiate the class, you tell the compiler what T should be.
 
-## Naming Conventions for Generics
+## 🟦 Naming Conventions for Generics
 
 The following are common letters to use:
 
@@ -46,7 +48,7 @@ The following are common letters to use:
 - T for a generic data type
 - S, U, V and so forth for multiple generic types.
 
-## Example
+### 🟠 Example 🟠
 
 Suppose an Elephant class exists:
 
@@ -68,9 +70,9 @@ For example, we can have a Robot in our crate:
 
 Before, we would've had to use an Object class. So the crate does not need to know about objects, the objects also don't need to know about crate! So we didn't need to create an interface like Crateable.
 
-Generics may not cup up in code we write, but it certainly does come up in code we call, like the Collections framework
+Generics may not come up in code we write, but it certainly does come up in code we call, like the Collections framework
 
-## Multiple Generic Types
+## 🟦 Multiple Generic Types
 
 Generic classes aren't limited to one generic type, here is a class with 2 generic parameters:
 
@@ -92,9 +94,9 @@ Suppose we create a crate for elephants:
 
 ![](screenshots/2023-01-01-11-04-12.png)
 
-## Type Erasure
+## 🟦 Type Erasure
 
-When we use a generics, like when we replace T with Robot, the compiuler replaces all references to T in Crate with Object. Hence generics are actually just Object types. The Crate class which is created looks like the following:
+When we use a generics, like when we replace T with Robot, the compiler replaces all references to T in Crate with Object. Hence generics are actually just Object types. The Crate class which is created looks like the following:
 
 ```java
 public class Crate {
@@ -110,9 +112,9 @@ public class Crate {
 
 This means there is only one class file! The process of removing generics is called **type erasure**
 
-<br><hr>
+<hr>
 
-# 2 Generic Interfaces
+# 🟪 2 Generic Interfaces
 
 An interface can also declare a formal type parameter. E.g., the following interface uses a generic type as the argment to its ship method:
 
@@ -140,11 +142,11 @@ The typed parameter can be named anything.
 
 <br><hr>
 
-# 3 Generic Methods
+# 🟪 3 Generic Methods
 
 We can declare generics at method level. This is useful for static methods since they aren't part of an instance that can declare the type.
 
-## Example:
+### 🟠 Example 🟠
 
 	public static <T> Crate<T> ship(T t){
 		System.out.println("Preparing " + t);
@@ -166,7 +168,7 @@ The last declaration does not have formal type declaration, hence doesn't compil
 
 <br><hr>
 
-# 4 Interacting with Legacy Code
+# 🟪 4 Interacting with Legacy Code
 
 Legacy is older code written in a different style. This section will refer to code to target Java 1.4 or lower which does not use generics.
 
@@ -179,9 +181,9 @@ It is easy to fall for a false sense of security! Looking at the following code,
 
 However, running the code yields a **ClassCastException**. The main method calls printDragons() with a raw type. Due to type erasem Java attempts to cast a Unicorn to Dragon. As a result, Java will give warnings when using raw types.
 
-<br><hr>
+<hr>
 
-# 5 Bounds
+# 🟪 5 Bounds
 
 So far, generics are treated as Objects and have no methods available! Bounded wildcards solve this by restricting what types can be used in that wildcard position.
 
@@ -197,7 +199,7 @@ A **wildcard generic type** is an unknown generic type represented with a ?
 | Wildcard with an upperbound | ? extends type | List&lt;? extends Exception> l = new ArrayList&lt;RuntimeException>(); |
 | Wildcard with a lower bound | ? super type   | List&lt;? super Exception> l = new ArrayList&lt;Object>();             |
 
-## Unbounded Wildcards
+## 🟦 Unbounded Wildcards
 
 An unbounded wildcard represents any data type. ? means any type is acceptable.
 
@@ -219,7 +221,7 @@ System.out.println(numbers.get(1));
 
 Line 4 promises that the list will be of integers. If line 6 DID compile, line 7 would break the promise so the compiler prevents this!
 
-### Storing thr Wrong Objects - Arrays vs ArrayLists
+### 🟢 Storing the Wrong Objects - Arrays vs ArrayLists
 We are unable to write ```List<Object> l = new ArrayList&lt;String>(); ``` because Java protects us from runtime exceptions.
 
 However, with arrays we CAN write the following:
@@ -236,7 +238,7 @@ Back to the problem at hand, we do not need to use List&lt;Object> in our method
 
 Now printList takes a list of any type!
 
-## Upper-Bounded Wildcards
+## 🟦 Upper-Bounded Wildcards
 
 Suppose we wrote a method which adds up the total of a list of numbers. We've seen before that a generic type cannot be assigned to a subclass:
 
@@ -289,7 +291,7 @@ And methods which use the upperbound:
 
 List&lt;Goose> can only be passed to the latter method!
 
-## Lower-Bounded Wildcards
+## 🟦 Lower-Bounded Wildcards
 
 Let's write a method that adds a string "quack" to two lists:
 
@@ -305,9 +307,9 @@ The below table demonstrates why we need a lower bound and solutions which do *n
 
 ![](2023-01-02-12-02-51.png)
 
-<br><hr>
+<hr>
 
-# 6 Putting It All Together
+# 🟪 6 Putting It All Together
 
 We shall see some example questions regarding generics. We shall use the following classes:
 
@@ -317,7 +319,7 @@ We shall see some example questions regarding generics. We shall use the followi
     class C extends B {}
 ```
 
-## Example 1
+### 🟠 Example 1 🟠
 
 Does the following compile or not?
 
@@ -342,7 +344,7 @@ Line 10 is a list lower bounded by B, so its fine storing instances of A!
 
 Line 11 allows an unbounded wildcard but you need to know the type which it is storing!
 
-## Example 2
+### 🟠 Example 2 🟠
 
 **Does the following method compile or not?**
 
