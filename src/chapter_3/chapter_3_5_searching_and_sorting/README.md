@@ -1,4 +1,6 @@
-# 3.5: Searching and Sorting
+<link href="../style.css" rel="stylesheet" />
+
+# 🟪 3.5: Searching and Sorting
 
 ## Table of Contents
 
@@ -6,8 +8,7 @@
 
 [2 Searching](#searching)
 
-
-# 1 Sorting
+# 🟪 1 - Sorting
 
 In order to sort a collection it must implement Comparable!
 
@@ -58,10 +59,9 @@ Set<Rabbit> rabbits = new TreeSet<>(new Comparator<Rabbit>(){
 });
 ```
 
-<br><hr>
+<hr>
 
-
-# 2 Searching
+# 🟪 2 - Searching
 
 The binarySearch() method only has a defined return if the collection is sorted!
 

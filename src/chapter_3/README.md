@@ -69,6 +69,35 @@
 
 ✅ The `Comparator interface` is a class which defines a `compare()` method. We can use this to create an "artificial" ordering inside a method rather than a class!
 
+✅ You can only call `Collections.sort(someCollection)` if the class implements the `Comparable` interface - otherwise you get compiler error!
+
+✅ We can overload the Collections.sort() method with a lambda which defines the sorting using a comparator
+
+✅ The `binarySearch()` method is only defined if the collection is sorted in ascending order!
+
+✅ A `method reference` is compact syntax for writing to lambdas which call methods
+
+```java
+    Compator<Duck> byWeight = DuckHelper::compareByWeight;
+```
+
+
+✅ Collections have the following methods
+
+- `removeIf()` lets us specify a lambda which defines a condition
+
+- `replaceAll()` lets us define a unary lambda to apply an operation to each element
+
+- `forEach()` lets us loop through a collection
+
+✅ Java 8 Map Interface has additional methods which let you merge key-value pairs into maps:
+
+- `merge()` lets us update a value or insert a pair if the key is not present
+
+- `computeIfPresent()` lets us define a bifunction and update a value according to the bifunction if the key is present
+
+- `computeIfAbsent()` lets us insert a value if the key is absent!
+
 <hr>
 
 ## 🟦 Introductions:
