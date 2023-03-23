@@ -61,7 +61,7 @@ Here is a helper class:
     }
 ```
 
-We coiuld write a Comparator for sorting by weight:
+We could write a Comparator for sorting by weight:
 
 ```java
     Comparator<Duck> byWeight = (d1,d2) -> DuckHelper.compareByWeight(d1,d2);
@@ -192,33 +192,102 @@ Suppose we wanted to update the value for a key in a map:
 
 ```java
     Map<String, String> favorites = new HashMap<>();
-		favorites.put("Jenny", "Bus Tour");
-		
-		// suppose we want to update the value for Jenny
-		// one way is to reinsert a key-value pair:
-		favorites.put("Jenny", "Tram");
-		System.out.println(favorites); // {Jenny=Tram}
+    favorites.put("Jenny", "Bus Tour");
+    
+    // suppose we want to update the value for Jenny
+    // one way is to reinsert a key-value pair:
+    favorites.put("Jenny", "Tram");
+    System.out.println(favorites); // {Jenny=Tram}
 ```
 
-The putIfAbsent() adds/updates a value if the value is null or absent:
+The ```putIfAbsent()``` adds/updates a value if the value is null or absent:
 
 ```java
-		// the putIfAbsent method lets you set a value if it is null or absent
-		favorites.put("Tom", null);
-		favorites.putIfAbsent("Jenny", "Train");
-		System.out.println(favorites); // {Tom=null, Jenny=Tram}
-		favorites.putIfAbsent("Tom", "Tram");
-		System.out.println(favorites); // {Tom=Tram, Jenny=Tram}
+    // the putIfAbsent method lets you set a value if it is null or absent
+    favorites.put("Tom", null);
+    favorites.putIfAbsent("Jenny", "Train");
+    System.out.println(favorites); // {Tom=null, Jenny=Tram}
+    favorites.putIfAbsent("Tom", "Tram");
+    System.out.println(favorites); // {Tom=Tram, Jenny=Tram}
 ```
 
-### 🟥 merge
+#### 🟢 merge()
 
 The merge function of the Map API, lets you update a value of a key based off some logic!
 
 The merge function has the following signature:
 
 ```java
-    V merge(K key, V value, Bifunction mappringFunction)
+    V merge(K key, V value, Bifunction mappingFunction)
 ```
 
-#### 🟠 Example 🟠
+##### 🟠 Example 🟠
+
+Suppose that the guests agree to let the person with longest name decide the mode of transport
+
+We can write this by passing a mapping function to the merge function
+
+```java
+    BiFunction<String, String, String> mapper = (v1,v2)
+        -> v1.length() > v2.length() ? v1 : v2;
+
+    Map<String, String> favourites = new HashMap<>();
+    favourites.put("Jenny", "Bus tour");
+
+    // we shall merge in a pair ("Jenny", "Skyride")
+    // our mapper will update the value with the largest length
+    favorites.merge("Jenny", "Skyride", mapper);
+    System.out.println(favorites); // {Jenny=Bus Tour}
+
+    // since Skyride has a shorter length it was not updated
+    // let's try with a longer word!
+    favorites.merge("Jenny", "Submarine ride", mapper);
+System.out.println(favorites); // {Jenny=Submarine ride}
+```          
+
+
+
+* 🎃 Suppose that the biFunction maps to a null value! 🎃
+* ⚠️ Using this as the mapper will remove the key-pair value! ⚠️
+
+##### 🟠 Example 2 🟠
+
+```java
+    // what if the bifunction returns null?
+    favorites.merge("Jenny", "Helicopter", (v1,v2) -> null);
+    System.out.println(favorites); // {Tom=Tram}
+```
+
+* 🎃 We can still call the ```merge()``` method without issues evem if the key is not present! In this case it behaves like a `put()` method and the mapper is not called! 🎃
+
+#### 🟢 computeIfPresent and computeIfAbsent
+
+* `computeIfPresent()` calls the BiFunction if the key is present!
+
+```java
+    Map<String, Integer> counts = new HashMap<>();
+    counts.put("Jenny", 1);
+    BiFunction<String, Integer, Integer> mapper = (k, v) -> v + 1;
+
+    // If the key is present, the value is updated according to mapper
+    System.out.println(counts.computeIfPresent("Jenny", mapper)); // 2
+    System.out.println(counts.computeIfPresent("Sammy", mapper)); // null
+    System.out.println(counts); // {Jenny=2}
+```
+
+* If the BiFunction maps to null, then the key is removed from the map!
+
+
+* `computeIfAbsent` calls a Function if the key is absent
+
+```java
+    Map<String, Integer> counts2 = new HashMap<>();
+    Function<String,Integer> mapper2 = (k) -> 1;
+    counts2.put("Jenny", 15);
+    counts2.put("Tom", null);
+
+    // if the key is absent, then its value 
+    counts2.computeIfAbsent("Jenny", mapper2);
+    counts2.computeIfAbsent("Sam", mapper2);
+    System.out.println(counts2); // {Tom=null, Jenny=15, Sam=1}
+```

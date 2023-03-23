@@ -14,11 +14,20 @@ public class Merge {
 		Map<String, String> favorites = new HashMap<>();
 		favorites.put("Jenny", "Bus Tour");
 		favorites.put("Tom", "Tram");
-		System.out.println(favorites.merge("Jenny", "Bus", mapper)); // Bus Tour
-		System.out.println(favorites.merge("Tom", "Skyride", mapper)); // Sky ride
-		// the value was only update for Tom!
-		// this is because tram is shorter than Skyride
-		System.out.println(favorites); // {Tom=Skyride, Jenny=Bus Tour}
-
+		
+		// we shall merge in a pair ("Jenny", "Skyride")
+		// our mapper will update the value with the largest length
+		favorites.merge("Jenny", "Skyride", mapper);
+		System.out.println(favorites); // {Tom=Tram, Jenny=Bus Tour}
+		
+		// since Skyride has a shorter length it was not updated
+		// let's try with a longer word!
+		favorites.merge("Jenny", "Submarine ride", mapper);
+		System.out.println(favorites); // {Tom=Tram, Jenny=Submarine ride}
+		
+		
+		// what if the bifunction returns null?
+		favorites.merge("Jenny", "Helicopter", (v1,v2) -> null);
+		System.out.println(favorites); // {Tom=Tram}
 	}
 }
