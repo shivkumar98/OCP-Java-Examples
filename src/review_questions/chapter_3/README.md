@@ -477,3 +477,144 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 My answer: `D`, the list will be in descending order
+
+## Question 16:
+
+❓ Which of the following statements are true? ❓ 
+
+A. Comparable is in the java.util package 🎃
+
+B. Comparator is in the java.util package 🎃
+
+C. `compare()` is in the Comparable interface 🎃
+
+D. `compare()` is in the Comparator interface 🎃
+
+E. `compare()` takes one method parameter 🎃
+
+F. `compare()` takes two method parameters 🎃
+
+My answer is `A`, `B`, `D`, `F`
+
+- Both interfaces are in java.util package
+
+- compare is in the Comparator interfacer
+
+- compare takes two parameters
+
+## Question 17:
+
+❓ Which two options can fill in the blanks so the code compiles ❓
+
+```java
+    public class Generic_____ {                     // LINE 1
+        public static void main(String[] args){
+            Generic<String> g = new Generic_____();  // LINE 3
+            Generic<Object> g2 = new Generic();
+        }
+    }
+```
+
+
+A. Fill Line 1 with `<>` 🎃
+
+B. Fill Line 1 with `<T>` 🎃
+
+C. Fill Line 1 with `<?>` 🎃
+
+D. Fill Line 3 with `<>` 🎃
+
+E. Fill Line 3 with `<T>` 🎃
+
+F. Fill Line 3 with `<?>` 🎃
+
+
+My answer `B` and `E`
+
+
+
+## Question 18:
+
+❓ Which of the following line can be inserted to make code compile? ❓
+
+```java
+    class A {}
+    class B extends A {}
+    class C extends C {}
+
+    class D<C> {
+        // INSERT CODE HERE
+    }
+```
+
+A. `A a1 = new A();` 🎃
+
+B. `A a2 = new B();` 🎃
+
+C. `A a3 = new C();` 🎃
+
+D. `C c1 = new A();` 🎃
+
+E. `C c2 = new B();` 🎃
+
+F. `C c1 = new C();` 🎃
+
+- class D can instantiate a c class
+
+My answer: F
+
+
+
+##  Question 19:
+
+❓ Which options are true of the following code? ❓
+
+```java
+    _______<Integer> q = new LinkedList<>();
+    q.add(10);
+    q.add(12);
+    q.remove(1);
+    System.out.println(q);
+```
+
+A. If we fill in the blank with `List`, the output is `[10]` 🎃
+
+B. If we fill in the blank with `List`, the output is `[10, 12]` 🎃
+
+C. If we fill in the blank with `Queue`, the output is `[10]` 🎃
+
+D. If we fill in the blank with `Queue`, the output is `[10, 12]` 🎃
+
+E. The code does not compile in either scenario 🎃
+
+F. A runtime exception is thrown 🎃
+
+My answer: `A` and `C`
+
+- A linkedlist implements both list and queue!
+
+##  Question 20:
+
+❓ What is the result of the following code? ❓
+
+```java
+    Map m = new HashMap();                  // LINE 4
+    m.put(123, "456");                      // LINE 5
+    m.put("abc", "def");                    
+    System.out.println(m.contains("123"));  // LINE 7
+```
+
+A. `false` 🎃
+
+B. `true` 🎃
+
+C. Compiler error on line 4 🎃
+
+D. Compiler error on line 5 🎃
+
+E. Compiler error on line 7 🎃
+
+F. A runtime exception is thrown 🎃
+
+
+My answer: `B`
