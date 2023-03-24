@@ -254,3 +254,38 @@ E. None of the above 🎃
 
 My Answer: `A`, `B`, `C`
 
+
+## Question 10:
+
+❓ What is the result of the following: ❓ 
+
+```java
+import java.util.*;
+
+public class MyComparator implements Comparator<String> {
+    public int compare(String a, String b){
+        return b.toLowerCase().compareTo(a.toLowerCase());
+    }
+
+    public void static main(String[] args){
+        String[] values = { "123", "Abb", "aab" };
+        Arrays.sort(values, new MyComarator());
+        for (String s:values)
+            System.out.print(s + " ");
+    }
+}
+```
+
+A. `Abb aab 123` 🎃
+
+B. `aab Abb 123` 🎃
+
+C. `123 Abb aab` 🎃
+
+D. `123 aab Abb` 🎃
+
+E. The code does not compile 🎃
+
+F. A runtime exception is thrown 🎃
+
+My answer: IDK
