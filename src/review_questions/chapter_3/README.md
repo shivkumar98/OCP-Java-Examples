@@ -164,3 +164,93 @@ My answer: `C`
 
 ## Question 7:
 
+
+❓ Which of the following statements are true for the following code: ❓ 
+
+```java
+    Set<Number> numbers = new HashSet<>();  // LINE 3
+    numbers.add(new Integer(86));
+    numbers.add(75);
+    numbers.add(new Integer(86));
+    numbers.add(null);
+    numbers.add(309L);
+    Iterator iter = numbers.iterator();     // LINE 9
+    while (iter.hasNext())
+        System.out.print(iter.next());   
+```
+
+A. The code compiles successfully 🎃
+
+B. Output is `8675null309` 🎃
+
+C. Output is `56758null309` 🎃
+
+D. The output is intermediate 🎃
+
+E. There's a compiler error on line 3 🎃
+
+F. Compiler error on line 9 🎃
+
+G. An exception is thrown 🎃
+
+My answer: `C` - there seems to be a typo
+
+## Question 8:
+
+❓ What is the result of the following code? ❓ 
+
+```java
+TreeSet<String> tree = new TreeSet<String>();
+tree.add("one");
+tree.add("One");
+tree.add("ONE");
+System.out.println(tree.ceiling("On"));
+```
+
+A. `On` 🎃
+
+B. `one` 🎃
+
+C. `One` 🎃
+
+D. `ONE` 🎃
+
+E. The code does not compile 🎃
+
+F. An exception is thrown 🎃
+
+My answer: `B` - total guess
+
+## Question 9:
+
+❓ Which of the answer choices are valid given the following❓ 
+
+```java
+Map<String, Double> map = new HashMap<>();
+```
+
+A. 🎃
+```java
+map.add("pi", 3.14159);
+```
+
+B. 🎃
+
+```java
+map.add("e", 2L);
+```
+
+C. 🎃
+```java
+map.add("log(1)", new Double(0.0));
+```
+
+D. 🎃
+```java
+map.add('x', new Double(123.4));
+```
+
+E. None of the above 🎃
+
+My Answer: `A`, `B`, `C`
+
