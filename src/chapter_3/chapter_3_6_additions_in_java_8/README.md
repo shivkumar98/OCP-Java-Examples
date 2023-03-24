@@ -73,9 +73,9 @@ This is alot of redundant code!
 
 ```java
     Compator<Duck> byWeight = DuckHelper::compareByWeight;
-```
+``` 
 
-The ```::``` operator instructs Java to pass the parameters tgo compareByWeight automatically. 
+The ```::``` operator instructs Java to pass the parameters to compareByWeight automatically. 
 
 😱 There are 4 formats for method references: 😱
 
