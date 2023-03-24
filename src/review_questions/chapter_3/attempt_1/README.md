@@ -616,5 +616,146 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
-
 My answer: `B`
+
+##  Question 21:
+
+❓ Fill in the blanks to make this code compile and print `123`❓
+
+```java
+    List<String> list = Arrays.asList("1", "2", "3");
+    Iterator iter = list.iterator();
+    while (iter.______())
+        System.out.println(iter._____());
+```
+
+A. On line 6, fill blank with `hasNext()` 🎃
+
+B. On line 6, fill blank with `isNext()` 🎃
+
+C. On line 6, fill blank with `next()` 🎃
+
+D. On line 7, fill blank with `getNext()` 🎃
+
+E. On line 7, fill blank with `hasNext()` 🎃
+
+F. On line 7, fill blank with `next()` 🎃
+
+My answer: `A` and `F`
+
+## Question 22:
+
+❓ What code change is needed to make the method compile? ❓
+
+```java
+    public static T identity(T t){
+        return t;
+    }
+```
+
+A. Add `<T>` after the public keyword 🎃
+
+B. Add `<T>` after the static keyword 🎃
+
+C. Add `<T>` after T 🎃
+
+D. Add `<?>` after the public keyword 🎃
+
+E. Add `<?>` after the static keyword 🎃
+
+F. No change required the code already compiles 🎃
+
+My answer: `F`
+
+## Question 23:
+
+❓ Which of the answer make sense to implement with lambda (choose all which apply) ❓
+
+A. Comparable interface 🎃
+
+B. Comparator interface 🎃
+
+C. remove() method on Collection 🎃
+
+D. removeAll() method on a Collection 🎃
+
+E. removeIf() method on a Collection 🎃
+
+- The Comparator interface has the compare() method. This can be done with a lambda
+
+- The removeIf() method lets us use a lambda
+
+My answer: `A` and `E`
+
+## Question 24:
+
+❓ Which of the following compiles and prints out the entire set?❓
+
+```java
+    Set<String> s = new HashSet<>();
+    s.add("lion");
+    s.add("tiger");
+    s.add("bear");
+    s.forEach(________);
+```
+
+A. 🎃
+```java
+() -> System.out.println(s)
+```
+
+B. 🎃
+```java
+s -> System.out.println(s)
+```
+
+C. 🎃
+```java
+(s) -> System.out.println(s)
+```
+
+D. 🎃
+```java
+System.out.println(s)
+```
+
+E. 🎃
+```java
+System::out::println
+```
+
+F. 🎃
+```java
+System.out::println
+```
+
+- A does not compile
+- B does compile
+- C does compile
+- D does not compile
+- E does not compile
+- F does compile
+
+My answer is: `B, C, F` 
+
+## Question 25:
+
+❓ What is the result of the following? ❓
+
+```java
+    Map<Integer, Integer> map = new HashMap<>();
+    map.put(1, 10);
+    map.put(2, 20);
+    map.put(3, null);
+
+    map.merge(1, 3, (a,b)-> a + b);
+    map.merge(3, 3 (a,b) -> a + b);
+
+    System.out.println(map);
+```
+
+- map = {1:10, 2:20, 3:null}
+- map = {1:13, 2:20, 3:null}
+- map = {1:13, 2:20, 3+null}
+
+My answer is `H`
