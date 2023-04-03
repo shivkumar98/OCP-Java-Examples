@@ -134,3 +134,22 @@
 
 - Use of merge() and flatMap() methods of the Stream API
 
+
+# 🟪  Chapter 3: Generics and Collections - Review
+
+## Reviewing OCA Collections
+
+* The Java Collections Framework is a set of interfaces. These interfaces are `List`, `Queue`, `Map` and `Set`
+
+### Arrays and ArrayList 
+
+* An `ArrayList` is an object which contains other objects. It does not contain primitives - we can store wrapper variants instead. We get the size of an array using the `size()` method.
+
+```java
+String[] array = {"gerbil", "mouse"};
+List<String> list = Arrays.asList(array);
+list.set(1, "test"); // [gerbil, test]
+array[0] = "new"; // [new, test] // both strucs are backed by same data
+String[] array2 = (String[]) list.toArray(); // converted list back to array!
+list.remove(0); // throws UnsupportedOperationException because list is not resizeable!!!
+```
