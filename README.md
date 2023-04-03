@@ -37,3 +37,15 @@ I created this repo to go through the examples from the official study guide for
 - [3.7 Summary]()
 - [3.8 Exam Essentials]()
 - [3.9 Review Questions]()
+
+
+```java
+  @PostMapping(value = "/delete")
+    @ResponseBody
+    public Map<String, Object> delete(Model model, RedirectAttributes attributes, @PathVariable Long staffId,
+            @RequestParam(value="docIds[]") List<Long> documentIds) {
+
+        documentIds.forEach(doc -> documentDao.delete(documentDao.findById(doc)));
+        return ExtResponseBuilder.success("staff document has been deleted successfully");
+    }
+```
