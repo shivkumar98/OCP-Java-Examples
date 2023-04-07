@@ -235,4 +235,31 @@ public class SizeLimitedCrate<T, U> {
 }
 ```
 
-### Type Erasure
+### 🟨 Type Erasure
+
+* When we specify the formal type parameter, the compiler enforces proper use of the generic type. E.g. if we had `Crate<Robot>`, it is like we are replacing `T` with `Robot`. But this is just during compilation time.
+
+* Behind the scenes, Java is replacing all refs to `T` wwith 😱`Object`😱 types:
+
+```java
+public class Crate {
+    private Object contents;
+    public Object emptyCrate() {
+        return contents;
+    }
+    public void packCrate(Object contents) {
+        this.contents = contents;
+    }
+}
+```
+
+* This means that only a single class is created behind the scenes - verses creating one for each type
+
+* The compiler is doing the casting for you!
+
+```java
+Robot r = crate.emptyCrate();
+// behind the scenes:
+Robot r = (Robot) crate.emptyCrate();
+```
+
