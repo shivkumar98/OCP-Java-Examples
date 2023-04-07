@@ -137,11 +137,11 @@
 
 # 🟪  Chapter 3: Generics and Collections - Review
 
-## Reviewing OCA Collections
+## 🟦 3.1 Reviewing OCA Collections
 
 * The Java Collections Framework is a set of interfaces. These interfaces are `List`, `Queue`, `Map` and `Set`
 
-### Arrays and ArrayList 
+### 🟨 Arrays and ArrayList 
 
 * An `ArrayList` is an object which contains other objects. It does not contain primitives - we can store wrapper variants instead. We get the size of an array using the `size()` method.
 
@@ -153,3 +153,86 @@ array[0] = "new"; // [new, test] // both strucs are backed by same data
 String[] array2 = (String[]) list.toArray(); // converted list back to array!
 list.remove(0); // throws UnsupportedOperationException because list is not resizeable!!!
 ```
+
+### 🟨 Searching and Sorting
+
+```java
+int[] numbers = {6,9,1,8};
+Arrays.sort(numbers); // numbers = {1,6,8,9}
+System.out.println(Arrays.binarySearch(numbers, 6)); // 1
+System.out.println(Arrays.binarySearch(numbers, 3)); // -1-1 = -2
+```
+
+* Since an ArrayList is a Collection, we call `Collections.sort(list)` and `Collections.binarySearch()`
+
+### 🟨 Wrapper Classes and Auto-boxing
+
+* Here's an example of using the remove method on a list which has 2 overloads
+
+```java
+List<Integer> numbers = new ArrayList<Integer>();
+numbers.add(1); // [1]
+numbers.add(new Integer(3)); // [1, 3]
+numbers.add(new Integer(5)); // [1, 3, 5]
+numbers.remove(1); // primitive signature used - [1,5]
+numbers.remove(new Integer(5)); // [1]
+System.out.println(numbers); // [1]
+``` 
+
+### 🟨 Diamond Operator
+
+* Generics use the diamond operator `<>`. Generics allow for type safety in a way that previous Java versions could not.
+
+* We can use Generics with Collection types, to restrict the type of objects which can be inserted.
+
+<hr>
+
+## 🟦 3.2 Working with Generics
+
+* Generics help us avoid `ClassCastExeption`'s from occuring.
+
+```java
+List<String> names = new ArrayList<String>();
+names.add(new StringBuilder("hello")); // compilation error
+```
+
+### 🟨 Generic Classes
+
+* We can use generics to introduce a formal type parameter to a class!
+
+```java
+    public class Crate<T> {
+        private T contents;
+        public T emptyCrate(){
+            return contents;
+        }
+
+        public void packCrate(T contents) {
+            this.contents = contents;
+        }
+    }
+```
+
+* We can declare any type for this `T` parameter. E.g. suppose an `Elephant` class exists:
+
+```java
+Elephant elephant = new Elephant();
+Crater<Elephant> crateForElephant = new Crate<>();
+crateForElephantl.packCrate(elephant);
+Elephant inNewHome = crateForElephant.emptyCrate();
+```
+
+* We can as many formal type parameters as we need! E.g. two in this code:
+
+```java
+public class SizeLimitedCrate<T, U> {
+    private T contents;
+    private U sizeLimit;
+    public SizeLimitedCrate(T contents, U sizeLimit) {
+        this.contents = contents;
+        this.sizeLimit = sizeLimit;
+    }
+}
+```
+
+### Type Erasure
