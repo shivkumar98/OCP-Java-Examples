@@ -358,7 +358,7 @@ Box.<String[]>ship(args);
 
 <hr>
 
-## 🟦 3.3 Interacting with Legacy Code
+### 🟨 Interacting with Legacy Code
 
 * Collections without generics are known as raw collections
 
@@ -394,3 +394,85 @@ Box.<String[]>ship(args);
 ```
 
 * `numbers.get(0)` returns an object, hence autoboxing cannot take place!
+
+<hr>
+
+### 🟨 Bounds
+
+* We've seen that generics are treated as objects and hence do not have many methods available to them! Bounds come to the rescue 🦸
+
+* We can restrict generic types!
+
+* A `bounded parameter type` is a generic type which specifies a bound for the genereic.
+
+* A `wildcard generic type` is an unknown generic type represented using `?`
+
+### 🟨 Types of Bounds
+
+* We have 3 wildcard types:
+
+1) Unbounded wildcard `?`
+
+* E.g.:
+
+```java
+List<?> l = new ArrayList<String>();
+```
+
+2) Wildcard with an upper bound `? extends type`
+
+```java
+List<? extends Exception> l = new ArrayList<RuntimeException>();
+```
+
+3) Wilcard with a lower bound `? super type`
+
+```java
+List<? super Exception> l = new ArrayList<Object>();
+```
+
+<hr>
+
+### 🟨 Unbounded Wilcards
+
+* You use `?` to specify any type is OK!
+
+* E.g. suppose we wanted to write a method which looks through a list of any type
+
+```java
+    public static void printList(List<Object> list){
+        for (Object x: list) System.out.println(x);
+    }
+    public static void main(String[] args) {
+        List<String> keywords = new ArrayList<>();
+        keywords.add("java");
+        printList(keywords); // DOES NOT COMPILE
+    }
+```
+
+* Even though String is a subclass of Object, `List<String>` cannot be assigned to `List<Object>`
+
+* But why? Well consider the following example:
+
+```java
+    List<Integer> numbers = new ArrayList<>();
+    numbers.add(new Integer(42));
+    List<Object> objects = numbers // DOES NOT COMPILE
+    objects.add("forty two");
+    System.out.println(numbers.get(1));
+```
+
+* If the above did compile, then we would be breaking our initial promise that `numbers` can only contain Integer objects!
+
+* We overcome the issue that `List<String>` can not be assigned to `List<Object>` by using `List<?>`!
+
+```java
+    public static void printList(List<?> list){
+        for (Object x: list) System.out.println(x);
+    }
+    public static void main(String[] args) {
+        List<String> keywords = new ArrayList<>();
+        keywords.add("java");
+        printList(keywords);
+    }
+```
