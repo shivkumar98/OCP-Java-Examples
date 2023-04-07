@@ -265,7 +265,7 @@ Robot r = (Robot) crate.emptyCrate();
 
 <hr>
 
-## 🟦 3.3 Generic Interfaces
+### 🟨 Generic Interfaces
 
 
 * An interface can also define a formal type parameter. E.g. if the return of a method is a formal type parameter
@@ -316,3 +316,41 @@ class ShippableCrate implements Shippable {
 
     - only exists as an instance variable to a class
 
+<hr>
+
+### 🟨 Generic Methods
+
+* Generic methods are typically declared statically but can be non-static also
+
+* E.g.
+
+```java
+public static <T> Crate<T> ship(T t) {
+    System.out.println("Preparing "+t);
+    return new Crate<T>();
+}
+```
+
+* The return type is `Crate<T>` and has a parameter of type `T` also. We must declare `<T>` before the return type again for this to be valid.
+
+* Here are 2 valid declarations:
+
+```java
+public static <T> void sink(T t) { }
+public static <T> T identity(T t) { return t; }
+```
+
+* Here is an invalid example:
+
+```java
+public static T noGood(T t) { return t; } // DOES NOT COMPILE
+```
+
+### 🟨 Optional Syntax for Invoking a Generic Method
+
+* The compiler will figure out which method you need when calling the method normally. Alternatively, you can explicitly type
+
+```java
+Box.<String>ship("package");
+Box.<String[]>ship(args);
+```
