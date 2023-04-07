@@ -263,3 +263,56 @@ Robot r = crate.emptyCrate();
 Robot r = (Robot) crate.emptyCrate();
 ```
 
+<hr>
+
+## 🟦 3.3 Generic Interfaces
+
+
+* An interface can also define a formal type parameter. E.g. if the return of a method is a formal type parameter
+
+```java
+public interface Shippable<T> {
+    void ship(T t);
+}
+```
+
+### 🟨 Implementing Generic Interfaces
+
+* There are 3 ways to implement this interface:
+
+1) Specify the formal type parameter:
+
+```java
+class ShippableRobotCrate implements Shippable<Robot> {
+    public void ship(Robot t) { }
+}
+```
+
+2) Implement via a generic class:
+
+```java
+class ShippableAbstractCrate<U> implements Shippable<T> {
+    public void ship(U t);
+}
+```
+
+3) Old way which uses no generics
+
+```java
+class ShippableCrate implements Shippable {
+    public void ship(Object t){ }
+}
+```
+
+### 🟨 What You Can't Do with Generic Types
+
+* ❌ Call the constructor ❌
+
+    - writing `new T()` => compiler error
+
+* ❌ Use primitive type as generic type paarameter ❌
+
+* ❌ Creating a static typed parameter ❌
+
+    - only exists as an instance variable to a class
+
