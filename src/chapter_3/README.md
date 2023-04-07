@@ -354,3 +354,43 @@ public static T noGood(T t) { return t; } // DOES NOT COMPILE
 Box.<String>ship("package");
 Box.<String[]>ship(args);
 ```
+
+
+<hr>
+
+## 🟦 3.3 Interacting with Legacy Code
+
+* Collections without generics are known as raw collections
+
+* Even if we write code which will not throw an `ClassCastException`, a compiler warning eill appear.
+
+* We can still get a `ClassCastException` even if we use generics!
+
+```java
+    public class LegacyUnicorns {
+        public static void main(String[] args){
+            List<Unicorn> unicorns = new ArrayList<>();
+            addUnicorn(unicorns);
+            Unicorn unicorn = unicorns.get(0); // ClassCastException
+        }
+        private static void addUnicorn(List unicorn) {
+            unicorn.add(new Dragon());
+        }
+    }
+```
+
+* Even though we are using generics, the addUnicorn method adds a new Dragon
+
+* We can also have issues with autoboxing:
+
+```java
+    public class LegacyAutoBoxing {
+        public static void main(String[] args){
+            List numbers = new ArrayList();
+            numbers.add(5);
+            int result = numbers.get(0);
+        }
+    }
+```
+
+* `numbers.get(0)` returns an object, hence autoboxing cannot take place!
