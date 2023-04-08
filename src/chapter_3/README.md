@@ -185,6 +185,7 @@ System.out.println(numbers); // [1]
 
 * We can use Generics with Collection types, to restrict the type of objects which can be inserted.
 
+<br>
 <hr>
 
 ## 🟦 3.2 Working with Generics
@@ -601,7 +602,7 @@ private static void addSound5(List<? super String> list) {
 
 ### 🟨 Putting it all togetger
 
-#### 🟡 Example 1 🟡
+#### 🟡 Example 
 
 ```java
 class A {}
@@ -652,3 +653,129 @@ List<?>             list6 = new ArrayList<? extends A>(); // DOES NOT COMPILE
 ```
 
 * NO! We can not use X as a wildcard! We should've used `?`
+
+<br>
+<hr>
+
+## 🟦 3.3 Using Lists, Sets, Maps, and Queues
+
+### 🟨 Introduction
+
+* A collection is a group of objects stored in a single object.
+
+* The **Java Collections Framework** is a set of classes in `java.util` for storing collections. This Collections framework consists of four interfaces:
+
+1) `List` - ordered list which allows duplicates.
+
+2) `Set` - set is a collection which does not allow duplicates
+
+3) `Queue` - FIFO collection
+
+4) `Map` - key value pairs, where duplicate pairs are not allowed!
+
+* `Map` is the only collection which does not implement the `Collection` interface
+
+![](screenshots/2023-04-08-15-47-34.png)
+
+<hr>
+
+### 🟨 Common Colllection Methods
+
+#### `add()`
+
+```java
+boolean add(E element)
+```
+
+#### `remove()`
+
+```java
+boolean remove(Object object)
+```
+
+* Returns true if removal is successful, otherwise false
+
+#### `isEmpty() and size()`
+
+```java
+boolean isEmpty()
+int size()
+```
+
+#### `isEmpty() and size()`
+
+```java
+boolean isEmpty()
+int size()
+```
+
+#### `clear()`
+
+```java
+void clear()
+```
+
+#### `contains()`
+
+```java
+boolean contains(Object object)
+```
+
+
+<hr>
+
+### 🟨 Using the List Interface
+
+* List is a collection, where elements can be accessed via an index. It allows duplicate entries. The most common implementation is `ArrayList`
+
+
+#### 🟡 Comparing List Implementations 🟡
+
+* `ArrayList` is a resizeable structure, we can add elements and it grows automatically. Adding/removing elements is slow (O(N)) but accessing elements is very fast - constant time!
+
+* `LinkedList` implements both `List` and `Queue`. You can access, add, and remove elements at end/beginning of list in constant time.
+
+* `Vector` is the old ArrayList, which is slow but threadsafe
+
+* `Stack` has a push() method which adds to the top of the stack, pop() lets you remove the top of the stack. peek() lets you access the top element
+
+#### 🟡 Working with List Methods 🟡
+
+* The `List` interface has the following additional methods:
+
+```java
+void add(E element) // adds element to end
+void add(int index, E element) // adds element at index, shifts rest of list to end
+E get(int index) // returns element at index
+int indexOf(Object o) // returns position of element or -1 if not found
+int lastIndexOf(Object o) // returns last occurent of object
+void remove(int index) // removes element
+E set(int index, E e) // replaces element, returns replaced element
+```
+
+* Here's an example of using list methods
+
+```java
+List<String> list = new ArrayList<>();
+list.add("SD"); // [SD]
+list.add(0, "NY"); //[NY,SD]
+list.set(1, "FL"); // [NY, FL]
+list.remove("NY"); // [FL]
+list.remove(0); // []
+```
+
+#### 🟡 Looping Through a List 🟡
+
+* We can use `Iterator` to loop through a list:
+
+```java
+Iterator<String> iter = list.iterator();
+while (iter.hasNext()){
+    String string = iter.next();
+    // do something with string
+}
+```
+
+<hr>
+
+
