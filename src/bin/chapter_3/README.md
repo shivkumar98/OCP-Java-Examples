@@ -554,51 +554,8 @@ addSound(objects);
 
 * Here are 3 ways which do NOT solve the problem:
 
-1) Using wildcard ?
+1) 
 
 ```java
-public static void addSound(List<?> list){ 
-    list.add("quack"); // DOES NOT COMPILE
-}
+public static void addSound(List<?> list){ list.add("quack"); }
 ```
-
-* Unbounded generics are immutable
-
-2) Using upperbounded wildcard `? extends Object`
-
-```java
-private static void addSound2(List<? extends Object> list) {
-    list.add("quack"); // does not compile
-}
-```
-
-* Upper bounded generic types are immutable
-
-3) Using `List<Object>`
-
-```java
-private static void addSound3(List<Object> list){
-    list.add("quack"); // Does not work with List<String>
-}
-```
-
-4) Using `List<String>`
-
-```java
-private static void addSound4(List<String> list){
-    list.add("quack"); // Does not work with List<Object>
-}
-```
-
-* ✅ We use lower-bounded generics to solve this problem✅
-
-```java
-private static void addSound5(List<? super String> list) {
-		list.add("quack");
-	}
-```
-
-
-### 🟨 Putting it all togetger
-
-

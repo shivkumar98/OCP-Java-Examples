@@ -754,23 +754,6 @@ My answer is: `B, C, F`
     System.out.println(map);
 ```
 
-A. {1=10, 2=20} 🎃
-
-B. {1=10, 2=20, 3=null} 🎃
-
-C. {1=10, 2=20, 3=3} 🎃
-
-D. {1=13, 2=20} 🎃
-
-E. {1=13, 2=20, 3=null} 🎃
-
-F. {1=13, 2=20, 3=3} 🎃
-
-G. The code does not compile 🎃
-
-H. An exception is thrown 🎃
-
-
 - map = {1:10, 2:20, 3:null}
 - map = {1:13, 2:20, 3:null}
 - map = {1:13, 2:20, 3+null}

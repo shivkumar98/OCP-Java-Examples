@@ -12,10 +12,6 @@ Which of the following collections classes in the `java.util` package best suit 
     D. HashSet 🎃
     E. LinkedList 🎃
 
-My Answer: `D`
-
-- We need to display each product but exclude duplicates. This would suggest a set. Hence HashSet seems applicable
-
 ## Question 2:
 
 ❓Suppose that yuou need to work with a collection of elements that need to be sorted in their natural order, and each element has a unique string associated with its value.
@@ -29,10 +25,7 @@ Which of the following collections classes in the `java.util` package best suit 
     E. TreeSet 🎃
     F. Vector 🎃
 
-My Answer: `D`
 
-- We need a key-value mapping so it is a map
-- Since we need a natural ordering, we need a TreeMap
 
 ## Question 3:
 
@@ -53,9 +46,7 @@ My Answer: `D`
     D. Compiler error on line 6 🎃
     E. Compiler error on line 7 🎃
 
-My answer: `D`
 
-- I think line 7 will cause an error!
 
 ## Question 4:
 
@@ -80,7 +71,6 @@ My answer: `D`
     F. The code does not compile 🎃
     G. An exception is thrown 🎃
 
-My answer: `E`
 
 ## Question 5:
 
@@ -117,20 +107,6 @@ F. 🎃
 Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 ```
 
-My answer: `C`
-
-- A does not seem to compile as the generics do not match
-
-- B would not compile due to generic does not match
-
-- C does compile as List is an interface of Vector
-
-- D does not compile as List is not a interface/superclass of Vector
-
-- E does not compile due to generic mismatch
-
-- F again does not compile due to generic mismatch
-
 ## Question 6:
 
 ❓ What is the result of the following code: ❓ 
@@ -158,8 +134,6 @@ D. Compiler error on line 4 🎃
 E. Compiler error on line 6 🎃
 
 F. Compiler error on line 🎃
-
-My answer: `C`
 
 
 ## Question 7:
@@ -193,8 +167,6 @@ F. Compiler error on line 9 🎃
 
 G. An exception is thrown 🎃
 
-My answer: `C` - there seems to be a typo
-
 ## Question 8:
 
 ❓ What is the result of the following code? ❓ 
@@ -218,8 +190,6 @@ D. `ONE` 🎃
 E. The code does not compile 🎃
 
 F. An exception is thrown 🎃
-
-My answer: `B` - total guess
 
 ## Question 9:
 
@@ -251,8 +221,6 @@ map.add('x', new Double(123.4));
 ```
 
 E. None of the above 🎃
-
-My Answer: `A`, `B`, `C`
 
 
 ## Question 10:
@@ -288,7 +256,6 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: IDK
 
 ## Question 11:
 
@@ -313,8 +280,6 @@ D. Compiler error on line 5 🎃
 E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
-
-My answer: `B`
 
 
 ## Question 12:
@@ -357,7 +322,6 @@ E. 🎃
 Helper.printException(new Throwable("E"))
 ```
 
-My answer: `A` and `B`
 
 
 ## Question 13:
@@ -406,8 +370,6 @@ Vector<? extends Number> list = new Vector<Integer>();
 
 F. None of the above 🎃
 
-My Answer: `F`
-
 
 ## Question 14:
 
@@ -451,7 +413,6 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `E` - new TreeSet<>(s1); should not compile
 
 ## Question 15:
 
@@ -494,13 +455,6 @@ E. `compare()` takes one method parameter 🎃
 
 F. `compare()` takes two method parameters 🎃
 
-My answer is `A`, `B`, `D`, `F`
-
-- Both interfaces are in java.util package
-
-- compare is in the Comparator interfacer
-
-- compare takes two parameters
 
 ## Question 17:
 
@@ -527,9 +481,6 @@ D. Fill Line 3 with `<>` 🎃
 E. Fill Line 3 with `<T>` 🎃
 
 F. Fill Line 3 with `<?>` 🎃
-
-
-My answer `B` and `E`
 
 
 
@@ -559,11 +510,6 @@ E. `C c2 = new B();` 🎃
 
 F. `C c1 = new C();` 🎃
 
-- class D can instantiate a c class
-
-My answer: F
-
-
 
 ##  Question 19:
 
@@ -589,9 +535,6 @@ E. The code does not compile in either scenario 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `A` and `C`
-
-- A linkedlist implements both list and queue!
 
 ##  Question 20:
 
@@ -616,7 +559,6 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `B`
 
 ##  Question 21:
 
@@ -641,8 +583,6 @@ E. On line 7, fill blank with `hasNext()` 🎃
 
 F. On line 7, fill blank with `next()` 🎃
 
-My answer: `A` and `F`
-
 ## Question 22:
 
 ❓ What code change is needed to make the method compile? ❓
@@ -665,7 +605,6 @@ E. Add `<?>` after the static keyword 🎃
 
 F. No change required the code already compiles 🎃
 
-My answer: `F`
 
 ## Question 23:
 
@@ -681,11 +620,7 @@ D. removeAll() method on a Collection 🎃
 
 E. removeIf() method on a Collection 🎃
 
-- The Comparator interface has the compare() method. This can be done with a lambda
 
-- The removeIf() method lets us use a lambda
-
-My answer: `A` and `E`
 
 ## Question 24:
 
@@ -729,15 +664,6 @@ F. 🎃
 System.out::println
 ```
 
-- A does not compile
-- B does compile
-- C does compile
-- D does not compile
-- E does not compile
-- F does compile
-
-My answer is: `B, C, F` 
-
 ## Question 25:
 
 ❓ What is the result of the following? ❓
@@ -769,10 +695,3 @@ F. {1=13, 2=20, 3=3} 🎃
 G. The code does not compile 🎃
 
 H. An exception is thrown 🎃
-
-
-- map = {1:10, 2:20, 3:null}
-- map = {1:13, 2:20, 3:null}
-- map = {1:13, 2:20, 3+null}
-
-My answer is `H`
