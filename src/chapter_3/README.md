@@ -776,6 +776,82 @@ while (iter.hasNext()){
 }
 ```
 
-<hr>
+<hr> 
+
+### 🟨 Using the Set Interface
 
 
+* You use Sets when you want to prevent duplicates.
+
+#### 🟡 Comparing Set Implementations 🟡
+
+* `HashSet` stores hashCodes of the values. It does not allow sorting. Adding and accessing values is in constant time
+
+* 'TreeSet' allows for sorting. Checking for elemenents and insertion is slower at O(log n)
+
+#### 🟡 Working with Set Methods 🟡
+
+*  Using `HashSet`:
+
+```java
+Set<Integer> set = new HashSet<>();
+boolean b1 = set.add(66); // true
+boolean b2 = set.add(10); // true
+boolean b3 = set.add(66); // false
+boolean b4 = set.add(8);  // true
+for (Integer integer: set) System.out.println(integer+","); // 66,8,10,
+```
+
+* The insertion order was not preserved!
+
+* Using `TreeSet`:
+
+```java
+Set<Integer> set = new TreeSet<>();
+boolean b1 = set.add(66); // true
+boolean b2 = set.add(10); // true
+boolean b3 = set.add(66); // false
+boolean b4 = set.add(8);  // true
+for (Integer integer: set) System.out.println(integer+",") // 8, 10, 66
+```
+
+* Insertion order was now preserved! We can also apply a custom ordering with Comparable interface!!
+
+#### 🟡 The `NavigableSet` Interface 🟡
+
+* The TreeSet implements the `NavigableSet` interface. This has the following methods:
+
+1) `lower(E e)` Method - returns greatest element which is `<e`, otherwise null
+
+```java
+E lower(E e)
+```
+
+2) `floor(E e)` Method - returns greatest element which is `≤e`, otherwise null
+
+```java
+E floor(E e)
+```
+
+3) `ceiling(E e)` method - returns smallest element `≥e` otherwise null
+
+```java
+E ceiling(E e)
+```
+
+4) `higher(E e)` method - returns smallest element `>e` otherwise null
+
+```java
+E higher(E e)
+```
+
+* Example:
+
+```java
+NavigableSet<Integer> set = new TreeSet<>();
+for (int i = 1; i <= 20l; i++) set.add(i);
+System.out.println(set.lower(10)); // largest <10 => 9
+System.out.println(set.floor(10)); // largest <= 10  
+System.out.println(set.ceiling(20)); // smallest >=20 20
+System.out.println(set.higher(20)); // smallest > 20 null
+```
