@@ -476,3 +476,68 @@ List<? super Exception> l = new ArrayList<Object>();
         printList(keywords);
     }
 ```
+
+<hr>
+
+### 🟨 Upper-Bounded Wildcards
+
+* Suppose we wanted to write a method which sums a list of numbers. We cannot write the following:
+
+```java
+ArrayList<Number> list = new ArrayList<Integer>(); // DOES NOT COMPILE
+```
+
+* We MUST use an upperbounded wildcard so that we only get number types:
+
+```java
+ArrayList<? extends Number> list = new ArrayList<Integer>();
+```
+
+* This says any class which extends `Number` or is `Number` can be used as the formal type parameter:
+
+```java
+public static long total(List<? extends Number> list){
+    long count = 0;
+    for (Number number: list)
+        count += number.longValue();
+    return count;
+}
+```
+
+* Here is an example of upper-bounded wilcarding:
+
+```java
+    static class Sparrow extends Bird { }
+    static class Bird { }
+
+    public static void main(String[] args){
+        List<? extends Bird> birds = new ArrayList<Bird>();
+        birds.add(new Bird());      // DOES NOT COMPILE
+        birds.add(new Sparrow());   // DOES NOT COMPILE
+    }
+```
+
+* Java does not know what `List<? extends Bird>` really is. 
+
+* Let's try with an interface:
+
+```java
+interface Flyer { void fly(); }
+class HangGlider implements Flyer { public void fly() {} }
+class Goose implements Flyer { public void fly() {} }
+```
+
+* We have two methods which use the `Flyer` interface, one which uses it and another which uses upperbound:
+
+```java
+private void anyFlyer(List<Flyer> flyer) {}
+private void groupOfFlyers(List<? extends Flyer> flyers) {}
+```
+
+* `List<Flyer>` can be passed to both methods
+
+* `List<Goose>` and `List<HangGlider>` can be poassed to only the one with an upperbound
+
+<hr>
+
+### 🟨 Lower-Bounded Wildcards
