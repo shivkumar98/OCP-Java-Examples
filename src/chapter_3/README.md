@@ -908,3 +908,20 @@ System.out.println(set.higher(20)); // smallest > 20 null
 ```
 
 * Since `ArrayDeque` is double-ended, we can add elements to the front of queue.
+
+
+<hr> 
+
+### 🟨 Map
+
+* A `Map` store key-value pairs
+
+#### 🟡 Comparing Map Implementations 🟡
+
+* `HashMap` store keys in a hash table, so it uses `hashCode()` method of the keys to retrieve values more efficiently. This means retrieval and insertion is in O(1) but insertion order is lost.
+
+* `LinkedHashMap` keeps insertion order
+
+* `TreeMap` stores key in a sorted tree structure. Meaning the keys are sorted. Retrieval and insertion is O(log n)
+
+* `Hashtable` is an old threadsafe implementation. It's preferred to use HashMap
