@@ -950,3 +950,84 @@ System.out.println(set.higher(20)); // smallest > 20 null
 9) `Set<K> keySet` - returns all keys
 
 10) `Collection<V> values()` - returns Collection of all values
+
+<br>
+<hr>
+
+## 🟦 3.4 Comparator Vs Comparable
+
+* Java has a `Comparable` interface. Classes can implement the Comparable interface and override the `compareTo()` method.
+
+* The `Comparator` is a class which lets you define a different ordering than the object itself provides.
+
+### 🟨 Comparable
+
+* The Comparable interface only has one method:
+
+```java
+public interface Comparable<T> {
+    public int compareTo(T o);
+}
+```
+
+* Here is an example of defining an ordering for a `Duck` class based on the name:
+
+```java
+public class Duck implements Comparable<Duck> {
+    private String name;
+    public Duck(String name){
+        this.name = name;
+    }
+    public String toString(){ return name; }
+    public int compareTo(Duck d) {
+        return name.compareTo(d.name);
+    }
+    public static void main(String[] args){
+        List<Duck> ducks = new ArrayList<>();
+        ducks.add(new Duck("Quack"));
+        ducks.add(new Duck("Puddles"))
+        Collections.sort(ducks); // sorts 
+        System.out.println(ducks); // [Puddles, Quack]
+    }
+}
+```
+
+* We could define our own implementation of compareTo(Object o):
+
+1) Return `0` if the objects is same
+
+2) Return `<0` if the current object is less than the argument
+
+3) Return `>0` if the current object is greater than the argument
+
+* Here is an example of using a custom implementation:
+
+```java
+public Class Animal implements Comparable<Animal> {    
+    private int id;
+    public Animal(int id){ this.id = id; }
+    public int compareTo(Animal a){
+        return id - a.id; 
+    }
+    public static main(String[] args){
+        Animal a1 = new Animal(5);
+        Animal a2 = new Animal(7);
+        System.out.println(a1.compareTo(a2)); // -2
+        System.out.println(a2.compareTo(a1)); // 2
+    }
+}
+```
+
+* Legacy code also has implementations of the Comparable interface using:
+
+```java
+public class LegacyDuck implements Comparable {
+    private String name;
+    public int compareTo(Object obj){
+        LedgacyDuck d = (LegacyDuck) obj;
+        return name.compareTo(d.name);
+    }
+}
+```
+
+* It's encouraged that the implementation of compareTo(Object o) is consistent with the equals() implementation. I.e. if two are equal under compareTo() then the equals() should return true.
