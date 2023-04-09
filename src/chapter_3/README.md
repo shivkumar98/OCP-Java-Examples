@@ -855,3 +855,56 @@ System.out.println(set.floor(10)); // largest <= 10
 System.out.println(set.ceiling(20)); // smallest >=20 20
 System.out.println(set.higher(20)); // smallest > 20 null
 ```
+
+
+<hr> 
+
+### 🟨 Using the Queue Interface
+
+* You would use a queue when elements are added and removed in a specific order. Typically used for sorting elements before processing them
+
+* A queue is FIFO unless otherwise stated.
+
+#### 🟡 Comparing Queue Implementations 🟡
+
+* We saw previously, that `LinkedList` is a List implementation which allows for adding or remove elements at beginning/end of list in O(1) time.
+
+* The `LinkedList` is also a Queue implementation. It's double-ended meaning you can add/remove elements from either side. It's tradeoff is that it is not as efficient as a Pure queue
+
+* The `ArrayDeque` is a PURE double-ended queue
+
+#### 🟡 Working with Queue Methods 🟡
+
+1) `boolean add(E e)` - adds element to back of queue and returns true, otherwise throws exception
+
+2) `E element()` - returns next element
+
+3) `boolean offer(E e)` - adds an element to back of queue and returns if successful
+
+4) `E remove()` - removes and returns next element. Otherwise returns exception if empty
+
+5) `E peek()`- returns front value of queue, returns null if empty queue
+
+6) `E pop()` - removes front value of queue, throws exception if empty
+
+* ArrayDeque also has the `push()` method
+
+#### 🟡 Example 🟡
+
+* Here is an example:
+
+```java
+    Queue<Integer> arrQueue = new ArrayDeque<>();
+    System.out.println(arrQueue.offer(10)); // true
+    System.out.println(arrQueue); // [10]
+    System.out.println(arrQueue.offer(4)); // true
+    System.out.println(arrQueue); // [10, 4]
+    System.out.println(arrQueue.peek()); // 10
+    System.out.println(arrQueue.poll()); // 10
+    System.out.println(arrQueue); // [4]
+    System.out.println(arrQueue.poll()); // 4
+    System.out.println(arrQueue); // []
+    System.out.println(arrQueue.poll()); // null
+```
+
+* Since `ArrayDeque` is double-ended, we can add elements to the front of queue.
