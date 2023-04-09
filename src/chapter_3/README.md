@@ -925,3 +925,28 @@ System.out.println(set.higher(20)); // smallest > 20 null
 * `TreeMap` stores key in a sorted tree structure. Meaning the keys are sorted. Retrieval and insertion is O(log n)
 
 * `Hashtable` is an old threadsafe implementation. It's preferred to use HashMap
+
+
+#### 🟡 Working with Map Methods 🟡
+
+* Since Map does not extend the Collection interface, it has its own methods!
+
+1) `void clear()` - removes all pairs from map
+
+2) `boolean isEmpty()` 
+
+3) `int size()` - returns number of pairs
+
+4) `V get(Object key)`
+
+5) `V remove(Object key)` - removes mapped value and returns it. Otherwise returns null
+
+6) `V put(K key, V value)` - adds or replaces a value
+
+7) `boolean containsKey(Object key)` - checks whether key exists
+
+8) `boolean containsValue(Object value)` - checks if value exists
+
+9) `Set<K> keySet` - returns all keys
+
+10) `Collection<V> values()` - returns Collection of all values
