@@ -1031,3 +1031,68 @@ public class LegacyDuck implements Comparable {
 ```
 
 * It's encouraged that the implementation of compareTo(Object o) is consistent with the equals() implementation. I.e. if two are equal under compareTo() then the equals() should return true.
+
+<hr>
+
+### 🟨 Comparator
+
+
+* Comparator is an interface which let's use define a custom ordering, which overrides the natural overriding of the class
+
+* Suppose we have the Duck class with an additional weight field:
+
+```java
+class Duck implements Comparable<Duck> {
+	String name;
+	int weight;
+	public Duck(String name, int weight) {
+		this.name=name; this.weight=weight;
+	}
+	public String toString() {
+		return name+ ", "+ weight;
+	}
+	@Override
+	public int compareTo(Duck o) {
+		return name.compareTo(o.name);
+	}
+}
+```
+
+* We can create a `Comparator` to create a Comparator object which implements the interface:
+
+```java
+    public static void main(String[] args) {
+            List<Duck> ducks = new ArrayList<>();
+            Duck d1 = new Duck("Puddle",   10);
+            Duck d2 = new Duck("Quack", 7);
+            ducks.add(d1); ducks.add(d2);
+            System.out.println(ducks); // [Puddle, 10, Quack, 7]
+            
+            // defining a comparator using anonymous inner class
+            Comparator<Duck> byWeight = new Comparator<Duck>() {
+                @Override
+                public int compare(Duck o1, Duck o2) {
+                    return o1.weight - o2.weight;
+                }
+            };
+            // sorting using comparator object
+            Collections.sort(ducks, byWeight);
+            System.out.println(ducks); // [Quack, 7, Puddle, 10]
+            
+    }
+```
+
+#### 🟡 Using Comparable with Lambdas  🟡
+
+* Comparable is a functional interface, hence we can use lambdas!
+
+* We could write the Comparator implementation without an annoynmous inner class using lamdas:
+
+```java
+Comparator<Duck> byWeight = (d1, d2) -> d1.weight - d2.weight;
+Comparator<Duck> byWeight = (Duck d1, Duck d2) -> d1.weight - d2.weight;
+Comparator<Duck> byWeight = (d1, d2) -> { return d1.weight - d2.weight; }
+Comparator<Duck> byWeight = (Duck d1, Duck d2) -> { return d1.weight - d2.weight; }
+```
+
+* ⚠️ Comparator is also a functional interface, so we COULD write a lambda.. BUT classes implement the Comparator interface so this does not make sense.
