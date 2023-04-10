@@ -1095,4 +1095,29 @@ Comparator<Duck> byWeight = (d1, d2) -> { return d1.weight - d2.weight; }
 Comparator<Duck> byWeight = (Duck d1, Duck d2) -> { return d1.weight - d2.weight; }
 ```
 
-* ⚠️ Comparator is also a functional interface, so we COULD write a lambda.. BUT classes implement the Comparator interface so this does not make sense.
+* ⚠️ Comparator is also a functional interface, so we COULD write a lambda.. BUT classes implement the Comparator interface so this does not make sense! 
+
+<br>
+<hr>
+
+## 🟦 3.5 Searching and Sorting
+
+* The `Collections` interface has a `sort(someCollection)` method which sorts a collection using its 'natural' ordering.
+
+* ⚠️ If a class does not implement the `Comparable` interface, then it can not be sorted by the above method without compiler error! ⚠️
+
+* We can surpass this compilation error, by overloading the `sort()` method with a Comparator implementation: `sort(someCollection, someComparator)`
+
+* E.g.:
+
+```java
+class SortRabbits {
+    static class Rabbit{ int id; }
+    public static void main(String[] args){
+        List<Rabbit> rabbits = new ArrayList<>();
+        rabbits.add(new Rabbit());
+        Comparator<Rabbit> c = (r1, r2) -> r1.id - r2.id
+        Collections.sort(rabbits, c);
+    }
+}
+```
