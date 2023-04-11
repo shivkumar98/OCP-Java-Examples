@@ -1302,3 +1302,24 @@ boolean removeIf(Predicate<? super E> filter)
 * **🤔🤔 Could we replace the lambda with a method reference? 🤔🤔**
 
 * NO! 
+
+<hr>
+
+### 🟨 Updating All Elements
+
+* Java 8 also introduces the `replaceAll()` method on Lists. It has a signature of:
+
+```java
+void replaceAll(UnaryOperator<E> o)
+```
+
+* It uses an UnaryOperator which takesw one parameter and returns a single value of same type. E.g.:
+
+```java
+List<Integer> list = Arrays.asList(1,2,3); // [1, 2, 3]
+list.replaceAll(x->x*2); // [2, 4, 6]
+```
+
+<hr>
+
+### 🟨 Updating All Elements
