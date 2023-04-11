@@ -1,4 +1,4 @@
-<link href="style.css" rel="stylesheet"></link>
+uyhgq<link href="style.css" rel="stylesheet"></link>
 
 # 🟪  Chapter 3: Generics and Collections
 
@@ -1180,3 +1180,102 @@ public class UseTreeSet {
 	}
 }
 ```
+
+<br>
+<hr>
+
+## 🟦 3.5 Additions in Java 8
+
+* Method references and lambdas are core structures in Java 8
+
+* We shall see how to use `removeIf()`, `forEach()`, `merge()`, `computeIfPresent()` and `computeIfAbsent()`
+
+#### 🟡 Using Method References 🟡
+
+* Method references shorten the code by simply mentioning a method without explicitly passing the parameters.
+
+* E.g. suppose we have a `Duck` class with name and weight attributes. We also have a helper class:
+
+```java
+public class DuckHelper {
+	public static int compareByWeight(Duck d1, Duck d2) {
+		return d1.weight - d2.weight;
+	}
+	public static int compareByName(Duck d1, Duck d2) {
+		return d1.name.compareTo(d2.name);
+	}
+}
+class Duck {
+    String name;
+    int weight;
+    public Duck(String name, int weight) {
+        this.name=name;this.weight=weight;
+    }
+    public String toString() {
+        return "name: "+name+ ", weight: "+weight;
+    }
+}
+```
+
+* We could write a `Comparator` if we wanted to sort by weight, we can write a lambda:
+
+```java
+Comparator<Duck> byWeight = (d1, d2) -> DuckHelper.compareByWeight(d1, d2);
+```
+
+* As we can see the parameters are consumed by `DuckHelper.compareByWeight()`
+
+* 🙌🙌 **We can use a method reference instead!** 🙌🙌
+
+```java
+Comparator<Duck> byWeight = DuckHelper::compareByWeight;
+```
+
+<hr>
+
+#### 🟡 Method Reference Type 🟡
+
+
+* There are four formats for method references:
+
+1) Static methods
+
+2) Instance methods on a particular instance
+
+3) Instance methods on an instance to be determined at runtime
+
+4) Constructor
+
+* Recapping on Chapter 2, `Predicate` is a functional interface which takes a parameter of any type and returns boolean. `Consumer` is a functional interface which takes a single parameter of any type and returns void. `Supplier` takes no paramaeters and returns any type.
+
+* Here is a **static method**:
+
+```java
+Consumer<List<Integer>> lambda1 = l -> Collections.sort(l);
+Consumer<List<Integer>> methodRef1 = Collections::sort;
+```
+
+* Java is inferring which overloaded version of `Collections.sort()` it should use from the context set by using `Consumer` which takes a single parameter. Hence it knows to use the single parameter version of sort!
+
+* Here is a **instance method on a particular instance**:
+
+```java
+String str = "abc";
+Predicate<String> lambda2 = s-> str.startsWith(s)
+Predicate<String> methodRef2 = str::startsWith;
+```
+
+* Here is an **instance method on an instance determined at runtime**:
+
+```java
+Predicate<String> lambda3 = s -> s.isEmpty();
+Predicate<String> methodRef3 = String::isEmpty;
+```
+
+* Here is a **constructor method**:
+
+```java
+Supplier<ArrayList> lambda4 = () -> new ArrayList();
+Supplier<ArrayList> methodRef5 = ArrayList::new;
+```
+
