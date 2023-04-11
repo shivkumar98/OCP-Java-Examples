@@ -1190,7 +1190,7 @@ public class UseTreeSet {
 
 * We shall see how to use `removeIf()`, `forEach()`, `merge()`, `computeIfPresent()` and `computeIfAbsent()`
 
-#### 🟡 Using Method References 🟡
+### 🟨 Using Method References
 
 * Method references shorten the code by simply mentioning a method without explicitly passing the parameters.
 
@@ -1233,7 +1233,7 @@ Comparator<Duck> byWeight = DuckHelper::compareByWeight;
 
 <hr>
 
-#### 🟡 Method Reference Type 🟡
+#### 🟡 Method Reference Types 🟡
 
 
 * There are four formats for method references:
@@ -1279,3 +1279,26 @@ Supplier<ArrayList> lambda4 = () -> new ArrayList();
 Supplier<ArrayList> methodRef5 = ArrayList::new;
 ```
 
+<hr>
+
+### 🟨 Removing Conditionally
+
+* Java 8 has a `removeIf()` method which let's use remove elements from a collection using lambda expressions. The signature of this method is:
+
+```java
+boolean removeIf(Predicate<? super E> filter)
+```
+
+* Example:
+
+```java
+    List<String> list = new ArrayList<>();
+    list.add("Magician");
+    list.add("Assistant");
+    System.out.println(list); // [Magician, Assistant]
+    list.removeIf(s-> s.startWith("A")); // [Magician]
+```
+
+* **🤔🤔 Could we replace the lambda with a method reference? 🤔🤔**
+
+* NO! 

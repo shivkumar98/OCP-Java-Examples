@@ -24,7 +24,6 @@ public class UseTreeSet {
 		rabbitSorted.add(new Rabbit(3));
 		rabbitSorted.add(new Rabbit(1));
 		
-		System.out.println(rabbitSorted);
+		System.out.println(rabbitSorted); // [id: 1, id: 2, id: 3]
 	}
-
 }
