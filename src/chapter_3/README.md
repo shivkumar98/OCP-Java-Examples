@@ -1121,3 +1121,62 @@ class SortRabbits {
     }
 }
 ```
+
+* The `binarySearch()` method can also be overloaded, so that it searches for an item in a specified order.
+
+```java
+List<String> names = Arrays.asList("Fluffy", "Hoppy");
+Comparator<String> c = Comparator.reverseOrder();
+int index = Collections.binarySearch(names, "Hoppy", c);
+System.out.println(index);
+```
+
+* The third line says apply the Comparator to `names`. This sorts the array as: `[Hoppy, Fluffy]`
+
+* We are then doing a binary search, but the names are not sorted naturally!
+
+* Hence the result is undefined!
+
+* If we are using the `TreeSet` collection, we are saying a sorting is being done on the collection. IF a collection is not `Comparable` THEN it will throw a runtime exception when adding to the `TreeSet`
+
+```java
+public class UseTreeSet {
+    static class Rabbit { int id; }
+    public static void main(String[] args) {
+        Set<Duck> ducks = new TreeSet<>();
+        ducks.add(new Duck("Puddles")); // Duck implements Comparable
+        Set<Rabbit> rabbits = new TreeSet<>();
+        rabbit.add(new Rabbit()); // throws runtime exception
+    }
+}
+```
+
+* We can circumvent this runtime exception by adding a Comparator as an argument to the TreeSet:
+
+```java
+public class UseTreeSet {
+	static class Rabbit { 
+		int id;
+		public Rabbit(int id) { this.id = id; }
+		public String toString() {
+			return "id: "+id;
+		}
+	}
+	public static void main(String[] args) {
+		Set<Rabbit> rabbit = new TreeSet<>();
+		 // rabbit.add(new Rabbit()); // THROWS RUN TIME EXCEPTION
+		Set<Rabbit> rabbitSorted = new TreeSet<>(new Comparator<Rabbit>() {
+			@Override
+			public int compare(Rabbit o1, Rabbit o2) {
+				// TODO Auto-generated method stub
+				return Integer.compare(o1.id, o2.id);
+			}			
+		});
+		rabbitSorted.add(new Rabbit(2));
+		rabbitSorted.add(new Rabbit(3));
+		rabbitSorted.add(new Rabbit(1));
+		
+		System.out.println(rabbitSorted); // [id: 1, id: 2, id: 3]
+	}
+}
+```
