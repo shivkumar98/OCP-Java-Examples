@@ -1322,4 +1322,23 @@ list.replaceAll(x->x*2); // [2, 4, 6]
 
 <hr>
 
-### 🟨 Updating All Elements
+### 🟨 Looping Through a Collection
+
+* We've seen how we can loop through a collection using enhanced for loops and iterator.
+
+* But we can also use lambda expressions! By using `forEach()` method we can pass a lambda expression.
+
+```java
+List<String> cats = Arrays.asList("Annie", "Ripley");
+cats.forEach(c-> System.out.println(c));
+```
+
+* We are passing a consumer, so we could use method references:
+
+```java
+cats.forEach(System.out::println);
+```
+
+<hr>
+
+### 🟨 Using New Java 8 Maps APIs
