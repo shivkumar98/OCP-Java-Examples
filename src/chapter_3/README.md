@@ -1390,3 +1390,59 @@ favorites.put("Jenny", "Tram");
 		favorites.putIfAbsent("Sammy", "Rollercoaster");
 		System.out.println(favorites); // {Sammy=Rollercoaster, ShivHatesNulls=Car, Jenny=Tram}
 ```
+
+
+#### 🟡 `merge()` method 🟡
+
+* The `merge()` method let's you add logic to updating a value.
+
+* E.g. suppose we want to update a value if the value provided is longer in lenght than the one which is present:
+
+```java
+BiFunction<String, String, String> mapper = (v1, v2) -> v1.length > v2.length ? v1 : v2;
+
+Map<String, String> favorites = new HashMap<>();
+favorites.put("Shiv", "Uber");
+favorites.put("Sammy", "Tram");
+```
+
+* Let's try to merge a value which is larger:
+
+```java
+String shiv = favorites.merge("Train")
+    Map<String, String> favorites = new HashMap<>();
+    favorites.put("Shiv", "Uber");
+    favorites.put("Sammy", "Tram");
+    
+    BiFunction<String, String, String>
+    mapper = (v1, v2) -> v1.length() > v2.length() ? v1 : v2;
+    
+    String shiv = favorites.merge("Shiv", "Helicopter", mapper);
+    System.out.println(shiv); // Helicopter
+    System.out.println(favorites); // {Sammy=Tram, Shiv=Helicopter}
+    // ^^^ the Helicopter was merged in
+    
+    // We could also use a lambda expression directly:
+    String shiv2 = favorites.merge("Shiv", "A massive truck!", (v1, v2)-> v1.startsWith("a")?v1:v2);
+    System.out.println(shiv2); // A massive truck!
+    System.out.println(favorites); // {Sammy=Tram, Shiv=A massive truck!}
+```
+
+* What happens if the mapping function returns null? The key-value pair is removed! ❗❗❗
+
+```java
+    Map<String, Integer> restaurantsVisited = new HashMap<>();
+    restaurantsVisited.put("Chung Ying", 5);
+    restaurantsVisited.put("China Court", 10);
+    
+    restaurantsVisited.merge("China Court", 11, (v1,v2)->null);
+    System.out.println(restaurantsVisited); // {Chung Ying=5}
+    // The key-value pair was removed! 😲
+```
+
+* IF the key isn't present THEN the merge will still take place even if the mapper returns null:
+
+```java
+    restaurantsVisited.merge("KFC", 1, (v1,v2)->null);
+		System.out.println(restaurantsVisited); // {KFC=1, Chung Ying=5}
+```
