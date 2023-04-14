@@ -602,7 +602,7 @@ private static void addSound5(List<? super String> list) {
 
 ### 🟨 Putting it all togetger
 
-#### 🟡 Example 
+#### 🟠 Example 
 
 ```java
 class A {}
@@ -729,7 +729,7 @@ boolean contains(Object object)
 * List is a collection, where elements can be accessed via an index. It allows duplicate entries. The most common implementation is `ArrayList`
 
 
-#### 🟡 Comparing List Implementations 🟡
+#### 🟠 Comparing List Implementations 🟠
 
 * `ArrayList` is a resizeable structure, we can add elements and it grows automatically. Adding/removing elements is slow (O(N)) but accessing elements is very fast - constant time!
 
@@ -739,7 +739,7 @@ boolean contains(Object object)
 
 * `Stack` has a push() method which adds to the top of the stack, pop() lets you remove the top of the stack. peek() lets you access the top element
 
-#### 🟡 Working with List Methods 🟡
+#### 🟠 Working with List Methods 🟠
 
 * The `List` interface has the following additional methods:
 
@@ -764,7 +764,7 @@ list.remove("NY"); // [FL]
 list.remove(0); // []
 ```
 
-#### 🟡 Looping Through a List 🟡
+#### 🟠 Looping Through a List 🟠
 
 * We can use `Iterator` to loop through a list:
 
@@ -783,13 +783,13 @@ while (iter.hasNext()){
 
 * You use Sets when you want to prevent duplicates.
 
-#### 🟡 Comparing Set Implementations 🟡
+#### 🟠 Comparing Set Implementations 🟠
 
 * `HashSet` stores hashCodes of the values. It does not allow sorting. Adding and accessing values is in constant time
 
 * 'TreeSet' allows for sorting. Checking for elemenents and insertion is slower at O(log n)
 
-#### 🟡 Working with Set Methods 🟡
+#### 🟠 Working with Set Methods 🟠
 
 *  Using `HashSet`:
 
@@ -817,7 +817,7 @@ for (Integer integer: set) System.out.println(integer+",") // 8, 10, 66
 
 * Insertion order was now preserved! We can also apply a custom ordering with Comparable interface!!
 
-#### 🟡 The `NavigableSet` Interface 🟡
+#### 🟠 The `NavigableSet` Interface 🟠
 
 * The TreeSet implements the `NavigableSet` interface. This has the following methods:
 
@@ -865,7 +865,7 @@ System.out.println(set.higher(20)); // smallest > 20 null
 
 * A queue is FIFO unless otherwise stated.
 
-#### 🟡 Comparing Queue Implementations 🟡
+#### 🟠 Comparing Queue Implementations 🟠
 
 * We saw previously, that `LinkedList` is a List implementation which allows for adding or remove elements at beginning/end of list in O(1) time.
 
@@ -873,7 +873,7 @@ System.out.println(set.higher(20)); // smallest > 20 null
 
 * The `ArrayDeque` is a PURE double-ended queue
 
-#### 🟡 Working with Queue Methods 🟡
+#### 🟠 Working with Queue Methods 🟠
 
 1) `boolean add(E e)` - adds element to back of queue and returns true, otherwise throws exception
 
@@ -889,7 +889,7 @@ System.out.println(set.higher(20)); // smallest > 20 null
 
 * ArrayDeque also has the `push()` method
 
-#### 🟡 Example 🟡
+#### 🟠 Example 🟠
 
 * Here is an example:
 
@@ -916,7 +916,7 @@ System.out.println(set.higher(20)); // smallest > 20 null
 
 * A `Map` store key-value pairs
 
-#### 🟡 Comparing Map Implementations 🟡
+#### 🟠 Comparing Map Implementations 🟠
 
 * `HashMap` store keys in a hash table, so it uses `hashCode()` method of the keys to retrieve values more efficiently. This means retrieval and insertion is in O(1) but insertion order is lost.
 
@@ -927,7 +927,7 @@ System.out.println(set.higher(20)); // smallest > 20 null
 * `Hashtable` is an old threadsafe implementation. It's preferred to use HashMap
 
 
-#### 🟡 Working with Map Methods 🟡
+#### 🟠 Working with Map Methods 🟠
 
 * Since Map does not extend the Collection interface, it has its own methods!
 
@@ -1082,7 +1082,7 @@ class Duck implements Comparable<Duck> {
     }
 ```
 
-#### 🟡 Using Comparable with Lambdas  🟡
+#### 🟠 Using Comparable with Lambdas  🟠
 
 * Comparable is a functional interface, hence we can use lambdas!
 
@@ -1233,7 +1233,7 @@ Comparator<Duck> byWeight = DuckHelper::compareByWeight;
 
 <hr>
 
-#### 🟡 Method Reference Types 🟡
+#### 🟠 Method Reference Types 🟠
 
 
 * There are four formats for method references:
@@ -1364,7 +1364,7 @@ favorites.put("Jenny", "Bus Tour");
 favorites.put("Jenny", "Tram"); 
 ```
 
-#### 🟡 `putIfAbsent()` method 🟡
+#### 🟠 `putIfAbsent()` method 🟠
 
 * The `putIfAbsent()` method let's you update a value if it is null
 
@@ -1391,8 +1391,9 @@ favorites.put("Jenny", "Tram");
 		System.out.println(favorites); // {Sammy=Rollercoaster, ShivHatesNulls=Car, Jenny=Tram}
 ```
 
+<hr>
 
-#### 🟡 `merge()` method 🟡
+#### 🟠 `merge()` method 🟠
 
 * The `merge()` method let's you add logic to updating a value.
 
@@ -1446,3 +1447,50 @@ String shiv = favorites.merge("Train")
     restaurantsVisited.merge("KFC", 1, (v1,v2)->null);
 		System.out.println(restaurantsVisited); // {KFC=1, Chung Ying=5}
 ```
+
+<hr>
+
+#### 🟠 `computeIfPresent()` and `computeIfAbsent()` method 🟠
+
+* We can use the `computeIfPresent()` method to apply some logic when inserting a value for a specific key. A common thing to do is to insert a new pair if the key is absent otherwise increment it's value - this can be achieved easily with this method:
+
+```java
+    Map<String, Integer> restaurantVisits = new HashMap<>();
+    restaurantVisits.put("KFC", 3);
+    restaurantVisits.put("Chung Ying", 4);
+    
+    // using computeIfPresent:
+    restaurantVisits.computeIfPresent("Chung Ying", (k,v)->k==null?0:++v);
+    System.out.println(restaurantVisits); // {KFC=3, Chung Ying=5}
+    
+    // What if we map to null?
+    restaurantVisits.computeIfPresent("KFC", (k,v)->null);
+    System.out.println(restaurantVisits); // {Chung Ying=5}
+    // ^ The pair was removed!
+    
+    restaurantVisits.computeIfPresent("McDonalds", (k,v)->null);
+    System.out.println(restaurantVisits); // {Chung Ying=5}
+    // ^ Nothing happens if key is not present
+```
+
+* The `computeIfPresent()` method only executes if the if the key isn't present or the value is null. This method accepts a Function:
+
+```java
+Map<String, Integer> restaurantVisits = new HashMap<>();
+		Function<String, Integer> mapper = k-> 1;
+		// ^ notice how the function maps from String to Integer!
+		restaurantVisits.computeIfAbsent("Chung Ying", mapper);
+		// IF the key is not present, THEN the value is added using the mapper
+		System.out.println(restaurantVisits); // {Chung Ying=1}
+		
+		restaurantVisits.put("China Court", null);
+		restaurantVisits.computeIfAbsent("China Court", mapper);
+		// again, IF the value is null THEN 
+		System.out.println(restaurantVisits); // {Chung Ying=1, China Court=1}
+		
+		// what if the mapper, maps the value to null?
+		restaurantVisits.computeIfAbsent("Chung Ying",k->null);
+		System.out.println(restaurantVisits); // {Chung Ying=1, China Court=1}
+		// NOTHING HAPPENED!
+```
+
