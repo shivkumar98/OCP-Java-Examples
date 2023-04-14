@@ -21,5 +21,10 @@ public class UsingComputeIfPresent {
 		restaurantVisits.computeIfPresent("McDonalds", (k,v)->null);
 		System.out.println(restaurantVisits); // {Chung Ying=5}
 		// ^ Nothing happens if key is not present
+		Map<Integer, Integer> map = new HashMap<>(10);
+		for (int i = 1; i <= 10; i++) {
+		map.put(i, i * i);
+		 }
+		 System.out.println(map.get(4));
 	}
 }
