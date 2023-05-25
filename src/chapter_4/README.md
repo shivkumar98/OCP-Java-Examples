@@ -210,3 +210,39 @@ Predicate<String> brownEggs = egg.add(brown);
 Predicate<String> eggsWhichAreNotBrown = egg.and(brown.negate());
 System.out.println(eggsWhichAreNotBrown.test("I like eggs which are not brown")); // false
 ```
+
+
+## 4.2.4 Implementing Function and BiFunction
+
+* The `Function` and `BiFunction` interfaces are defined as:
+
+```java
+@FunctionalInterface public class Function<T,R> {
+    R apply(T t);
+}
+
+@FunctionalInterface public class BiFunction<T,U,R> {
+    R apply(T t, U u);
+}
+```
+
+* Here are some examples of implementing `Function`:
+
+```java
+Function<String, Integer> f1 = String::length;
+System.out.println(f1.apply("Shiv")); // 4
+
+Function<String, Integer> f2 = s -> s.indexOf("i");
+System.out.println(f2.apply("Shiv")); // 2
+```
+
+* Here are some examples of implementing `BiFunction`:
+
+```java
+BiFunction<String,String,Integer> bf1 = String::indexOf;
+System.out.println(bf1.apply("Shiv Kumar", "Ku")); // 5
+
+BiFunction<String,String,Integer> bf2 = String::concat;
+System.out.println(bf2.apply("1+1","=2"));
+```
+
