@@ -20,6 +20,8 @@ uyhgq<link href="style.css" rel="stylesheet"></link>
 
 ## 🟦 Exam Objectives:
 
+This chapter will introduce more functional interfaces and the `Optional` class.
+
 * Generics and Collections:
 
     - Collections Steams and Filters
@@ -43,3 +45,4 @@ uyhgq<link href="style.css" rel="stylesheet"></link>
     - Sort a collection using Stream API
     - Save results to a collection using the collect method
     - Use `merge()` and `flat()` methods of Stream API
+
