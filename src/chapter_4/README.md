@@ -151,7 +151,7 @@ BiConsumer<String, Integer> b2 = map::put;
 BiConsumer<Integer, String> b3 = map::put; // COMPILER ERROR
 ```
 
-### 4.2.3 Implementing Predicate and BiPredicate
+## 4.2.3 Implementing Predicate and BiPredicate
 
 * We've used predicates before when calling the `removeIf()` method on collections. Predicates are often used when filtering or matching. Predicate and BiPredicate are defined as:
 
@@ -162,4 +162,51 @@ BiConsumer<Integer, String> b3 = map::put; // COMPILER ERROR
 @FunctionalInterface public class BiPredicate<T, U> {
     boolean test(T t, U u);
 }
+```
+
+* We use predicates to write tests for a parameter (or 2 parameters). Here is some examples:
+
+```java
+Predicate<String> p1 = String::isEmpty;
+Predicate<String> p2 = s -> s.contains("h");
+```
+
+* You can not use a non-static method as a method reference.
+
+* We also have the `BiPredicate` interface:
+
+```java
+BiPredicate<String, String> bp1 = String::contains;
+BiPredicate<String, String> bp2 = (x,y) -> x.contains(y); // equivalent to above
+
+System.out.println(bp1.test("Shiv","v")); // true
+System.out.println(bp2.test("Hello", "o")); // true
+```
+
+### Default Methods on Functional Interfaces
+
+* Suppose we have two predicates:
+
+```java
+Predicate<String> egg = s.contains("egg");
+Predicate<String> brown = s.contains("brown");
+```
+
+* Suppose we want to check that string contains "egg" AND "brown", we COULD write it as:
+
+```java
+Predicate<String> brownEggs = s.contains("egg") && s.contains("brown");
+```
+
+* This has code duplication. We can use default methods on `Predicate`:
+
+```java
+Predicate<String> brownEggs = egg.add(brown);
+```
+
+* Suppose we want String containing "egg" AND NOT "brown, then we can use the `negate()` method on the predicate:
+
+```java
+Predicate<String> eggsWhichAreNotBrown = egg.and(brown.negate());
+System.out.println(eggsWhichAreNotBrown.test("I like eggs which are not brown")); // false
 ```
