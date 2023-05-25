@@ -71,3 +71,35 @@ System.out.println(a1); // []
 ```
 
 * If we print out the functional interface itself we get something like `chapter_4.FunctionalInterfaces$$Lambda$44/0x0000000800113990@5ef60048`
+
+## 4.2.2 Implementing Consumer and BiConsumer
+
+* A consumer is used when you want to do something with a parameter but not return anything. These functional interfaces are defined as:
+
+```java
+@FunctionalInterface public class Consumer<T> {
+    void accept(T t);
+}
+@FunctionalInterface public class BiConsumer<T, U> {
+    void accept(T t, U u);
+}
+```
+
+* Here is an example:
+
+```java
+Consumer<String> c1 = System.out::println;
+Consumer<String> c2 = x -> System.out.println("here is x: "+x)
+```
+
+```java
+Map<String, Integer> map = new HashMap<>();
+BiConsumer<String, Integer> b1 = (x,y) -> map.put(x,y);
+BiConsumer<String, Integer> b2 = map::put;
+```
+
+* Method reference works here too! The following will NOT work:
+
+```java
+BiConsumer<Integer, String> b3 = map::put; // COMPILER ERROR
+```

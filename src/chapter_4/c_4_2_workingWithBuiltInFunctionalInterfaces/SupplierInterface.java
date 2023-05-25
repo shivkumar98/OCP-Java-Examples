@@ -1,10 +1,10 @@
-package chapter_4;
+package chapter_4.c_4_2_workingWithBuiltInFunctionalInterfaces;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-public class FunctionalInterfaces {
+public class SupplierInterface {
 	
 
 	public static void main(String[] args) {
