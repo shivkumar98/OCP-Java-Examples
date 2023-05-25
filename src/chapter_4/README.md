@@ -246,3 +246,27 @@ BiFunction<String,String,Integer> bf2 = String::concat;
 System.out.println(bf2.apply("1+1","=2"));
 ```
 
+## 4.2.5 Implementing UnaryOperator and BinaryOperator
+
+* `UnaryOperator` and `BinaryOperator` are functions which map parameters of one type to a value of the SAME type. These interfaces are defined as:
+
+```java
+@FunctionalInterface public class UnaryOperator<T> extends Function<T,T> {}
+
+@FunctionalInterface public class BinaryOperator<T> extends BiFunction<T,T,T> {}
+```
+
+* Here is an example:
+
+```java
+UnaryOperator<String> u1 = String::toUpperCase;
+UnaryOperator<String> u2 = s-> s.concat(" x");
+System.out.println(u1.apply("shiv")); // SHIV
+System.out.println(u2.apply("shiv")); // shiv x
+
+BinaryOperator<String> b1 = String::concat;
+BinaryOperator<String> b2 = (x,y) -> x + " " + y;
+System.out.println(b1.apply("Shiv ", "Kumar")); // Shiv Kumar
+System.out.println(b2.apply("Shiv", "Kumar")); // Shiv Kumar
+```
+
