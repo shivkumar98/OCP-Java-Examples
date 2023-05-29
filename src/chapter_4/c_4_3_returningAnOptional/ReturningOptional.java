@@ -23,6 +23,6 @@ public class ReturningOptional {
 		Optional<Double> nullOpt = average();
 		System.out.println(nullOpt.orElse(Double.NaN)); // NaN
 		System.out.println(nullOpt.orElseGet(Math::random)); // 0.48081772172470216
-		System.out.println(nullOpt.orElseThrow(() -> new IllegalArgumentException()));
+		System.out.println(nullOpt.orElseThrow(() -> new IllegalArgumentException())); // Exception in thread "main" java.lang.IllegalArgumentException
 	}
 }
