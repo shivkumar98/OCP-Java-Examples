@@ -27,7 +27,10 @@ public class CreatingStreamSources {
 		// constant.forEach(System.out::println);
 		
 		Stream<Integer> oddNumbers = Stream.iterate(1, n-> n+2);
-		oddNumbers.forEach(System.out::println);
+		//oddNumbers.forEach(System.out::println);
+		
+		Stream<Integer> nums = Stream.of(1,2,3);
+		System.out.println(nums.count()); // 3
 	}
 
 }
