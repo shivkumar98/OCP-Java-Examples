@@ -21,7 +21,15 @@ public class CreatingStreamSources {
 		
 		// we can also generate infinite streams:
 		Stream<Double> randoms = Stream.generate(Math::random);
-		randoms.forEach(System.out::println);
+		// randoms.forEach(System.out::println);
+		Stream<Double> constant = Stream.generate(() -> 1.2);
+		// constant.forEach(System.out::println);
+		
+		Stream<Integer> oddNumbers = Stream.iterate(1, n-> n+2);
+		//oddNumbers.forEach(System.out::println);
+		
+		Stream<Integer> nums = Stream.of(1,2,3);
+		System.out.println(nums.count()); // 3
 	}
 
 }
