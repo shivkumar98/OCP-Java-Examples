@@ -20,7 +20,6 @@ public class CreatingStreamSources {
 		// the above are finite streams
 		
 		// we can also generate infinite streams:
-	
 		Stream<Double> randoms = Stream.generate(Math::random);
 		randoms.forEach(System.out::println);
 	}
