@@ -8,6 +8,13 @@ public class CommonIntermediateOperations {
 		sequence.limit(2).forEach(System.out::println); // 1 3
 		
 		Stream<Integer> sequence2 = Stream.iterate(1,n-> n+2);
-		sequence2.skip(100).limit(2).forEach(System.out::println);
+		sequence2.skip(100).limit(2).forEach(System.out::println); // 201 203
+		
+		// using map:
+		
+		Stream<String> words = Stream.of("Shiv", "hates", "Java");
+		words.map(x-> x.length()).forEach(System.out::println);
 	}
+	
+	
 }

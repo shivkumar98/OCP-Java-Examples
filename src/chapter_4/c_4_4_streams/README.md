@@ -274,3 +274,19 @@ sequence.limit(2).forEach(System.out::println); // 1 3
 Stream<Integer> sequence2 = Stream.iterate(1,n-> n+2);
 sequence2.skip(100).limit(2).forEach(System.out::println); // 201 203
 ```
+
+
+### ⭐ `map()` ⭐
+ 
+ * The map() method creates a 1-1 mapping frome elements in stream to the elements of the next step in stream.
+
+ * It has the following signature:
+
+ ```java
+ <R> Stream<R> map(Function<? super T, ? extends R> mapper)
+ ```
+
+```java
+Stream<String> words = Stream.of("Shiv", "hates", "Java");
+words.map(x-> x.length()).forEach(System.out::println); // 4 5 4
+```
