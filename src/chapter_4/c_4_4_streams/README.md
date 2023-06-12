@@ -316,3 +316,25 @@ stream.forEach(System.out::println); // [] [Shiv] [[nested]]
 Stream<List> stream2 = Stream.of(empty, one, nested);
 stream2.flatMap(l -> l.stream()).forEach(System.out::println); //   Shiv [nested]
 ```
+
+### ⭐ `sorted()` ⭐
+
+* This method returns a sorted stream, it has an overload which lets you pass in a Comparator.
+
+* It has the following signatures:
+
+```java
+Stream<T> sorted()
+Stream<T> sorted(Comparator<? super T> comparator)
+```
+
+* Examples:
+
+```java
+// using sorted()
+Stream<String> strings = Stream.of("BBBB", "A", "CC");
+strings.sorted().forEach(System.out::println); // A BBBB CC
+
+Stream<String> strings2 = Stream.of("BBBB", "A", "CC");
+strings2.sorted((x,y) -> Integer.compare(x.length(), y.length())).forEach(System.out::println); // A CC BBBB
+```

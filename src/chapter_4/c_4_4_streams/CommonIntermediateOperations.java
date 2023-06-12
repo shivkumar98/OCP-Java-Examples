@@ -28,8 +28,12 @@ public class CommonIntermediateOperations {
 		Stream<List> stream2 = Stream.of(empty, one, nested);
 		stream2.flatMap(l -> l.stream()).forEach(System.out::println); //   Shiv [nested]
 		
+		// using sorted()
+		Stream<String> strings = Stream.of("BBBB", "A", "CC");
+		strings.sorted().forEach(System.out::println); // A BBBB CC
 		
-	
+		Stream<String> strings2 = Stream.of("BBBB", "A", "CC");
+		strings2.sorted((x,y) -> Integer.compare(x.length(), y.length())).forEach(System.out::println); // A CC BBBB
 	}
 	
 	
