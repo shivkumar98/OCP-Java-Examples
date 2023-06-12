@@ -1,5 +1,5 @@
 
-# 4.4 Using Streams
+# 🧠 4.4 Using Streams
 
 * A stream is a sequence of data. A stream pipeline is the operations that run on a stream to produce a result. A stream pipeline has three parts:
 
@@ -9,11 +9,11 @@
 
 3) Terminal Operations: actually generate the result
 
-## 4.4.1 Creating Stream Sources
+## 🔴 4.4.1 Creating Stream Sources
 
 * There are two types of streams: finite and infinite
 
-### Finite Streams
+### ⭐ Finite Streams ⭐
 
 * We can create finite streams by defining the elements explicitly:
 
@@ -34,7 +34,7 @@ Stream<String> fromListParallel = list.parallelStream();
 
 * We created a parallel stream which lets us do parallel options (we will see this in concurrency)
 
-### Infinite Streams
+### ⭐ Infinite Streams ⭐
 
 * We can create infinite streams by specifying a pattern:
 
@@ -63,7 +63,9 @@ Stream<Integer> oddNumbers = Stream.iterate(1, n-> n+2);
 oddNumbers.forEach(System.out::println);
 ```
 
-## 4.4.2 Using Common Terminal Operations
+<hr>
+
+## 🔴 4.4.2 Using Common Terminal Operations
 
 * You can perform a terminal operation without any intermediate operations but not the other way round. Reductions are a special type of termonal operation where all of the contents of the streak are combined into a single primitive or `Object`.
 
@@ -79,7 +81,7 @@ oddNumbers.forEach(System.out::println);
 | `min()/max()` | Does not terminate                | `Optional<T>` | No        |
 | `reduce()`    | Does not terminate                | varies        | Yes       |
 
-### `count()`
+### ⭐ `count()` ⭐
 
 * This operation terminates only if the stream is optional and returns the number of elements of the stream as a long, it would have the following signature:
 
@@ -94,7 +96,7 @@ Stream<Integer> nums = Stream.of(1,2,3);
 System.out.println(nums.count()); // 3
 ```
 
-### `min() and max()`
+### ⭐ `min() and max()` ⭐
 
 * These methods let you pass a custom Comparator and returns the largest and smallest value according to the sorting order. These methods have the following signatures:
 
@@ -115,7 +117,7 @@ System.out.println(strings.max(byLength)); // Optional[666666]
 * NOTE: if the stream is empty then the comparator is never called from min()/max()
 
 
-### `findAny() and findFirst()`
+### ⭐ `findAny() and findFirst()` ⭐
 
 * These two methods will return an optional of an element if the stream is non-empty. If the stream is empty then it returns `Optional.empty`. E.g.:
 
@@ -165,7 +167,7 @@ System.out.println(list.stream().allMatch(pred));     // false
 System.out.println("infi" + infinite.allMatch(pred)); // does not terminate
 ```
 
-### `forEach()`
+### ⭐ `forEach()` ⭐
 
 * Calling forEach on an infinite stream does not terminate ❗
 
@@ -177,7 +179,7 @@ void forEach(Consumer<? super T> action)
 
 * You can not use a for loop on a Stream! ❗
 
-### `reduce()`
+### ⭐ `reduce()` ⭐
 
 * The reduce method reduces the stream to a single object. It has the following signatures:
 
@@ -214,3 +216,61 @@ System.out.println(product); // 24
 ```
 
 * If we DO NOT SET THE IDENTITY, Then an Optional is returned!
+
+<hr>
+
+## 🔴 4.4.3 Using Common Intermediate Operations
+
+* Intermediate operations will return an infinite stream operating on infinite streams
+
+### ⭐ `filter()` ⭐
+
+* The `filter()` method returns a Stream with elements which match a given expression. Here is the method signature:
+
+```java
+Stream<T> filter(Predicate<? super T> predicate)
+```
+
+* Here's an example which filters items which begin with "m":
+
+```java
+Stream<String> strings = Streaml.of("monkey", "gorilla", "bear");
+s.filter(x-> x.startsWith("m")).forEach(System.out::println); // monkey
+```
+
+### ⭐ `distinct()` ⭐
+
+* The `distinct()` method removes the duplicates from a stream! This has the following signature:
+
+```java
+Stream<T> distinct()
+```
+
+* Here is an example:
+
+```java
+Stream<String> animals = Stream.of("duck", "duck", "duck", "goose");
+animals.distinct().forEach(System.out::print); // duckgoose
+```
+
+
+### ⭐ `limit() and skip()` ⭐
+
+* These two methods make the stream SMALLER. They CAN make an infinite stream finite!
+
+* They have the following signatures:
+
+```java
+Stream<T> limit(int maxSize)
+Stream<T> skip(int n)
+```
+
+* The limit method lets us limit the number of elements of the stream:
+
+```java
+Stream<Integer> sequence = Stream.iterate(1,n-> n+2);
+sequence.limit(2).forEach(System.out::println); // 1 3
+
+Stream<Integer> sequence2 = Stream.iterate(1,n-> n+2);
+sequence2.skip(100).limit(2).forEach(System.out::println); // 201 203
+```
