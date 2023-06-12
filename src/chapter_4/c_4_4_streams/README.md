@@ -290,3 +290,29 @@ sequence2.skip(100).limit(2).forEach(System.out::println); // 201 203
 Stream<String> words = Stream.of("Shiv", "hates", "Java");
 words.map(x-> x.length()).forEach(System.out::println); // 4 5 4
 ```
+
+
+### ⭐ `flatMap()` ⭐
+
+* This will take each inner elements of a stream and put them at top level in a single stream. This can be used to remove empty elements.
+
+* This has the following signature:
+
+```java
+<R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)
+```
+
+* Here's an example:
+
+```java
+// using flat map:
+List<String> empty = Arrays.asList();
+List<String> one = Arrays.asList("Shiv");
+List<List<String>> nested = Arrays.asList(Arrays.asList("nested"));
+
+Stream<List> stream = Stream.of(empty, one, nested);
+stream.forEach(System.out::println); // [] [Shiv] [[nested]]
+
+Stream<List> stream2 = Stream.of(empty, one, nested);
+stream2.flatMap(l -> l.stream()).forEach(System.out::println); //   Shiv [nested]
+```
