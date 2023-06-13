@@ -375,3 +375,5 @@ badStream
 .forEach(System.out::println); // 0 0
 ```
 
+<hr>
+
