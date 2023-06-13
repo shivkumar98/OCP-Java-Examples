@@ -473,3 +473,23 @@ infinite.filter(x->x%2==1)
 ```
 
 * ✅✅My Answer: 1 gets past filter so gets printed, and gets past limit and gets printed again. 2 does not get past filter. So it will print "11333557799"✅✅
+
+
+
+<hr>
+
+## 🔴 4.4.5 Printing a Stream
+
+* Our ability to print a stream is depended on use of intermediate operations and if the stream is infinite.
+
+* Here are some common approached to print a stream:
+
+| Option                           | Works for infinite Streams?      | Destructive to Stream? |
+| -------------------------------- | -------------------------------  | ---------------------- |
+| `s.forEach(System.out::println)` | No                               | Yes                    |
+| `s.limit(5).forEach(System.out::println)` | No                      | Yes                    |
+| `s.peek(System.out::println)`             | No                      | No                     |
+| `sout(s.collect(Collectors.toList()))`  | No                     | Yes                       |
+
+* Most of these are destructive - we can not use the stream after printing.
+ 
