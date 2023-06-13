@@ -377,3 +377,99 @@ badStream
 
 <hr>
 
+
+## 🔴 4.4.4 Putting Together the Pipeline
+
+* We can use chaining to express what you want to accomplish rather than how to do it!🤔
+
+* Suppose we want to get the first two names alphabetically which are four characters long.🤔
+
+* 💀 The Java 7 approach would be: 💀
+
+```java
+List<String> list = Arrays.asList("Toby", "Anna", "Leroy", "Alex");
+List<String> filtered = new ArrayList<>;
+for (String name: list)
+    if (name.length()==4) filtered.add(name)
+Collections.sort(filtered);
+```
+
+* Java 8 approach would be:
+
+```java
+List<String> list = Arrays.asList("Toby", "Anna", "Leroy", "Alex");
+List<String> filteredSorted = list
+        .stream()
+        .filter(str -> str.length()==4)
+        .sorted()
+        .limit(2)
+        .collect(Collectors.toList()); // [Alex, Anna]
+```
+
+* ❓❓❓What do you think the following code does?❓❓❓
+
+```java
+Stream.generate(() -> "Elsa")
+    .filter(n -> n.length() ==4)
+    .sorted()
+    .limit(2)
+    .forEach(System.out::println)
+```
+
+* My answer: it generates a stream containing infinite "Elsa" strings, the filtering does nothing, sort does nothing. We just get "Elsa" printed out twice✅✅✅
+
+* ❓❓❓What do you think the following code does?❓❓❓
+
+```java
+ Stream.generate(() -> "Olaf Lazisson")
+    .filter(n -> n.length() == 4)
+    .limit(2)
+    .sorted()
+    .forEach(System.out::println);
+```
+
+* ❌❌My answer, nothing gets printed❌❌
+
+* ✅✅Correct answer: the program will hang until we kill it! Nothing gets passed the filter, so the limit never gets its 2 elements✅✅
+
+
+### ⭐ Peeking behind the Scenes ⭐
+
+* We can use peek to see how the stream pipeline is working behind the scenes.
+
+* Suppose we have the following code:
+
+```java
+Stream<Integer> infinite = Stream.iterate(1, x->x+1);
+infinite.limit(5)
+        .filter(x->x%2==1)
+        .forEach(System.out::println); // 1 3 5
+```
+
+* What do you think this prints:
+
+```java
+Stream<Integer> infinite = Stream.iterate(1, x->x+1);
+infinite.limit(5)
+        .peek(System.out::println)
+        .filter(x->x%2==1)
+        .forEach(System.out::println); 
+```
+
+* ❌❌My Answer: 1  2  3  4  5❌❌
+
+* ✅✅Correct answer: 1  1  2  3  3  4  5  5✅✅
+
+* The number one gets past the limit, it then gets past the filter so gets printed again. Number two only gets printed once since it doesn't get past filter!
+
+* ❓❓❓What do you think this prints❓❓❓
+
+```java
+Stream<Integer> infinite = Stream.iterate(1, x->x+1);
+infinite.filter(x->x%2==1)
+        .peek(System.out::println)
+        .limit(5)
+        .forEach(System.out::println);
+```
+
+* ✅✅My Answer: 1 gets past filter so gets printed, and gets past limit and gets printed again. 2 does not get past filter. So it will print "11333557799"✅✅

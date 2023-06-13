@@ -65,7 +65,7 @@ public class CommonIntermediateOperations {
 		.map(List::size)
 		.forEach(System.out::println); // 0 0
 		
-		
+
 		
 		
 		
