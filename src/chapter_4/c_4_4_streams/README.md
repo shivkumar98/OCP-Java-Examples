@@ -338,3 +338,13 @@ strings.sorted().forEach(System.out::println); // A BBBB CC
 Stream<String> strings2 = Stream.of("BBBB", "A", "CC");
 strings2.sorted((x,y) -> Integer.compare(x.length(), y.length())).forEach(System.out::println); // A CC BBBB
 ```
+
+### ⭐ `peek()` ⭐
+
+* The peek() method is a useful debugging tool! It lets us see the content of a stream without changing it!
+
+* It has the following signature:
+
+```java
+Stream<T> peek(Consumer<? super T> action)
+```

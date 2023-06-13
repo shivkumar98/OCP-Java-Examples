@@ -34,7 +34,12 @@ public class CommonIntermediateOperations {
 		
 		Stream<String> strings2 = Stream.of("BBBB", "A", "CC");
 		strings2.sorted((x,y) -> Integer.compare(x.length(), y.length())).forEach(System.out::println); // A CC BBBB
+		
+		System.out.println("PEEKING");
+		Stream<String> stream3 = Stream.of("black bear", "brown bear", "grizzly");
+		long count = stream3
+		.peek(System.out::println).count(); // grizzly
+		System.out.println(count); // 1
+	
 	}
-	
-	
 }
