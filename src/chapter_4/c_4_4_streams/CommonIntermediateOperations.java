@@ -1,6 +1,7 @@
 package chapter_4.c_4_4_streams;
 
 import java.util.Arrays;
+import java.util.*;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -40,6 +41,34 @@ public class CommonIntermediateOperations {
 		long count = stream3
 		.peek(System.out::println).count(); // grizzly
 		System.out.println(count); // 1
+		
+		// changing state with peek()
+		List<Integer> numbers = new ArrayList<>();
+		numbers.add(1);
+		List<Character> letters = new ArrayList<>();
+		letters.add('c');	
+		
+		Stream<List<?>> streamX = Stream.of(numbers, letters);
+		streamX.map(List::size).forEach(System.out::println); // 1 1
+		
+		StringBuilder builder = new StringBuilder();
+		Stream<List<?>> goodStream = Stream.of(numbers, letters);
+		goodStream
+		.peek(l -> builder.append(l))
+		.map(List::size)
+		.forEach(System.out::println); // 1 1
+		System.out.println(builder); // [1][c]
+		
+		Stream<List<?>> badStream = Stream.of(numbers, letters);
+		badStream
+		.peek(l -> l.remove(0))
+		.map(List::size)
+		.forEach(System.out::println); // 0 0
+		
+		
+		
+		
+		
 	
 	}
 }

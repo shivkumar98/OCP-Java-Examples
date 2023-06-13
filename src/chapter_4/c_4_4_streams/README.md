@@ -348,3 +348,30 @@ strings2.sorted((x,y) -> Integer.compare(x.length(), y.length())).forEach(System
 ```java
 Stream<T> peek(Consumer<? super T> action)
 ```
+
+
+### ⚠️ Danger: Changing State with peek() ⚠️
+
+* `peek()` is designed to be used to perform an action without changing the streams result!
+
+* In this example, the peek() method is changing the data structure.
+
+```java
+List<Integer> numbers = new ArrayList<>(); numbers.add(1);
+List<Character> letters = new ArrayList<>(); letters.add('c');	
+
+StringBuilder builder = new StringBuilder();
+Stream<List<?>> goodStream = Stream.of(numbers, letters);
+goodStream
+.peek(l -> builder.append(l))
+.map(List::size)
+.forEach(System.out::println); // 1 1
+System.out.println(builder); // [1][c]
+
+Stream<List<?>> badStream = Stream.of(numbers, letters);
+badStream
+.peek(l -> l.remove(0))
+.map(List::size)
+.forEach(System.out::println); // 0 0
+```
+
