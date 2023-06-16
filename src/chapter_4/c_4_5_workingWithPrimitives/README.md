@@ -106,3 +106,32 @@ OptionalDouble average = streamOfInts.average();
 System.out.println("average: "+average.getAsDouble()); // average: 3.0
 // getAsDouble() makes it obvious it returns primitive as a return	
 ```
+
+## 🔴 4.5.3 Summarizing Statistics
+
+* We can define a method which calculates the max of a stream, and throws an exception when if is `optional.empty`:
+
+```java
+private static int max(IntStream ints){
+    OptionalInt optional = ints.max();
+    return optional.orElseThrow(RunTimeException::new)
+}
+```
+
+* Suppose we want to calculate the range of an instream. We can NOT call `min()` and `max()` on the same stream as it will cause the stream to terminate:
+
+```java
+private static int rangeBroken(IntStream ints) {
+    return ints.max().getAsInt() - ints.min().getAsInt();
+}
+```
+
+* We can use `IntSummaryStatistics` on an IntStream:
+
+```java
+private static int range(IntStream ints) {
+    IntSummaryStastics stats = ints.summaryStatistics();
+    if (stats.getCount()==0) throw new RuntimeException();
+    return stats.getMax()-stats.getMin();
+}
+```
