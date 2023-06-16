@@ -95,3 +95,14 @@ Stream<String> objStream = Stream.of("Fish", "Sticks");
 IntStream lengths = objStream.mapToInt(s->s.length());
 ```
 
+## 🔴 4.5.2 Using Optional with Primitive Streams
+
+* We saw earlier that we wrote the average of an int[], we can wrtie this in a better way:
+
+```java
+int[] ints = {1,2,3,4,5};
+IntStream streamOfInts = Arrays.stream(ints);
+OptionalDouble average = streamOfInts.average();
+System.out.println("average: "+average.getAsDouble()); // average: 3.0
+// getAsDouble() makes it obvious it returns primitive as a return	
+```
