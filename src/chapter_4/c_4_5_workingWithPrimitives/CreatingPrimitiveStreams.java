@@ -24,12 +24,13 @@ public class CreatingPrimitiveStreams {
 		
 		// suppose we want to create a stream from 1 to 5:
 		IntStream count = IntStream.iterate(1,n->n+1)
-				.limit(5);
-		count.forEach(System.out::println); // 1 2 3 4 5 
+				.limit(6);
+		count.forEach(System.out::println); // 1 2 3 4 5 6
 		
 		// we can do this in a easier way using range():
-		IntStream intRange = IntStream.range(1, 6);
-		intRange.forEach(System.out::println); // 1 2 3 4 5
+		IntStream intRange = IntStream.range(1, 7);
+		System.out.println("printing int range");
+		intRange.forEach(System.out::println); // 1 2 3 4 5 6 7
 		LongStream longStream = LongStream.range(1L,4L);
 		longStream.forEach(System.out::println); // 1 2 3
 		
@@ -37,18 +38,19 @@ public class CreatingPrimitiveStreams {
 		// DoubleStream doubleRange = DoubleStream.range(1.0, 1.2); // DOES NOT COMPILE
 		
 		// We can create a closed range so that the boundary is only included
-		IntStream closedIntRange = IntStream.rangeClosed(1, 3);
+		System.out.println("printing closed range:");
+		IntStream closedIntRange = IntStream.rangeClosed(1,6);
 		closedIntRange.forEach(System.out::println); // 1 2 3
 
 		// we can also create a primitive stream by mapping to another stream
-		Stream<Integer> integers = Stream.of(1,2,3);
-		IntStream ints = integers.mapToInt(x->x);
-		DoubleStream doubles = integers.mapToDouble(x->x);
-		LongStream longs = integers.mapToLong(x->x);
+		//Stream<Integer> integers = Stream.of(1,2,3);
+		//IntStream ints = integers.mapToInt(x->x);
+		//DoubleStream doubles = integers.mapToDouble(x->x);
+		//LongStream longs = integers.mapToLong(x->x);
 		
 		// here is a realistic example:
 		Stream<String> objStream = Stream.of("Fish", "Sticks");
-		IntegerStream lengths = objStream.mapToInt(s->s.length());
+		IntStream lengths = objStream.mapToInt(s->s.length());
 
 	}
 }

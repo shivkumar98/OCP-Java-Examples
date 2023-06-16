@@ -48,7 +48,9 @@ DoubleStream one = DoubleStream.of(3.14);
 DoubleStream three = DoubleStream.of(2.18, 3.02, 3.11);
 ```
 
-* We can also generate streams by passing in a lamda:
+### ⭐ Create using `generate()` and `iterate()` ⭐
+
+* We can generate streams by passing in a lamda:
 
 ```java
 DoubleStream random = DoubleStream.generate(Math::random);
@@ -60,4 +62,35 @@ fractions.limit(4).forEach(System.out::println);
 // 0.5 0.25 0.125 0.0625
 ```
 
+### ⭐ Create using `range()` and `rangeClosed()` ⭐
 
+* Suppose we wanted to create a stream for {1,2,3,4,5,6}. We COULD do this using iterate:
+
+```java
+IntStream simpleRange = IntStream.iterate(1,n->n+1).limit(6);
+```
+
+* We can use range instead:
+
+```java
+IntStream intRange = IntStream.range(1, 7);
+```
+
+* We could also use rangeClosed, such that the second argument is inclusive:
+
+```java
+IntStream closedIntRange = IntStream.rangeClosed(1,6);
+```
+
+* ⚠️We CAN create ranges for `IntStream` and `LongStream` but NOT `DoubleStream`⚠️:
+
+```java
+// DoubleStream doubleRange = DoubleStream.range(1.0, 1.2); // DOES NOT COMPILE
+```
+
+* Here is a realistic example of using a primitive stream:
+
+```java
+Stream<String> objStream = Stream.of("Fish", "Sticks");
+IntStream lengths = objStream.mapToInt(s->s.length());
+```
