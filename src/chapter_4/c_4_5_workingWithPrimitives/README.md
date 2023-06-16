@@ -94,3 +94,4 @@ IntStream closedIntRange = IntStream.rangeClosed(1,6);
 Stream<String> objStream = Stream.of("Fish", "Sticks");
 IntStream lengths = objStream.mapToInt(s->s.length());
 ```
+

@@ -1,6 +1,8 @@
 package chapter_4.c_4_5_workingWithPrimitives;
 
+import java.util.Arrays;
 import java.util.OptionalDouble;
+import java.util.OptionalInt;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -40,7 +42,7 @@ public class CreatingPrimitiveStreams {
 		// We can create a closed range so that the boundary is only included
 		System.out.println("printing closed range:");
 		IntStream closedIntRange = IntStream.rangeClosed(1,6);
-		closedIntRange.forEach(System.out::println); // 1 2 3
+		closedIntRange.forEach(System.out::println); // 1 2 3 4 5 6
 
 		// we can also create a primitive stream by mapping to another stream
 		//Stream<Integer> integers = Stream.of(1,2,3);
@@ -51,6 +53,28 @@ public class CreatingPrimitiveStreams {
 		// here is a realistic example:
 		Stream<String> objStream = Stream.of("Fish", "Sticks");
 		IntStream lengths = objStream.mapToInt(s->s.length());
-
+			
+		
+		System.out.println("calculating avg of int[]");
+		int[] ints = {1,2,3,4,5};
+		IntStream streamOfInts = Arrays.stream(ints);
+		OptionalDouble average = streamOfInts.average();
+		System.out.println("average: "+average.getAsDouble()); // average: 3.0
+		// getAsDouble() makes it obvious it returns primitive as a return
+		
+		IntStream streamEmpty = IntStream.empty();
+		OptionalInt optionalInt = streamEmpty.max();
+		// optionalInt.orElseThrow(RuntimeException::new);
+		// throws exception!
+		
+		IntStream findRange = IntStream.range(1, 9);
+		// rangeBroken(streamOfInts); // throwsillegalstateexception
 	}
+	
+	private static int rangeBroken(IntStream ints) {
+		return ints.max().getAsInt() - ints.min().getAsInt();
+		
+	}
+	
+	
 }
