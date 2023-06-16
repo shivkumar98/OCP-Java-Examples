@@ -1,13 +1,3 @@
 /bin/
 /target/
-/.classpath
-/.gitignore
-/.project
-/.settings/
-/chapter_1/
-/chapter_2/
-/chapter_3/
 /chapter_4/
-/pom.xml
-/review_questions/
-/src/
