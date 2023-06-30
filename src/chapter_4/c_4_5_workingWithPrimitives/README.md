@@ -153,3 +153,17 @@ boolean getAsBoolean()
 BooleanSupplier b1 = () -> true;
 BooleanSupplier b2 = () -> Math.random() > .5;
 ```
+
+## 🔴 4.5.5 Functional Interfaces for double, int, and long
+
+### ⭐ Common Functional Interfaces for Primitives ⭐
+
+| Functional Interfaces                          | # Parameters  | Return Type              | Single Abstract Method     |
+|------------------------------------------------|---------------|------------------------  |--------------------------- |
+|`DoubleSupplier`/`IntSupplier`/`LongSupplier`   | 0             | `double`/`int`/`long`    | Single Abstract Method     |
+|`DoubleConsumer`/`IntConsumer`/`LongSupplier`   | 1             | `void`                   | `accept`                   |
+| `DoublePredicate`/`IntPredicate`/`LongPredicate`| 1         | `boolean`                   | `test`                     | 
+| `DoubleFunction<R>`/`IntFunction<R>`/`LongFunction<R>` | 1         | `R`                  | `apply`                    |
+| `DoubleUnaryOperator`/`IntUnaryOperator`/`LongUnaryOperator`| 1 | `double`/`int`/`long`   | `applyAsDouble`, `applyAsInt`, `applyAsLong` |
+| `DoubleBinaryOperator`/`IntBinaryOperator`/`LongBinaryOperator`| 2 | `double`/`int`/`long`| `applyAsDouble`, `applyAsInt`, `applyAsLong` |
+
