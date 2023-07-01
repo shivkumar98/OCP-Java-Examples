@@ -1,4 +1,4 @@
-uyhgq<link href="style.css" rel="stylesheet"></link>
+<link href="../../style.css" rel="stylesheet"></link>
 
 # 🧠  Chapter 3: Generics and Collections
 
@@ -134,6 +134,7 @@ uyhgq<link href="style.css" rel="stylesheet"></link>
 
 - Use of merge() and flatMap() methods of the Stream API
 
+<hr>
 
 # 🟪  Chapter 3: Generics and Collections - Review
 

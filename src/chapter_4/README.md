@@ -1,4 +1,4 @@
-<link href="style.css" rel="stylesheet"></link>
+<link href="../../style.css" rel="stylesheet"></link>
 
 # 🧠  Chapter 4: Functional Programming
 

@@ -1,4 +1,4 @@
-<link href="style.css" rel="stylesheet"></link>
+<link href="../../style.css" rel="stylesheet"></link>
 
 # 🧠  Chapter 2 Design Patterns and Principles
 
