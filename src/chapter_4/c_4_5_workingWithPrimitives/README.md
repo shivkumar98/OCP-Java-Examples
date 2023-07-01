@@ -171,9 +171,7 @@ BooleanSupplier b1 = () -> true;
 BooleanSupplier b2 = () -> Math.random() > .5;
 ```
 
-## 🔴 4.5.5 Functional Interfaces for double, int, and long
-
-### ⭐ Common Functional Interfaces for Primitives ⭐
+### ⭐ Functional Interfaces for double, int, and long ⭐
 
 | Functional Interfaces                          | # Parameters  | Return Type              | Single Abstract Method     |
 |------------------------------------------------|---------------|------------------------  |--------------------------- |
@@ -184,3 +182,41 @@ BooleanSupplier b2 = () -> Math.random() > .5;
 | `DoubleUnaryOperator`/`IntUnaryOperator`/`LongUnaryOperator`| 1 | `double`/`int`/`long`   | `applyAsDouble`, `applyAsInt`, `applyAsLong` |
 | `DoubleBinaryOperator`/`IntBinaryOperator`/`LongBinaryOperator`| 2 | `double`/`int`/`long`| `applyAsDouble`, `applyAsInt`, `applyAsLong` |
 
+* Examples:
+
+```java
+IntSupplier supplyRandom = () -> (int)(Math.random()*100);
+System.out.println(supplyRandom.getAsInt()); // 42
+
+DoublePredicate pred = i -> i%2==0;
+System.out.println(pred.test(2.0)); // true
+
+DoubleFunction<Integer> floor = i->(int)Math.floor(i); 
+System.out.println(floor.apply(3.2)); // 3
+
+DoubleUnaryOperator divideBy3 = i-> i/3;
+System.out.println(divideBy3.applyAsDouble(9.9)); // 3.3000000000000003
+
+LongBinaryOperator add = (i,j) -> (i+j);
+System.out.println(add.applyAsLong(1L, 2L)); // 3
+```
+
+
+### ⭐ Primtive-Specific Functional Interfaces ⭐
+
+| Functional Interfaces| # Parameters  | Return Type  | Single Abstract Method     |
+| ---------------------| ------------- | -------------| ---------------------------|
+| `ToDoubleFunction<T>`/`toIntFunction<T>`/`ToLongFunction<T>` | 1 (T)        | double/int/long | `applyAsDouble`/`applyAsInt`/`applyAsLong` |
+
+* Example:
+
+```java
+IntFunction<Integer> square = i -> i*i;
+System.out.println(square.apply(3)); // 9
+
+DoubleUnaryOperator divideBy3 = i-> i/3;
+System.out.println(divideBy3.applyAsDouble(9.9)); // 3.3000000000000003
+
+LongBinaryOperator add = (i,j) -> (i+j);
+System.out.println(add.applyAsLong(1L, 2L)); // 3
+```
