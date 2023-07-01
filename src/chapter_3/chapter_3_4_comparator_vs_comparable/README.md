@@ -1,4 +1,4 @@
-<link href="../style.css" rel="stylesheet" />
+<link href="../../styles.css" rel="stylesheet"></link>
 
 # 🟪 3.4 Comparator vs Comparable
 

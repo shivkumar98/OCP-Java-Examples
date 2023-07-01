@@ -1,4 +1,4 @@
-<link href="../style.css" rel="stylesheet"></link>
+<link href="../../styles.css" rel="stylesheet"></link>
 
 # 🟪 3.3 Using Lists, Sets, Maps and Queues
 
