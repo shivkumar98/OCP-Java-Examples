@@ -206,17 +206,38 @@ System.out.println(add.applyAsLong(1L, 2L)); // 3
 
 | Functional Interfaces| # Parameters  | Return Type  | Single Abstract Method     |
 | ---------------------| ------------- | -------------| ---------------------------|
-| `ToDoubleFunction<T>`/`toIntFunction<T>`/`ToLongFunction<T>` | 1 (T)        | double/int/long | `applyAsDouble`/`applyAsInt`/`applyAsLong` |
+|`ToDoubleFunction<T>`/`toIntFunction<T>`/`ToLongFunction<T>` | 1 (T)        | `double`/`int`/`long` | `applyAsDouble`/`applyAsInt`/`applyAsLong` |
+|`ToDoubleBiFunction<T,U>`/`ToIntBiFunction<T,U>`/`ToLongBiFunction<T,U>`|2 (T, U) | `double`/`int`/`long` | `applyAsDouble`/`applyAsInt`/`applyAsLong` |
+|`DoubleToIntFunction`/`DoubleToLongFunction` | 2 (double) | `int`/`long` | `applyAsInt`/`applyAsLong` |
+|`IntToLongFunction`/`IntToDoubleFunction`| 1 (int) | `long`/`double` | `applyAsLong`/`applyAsDouble`|
+|`LongToDoubleFunction`/`LongToIntFunction`|1 (long) | `double`/`int` | `applyAsDouble`/`applyAsInt` |
+|`ObjDoubleConsumer<T>`/`ObjIntConsumer<T>`/`ObjLongConsumer<T>` | 2 | void | `accept` |
 
-* Example:
+* Examples:
 
 ```java
-IntFunction<Integer> square = i -> i*i;
-System.out.println(square.apply(3)); // 9
+ToDoubleFunction<String> calculateLength = (String i)-> i.length() + i.replace("\\s+", "").length()*0.1;
+System.out.println(calculateLength.applyAsDouble(" hello shiv ")); // 13.2
 
-DoubleUnaryOperator divideBy3 = i-> i/3;
-System.out.println(divideBy3.applyAsDouble(9.9)); // 3.3000000000000003
+ToIntBiFunction<int[], Integer> countNumberOfTarget 
+			= (arr, target)-> (int)Arrays.stream(arr).filter(i->i==target).count();
+System.out.println(countNumberOfTarget.applyAsInt(new int[]{1,1,2,1},3)); // 0		
+System.out.println(countNumberOfTarget.applyAsInt(new int[]{1,1,2,1},1)); // 3
 
-LongBinaryOperator add = (i,j) -> (i+j);
-System.out.println(add.applyAsLong(1L, 2L)); // 3
+		
+DoubleToIntFunction truncate = i -> (int)i;
+System.out.println(truncate.applyAsInt(3.94)); // 3
+System.out.println(truncate.applyAsInt(-6.94)); // -6
+
+IntToLongFunction muliplyBy10ToPower9 = i -> i*(int)(Math.pow(10, 9));
+System.out.println(muliplyBy10ToPower9.applyAsLong(2)); // 2000000000
+System.out.println(muliplyBy10ToPower9.applyAsLong(3)); // -1294967296 overflow :(
+
+LongToDoubleFunction findAreaOfCircleWithRadius = i-> i*Math.PI;
+System.out.println(findAreaOfCircleWithRadius.applyAsDouble(1L)); // 3.141592653589793
+
+ObjIntConsumer<String> print = (s,i)-> System.out.println(s+i);
+ObjIntConsumer<Integer> print2 = (s,i)-> System.out.println(s+i);
+print.accept("shiv is aged: ", 25); // shiv is aged: 25
+print2.accept(23, 3); // 26
 ```
