@@ -1,6 +1,6 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 4.3 Returning an Optional
+# 🧠 4.3 Returning an Optional
 
 * We can use `Optional` class with methods, when we the return is not guranteed. E.g. suppose we wanted to return the average of a class but no tests have taken place yet. It would not make alot of sense to return 0 as an aeverage
 

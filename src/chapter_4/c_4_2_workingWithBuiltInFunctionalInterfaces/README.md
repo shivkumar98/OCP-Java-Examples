@@ -1,6 +1,6 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 🟪 4.2 Working with Built-in Functional Interfaces
+# 🧠 4.2 Working with Built-in Functional Interfaces
 
 * A functional interface has exactly one abstract method. The below table are functional interfaces introduced in Java 8.
 
