@@ -2,6 +2,33 @@
 
 # 🧠 4.4 Using Streams
 
+## 📜 Contents 📜
+
+- [🌸 Introduction 🌸]()
+- [🔴 4.4.1 Creating Stream Sources]()
+    - [⭐ Finite Streams ⭐]()
+    - [⭐ Infinite Streams ⭐]()
+- [🔴 4.4.2 Using Common Terminal Operations]()
+  - [⭐ count() ⭐]()
+  - [⭐ min() and max() ⭐]()
+  - [⭐ findAny() and findFirst() ⭐]()
+  - [⭐ allMatch(), anyMatch() and noneMatch() ⭐]()
+  - [⭐ forEach() ⭐]()
+  - [⭐ reduce() ⭐]()
+- [🔴 4.4.3 Using Common Terminal Operations]()
+  - [⭐ filter() ⭐]()
+  - [⭐ limit() and skip() ⭐]()
+  - [⭐ sorted() ⭐]()
+  - [⭐ peek() ⭐c]()
+  - [⚠️ Danger: Changing State with peek() ⚠️]()
+- [🔴 4.4.4 Putting Together the Pipeline]()
+  - [⭐ Peeking behind the Scenes ⭐]()
+- [🔴 4.4.5 Priinting a Stream]()
+
+<hr>
+
+## 🌸 Introduction 🌸
+
 * A stream is a sequence of data. A stream pipeline is the operations that run on a stream to produce a result. A stream pipeline has three parts:
 
 1) Source - where the stream comes from
