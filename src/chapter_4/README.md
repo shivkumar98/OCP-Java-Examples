@@ -1,8 +1,8 @@
 <link href="style.css" rel="stylesheet"></link>
 
-# 🟪  Chapter 4: Functional Programming
+# 🧠  Chapter 4: Functional Programming
 
-## 🟦 Contents:
+## 📜 Contents 📜
 
  [4.1: Using Variables in Lambdas](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
 
@@ -18,7 +18,7 @@
 
 <hr>
 
-## 🟦 Exam Objectives:
+### 🎯 Exam Objectives 🎯
 
 This chapter will introduce more functional interfaces and the `Optional` class.
 

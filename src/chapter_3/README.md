@@ -1,8 +1,8 @@
 uyhgq<link href="style.css" rel="stylesheet"></link>
 
-# 🟪  Chapter 3: Generics and Collections
+# 🧠  Chapter 3: Generics and Collections
 
-## 🟦 Contents:
+## 📜 Contents 📜:
 
  [3.1: Reviewing OCA Collections]()
 
