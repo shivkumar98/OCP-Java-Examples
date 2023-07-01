@@ -1,5 +1,6 @@
+<link href="../../styles.css" rel="stylesheet"></link>
 
-# 🧠 4.5 Working with Primitives
+# 🟪 4.5 Working with Primitives
 
 * So far, we have been making streams using wrapper classes, but we also have the ability to make streams of primitives!
 
