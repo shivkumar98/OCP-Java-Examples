@@ -6,7 +6,7 @@
 
  [4.1: Using Variables in Lambdas](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
 
- [4.2: Working with Built-in Functional Interfaces]()
+ [4.2: Working with Built-in Functional Interfaces](/src/chapter_4/c_4_2_workingWithBuiltInFunctionalInterfaces/)
 
  [4.3: Returning an Optional]()
  
