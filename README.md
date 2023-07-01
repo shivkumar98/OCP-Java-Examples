@@ -40,7 +40,7 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 3.7 Summary](/src/chapter_3/)
 - [🧠 3.9 Review Questions](/src/review_questions/chapter_3/)
 
-## 🧠 Chapter 4: Functional Interfaces
+## Chapter 4: Functional Interfaces
 - [📜 Table of Contents/Summary📜 ](/src/chapter_4/)
 - [🧠 4.1 Using Variables in Lambdas](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
 - [🧠 4.2 Working with Build-in Functional Interfaces](/src/chapter_4/c_4_2_workingWithBuiltInFunctionalInterfaces/)
