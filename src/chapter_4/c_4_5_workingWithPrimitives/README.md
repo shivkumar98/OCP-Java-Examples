@@ -2,6 +2,22 @@
 
 # 🟪 4.5 Working with Primitives
 
+## 📜 Contents 📜
+
+- [🌸 Introduction 🌸](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
+- [🔴 4.5.1 Creating Primitive Streams]()
+    - [⭐ Main Primitive Streams ⭐]()
+    - [⭐ Create using `generate()` and `iterate()` ⭐]()
+    - [⭐ Create using `range()` and `rangeClosed()` ⭐]()
+- [🔴 4.5.2 Using Optional with Primitive Streams]()
+- [🔴 4.5.3 Summarizing Statistics]()
+- [🔴 4.5.4 Learning the Functional Interfaces for Primitives]()
+    - [⭐ Functional Interfaces for Boolean ⭐]()
+- [🔴 4.5.5 Functional Interfaces for double, int, and long]()
+    - [⭐ Common Functional Interfaces for Primitives ⭐]()
+
+## 🌸 Introduction 🌸
+
 * So far, we have been making streams using wrapper classes, but we also have the ability to make streams of primitives!
 
 * Suppose we want to calculate the sum of numbers in a finite stream:
