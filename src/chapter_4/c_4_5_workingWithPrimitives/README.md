@@ -13,8 +13,9 @@
 - [🔴 4.5.3 Summarizing Statistics]()
 - [🔴 4.5.4 Learning the Functional Interfaces for Primitives]()
     - [⭐ Functional Interfaces for Boolean ⭐]()
-- [🔴 4.5.5 Functional Interfaces for double, int, and long]()
-    - [⭐ Common Functional Interfaces for Primitives ⭐]()
+    - [⭐ Functional Interfaces for double, int, and long ⭐]()
+    - [⭐ Primtive-Specific Functional Interfaces ⭐](_)
+
 
 ## 🌸 Introduction 🌸
 
@@ -241,3 +242,4 @@ ObjIntConsumer<Integer> print2 = (s,i)-> System.out.println(s+i);
 print.accept("shiv is aged: ", 25); // shiv is aged: 25
 print2.accept(23, 3); // 26
 ```
+
