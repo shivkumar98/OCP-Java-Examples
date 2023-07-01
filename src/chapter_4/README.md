@@ -1,20 +1,20 @@
 <link href="../../style.css" rel="stylesheet"></link>
 
-# 🧠  Chapter 4: Functional Programming
+#   Chapter 4: Functional Programming
 
-## 📜 Contents 📜
+### 📜 Contents 📜
 
- [🟪 4.1: Using Variables in Lambdas](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
+ [🧠 4.1: Using Variables in Lambdas](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
 
- [🟪 4.2: Working with Built-in Functional Interfaces](/src/chapter_4/c_4_2_workingWithBuiltInFunctionalInterfaces/)
+ [🧠 4.2: Working with Built-in Functional Interfaces](/src/chapter_4/c_4_2_workingWithBuiltInFunctionalInterfaces/)
 
- [🟪 4.3: Returning an Optional]()
+ [🧠 4.3: Returning an Optional]()
  
- [🟪 4.4: Using streams]()
+ [🧠 4.4: Using streams]()
 
- [🟪 4.5: Working with Primitives]()
+ [🧠 4.5: Working with Primitives]()
  
- [🟪 4.6: Working with Advanced Pipeline Concepts]()
+ [🧠 4.6: Working with Advanced Pipeline Concepts]()
 
 <hr>
 
