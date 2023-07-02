@@ -1,6 +1,6 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 🟪 4.6 Working with Advanced Stream Pipeline Concepts
+# 🧠 4.6 Working with Advanced Stream Pipeline Concepts
 
 ## 📜 Contents 📜
 
@@ -137,3 +137,21 @@ class ExceptionCaseStudy {
 ```java
 Supplier<List<String>> s2 = ExceptionCaseStudy::createSafe;
 ```
+
+## 🔴 4.6.3 Collecting Results
+
+* We've seen the `collect()` terminal operation but there are other avaialable operations to collect results:
+
+| Collector | Description | Return Value when passed to collect |
+| --------- |-------------|-------------------------------------|
+|`averagingDouble(ToDoubleFunction f)`<br>`averagingInt`<br>`averagingLong` | Calculates mean | Double |
+|`counting` | counts number of elements | long |
+|`groupingBy(Function f)`<br>`GroupingBy(Function f), Collector dc)`<br>`groupingBy(Function f, Supplier s, Collector dc)`| Creates a map grouped by the function | `Map<K, List<T>>` |
+|`joining()`<br>`joining(CharSequence cs)` | Creates a String using `cs` as delimiter | String |
+|`maxBy(Comparator c)`<br>`minBy(Comparator c)`| Finds the smallest/largest element | `Optional<T>` |
+| `mapping(Function f, Collector dc)` | Creates a map grouping by specified by predicate | `Map<Boolean, List<T>>` |
+| `summarizingDouble(ToDoubleFunction f)`<br>`summarizingInt(ToIntFunction)`<br>`summarizingLong<ToDoubleFunction f)` | Calculates the avg, min, max etc | `DoubleSummaryStatistics`<br>`IntSummaryStatistics`<br>`LongSummaryStatistics`|
+| `summingDouble(ToDoubleFunction f)`<br>`summingInt(ToIntFunction f)`<br>`summingLong(ToLongFunction f)` | Calculates the sum | `Double`<br>`Integer`<br>`Long` |
+| `toList()`<br>`toSet()` | Creates list/set of stream | `List`<br>`Set` |
+| `toCollection(Supplier s)` | Creates a Collection of specified type | Collection | 
+| `toMap(Function k, Function v)`<br>`toMap(Function k, Function v, BinaryOperator m)`<br>`toMap(Function k, Function v, BinaryOperator m, Supplier s)` | Creates a map using functions to map the keys, values and ooptional merge function | Map |
