@@ -158,9 +158,9 @@ Supplier<List<String>> s2 = ExceptionCaseStudy::createSafe;
 
 ### ⭐ Collecting Using Basic Collectors ⭐
 
-* Most of the collectors work in the same way"
+* Most of the collectors work in the same way!
 
-### 🟡 E.g. 1:
+#### 🟢 E.g. 1:
 
 ```java
 Stream<String> animals = Stream.of("lions", "tigers", "bears");
@@ -173,7 +173,7 @@ System.out.println(str); // lions, tigers, bears
 * It's important to pass the `Collector` to within the `collect()` method!
 
 
-### 🟡 E.g. 2:
+#### 🟢 E.g. 2:
 
 * Here's an example of finding the average string length of a stream:
 
@@ -183,7 +183,7 @@ Double avgLength = animals.collect(Collectors.averagingInt(String::length));
 System.out.println(avgLength); // 4.333333333333333
 ```
 
-### 🟡 E.g. 3:
+#### 🟢 E.g. 3:
 
 * When interacting with legacy code, you will see `Collection` rather than `Stream` type. We can use Collectors to convert our stream to a Collection type:
 
