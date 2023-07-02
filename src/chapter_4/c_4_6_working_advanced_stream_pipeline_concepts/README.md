@@ -155,3 +155,42 @@ Supplier<List<String>> s2 = ExceptionCaseStudy::createSafe;
 | `toList()`<br>`toSet()` | Creates list/set of stream | `List`<br>`Set` |
 | `toCollection(Supplier s)` | Creates a Collection of specified type | Collection | 
 | `toMap(Function k, Function v)`<br>`toMap(Function k, Function v, BinaryOperator m)`<br>`toMap(Function k, Function v, BinaryOperator m, Supplier s)` | Creates a map using functions to map the keys, values and ooptional merge function | Map |
+
+### ⭐ Collecting Using Basic Collectors ⭐
+
+* Most of the collectors work in the same way"
+
+### 🟡 E.g. 1:
+
+```java
+Stream<String> animals = Stream.of("lions", "tigers", "bears");
+String str = animals.collect(Collectors.joining(", "))
+System.out.println(str); // lions, tigers, bears
+```
+
+* Notice how predefined collectors are in `Collectors` rather than `Collector` class🤔
+
+* It's important to pass the `Collector` to within the `collect()` method!
+
+
+### 🟡 E.g. 2:
+
+* Here's an example of finding the average string length of a stream:
+
+```java
+Stream<String> animals = Stream.of("lion","bear","tiger");
+Double avgLength = animals.collect(Collectors.averagingInt(String::length));
+System.out.println(avgLength); // 4.333333333333333
+```
+
+### 🟡 E.g. 3:
+
+* When interacting with legacy code, you will see `Collection` rather than `Stream` type. We can use Collectors to convert our stream to a Collection type:
+
+```java
+Stream<String> animals1 = Stream.of("turtoise", "tiger", "lion");
+TreeSet<String> result = animals1
+    .filter(s -> s.startsWith("t"))
+    .collect(Collectors.toCollection(TreeSet::new));
+System.out.println(result); // [tiger, turtoise]
+```
