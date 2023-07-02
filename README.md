@@ -47,3 +47,4 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 4.3 Returning an Optional](/src/chapter_4/c_4_3_returningAnOptional//)
 - [🧠 4.4 Using Streams](/src/chapter_4/c_4_4_streams/)
 - [🧠 4.5 Working with Primitives](/src/chapter_4/c_4_5_workingWithPrimitives/)
+- [🧠 4.6 Working with Advanced Stream Pipeline Concepts](/src/chapter_4/c_4_6_working_advanced_stream_pipeline_concepts/)
