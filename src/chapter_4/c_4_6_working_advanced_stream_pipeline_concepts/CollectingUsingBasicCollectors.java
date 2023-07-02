@@ -14,6 +14,8 @@ public class CollectingUsingBasicCollectors {
 		Stream<String> animals1 = Stream.of("turtoise", "tiger", "lion");
 		TreeSet<String> result = animals1.filter(s -> s.startsWith("t"))
 		                                .collect(Collectors.toCollection(TreeSet::new));
-		System.out.println(result);
+		System.out.println(result); // [tiger, turtoise]
+
 	}
+	
 }

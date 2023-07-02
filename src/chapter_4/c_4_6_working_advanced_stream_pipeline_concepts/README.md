@@ -194,3 +194,40 @@ TreeSet<String> result = animals1
     .collect(Collectors.toCollection(TreeSet::new));
 System.out.println(result); // [tiger, turtoise]
 ```
+
+### ⭐ Collecting into Maps ⭐
+
+#### 🟢 E.g. 1:
+
+* Let's create a map, where the key is the animal and the value is the string length:
+
+```java
+Stream<String> animals = Stream.of("Ape", "Bear", "Frog", "Tiger");
+Map<String, Integer> map = animals.collect(Collectors.toMap(s->s, s->s.length()));
+System.out.println(map); // {Frog=4, Ape=3, Bear=4, Tiger=5}
+```
+#### 🟢 E.g. 2:
+
+* Now we want to have a map where the keys represent the lengths and the value corresponds to any string with the given length!.
+
+* I.e. we want to generate: `{3=Ape, 4=Frog,bear, 5=Tiger}`
+
+```java
+Stream<String> animals2 = Stream.of("Ape", "Bear", "Frog", "Tiger");
+Map<Integer, String> map2 = animals2
+.collect(Collectors
+        .toMap(s->s.length(), s->s, (s1,s2)->s1+","+s2));
+System.out.println(map2); // {3=Ape, 4=Bear,Frog, 5=Tiger}
+```
+
+* ⚠️If we did not have the `(s1,s2)->s1+","+s2` part, the above would throw an exception!⚠️
+
+* `map2` is actually a HashMap! If we wanted to have a TreeMap returned instead, we would write:
+
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears");
+TreeMap<Integer, String> map = ohMy.collect(Collectors.toMap(
+String::length, k -> k, (s1, s2) -> s1 + "," + s2, TreeMap::new));
+System.out.println(map); // // {5=lions,bears, 6=tigers}
+System.out.println(map.getClass()); // class. java.util.TreeMap
+```
