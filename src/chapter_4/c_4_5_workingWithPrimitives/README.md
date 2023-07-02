@@ -1,6 +1,6 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 🟪 4.5 Working with Primitives
+# 🧠 4.5 Working with Primitives
 
 ## 📜 Contents 📜
 
