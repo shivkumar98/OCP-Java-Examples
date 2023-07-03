@@ -4,15 +4,17 @@
 
 ## 📜 Contents 📜
 
-- [🌸 Introduction 🌸]()
-- [🔴 4.6.1 Linking Streams to the Underlying Data ]()
-- [🔴 4.6.2 Chaining Optionals]()
-- [🔴 4.6.3 Collecting Results]()
+- [🌸 Introduction 🌸](#🌸-introduction-🌸)
+- [🔴 4.6.1 Linking Streams to the Underlying Data ](#🔴-461-linking-streams-to-the-underlying-data)
+- [🔴 4.6.2 Chaining Optionals](#🔴-462-chaining-optionals)
+- [🔴 4.6.3 Collecting Results](#🔴-463-collecting-results)
 
 
 ## 🌸 Introduction 🌸
 
 * Here we will see thew relationship between streams and underlying data, chaining Optional and grouping collectors.
+
+<hr>
 
 ## 🔴 4.6.1 Linking Streams to the Underlying Data
 
@@ -30,6 +32,8 @@ System.out.println(stream.count());
 * My answer: 2❌
 
 * The correct answer is 3✅ Streams are lazily-evaluated, which means the stream is not actually created on line 28! The final line where we evaluate `stream.count()` is only where the Stream is created!
+
+<hr>
 
 
 ## 🔴 4.6.2 Chaining Optionals
