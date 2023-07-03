@@ -239,21 +239,27 @@ My answer:  F
 
 ## Question 8:
 
-❓❓
+❓Which of the following are true given the declaration `IntStream is = IntStream.empty()` (Choose all that apply)❓
 
-A. 
+A. `is.average()` returns the type `int`
 
-B. 
+B. `is.average()` returns the type `OptionalInt`
 
-C. 
+C. `is.findAny()` returns the type `int`
 
-D. 
+D. `is.findAny()` returns the type `OptionalInt`
 
-E. 
+E. `is.sum()` returns the type `int`
 
-F. 
+F. `is.sum()` returns the type `OptionalInt`
 
-G. 
+<hr>
+My answer:  A - False, B - True, C - False, D - True, E - False
+
+
+**F**
+
+<br>
 
 ## Question 9
 
