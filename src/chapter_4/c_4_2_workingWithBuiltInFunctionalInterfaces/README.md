@@ -2,8 +2,17 @@
 
 # 🧠 4.2 Working with Built-in Functional Interfaces
 
-* A functional interface has exactly one abstract method. The below table are functional interfaces introduced in Java 8.
+## 📜 Contents 📜
 
+- [🔴 4.2.1 Implementing Supplier](#🔴-421-implementing-supplier)
+- [🔴 4.2.2 Implementing Consumer and BiConsumer](#🔴-422-implementing-consumer-and-biconsumer)
+- [🔴 4.2.3 Implementing Predicate and BiPriedicate](#🔴-463-collecting-results)
+- [🔴 4.2.4 Implementing Function and BiFunction](#🔴-424-implementing-function-and-bifunction)
+- [🔴 4.2.5 Implementing UnaryOperator and BinaryOperator](#🔴-425-implementing-unaryoperator-and-binaryoperator)
+- [🔴 4.2.6 Checking Functional Interfaces](#🔴-426-checking-functional-interfaces)
+
+
+* A functional interface has exactly one abstract method. The below table are functional interfaces introduced in Java 8.
 
 | Function Interfaces   | No. of parameters  | Return Type | Method    |
 | --------------------- | ------------------ | ----------- | --------- |
@@ -17,7 +26,7 @@
 | `UnaryOperator<T>`    | 1                  | T           | `apply`   |
 | `BinaryOperator<T>`   | 2 (T, T)           | T           | `apply`   |
 
-## 4.2.1 Implementing Supplier
+## 🔴 4.2.1 Implementing Supplier
 
 * The `Supplier` class is used when you want to generate a value without requiring input. This interface is defined as:
 
@@ -47,7 +56,9 @@ System.out.println(a1); // []
 
 * If we print out the functional interface itself we get something like `chapter_4.FunctionalInterfaces$$Lambda$44/0x0000000800113990@5ef60048`
 
-## 4.2.2 Implementing Consumer and BiConsumer
+<r>
+
+## 🔴 4.2.2 Implementing Consumer and BiConsumer
 
 * A consumer is used when you want to do something with a parameter but not return anything. These functional interfaces are defined as:
 
@@ -79,7 +90,9 @@ BiConsumer<String, Integer> b2 = map::put;
 BiConsumer<Integer, String> b3 = map::put; // COMPILER ERROR
 ```
 
-## 4.2.3 Implementing Predicate and BiPredicate
+<hr>
+
+## 🔴 4.2.3 Implementing Predicate and BiPredicate
 
 * We've used predicates before when calling the `removeIf()` method on collections. Predicates are often used when filtering or matching. Predicate and BiPredicate are defined as:
 
@@ -139,8 +152,9 @@ Predicate<String> eggsWhichAreNotBrown = egg.and(brown.negate());
 System.out.println(eggsWhichAreNotBrown.test("I like eggs which are not brown")); // false
 ```
 
+<hr>
 
-## 4.2.4 Implementing Function and BiFunction
+## 🔴 4.2.4 Implementing Function and BiFunction
 
 * The `Function` and `BiFunction` interfaces are defined as:
 
@@ -174,7 +188,9 @@ BiFunction<String,String,Integer> bf2 = String::concat;
 System.out.println(bf2.apply("1+1","=2"));
 ```
 
-## 4.2.5 Implementing UnaryOperator and BinaryOperator
+<hr>
+
+## 🔴 4.2.5 Implementing UnaryOperator and BinaryOperator
 
 * `UnaryOperator` and `BinaryOperator` are functions which map parameters of one type to a value of the SAME type. These interfaces are defined as:
 
@@ -198,8 +214,9 @@ System.out.println(b1.apply("Shiv ", "Kumar")); // Shiv Kumar
 System.out.println(b2.apply("Shiv", "Kumar")); // Shiv Kumar
 ```
 
+<hr>
 
-## 4.2.6 Checking Functional Interfaces
+## 🔴 4.2.6 Checking Functional Interfaces
 
 * Which functional interface would you use in these 3 scenarios:
 
