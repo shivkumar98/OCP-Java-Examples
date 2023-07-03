@@ -141,21 +141,33 @@ My answer: A - false, B - true, C - true, D - false, E - false, F - true
 
 ## Question 6:
 
-❓❓
+❓Which of the following can fill in the blank so that the code prints out `false`❓
 
-A. 
+```java
+Stream<String> s = Stream.generate(()->"meow");
+boolean match = s._______(String::isEmpty);
+System.out.println(match);
+```
 
-B. 
+A. `allMatch`
 
-C. 
+B. `anyMatch`
 
-D. 
+C. `findAny`
 
-E. 
+D. `findFirst`
 
-F. 
+E. `noneMatch`
 
-G. 
+F. None of the above
+
+<hr>
+My answer:  F - true
+
+**F**
+
+<br>
+
 
 ## Question 7
 
