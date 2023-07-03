@@ -43,19 +43,26 @@ F. The code hands
 My answer: stream2 generates an infinite stream, b2 is checking if all the infinite elements begin with "g". Therefore the code hangs! My answer is **F**
 
 
-
-
 ## Question 3
 
-❓❓
+❓What is the output of the following:
+```java
+Predicate<? super String> predicate = s -> s.length() > 3;
+Stream<String> stream = Stream.iterate("-", (s)->s+s);
+boolean b1 = stream.noneMatch(predicate);
+boolean b2 = stream.anyMatch(predicate);
+System.out.println(b1 + " "+ b2);
+```
+A. `false true`
+B. `false false`
+C. `java.util.stream.ReferencePipeline$3@4517d9a3`
+D. The code does not compile
+E. An exception is thrown
+F. The code hands
+❓
 
-A. 
-B. 
-C. 
-D. 
-E. 
-F. 
-G. 
+My answer: false true. my ansdwer is **A**
+
 
 
 ## Question 4:
