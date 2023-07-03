@@ -8,13 +8,13 @@
 
  [🧠 4.2: Working with Built-in Functional Interfaces](/src/chapter_4/c_4_2_workingWithBuiltInFunctionalInterfaces/)
 
- [🧠 4.3: Returning an Optional]()
+ [🧠 4.3: Returning an Optional](/src/chapter_4/c_4_3_returningAnOptional/)
  
- [🧠 4.4: Using streams]()
+ [🧠 4.4: Using streams](/src/chapter_4/c_4_4_streams/)
 
- [🧠 4.5: Working with Primitives]()
+ [🧠 4.5: Working with Primitives](/src/chapter_4/c_4_4_streams/)
  
- [🧠 4.6: Working with Advanced Pipeline Concepts]()
+ [🧠 4.6: Working with Advanced Pipeline Concepts](/src/chapter_4/c_4_6_working_advanced_stream_pipeline_concepts/)
 
 <hr>
 
