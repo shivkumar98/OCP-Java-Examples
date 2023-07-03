@@ -23,3 +23,13 @@
 1) `ifPresent(Consumer c)`
 2) `elseGet(Supplier s)`
 3) `orElseThrow(Supplier c)`
+
+* Stream pipelines have 3 parts:
+
+1) Source of data
+
+2) Intermediate Operations - optional and can be multiple. E.g. `filter()`, `flatMap()`, `sorted()`
+
+3) Terminal Operation - e.g. `allMatch()`, `count()`, `forEach()`
+
+* We can create streams for primitive data types, for these we must use `DoubleStream`, `IntStream` and `LongStream`

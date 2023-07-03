@@ -16,6 +16,7 @@
     - [⭐ Functional Interfaces for double, int, and long ⭐]()
     - [⭐ Primtive-Specific Functional Interfaces ⭐](_)
 
+<hr>
 
 ## 🌸 Introduction 🌸
 
@@ -44,6 +45,8 @@ IntStream intStream = stream.mapToInt(x->x);
 OptionalDouble avg = intStream.average();
 System.out.println(avg.getAsDouble()); // 2.0
 ```
+
+<hr>
 
 ## 🔴 4.5.1 Creating Primitive Streams
 
@@ -113,6 +116,8 @@ Stream<String> objStream = Stream.of("Fish", "Sticks");
 IntStream lengths = objStream.mapToInt(s->s.length());
 ```
 
+<hr>
+
 ## 🔴 4.5.2 Using Optional with Primitive Streams
 
 * We saw earlier that we wrote the average of an int[], we can wrtie this in a better way:
@@ -124,6 +129,8 @@ OptionalDouble average = streamOfInts.average();
 System.out.println("average: "+average.getAsDouble()); // average: 3.0
 // getAsDouble() makes it obvious it returns primitive as a return	
 ```
+
+<hr>
 
 ## 🔴 4.5.3 Summarizing Statistics
 
@@ -154,6 +161,7 @@ private static int range(IntStream ints) {
 }
 ```
 
+<hr>
 
 ## 🔴 4.5.4 Learning the Functional Interfaces for Primitives
 
@@ -242,4 +250,3 @@ ObjIntConsumer<Integer> print2 = (s,i)-> System.out.println(s+i);
 print.accept("shiv is aged: ", 25); // shiv is aged: 25
 print2.accept(23, 3); // 26
 ```
-
