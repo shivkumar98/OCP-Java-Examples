@@ -21,15 +21,28 @@ My answer: the stream is terminated after 2 elements. The elements are "1", "12"
 
 ## Question 2:
 
-❓❓
+❓ What is the output of:
 
-A. 
-B. 
-C. 
-D. 
-E. 
-F. 
-G. 
+```java
+Predicate<? super String> predicate = s -> s.startsWith("g");
+Stream<String> stream1 = Stream.generate(() -> "growl! ");
+Stream<String> stream2 = Stream.generate(() -> "growl! ");
+boolean b1 = stream1.anyMatch(predicate);
+boolean b2 = stream2.allMatch(predicate);
+System.out.println(b1 + " "+ b2);
+```
+A. `true` `false`
+B. `true` `true`
+C. `java.util.stream.ReferencePipeline$3@4517d9a3`
+D. The code does not compile
+E. An exception is thrown
+F. The code hands
+
+❓
+
+My answer: stream2 generates an infinite stream, b2 is checking if all the infinite elements begin with "g". Therefore the code hangs! My answer is **F**
+
+
 
 
 ## Question 3
