@@ -390,22 +390,36 @@ My answer: F applies for line 6,  C applies to line 7, B and G apply to line 8
 
 ## Question 13
 
-❓❓
+❓Which of the following is true❓
 
-A. 
+```java
+List<Integer> l1 = Arrays.asList(1,2,3);
+List<Integer> l2 = Arrays.asList(4,5,6);
+List<Integer> l3 = Arrays.asList();
+Stream.of(l1, l2, l3).map(x -> x+1)
+    .flatMap(x -> x.stream()).forEach(System.out::println);
+```
 
-B. 
+A. The code compiles and prints `123456`
 
-C. 
+B. The code compiles and prints `234567`
 
-D. 
+C. The code compiles but does not print anything
 
-E. 
+D. The code compiles but prints stream references
 
-F. 
+E.  The code runs infinitely
 
-G. 
+F. The code does not compile
 
+G. The code throws an exception
+
+
+My answer: D
+
+**D**
+
+<br>
 
 ## Question 14:
 
