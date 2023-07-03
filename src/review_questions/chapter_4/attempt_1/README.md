@@ -354,21 +354,38 @@ My answer: A - this makes no change to the result, so it works. B - this is fine
 
 ## Question 12:
 
-❓❓
+❓What functional interfaces complete the following code? (Choose all that apply)❓
 
-A. 
+```java
+6: ______ x = String::new; 
+7: ______ y = (a,b) -> System.out.println();
+8: ______ z = a -> a+a;
+```
 
-B. 
+A. `BiConsumer<String, String>`
 
-C. 
+B. `BiFunction<String, String>`
 
-D. 
+C. `BinaryConsumer<String, String>`
 
-E. 
+D. `BiFunction<String, String>`
 
-F. 
+E. `Consumer<String>`
 
-G.  
+F. `Supplier<String>`
+
+G. `UnaryOperator<String>`
+
+H. `UnaryOperator<String, String>` 
+
+
+<hr>
+
+My answer: F applies for line 6,  C applies to line 7, B and G apply to line 8
+
+**B,C,F,G**
+
+<br>
 
 
 ## Question 13
