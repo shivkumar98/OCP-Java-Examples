@@ -289,21 +289,39 @@ My answer:  I believe the coede compiles, option B would not work as `getAsLong(
 
 ## Question 10
 
-❓❓
+❓ Select from the following statements and indicate the order in which they would appear to output 10 lines:❓
 
-A. 
+```java
+Stream.generate(()-> "");
+    .filter(x -> x.length() > 1);  // L
+    .forEach(System.out::println); // M
+    .limit(10);                    // N
+    .peek(System.out::println);    // O
+; 
+```
 
-B. 
+A. L, N
 
-C. 
+B. L, N, O
 
-D. 
+C. L, N, M
 
-E. 
+D. L, N, M, O
 
-F. 
+E. L, O, N
 
-G. 
+F. N. M
+
+G. N, O
+
+<hr>
+
+My answer: A - this does not print anything, B - i don't think so, C -  no all elements get filtered out! D - no, E - no, F - yes, G - no
+
+**F**
+
+<br>
+
 
 ## Question 11
 
