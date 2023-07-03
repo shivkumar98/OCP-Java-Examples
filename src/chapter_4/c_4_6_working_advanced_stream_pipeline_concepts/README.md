@@ -138,6 +138,8 @@ class ExceptionCaseStudy {
 Supplier<List<String>> s2 = ExceptionCaseStudy::createSafe;
 ```
 
+<hr>
+
 ## 🔴 4.6.3 Collecting Results
 
 * We've seen the `collect()` terminal operation but there are other avaialable operations to collect results:
