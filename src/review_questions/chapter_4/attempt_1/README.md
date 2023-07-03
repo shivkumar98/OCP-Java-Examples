@@ -297,7 +297,7 @@ Stream.generate(()-> "");
     .forEach(System.out::println); // M
     .limit(10);                    // N
     .peek(System.out::println);    // O
-; 
+;
 ```
 
 A. L, N
@@ -325,20 +325,31 @@ My answer: A - this does not print anything, B - i don't think so, C -  no all e
 
 ## Question 11
 
-❓❓
-A. 
+❓What changes need to be made for this code to print "12345" (choose all that apply)❓
+```java
+Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining);
+```
 
-B. 
+A. Change `Collectors.joining()` to `Collectors.joining("")`
 
-C. 
+B. Change `map(x -> x)` to `map(x -> "" + x)`
 
-D. 
+C. change `x -> x++` to `x -> ++x`
 
-E. 
+D. Add `forEach(System.out::print)` after the call to `collect()`
 
-F. 
+E. Wrap the entire line in a `System.out.print` statement
 
-G. 
+F. None of the above. The code already prints "12345"
+
+<hr>
+
+My answer: A - this makes no change to the result, so it works. B - this is fine and works. C - this is fine. D - yes. E - yes. F - no
+
+**A, B, C, D, E**
+
+<br>
+
 
 
 ## Question 12:
