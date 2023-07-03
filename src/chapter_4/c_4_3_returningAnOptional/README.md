@@ -2,6 +2,17 @@
 
 # 🧠 4.3 Returning an Optional
 
+## 📜 Contents 📜
+
+- [🌸 Introduction 🌸](#🌸-introduction-🌸)
+- [🔴 4.3.1 Optional Static Methods](#🔴-431-optional-static-methods)
+- [🔴 4.3.2 Optional Instance Methods](#🔴-432-optional-instance-methods)
+
+<hr>
+
+
+## 🌸 Introduction 🌸
+
 * We can use `Optional` class with methods, when we the return is not guranteed. E.g. suppose we wanted to return the average of a class but no tests have taken place yet. It would not make alot of sense to return 0 as an aeverage
 
 * We return `Optional.empty()` if we do not have a value to return and `Optional.of(value)` when we do have a return value. In order for us to extract the value from the Optional, we call the `get()` method on it (provided it is not empty)
@@ -23,7 +34,9 @@ main() {
 }
 ```
 
-## Optional Static Methods
+<hr>
+
+## 🔴 4.3.1 Optional Static Methods
 
 * We can check if an otpional contains a value using `isPresent()`
 
@@ -39,7 +52,9 @@ Optional o = (value==null) ? Optional.empty() : Optional.of(value);
 Optional o = Optional.ofNullable(value);
 ```
 
-## Optional Instance Methods
+<hr>
+
+## 🔴 4.3.2 Optional Instance Methods
 
 * We have the following Optional instance methods:
 
