@@ -32,4 +32,10 @@
 
 3) Terminal Operation - e.g. `allMatch()`, `count()`, `forEach()`
 
-* We can create streams for primitive data types, for these we must use `DoubleStream`, `IntStream` and `LongStream`
+* We can create streams for primitive data types, for these we must use `DoubleStream`, `IntStream` and `LongStream`!
+
+* We can quickly generate a stream of INTEGERS within a range using `range(i,j)` and `rangeClosed(i,j)`. These methods are only available on DoubleStream and IntStream!
+
+* We have access to `average()`, `min()`, `max()` for these primitive streams. We can also generate a `SummaryStatistic` by calling `summaryStatistics()`
+
+* We have functional interfaces specifically for boolean, e.g. `BooleanSupplier` can be use to generate a primitive boolean value!
