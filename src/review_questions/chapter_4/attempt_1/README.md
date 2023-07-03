@@ -171,21 +171,71 @@ My answer:  F - true
 
 ## Question 7
 
-❓❓
+❓We have a method that returns a sorted list without changing the original. Which of the following can replace the method implementation to do the same with streams?
+
+```java
+private static List<String> sort(List<String> list) {
+    List<String> copy = new ArrayList<>(list);
+    Collectors.sort(copy, (a,b)->b.compareTo(a));
+    return copy;
+}
+```
+
+
 A. 
+
+```java
+return list.stream()
+    .compare((a,b)->b.compareTo(a))
+    .collect(Collectors.toList());
+```
 
 B. 
 
+```java
+return list.stream()
+    .compare((a,b)->b.compareTo(a))
+    .sort();
+```
+
 C. 
+
+```java
+return list.stream()
+    .compareTo((a,b)->b.compareTo(a))
+    .collect(Collectors.toList());
+```
 
 D. 
 
+```java
+return list.stream()
+    .compareTo((a,b)->b.compareTo(a))
+    .sort();
+```
+
 E. 
+
+```java
+return list.stream()
+    .sorted((a,b)-> b.compareTo(a))
+    .collect();
+```
 
 F. 
 
-G. 
+```java
+return list.stream()
+    .sorted((a,b)->b.compareTo(a))
+    .collect(Collectors.toList());
+```
 
+<hr>
+My answer:  F 
+
+**F**
+
+<br>
 
 ## Question 8:
 
