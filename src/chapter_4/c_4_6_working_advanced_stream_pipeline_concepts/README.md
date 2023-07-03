@@ -231,3 +231,80 @@ String::length, k -> k, (s1, s2) -> s1 + "," + s2, TreeMap::new));
 System.out.println(map); // // {5=lions,bears, 6=tigers}
 System.out.println(map.getClass()); // class. java.util.TreeMap
 ```
+
+### ⭐ Collecting Using Grouping, Partitioning and Mapping ⭐
+
+#### 🟢 E.g. 1 Grouping
+
+* Suppose we want to get groups of names by their lengths!
+
+```java
+Stream<String> ohMy = Stream.of("lions","tigers","bears");
+Map<Integer, List<String>> map = ohMy.collect(Collectors.groupingBy(String::length));
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+```
+
+* If we wanted to collect the values into a set, we can overload the `groupingBy()` method:
+
+```java
+Stream<String> ohMy = Stream.of("lions","tigers","bears");
+Map<Integer, Set<String>> map =
+    ohMy.collect(Collectors.groupingBy(String::length), Collectors.toSet());
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+```
+
+* We can change the return type through another parameter:
+
+```java
+// changing return type to TreeMap<>:
+Stream<String> ohMy2 = Stream.of("lions","tigers","bears");
+TreeMap<Integer, Set<String>> map2 =
+    ohMy2.collect(Collectors.groupingBy(String::length, TreeMap::new, Collectors.toSet()));
+System.out.println(map2); // {5=[lions, bears], 6=[tigers]}
+```
+
+#### 🟢 E.g. 2 Partitioning
+
+* Paritioning is a type of grouping where the groups are `true` or `false`.
+
+* Suppose we want to partition a stream by the length of the elements:
+
+```java
+Stream<String> animals = Stream.of("lions", "tigers", "bears");
+Map<Boolean, List<String>> map3 = 
+    animals.collect(Collectors.partitioningBy(s->s.length()<6));
+System.out.println(map3); // {false=[tigers], true=[lions, bears]}
+```
+
+* ⚠️We CAN change the value of the map, but not the returned map itself:⚠️
+
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears");
+Map<Boolean, Set<String>> map =
+    ohMy.collect(Collectors.partitioningBy(s->s.length()<=7, Collectors.toSet()>))
+System.out.println(map);// {false=[], true=[lions, tigers, bears]}
+```
+
+* Suppose we wanted to know the number of elements corresponding to each group:
+
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears");
+Map<Integer, Long> map = 
+    ohMy.collect(Collectors.groupingBy(String::length, Collectors.counting()));
+System.out.println(map); // {5=2, 6=1}
+```
+
+
+#### 🟢 E.g. 3 Mapping
+
+* Suppose we want to get the first animal alphabetically of each length:
+
+```java
+Stream<String> ohMy4 = Stream.of("lions", "tigers", "bears");
+Map<Integer, Optional<String>> map4 = ohMy4.collect(
+        Collectors.groupingBy(
+        String::length,
+        Collectors.mapping(s -> s,
+        Collectors.minBy(Comparator.naturalOrder()))));
+System.out.println(map4); // {5=Optional[bears], 6=Optional[tigers]}
+```
