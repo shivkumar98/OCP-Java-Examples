@@ -256,29 +256,36 @@ F. `is.sum()` returns the type `OptionalInt`
 <hr>
 My answer:  A - False, B - True, C - False, D - True, E - False
 
-
-**F**
-
 <br>
 
 ## Question 9
 
-❓❓
+❓Which of the following can we add line 5 for the code to run without error and non produce any output? (Choose all that apply)❓
 
-A. 
+```java
+LongStream ls = LongStream.of(1,2,3);                           // LINE 4
+OptionaolLong opt = ls.map(n->n*10).filter(n->n5).findFirst();  // LINE 5
+```
 
-B. 
+A. `if (opt.isPresent()) System.out.println(opt.get());`
 
-C. 
+B. `if (opt.isPresent()) System.out.println(opt.getAsLong());`
 
-D. 
+C. `opt.ifPresent(System.out.println);`
 
-E. 
+D. `opt.ifPresent(System.out::println)`
 
-F. 
+E. None of these; the code does not compile
 
-G. 
+F. None of these; line 5 throws an exception 
 
+<hr>
+
+My answer:  I believe the coede compiles, option B would not work as `getAsLong()` is not a method! C also would not compile. A and D seem fine!
+
+**A and D**
+
+<br>
 
 ## Question 10
 
