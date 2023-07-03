@@ -19,7 +19,7 @@
   - [⭐ filter() ⭐]()
   - [⭐ limit() and skip() ⭐]()
   - [⭐ sorted() ⭐]()
-  - [⭐ peek() ⭐c]()
+  - [⭐ peek() ⭐]()
   - [⚠️ Danger: Changing State with peek() ⚠️]()
 - [🔴 4.4.4 Putting Together the Pipeline]()
   - [⭐ Peeking behind the Scenes ⭐]()
@@ -36,6 +36,8 @@
 2) Intermediate Operations: transform the stream into another one
 
 3) Terminal Operations: actually generate the result
+
+<hr>
 
 ## 🔴 4.4.1 Creating Stream Sources
 
