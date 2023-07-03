@@ -116,21 +116,27 @@ My answer: A - true, B - false, C - false, D - false, E - false:
 
 ## Question 5
 
-❓❓
+❓ Which terminal operations on the `Stream` class are reductions?❓
 
-A. 
+A. collect()
 
-B. 
+B. count()
 
-C. 
+C. findFirst()
 
-D. 
+D. map()
 
-E. 
+E. peek()
 
-F. 
+F. sum()
 
-G. 
+<hr>
+My answer: A - false, B - true, C - true, D - false, E - false, F - true
+
+**B,C,F**
+
+<br>
+
 
 
 ## Question 6:
