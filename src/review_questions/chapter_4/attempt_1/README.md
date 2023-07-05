@@ -455,21 +455,25 @@ My answer: The code definitely does not compile. Line 4 is fine, line 5 is fine,
 
 ## Question 15
 
-❓❓
+❓The `partitioningBy()` collector creates a `Map<Boolean, List<String>>` when passed to `collect()` by default. When specific parameters are passed to `partioningBy()`, which return types can be created? (Choose all that apply)❓
 
-A. 
+A. `Map<boolean, List<String>>`
 
-B. 
+B. `Map<Boolean, Map<String>>`
 
-C. 
+C. `Map<Long, TreeSet<String>>`
 
-D. 
+D. `Map<Boolean, List<String>>`
 
-E. 
+E. `Map<Boolean, Set<String>>`
 
-F. 
+F. None of the above
 
-G. 
+My answer: A, B
+
+**A, B**
+
+<br>
 
 
 ## Question 16
