@@ -423,21 +423,36 @@ My answer: D
 
 ## Question 14:
 
-❓❓
+❓Which of the following is true❓
 
-A. 
+```java
+4: Stream<Integer> s = Stream.of(1);
+5: IntStream is = s.mapToInt(x -> x);
+6: DoubleStream ds = s.mapToInt(x -> x);
+7: Stream<Iteger> s2 = ds.mapToInt(x -> x);
+8: s2.forEach(System.out::print);
+```
 
-B. 
+A. Line 4 does not compile
 
-C. 
+B. Line 5 does not compile
 
-D. 
+C. Line 6 does not compile
 
-E. 
+D. Line 7 does not compile
 
-F. 
+E. Line 8 does not compile
 
-G. 
+F. The code throws an exception
+
+G. The code compiles and prints 1.
+
+My answer: The code definitely does not compile. Line 4 is fine, line 5 is fine, line 6 is fine, line 7 does not compile, so line 8 also does not compile
+
+**D, E**
+
+<br>
+
 ## Question 15
 
 ❓❓
