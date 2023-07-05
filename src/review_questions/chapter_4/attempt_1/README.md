@@ -578,20 +578,28 @@ My answer: C
 
 ## Question 19
 
-❓❓
-A. 
+❓Which of the following return primitives❓
 
-B. 
+A. `BooleanSupplier`
 
-C. 
+B. `CharSupplier`
 
-D. 
+C. `DoubleSupplier`
 
-E. 
+D. `FloatSupplier`
 
-F. 
+E. `IntSupplier`
 
-G. 
+F. `StringSupplier`
+
+
+<hr>
+
+My answer: A, C, E
+
+**A, C, E**
+
+<br>
 
 ## Question 20
 
