@@ -9,6 +9,7 @@
 | 1          |   Yes   |
 | 2          | Yes     |
 | 3          | No      |
+| 4          | No      |
 
 
 ## Question 1
@@ -126,10 +127,9 @@ My answer: A - true, B - false, C - false, D - false, E - false:
 
 **A**
 
+Correct answers: A and B. Terminal operations are the final step in a stream pipeline. Exactly 1 is needed because it triggers the execution of the entire stream pipeline
+
 <br>
-
-
-
 
 
 ## Question 5
