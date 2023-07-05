@@ -6,7 +6,8 @@
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1         |    Yes       |
+| 1          |   Yes   |
+| 2          | Yes      |
 
 
 ## Question 1
@@ -37,9 +38,10 @@ G. The code hangs
 
 My answer: the stream is terminated after 2 elements. The elements are "1", "12". The elements are then mapped to "12", "122". I don't think it generates a String. So my answer is **D**
 
+Correct answer: D - no terminal operation is called os the stream never excecutes.
+
 <br>
 
-Correct answer: D - no terminal operation is called os the stream never excecutes.
 
 ## Question 2:
 
@@ -70,8 +72,12 @@ F. The code hands
 
 My answer: stream2 generates an infinite stream, b2 is checking if all the infinite elements begin with "g". Therefore the code hangs! My answer is **F**
 
+Correct answer: F - b1 is set to true, the allMatch() runs forever since its checlking all the elements of this inifinite stream
 
 <br>
+
+
+
 
 ## Question 3
 
