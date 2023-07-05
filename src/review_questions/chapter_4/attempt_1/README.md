@@ -603,16 +603,40 @@ My answer: A, C, E
 
 ## Question 20
 
+❓What is the simplest way of rewriting this code❓
+
+```java
+List<Integer> l = IntStream.range(1,6)
+    .mapToObj(i -> i).collect(Collectors.toList());
+l.forEach(System.out::println);
+```
+
 A. 
+```java
+IntStream.range(1,6);
+```
 
 B. 
+```java
+IntStream.range(1,6)
+    .forEach(System.out::println);`
+```
 
 C. 
+```java
+IntStream.range(1,6)
+    .mapToObj(i->i)
+    .forEach(System.out::println);
+```
 
-D. 
+D. None of the above is equivalent
 
-E. 
+E. The provided code does not compile
 
-F. 
+<hr>
 
-G. 
+My answer: B
+
+**B**
+
+<br>
