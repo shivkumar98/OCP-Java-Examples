@@ -6,10 +6,11 @@
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |   Yes   |
+| 1          | Yes     |
 | 2          | Yes     |
 | 3          | No      |
 | 4          | No      |
+| 5          | No      |
 
 
 ## Question 1
@@ -153,6 +154,7 @@ My answer: A - false, B - true, C - true, D - false, E - false, F - true
 
 **B,C,F**
 
+Correct answers: A and B. collect() is a reduction and so is count(). D and E are intermiadiate operations. While sum() is a reduction, it only available on primitive streams! C is not a reduction because it does not look at each element in the stream!
 <br>
 
 
