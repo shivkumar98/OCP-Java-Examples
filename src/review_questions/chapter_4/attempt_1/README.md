@@ -414,6 +414,7 @@ F. The code does not compile
 
 G. The code throws an exception
 
+<hr>
 
 My answer: D
 
@@ -447,6 +448,8 @@ F. The code throws an exception
 
 G. The code compiles and prints 1.
 
+<hr>
+
 My answer: The code definitely does not compile. Line 4 is fine, line 5 is fine, line 6 is fine, line 7 does not compile, so line 8 also does not compile
 
 **D, E**
@@ -468,6 +471,9 @@ D. `Map<Boolean, List<String>>`
 E. `Map<Boolean, Set<String>>`
 
 F. None of the above
+
+
+<hr>
 
 My answer: A, B
 
@@ -501,6 +507,8 @@ E. The code does not compile
 
 F. An exception is thrown
 
+<hr>
+
 My answer: the first Map is partitioned, so it is grouped by false,true - so C and D seem valid. I go for C!
 
 **C**
@@ -509,21 +517,32 @@ My answer: the first Map is partitioned, so it is grouped by false,true - so C a
 
 ## Question 17
 
-❓❓
+❓Which of the following is equivalent to this code❓
 
-A. 
+```java
+UnaryOperator<Integer> u = x -> x * x;
+```
 
-B. 
+A. `BiFunction<Integer> f = x -> x*x;`
 
-C. 
+B. `BiFunction<Integer, Integer> f = x -> x*x;`
 
-D. 
+C. `BinaryOperator<Interger, Integer> f = x -> x*x;`
 
-E. 
+D. `Function<Integer> f = x -> x*x;`
 
-F. 
+E. `Function<Integer, Integer> f = x -> x*x;`
 
-G. 
+F. None of these above
+
+<hr>
+
+My answer: A is not valid, B is not valid, C is not valid, D is not valid, E is valid!
+
+**E**
+
+<br>
+
 
 ## Question 18
 
