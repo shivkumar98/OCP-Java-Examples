@@ -7,7 +7,8 @@
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |   Yes   |
-| 2          | Yes      |
+| 2          | Yes     |
+| 3          | No      |
 
 
 ## Question 1
@@ -97,9 +98,13 @@ E. An exception is thrown
 F. The code hands
 ❓
 
+<hr>
+
 My answer: false true. my answer is **A**
 
+Correct answer: E - the code throws an exception. This is because b2 is trying to reference a stream which is already closed. If this was fine, then A would be the correct answer!
 
+<br>
 
 ## Question 4:
 
