@@ -478,22 +478,34 @@ My answer: A, B
 
 ## Question 16
 
-❓❓
+❓What is the output of the following❓
 
-A. 
+```java
+Stream<String> s = Stream.empty();
+Stream<String> s2 = Stream.empty();
+Map<Boolean, List<String>> p = s.collect(
+    Collectors.partitionBy(b -> b.startsWith("c")));
+Map<Boolean, List<String>> g = s.collect(
+    Collectors.groupBy(b -> b.startsWith("c")));
+```
 
-B. 
+A. `{} {}`
 
-C. 
+B. `{} {false=[], true=[]}`
 
-D. 
+C. `{false=[], true=[]} {}`
 
-E. 
+D. `{false=[], true=[]} {false=[], true=[]}`
 
-F. 
+E. The code does not compile
 
-G. 
+F. An exception is thrown
 
+My answer: the first Map is partitioned, so it is grouped by false,true - so C and D seem valid. I go for C!
+
+**C**
+
+<br>
 
 ## Question 17
 
