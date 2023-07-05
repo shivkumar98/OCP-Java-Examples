@@ -2,6 +2,13 @@
 
 # Chapter 4: Review Questions
 
+## Results:
+
+| Question # | Correct |
+| ---------- | ------- |
+| 1         |    Yes       |
+
+
 ## Question 1
 
 ❓ What is the output of the following?
@@ -30,9 +37,9 @@ G. The code hangs
 
 My answer: the stream is terminated after 2 elements. The elements are "1", "12". The elements are then mapped to "12", "122". I don't think it generates a String. So my answer is **D**
 
-
 <br>
 
+Correct answer: D - no terminal operation is called os the stream never excecutes.
 
 ## Question 2:
 
