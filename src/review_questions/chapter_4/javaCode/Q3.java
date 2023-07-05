@@ -11,6 +11,7 @@ public class Q3 {
 		Stream<String> stream = Stream.iterate("-", (s) -> s + s);
 		boolean b1 = stream.noneMatch(predicate);
 		boolean b2 = stream.anyMatch(predicate);
+		// ANSWER: line 13 throws exception 
 	}
 
 }

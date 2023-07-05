@@ -184,6 +184,8 @@ F. None of the above
 <hr>
 My answer:  F - true
 
+Correct answer: A. The allMatch does terminate! anyMatch() runs forever! findAny() and FindFirst() do not take predicates! noneMatch() woiuld run forever!
+
 **F**
 
 <br>
