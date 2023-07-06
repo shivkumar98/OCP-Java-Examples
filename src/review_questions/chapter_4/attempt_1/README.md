@@ -4,6 +4,9 @@
 
 ## Results:
 
+Date: 06/07/2023
+Score: 8/20
+
 | Question # | Correct |
 | ---------- | ------- |
 | 1          | Yes     |
@@ -25,6 +28,10 @@
 | 17         | Yes     |
 | 18         | No      |
 | 19         | Yes     |
+| 20         | Yes     |
+
+
+<hr>
 
 ## Question 1
 
@@ -700,5 +707,7 @@ E. The provided code does not compile
 My answer: B
 
 **B**
+
+Correct answer - B!!!
 
 <br>
