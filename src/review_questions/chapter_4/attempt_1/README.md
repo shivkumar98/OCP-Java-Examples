@@ -23,7 +23,7 @@
 | 15         | No      |
 | 16         | Yes     |
 | 17         | Yes     |
-
+| 18         | No      |
 
 ## Question 1
 
@@ -630,6 +630,8 @@ G. An exception is thrown
 My answer: C
 
 **C**
+
+Correct answer: D - there is a terminal operation, which means the intermediate operations DO run! The peek() comes before the filter so both numbers get printed
 
 <br>
 
