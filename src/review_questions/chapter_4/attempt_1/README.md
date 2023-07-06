@@ -16,6 +16,7 @@
 | 8          | No      |
 | 9          | No      |
 | 10         | Yes     |
+| 11         | No      |
 
 ## Question 1
 
@@ -381,6 +382,8 @@ F. None of the above. The code already prints "12345"
 My answer: A - this makes no change to the result, so it works. B - this is fine and works. C - this is fine. D - yes. E - yes. F - no
 
 **A, B, C, D, E**
+
+Correct answer: B, C, E - the code does not compile. We need to fix it by using B, without C the stream would just contain "111...". collect() converts this to a string. So we can't use forEach()
 
 <br>
 
