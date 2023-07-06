@@ -22,6 +22,8 @@
 | 14         | No      |
 | 15         | No      |
 | 16         | Yes     |
+| 17         | Yes     |
+
 
 ## Question 1
 
@@ -593,6 +595,8 @@ F. None of these above
 My answer: A is not valid, B is not valid, C is not valid, D is not valid, E is valid!
 
 **E**
+
+Correct answer: E - the other options do not even compile
 
 <br>
 
