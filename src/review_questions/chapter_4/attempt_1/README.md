@@ -21,6 +21,7 @@
 | 13         | No      |
 | 14         | No      |
 | 15         | No      |
+| 16         | Yes     |
 
 ## Question 1
 
@@ -562,6 +563,8 @@ F. An exception is thrown
 My answer: the first Map is partitioned, so it is grouped by false,true - so C and D seem valid. I go for C!
 
 **C**
+
+Correct answer: C!!! - partition will always return map with boolean key. The groupBy returns only keys which are needed
 
 <br>
 
