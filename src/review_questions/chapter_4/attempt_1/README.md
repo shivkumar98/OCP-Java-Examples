@@ -15,6 +15,7 @@
 | 7          | Yes     |
 | 8          | No      |
 | 9          | No      |
+| 10         | Yes     |
 
 ## Question 1
 
@@ -323,11 +324,11 @@ Correct andswer: B and D - since we are using a LongStream we must use getAsLong
 ❓ Select from the following statements and indicate the order in which they would appear to output 10 lines:❓
 
 ```java
-Stream.generate(()-> "");
-    .filter(x -> x.length() > 1);  // L
-    .forEach(System.out::println); // M
-    .limit(10);                    // N
-    .peek(System.out::println);    // O
+  Stream.generate(()-> "");
+L:    .filter(x -> x.length() > 1)  
+M:    .forEach(System.out::println)
+N:    .limit(10)                    
+O:    .peek(System.out::println)
 ;
 ```
 
@@ -339,7 +340,7 @@ C. L, N, M
 
 D. L, N, M, O
 
-E. L, O, N
+E. L, O, M
 
 F. N. M
 
@@ -350,6 +351,8 @@ G. N, O
 My answer: A - this does not print anything, B - i don't think so, C -  no all elements get filtered out! D - no, E - no, F - yes, G - no
 
 **F**
+
+Correct answer: F - the terminal operation must be the last statement so only C, E and F would be valid. E is out as it would be infinite.  C is invalid as all elements would be filtered out and it will run infinitely!
 
 <br>
 
