@@ -2,6 +2,7 @@ package review_questions.chapter_4.javaCode;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.UnaryOperator;
 
 public class Q12 {
 	public static void main(String[] args) {

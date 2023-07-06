@@ -18,6 +18,7 @@
 | 10         | Yes     |
 | 11         | No      |
 | 12         | No      |
+| 13         | No      |
 
 ## Question 1
 
@@ -459,6 +460,9 @@ G. The code throws an exception
 My answer: D
 
 **D**
+
+Correct Answer: F - the code does not compile!!!. It fails when trying to map the elements. If `flatMap` was called first it would've worked!!!
+
 
 <br>
 
