@@ -11,7 +11,9 @@
 | 3          | No      |
 | 4          | No      |
 | 5          | No      |
-
+| 6          | No      |
+| 7          | Yes     |
+| 8          | No      |
 
 ## Question 1
 
@@ -257,6 +259,8 @@ My answer:  F
 
 **F**
 
+Correct answer: F - the sorted() method lets us pass in a comparator!
+
 <br>
 
 ## Question 8:
@@ -277,6 +281,8 @@ F. `is.sum()` returns the type `OptionalInt`
 
 <hr>
 My answer:  A - False, B - True, C - False, D - True, E - False
+
+Correct answer: D and E - isAverage() returns an OptionalDouble!
 
 <br>
 
