@@ -24,6 +24,7 @@
 | 16         | Yes     |
 | 17         | Yes     |
 | 18         | No      |
+| 19         | Yes     |
 
 ## Question 1
 
@@ -657,6 +658,8 @@ F. `StringSupplier`
 My answer: A, C, E
 
 **A, C, E**
+
+Correct answer: ACE!!!
 
 <br>
 
