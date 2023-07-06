@@ -14,6 +14,7 @@
 | 6          | No      |
 | 7          | Yes     |
 | 8          | No      |
+| 9          | No      |
 
 ## Question 1
 
@@ -312,6 +313,8 @@ F. None of these; line 5 throws an exception
 My answer:  I believe the coede compiles, option B would not work as `getAsLong()` is not a method! C also would not compile. A and D seem fine!
 
 **A and D**
+
+Correct andswer: B and D - since we are using a LongStream we must use getAsLong
 
 <br>
 
