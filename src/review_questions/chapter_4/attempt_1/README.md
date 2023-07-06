@@ -20,6 +20,7 @@
 | 12         | No      |
 | 13         | No      |
 | 14         | No      |
+| 15         | No      |
 
 ## Question 1
 
@@ -525,6 +526,8 @@ F. None of the above
 My answer: A, B
 
 **A, B**
+
+Correct answer: D, E - A and B are not valid!!! Option C is invalid as it partitions to true,false.  The result can be changed to List or Set, making D and E correct!
 
 <br>
 
