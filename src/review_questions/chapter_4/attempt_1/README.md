@@ -17,6 +17,7 @@
 | 9          | No      |
 | 10         | Yes     |
 | 11         | No      |
+| 12         | No      |
 
 ## Question 1
 
@@ -421,6 +422,8 @@ H. `UnaryOperator<String, String>`
 My answer: F applies for line 6,  C applies to line 7, B and G apply to line 8
 
 **B,C,F,G**
+
+Correct answer: A, F, G - D is an invalid interface, C does not exist! A applied to line 7! `BiFunction<String, String>` is not valid. While E can work with line 6, it would be completely useless! Line 6 is creating something, so it is a supplier! So F is valid. H is completely invalid. G does apply to line 8!
 
 <br>
 
