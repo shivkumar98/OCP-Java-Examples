@@ -131,3 +131,6 @@ ANSWER: Predicate, Consumer, BiPredicate
 7: UnaryOperator<Long> ex2 = (Long l) -> 3.14; // DOES NOT COMPILE
 8: Predicate ex4 = String::isEmpty; // DOES NOT COMPILE
 ```
+
+ANSWER: Line 6 - invalid functional interface declaration. Line 7 - returns dounble and not long. Line 8 - does not declare generic
+
