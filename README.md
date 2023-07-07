@@ -38,7 +38,7 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 3.5 Searching and Sorting](/src/chapter_3/chapter_3_5_searching_and_sorting/)
 - [🧠 3.6 Additions in Java 8](/src/chapter_3/chapter_3_6_additions_in_java_8/)
 - [🧠 3.7 Summary](/src/chapter_3/)
-- [🧠 3.9 Review Questions](/src/review_questions/chapter_3/)
+- [✅ Review Questions](/src/review_questions/chapter_3/)
 
 ## Chapter 4: Functional Interfaces
 - [📜 Table of Contents/Summary📜 ](/src/chapter_4/)
@@ -48,3 +48,5 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 4.4 Using Streams](/src/chapter_4/c_4_4_streams/)
 - [🧠 4.5 Working with Primitives](/src/chapter_4/c_4_5_workingWithPrimitives/)
 - [🧠 4.6 Working with Advanced Stream Pipeline Concepts](/src/chapter_4/c_4_6_working_advanced_stream_pipeline_concepts/)
+- [🧠 4.7 Summary](/src/chapter_4/c_4_7_summary/)
+- [✅ Review Questions](/src/review_questions/chapter_4/)
