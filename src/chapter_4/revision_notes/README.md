@@ -1,6 +1,6 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# Revision Notes
+# 📝 Chapter 4: Revision Notes
 
 # 🧠 4.1 Using Variables in Lambdas
 
@@ -158,3 +158,37 @@ Supplier<Exception> ex = IndexOutOfBoundsException::new;
 // empty.orElseThrow(s);// DOES NOT COMPILE
 empty.orElseThrow(ex); // THROWS EXCEPTION
 ```
+
+<hr>
+
+# 🧠 4.4 Using Streams
+
+* A stream is a sequence of data
+
+* A stream pipeline are operations which act on the stream to produce a result. This pipeline consists of 3 parts:
+
+1) Source
+
+2) Intermediate operations - optional, lazily evaluated when terminal operation is called. If the terminal operatioln is NOT called, then these operations do NOT EXECUTE!
+
+3) Terminal operation - produces the result, stream can not be referenced again when this is called
+
+## 🟥 4.4.1 Creating Stream Sources
+
+* We can create FINITE streams using `Stream.of()`/`Stream.empty()`
+
+```java
+List<String> list = Arrays.asList("Hello", "Shiv", "Kumar");
+Stream<String> str = list.stream();
+Stream<Integer> str2 = Stream.empty();
+Stream<Integer> str3 = Stream.of(1);
+```
+
+* We can create INFINITE streams using `Stream.generate()`/`Stream.iterate()`
+
+```java
+Stream<String>  str4 = Stream.generate(() -> "hello world");
+Stream<Double>  str5 = Stream.generate(Math::random);
+Stream<Integer> str6 = Stream.iterate(1, n->n+3);
+```
+
