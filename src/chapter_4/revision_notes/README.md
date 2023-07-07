@@ -109,3 +109,25 @@ System.out.println(u.apply("hello")); // HELLO
 BinaryOperator<String> bo = String::concat;
 System.out.println(bo.apply("hello ", "world")); // hello world
 ```
+
+<br>
+
+## 🟥 4.2.2 Checking Functional Interfaces:
+
+* What functional interfacres will fill in the blanks:
+
+```java
+____<List> ex1 = x -> "".equals(x.get(0));
+____<List> ex2 = (Long l) -> System.out.println(l);
+____<String, String> ex3 = (s1, s2) -> false;
+```
+
+ANSWER: Predicate, Consumer, BiPredicate
+
+* Why does the following not compile:
+
+```java
+6: Function<List<String>> ex1 = x -> x.get(0); // DOES NOT COMPILE
+7: UnaryOperator<Long> ex2 = (Long l) -> 3.14; // DOES NOT COMPILE
+8: Predicate ex4 = String::isEmpty; // DOES NOT COMPILE
+```
