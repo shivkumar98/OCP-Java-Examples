@@ -134,3 +134,27 @@ ANSWER: Predicate, Consumer, BiPredicate
 
 ANSWER: Line 6 - invalid functional interface declaration. Line 7 - returns dounble and not long. Line 8 - does not declare generic
 
+<hr>
+
+# 🧠 4.3 Returning an Optional
+
+* Some of the stream terminal operations return an Optional. An Optional can be empty or contain a value. We can check if a value is present using `isPresent()`. We can execute a consumer with the value if a value is present using `ifPresent(Consumer c)`
+
+```java
+Consumer<Integer> c = System.out::print;
+Optional<Integer> x = Optional.empty();
+x.ifPresent(c); // nothing prints
+x = Optional.of(23);
+x.ifPresent(c); // 23
+```
+
+* We can also get other value/throw exception using `orElse()`, `orElseGet(Supplier s)` and `orElseThrow(Supplier s)`:
+
+```java
+Optional<Integer> empty = Optional.empty();
+Supplier<Integer> s = () -> 1;
+System.out.println(empty.orElseGet(s)); // 1
+Supplier<Exception> ex = IndexOutOfBoundsException::new;
+// empty.orElseThrow(s);// DOES NOT COMPILE
+empty.orElseThrow(ex); // THROWS EXCEPTION
+```
