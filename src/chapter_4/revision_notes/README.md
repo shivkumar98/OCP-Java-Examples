@@ -488,3 +488,35 @@ Stream.of(list)
 ```
 
 
+
+<hr>
+
+# 🧠 4.5 Working with Primitives
+
+## 🟥 Introduction
+
+* So far, we created streams for objects/wrapper classes. But we can also create streams for int, double and long primitives.
+
+* These streams designed specifically for primitves offer more useful methods. 
+
+* Going back to finding the sum of a stream, if we use the wrapper variant we would need to write a reduction:
+
+```java
+Stream<Integer> stream = Stream.of(1,2,3);
+// stream.sum(); DOES NOT COMPILE
+stream.reduce(0, (s,n)->s+n); // 6
+```
+
+* If we create an `IntStream`, we can exploit the sum() method:
+
+```java
+stream.mapToInt(x->x).sum();
+```
+
+* Suppose we want to calculate the average, this would require to pass throughs of a stream! If we use a primitive stream we can call average() method:
+
+```java
+IntStream ints = IntStream.of(1,2,3);
+OptionalDouble avg = ints.average(); 
+System.out.println(avg.getAsDouble()); // 2.0
+```

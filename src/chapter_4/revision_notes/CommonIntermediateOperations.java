@@ -49,9 +49,9 @@ public class CommonIntermediateOperations {
 		
 		long count = Stream.of("black bear", "brown bear", "grizzly")
 		.filter(x->x.startsWith("b"))
-		.peek(System.out::println)
+		.peek(System.out::println) // black bear brown bear
 		.count();
-		System.out.println(count);
+		System.out.println(count); // 2
 
 	}
 }
