@@ -20,5 +20,11 @@ public class CommonIntermediateOperations {
 			.limit(5)
 			.skip(2)
 			.forEach(System.out::println); // 3 4 5
+		
+		System.out.println("-------------------");
+		Stream.of("monkey", "gorilla", "chimp")
+		.map(x->x.length())
+		.map(x->x+2)
+		.forEach(System.out::println); // 8 9 7
 	}
 }

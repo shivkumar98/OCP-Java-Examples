@@ -389,3 +389,20 @@ Stream.iterate(1, n->n+1)
     .skip(2)
     .forEach(System.out::println); // 3 4 5
 ```
+
+### 🟡 map()
+
+* This map lets us create a 1-to-1 mapping from slements in the stream. It has the following signature:
+
+```java
+Stream<R> map(Function<? super T, ? extends R> mapper)
+```
+
+* E.g.:
+
+```java
+Stream.of("monkey", "gorilla", "chimp")
+    .map(x->x.length())
+    .map(x->x+2)
+    .forEach(System.out::println); // 8 9 7
+```
