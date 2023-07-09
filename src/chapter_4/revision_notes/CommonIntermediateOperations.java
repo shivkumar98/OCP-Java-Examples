@@ -1,6 +1,7 @@
 package chapter_4.revision_notes;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.Stream;
 
 public class CommonIntermediateOperations {
@@ -33,5 +34,16 @@ public class CommonIntermediateOperations {
 		Stream.of(Arrays.asList(1,2,3))
 		.flatMap(l->l.stream())
 		.forEach(System.out::println); // 1 2 3
+		
+		System.out.println("---------------------");
+		
+		Stream.of("brown bear", "grizzly bear")
+		.sorted()
+		.forEach(System.out::println); // brown bear grizzly bear
+		
+		Stream.of("brown bear", "grizzly bear")
+		.sorted(Comparator.reverseOrder())
+		.forEach(System.out::println); // grizzly bear brown bear
+
 	}
 }

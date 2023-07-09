@@ -411,8 +411,35 @@ Stream.of("monkey", "gorilla", "chimp")
 
 * This method makes any sub-elements into top-level elements in a single stream.
 
+* It has the following signature:
+
+```java
+Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)
+```
+
 ```java
 Stream.of(Arrays.asList(1,2,3))
     .flatMap(l->l.stream())
     .forEach(System.out::println); // 1 2 3
+```
+
+### 🟡 sorted()
+
+* This method will sort elements of an array using their natural sorting unless a Comparator is specified:
+
+```java
+Stream<T> sorted()
+Stream<T> sorted(Comparator<? super T> comparator)
+```
+
+* E.g.:
+
+```java
+Stream.of("brown bear", "grizzly bear")
+    .sorted()
+    .forEach(System.out::println); // brown bear grizzly bear
+    
+Stream.of("brown bear", "grizzly bear")
+    .sorted(Comparator.reverseOrder())
+    .forEach(System.out::println); // grizzly bear brown bear
 ```
