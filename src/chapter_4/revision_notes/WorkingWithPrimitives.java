@@ -1,5 +1,6 @@
 package chapter_4.revision_notes;
 
+import java.util.IntSummaryStatistics;
 import java.util.OptionalDouble;
 import java.util.OptionalLong;
 import java.util.stream.DoubleStream;
@@ -34,5 +35,10 @@ public class WorkingWithPrimitives {
 		
 		OptionalLong min = LongStream.of(1,2)
 				.min();
+	}
+	
+	static int range(IntStream ints) {
+		IntSummaryStatistics stats = ints.summaryStatistics();
+		return stats.getMax()-stats.getMin();
 	}
 }

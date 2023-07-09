@@ -556,7 +556,7 @@ DoubleStream.range(1,2); // COMPILER ERROR
 
 <br>
 
-## 🟥 4.5.2 Using Opetional with Primitive Streams
+## 🟥 4.5.2 Using Optional with Primitive Streams
 
 * We saw in the first example, that the `average()` method returned an OptionalDouble - which was retrieved using `getAsDouble()`
 
@@ -565,4 +565,27 @@ DoubleStream.range(1,2); // COMPILER ERROR
 ```java
 OptionalLong min = LongStream.of(1,2)
 	.min();
+```
+
+<br>
+
+## 🟥 4.5.3 Summarizing Statistics
+
+* Suppose we have the following method:
+
+```java
+private static int range(IntStream ints){
+}
+```
+
+* We want to calculate the range from the stream, so we would need `ints.max() - ints.min()` - but we can't reference a stream twice!! 
+
+* This is where SummaryStatistics help!
+
+```java
+private static int range(IntStream ints) {
+    IntSummaryStatistics stats = ints.summaryStatistics();
+    if (stats.getCount() == 0) throw new RuntimeException();
+    return stats.getMax()-stats.getMin();
+}
 ```
