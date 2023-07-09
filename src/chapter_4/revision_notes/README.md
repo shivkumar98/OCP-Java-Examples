@@ -603,3 +603,41 @@ BooleanSupplier b1 = () -> true;
 BooleanSupplier b2 = () -> Math.random() > .5;
 System.out.println(b1.getAsBoolean());
 ```
+
+### 🟡 Functional Interfaces for double, int, and long
+
+* We have functional interfaces for all 3 types of Primitive streams (IntStream, LongStream, DoubleStream).
+
+* The below list will only look at the `Double` type:
+
+1) `DoubleSupplier` - returns double. Method: `getAsDouble()`
+
+2) `DoubleConsumer` - void return, takes one parameter (double). Method: `accept()`
+
+3) `DoublePredicate` - returns boolean, takes one parameter (double). Method: `test()`
+
+4) `DoubleFunction<R>` - returns R, takes one parameter (double). Method: `apply()`
+
+5) `DoubleUnaryOperator` - returns double, takes one parameter (double). Method: `applyAsDouble()`
+
+6) `DoubleBinaryOperator` - returns double, takes two parameters (double). Method - `applyAsDouble`
+
+* We also have primitive specific functional interfaces:
+
+1) `ToDoubleFunction<T>`, takes one parameter (T), returns double. Method - `applyAsDouble()`
+
+2) `ToDoubleBiFunction<T, U>`, takes 2 parameters (T, U), returns double. Method - `applyAsDouble()`
+
+3) `DoubleToIntFunction`, `DoubleToLongFunction`, takes 1 parameter (double) and returns int and long respectively. Methods: `applyAsInt` and `applyAsLong`
+
+4) `ObjDoubleConsumer<T>`, takes 2 parameters (T, double), return is `void`. Method - `accept`
+
+* Which functional interface would you use to fill in the blank to make the following code compile?
+
+```java
+double d = 1.0;
+______ f1 = x -> 1;
+f1.applyAsInt(d);
+```
+
+* The method takes a double parmaeter and returns an int. The only functional interface meeting all three criteria is `DoubleToIntFunction`
