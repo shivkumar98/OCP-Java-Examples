@@ -666,6 +666,8 @@ System.out.println(stream.count());
 
 * Streams are lazily evaluated!
 
+<br>
+
 ## 🟥 4.6.2 Chaining Optionals
 
 * There are few operations for streams are available for Optional!
@@ -721,4 +723,38 @@ Optional<Integer> x = optional.map(ChainingOptional::calculator);
 Optional<Integer> x = optional.flatMap(ChainingOptional::calculator); // WORKS FINE
 ```
 
+<br>
 
+## 🟥 4.6.3 Collecting Results
+
+* We looked at the collect() terminal operatior. We can use collectors as an argument to change the Collection type
+
+### 🟡 Collecting Using Basic Collectors
+
+* Here is an example of using collectors:
+
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears");
+String result = ohMy.collect(Collectors.joining(", "));
+System.out.println(result); // lions, tigers, bears
+```
+
+* Here, we calculate the average length:
+
+```java
+Stream<String> ohMy = Stream.of("lions","bears","tigers");
+ToIntFunction<String> findLength = s -> s.length();
+double result = ohMy.collect(Collectors.averagingInt(findLength));
+System.out.println(result); // 5.333333333333333
+```
+
+* We can also collect into a collection using `Collectors.toCollection(Supplier s)`:
+
+```java
+Stream<String> str = Stream.of("lions","bears","tigers");
+Supplier<TreeSet<String>> s = () -> new TreeSet();
+TreeSet<String> tree = str
+        .filter(x->x.length()==6)
+        .collect(Collectors.toCollection(s));
+System.out.println(tree); // [tigers]
+```
