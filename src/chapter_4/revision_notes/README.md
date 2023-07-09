@@ -234,3 +234,17 @@ System.out.println(s.findFirst()); // Optional[monkey]
 Stream<String> infiniteS = Stream.generate(() -> "chimp");
 System.out.println(infiniteS.findAny()); // Optional[chimp]
 ```
+
+### 🟡 allMatch(), anyMatch() and noneMatch()
+
+* These methods SOMETIMES terminate on infinite streams. These are NOT REDUCTIONS!. The operation will NOT ALWAYS terminate:
+
+```java
+List<String> list = Arrays.asList("monkey", "2", "chimp");
+System.out.println(list.stream().allMatch(x->x.length()>1)); // false
+System.out.println(list.stream().anyMatch(x->x.length()>1)); // true
+System.out.println(list.stream().noneMatch(x->x.length()>1)); // false
+
+Stream<String> all1CharLength = Stream.generate(()->"1");
+System.out.println(all1CharLength.allMatch(x->x.length()==1)); // PROGRAM HANGS
+```

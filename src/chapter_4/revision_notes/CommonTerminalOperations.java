@@ -1,6 +1,8 @@
 package chapter_4.revision_notes;
 
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class CommonTerminalOperations {
@@ -20,6 +22,14 @@ public class CommonTerminalOperations {
 		System.out.println(s.findFirst()); // Optional[monkey]
 		
 		Stream<String> infiniteS = Stream.generate(() -> "chimp");
-		System.out.println(infiniteS.findAny());
+		System.out.println(infiniteS.findAny()); // Optional[chimp]
+		
+		List<String> list = Arrays.asList("monkey", "2", "chimp");
+		System.out.println(list.stream().allMatch(x->x.length()>1)); // false
+		System.out.println(list.stream().anyMatch(x->x.length()>1)); // true
+		System.out.println(list.stream().noneMatch(x->x.length()>1)); // false
+		
+		Stream<String> all1CharLength = Stream.generate(()->"1");
+		System.out.println(all1CharLength.allMatch(x->x.length()==1)); // PROGRAM HANGS
 	}
 }
