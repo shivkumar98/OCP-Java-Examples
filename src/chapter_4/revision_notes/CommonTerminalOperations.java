@@ -13,6 +13,13 @@ public class CommonTerminalOperations {
 		Stream<String> str = Stream.of("z", "yy", "xxx");
 		Comparator<String> comparator = (s1,s2) -> s1.compareTo(s2);
 		//System.out.println(str.min(comparator)); // Optional[xxx]
-		System.out.println(str.max((s1,s2)->s2.length()-s1.length()));
+		System.out.println(str.max((s1,s2)->s2.length()-s1.length())); // Optional[z]
+		
+		Stream<String> s = Stream.of("monkey", "gorilla", "human");
+		// System.out.println(s.findAny()); // Optional[monkey]
+		System.out.println(s.findFirst()); // Optional[monkey]
+		
+		Stream<String> infiniteS = Stream.generate(() -> "chimp");
+		System.out.println(infiniteS.findAny());
 	}
 }
