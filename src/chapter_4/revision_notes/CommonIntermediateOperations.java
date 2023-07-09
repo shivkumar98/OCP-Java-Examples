@@ -44,6 +44,14 @@ public class CommonIntermediateOperations {
 		Stream.of("brown bear", "grizzly bear")
 		.sorted(Comparator.reverseOrder())
 		.forEach(System.out::println); // grizzly bear brown bear
+		
+		System.out.println("------------------------");
+		
+		long count = Stream.of("black bear", "brown bear", "grizzly")
+		.filter(x->x.startsWith("b"))
+		.peek(System.out::println)
+		.count();
+		System.out.println(count);
 
 	}
 }

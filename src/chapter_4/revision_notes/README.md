@@ -443,3 +443,23 @@ Stream.of("brown bear", "grizzly bear")
     .sorted(Comparator.reverseOrder())
     .forEach(System.out::println); // grizzly bear brown bear
 ```
+
+### 🟡 peek()
+
+* The peek method lets us perform a stream operation without changing it! It has the following signature:
+
+```java
+Stream<T> peek(Consumer<? super T> action)
+```
+
+* E.g.:
+
+```java
+long count = Stream.of("black bear", "brown bear", "grizzly")
+    .filter(x->x.startsWith("b"))
+    .peek(System.out::println) // black bear brown bear
+    .count();
+System.out.println(count); // 2
+```
+
+* We should not be modifying the stream within peak!!!
