@@ -665,3 +665,60 @@ System.out.println(stream.count());
 * The answer is 3!!!
 
 * Streams are lazily evaluated!
+
+## 🟥 4.6.2 Chaining Optionals
+
+* There are few operations for streams are available for Optional!
+
+* Suppose you are given an `Optional<Integer>` and aked to print the value, but only if it is a three-digit number. Without functional programming, we would write it as:
+
+```java
+private static void threeDigit(Optional<Integer> optional){
+    if (optional.isPresent()) {
+        Integer num = optional.get();
+        String str = "" + num;
+        if (str.length()==3)
+            System.out.println(str);
+    }
+}
+```
+
+* We can achieve the same result with functional programming:
+
+```java
+private static void threeDigit(Optional<Integer> optional) {
+    optional.map(n->""+n)
+    .filter(n->n.length()==3)
+    .ifPresent(System.out::println);
+}
+```
+
+* We can map an optional using `.map()`, suppose we want to get an `Optional<Integer>` representing the length of a String optional:
+
+```java
+Optional<Integer> result = optional.map(String::length);
+```
+
+* Suppose we have a method in a class called calculate:
+
+```java
+class ChainingOptional {
+    static Optional<Integer> calculator(String s){
+        return Optional.of(s.length);
+    }
+}
+```
+
+* The following WILL NOT COMPILE:
+
+```java
+Optional<Integer> x = optional.map(ChainingOptional::calculator);
+```
+
+* This is because the RHS would be an `Optional<Optional<Integer>>`, we can get around this problem by using `flatMap()`:
+
+```java
+Optional<Integer> x = optional.flatMap(ChainingOptional::calculator); // WORKS FINE
+```
+
+

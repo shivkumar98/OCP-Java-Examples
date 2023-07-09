@@ -3,6 +3,7 @@ package chapter_4.revision_notes;
 import java.util.IntSummaryStatistics;
 import java.util.OptionalDouble;
 import java.util.OptionalLong;
+import java.util.function.BooleanSupplier;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
