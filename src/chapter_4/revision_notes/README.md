@@ -376,7 +376,7 @@ Stream.of("duck", "duck", "Duck", "goose", "goose")
     .distinct().forEach(System.out::print); // duckDuckgoose
 ```
 
-### limit() and skip()
+### 🟡 limit() and skip()
 
 * These methods make our stream smaller!
 
@@ -405,4 +405,14 @@ Stream.of("monkey", "gorilla", "chimp")
     .map(x->x.length())
     .map(x->x+2)
     .forEach(System.out::println); // 8 9 7
+```
+
+### 🟡 flatMap()
+
+* This method makes any sub-elements into top-level elements in a single stream.
+
+```java
+Stream.of(Arrays.asList(1,2,3))
+    .flatMap(l->l.stream())
+    .forEach(System.out::println); // 1 2 3
 ```
