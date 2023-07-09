@@ -364,3 +364,14 @@ Stream<T> filter (Predicate<? super T> predicate)
 Stream.of("monkey", "gorilla","chimp")
     .filter(x->x.startsWith("m")).forEach(System.out::print); // monkey
 ```
+
+### 🟡 distinct()
+
+* This method removes duplicate values. Java calls `.equals()` to find the duplicates
+
+* E.g.:
+
+```java
+Stream.of("duck", "duck", "Duck", "goose", "goose")
+    .distinct().forEach(System.out::print); // duckDuckgoose
+```
