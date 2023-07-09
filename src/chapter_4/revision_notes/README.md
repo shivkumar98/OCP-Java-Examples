@@ -210,3 +210,14 @@ Stream<Integer> infinite = Stream.generate(() -> 1);
 Stream<String> finite = Stream.of("hello", "world");
 System.out.println(finite.count()); // 2
 ```
+
+### 🟡 min/max()
+
+* The min/max methods return an Optional. It is a reduction and does not terminate on infinite streams.
+
+```java
+Stream<String> str = Stream.of("z", "yy", "xxx");
+Comparator<String> comparator = (s1,s2) -> s1.compareTo(s2);
+System.out.println(str.min(comparator)); // Optional[xxx]
+System.out.println(str.max((s1,s2)->s2.length()-s1.length())); // Optional[z]
+```
