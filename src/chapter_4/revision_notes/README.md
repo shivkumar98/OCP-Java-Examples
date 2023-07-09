@@ -192,3 +192,21 @@ Stream<Double>  str5 = Stream.generate(Math::random);
 Stream<Integer> str6 = Stream.iterate(1, n->n+3);
 ```
 
+<br>
+
+## 🟥 4.4.2 Using Common Terminal Operations
+
+* A reduction is a terminal operation which goes through the entire stream to return a single object or primitive.
+
+* Some of these operations will hang for an infinite stream
+
+### 🟡 count()
+
+* This is a reduction which does not terminate on an infinite stream. It returns a long:
+
+```java
+Stream<Integer> infinite = Stream.generate(() -> 1);
+// infinite.count(); // PROGRAM HANGS
+Stream<String> finite = Stream.of("hello", "world");
+System.out.println(finite.count()); // 2
+```
