@@ -35,6 +35,8 @@ public class WorkingWithPrimitives {
 		
 		OptionalLong min = LongStream.of(1,2)
 				.min();
+		
+		BooleanSupplier b1 = () -> true;
 	}
 	
 	static int range(IntStream ints) {

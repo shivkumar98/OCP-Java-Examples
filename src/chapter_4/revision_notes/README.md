@@ -589,3 +589,17 @@ private static int range(IntStream ints) {
     return stats.getMax()-stats.getMin();
 }
 ```
+
+<br>
+
+## 🟥 4.5.4 Learning the Functional Interfaces for Primitives
+
+### 🟡 Functional Interfaces for boolean
+
+* The `BooleanSupplier` supplies a primitive boolean. It has a `getAsBoolean()` method:
+
+```java
+BooleanSupplier b1 = () -> true;
+BooleanSupplier b2 = () -> Math.random() > .5;
+System.out.println(b1.getAsBoolean());
+```
