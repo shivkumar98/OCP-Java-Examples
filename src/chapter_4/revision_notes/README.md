@@ -342,3 +342,25 @@ System.out.println(set); // [f, l, o, w]
 TreeSet<String> set = str.collect(Collectors.toCollection(TreeSet::new));
 System.out.println(set); // [f, l, o, w]
 ```
+
+
+<br>
+
+## 🟥 4.4.3 Using Common Intermediate Operations
+
+* Intermediate operations can return an infinite stream from infinite streams! We have the following operations
+
+### 🟡 filter()
+
+It has the following signature:
+
+```java
+Stream<T> filter (Predicate<? super T> predicate)
+```
+
+* E.g:
+
+```java
+Stream.of("monkey", "gorilla","chimp")
+    .filter(x->x.startsWith("m")).forEach(System.out::print); // monkey
+```
