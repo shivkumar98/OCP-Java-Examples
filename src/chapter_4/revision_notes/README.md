@@ -641,3 +641,27 @@ f1.applyAsInt(d);
 ```
 
 * The method takes a double parmaeter and returns an int. The only functional interface meeting all three criteria is `DoubleToIntFunction`
+
+
+<hr>
+
+# 🧠 4.6 Working with Advanced Stream Pipeline Concepts
+
+* This section will show the relationship between streams and the underlying data, chaining Optional and grouping collectors.
+
+## 🟥 4.6.1 Linking Streams to the Underlying Data
+
+* What do you think this outputs?
+
+```java
+List<String> cats = new ArrayList<>();
+cats.add("Annie");
+cats.add("Ripley");
+Stream<String> = cats.stream();
+cats.add("KC");
+System.out.println(stream.count());
+```
+
+* The answer is 3!!!
+
+* Streams are lazily evaluated!
