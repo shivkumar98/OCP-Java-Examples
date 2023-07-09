@@ -309,3 +309,36 @@ empty.reduce(op).ifPresent(System.out::print); // no output
 oneElement.reduce(op).ifPresent(System.out::println); // 3
 threeElements.reduce(op).ifPresent(System.out::println); // 90
 ```
+
+### 🟡 collect()
+
+* The `collect()` method is a MUTABLE REDUCTION. It DOES NOT TERMINATE on infinite streams.
+
+* It has the following method signatures:
+
+```java
+R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R,R> combiner)
+R collect(Collector<? super T, A, R> collector)
+```
+
+* Here's the wolf example using the first signature:
+
+```java
+Stream<String> str = Stream.of("w","o","l","f");
+StringBuilder word = str.collect(()->new StringBuilder(), (x,y)->x.append(y), (a,b)->a.append(b));
+System.out.println(word); // wolf
+```
+
+* Instead of implementing a Collector ourselves, Java provides an interface with common collectors. E.g we could rewrite:
+
+```java
+TreeSet<String> set = str.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+System.out.println(set); // [f, l, o, w]
+```
+
+* as:
+
+```java
+TreeSet<String> set = str.collect(Collectors.toCollection(TreeSet::new));
+System.out.println(set); // [f, l, o, w]
+```
