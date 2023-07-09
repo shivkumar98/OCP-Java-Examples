@@ -463,3 +463,26 @@ System.out.println(count); // 2
 ```
 
 * We should not be modifying the stream within peak!!!
+
+<br>
+
+## 🟥 4.4.4 Putting Together the Pipeline
+
+* Suppose we had the following code:
+
+```java
+List<String> list = Arrays.asList("Toby", "Anna", "Leroy", "Alex");
+List<String> filtered = new ArrayList<>();
+for (String name: list) {
+    if (name.length() == 4) filtered.add(name);
+}
+Collection.sort(filtered);
+```
+
+*  We could write this so much easier:
+
+```java
+Stream.of(list)
+    .filter(x->x.length()==4)
+    .sorted()
+```
