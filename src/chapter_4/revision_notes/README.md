@@ -375,3 +375,17 @@ Stream.of("monkey", "gorilla","chimp")
 Stream.of("duck", "duck", "Duck", "goose", "goose")
     .distinct().forEach(System.out::print); // duckDuckgoose
 ```
+
+### limit() and skip()
+
+* These methods make our stream smaller!
+
+```java
+Stream.of("duck", "duck", "Duck", "goose", "goose")
+	skip(2).forEach(System.out::print); // Duckgoosegoose
+
+Stream.iterate(1, n->n+1)
+    .limit(5)
+    .skip(2)
+    .forEach(System.out::println); // 3 4 5
+```
