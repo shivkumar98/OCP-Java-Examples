@@ -259,3 +259,53 @@ System.out.println(all1CharLength.allMatch(x->x.length()==1)); // PROGRAM HANGS
 Stream<String> str2 = Stream.of("Monkey", "Gorilla", "Bonobo");
 str2.foEach(System.out::println); // MonkeyGorillaBonobo
 ```
+
+### 🟡 reduce()
+
+* The reduce method is a REDUCTION, it does not terminate for infinite streams.
+
+* This method has multiple signatures:
+
+```java
+T reduce(T identity, BinaryOperator<T> accumulator)
+```
+
+* Suppose we want to take a String array and concatenate them into a single string. We COULD use a for loop, but a stream makes this alot cleaner:
+
+```java
+List<String> strings = Arrays.asList("w","o","l","f");
+String word = strings.stream().reduce("",(s,c)->s+c);
+System.out.println(word); // wolf
+```
+
+* Suppose we have a stream of integers and we want to find their product:
+
+```java
+Stream<Integer> ints = Stream.of(1,2,3,4);
+int product = ints.reduce(1, (p,x)->p*x);
+System.out.println(product); // 24
+```
+
+* The identity is an optional field:
+
+```java
+Optional<T> reduce(BinaryOperator<T> accumulator)
+```
+
+* If you do not specify the identity there are 3 possibilities for the returned value:
+
+1) if stream is empty, empty optional
+
+2) if stream has one element, the element is returned
+
+3) if multiple elements are found, then the accumulator is applied
+
+```java
+BinaryOperator<Integer> op = (a, b) -> a * b;
+Stream<Integer> empty = Stream.empty();
+Stream<Integer> oneElement = Stream.of(3);
+Stream<Integer> threeElements = Stream.of(3, 5, 6);
+empty.reduce(op).ifPresent(System.out::print); // no output
+oneElement.reduce(op).ifPresent(System.out::println); // 3
+threeElements.reduce(op).ifPresent(System.out::println); // 90
+```
