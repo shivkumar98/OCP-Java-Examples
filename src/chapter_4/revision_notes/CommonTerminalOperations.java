@@ -30,6 +30,10 @@ public class CommonTerminalOperations {
 		System.out.println(list.stream().noneMatch(x->x.length()>1)); // false
 		
 		Stream<String> all1CharLength = Stream.generate(()->"1");
-		System.out.println(all1CharLength.allMatch(x->x.length()==1)); // PROGRAM HANGS
+		// System.out.println(all1CharLength.allMatch(x->x.length()==1)); // PROGRAM HANGS
+		
+
+		Stream<String> str2 = Stream.of("Monkey", "Gorilla", "Bonobo");
+		str2.forEach(System.out::println); // MonkeyGorillaBonobo
 	}
 }

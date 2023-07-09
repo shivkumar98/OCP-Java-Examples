@@ -248,3 +248,14 @@ System.out.println(list.stream().noneMatch(x->x.length()>1)); // false
 Stream<String> all1CharLength = Stream.generate(()->"1");
 System.out.println(all1CharLength.allMatch(x->x.length()==1)); // PROGRAM HANGS
 ```
+
+### 🟡 forEach()
+
+* This does not terminate for infinite streams! It returns void and is NOT A REDUCTION!
+
+* We can supply the method with a consumer!
+
+```java
+Stream<String> str2 = Stream.of("Monkey", "Gorilla", "Bonobo");
+str2.foEach(System.out::println); // MonkeyGorillaBonobo
+```
