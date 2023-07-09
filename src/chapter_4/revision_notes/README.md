@@ -520,3 +520,36 @@ IntStream ints = IntStream.of(1,2,3);
 OptionalDouble avg = ints.average(); 
 System.out.println(avg.getAsDouble()); // 2.0
 ```
+
+
+## 🟥 4.5.1 Creating Primitive Streams
+
+* There are 3 primitive stream types:
+
+1) `IntStream` for char, int, byte, short
+
+2) `LongStream` for long
+
+3) `DoubleStream` for float and double
+
+* We can create streams on the above primitive streams using `stream.of()` and `stream.empty()`. We can also use `generate()` and `iterate()`
+
+* We have `range()` and `rangeClosed()` for the integer streams:
+
+```java
+IntStream.range(1, 2);
+IntStream.rangeClosed(1, 3);
+LongStream.range(1, 2);
+LongStream.rangeClosed(1, 3);
+DoubleStream.range(1,2); // COMPILER ERROR
+```
+
+* All the primitive Streams have the following methods:
+
+1) `mapToObj()` (except for Stream)
+
+2) `mapToInt()` (except for IntStream)
+
+3) `mapToLong()` (except for LongStream)
+
+4) `mapToDouble()` (except for DoubleStream)

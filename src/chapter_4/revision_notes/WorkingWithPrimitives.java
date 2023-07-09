@@ -2,6 +2,7 @@ package chapter_4.revision_notes;
 
 import java.util.OptionalDouble;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class WorkingWithPrimitives {
@@ -17,5 +18,13 @@ public class WorkingWithPrimitives {
 		OptionalDouble avg = ints.average(); 
 		System.out.println(avg.getAsDouble()); // 2.0
 		
+		IntStream.range(1, 2);
+		IntStream.rangeClosed(1, 3);
+		LongStream.range(1, 2);
+		LongStream.rangeClosed(1, 3);
+		// DoubleStream.range(1,2); // COMPILER ERROR
+		Stream.of(1,2).mapToDouble(x->x);
+		Stream.of(1.2).mapToInt(x->1);
+		Stream.of(2.1).mapToLong(x->1L);
 	}
 }
