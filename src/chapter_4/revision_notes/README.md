@@ -553,3 +553,16 @@ DoubleStream.range(1,2); // COMPILER ERROR
 3) `mapToLong()` (except for LongStream)
 
 4) `mapToDouble()` (except for DoubleStream)
+
+<br>
+
+## 🟥 4.5.2 Using Opetional with Primitive Streams
+
+* We saw in the first example, that the `average()` method returned an OptionalDouble - which was retrieved using `getAsDouble()`
+
+* The min/max functions return a primitive optional of the same type as the stream. E.g.:
+
+```java
+OptionalLong min = LongStream.of(1,2)
+	.min();
+```

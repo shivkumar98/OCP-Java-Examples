@@ -1,6 +1,8 @@
 package chapter_4.revision_notes;
 
 import java.util.OptionalDouble;
+import java.util.OptionalLong;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
@@ -26,5 +28,11 @@ public class WorkingWithPrimitives {
 		Stream.of(1,2).mapToDouble(x->x);
 		Stream.of(1.2).mapToInt(x->1);
 		Stream.of(2.1).mapToLong(x->1L);
+		
+		Double sum = DoubleStream.of(1,2,3)
+				.sum();
+		
+		OptionalLong min = LongStream.of(1,2)
+				.min();
 	}
 }
