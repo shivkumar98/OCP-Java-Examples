@@ -1,6 +1,34 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 4: Review Questions
+# Chapter 4: Review Questions Attempt 2
+
+## Results:
+
+Date: 10/07/2023
+Score: 
+
+| Question # | Correct |
+| ---------- | ------- |
+| 1          | ✅      |
+| 2          | ✅      |
+| 3          |  ❌    |
+| 4          |  ✅     |
+| 5          |  ❌     |
+| 6          |       |
+| 7          |      |
+| 8          |       |
+| 9          |       |
+| 10         |      |
+| 11         |       |
+| 12         |       |
+| 13         |       |
+| 14         |       |
+| 15         |       |
+| 16         |      |
+| 17         |      |
+| 18         |       |
+| 19         |      |
+| 20         |      |
 
 <hr>
 
@@ -26,10 +54,15 @@ F. An exception is thrown
 
 G. The code hangs
 
-### My answer:
+### MY ANSWER:
 
 * A stream pipeline is printed, therefore answer is D
-* ASNWER: D
+* ANSWER: D✅
+
+### CORRECT ANSWER:
+
+* D 
+
 
 <hr>
 
@@ -58,11 +91,14 @@ E. An exception is thrown
 F. The code hangs
 ❓
 
-### My answer:
+### MY ANSWER:
 
 * b1 wold be true
 * b2 would hang
-* ASNWER: F
+* ASNWER: F✅
+
+### CORRECT ANSWER:
+* F
 
 <hr>
 
@@ -84,10 +120,14 @@ E. An exception is thrown
 F. The code hands
 ❓
 
-### My answer:
+### MY ANSWER:
 
 * false, true
-* ANSWER: A
+* ANSWER: A❌
+
+### CORRECT ANSWER: E
+* The code references the same stream twice
+
 
 <hr>
 
@@ -106,10 +146,12 @@ D. The referenced `Stream` may be used after the calling a terminal operation
 E. The `peek()` method is an example of a terminal operation
 ❓
 
-### My Answer:
+### MY ANSWER:
 
 * A - true, B - true, C - false, D - false, E - false
-* ANSWER: A, B
+* ANSWER: A, B✅
+
+### CORRECT ANSWER: A, B
 
 <hr>
 
@@ -134,7 +176,10 @@ F. sum()
 ### My Answer:
 
 * A - not a reduction, B - reduction, C - not a reduction, map - nope, E - nope, sum - not available on Stream
-* ANSWER: B
+* ANSWER: B❌
+
+### CORRECT ANSWER: A, B
+* collect IS a MUTABLE REDUCTION!
 
 <br>
 
