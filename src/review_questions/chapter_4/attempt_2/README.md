@@ -489,6 +489,7 @@ Map<Boolean, List<String>> p = s.collect(
     Collectors.partitionBy(b -> b.startsWith("c")));
 Map<Boolean, List<String>> g = s.collect(
     Collectors.groupBy(b -> b.startsWith("c")));
+System.out.println(p + " " + g);
 ```
 
 A. `{} {}`
@@ -502,6 +503,10 @@ D. `{false=[], true=[]} {false=[], true=[]}`
 E. The code does not compile
 
 F. An exception is thrown
+
+### MY ANSWER:
+* p is partitioned, so C and D would be correct.
+* ANSWER: D
 
 <hr>
 
@@ -525,7 +530,12 @@ E. `Function<Integer, Integer> f = x -> x*x;`
 
 F. None of these above
 
+### MY ANSWER:
+* A - not valid, B - not valid, C - not valid, D - not vaid, E - valid
+* ANSWER: E
+
 <hr>
+
 
 ## Question 18
 
@@ -550,6 +560,8 @@ F. The code does not compile
 
 G. An exception is thrown
 
+### MY ANSWER
+* ANSWER: D
 
 <hr>
 
@@ -569,6 +581,12 @@ D. `FloatSupplier`
 E. `IntSupplier`
 
 F. `StringSupplier`
+
+### MY ANSWER:
+
+* ANSWER: A, C, E
+
+<hr>
 
 ## Question 20
 
@@ -601,5 +619,8 @@ IntStream.range(1,6)
 D. None of the above is equivalent
 
 E. The provided code does not compile
+
+### MY ANSWER:
+* ANSWER: B
 
 <hr>
