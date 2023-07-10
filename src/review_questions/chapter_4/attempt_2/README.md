@@ -162,9 +162,11 @@ E. `noneMatch`
 
 F. None of the above
 
-<hr>
+### My answer:
+* A - does not terminate, B - does not terminate, C - does not accept argument, D - does not accept argument, E - does not terminate, F - true
+* MY ANSWER: F
 
-<br>
+<hr>
 
 
 ## Question 7
@@ -227,6 +229,8 @@ return list.stream()
     .collect(Collectors.toList());
 ```
 
+### MY ANSWER: F
+
 
 ## Question 8:
 
@@ -244,6 +248,9 @@ E. `is.sum()` returns the type `int`
 
 F. `is.sum()` returns the type `OptionalInt`
 
+### MY ANSWER:
+* A - false, B - should return OptionalDouble, C - false, D - true, E - false, F - true
+* ANSWER: D, F
 
 ## Question 9
 
@@ -265,6 +272,10 @@ D. `opt.ifPresent(System.out::println)`
 E. None of these; the code does not compile
 
 F. None of these; line 5 throws an exception 
+
+### MY ANSWER:
+* A - does not compile, B - true, C - does not compile, D - true, E - false, F - false
+* ANSWER: B, D
 
 <hr>
 
@@ -294,6 +305,16 @@ E. L, O, M
 F. N. M
 
 G. N, O
+
+### MY ANSWER:
+* A - doesn't print anything
+* B - nothing is printed
+* C - nothing is printed
+* D - nothing is printed
+* E - filtered out
+* F - true
+* G - true
+* ANSWER: F, G
 
 <br>
 
