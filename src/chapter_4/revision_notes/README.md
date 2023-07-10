@@ -800,3 +800,81 @@ TreeMap<Integer, String> map = ohMy.collect(Collectors.toMap(s->s.length(), s->s
 System.out.println(map); // {5=lions, bears, 6=tigers}
 System.out.println(map.getClass()); // class java.util.TreeMap
 ```
+
+### 🟡 Collecting Using Grouping, Partitioning, and Mapping
+
+* We can use `groupBy()` to group strings based on their lines:
+
+```java
+Stream<String> ohMy = Stream.of("lions","bears","tigers");
+Map<Integer, List<String>> map = ohMy.collect(Collectors.groupingBy(s-> s.length()));
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+```
+
+* Suppose we want to create a `Set<String>` as the value not a `List<String>` instead, we overload the method of groupingBy:
+
+```java
+Stream<String> ohMy = Stream.of("lions","bears","tigers");
+Function<String, Integer> keyMapper = s-> s.length();
+Map<Integer, Set<String>> map = 
+        ohMy.collect(Collectors.groupingBy(keyMapper, Collectors.toSet()));
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+System.out.println(map.get(5).getClass()); // class java.util.HashSet
+```
+
+* Instead of returning a HashMap, we can overload the groupingBy method again:
+
+```java
+Stream<String> ohMy = Stream.of("lions","bears","tigers");
+Function<String, Integer> keyMapper = s-> s.length();
+Map<Integer, Set<String>> map = 
+        ohMy.collect(Collectors.groupingBy(keyMapper, TreeMap::new, Collectors.toSet()));
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+System.out.println(map.getClass()); // class java.util.TreeMap
+System.out.println(map.get(5).getClass()); // class java.util.HashSet
+```
+
+* Suppose we don't want the values to be a set, we want it to be a list like it was originally. We use `Collectors.toList()` instead:
+
+```java
+Stream<String> ohMy = Stream.of("lions","bears","tigers");
+Function<String, Integer> keyMapper = s-> s.length();
+Map<Integer, List<String>> map = 
+        ohMy.collect(Collectors.groupingBy(keyMapper, TreeMap::new, Collectors.toList()));
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+System.out.println(map.getClass()); // class java.util.TreeMap
+System.out.println(map.get(5).getClass()); // class java.util.ArrayList
+```
+
+<hr style="width:1">
+
+* Partioning is a special type of grouping where the groups are true and false. We can pass a predicate to the `partitioningBy()` method:
+
+```java
+Stream<String> ohMy = Stream.of("lions","bears","tigers");
+Function<String, Integer> keyMapper = s-> s.length();
+Map<Boolean, List<String>> map = 
+        ohMy.collect(Collectors.partitioningBy(s->s.length()<=5));
+System.out.println(map); // {false=[tigers], true=[lions, bears]}
+System.out.println(map.getClass()); // class java.util.stream.Collectors$Partition
+System.out.println(map.get(true).getClass()); //class java.util.ArrayList
+```
+
+* We can change the type of the partition values by overloading the partitioningBy() method:
+
+```java
+Stream<String> ohMy = Stream.of("lions","bears","tigers");
+Function<String, Integer> keyMapper = s-> s.length();
+Map<Boolean, Set<String>> map = 
+        ohMy.collect(Collectors.partitioningBy(s->s.length()<=5, Collectors.toSet()));
+System.out.println(map); // {false=[tigers], true=[lions, bears]}
+System.out.println(map.getClass()); // class java.util.stream.Collectors$Partition
+System.out.println(map.get(true).getClass()); // class java.util.HashSet
+```
+
+* We CAN NOT change the type of the map returned!
+
+
+<hr style="width:1">
+
+* We can use the `mapping()` collector
