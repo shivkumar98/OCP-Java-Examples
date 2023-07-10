@@ -14,11 +14,11 @@ Score:
 | 3          |  ❌    |
 | 4          |  ✅     |
 | 5          |  ❌     |
-| 6          |       |
-| 7          |      |
-| 8          |       |
-| 9          |       |
-| 10         |      |
+| 6          |   ❌    |
+| 7          |  ✅    |
+| 8          |   ❌    |
+| 9          |   ✅    |
+| 10         |   ❌   |
 | 11         |       |
 | 12         |       |
 | 13         |       |
@@ -209,7 +209,10 @@ F. None of the above
 
 ### My answer:
 * A - does not terminate, B - does not terminate, C - does not accept argument, D - does not accept argument, E - does not terminate, F - true
-* MY ANSWER: F
+* MY ANSWER: F❌
+
+### CORRECT ANSWER: A
+* A does terminate!
 
 <hr>
 
@@ -274,7 +277,9 @@ return list.stream()
     .collect(Collectors.toList());
 ```
 
-### MY ANSWER: F
+### MY ANSWER: F✅
+
+### CORRECT ANSWER: F
 
 
 ## Question 8:
@@ -295,7 +300,15 @@ F. `is.sum()` returns the type `OptionalInt`
 
 ### MY ANSWER:
 * A - false, B - should return OptionalDouble, C - false, D - true, E - false, F - true
-* ANSWER: D, F
+* ANSWER: D, F❌
+
+### CORRECT ANSWER: D, E
+* The sum() of empty list is 0 so its an int!
+
+<hr>
+
+
+
 
 ## Question 9
 
@@ -320,7 +333,9 @@ F. None of these; line 5 throws an exception
 
 ### MY ANSWER:
 * A - does not compile, B - true, C - does not compile, D - true, E - false, F - false
-* ANSWER: B, D
+* ANSWER: B, D✅
+
+### CORRECT ANSWER: B, D
 
 <hr>
 
@@ -359,7 +374,11 @@ G. N, O
 * E - filtered out
 * F - true
 * G - true
-* ANSWER: F, G
+* ANSWER: F, G❌
+
+### CORRECT ANSWER: F
+* The stream is only evaluated if a terminal operation is called, so G is invalid
+
 
 <br>
 
