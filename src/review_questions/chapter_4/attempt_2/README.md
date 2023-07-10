@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 10/07/2023
-Score: 8/20
+Score: 12/20
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -24,11 +24,11 @@ Score: 8/20
 | 13         |   ✅    |
 | 14         |  ✅     |
 | 15         |   ✅      |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 16         |   ❌      |
+| 17         |    ✅     |
+| 18         |   ✅      |
+| 19         |   ✅      |
+| 20         |    ✅     |
 
 <hr>
 
@@ -582,7 +582,11 @@ F. An exception is thrown
 
 ### MY ANSWER:
 * p is partitioned, so C and D would be correct.
-* ANSWER: D
+* ANSWER: D❌
+
+
+### CORRECT ANSWER: C
+* groupingBy wil only generate the keys if they are needed!
 
 <hr>
 
@@ -608,7 +612,9 @@ F. None of these above
 
 ### MY ANSWER:
 * A - not valid, B - not valid, C - not valid, D - not vaid, E - valid
-* ANSWER: E
+* ANSWER: E✅
+
+### CORRECT ANSWER: E
 
 <hr>
 
@@ -637,7 +643,9 @@ F. The code does not compile
 G. An exception is thrown
 
 ### MY ANSWER
-* ANSWER: D
+* ANSWER: D✅
+
+### CORRECT ANSWER: D
 
 <hr>
 
@@ -660,7 +668,9 @@ F. `StringSupplier`
 
 ### MY ANSWER:
 
-* ANSWER: A, C, E
+* ANSWER: A, C, E✅
+
+### CORRECT ANSWER: A, C, E
 
 <hr>
 
@@ -697,6 +707,9 @@ D. None of the above is equivalent
 E. The provided code does not compile
 
 ### MY ANSWER:
-* ANSWER: B
+* ANSWER: B✅
+
+### CORRECT ANSWER: B
+
 
 <hr>
