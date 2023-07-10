@@ -758,3 +758,45 @@ TreeSet<String> tree = str
         .collect(Collectors.toCollection(s));
 System.out.println(tree); // [tigers]
 ```
+
+### 🟡 Collecting into Maps
+
+* The `toMap(Function k, Function v)` is used to create a map using 2 functions to create the key and value. 
+
+* Suppose we want to create a map which maps a String to its length:
+
+```java
+Stream<String> str = Stream.of("lions","tigers","bears");
+Function<String, String> k = s -> s;
+Function<String, Integer> v = s -> s.length();
+Map<String, Integer> map = str.collect(Collectors.toMap(k, v));
+System.out.println(map); // {lions=5, bears=5, tigers=6}
+```
+
+* We need to be careful with creating the key mapping, suppose we reverse the above map - we will have 5 mapped to lions and bears:
+
+```java
+Stream<String> str1 = Stream.of("lions","tigers","bears");
+Function<String, Integer> keys = s -> s.length();
+Function<String, String> values = s -> s;
+Map<String, Integer> map1 = str.collect(Collectors.toMap(k, v));
+// THROWS EXCEPTION ^^^
+```
+
+* We can overload the toMap() method so that it can handle these collisions:
+
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears");
+Map<Integer, String> map = ohMy.collect(Collectors.toMap(s->s.length(), s->s, (s1,s2)-> s1+", "+s2));
+System.out.println(map); // {5=lions, bears, 6=tigers}
+System.out.println(map.getClass()); // class java.util.HashMap
+```
+
+* This created a `HashMap` 😱 what if we wanted a TreeMap instead? We just overload the method again:
+
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears");
+TreeMap<Integer, String> map = ohMy.collect(Collectors.toMap(s->s.length(), s->s, (s1,s2)-> s1+", "+s2, TreeMap::new));
+System.out.println(map); // {5=lions, bears, 6=tigers}
+System.out.println(map.getClass()); // class java.util.TreeMap
+```
