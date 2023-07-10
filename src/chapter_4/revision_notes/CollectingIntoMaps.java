@@ -17,9 +17,11 @@ public class CollectingIntoMaps {
 		Stream<String> str1 = Stream.of("lions","tigers","bears");
 		Function<String, Integer> keys = s -> s.length();
 		Function<String, String> values = s -> s;
-		Map<String, Integer> map1 = str.collect(Collectors.toMap(k, v));
+		//Map<String, Integer> map1 = str.collect(Collectors.toMap(k, v));
 		// THROWS EXCEPTION ^^^
-
+		
+		Stream.iterate(1, x->++x).limit(5).map(x->""+x).collect(Collectors.joining());
+		
 	}
 
 }

@@ -5,30 +5,30 @@
 ## Results:
 
 Date: 10/07/2023
-Score: 
+Score: 8/20
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          | ✅      |
-| 2          | ✅      |
-| 3          |  ❌    |
-| 4          |  ✅     |
-| 5          |  ❌     |
+| 1          |   ✅    |
+| 2          |   ✅    |
+| 3          |   ❌    |
+| 4          |   ✅    |
+| 5          |   ❌    |
 | 6          |   ❌    |
-| 7          |  ✅    |
+| 7          |   ✅    |
 | 8          |   ❌    |
 | 9          |   ✅    |
-| 10         |   ❌   |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |      |
-| 17         |      |
-| 18         |       |
-| 19         |      |
-| 20         |      |
+| 10         |   ❌    |
+| 11         |   ❌    |
+| 12         |   ❌    |
+| 13         |   ✅    |
+| 14         |  ✅     |
+| 15         |   ✅      |
+| 16         |         |
+| 17         |         |
+| 18         |         |
+| 19         |         |
+| 20         |         |
 
 <hr>
 
@@ -408,7 +408,10 @@ F. None of the above. The code already prints "12345"
 * D - this would work
 * E - this would not work
 * F - false
-* ANSWER: B,C,D
+* ANSWER: B,C,D❌
+
+### CORRECT ANSWER: B, C, E
+* You can not call forEach on a string so D is wrong!!!
 
 <hr>
 
@@ -449,7 +452,10 @@ H. `UnaryOperator<String, String>`
 * F - would work
 * G - would work
 * H - not valid
-* ANSWER: A, E, F, G
+* ANSWER: A, E, F, G❌
+
+### CORRECT ANSWER: A, F, G
+* While Consumer does work, it would be a useless implementation
 
 <hr>
 
@@ -481,7 +487,9 @@ G. The code throws an exception
 
 ### MY ANSWER:
 * The code does not compile
-* ANSWER: F
+* ANSWER: F✅
+
+### CORRECT ANSWER: F
 
 <hr>
 
@@ -517,7 +525,9 @@ G. The code compiles and prints 1.
 * B - line 5 does compile
 * C - line 6 does compile
 * D - line 7 does not compile
-* ANSWER: D
+* ANSWER: D✅
+
+### CORRECT ANSWER: D
 
 <hr>
 
@@ -538,7 +548,9 @@ E. `Map<Boolean, Set<String>>`
 F. None of the above
 
 ### MY ANSWER:
-* D and E
+* D and E ✅
+
+### CORRECT ANSWER: D,E
 
 <hr>
 
