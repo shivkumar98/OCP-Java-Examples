@@ -337,6 +337,15 @@ E. Wrap the entire line in a `System.out.print` statement
 
 F. None of the above. The code already prints "12345"
 
+### MY ANSWER:
+* A - this would justprint 11111
+* B - this would work
+* C - this is needed
+* D - this would work
+* E - this would not work
+* F - false
+* ANSWER: B,C,D
+
 <hr>
 
 <br>
@@ -367,6 +376,17 @@ G. `UnaryOperator<String>`
 
 H. `UnaryOperator<String, String>` 
 
+### MY ANSWER:
+* A - this would work
+* B - not valid
+* C - not valid
+* D - not valid
+* E - would work
+* F - would work
+* G - would work
+* H - not valid
+* ANSWER: A, E, F, G
+
 <hr>
 
 ## Question 13
@@ -394,6 +414,10 @@ E.  The code runs infinitely
 F. The code does not compile
 
 G. The code throws an exception
+
+### MY ANSWER:
+* The code does not compile
+* ANSWER: F
 
 <hr>
 
@@ -424,6 +448,13 @@ F. The code throws an exception
 
 G. The code compiles and prints 1.
 
+### MY ANSWER:
+* A - line 4 does compile
+* B - line 5 does compile
+* C - line 6 does compile
+* D - line 7 does not compile
+* ANSWER: D
+
 <hr>
 
 ## Question 15
@@ -442,6 +473,8 @@ E. `Map<Boolean, Set<String>>`
 
 F. None of the above
 
+### MY ANSWER:
+* D and E
 
 <hr>
 
