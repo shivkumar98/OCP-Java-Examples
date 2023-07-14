@@ -31,3 +31,15 @@ Map<String, Integer> map = new HashMap<>();
 BiConsumer<String, Integer> b1 = map::put;
 BiConsumer<String, Integer> b2 = (k,v)-> map.put(k,v);
 ```
+
+## 🟥 Checking Functional Interfaces
+
+* What functional interfaces would fill in the blanks:
+
+```java
+6:  ___<List> ex1 = x -> "".equals(x.get(0));
+7:  ___<Long> ex2 = (Long l) -> System.out.println(l)
+8:  ___<String, String> ex3 = (s1,s2) -> false;
+```
+
+* `Predicate`, `Consumer`, `BiPredicate`
