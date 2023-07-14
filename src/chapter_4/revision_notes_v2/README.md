@@ -59,3 +59,57 @@ emptyOpt.ifPresent(System.out::println); // nothing printed
 ```java
 Optional.empty().orElseThrow(RuntimeException::new); // throws runtime exception
 ```
+
+# 🧠 4.4  Using Streams
+
+## 🟥 Creating streams
+
+* We can create streams in multiple ways:
+
+```java
+Stream<String> str1 = Stream.of("a", "b", "c");
+Stream<String> str2 = Arrays.asList("a","b","c").stream();
+Stream<String> str3 = Stream.empty();
+```
+
+## 🟥 Common Terminal Operations
+
+* Some terminal operations are reductions, these include `collect()`, `reduce()`, `count()`, `min()/max()`.
+
+* We also have non-reduction terminal operations: `allMatch/anyMatch/noneMatch`, `findAny/findFirst` and `forEach`
+
+### 🟡 collect()
+
+* The collect method has the following signatures:
+
+```java
+R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R,R> combiner)
+R collect(Collector<? super T, A, R> collector)
+```
+
+* Here is an example of using the first signature:
+
+```java
+Stream<String> str = Stream.of("w","o","l","f");
+StringBuilder word = str.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
+```
+
+
+## 🟥 Using Common Intermediate Operations
+
+* Intermediate operations include: `filter()`,`distinct()`, `limit/skip`, `map`, `flatMap`, `sorted(Comparator c)`, `peek(Consumer c)`
+
+### 🟡 Using `map()`
+
+```java
+Stream<String> strings = Stream.of("Hello", "World!");
+Stream<Integer> lengths = strings.map(x->x.length());
+```
+
+### 🟡 Using `sorted()`
+
+```java
+Stream<String> str = Stream.of("a","b","c");
+str.sorted(Comparator.reverseOrder())
+   .forEach(System.out::print); // c b a
+```
