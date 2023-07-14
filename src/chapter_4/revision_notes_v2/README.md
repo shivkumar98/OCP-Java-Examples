@@ -43,3 +43,19 @@ BiConsumer<String, Integer> b2 = (k,v)-> map.put(k,v);
 ```
 
 * `Predicate`, `Consumer`, `BiPredicate`
+
+# 🧠 4.3 Returning an Optional
+
+* We can create Optionals for generics:
+
+```java
+Optional<Double> opt = Optional.of(1.2);
+opt.ifPresent(opt.get()); // 1.2
+Optional<Double> emptyOpt = Optional.empty();
+emptyOpt.ifPresent(System.out::println); // nothing printed
+```
+
+* We can throw an exception using `orElseThrow`:
+```java
+Optional.empty().orElseThrow(RuntimeException::new); // throws runtime exception
+```
