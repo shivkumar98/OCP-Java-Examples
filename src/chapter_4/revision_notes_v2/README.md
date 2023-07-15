@@ -291,7 +291,7 @@ System.out.println(result); // [lions, tiger, bears]
 
 ## 🟥 Collecting into Maps
 
-* We have the 
+* We have the `Collectors.toMap(Function k,Function v)` method which lets us create a map:
 
 ```java
 Stream<String> str2 = Stream.of("lions","tigers","bears");
@@ -342,4 +342,36 @@ System.out.println(map2); // {5=[lions, bears], 6=[tigers]}
 Stream<String> str3 = Stream.of("lions","tigers","bears", "bears");
 Map<Integer, List<String>> map3 = str3.collect(Collectors.groupingBy(String::length, HashMap::new, Collectors.toList()));
 System.out.println(map3); // {5=[lions, bears, bears], 6=[tigers]}
+```
+
+## 🟥 Collecting Using Partitioning
+
+* Partitioning is a special type of grouping, in which the keys `true` and `false` are ALWAYS set.
+
+* We use the methods: `Collectors.partitioningBy(Predicate p)` and `Collectors.partitioningBy(Predicate p, Collector dc)`
+
+```java
+Stream<String> str = Stream.of("lions", "bears", "tigers");
+Map<Boolean, List<String>> map = str.collect(Collectors.partitioningBy(s->s.startsWith("x")));
+System.out.println(map); // {false=[lions, bears, tigers], true=[]}
+```
+
+* Parititoning on an empty Stream
+
+```java
+Stream<String> empty = Stream.empty();
+Map<Boolean, List<String>> map2 = empty.collect(Collectors.partitioningBy(s->s.startsWith("x")));
+System.out.println(map2); // {false=[], true=[]}
+```
+
+* We can change the type of the values, by overloading the `partitioningBy()` method:
+
+```java
+Stream<String> str2 = Stream.of("lions","bears","tigers","bears");
+Map<Boolean, Set<String>> map3 = str2.collect(
+      Collectors.groupingBy(
+            s->s.startsWith("t"),
+            Collectors.toSet()
+      ));
+System.out.println(map3); // {false=[lions, bears], true=[tigers]}
 ```
