@@ -245,3 +245,46 @@ System.out.println(doubleUnaryOperator.applyAsDouble(1.2)); // 2.2
 DoubleBinaryOperator doubleBinaryOperator = (x,y) -> x + y;
 System.out.println(doubleBinaryOperator.applyAsDouble(4.3, 5.6)); // 9.899999999999999
 ```
+
+<hr>
+
+# 🧠 4.6 Working with Advanced Stream Pipeline Concepts
+
+## 🟥 Collecting Using Basic Collectors
+
+* We can merge a stream into a single string, using `Collectors.joining(CharSequence cs)`:
+
+```java
+Stream<String> str = Stream.of("shiv","hates","functional","programming");
+String string = str.collect(Collectors.joining(" "));
+System.out.println(string); // shiv hates functional programming
+```
+
+* We have 3 methods which calculate the average of the 3 primitive streams as a Double:
+
+1) `Collectors.averagingDouble(ToDoubleFunction f)`
+2) `Collectors.averagingInt(ToIntFunction f)`
+3) `Collectors.averagingLong(ToLongFunction f)`
+
+```java
+Stream<String> strings = Stream.of("lions","tigers","bears");
+ToIntFunction<String> findLength = String::length;
+Double averageLengths = strings.collect(Collectors.averagingInt(findLength));
+System.out.println(averageLengths); // 5.333333333333333
+
+Stream<String> strings2 = Stream.of("lions","tigers","bears");
+ToDoubleFunction<String> toDoubleFunction = x -> x.length()/2.0;
+Double averagingLengthsDividedBy2 = strings2.collect(Collectors.averagingDouble(toDoubleFunction));
+System.out.println(averagingLengthsDividedBy2); // 2.6666666666666665
+```
+
+<hr>
+
+
+*  We have the `Collectors.toCollection(Supplier s)` which returns a Collection of the specified type:
+
+```java
+Stream<String> str3 = Stream.of("lions","tiger","bears");
+ArrayList<String> result = str3.collect(Collectors.toCollection(ArrayList::new));
+System.out.println(result); // [lions, tiger, bears]
+```
