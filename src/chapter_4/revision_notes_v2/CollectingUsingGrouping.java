@@ -28,6 +28,7 @@ public class CollectingUsingGrouping {
 
 		Stream<String> str3 = Stream.of("lions","tigers","bears", "bears");
 		Map<Integer, List<String>> map3 = str3.collect(Collectors.groupingBy(String::length, HashMap::new, Collectors.toList()));
-		System.out.println(map3);
+		System.out.println(map3); // {5=[lions, bears, bears], 6=[tigers]}
+
 	}
 }
