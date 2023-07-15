@@ -344,7 +344,7 @@ Map<Integer, List<String>> map3 = str3.collect(Collectors.groupingBy(String::len
 System.out.println(map3); // {5=[lions, bears, bears], 6=[tigers]}
 ```
 
-## 🟥 Collecting Using Partitioning
+## 🟥 Grouping Using Partitioning
 
 * Partitioning is a special type of grouping, in which the keys `true` and `false` are ALWAYS set.
 
@@ -374,4 +374,17 @@ Map<Boolean, Set<String>> map3 = str2.collect(
             Collectors.toSet()
       ));
 System.out.println(map3); // {false=[lions, bears], true=[tigers]}
+```
+
+## 🟥 Grouping Using Mapping
+
+```java
+Stream<String> str = Stream.of("tigers","lions","bears");
+Map<Integer, Optional<String>> map = str.collect(Collectors.groupingBy(
+      String::length,
+      Collectors.mapping(
+            s->s,
+            Collectors.minBy(Comparator.naturalOrder())
+      )));
+System.out.println(map); // {5=Optional[bears], 6=Optional[tigers]}
 ```
