@@ -1,5 +1,6 @@
 package chapter_4.revision_notes_v2;
 
+import java.util.IntSummaryStatistics;
 import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
@@ -41,5 +42,15 @@ public class PrimitiveStreams {
 		int intSum = emptyIntStream.sum();
 		System.out.println(intSum); // 0
 		
+		IntStream ints = IntStream.of(1, 4, 9);
+		IntSummaryStatistics intSummary = ints.summaryStatistics();
+		System.out.println(intSummary); // IntSummaryStatistics{count=3, sum=14, min=1, average=4.666667, max=9}
+		double average = intSummary.getAverage();
+		System.out.println(average); // 4.666666666666667
+		
+		IntStream empty = IntStream.empty();
+		System.out.println(empty.summaryStatistics());
 	}
+	
+	
 }

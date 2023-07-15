@@ -197,3 +197,24 @@ IntStream emptyIntStream = IntStream.empty();
 int intSum = emptyIntStream.sum();
 System.out.println(intSum); // 0
 ```
+
+
+## 🟥 Summarising Statistics
+
+* We can use the `summaryStatistics()` method on `IntStream`, `LongStream` and `DoubleStream`
+
+```java
+IntStream ints = IntStream.of(1, 4, 9);
+IntSummaryStatistics intSummary = ints.summaryStatistics();
+System.out.println(intSummary); // IntSummaryStatistics{count=3, sum=14, min=1, average=4.666667, max=9}
+double average = intSummary.getAverage();
+System.out.println(average); // 4.666666666666667
+```
+
+* If the stream is empty, we get some strange results in the statistics:
+
+```java
+IntStream empty = IntStream.empty();
+System.out.println(empty.summaryStatistics());
+// IntSummaryStatistics{count=0, sum=0, min=2147483647, average=0.000000, max=-2147483648}
+```
