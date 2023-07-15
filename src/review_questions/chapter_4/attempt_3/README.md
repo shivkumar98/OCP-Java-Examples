@@ -3,7 +3,6 @@
 # Chapter 4: Review Questions Attempt 3
 
 
-
 <hr>
 
 ## Question 1
@@ -30,7 +29,7 @@ G. The code hangs
 
 ### My Answer:
 
-* D
+* D!
 
 <hr>
 
@@ -60,7 +59,7 @@ F. The code hands
 
 ### My Answer:
 
-* F
+* F!
 
 * b1 is true, but b2 will hang
 
@@ -85,14 +84,11 @@ F. The code hands
 ❓
 ### My Answer:
 
-* E
+* E!
 
 * b2 tries to access a stream already used, so exception is thrown
 
 <hr>
-
-
-
 
 ## Question 4:
 
@@ -113,7 +109,7 @@ E. The `peek()` method is an example of a terminal operation
 
 ### My Answer:
 
-* A, B, C
+* A, B, C!
 
 ## Question 5
 
@@ -135,7 +131,7 @@ F. sum()
 
 ### My Answer:
 
-* A, B, F
+* A, B, F!
 
 * collect is a reduction, count is reduction, sum is a reduction
 
@@ -167,7 +163,7 @@ F. None of the above
 
 ### My Answer:
 
-* A
+* A!
 
 * allMatch would return false, anyMatch would hang, noneMatch would hang
 
@@ -236,7 +232,7 @@ return list.stream()
 
 ### My answer:
 
-* F
+* F!
 
 ## Question 8:
 
@@ -257,10 +253,8 @@ F. `is.sum()` returns the type `OptionalInt`
 
 ### My Answer:
 
-* B, D, E
-
+* B, D, E!
 * is.average() returns OptionalInt, is.findAny returns OptionalInt, is.sum() returns int
-
 
 ## Question 9
 
@@ -285,10 +279,8 @@ F. None of these; line 5 throws an exception
 
 ### My Answer:
 
-* B, D
-
+* B, D!
 * (1,2,3) -> (10,20,30) -> () -> OptionalLong.empty()
-
 * A - would not compile, B - compiles and prints nothing, C - does not compile, D - compiles and prints nothing
 
 <hr>
@@ -320,22 +312,16 @@ F. N. M
 
 G. N, O
 
+<hr>
 
 ### My Answer:
 
-* F, G
-
+* F, G!
 * A - prints nothing
-
 * B - everything gets printed out, so nothing printed
-
 * C, D, E - filetered out
-
 * F - prints out 10 times
-
 * G - prints 10 times
-
-
 
 <br>
 
@@ -359,6 +345,11 @@ E. Wrap the entire line in a `System.out.print` statement
 F. None of the above. The code already prints "12345"
 
 <hr>
+
+### My Answer:
+
+* C, D!
+* A is not required! C is required. D is required. E would not work. F false, B is not required
 
 <br>
 
@@ -390,6 +381,14 @@ H. `UnaryOperator<String, String>`
 
 <hr>
 
+### My Answer:
+
+* A, E, G!
+* Line 6 is a supplier so E
+* Line 7 is a consumer of 2 arguments, so A
+* Line 8 is a Function, so its G
+
+
 ## Question 13
 
 ❓Which of the following is true❓
@@ -417,6 +416,11 @@ F. The code does not compile
 G. The code throws an exception
 
 <hr>
+
+### My Answer:
+
+* F!
+* The code does not compile!
 
 
 ## Question 14:
@@ -447,6 +451,11 @@ G. The code compiles and prints 1.
 
 <hr>
 
+### My Answer:
+
+* D!
+* Line 7 does not compile
+
 ## Question 15
 
 ❓The `partitioningBy()` collector creates a `Map<Boolean, List<String>>` when passed to `collect()` by default. When specific parameters are passed to `partioningBy()`, which return types can be created? (Choose all that apply)❓
@@ -462,9 +471,12 @@ D. `Map<Boolean, List<String>>`
 E. `Map<Boolean, Set<String>>`
 
 F. None of the above
-
-
 <hr>
+
+### MyAnswer:
+* D, E!
+* D and E are obviously true
+* C is also a possibility but i will say not
 
 ## Question 16
 
@@ -491,6 +503,10 @@ E. The code does not compile
 
 F. An exception is thrown
 
+### MyAnswer:
+* C!
+* C and D are possible
+* D is not possible as keys are only created if needed!
 <hr>
 
 ## Question 17
@@ -515,6 +531,10 @@ F. None of these above
 
 <hr>
 
+### My Answer:
+* E!
+* A - invalid, B - invalid, C - invalid, D, Invalid, E - valid
+
 ## Question 18
 
 ❓What is the result of the following❓
@@ -538,6 +558,8 @@ F. The code does not compile
 
 G. An exception is thrown
 
+### My Answer:
+* D!
 
 <hr>
 
@@ -557,6 +579,12 @@ D. `FloatSupplier`
 E. `IntSupplier`
 
 F. `StringSupplier`
+
+<hr>
+
+### My Answer:
+
+* A, C, E!
 
 ## Question 20
 
@@ -591,3 +619,7 @@ D. None of the above is equivalent
 E. The provided code does not compile
 
 <hr>
+
+### My Answer:
+
+* B!
