@@ -28,6 +28,6 @@ public class CollectingUsingBasicCollectors {
 		Stream<String> str3 = Stream.of("lions","tiger","bears");
 		ArrayList<String> result = str3.collect(Collectors.toCollection(ArrayList::new));
 		System.out.println(result); // [lions, tiger, bears]
-
+		
 	}
 }

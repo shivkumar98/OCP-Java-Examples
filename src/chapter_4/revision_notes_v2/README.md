@@ -288,3 +288,37 @@ Stream<String> str3 = Stream.of("lions","tiger","bears");
 ArrayList<String> result = str3.collect(Collectors.toCollection(ArrayList::new));
 System.out.println(result); // [lions, tiger, bears]
 ```
+
+## 🟥 Collecting Using Grouping
+
+* We can use `Collectors.groupingBy(Function f)` to create a map where the keys are grouped by the function. E.g.:
+
+```java
+Stream<String> str = Stream.of("lions", "tigers", "bears");
+Map<Integer, List<String>> map = str.collect(Collectors.groupingBy(x->x.length()));
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+```
+
+* If the stream is empty, then no keys are created!!!!
+
+```java
+Stream<String> empty = Stream.empty();
+Map<Integer, List<String>> emptyMap = empty.collect(Collectors.groupingBy(String::length));
+System.out.println(emptyMap); // {}
+```
+
+* We can change the type of the value collection, using `Collectors.groupingBy(Function f, Collector dc)`
+
+```java
+Stream<String> str2 = Stream.of("lions","tigers","bears", "bears");
+Map<Integer,Set<String>> map2 = str2.collect(Collectors.groupingBy(String::length, Collectors.toSet()));
+System.out.println(map2); // {5=[lions, bears], 6=[tigers]}
+```
+
+* We can change the type of the map, using: `Collectors.groupingBy(Function f, Supplier s, Collector dc)`:
+
+```java
+Stream<String> str3 = Stream.of("lions","tigers","bears", "bears");
+Map<Integer, List<String>> map3 = str3.collect(Collectors.groupingBy(String::length, HashMap::new, Collectors.toList()));
+System.out.println(map3); // {5=[lions, bears, bears], 6=[tigers]}
+```
