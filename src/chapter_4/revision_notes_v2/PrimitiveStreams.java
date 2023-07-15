@@ -50,6 +50,8 @@ public class PrimitiveStreams {
 		
 		IntStream empty = IntStream.empty();
 		System.out.println(empty.summaryStatistics());
+		// IntSummaryStatistics{count=0, sum=0, min=2147483647, average=0.000000, max=-2147483648}
+
 	}
 	
 	

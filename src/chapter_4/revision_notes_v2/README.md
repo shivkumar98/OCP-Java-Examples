@@ -218,3 +218,30 @@ IntStream empty = IntStream.empty();
 System.out.println(empty.summaryStatistics());
 // IntSummaryStatistics{count=0, sum=0, min=2147483647, average=0.000000, max=-2147483648}
 ```
+
+## 🟥 Learning the Functional Interfaces for Primitives
+
+* Alongside the main Primitive streams, we also have variants for `Supplier`, `Consumer`, `Predicate`, `Function`, `UnaryOperator`, `BinaryOperator`.
+
+* E.g.:
+
+```java
+DoubleSupplier doubleSupplier = () -> .5;
+doubleSupplier.getAsDouble(); //0.5
+
+DoubleConsumer doubleConsumer = x -> System.out.println(x);;
+doubleConsumer.accept(1.3); // 1.3
+
+DoublePredicate doublePredicate = x -> x==1.3;
+System.out.println(doublePredicate.test(1)); // false
+System.out.println(doublePredicate.test(1.3)); // true
+
+DoubleFunction<String> doubleFunction = x -> ""+x;
+System.out.println(doubleFunction.apply(1.32).length()); // 4
+
+DoubleUnaryOperator doubleUnaryOperator = x -> x+1;
+System.out.println(doubleUnaryOperator.applyAsDouble(1.2)); // 2.2
+
+DoubleBinaryOperator doubleBinaryOperator = (x,y) -> x + y;
+System.out.println(doubleBinaryOperator.applyAsDouble(4.3, 5.6)); // 9.899999999999999
+```
