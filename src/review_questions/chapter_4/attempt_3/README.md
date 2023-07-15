@@ -2,6 +2,33 @@
 
 # Chapter 4: Review Questions Attempt 3
 
+## Results:
+
+Date: 15/07/2023
+Score: 16/20
+
+| Question # | Correct |
+| ---------- | ------- |
+| 1          |   ✅    |
+| 2          |    ✅   |
+| 3          |  ✅     |
+| 4          | ✅      |
+| 5          |  ❌     |
+| 6          |  ✅     |
+| 7          |   ✅    |
+| 8          |    ❌   |
+| 9          | ✅      |
+| 10         |  ❌     |
+| 11         |  ❌     |
+| 12         |  ✅     |
+| 13         |  ✅     |
+| 14         |   ✅    |
+| 15         |   ✅     |
+| 16         |  ✅      |
+| 17         |  ✅     |
+| 18         |  ✅      |
+| 19         |  ✅     |
+| 20         |   ✅    |
 
 <hr>
 
@@ -29,7 +56,7 @@ G. The code hangs
 
 ### My Answer:
 
-* D!
+* D! ✅
 
 <hr>
 
@@ -55,11 +82,11 @@ D. The code does not compile
 
 E. An exception is thrown
 
-F. The code hands
+F. The code hangs
 
 ### My Answer:
 
-* F!
+* F!✅
 
 * b1 is true, but b2 will hang
 
@@ -84,7 +111,7 @@ F. The code hands
 ❓
 ### My Answer:
 
-* E!
+* E!✅
 
 * b2 tries to access a stream already used, so exception is thrown
 
@@ -109,7 +136,7 @@ E. The `peek()` method is an example of a terminal operation
 
 ### My Answer:
 
-* A, B, C!
+* A, B!✅
 
 ## Question 5
 
@@ -131,7 +158,7 @@ F. sum()
 
 ### My Answer:
 
-* A, B, F!
+* A, B, F!❌ - while sum() is a reduction, it is only available for primitive streams!
 
 * collect is a reduction, count is reduction, sum is a reduction
 
@@ -163,7 +190,7 @@ F. None of the above
 
 ### My Answer:
 
-* A!
+* A!✅
 
 * allMatch would return false, anyMatch would hang, noneMatch would hang
 
@@ -232,7 +259,8 @@ return list.stream()
 
 ### My answer:
 
-* F!
+* F!✅
+
 
 ## Question 8:
 
@@ -253,7 +281,7 @@ F. `is.sum()` returns the type `OptionalInt`
 
 ### My Answer:
 
-* B, D, E!
+* B, D, E!❌ B is not valid! average() returns OptionalDouble
 * is.average() returns OptionalInt, is.findAny returns OptionalInt, is.sum() returns int
 
 ## Question 9
@@ -279,7 +307,7 @@ F. None of these; line 5 throws an exception
 
 ### My Answer:
 
-* B, D!
+* B, D!✅
 * (1,2,3) -> (10,20,30) -> () -> OptionalLong.empty()
 * A - would not compile, B - compiles and prints nothing, C - does not compile, D - compiles and prints nothing
 
@@ -316,7 +344,7 @@ G. N, O
 
 ### My Answer:
 
-* F, G!
+* F, G!❌ G is not valid! peek() is only called if terminal operation is present!
 * A - prints nothing
 * B - everything gets printed out, so nothing printed
 * C, D, E - filetered out
@@ -348,7 +376,7 @@ F. None of the above. The code already prints "12345"
 
 ### My Answer:
 
-* C, D!
+* C, D!❌ B, C, E is the correct answer! If we are using joining then a String is returned!
 * A is not required! C is required. D is required. E would not work. F false, B is not required
 
 <br>
@@ -383,8 +411,8 @@ H. `UnaryOperator<String, String>`
 
 ### My Answer:
 
-* A, E, G!
-* Line 6 is a supplier so E
+* A, F, G!✅
+* Line 6 is a supplier so F
 * Line 7 is a consumer of 2 arguments, so A
 * Line 8 is a Function, so its G
 
@@ -419,7 +447,7 @@ G. The code throws an exception
 
 ### My Answer:
 
-* F!
+* F!✅
 * The code does not compile!
 
 
@@ -453,7 +481,7 @@ G. The code compiles and prints 1.
 
 ### My Answer:
 
-* D!
+* D!✅
 * Line 7 does not compile
 
 ## Question 15
@@ -474,7 +502,7 @@ F. None of the above
 <hr>
 
 ### MyAnswer:
-* D, E!
+* D, E!✅
 * D and E are obviously true
 * C is also a possibility but i will say not
 
@@ -504,7 +532,7 @@ E. The code does not compile
 F. An exception is thrown
 
 ### MyAnswer:
-* C!
+* C!✅
 * C and D are possible
 * D is not possible as keys are only created if needed!
 <hr>
@@ -532,7 +560,7 @@ F. None of these above
 <hr>
 
 ### My Answer:
-* E!
+* E!✅
 * A - invalid, B - invalid, C - invalid, D, Invalid, E - valid
 
 ## Question 18
@@ -559,7 +587,7 @@ F. The code does not compile
 G. An exception is thrown
 
 ### My Answer:
-* D!
+* D!✅
 
 <hr>
 
@@ -584,7 +612,7 @@ F. `StringSupplier`
 
 ### My Answer:
 
-* A, C, E!
+* A, C, E!✅
 
 ## Question 20
 
@@ -622,4 +650,4 @@ E. The provided code does not compile
 
 ### My Answer:
 
-* B!
+* B!✅
