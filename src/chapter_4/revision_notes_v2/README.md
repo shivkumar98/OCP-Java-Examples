@@ -60,6 +60,8 @@ emptyOpt.ifPresent(System.out::println); // nothing printed
 Optional.empty().orElseThrow(RuntimeException::new); // throws runtime exception
 ```
 
+<hr>
+
 # 🧠 4.4  Using Streams
 
 ## 🟥 Creating streams
@@ -112,4 +114,86 @@ Stream<Integer> lengths = strings.map(x->x.length());
 Stream<String> str = Stream.of("a","b","c");
 str.sorted(Comparator.reverseOrder())
    .forEach(System.out::print); // c b a
+```
+
+<hr>
+
+# 🧠 4.5 Working with Primitives
+
+* We have used generics with Streams so far, but we also have primitive versions of streams which offer useful methods like `average()`
+
+* We can convert an existing Stream into a primitive stream:
+
+```java
+Stream<Integer> ints = Stream.of(1,2,3);
+IntStream intStream = ints.mapToInt(x->x);
+OptionalDouble avg = intStream.average();
+System.out.println(avg.getAsDouble()); // 2.0
+```
+
+## 🟥 Creating Primitive Streams
+
+* There are 3 types of primitive streams:
+
+1) IntStream - for `int`, `short`, `byte` and `char`
+2) LongStream - for `long`
+3) DoubleStream - for `float` and `double`
+
+* We can generate primitive streams through the following ways
+
+```java
+DoubleStream empty = DoubleStream.empty();
+DoubleStream str1 = DoubleStream.of(1.2, 2.4);
+DoubleStream str2 = Stream.of(1).mapToInt(x->x);
+DoubleStream str3 = DoubleStream.generate(() -> 1.2);
+DoubleStream str4 = DoubleStream.iterate(1.0, n->n/2);
+```
+
+* We can create ranges easily for `IntStream` and `LongStream` using `range()` and `rangeClosed()`:
+
+```java
+IntStream range = IntStream.range(1,2);
+LongStream rangeClosed = LongStream.rangeClosed(1,3);
+```
+
+* We can convert from Object streams to primitive streams and vice versa:
+
+```java
+Stream<String> objStream = Stream.of("penguin", "fish");
+// creating IntStream
+ToIntFunction<String> toLength = x -> x.length(); 
+IntStream lengthsStream = objStream.mapToInt(toLength);
+// creating DoubleStream
+Stream<String> objStream2 = Stream.of("penguin", "fish");
+DoubleStream doubleStream = objStream2.mapToDouble(x-> x.length()/2.0);
+```
+
+## 🟥 Using Optional with Primitive Streams
+
+* We also have `OptionalInt`, `OptionalLong` and `OptionalDouble` alongside the primitive streams.
+
+* E.g. if we were to find the average of an `int[]` array:
+
+```java
+int[] grades = { 1, 3, 6};
+OptionalDouble avg = IntStream.of(grades).average();
+double avgAsDouble = avg.getAsDouble();
+System.out.println(avgAsDouble); // 3.3333333333333335
+```
+
+* We also have `IntSupplier`, `LongSupplier` and `DoubleSupplier` for each of the Optional primitives!
+
+```java
+OptionalInt emptyOptionalInt = OptionalInt.empty();
+IntSupplier intSupplier = () -> 1;
+int x = emptyOptionalInt.orElseGet(intSupplier);
+System.out.println(x); // 1
+```
+
+* The `sum()` method will always return a value!!!
+
+```java
+IntStream emptyIntStream = IntStream.empty();
+int intSum = emptyIntStream.sum();
+System.out.println(intSum); // 0
 ```
