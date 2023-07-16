@@ -34,3 +34,26 @@ System.out.println(Arrays.toString(arr)); // [hello, world]
 // list is now backed
 list.remove(0); // throws UnsupportedOperationException
 ```
+
+
+## 🟥 Searching and Sorting
+
+* We can retrieve the index of a SORTED array using `Arrays.binarySearch(arr, target)`:
+
+```java
+int[] nums = {6,9,1,8};
+Arrays.sort(nums); // [1,6,8,9]
+System.out.println(Arrays.binarySearch(nums, 6)); // 0
+System.out.println(Arrays.binarySearch(nums, 3)); // -2
+// 3 would be placed in index 1, -1-1=-2 
+// 0 would be placed in index 0, 0-1=-1
+```
+
+* We can retrieve the index of a SORTED list using `Collections.binarySearch(list, target)`:
+
+```java
+List<Integer> list = Arrays.asList(9,7,5,3);
+Collections.sort(list); // [3, 5, 7, 9]
+System.out.println(Collections.binarySearch(list,3)); // 0
+System.out.println(Collections.binarySearch(list,2)); // 0-1 = -1
+```
