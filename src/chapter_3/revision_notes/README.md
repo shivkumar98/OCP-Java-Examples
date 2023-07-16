@@ -57,3 +57,17 @@ Collections.sort(list); // [3, 5, 7, 9]
 System.out.println(Collections.binarySearch(list,3)); // 0
 System.out.println(Collections.binarySearch(list,2)); // 0-1 = -1
 ```
+
+## 🟥 Wrapper Classes and Autoboxing
+
+* What does the following code do?
+
+```java
+List<Integer> numbers = new ArrayList<Integer>();
+numbers.add(1);
+numbers.add(new Integer(3));
+numbers.add(new Integer(5));
+numbers.remove(1); // [1, 5]
+numbers.remove(new Integer(5)); // [1]
+System.out.println(numbers); // [1]
+```
