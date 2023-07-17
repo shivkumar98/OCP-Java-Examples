@@ -287,3 +287,29 @@ class C extends B {}
 2) `Set`: an unordered collection which prevents duplicates!
 3) `Queue`: a collection which orders its elements in a specific order for processing
 4) `Map`: a collection of key-value pairs. This is the only interface which does not extend `java.util.Collection`
+
+## 🟥 Common Collections Methods
+
+* Here are some common methods for Lists, Sets and Queues:
+1) `boolean add(E element)`
+2) `boolean remove(Object object)`
+3) `boolean isEmpty()`
+4) `int size()`
+5) `void clear()`
+6) `boolean contains(Object object)`
+
+## 🟥 Comparing List Implementations
+
+* ArrayList lets you retrieve elements in CONSTANT TIME and remove/add elements in LINEAR TIME
+
+* LinkedList lets you retrieve elements in LINEAR TIME and remove/add elements in CONSTANT TIME
+
+* Stack is linear data structure which lets you add/remove elements from the TOP:
+
+```java
+Stack<String> stack = new Stack<>();
+stack.add("hello");
+stack.add("world");
+System.out.println(stack.pop());
+System.out.println(stack); // [hello]
+```

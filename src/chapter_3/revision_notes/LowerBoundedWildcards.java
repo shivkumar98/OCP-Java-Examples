@@ -11,7 +11,6 @@ public class LowerBoundedWildcards {
 	static void adddSoundUpperBounded(List<? super String> list) {
 		list.add("hello");
 	}
-	
 	public static void main(String[] args) {
 		List<String> stringList = Arrays.asList("hello", "world");
 		List<Object> objectList = Arrays.asList("hello",2,null);

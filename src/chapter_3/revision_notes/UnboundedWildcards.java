@@ -22,7 +22,6 @@ public class UnboundedWildcards {
 		List<String> list = Arrays.asList("hello");
 		// printList(list); // COMPILER ERROR
 		printListWithGenerics(list); // hello
-		printListWithWildCar(list);
-		
+		printListWithWildCar(list);	
 	}
 }
