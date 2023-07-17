@@ -257,3 +257,24 @@ public static void main(String[] args) {
 }
 }
 ```
+
+## 🟥 Putting It All Together
+
+```java
+class A {}
+class B extends A {}
+class C extends B {}
+6:  List<?> list1 = new ArrayList<A>();
+7:  List<? extends A> list2 = new ArrayList<A>();
+8:  List<? super A> list3 = new ArrayList<A>();
+9:  List<? extends B> list4 = new ArrayList<A>(); // DOES NOT COMPILE
+10: List<? super B> list5 = new ArrayList<A>();
+11: List<?> list6 = new ArrayList<? extends A>(); // DOES NOT COMPILE
+```
+
+* Line 6 is fine, as we are using unbounded generic
+* Line 7 is fine
+* Line 8 is fine
+* Line 9, class A does NOT extend B!
+* Line 10 is dine
+* Line 11: the RHS can not use a wildcard!!!
