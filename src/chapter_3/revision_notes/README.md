@@ -171,3 +171,89 @@ public class GenericMethods {
 	}
 }
 ```
+
+## 🟥 Bounds
+
+* A ***bounded parameter type*** is a generic type which specifies the bound for the generic!🎃
+
+* A ***wildcard generic type*** is an UNKNOWN generic represented with **?**
+
+### 🟡 Unbounded Wildcards
+
+* We use an unbounded wildcard represents ANY datatype.
+
+* E.g. suppose we want to print a `List` containing any data type:
+
+```java
+public class Wildcards {
+static void printList(List<Object> list) {
+    for (Object x: list)
+        System.out.println(x);
+}
+static <T> void printListWithGenerics(List<T> list) {
+    for (Object x:list)
+        System.out.println(x);
+}
+static void printListWithWildCard(List<?> list) {
+    for (Object x:list)
+        System.out.println(x);
+}
+
+public static void main(String[] args) {
+    List<String> list = Arrays.asList("hello");
+    // printList(list); // COMPILER ERROR
+    printListWithGenerics(list); // hello
+    printListWithWildCard(list); // hello
+}
+}
+```
+
+### 🟡 Upper-Bounded Wildcards
+
+* We can use upper-bounded wildcards to make more flexible methods:
+
+```java
+public class UpperBoundedWildcards {
+public static long total(List<Number> list) {
+	long count = 0;
+	for (Number number: list)
+		count += number.longValue();
+	return count;
+}
+public static long totalUpperBounded(List<? extends Number> list) {
+	long count = 0;
+	for (Number number: list)
+		count += number.longValue();
+	return count;
+}
+public static void main(String[] args) {
+	List<Integer> intList = Arrays.asList(1,2,3);
+	List<Number> numList = Arrays.asList(1,2,3);
+	// total(intList); // COMPILER ERROR
+	totalUpperBounded(intList); // WORKS FINE!
+	total(numList); // WORKS FINE!
+	totalUpperBounded(numList); // WORKS FINE!
+}
+}
+```
+
+### 🟡 Lower-Bounded Wildcards
+
+```java
+public class LowerBoundedWildcards {
+static void addSound(List<? extends Object> list) {
+    // list.add("hello"); // COMPILER ERROR
+}
+static void adddSoundUpperBounded(List<? super String> list) {
+    list.add("hello");
+}
+public static void main(String[] args) {
+    List<String> stringList = Arrays.asList("hello", "world");
+    List<Object> objectList = Arrays.asList("hello",2,null);
+    // adddSound(stringList); // COMPILER ERROR
+    addSound(objectList);     // WORKS FINE!
+    adddSoundUpperBounded(stringList); // WORKS FINE!
+    adddSoundUpperBounded(objectList); // WORKS FINE!
+}
+}
+```
