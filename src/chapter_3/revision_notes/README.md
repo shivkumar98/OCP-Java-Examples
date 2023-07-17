@@ -129,3 +129,27 @@ class ShippableAbstractCrate<U> implements Shippable<U> {
 	public void ship(U u) {	}
 }
 ```
+
+## 🟥 What You Can't Do With Generic Types❌
+
+* You CAN NOT call the constructor: `new T()`
+
+* You CAN NOT create a static variable as a generic type parameter:
+
+```java
+public class Generics {
+    static T variable; // COMPILER ERROR
+}
+```
+
+* You CAN NOT use a primitive type in place of generic!
+
+* You CAN NOT create an array using generic type:
+
+```java
+class WithGeneric<T> {
+	void method(T t) {
+		T[] arr = new T[2]; // CAN NOT CREATE A GENERIC ARRAY WITH T
+	}
+}
+```
