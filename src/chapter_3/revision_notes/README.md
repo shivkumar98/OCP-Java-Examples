@@ -153,3 +153,21 @@ class WithGeneric<T> {
 	}
 }
 ```
+
+## 🟥 Generic Methods
+
+* We can declare a generic at METHOD LEVEL.
+
+* This is useful for static methods but can be applied to non-static methods also:
+
+```java
+public class GenericMethods {
+	static <T> void method1(T t) {
+		System.out.println(t);
+	}
+    static <T> T method2() { return t; }
+	public static void main(String[] args) {
+		method1(new String("hello world")); // hello world
+	}
+}
+```
