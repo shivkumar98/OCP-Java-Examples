@@ -313,3 +313,29 @@ stack.add("world");
 System.out.println(stack.pop());
 System.out.println(stack); // [hello]
 ```
+
+## 🟥 Comparing Set Implementations
+
+* HashSet allows for adding/removing and checking if element is present in constant time. We however lose insertion order!
+* TreeSet preserves sorting but adding and checking if element is present is in `O(log n)`. TreeSet implements the `NavigableSet` interface
+
+
+### 🟡 NavigableSet Interface
+
+* This interface provides the following methods:
+
+1) `E lower(E e)` - returns greatest element which is `< e`
+2) `E higher(E e)` - returns lowest element which is `> e`
+3) `E ceiling(E e)` - returns lowest element which is `>= e`
+4) `E floor(E e)` - returns greatest element which is `>= e`
+
+* Example:
+
+```java
+NavigableSet<Integer> set = new TreeSet<>;
+for (int i=1;i<=2-;i++) set.add(i);
+System.out.println(set.lower(10)); // 9
+System.out.println(set.floor(10)); // 10
+System.out.println(set.higher(20)); // null
+System.out.println(set.ceiling(20)); // 20
+```
