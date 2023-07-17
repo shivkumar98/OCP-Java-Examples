@@ -278,3 +278,12 @@ class C extends B {}
 * Line 9, class A does NOT extend B!
 * Line 10 is dine
 * Line 11: the RHS can not use a wildcard!!!
+
+
+# 🧠 3.3 Using Lists, Sets, Maps and Queues
+
+* The ***Java Collections Framework*** is a set of classes from `java.util` consisting of four interfaces:
+1) `List`: a collection of ordered elements which can be accessed via its index
+2) `Set`: an unordered collection which prevents duplicates!
+3) `Queue`: a collection which orders its elements in a specific order for processing
+4) `Map`: a collection of key-value pairs. This is the only interface which does not extend `java.util.Collection`
