@@ -71,3 +71,34 @@ numbers.remove(1); // [1, 5]
 numbers.remove(new Integer(5)); // [1]
 System.out.println(numbers); // [1]
 ```
+
+# 🧠 3.2 Working With Generics
+
+## 🟥 Generic Classes
+
+* We can introduce a **formal type parameter** using diamond brackets to a class:
+
+```java
+public class Crate<T> {
+    private T contents;
+    public T emptyCrate() {
+        return contents;
+    }
+    public void packCrate(T contents) {
+        this.contents = contents;
+    }
+}
+```
+
+* we can introduce multiple generic parameters:
+
+```java
+public class SizeLimitedCrate<T,U> {
+    private T contents;
+    private U sizeLimit;
+    public SizeLimitedCrate(T contents, U sizeLimit) {
+        this.contents = contents;
+        this.sizeLimit = sizeLimit;
+    }
+}
+```
