@@ -102,3 +102,30 @@ public class SizeLimitedCrate<T,U> {
     }
 }
 ```
+
+## 🟥 Generic Interfaces
+
+* We can also have formal type parameters in interfaces:
+
+```java
+public interface Shippable<T> {
+    void ship(T t);
+}
+class ShippableRobotCrate implements Shippable<Robot> {
+    void ship(Robot t) { }
+}
+```
+
+* We can also create a CONCRETE class which allows the caller to specify the generic type:
+
+```java
+public class Generics {
+	public static void main(String[] args) {
+		ShippableAbstractCrate s = new ShippableAbstractCrate();
+		s.ship(new Robot());
+	}
+}
+class ShippableAbstractCrate<U> implements Shippable<U> {
+	public void ship(U u) {	}
+}
+```
