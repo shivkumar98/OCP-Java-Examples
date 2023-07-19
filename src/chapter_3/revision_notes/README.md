@@ -339,3 +339,42 @@ System.out.println(set.floor(10)); // 10
 System.out.println(set.higher(20)); // null
 System.out.println(set.ceiling(20)); // 20
 ```
+
+
+## 🟥 Comparing Queue Implementations
+
+* Queues are used for sorting elements prior to processing them. Queues are assumed to be FIFO
+
+* LinkedList is double-ended Queue
+
+* ArrayDeque is a pure double-ended Queue
+
+### 🟡 Queue Methods
+
+* The methods available to the Queue implementations are:
+
+1) `boolean add(E e)` - adds element to back of queue
+2) `E element()` - returns element at front
+3) `boolean offer(E e)` - adds element to back of queue and returns if successful (never throws errors)
+4) `void push(E e)` - adds element to front of queue
+5) `E poll(E e)` - removes and returns next element (or returns null if empty)
+6) `E pop()` - removes and returns front of queue (or throws exception if empty)
+7) `E peek()` - returns front element (or null if empty)
+
+```java
+Deque<Integer> deque = new ArrayDeque<>();
+//System.out.println(deque.element()); // THROWS EXCEPTION
+System.out.println(deque.peek()); // null
+deque.add(1); deque.add(2); deque.add(3);
+System.out.println(deque.peek()); // 1
+System.out.println(deque.element()); // 1
+System.out.println(deque); // [1, 2, 3]
+System.out.println(deque.offer(4)); // true
+System.out.println(deque); // [1,2,3,4]
+System.out.println(deque.pop()); // 1
+System.out.println(deque); // [2, 3, 4]
+System.out.println(deque.poll()); // 2
+System.out.println(deque); // [3,4]
+deque.push(999);
+System.out.println(deque); // [999,3,4]
+```

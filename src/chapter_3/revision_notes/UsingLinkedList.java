@@ -22,7 +22,8 @@ public class UsingLinkedList {
 		stack.add("hello");
 		stack.add("world");
 		System.out.println(stack.pop());
-		System.out.println(stack);
+		System.out.println(stack); // [hello]
+
 		
 		
 	}
