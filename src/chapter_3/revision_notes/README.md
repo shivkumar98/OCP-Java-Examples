@@ -408,3 +408,52 @@ treeMap.put("four", 4);
 System.out.println(treeMap); // {four=4, one=1, three=3, two=2}
 ```
 
+
+# 🧠 3.4 Comparator vs Comparable
+
+## 🟥 Comparable 
+
+* The `Comparable` interface contains the `compareTo()` method which is implemented to define a custom sorting for classes:
+
+```java
+public interface Comparable<T> {
+    public int compareTo(T o);
+}
+```
+
+* A class which implements Comparable must implement compareTo. The result of: `int result = object1.compareTo(object2)` determines which object is "smaller":
+
+1) if `result == 0`, then `object1 == object2`
+
+2) if `result < 0`, then `object1 < object2`
+
+3) if `result > 0`, then `object1 > object2`
+
+### 🟡 Example
+
+```java
+public class UsingComparable {
+	public static void main(String[] args) {
+		Duck duckA = new Duck("a");
+		Duck duckZ = new Duck("z");
+		Duck duckM = new Duck("m");
+		List<Duck> list = Arrays.asList(duckZ, duckA, duckM);
+		System.out.println(list); //[Duck=z, Duck=a, Duck=m]
+		Collections.sort(list);
+		System.out.println(list); // [Duck=a, Duck=m, Duck=z]
+	}
+}
+
+class Duck implements Comparable<Duck> {
+	String name;
+	public Duck(String name) { this.name = name; }
+	@Override
+	public int compareTo(Duck d) {
+		return name.compareTo(d.name);
+	}
+	@Override
+	public String toString() {
+		return "Duck=" + name;
+	}
+}
+```
