@@ -560,6 +560,10 @@ E. `compare()` takes one method parameter 🎃
 
 F. `compare()` takes two method parameters 🎃
 
+### My answer:
+* **B, D, F**
+* Comparator is in java.util, Comparable is in java.lang.
+
 
 ## Question 17:
 
@@ -587,6 +591,9 @@ E. Fill Line 3 with `<T>` 🎃
 
 F. Fill Line 3 with `<?>` 🎃
 
+### My answer:
+
+* **B, D**
 
 
 ## Question 18:
@@ -615,6 +622,15 @@ E. `C c2 = new B();` 🎃
 
 F. `C c1 = new C();` 🎃
 
+### My answer:
+* ***A,B,C**
+* A - valid
+* B - valid
+* C - valid
+* D - invalid
+* E - invalid
+* F - valid
+
 
 ##  Question 19:
 
@@ -640,6 +656,14 @@ E. The code does not compile in either scenario 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My answer:
+* **C**
+* A - false
+* B - false
+* C - true
+* D - false
+* E - false
+* F false
 
 ##  Question 20:
 
@@ -664,6 +688,9 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My answer:
+
+* **A**
 
 ##  Question 21:
 
