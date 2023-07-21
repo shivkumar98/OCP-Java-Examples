@@ -715,6 +715,10 @@ E. On line 7, fill blank with `hasNext()` 🎃
 
 F. On line 7, fill blank with `next()` 🎃
 
+### My answer:
+
+* **A, F**
+
 ## Question 22:
 
 ❓ What code change is needed to make the method compile? ❓
@@ -737,6 +741,9 @@ E. Add `<?>` after the static keyword 🎃
 
 F. No change required the code already compiles 🎃
 
+### My answer:
+
+* **A, B**
 
 ## Question 23:
 
@@ -752,6 +759,12 @@ D. removeAll() method on a Collection 🎃
 
 E. removeIf() method on a Collection 🎃
 
+### My answer:
+* **B,E**
+* B is valid
+* C - makes no sense
+* D - makes no sense
+* E is valid
 
 
 ## Question 24:
@@ -796,6 +809,10 @@ F. 🎃
 System.out::println
 ```
 
+### My Answer:
+* **B,C,F**
+* A-invalid, B-valid,C-valid, F-valid
+
 ## Question 25:
 
 ❓ What is the result of the following? ❓
@@ -827,3 +844,9 @@ F. {1=13, 2=20, 3=3} 🎃
 G. The code does not compile 🎃
 
 H. An exception is thrown 🎃
+
+### My answer:
+* **F**
+* 1 is mapped to 13
+* 3 is mapped to 3
+* 2 sticks to 20
