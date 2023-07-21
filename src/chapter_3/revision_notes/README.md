@@ -624,3 +624,20 @@ public static void main(String[] args) {
 }
 }
 ```
+
+## 🟥 Remove Conditionally
+
+* Collection types have a `removeIf()` method with the following signature:
+
+```java
+boolean removeIf(Predicate<? super E> filter)
+```
+
+### 🟡 Example:
+
+```java
+List<String> list = new ArrayList<>();
+list.addAll(Arrays.asList("1","22","333","4444"));
+list.removeIf(s->s.length()>2);
+System.out.println(list); // [1, 22]
+```
