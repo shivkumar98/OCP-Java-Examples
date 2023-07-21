@@ -9,7 +9,7 @@ public class RemovingConditionally {
 		List<String> list = new ArrayList<>();
 		list.addAll(Arrays.asList("1","22","333","4444"));
 		list.removeIf(s->s.length()>2);
-		System.out.println(list);
+		System.out.println(list); // [1, 22]
 		
 	}
 }

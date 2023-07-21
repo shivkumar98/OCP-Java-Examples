@@ -641,3 +641,19 @@ list.addAll(Arrays.asList("1","22","333","4444"));
 list.removeIf(s->s.length()>2);
 System.out.println(list); // [1, 22]
 ```
+
+## 🟥 Updating All ELements
+
+* The `List` interface has a `replaceAll()` method with the signature:
+
+```java
+void replaceAll(UnaryOperator<E> o)
+```
+
+### 🟡 Example:
+
+```java
+List<Integer> list = Arrays.asList(1,2,3);
+list.replaceAll(i->i+23);
+System.out.println(list); // [24, 25, 26]
+```
