@@ -72,6 +72,8 @@ numbers.remove(new Integer(5)); // [1]
 System.out.println(numbers); // [1]
 ```
 
+<hr>
+
 # 🧠 3.2 Working With Generics
 
 ## 🟥 Generic Classes
@@ -279,6 +281,7 @@ class C extends B {}
 * Line 10 is dine
 * Line 11: the RHS can not use a wildcard!!!
 
+<hr>
 
 # 🧠 3.3 Using Lists, Sets, Maps and Queues
 
@@ -408,6 +411,7 @@ treeMap.put("four", 4);
 System.out.println(treeMap); // {four=4, one=1, three=3, two=2}
 ```
 
+<hr>
 
 # 🧠 3.4 Comparator vs Comparable
 
