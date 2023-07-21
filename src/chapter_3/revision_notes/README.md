@@ -657,3 +657,15 @@ List<Integer> list = Arrays.asList(1,2,3);
 list.replaceAll(i->i+23);
 System.out.println(list); // [24, 25, 26]
 ```
+
+## 🟥 Looping Through a Collection
+
+* Collections offer a `forEach()` method which lets you loop through a collection - but you can not modify the collection within the for loop!!!
+
+
+### 🟡 Example:
+
+```java
+List<String> cats = Arrays.asList("Annie", "Ripley");
+cats.forEach(System.out::println); // Annie Ripley
+```
