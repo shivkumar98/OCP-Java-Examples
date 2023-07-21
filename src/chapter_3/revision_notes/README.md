@@ -501,3 +501,55 @@ public static void main(String[] args) {
 }
 }
 ```
+
+<hr>
+
+# 🧠 3.5 Searching and Sorting
+
+* You can only call `Collections.sort(List<T> list)` if `T` implements Comparable!
+
+```java
+List<UncomparableRabbit> list1 = Arrays.asList(new UncomparableRabbit("shiv"));
+// Collections.sort(list1); // COMPILER ERROR
+List<ComparableRabbit> lis2 = Arrays.asList(new ComparableRabbit());
+Collections.sort(lis2); // WORKS FINE
+```
+
+* We can override this limitation by passing a Comparator for the UncomparableRabbit list:
+
+```java
+List<UncomparableRabbit> list1 = Arrays.asList(
+						new UncomparableRabbit("shiv"),
+						new UncomparableRabbit("andrew")
+						);
+// Collections.sort(list1); // COMPILER ERROR
+Collections.sort(list1, (r1,r2)-> r1.name.compareTo(r2.name)); // WORKS!
+System.out.println(list1); // [andrew, shiv]
+```
+
+* We know that `Collections.binarySearch(list, key)`` returns undefined when the list is unsorted. We can overload binary search with a Comparator!
+
+```java
+List<String> names = Arrays.asList("Fluffy", "Hoppy");
+Comparator<String> c = Comparator.reverseOrder();
+int index = Collections.binarySearch(names, "Hoppy", c);
+System.out.println(index); // result undefined
+```
+
+* We can not add a non-comparable object to a `TreeSet`:
+
+```java
+// Rabbit is comparable!
+Set<Rabbit> rabbits = new TreeSet<>();
+rabbits.add(new Rabbit("Shiv",122)); // FINE!
+
+// Bear is NOT comparable!
+Set<Bear> bears = new TreeSet<>();
+// bears.add(new Bear("Bear", 12)); // THROWS EXCEPTION
+// we can overload the constructor for tree set:
+Comparator<Bear> c = (b1,b2) -> b1.weight - b2.weight;
+Set<Bear> sortedBears = new TreeSet<>(c);
+sortedBears.add(new Bear("heavy",122));
+sortedBears.add(new Bear("light", 1));
+System.out.println(sortedBears); // [[light, 1], [heavy, 122]]
+```

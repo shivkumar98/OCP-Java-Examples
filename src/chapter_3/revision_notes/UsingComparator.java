@@ -7,7 +7,6 @@ import java.util.List;
 public class UsingComparator {
 	public static void main(String[] args) {
 		Comparator<DuckV2> byWeight = new Comparator<DuckV2>() {
-			@Override
 			public int compare(DuckV2 o1, DuckV2 o2) {
 				return o1.weight - o2.weight;
 			}
@@ -17,9 +16,9 @@ public class UsingComparator {
 		DuckV2 B = new DuckV2("B", 65);
 		List<DuckV2> list = Arrays.asList(A, B);
 		list.sort(byName);
-		System.out.println(list); // [Duck: A, Duck: B]
+		System.out.println(list); // [Duck: A-112, Duck: B-65]
 		list.sort(byWeight);
-		System.out.println(list); // [Duck: B, Duck: A]
+		System.out.println(list); // [Duck: B-65, Duck: A-112]
 	}
 }
 
