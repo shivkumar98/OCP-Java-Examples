@@ -1,4 +1,4 @@
-# Chapter 3: Review Questions
+# Chapter 3: Review Questions Attempt 3
 
 ## Results:
 
@@ -195,6 +195,10 @@ E. Compiler error on line 6 🎃
 
 F. Compiler error on line 🎃
 
+### My answer:
+
+* **F**
+* Compiler error on line 7, we need the generic specified!
 
 ## Question 7:
 
@@ -227,6 +231,10 @@ F. Compiler error on line 9 🎃
 
 G. An exception is thrown 🎃
 
+### My answer:
+* **D**
+* HashSet does not preserve insertion order, so output is not defined.
+
 ## Question 8:
 
 ❓ What is the result of the following code? ❓ 
@@ -250,6 +258,10 @@ D. `ONE` 🎃
 E. The code does not compile 🎃
 
 F. An exception is thrown 🎃
+
+### My answer:
+* **B**
+* highest element which is lower than "On" - "one"
 
 ## Question 9:
 
@@ -282,6 +294,9 @@ map.add('x', new Double(123.4));
 
 E. None of the above 🎃
 
+### My answer:
+
+* **E**
 
 ## Question 10:
 
@@ -315,6 +330,11 @@ D. `123 aab Abb` 🎃
 E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
+
+### My answer:
+* **B**
+* reversed sorting. so `aab > Abb > 123`
+
 
 
 ## Question 11:
