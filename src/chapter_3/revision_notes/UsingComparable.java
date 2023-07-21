@@ -22,6 +22,7 @@ public class UsingComparable {
 
 class Duck implements Comparable<Duck> {
 	String name;
+	int weight;
 	public Duck(String name) { this.name = name; }
 	@Override
 	public int compareTo(Duck d) {

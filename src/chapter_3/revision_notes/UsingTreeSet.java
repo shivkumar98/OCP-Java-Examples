@@ -16,7 +16,8 @@ class UsingTreeSet {
 		Set<Bear> sortedBears = new TreeSet<>(c);
 		sortedBears.add(new Bear("heavy",122));
 		sortedBears.add(new Bear("light", 1));
-		System.out.println(sortedBears);
+		System.out.println(sortedBears); // [[light, 1], [heavy, 122]]
+
 		
 		
 	}

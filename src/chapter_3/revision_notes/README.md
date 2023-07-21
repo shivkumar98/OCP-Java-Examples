@@ -553,3 +553,74 @@ sortedBears.add(new Bear("heavy",122));
 sortedBears.add(new Bear("light", 1));
 System.out.println(sortedBears); // [[light, 1], [heavy, 122]]
 ```
+
+<hr>
+
+# 🧠 3.6 Additions in Java 8
+
+## 🟥 Method References
+
+* Method references simplify code by inferring the parameters and how they are used.
+
+```java
+class DuckHelper {
+	static int byWeight(Duck d1, Duck d2) {
+		return d1.weight - d2.weight; 	}
+	static int byName(Duck d1, Duck d2) {
+		return d1.name.compareTo(d2.name);	}
+}
+```
+
+* We know we can implement the Comparator interface using LAMBDAS:
+
+```java
+Comparator<Duck> withLambda = (d1,d2)-> DuckHelper.byWeight(d1,d2);
+```
+
+* This can be simplified using METHOD REFERENCES:
+
+```java
+Comparator<Duck> withMethodRefs = DuckHelper::byWeight;
+```
+
+### 🟡 Method Reference Formats
+
+1) Referencing a static method:
+
+```java
+Consumer<List<String>> sortLambda = l -> Collections.sort(l);
+Consumer<List<String>> sortRef = Collections::sort;
+sortLambda.accept(Arrays.asList("hello","world"));
+```
+
+2) Calling a method on a specific instance:
+
+```java
+String abc = "abc"
+Predicate<String> beginsWithLambda = s -> abc.startsWith(s);
+Predicate<String> beginsWithRef = abc::startsWith;
+beginsWithRef.test("ab"); // true
+```
+
+3) Calling a method on instance during runtime:
+
+```java
+Predicate<String> isBlankLambda = s -> s.isEmpty();
+Predicate<String> isBlankRef = String::isEmpty;
+isBlankRef.test("x"); // false
+```
+
+4) Calling the new method on constructor:
+
+```java
+class Constructor {
+public Constructor(String s) {
+	System.out.println(s);
+}
+public static void main(String[] args) {
+	Consumer<String> lam4 = s-> new StringBuilder(s);
+	Consumer<String> methodRef4 = Constructor::new;
+	methodRef4.accept("hello"); // prints hello
+}
+}
+```
