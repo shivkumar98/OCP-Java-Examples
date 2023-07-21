@@ -361,6 +361,10 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My Answer:
+* **B**
+* Gets element at index 4, so 25
+
 
 ## Question 12:
 
@@ -401,6 +405,11 @@ E. 🎃
 ```java
 Helper.printException(new Throwable("E"))
 ```
+
+### My answer:
+* **A,B**
+* A - works
+* B - works
 
 
 
@@ -451,6 +460,16 @@ Vector<? extends Number> list = new Vector<Integer>();
 F. None of the above 🎃
 
 
+### My answer:
+* **A,B,E**
+* A - compiles
+* B - compiles
+* C - does not compile
+* D - does not compile
+* E - compiles
+* F - no
+
+
 ## Question 14:
 
 ❓ What is the result of the following program ❓ 
@@ -493,6 +512,11 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My Answer:
+* **C**
+* T1 is naturally sorted by the text. so a < b,. so [88, 55]
+* T2 is sorted by number so  b < a. So [55, 88]
+
 
 ## Question 15:
 
@@ -517,7 +541,8 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `D`, the list will be in descending order
+### My answer:
+* **D**
 
 ## Question 16:
 
