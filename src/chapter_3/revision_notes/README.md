@@ -413,7 +413,7 @@ System.out.println(treeMap); // {four=4, one=1, three=3, two=2}
 
 ## 🟥 Comparable 
 
-* The `Comparable` interface contains the `compareTo()` method which is implemented to define a custom sorting for classes:
+* The `Comparable` interface contains the `compareTo()` method which is implemented to define a custom sorting for classes. This interface resides in `java.lang`:
 
 ```java
 public interface Comparable<T> {
@@ -443,7 +443,6 @@ public class UsingComparable {
 		System.out.println(list); // [Duck=a, Duck=m, Duck=z]
 	}
 }
-
 class Duck implements Comparable<Duck> {
 	String name;
 	public Duck(String name) { this.name = name; }
@@ -455,5 +454,50 @@ class Duck implements Comparable<Duck> {
 	public String toString() {
 		return "Duck=" + name;
 	}
+}
+```
+
+## 🟥 Comparator
+
+* `Comparator` is a functional interface which a `compare()` method. This class resides in `java.util`
+
+```java
+public interface Comparator<T> {
+	int compare(T o1, T o2);
+}
+```
+
+* As it is a functional interface, we can implement it through inner classes or lambdas!
+
+
+### 🟡 Example
+
+```java
+class DuckV2 {
+String name;
+int weight;
+public DuckV2(String name, int weight) {
+	this.name=name; this.weight=weight;
+}
+public String toString() {
+	return "Duck: "+name+ "-"+weight;
+}
+}
+public class UsingComparator {
+public static void main(String[] args) {
+	Comparator<DuckV2> byWeight = new Comparator<DuckV2>() {
+		public int compare(DuckV2 o1, DuckV2 o2) {
+			return o1.weight - o2.weight;
+		}
+	};
+	Comparator<DuckV2> byName = (d1,d2) -> d1.name.compareTo(d2.name);
+	DuckV2 A = new DuckV2("A", 112);
+	DuckV2 B = new DuckV2("B", 65);
+	List<DuckV2> list = Arrays.asList(A, B);
+	list.sort(byName);
+	System.out.println(list); // [Duck: A-112, Duck: B-65]
+	list.sort(byWeight);
+	System.out.println(list); // [Duck: B-65, Duck: A-112]
+}
 }
 ```
