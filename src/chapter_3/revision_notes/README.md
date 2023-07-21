@@ -669,3 +669,73 @@ System.out.println(list); // [24, 25, 26]
 List<String> cats = Arrays.asList("Annie", "Ripley");
 cats.forEach(System.out::println); // Annie Ripley
 ```
+
+## 🟥 Using New Java 8 Map APIs
+
+* Java adds a number of new methods for the `Map` interface, this includes: `merge()`, `computeIfPresent()` and `computeIfAbsent()`.
+
+* We have some simple methods for Maps such as `put()` and `putIfAbsent()`:
+
+```java
+Map<String, Integer> restaurantVisits = new HashMap<>();
+restaurantVisits.putIfAbsent("China Court", 1);
+restaurantVisits.putIfAbsent("China Court", 2);
+System.out.println(restaurantVisits); // {China Court=1}
+```
+
+### 🟡 merge()
+
+* The `merge()` method lets you specify a mapping function which compares the old value with a new value of a specific key:
+
+```java
+BiFunction<Integer,Integer, Integer> replaceIfSmaller = (v1,v2)->v1>v2?v1:v2;
+restaurantVisits.merge("China Court", 2, replaceIfSmaller); // {China Court=2} UPDATED
+System.out.println(restaurantVisits);
+restaurantVisits.merge("China Court", 1, replaceIfSmaller);
+System.out.println(restaurantVisits); // {China Court=2} NO CHANGE
+```
+
+* The BiFunction mapping is not used if the value is null or the key is not present!
+
+```java
+restaurantVisits.merge("McDonalds", 100, replaceIfSmaller);
+System.out.println(restaurantVisits); // {McDonalds=100, China Court=2} VALUE IS MERGED
+
+restaurantVisits.put("KFC", null);
+restaurantVisits.merge("KFC", 1, replaceIfSmaller);
+System.out.println(restaurantVisits); // {McDonalds=100, KFC=1, China Court=2} 
+```
+
+* If the BiFunction just maps to null, then the key is removed from the map!
+
+```java
+BiFunction<Integer,Integer,Integer> mapsToNull = (v1,v2)-> null;
+restaurantVisits.merge("China Court", 999999, mapsToNull);
+System.out.println(restaurantVisits); // {McDonalds=100, KFC=1}
+```
+
+### 🟡 computeIfPresent and computeIfAbsent
+
+* The `computeIfPresent()` can be used to update the existing value and `computeIfAbsent()` can be used to initialise a value:
+
+```java
+Map<String, Integer> skills = new HashMap<>();
+skills.put("driving", 6);
+skills.put("coding", 7);
+BiFunction<String, Integer, Integer> increaseSkill = (k,v)->++v;
+skills.computeIfPresent("driving", increaseSkill);
+skills.computeIfPresent("hockey", increaseSkill); // does nothing if absent
+System.out.println(skills); // {driving=7, coding=7}
+
+Function<String,Integer> initialiseSkill = s->0;
+skills.computeIfAbsent("walking", initialiseSkill);
+skills.computeIfAbsent("walking", s->6999); // does nothing if present
+System.out.println(skills);  // {driving=7, coding=7, walking=0}
+```
+
+* If the mapping is mapped to null, then `computeIfPresent()` will remove the key from the map!
+
+```java
+skills.computeIfPresent("walking", (k,v)->null); // key is removed!
+System.out.println(skills); // {driving=7, coding=7}
+```

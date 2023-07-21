@@ -8,6 +8,6 @@ public class UsingReplaceAll {
 	public static void main(String[] args) {
 		List<Integer> list = Arrays.asList(1,2,3);
 		list.replaceAll(i->i+23);
-		System.out.println(list);
+		System.out.println(list); // [24, 25, 26]
 	}
 }
