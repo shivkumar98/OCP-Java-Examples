@@ -2,21 +2,21 @@
 
 ## Results:
 
-Date: 
+Date: 6/10
 Score:
 
-| Question # | Correct |
-| ---------- | ------- |
-| 1          | ✅    |
-| 2          | ❌    |
-| 3          | ✅    |
-| 4          | ✅    |
+| Question # | Correct  |
+| ---------- | -------  |
+| 1          | ✅      |
+| 2          | ❌      |
+| 3          | ✅      |
+| 4          | ✅      |
 | 5          | ✅      |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
+| 6          | ❌      |
+| 7          | ✅      |
+| 8          | ❌      |
+| 9          | ✅      |
+| 10         | ❌       |
 | 11         |       |
 | 12         |       |
 | 13         |       |
@@ -198,11 +198,12 @@ F. Compiler error on line 🎃
 
 ### My answer:
 
-* **F**
+* **F** ❌ - The correct answer is C, the code DOES compile but there will be a compiler warning about not using generic! Line 7 just creates the class with type `Object`
 * Compiler error on line 7, we need the generic specified!
 
-## Question 7:
+<hr>
 
+## Question 7:
 
 ❓ Which of the following statements are true for the following code: ❓ 
 
@@ -233,8 +234,10 @@ F. Compiler error on line 9 🎃
 G. An exception is thrown 🎃
 
 ### My answer:
-* **D**
+* **A,D** ✅
 * HashSet does not preserve insertion order, so output is not defined.
+
+<hr>
 
 ## Question 8:
 
@@ -261,7 +264,7 @@ E. The code does not compile 🎃
 F. An exception is thrown 🎃
 
 ### My answer:
-* **B**
+* **B** ❌ - we need the lowest element which is greater than "On" which is "One"
 * highest element which is lower than "On" - "one"
 
 ## Question 9:
@@ -297,7 +300,7 @@ E. None of the above 🎃
 
 ### My answer:
 
-* **E**
+* **E** ✅ - `add()` is not a method for maps!
 
 ## Question 10:
 
@@ -333,7 +336,7 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My answer:
-* **B**
+* **B** ❌ - answer is A! the sorting is done in a case insensitive fashion so abb > aab > 123
 * reversed sorting. so `aab > Abb > 123`
 
 
