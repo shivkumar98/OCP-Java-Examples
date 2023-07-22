@@ -2,7 +2,7 @@
 
 ## Results:
 
-Date: 6/10
+Date: 8/15
 Score:
 
 | Question # | Correct  |
@@ -16,12 +16,12 @@ Score:
 | 7          | ✅      |
 | 8          | ❌      |
 | 9          | ✅      |
-| 10         | ❌       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 10         | ❌      |
+| 11         | ❌      |
+| 12         | ❌      |
+| 13         | ❌      |
+| 14         | ✅      |
+| 15         | ✅      |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -366,7 +366,7 @@ E. Compiler error on line 7 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **B**
+* **B** ❌ - the `get()` method on maps uses an object so 4 is casted to Integer and 4 is mapped to 16!
 * Gets element at index 4, so 25
 
 
@@ -375,14 +375,14 @@ F. A runtime exception is thrown 🎃
 ❓ Which of the following statements fill in the blank so Helper compiles successfully ❓ 
 
 ```java
-    public class Helper {
-        public static <U extends Exception> void printException(U u){
-            System.out.println(u.getMessage());
-        }
-        public static void main(String[] args){
-            ______________________
-        }
+public class Helper {
+    public static <U extends Exception> void printException(U u){
+        System.out.println(u.getMessage());
     }
+    public static void main(String[] args){
+        ______________________
+    }
+}
 ```
 
 A. 🎃
@@ -411,7 +411,7 @@ Helper.printException(new Throwable("E"))
 ```
 
 ### My answer:
-* **A,B**
+* **A,B**  ❌ Correct answer is A,B,D 0 D us explicitly listing the type
 * A - works
 * B - works
 
@@ -443,12 +443,12 @@ ArrayDeque<?> list = new ArrayDeque<String>();
 
 B. 🎃
 ```java
-ArrayList<? super Date> list = new ArrayList
+ArrayList<? super Date> list = new ArrayList<Date>();
 ```
 
 C. 🎃
 ```java
-List<?> list = new LinkedList<java.io.IOException>();
+List<?> list = new ArrayList<?>();
 ```
 
 D. 🎃
@@ -465,7 +465,7 @@ F. None of the above 🎃
 
 
 ### My answer:
-* **A,B,E**
+* **A,B,E**❌ - correct anwser B, E. A is a queue and not a list so does not have `size()`
 * A - compiles
 * B - compiles
 * C - does not compile
@@ -517,7 +517,7 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **C**
+* **C**✅
 * T1 is naturally sorted by the text. so a < b,. so [88, 55]
 * T2 is sorted by number so  b < a. So [55, 88]
 
@@ -546,7 +546,7 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My answer:
-* **D**
+* **D**✅ - gets sorted in descending order!
 
 ## Question 16:
 
