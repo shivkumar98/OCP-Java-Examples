@@ -2,8 +2,8 @@
 
 ## Results:
 
-Date: 
-Score: 10/20
+Date: 22/07/2023
+Score: 13/25
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -27,6 +27,11 @@ Score: 10/20
 | 18         | ❌      |
 | 19         | ❌      |
 | 20         | ❌      |
+| 21         | ✅      |
+| 22         | ❌      |
+| 23         | ✅      |
+| 24         | ❌      |
+| 25         | ✅      |
 
 <hr>
 
@@ -721,7 +726,7 @@ F. On line 7, fill blank with `next()` 🎃
 
 ### My answer:
 
-* **A, F**
+* **A, F**✅
 
 ## Question 22:
 
@@ -747,7 +752,7 @@ F. No change required the code already compiles 🎃
 
 ### My answer:
 
-* **A, B**
+* **A, B**❌ - correct answer is B - the generic specification goes before return type
 
 ## Question 23:
 
@@ -764,7 +769,7 @@ D. removeAll() method on a Collection 🎃
 E. removeIf() method on a Collection 🎃
 
 ### My answer:
-* **B,E**
+* **B,E**✅
 * B is valid
 * C - makes no sense
 * D - makes no sense
@@ -814,7 +819,7 @@ System.out::println
 ```
 
 ### My Answer:
-* **B,C,F**
+* **B,C,F**❌ B and C are wrong because they use `s` in the lambda! Only F is valid!!!
 * A-invalid, B-valid,C-valid, F-valid
 
 ## Question 25:
@@ -850,7 +855,7 @@ G. The code does not compile 🎃
 H. An exception is thrown 🎃
 
 ### My answer:
-* **F**
+* **F**✅
 * 1 is mapped to 13
 * 3 is mapped to 3
 * 2 sticks to 20
