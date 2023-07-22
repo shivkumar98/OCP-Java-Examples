@@ -7,26 +7,26 @@ Score:
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |   |
-| 2          |   |
-| 3          |   |
-| 4          |  |
-| 5          |   |
-| 6          |   |
-| 7          |   |
-| 8          |   |
-| 9          |  |
-| 10         |   |
-| 11         |   |
-| 12         |   |
-| 13         |   |
-| 14         |   |
-| 15         |    |
-| 16         |    |
-| 17         |   |
-| 18         |    |
-| 19         |   |
-| 20         |   |
+| 1          | ✅    |
+| 2          | ❌    |
+| 3          | ✅    |
+| 4          | ✅    |
+| 5          | ✅      |
+| 6          |       |
+| 7          |       |
+| 8          |       |
+| 9          |       |
+| 10         |       |
+| 11         |       |
+| 12         |       |
+| 13         |       |
+| 14         |       |
+| 15         |       |
+| 16         |       |
+| 17         |       |
+| 18         |       |
+| 19         |       |
+| 20         |       |
 
 <hr>
 
@@ -44,13 +44,13 @@ Which of the following collections classes in the `java.util` package best suit 
 
 ### My Answer:
 
-* **B**
+* **B** ✅ - Arrays is a utility class not a Collection
 * We need anything other than Set, so D is out.
 * An ArrayList would be best
 
 ## Question 2:
 
-❓Suppose that yuou need to work with a collection of elements that need to be sorted in their natural order, and each element has a unique string associated with its value.
+❓Suppose that you need to work with a collection of elements that need to be sorted in their natural order, and each element has a unique string associated with its value.
 
 Which of the following collections classes in the `java.util` package best suit your need in this scenario? ❓ 
 
@@ -63,7 +63,8 @@ Which of the following collections classes in the `java.util` package best suit 
 
 ### My answer:
 
-* **A**
+* **A** ❌ - correct answer: D. We need a map which is in its natural order so HashMap is invalid
+
 * We can not use maps - so B and D are out
 * We need sorting so C is out
 * ArrayList would be best
@@ -90,7 +91,7 @@ Which of the following collections classes in the `java.util` package best suit 
 
 ### My answer:
 
-* **E**
+* **E** ✅ - line 7 SHOULD loop though objects not strings
 * Compiler error on line 7 from trying to cast Object to String
 
 ## Question 4:
@@ -117,7 +118,7 @@ Which of the following collections classes in the `java.util` package best suit 
     G. An exception is thrown 🎃
 
 ### My answer:
-* **E**
+* **E** ✅ - since we are using push, the elements are added to the front.
 * `[Hello, hi, ola]`
 * `[Hello, hi]`
 * hihello is printed
@@ -159,7 +160,7 @@ Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 
 ### My Answer:
 
-* **B,C,F**
+* **B,C,F** ✅ 
 * A does not
 * B DOES
 * C DOES
