@@ -2,8 +2,8 @@
 
 ## Results:
 
-Date: 8/15
-Score:
+Date: 
+Score: 10/20
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -22,11 +22,11 @@ Score:
 | 13         | ❌      |
 | 14         | ✅      |
 | 15         | ✅      |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 16         | ✅      |
+| 17         | ✅      |
+| 18         | ❌      |
+| 19         | ❌      |
+| 20         | ❌      |
 
 <hr>
 
@@ -565,7 +565,7 @@ E. `compare()` takes one method parameter 🎃
 F. `compare()` takes two method parameters 🎃
 
 ### My answer:
-* **B, D, F**
+* **B, D, F** ✅
 * Comparator is in java.util, Comparable is in java.lang.
 
 
@@ -597,7 +597,7 @@ F. Fill Line 3 with `<?>` 🎃
 
 ### My answer:
 
-* **B, D**
+* **B, D** ✅
 
 
 ## Question 18:
@@ -605,13 +605,13 @@ F. Fill Line 3 with `<?>` 🎃
 ❓ Which of the following line can be inserted to make code compile? ❓
 
 ```java
-    class A {}
-    class B extends A {}
-    class C extends C {}
+class A {}
+class B extends A {}
+class C extends B {}
 
-    class D<C> {
-        // INSERT CODE HERE
-    }
+class D<C> {
+    // INSERT CODE HERE
+}
 ```
 
 A. `A a1 = new A();` 🎃
@@ -627,7 +627,7 @@ E. `C c2 = new B();` 🎃
 F. `C c1 = new C();` 🎃
 
 ### My answer:
-* ***A,B,C**
+* ***A,B,C** ❌ - C no longer means class C so only A and B are valid!
 * A - valid
 * B - valid
 * C - valid
@@ -661,7 +661,7 @@ E. The code does not compile in either scenario 🎃
 F. A runtime exception is thrown 🎃
 
 ### My answer:
-* **C**
+* **C** ❌ - correct answer is A and D! Queues have a remove() method which takes an object not index!
 * A - false
 * B - false
 * C - true
@@ -694,7 +694,7 @@ F. A runtime exception is thrown 🎃
 
 ### My answer:
 
-* **A**
+* **A**❌ - Maps do not have a `contains()` method!!!
 
 ##  Question 21:
 
