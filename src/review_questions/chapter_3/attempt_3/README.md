@@ -1,3 +1,5 @@
+<link href="../../../styles.css" rel="stylesheet"></link>
+
 # Chapter 3: Review Questions Attempt 3
 
 ## Results:
