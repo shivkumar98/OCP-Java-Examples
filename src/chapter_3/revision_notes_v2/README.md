@@ -66,3 +66,53 @@ public class GenericMethods {
 ```
 
 ##  🟥 Bounds
+
+* We specify an unbounded wildcard using `?`. E.g. suppose we create a method which initialise an array of ANY type:
+
+```java
+class Bounds {
+	static void printList(List<?> list) {
+		System.out.println(list);
+	}
+	public static void main() {
+		Bounds.printList(new ArrayList<Exception>()); // []
+		Bounds.<String>printList(Arrays.asList("hello")); // [hello]
+	}
+}
+```
+
+* Specifying the generic type before the method call is an optional syntax!
+
+* We can create an upper bound using `? extends SomeClass`. E.g. suppose I always want to print an exception from a list:
+
+```java
+public class UpperBound {
+	static void printException(List<? extends Exception> list) {
+		System.out.println(list.get(0).getMessage());
+	}
+	public static void main() {
+		UpperBound.printException(Arrays.asList(new Exception("exception")));
+		// ^ exception is printed
+		UpperBound.printException(Arrays.asList(new Throwable("throwable")));
+		// ^ throwable is printed
+	}
+}
+```
+
+* We can create lower bound using `? super SomeClass`. E.g. suppose I want to print a List of numbers but not any of its subtypes like integer, float etc:
+
+```java
+public class LowerBounds {
+	static void printNumbers(List<? extends Number> list) {
+		System.out.println(list);
+	}
+	public static void main() {
+		List<Number> numberList = Arrays.asList(1);
+		printNumbers(numberList); // [1]
+		List<Integer> intList = null;
+		 // printNumbers(intList ); // COMPILER ERROR
+		List<Boolean> boolList = null;
+		// printNumbers(boolList); // COMPILER ERROR
+	}
+}
+```
