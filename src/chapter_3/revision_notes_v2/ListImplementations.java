@@ -23,9 +23,8 @@ public class ListImplementations {
 		stack.push(1); // [1] // LINEAR TIME
 		stack.push(2); // [1, 2]
 		System.out.println(stack);
-		stack.pop(); // [1]
+		stack.pop(); // [1] // LINEAR TIME
 		System.out.println(stack); // [1]
-		stack.add(3);
-		System.out.println(stack);
+		
 	}
 }

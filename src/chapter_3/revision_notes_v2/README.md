@@ -126,7 +126,7 @@ public class LowerBounds {
 
 ##  🟥 List Implementations
 
-*  `ArrayList` lets you retrieve elements in O(1) but adding elements is in O(N)
+* `ArrayList` lets you retrieve elements in O(1) but adding elements is in O(N)
 * `LinkedList` lets you retrieve elements in O(N) but allow you to add or remove element at front/back of list in O(1)
 * `Stack` lets you retrieve elements in O(N) but add and remove elements from the back in O(1) time
 
@@ -145,4 +145,36 @@ Stack<Integer> stack = new Stack<>();
 stack.push(1); // [1] // LINEAR TIME
 stack.push(2); // [1, 2]
 stack.pop(); // [1] // LINEAR TIME
+```      
+
+
+##  🟥 Set Implementations
+
+* `HashSet` lets you add elements and check if present in `O(1)`! It does not preserve insertion order
+
+* `TreeSet` leet you add elements and check if present in `O(log n)`! Maintains ordering specified by the Comparable implementation! It is an implementation of `NavigableSet` interface
+
+```java
+public class SetImplementations {
+	public static void main(String[] args) {
+		Person p1 = new Person("shiv", 128);
+		Person p2 = new Person("sam", 80);
+		TreeSet<Person> treeSet = new TreeSet<>();
+		treeSet.add(p1); treeSet.add(p2); // O(log n)
+		System.out.println(treeSet); // [[fullName=sam, weight=80.0], [fullName=shiv, weight=128.0]]
+		
+		HashSet<Person> hashSet = new HashSet<>();
+		hashSet.add(p1); hashSet.add(p2); // O(1)
+		System.out.println(hashSet); // [[fullName=shiv, weight=128.0], [fullName=sam, weight=80.0]]
+	}
+}
+
+class Person implements Comparable<Person> {
+	String fullName;
+	double weight;
+	// constructor and toString()..
+	public int compareTo(Person p) {
+		return Double.compare(weight, p.weight);
+	}
+}
 ```
