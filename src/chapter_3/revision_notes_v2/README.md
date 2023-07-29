@@ -116,3 +116,33 @@ public class LowerBounds {
 	}
 }
 ```
+
+<hr>
+
+# 🧠 3.3 Using Lists, Sets, Maps and Queues
+
+* The Java Collections framework consists of `List`, `Set`, `Queue` and `Map`. All of these interfaces extends `java.util.Collections` except for the Map interface
+
+
+##  🟥 List Implementations
+
+*  `ArrayList` lets you retrieve elements in O(1) but adding elements is in O(N)
+* `LinkedList` lets you retrieve elements in O(N) but allow you to add or remove element at front/back of list in O(1)
+* `Stack` lets you retrieve elements in O(N) but add and remove elements from the back in O(1) time
+
+```java
+LinkedList<Integer> linkedList = new LinkedList<>();
+linkedList.push(1); // O(1)
+linkedList.push(2); // [2, 1]
+linkedList.get(1); // 1 // LINEAR TIME
+linkedList.pop(); // [2] // LINEAR TIME
+
+ArrayList<Integer> arrayList = new ArrayList<>();
+arrayList.add(1); // LINEAR TIME
+arrayList.get(0); // CONSTANT TIME
+
+Stack<Integer> stack = new Stack<>();
+stack.push(1); // [1] // LINEAR TIME
+stack.push(2); // [1, 2]
+stack.pop(); // [1] // LINEAR TIME
+```
