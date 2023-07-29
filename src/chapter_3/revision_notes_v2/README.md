@@ -170,11 +170,29 @@ public class SetImplementations {
 }
 
 class Person implements Comparable<Person> {
-	String fullName;
-	double weight;
+	String fullName; double weight;
 	// constructor and toString()..
 	public int compareTo(Person p) {
 		return Double.compare(weight, p.weight);
 	}
 }
+```
+
+### 🟡 NavigableSet Interface
+
+* `TreeSet` is an implementation of the `NavigableSet` interface and hass access to the following methods:
+
+1) `E lower(E e)` - returns highest element which is `< e` or null
+2) `E higher(E e)` - returns lowest element which is `> e` or null
+3) `E ceiling(E e)` - returns lowest element which is `<= e` or null
+4) `E floor(E e)` - returns highest element which is `>= e` or null
+
+```java
+NavigableSet<Integer> set = new TreeSet<>();
+for (int i=1;i<21;i++) set.add(i);
+int lower = set.lower(3); // 2
+int higher = set.higher(2); // 3
+int floor = set.floor(4); // 4
+int ceiling = set.ceiling(6); // 6
+System.out.println(set.floor(0)); // null
 ```
