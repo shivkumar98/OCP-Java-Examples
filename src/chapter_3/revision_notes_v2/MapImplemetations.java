@@ -15,8 +15,6 @@ public class MapImplemetations {
 		treeMap.put(w3, w3.weight);
 		System.out.println(treeMap);
 		// {[weight=23]=23, [weight=46]=46, [weight=69]=69}
-
-		
 	}
 }
 
