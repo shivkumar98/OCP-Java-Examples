@@ -196,3 +196,35 @@ int floor = set.floor(4); // 4
 int ceiling = set.ceiling(6); // 6
 System.out.println(set.floor(0)); // null
 ```
+
+
+##  🟥 Queue Implementations
+
+* `LinkedList` is a double ended queue - it allows you to add and remove elements from front/end in constant time.
+* `ArrayDeque` is a pure double ended queue
+
+### 🟡 Queue Methods:
+
+1) `E element()` - returns head element, throws exception if empty
+2) `E peek()` - returns head element, or null if empty
+3) `E remove()` - removes head element, throws exception if empty
+4) `E poll()` - removes and returns head element or returns null if empty
+5) `void push(E e)` - adds an element to front of queue.
+6) `boolean offer(E e)` - adds element to the back of the queue and returns if successful
+
+```java
+ArrayDeque<Integer> queue = new ArrayDeque();
+// offer() adds element to BACK of queue
+queue.offer(1); // [1]
+queue.offer(2); // [1,2]
+// push() pushes to FRONT of queue
+queue.push(68); // [68,1,2]
+// remove() retrieves and deletes the front of a queue
+int removed = queue.remove(); // 68
+queue; // [1,2]
+// element() retrieves the front of queue
+int nextInQueue = queue.element(); // 1
+// poll() also retrieves front of queue but will return null if empty
+int pollOfQueue = queue.poll(); // 1
+// pop does the same thing as remove()
+```
