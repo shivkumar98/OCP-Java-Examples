@@ -228,3 +228,9 @@ int nextInQueue = queue.element(); // 1
 int pollOfQueue = queue.poll(); // 1
 // pop does the same thing as remove()
 ```
+
+##  🟥 Map Implementations
+
+* `HashMap` uses a hash table and allows for retrieval and adding in O(1)
+* `LinkedHashMap` preserves insertion order but is slightly slower
+* `TreeMap` allows keys to be sorted - adding and retrieval is in O(log n)
