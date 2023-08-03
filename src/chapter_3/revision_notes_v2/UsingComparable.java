@@ -1,5 +1,6 @@
 package chapter_3.revision_notes_v2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,7 +26,8 @@ public class UsingComparable {
 		System.out.println(unsortedIndex); // 1
 		int sortedIndex = Collections.binarySearch(sizesList, medium, naturalOrder);
 		System.out.println(sortedIndex);
-		
+		Collections.sort(sizesList);
+		List<UncomparableClass> uncomparableList = Arrays.asList(new UncomparableClass());
 		
 	}
 }
@@ -49,5 +51,9 @@ class Size implements Comparable<Size> {
 		return "[size=" + size + "]";
 	}
 	
+	
+}
+
+class UncomparableClass {
 	
 }

@@ -249,3 +249,14 @@ int pollOfQueue = queue.poll(); // 1
 ## 🟥 Comparator
 
 * The `Comparator` interface is defined in `java.util`. It is a way to define a custom ordering to be used in a collection like a list. This interface has a `compare(Object obj)` method which compares `obj` with the object its called on.
+
+## 🟥 Searching and Sorting
+
+* The `Collections.sort(List<T> list)` relies on the `compareTo()` method, therefore T must be a `Comparable` implementation!
+
+```java
+List<UncomparableClass> uncomparableList = Arrays.asList(new UncomparableClass());
+Collections.sort(uncomparableList); // COMPILER ERROR
+```
+
+* Thee `Collections.binarySearch()` lets you supply a Comparator implementation as an overload! If the comparator does not sort the List in its natural order, then the result is undefined!
