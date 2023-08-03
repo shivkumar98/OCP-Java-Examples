@@ -234,3 +234,14 @@ int pollOfQueue = queue.poll(); // 1
 * `HashMap` uses a hash table and allows for retrieval and adding in O(1)
 * `LinkedHashMap` preserves insertion order but is slightly slower
 * `TreeMap` allows keys to be sorted - adding and retrieval is in O(log n)
+
+# 🧠 3.4 Comparable vs Comparable
+
+## 🟥 Comparable
+
+* The `Comparable` interface is defined in `java.lang`. It is implemented by classes to define a "naturual" ordering (like in `TreeSet` or an ordered collection)
+
+* `Comparable` has a `compareTo()` method which should be implemented such that `o1.compareTo(o2)` is:
+1) Zero => o1 and o2 are the equal
+2) Negative => o1 < o2
+3) Positive => o1 > o2
