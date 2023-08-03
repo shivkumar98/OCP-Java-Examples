@@ -245,3 +245,7 @@ int pollOfQueue = queue.poll(); // 1
 1) Zero => o1 and o2 are the equal
 2) Negative => o1 < o2
 3) Positive => o1 > o2
+
+## 🟥 Comparator
+
+* The `Comparator` interface is defined in `java.util`. It is a way to define a custom ordering to be used in a collection like a list. This interface has a `compare(Object obj)` method which compares `obj` with the object its called on.
