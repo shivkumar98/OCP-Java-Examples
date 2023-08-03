@@ -12,7 +12,7 @@ public class UsingMethodReferences {
 		System.out.println(pred.test("1")); // true
 		
 		Predicate<String> pred2 = String::isBlank;
-		System.out.println(pred2.test("    "));
+		System.out.println(pred2.test("    ")); // true
 		
 	}
 }

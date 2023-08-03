@@ -301,3 +301,31 @@ System.out.println(pred2.test("    ")); // true
 ```java
 Supplier<ArrayList> arrayListGenerator = ArrayList::new;
 ```
+
+## 🟥 Java 8 Map APIs
+
+* The Map interface has a `putIfAbsent()` method which lets you add a key without potentially overwriting an existing value for it
+
+* The `merge()` method lets you apply logic when overwriting an existing keys value:
+
+```java
+Map<String, Integer> restaurantRatings = new HashMap<>();
+BiFunction<Integer, Integer, Integer> updateIfOldValueIsSmaller
+= (v1,v2) -> v1>v2?v1:v2;
+restaurantRatings.merge("KFC", 7, updateIfOldValueIsSmaller);
+System.out.println(restaurantRatings);
+restaurantRatings.merge("KFC", 6, updateIfOldValueIsSmaller);
+System.out.println(restaurantRatings); // NO CHANGE
+restaurantRatings.merge("KFC", 8, updateIfOldValueIsSmaller);
+System.out.println(restaurantRatings); // {KFC=8}
+```
+
+* We also have `computeIfPresent()` and `computeIfAbsent()` methods. E.g.:
+
+```java
+BiFunction<String, Integer, Integer> incrementIfPresent = (k,v)->v==null?0:++v; 
+restaurantRatings.computeIfPresent("KFC", incrementIfPresent);
+System.out.println(restaurantRatings); // {KFC=9}
+restaurantRatings.computeIfPresent("McD", incrementIfPresent);
+System.out.println(restaurantRatings); // NO CHANGE
+```
