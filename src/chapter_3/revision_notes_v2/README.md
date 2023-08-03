@@ -260,3 +260,44 @@ Collections.sort(uncomparableList); // COMPILER ERROR
 ```
 
 * Thee `Collections.binarySearch()` lets you supply a Comparator implementation as an overload! If the comparator does not sort the List in its natural order, then the result is undefined!
+
+
+# 🧠 3.5 Additions in Java 8
+
+## 🟥 Using Method References
+
+1) We can use method references to consume static methods in a class:
+
+```java
+public class UsingMethodRefs {
+	public static void main(String[] args) {
+		Comparator<Size> c = Helper::compareBySize;
+	}
+}
+class Helper {
+	static int compareBySize(Size x, Size y) {
+		return Integer.compare(x.size, y.size);
+	}
+}
+```
+
+2) We can call an instance method using method ref:
+
+```java
+String digits = "01";
+Predicate<String> pred = digits::contains;
+System.out.println(pred.test("1")); // true
+```
+
+3) A method ref for a value supplied at runtime:
+
+```java
+Predicate<String> pred2 = String::isBlank;
+System.out.println(pred2.test("    ")); // true
+```
+
+4) Method ref for object instantiation:
+
+```java
+Supplier<ArrayList> arrayListGenerator = ArrayList::new;
+```
