@@ -556,6 +556,11 @@ E. `compare()` takes one method parameter 🎃
 
 F. `compare()` takes two method parameters 🎃
 
+### My Answer:
+* **B, D, F**
+* Comparable in in java.lang, Comparator is in java.util
+* compare() is in Comparator interface
+* compare() takes two parameters
 
 ## Question 17:
 
@@ -583,7 +588,8 @@ E. Fill Line 3 with `<T>` 🎃
 
 F. Fill Line 3 with `<?>` 🎃
 
-
+### My Answer:
+* **B, D**
 
 ## Question 18:
 
@@ -592,7 +598,7 @@ F. Fill Line 3 with `<?>` 🎃
 ```java
     class A {}
     class B extends A {}
-    class C extends C {}
+    class C extends B {}
 
     class D<C> {
         // INSERT CODE HERE
@@ -611,6 +617,9 @@ E. `C c2 = new B();` 🎃
 
 F. `C c1 = new C();` 🎃
 
+### My Answer:
+* **A, B, C**
+* In class D, C becomes a formal type parameter and it cannot be instantiated! So D, E, F are invalid
 
 ##  Question 19:
 
@@ -636,6 +645,10 @@ E. The code does not compile in either scenario 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My Answer:
+* **A, D**
+* If its a List, then we get [10, 12] and we remove the element at index 1, so it becomes [10]
+* If its a Queue, then we get [10, 12] and we remove 1 from the queue which is not present so it becomes [10, 12]
 
 ##  Question 20:
 
@@ -660,6 +673,9 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My Answer:
+* **E**
+* Map does not have a `contains()` method!
 
 ##  Question 21:
 
