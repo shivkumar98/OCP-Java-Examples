@@ -700,14 +700,17 @@ E. On line 7, fill blank with `hasNext()` 🎃
 
 F. On line 7, fill blank with `next()` 🎃
 
+### My Answer:
+* **A, F**
+
 ## Question 22:
 
 ❓ What code change is needed to make the method compile? ❓
 
 ```java
-    public static T identity(T t){
-        return t;
-    }
+public static T identity(T t){
+    return t;
+}
 ```
 
 A. Add `<T>` after the public keyword 🎃
@@ -722,6 +725,9 @@ E. Add `<?>` after the static keyword 🎃
 
 F. No change required the code already compiles 🎃
 
+### My Answer:
+* **B**
+* We need the generic type to be specified before the return type
 
 ## Question 23:
 
@@ -737,18 +743,20 @@ D. removeAll() method on a Collection 🎃
 
 E. removeIf() method on a Collection 🎃
 
-
+### My Answer: 
+* **B, E**
+* Comparator makes sense, RemoveIf makes sense
 
 ## Question 24:
 
 ❓ Which of the following compiles and prints out the entire set?❓
 
 ```java
-    Set<String> s = new HashSet<>();
-    s.add("lion");
-    s.add("tiger");
-    s.add("bear");
-    s.forEach(________);
+Set<String> s = new HashSet<>();
+s.add("lion");
+s.add("tiger");
+s.add("bear");
+s.forEach(________);
 ```
 
 A. 🎃
@@ -781,6 +789,11 @@ F. 🎃
 System.out::println
 ```
 
+### My answer: 
+* **F**
+* We can not use `s` as a variable in a lambda, so A, B, C, D are out!
+
+
 ## Question 25:
 
 ❓ What is the result of the following? ❓
@@ -812,3 +825,8 @@ F. {1=13, 2=20, 3=3} 🎃
 G. The code does not compile 🎃
 
 H. An exception is thrown 🎃
+
+### My Answer:
+**H**
+* `map = {1=10, 2=20, 3=null}`
+* An exception is thrown trying to add to null!
