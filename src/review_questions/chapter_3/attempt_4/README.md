@@ -3,8 +3,8 @@
 
 ## Results:
 
-Date: 
-Score: 17/20
+Date: 05/08/2023
+Score: 21/25
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -28,11 +28,11 @@ Score: 17/20
 | 18         | ❌      |
 | 19         | ✅      |
 | 20         | ✅      |
-| 21         |       |
-| 22         |       |
-| 23         |       |
-| 24         |       |
-| 25         |       |
+| 21         | ✅      |
+| 22         | ✅      |
+| 23         | ✅      |
+| 24         | ✅      |
+| 25         | ❌      |
 
 <hr>
 
@@ -701,7 +701,7 @@ E. On line 7, fill blank with `hasNext()` 🎃
 F. On line 7, fill blank with `next()` 🎃
 
 ### My Answer:
-* **A, F**
+* **A, F**✅✅✅✅
 
 ## Question 22:
 
@@ -726,7 +726,7 @@ E. Add `<?>` after the static keyword 🎃
 F. No change required the code already compiles 🎃
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅
 * We need the generic type to be specified before the return type
 
 ## Question 23:
@@ -744,7 +744,7 @@ D. removeAll() method on a Collection 🎃
 E. removeIf() method on a Collection 🎃
 
 ### My Answer: 
-* **B, E**
+* **B, E**✅✅✅✅
 * Comparator makes sense, RemoveIf makes sense
 
 ## Question 24:
@@ -790,7 +790,7 @@ System.out::println
 ```
 
 ### My answer: 
-* **F**
+* **F**✅✅✅✅
 * We can not use `s` as a variable in a lambda, so A, B, C, D are out!
 
 
@@ -805,7 +805,7 @@ System.out::println
     map.put(3, null);
 
     map.merge(1, 3, (a,b)-> a + b);
-    map.merge(3, 3 (a,b) -> a + b);
+    map.merge(3, 3, (a,b) -> a + b);
 
     System.out.println(map);
 ```
@@ -827,6 +827,6 @@ G. The code does not compile 🎃
 H. An exception is thrown 🎃
 
 ### My Answer:
-**H**
+**H**❌❌❌❌ Correct answer is F - the merge BiFunction is only called if the value IS NOT NULL!!!
 * `map = {1=10, 2=20, 3=null}`
 * An exception is thrown trying to add to null!
