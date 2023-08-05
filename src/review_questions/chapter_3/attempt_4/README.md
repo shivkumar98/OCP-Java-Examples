@@ -192,6 +192,9 @@ E. Compiler error on line 6 🎃
 
 F. Compiler error on line 🎃
 
+### My Answer:
+* **C**
+
 
 ## Question 7:
 
@@ -224,6 +227,10 @@ F. Compiler error on line 9 🎃
 
 G. An exception is thrown 🎃
 
+### My Answer:
+* **A, D**
+* The code does compile but we do not know its result
+
 ## Question 8:
 
 ❓ What is the result of the following code? ❓ 
@@ -247,6 +254,10 @@ D. `ONE` 🎃
 E. The code does not compile 🎃
 
 F. An exception is thrown 🎃
+
+### My Answer:
+* **D**
+* We need the element which is <= "On". So this would be "ONE"
 
 ## Question 9:
 
@@ -278,6 +289,10 @@ map.add('x', new Double(123.4));
 ```
 
 E. None of the above 🎃
+
+### My Answer:
+* **E**
+* None are valid as a map does not have an `add()` method
 
 
 ## Question 10:
@@ -313,6 +328,11 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My Answer:
+* **A**
+* The array will be sorted in reverse alphabetical order, ignoring case
+* Alphabetical order: "123", "aab", "abb" 
+* Reversed: "abb", "aab", "123"
 
 ## Question 11:
 
