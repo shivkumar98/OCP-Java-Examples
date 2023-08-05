@@ -4,7 +4,7 @@
 ## Results:
 
 Date: 
-Score: 8/10
+Score: 17/20
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -18,16 +18,16 @@ Score: 8/10
 | 8          | ❌      |
 | 9          | ✅      |
 | 10         | ✅      |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 11         | ✅      |
+| 12         | ✅      |
+| 13         | ✅      |
+| 14         | ✅      |
+| 15         | ✅      |
+| 16         | ✅      |
+| 17         | ✅      |
+| 18         | ❌      |
+| 19         | ✅      |
+| 20         | ✅      |
 | 21         |       |
 | 22         |       |
 | 23         |       |
@@ -359,7 +359,7 @@ E. Compiler error on line 7 🎃
 F. A runtime exception is thrown 🎃
 
 ### My answer:
-* **A**
+* **A**✅✅✅✅
 * map = {1=1, 2=4, 3=9, 4=16, 5=25}
 * the `get()` method for a map takes the key, so 4 is casted to integer and 16 is returned
 
@@ -368,14 +368,14 @@ F. A runtime exception is thrown 🎃
 ❓ Which of the following statements fill in the blank so Helper compiles successfully ❓ 
 
 ```java
-    public class Helper {
-        public static <U extends Exception> void printException(U u){
-            System.out.println(u.getMessage());
-        }
-        public static void main(String[] args){
-            ______________________
-        }
+public class Helper {
+    public static <U extends Exception> void printException(U u){
+        System.out.println(u.getMessage());
     }
+    public static void main(String[] args){
+        ______________________
+    }
+}
 ```
 
 A. 🎃
@@ -404,7 +404,7 @@ Helper.printException(new Throwable("E"))
 ```
 
 ### My answer: 
-* **A, B, D**
+* **A, B, D**✅✅✅✅
 * We can supply anything which is an Exception or is a subtype of it!
 * A is valid! B is valid! C is invalid! D is valid! E is invalid!
 
@@ -455,7 +455,7 @@ Vector<? extends Number> list = new Vector<Integer>();
 F. None of the above 🎃
 
 ### My answer: 
-* **B, E**
+* **B, E**✅✅✅✅
 * The `showSize()` method takes a list of a wildcard type!
 * A - ArrayDeque is a Queue implementation not a list!
 * B - valid use
@@ -508,7 +508,7 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 * TreeSet will sort in a "naturual" way! so sorted alphabetically: s1 < s2
 * prints 88 55 first! 
 * s1 is a comparator, so t2 is sorted by s2 < s1
@@ -538,7 +538,7 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
- * **D**
+ * **D**✅✅✅✅
 
 ## Question 16:
 
@@ -557,7 +557,7 @@ E. `compare()` takes one method parameter 🎃
 F. `compare()` takes two method parameters 🎃
 
 ### My Answer:
-* **B, D, F**
+* **B, D, F**✅✅✅✅
 * Comparable in in java.lang, Comparator is in java.util
 * compare() is in Comparator interface
 * compare() takes two parameters
@@ -589,7 +589,7 @@ E. Fill Line 3 with `<T>` 🎃
 F. Fill Line 3 with `<?>` 🎃
 
 ### My Answer:
-* **B, D**
+* **B, D**✅✅✅✅
 
 ## Question 18:
 
@@ -618,7 +618,7 @@ E. `C c2 = new B();` 🎃
 F. `C c1 = new C();` 🎃
 
 ### My Answer:
-* **A, B, C**
+* **A, B, C**❌❌❌❌ CORRECT ANSWER: A, - You can not instantiate the C class neither!!!
 * In class D, C becomes a formal type parameter and it cannot be instantiated! So D, E, F are invalid
 
 ##  Question 19:
@@ -646,7 +646,7 @@ E. The code does not compile in either scenario 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **A, D**
+* **A, D**✅✅✅✅
 * If its a List, then we get [10, 12] and we remove the element at index 1, so it becomes [10]
 * If its a Queue, then we get [10, 12] and we remove 1 from the queue which is not present so it becomes [10, 12]
 
@@ -674,7 +674,7 @@ E. Compiler error on line 7 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 * Map does not have a `contains()` method!
 
 ##  Question 21:
