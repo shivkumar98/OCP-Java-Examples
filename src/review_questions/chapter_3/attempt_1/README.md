@@ -1,4 +1,34 @@
-# Chapter 3: Review Questions
+# Chapter 3: Review Questions - Attempt 1
+Date: 29/09/2022
+Score: 8/25
+
+| Question # | Correct  |
+| ---------- | -------  |
+| 1          | ✅     |
+| 2          | ✅     |
+| 3          | ✅     |
+| 4          | ✅      |
+| 5          | ❌      |
+| 6          | ✅      |
+| 7          | ❌      |
+| 8          | ❌      |
+| 9          | ❌      |
+| 10         | ❌      |
+| 11         | ❌      |
+| 12         | ❌      |
+| 13         | ❌      |
+| 14         | ❌      |
+| 15         | ✅      |
+| 16         | ❌      |
+| 17         | ❌      |
+| 18         | ❌      |
+| 19         | ❌      |
+| 20         | ❌      |
+| 21         | ✅      |
+| 22         | ✅      |
+| 23         | ❌      |
+| 24         | ❌      |
+| 25         | ❌      |
 
 ## Question 1
 
@@ -12,7 +42,7 @@ Which of the following collections classes in the `java.util` package best suit 
     D. HashSet 🎃
     E. LinkedList 🎃
 
-My Answer: `D`
+My Answer: `D`✅✅✅✅
 
 - We need to display each product but exclude duplicates. This would suggest a set. Hence HashSet seems applicable
 
@@ -29,7 +59,7 @@ Which of the following collections classes in the `java.util` package best suit 
     E. TreeSet 🎃
     F. Vector 🎃
 
-My Answer: `D`
+My Answer: `D`✅✅✅✅
 
 - We need a key-value mapping so it is a map
 - Since we need a natural ordering, we need a TreeMap
@@ -53,7 +83,7 @@ My Answer: `D`
     D. Compiler error on line 6 🎃
     E. Compiler error on line 7 🎃
 
-My answer: `D`
+My answer: `E`✅✅✅✅
 
 - I think line 7 will cause an error!
 
@@ -80,7 +110,7 @@ My answer: `D`
     F. The code does not compile 🎃
     G. An exception is thrown 🎃
 
-My answer: `E`
+My answer: `E`✅✅✅✅
 
 ## Question 5:
 
@@ -117,7 +147,7 @@ F. 🎃
 Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 ```
 
-My answer: `C`
+My answer: `C`❌❌❌❌
 
 - A does not seem to compile as the generics do not match
 
@@ -159,7 +189,7 @@ E. Compiler error on line 6 🎃
 
 F. Compiler error on line 🎃
 
-My answer: `C`
+My answer: `C`✅✅✅✅
 
 
 ## Question 7:
@@ -193,7 +223,7 @@ F. Compiler error on line 9 🎃
 
 G. An exception is thrown 🎃
 
-My answer: `C` - there seems to be a typo
+My answer: `C` - there seems to be a typo ❌❌❌❌ CORRERCT ANSWER: D
 
 ## Question 8:
 
@@ -219,7 +249,7 @@ E. The code does not compile 🎃
 
 F. An exception is thrown 🎃
 
-My answer: `B` - total guess
+My answer: `B` - total guess ❌❌❌❌
 
 ## Question 9:
 
@@ -252,7 +282,7 @@ map.add('x', new Double(123.4));
 
 E. None of the above 🎃
 
-My Answer: `A`, `B`, `C`
+My Answer: `A`, `B`, `C`❌❌❌❌ CORRECT ANSWER E
 
 
 ## Question 10:
@@ -288,7 +318,7 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: IDK
+My answer: IDK❌❌❌❌
 
 ## Question 11:
 
@@ -314,7 +344,7 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `B`
+My answer: `B`❌❌❌❌
 
 
 ## Question 12:
@@ -357,7 +387,7 @@ E. 🎃
 Helper.printException(new Throwable("E"))
 ```
 
-My answer: `A` and `B`
+My answer: `A` and `B`❌❌❌❌ CORRECT ANSWER A,B,D
 
 
 ## Question 13:
@@ -406,7 +436,7 @@ Vector<? extends Number> list = new Vector<Integer>();
 
 F. None of the above 🎃
 
-My Answer: `F`
+My Answer: `F`❌❌❌❌ CORRECT ANSWER: B,E
 
 
 ## Question 14:
@@ -451,7 +481,7 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `E` - new TreeSet<>(s1); should not compile
+My answer: `E` - new TreeSet<>(s1); should not compile❌❌❌❌ CORRECT ANSWER: C
 
 ## Question 15:
 
@@ -476,7 +506,7 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `D`, the list will be in descending order
+My answer: `D`, the list will be in descending order✅✅✅✅
 
 ## Question 16:
 
@@ -494,7 +524,7 @@ E. `compare()` takes one method parameter 🎃
 
 F. `compare()` takes two method parameters 🎃
 
-My answer is `A`, `B`, `D`, `F`
+My answer is `A`, `B`, `D`, `F`❌❌❌❌ CORRECT ANSWER: B,D,F
 
 - Both interfaces are in java.util package
 
@@ -529,7 +559,7 @@ E. Fill Line 3 with `<T>` 🎃
 F. Fill Line 3 with `<?>` 🎃
 
 
-My answer `B` and `E`
+My answer `B` and `E`❌❌❌❌ CORRECT ANSWER: B,D
 
 
 
@@ -561,7 +591,7 @@ F. `C c1 = new C();` 🎃
 
 - class D can instantiate a c class
 
-My answer: F
+My answer: F❌❌❌❌ CORRECT ANSWER: A, B
 
 
 
@@ -589,7 +619,7 @@ E. The code does not compile in either scenario 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `A` and `C`
+My answer: `A` and `C`❌❌❌❌
 
 - A linkedlist implements both list and queue!
 
@@ -616,7 +646,7 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `B`
+My answer: `B`❌❌❌❌ CORRECT ANSWER: E
 
 ##  Question 21:
 
@@ -641,7 +671,7 @@ E. On line 7, fill blank with `hasNext()` 🎃
 
 F. On line 7, fill blank with `next()` 🎃
 
-My answer: `A` and `F`
+My answer: `A` and `F`✅✅✅✅
 
 ## Question 22:
 
@@ -665,7 +695,7 @@ E. Add `<?>` after the static keyword 🎃
 
 F. No change required the code already compiles 🎃
 
-My answer: `F`
+My answer: `F`✅✅✅✅ CORRECT ANSWER: B
 
 ## Question 23:
 
@@ -685,7 +715,7 @@ E. removeIf() method on a Collection 🎃
 
 - The removeIf() method lets us use a lambda
 
-My answer: `A` and `E`
+My answer: `A` and `E`❌❌❌❌ CORRECT ANSWER: B,E
 
 ## Question 24:
 
@@ -736,7 +766,7 @@ System.out::println
 - E does not compile
 - F does compile
 
-My answer is: `B, C, F` 
+My answer is: `B, C, F` ❌❌❌❌ CORRECT ANSWER: F
 
 ## Question 25:
 
@@ -775,4 +805,4 @@ H. An exception is thrown 🎃
 - map = {1:13, 2:20, 3:null}
 - map = {1:13, 2:20, 3+null}
 
-My answer is `H`
+My answer is `H`❌❌❌❌ CORRECT ANSWER: F
