@@ -4,15 +4,15 @@
 ## Results:
 
 Date: 
-Score: 0/25
+Score: 4/5
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
+| 1          | ✅      |
+| 2          | ❌      |
+| 3          | ✅      |
+| 4          | ✅      |
+| 5          | ✅      |
 | 6          |       |
 | 7          |       |
 | 8          |       |
@@ -36,7 +36,6 @@ Score: 0/25
 
 <hr>
 
-
 ## Question 1
 
 ❓ Suppose you have a collection of products for sale in a database and you need to display those products. The products are not unique.
@@ -50,7 +49,7 @@ Which of the following collections classes in the `java.util` package best suit 
     E. LinkedList 🎃
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅ Array IS IN THE java.util package!!! BUT ITS NOT A COLLECTION
 * Map is not in `java.util`. We need duplicates so Sets are out. Arrays is not in `java.util`. Therefore best option is an `ArrayList`
 
 ## Question 2:
@@ -69,7 +68,7 @@ Which of the following collections classes in the `java.util` package best suit 
     F. Vector 🎃
 
 ### My answer:
-* **E**
+* **E**❌❌❌❌ CORRECT ANSWER: **D** I misread the question, we needed a MAP and we needed to have it in a natural order so TreeMap is best
 * We need a natural order so TreeSet is best
 
 
@@ -94,7 +93,7 @@ System.out.println(s);
     E. Compiler error on line 7 🎃
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅ IF We looped through objects, this would've worked!
 
 
 ## Question 4:
@@ -121,9 +120,11 @@ while(greetings.peek() != null)
     G. An exception is thrown 🎃
 
 ### My Answer:
-* **E**
+* **E** ✅✅✅✅ Note that we can not loop through this structure using `Iterator` as its not part of API contract
 * [ola, hi, hello]
 * [hi, hello]
+
+### My Answer: 
 
 ## Question 5:
 
@@ -135,7 +136,6 @@ HashSet<Number> hs = new HashSet<Integer>();
 ```
 
 B. 🎃
-
 ```java
 HashSet<? super ClassCastException> set = new HashSet<Exception>()
 ```
@@ -161,7 +161,7 @@ Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 ```
 
 ### My answer:
-* **B,C,F**
+* **B,C,F**✅✅✅✅
 * A - no. B - yes. C - yes, D - no, E - no, F - yes
 
 ## Question 6:
