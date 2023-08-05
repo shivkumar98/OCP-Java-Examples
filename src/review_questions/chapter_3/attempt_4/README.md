@@ -358,6 +358,10 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My answer:
+* **A**
+* map = {1=1, 2=4, 3=9, 4=16, 5=25}
+* the `get()` method for a map takes the key, so 4 is casted to integer and 16 is returned
 
 ## Question 12:
 
@@ -399,7 +403,10 @@ E. 🎃
 Helper.printException(new Throwable("E"))
 ```
 
-
+### My answer: 
+* **A, B, D**
+* We can supply anything which is an Exception or is a subtype of it!
+* A is valid! B is valid! C is invalid! D is valid! E is invalid!
 
 ## Question 13:
 
@@ -447,35 +454,45 @@ Vector<? extends Number> list = new Vector<Integer>();
 
 F. None of the above 🎃
 
+### My answer: 
+* **B, E**
+* The `showSize()` method takes a list of a wildcard type!
+* A - ArrayDeque is a Queue implementation not a list!
+* B - valid use
+* C - the wildcard is not specified so invalid!
+* D - invalid!
+* E - valid!
+* F - invalid
+
 
 ## Question 14:
 
 ❓ What is the result of the following program ❓ 
 
 ```java
-    import java.util.*;
-    public class Sorted implements Comparable<Sorted>, Comparator<Sorted> {
-        private int num;
-        private String text;
+import java.util.*;
+public class Sorted implements Comparable<Sorted>, Comparator<Sorted> {
+    private int num;
+    private String text;
 
-        Sorted(int n, String t) {
-            this.num = n;
-            this.text = t;
-        }
-        public String toString() { return ""+num; }
-        public int compareTo(Sorted s){ return text.compareTo(s.text); }
-        public int compare(Sorted s1, Sorted s2) { return s1.num - s2.num; }
-        public static void main(String[] args) {
-            Sorted s1 = new Sorted(88, "a");
-            Sorted s2 = new Sorted(55, "b");
-            TreeSet<Sorted> t1 = new TreeSet<>();
-            t1.add(s1); t1.add(s2);
-            TreeSet<Sorted> t2 = new TreeSet<>(s1);
-            t2.add(s1); t2.add(s2);
-            System.out.println(t1 + " " + t2);
-
-        }
+    Sorted(int n, String t) {
+        this.num = n;
+        this.text = t;
     }
+    public String toString() { return "" + num; }
+    public int compareTo(Sorted s){ return text.compareTo(s.text); }
+    public int compare(Sorted s1, Sorted s2) { return s1.num - s2.num; }
+    public static void main(String[] args) {
+        Sorted s1 = new Sorted(88, "a");
+        Sorted s2 = new Sorted(55, "b");
+        TreeSet<Sorted> t1 = new TreeSet<>();
+        t1.add(s1); t1.add(s2);
+        TreeSet<Sorted> t2 = new TreeSet<>(s1);
+        t2.add(s1); t2.add(s2);
+        System.out.println(t1 + " " + t2);
+
+    }
+}
 ```
 
 A. `[55, 88] [55, 88]` 🎃
@@ -490,6 +507,12 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
+### My Answer:
+* **C**
+* TreeSet will sort in a "naturual" way! so sorted alphabetically: s1 < s2
+* prints 88 55 first! 
+* s1 is a comparator, so t2 is sorted by s2 < s1
+* prints 55 88 next
 
 ## Question 15:
 
@@ -514,7 +537,8 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-My answer: `D`, the list will be in descending order
+### My Answer:
+ * **D**
 
 ## Question 16:
 
