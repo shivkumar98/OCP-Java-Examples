@@ -342,68 +342,83 @@ public class TurtleFrog extends Frog {}
 
 ## Question 16
 
-❓❓
+❓Choose the correct statement about the following code:❓
 
-❓ ❓
+```java
+1: public interface Herbivore {
+2:     int amount = 10;
+3:     public static void eatGrass();
+4:     public int chew() {
+5:         return 13;
+6:     }
+7: }
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. It compiles and runs without issue 🎃
+    B. The code will not compile because of line 2 🎃
+    C. The code will not compile because of line 3 🎃
+    D. The code will not compile because of line 4 🎃
+    E. The code will not compile because of line 2 and 3 🎃
+    F. The code will not compile because of line 3 and 4 🎃
 
 <hr>
 
 ## Question 17
 
-❓❓
+❓Which of the following are properties of classes that are properly encapsulated as a JavaBean (Choose all that apply)❓
 
-❓ ❓
-
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. All instance variable are marked final 🎃
+    B. boolean instance variables are accessed with `is` or `get` 🎃
+    C. All instance variables are marked private 🎃
+    D. They implement the `JavaBean` interface 🎃
+    E. Variables are created using lazy instantiation 🎃
+    F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case 🎃
 
 <hr>
 
 ## Question 18
 
-❓❓
+❓Which of the following statements about inheritance and object composition are correct? (Choose all that apply)❓
 
-❓ ❓
-
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. Inheritance supports access to protected variables  🎃
+    B. Object composition tends to promote greater code reuse than inheritance 🎃
+    C. Inheritance relies on the has-a principle 🎃
+    D. Object composition supports method overriding at runtime 🎃
+    E. Object composition requires a class variable to be public or accessible from a public method to be used by a class in a different package 🎃
+    F. Object composition is always preferred to inheritance.
 
 <hr>
 
 ## Question 19
 
-❓❓
+❓Which three scenarios would best benefit from using the singleton pattern (Choose all three)❓
 
-❓ ❓
-
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
-
+    A. Create read-only objects that are thread-safe 🎃
+    B. Manage a reusable cache of objects 🎃
+    C. Ensure that all objects are lazily instantiated 🎃
+    D. Manage write access to a log file 🎃
+    E. Provide central access to application configuration data 🎃
+    F. Allow multiple instances of a static object to be managed in memory
 <hr>
 
 ## Question 20
 
-❓❓
+❓Choose the correct statement about the following code❓
 
-❓ ❓
+```java
+1: public interface CanFly {
+2:     void fly();
+3: }
+4: interface HasWings {
+5:     public abstract Object getWingSpan();
+6: }
+7: abstract class Falcon implements CanFly, HasWings {
+8: }
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. It compiles without issue 🎃
+    B. The code will not compile because of line 2 🎃
+    C. The code will not compile because of line 4 🎃
+    D. The code will not compile because of line 5 🎃
+    E. The code will not compile because of line 2 and 5 🎃
+    F. The code will not compile because of class Falcon does not implement the interface methods🎃
