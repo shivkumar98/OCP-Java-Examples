@@ -1,10 +1,36 @@
-# Chapter 3 Scores for below questions
 
-* Did this on 14/04/2023 and scored 12/25!
-* Questions right: 2, 3, 5, 6, 7, 10, 12, 17, 21, 22, 23, 24 
-* Questions wrong: 1, 4, 8, 9, 11, 13, 14, 15, 16, 18, 19, 20, 25 
+# Chapter 3: Review Questions - Attempt 2
+Date: 14/04/2023
+Score: 12/25
 
-# Chapter 3: Review Questions
+| Question # | Correct  |
+| ---------- | -------  |
+| 1          | ❌      |
+| 2          | ✅      |
+| 3          | ✅      |
+| 4          | ❌      |
+| 5          | ✅      |
+| 6          | ✅      |
+| 7          | ✅      |
+| 8          | ❌      |
+| 9          | ❌      |
+| 10         | ✅      |
+| 11         |  ❌     |
+| 12         | ✅      |
+| 13         | ❌      |
+| 14         | ❌      |
+| 15         | ❌      |
+| 16         | ❌      |
+| 17         | ✅      |
+| 18         | ❌      |
+| 19         | ❌      |
+| 20         | ❌      |
+| 21         | ✅      |
+| 22         | ✅      |
+| 23         | ✅      |
+| 24         | ✅      |
+| 25         | ❌      |
+
 
 ## Question 1
 
@@ -18,7 +44,7 @@ Which of the following collections classes in the `java.util` package best suit 
     D. HashSet 🎃
     E. LinkedList 🎃
 
-* My Answer: A, B, E
+* My Answer: A, B, E❌❌❌❌ CORRECT ANSWER: B
 
 ## Question 2:
 
@@ -33,7 +59,7 @@ Which of the following collections classes in the `java.util` package best suit 
     E. TreeSet 🎃
     F. Vector 🎃
 
-* My Answer: D
+* My Answer: D✅✅✅✅
 
 ## Question 3:
 
@@ -54,7 +80,7 @@ Which of the following collections classes in the `java.util` package best suit 
     D. Compiler error on line 6 🎃
     E. Compiler error on line 7 🎃
 
-* My Answer: E
+* My Answer: E✅✅✅✅
 
 ## Question 4:
 
@@ -79,7 +105,7 @@ Which of the following collections classes in the `java.util` package best suit 
     F. The code does not compile 🎃
     G. An exception is thrown 🎃
 
-* My Answer: B
+* My Answer: B❌❌❌❌ CORRECT ANSWER E
 
 ## Question 5:
 
@@ -116,7 +142,7 @@ F. 🎃
 Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 ```
 
-* My Answer: B, C, F
+* My Answer: B, C, F✅✅✅✅
 
 ## Question 6:
 
@@ -146,7 +172,7 @@ E. Compiler error on line 6 🎃
 
 F. Compiler error on line 🎃
 
-* My Answer: C
+* My Answer: C✅✅✅✅
 
 ## Question 7:
 
@@ -179,7 +205,7 @@ F. Compiler error on line 9 🎃
 
 G. An exception is thrown 🎃
 
-* My Answer: D
+* My Answer: D❌❌❌❌ CORRECT ANSWER: A,D
 
 ## Question 8:
 
@@ -206,7 +232,7 @@ E. The code does not compile 🎃
 F. An exception is thrown 🎃
 
 
-* My Answer: D
+* My Answer: D❌❌❌❌ CORRECT ANSWER C
 
 
 ## Question 9:
@@ -241,7 +267,7 @@ map.add('x', new Double(123.4));
 E. None of the above 🎃
 
 
-* My Answer: A,B,C,D
+* My Answer: A,B,C,D❌❌❌❌ CORRECT ANSWER: E
 
 
 ## Question 10:
@@ -277,7 +303,7 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-* My Answer: A
+* My Answer: A✅✅✅✅
 
 
 ## Question 11:
@@ -304,7 +330,7 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
-* My Answer: B
+* My Answer: B❌ ❌ ❌ ❌ CORRECT ANSWER: A
 
 ## Question 12:
 
@@ -346,7 +372,7 @@ E. 🎃
 Helper.printException(new Throwable("E"))
 ```
 
-* My Answer: A,B,C,D
+* My Answer: A,B,C,D❌❌❌❌ CORRECT ANSWER: A,B,D
 
 ## Question 13:
 
@@ -394,7 +420,7 @@ Vector<? extends Number> list = new Vector<Integer>();
 
 F. None of the above 🎃
 
-* My Answer: D
+* My Answer: D❌❌❌❌ CORRECT ANSWER: B,E
 
 ## Question 14:
 
@@ -438,7 +464,7 @@ E. The code does not compile 🎃
 
 F. A runtime exception is thrown 🎃
 
-* My Answer: D
+* My Answer: D❌❌❌❌ CORRECT ANSWER C
 
 ## Question 15:
 
@@ -464,7 +490,7 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 
-* My Answer: D
+* My Answer: D✅✅✅✅
 
 
 ## Question 16:
@@ -483,7 +509,7 @@ E. `compare()` takes one method parameter 🎃
 
 F. `compare()` takes two method parameters 🎃
 
-* My Answer: A,B,D,F
+* My Answer: A,B,D,F❌❌❌❌ CORRECT ANSWER: B,D,F
 
 ## Question 17:
 
@@ -511,7 +537,7 @@ E. Fill Line 3 with `<T>` 🎃
 
 F. Fill Line 3 with `<?>` 🎃
 
-* My Answer: B, D
+* My Answer: B, D✅✅✅✅
 
 ## Question 18:
 
@@ -539,7 +565,7 @@ E. `C c2 = new B();` 🎃
 
 F. `C c1 = new C();` 🎃
 
-* My Answer: D,C,E,F
+* My Answer: D,C,E,F❌❌❌❌ CORRECT ANSWER: A,B
 
 ##  Question 19:
 
@@ -565,7 +591,7 @@ E. The code does not compile in either scenario 🎃
 
 F. A runtime exception is thrown 🎃
 
-* My Answer: A,C
+* My Answer: A,C❌❌❌❌ CORRECT ANSWER: A,D
 
 ##  Question 20:
 
@@ -590,7 +616,7 @@ E. Compiler error on line 7 🎃
 
 F. A runtime exception is thrown 🎃
 
-* My Answer: A
+* My Answer: A❌❌❌❌ CORRECT ANSWER E
 
 ##  Question 21:
 
@@ -615,7 +641,7 @@ E. On line 7, fill blank with `hasNext()` 🎃
 
 F. On line 7, fill blank with `next()` 🎃
 
-* My Answer: A,F
+* My Answer: A,F✅✅✅✅
 
 ## Question 22:
 
@@ -639,7 +665,7 @@ E. Add `<?>` after the static keyword 🎃
 
 F. No change required the code already compiles 🎃
 
-* My Answer: B
+* My Answer: B✅✅✅✅
 
 ## Question 23:
 
@@ -655,7 +681,7 @@ D. removeAll() method on a Collection 🎃
 
 E. removeIf() method on a Collection 🎃
 
-* My Answer: B,E
+* My Answer: B,E✅✅✅✅
 
 ## Question 24:
 
@@ -699,7 +725,7 @@ F. 🎃
 System.out::println
 ```
 
-* My Answer: F
+* My Answer: F✅✅✅✅
 
 ## Question 25:
 
@@ -733,4 +759,4 @@ G. The code does not compile 🎃
 
 H. An exception is thrown 🎃
 
-* My Answer: H
+* My Answer: H❌❌❌❌ CORRECT ANSWER: 3
