@@ -120,71 +120,123 @@ public interface MountainClimb extends Climb {}
 
 ## Question 6
 
-❓❓
+❓What is the result of the following class❓
 
-❓ ❓
+```java
+import java.util.function.*;
+public class Panda {
+    int age;
+    public static void main(String[] args) {
+        Panda p1 = new Panda();
+        p1.age = 1;
+        check(p1, p-> p.age < 5); // h1
+    }
+    private static void check(Panda panda, Predicate<Panda> pred) { // h2
+        String result = pred.test(panda) ? "match" : "not match";
+        System.out.println(result);
+    }
+}
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A.  `match`🎃
+    B.  `not match`🎃
+    C.  `Compiler error on line h1`🎃
+    D.  `Compiler error on line h2`🎃
+    E.  `Compiler error on line h3`🎃
+    F.  `A runtime exception is thrown`🎃
 
 <hr>
 
 ## Question 7
 
-❓❓
+❓What changes need to be made to make the following immutable object pattern correct❓
 
-❓ ❓
+```java
+import java.util.*;
+public class Seal {
+    String name;
+    private final List<Seal> friends;
+    public Seal(String name, List<Seal> friends) {
+        this.name = name;
+        this.friends = friends;
+    }
+    public String getName() { return name; }
+    public List<Seal> getFriends() { return friends; }
+}
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A.  None; the immutable object pattern is properly implemented.🎃
+    B.  Have Seal implement the Immutable interface🎃
+    C.  Mark `name` final and private🎃
+    D.  Add setters for `name` and `List<Seal> friends` 🎃
+    E. Replace the getFriends() method with methods that do not give the caller direct access to the `List<Seal> friends` 🎃
+    F. Change type of `List<Seal>` to `List<Object>` 🎃
+    G. Make a copy of the `List<Seal> friends` in the constructor 🎃
+    H. Make the `Seal` class final 🎃
 
 <hr>
 
 ## Question 8
 
-❓❓
+❓Which of the following are true of interfaces (choose all that apply)❓
 
-❓ ❓
-
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. They can extend other classes 🎃
+    B. They can not be extended 🎃
+    C. They enable classes to have multiple inheritance 🎃
+    D. They can only contain abstract methods 🎃
+    E. They can be declared final 🎃
+    F. All members of an interface are public 🎃
 
 <hr>
 
 ## Question 9
 
-❓❓
+❓What changes need to be made to make the following singleton pattern correct?❓
 
-❓ ❓
+```java
+public class CheetahManager {
+    public static CheetahManager cheetahManager;
+    private CheetahManager() {}
+    public static CheetahManager getCheetahManager() {
+        if (cheetahManager == null) {
+            cheetahManager = new CheetahManager();
+        }
+        return cheetahManager;
+    }
+}
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A.  None; the singleton pattern is properly implemented S🎃
+    B.  Rename `cheetahManager` to instance 🎃
+    C.  Rename `getCheetahManager()` to `getInstance()` 🎃
+    D.  Change the access modifier of `cheetahManager` from public to private 🎃
+    E. Mark `cheetahManager` final 🎃
+    F. Add synchronized to `getCheetahManager()` 🎃
 
 <hr>
 
 ## Question 10
 
-❓❓
+❓What is the result of the following code?❓
 
-❓ ❓
+```java
+1:  public interface CanWalk {
+2:      default void walk() { System.out.println1: ("Walking"); }
+3:  }
+4:  public interface CanRun {
+5:      public default void walk() { System.out.println: ("Walking"); }
+6:      public abstract void run();
+7:  }
+8:  public interface CanSprint extends CanWalk, CanRun {
+9:      void sprint();
+10: }
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. The code compiles without issue 🎃
+    B. The code will not compile because of line 5 🎃
+    C. The code will not compile because of line 6 🎃
+    D. The code will not compile because of line 8 🎃
+    E. The code will not compile because of line 9 🎃
 
 ## Question 11
 
