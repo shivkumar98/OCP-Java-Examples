@@ -240,71 +240,103 @@ public class CheetahManager {
 
 ## Question 11
 
-❓❓
+❓Which lambda can replace the `MySecret` class to return the same value (choose all that apply)❓
 
-❓ ❓
+```java
+public interface Secret {
+    String magic(double d);
+}
+public class MySecret implements Secret {
+    public String magic(double d) {
+        return "Poof";
+    }
+}
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. `caller((e) -> "Poof");` 🎃
+    B. `caller((e) -> {"Poof"});` 🎃
+    C. `caller((e) -> { String e = ""; "Poof"; });` 🎃
+    D. `caller((e) -> { String e = ""; return "Poof"; });` 🎃
+    E. `caller((e) -> { String e = ""; return "Poof" });` 🎃
+    F. `caller((e) -> { String f = ""; return "Poof"; });`
 
 <hr>
 
 ## Question 12
 
-❓❓
+❓What is the result of the following code?❓
 
-❓ ❓
+```java
+public interface Climb {
+    boolean isTooHigh(int height, int limit);
+}
+public class Climber {
+    public static void main(String[] args) {
+        check((h,l) -> h.toString(), 5); // x1
+    }
+    private static void check(Climb climb, int height) {
+        if (climb.isTooHigh(height, 10)) // x2
+            System.out.println("too high");
+        else System.out.println("ok");
+    }
+}
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. `ok` 🎃
+    B. `too high` 🎃
+    C. Compiler error on line x1 🎃
+    D. Compiler error on line x2 🎃
+    E. Compiler error on a different line 🎃
+    F. A runtime exception is thrown.
 
 <hr>
 
 ## Question 13
 
-❓❓
+❓ Which of the following are properties of classes that define immutable objects? (Choose all tha apply)❓
 
-❓ ❓
-
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. They don't define any getter methods 🎃
+    B. All of the instance variables marked private and final 🎃
+    C. They don't define any setter methods 🎃
+    D. They mark all instance variables static 🎃
+    E. They prevent methods from being overridden 🎃
+    F. All getter methods are marked synchronized 🎃
 
 <hr>
 
 ## Question 14
 
-❓❓
+❓Which of the following statements can be inserted in the blank line so that the code will compile successfully? (Choose all that apply)❓
 
-❓ ❓
+```java
+public interface CanHop {}
+public class Frog implements CanHop {
+    public static void main(String[] args) {
+        _________ frog = new TurtleFrog();
+    }
+}
+public class BrazillianHornedFrog extends Frog {}
+public class TurtleFrog extends Frog {}
+```
 
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. Frog 🎃
+    B. TurtleFrog 🎃
+    C. BrazillianHornedFrog 🎃
+    D. CanHop 🎃
+    E. Object 🎃
+    F. Long 🎃
 
 <hr>
 
 ## Question 15
 
-❓❓
+❓ Which of the following statements about polymorphism are true? (choose all that apply) ❓
 
-❓ ❓
-
-    A.  🎃
-    B.  🎃
-    C.  🎃
-    D.  🎃
-    E.  🎃
+    A. A reference to an object may be cast to a subclass of the object without an explicit cast.  🎃
+    B. If a method takes a class that is the superclass of three different object references, then any of those object may be passed as a parameter to the method 🎃
+    C. A reference to an object may be cast to a superclass of the object without an explicit cast. 🎃
+    D. All cast exceptions can be detected at compile time 🎃
+    E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime 🎃
 
 <hr>
 
