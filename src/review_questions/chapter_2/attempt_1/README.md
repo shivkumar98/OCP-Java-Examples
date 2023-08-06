@@ -182,6 +182,9 @@ public class Panda {
     E.  `Compiler error on line h3`🎃
     F.  `A runtime exception is thrown`🎃
 
+### My Answer:
+* **A**
+
 <hr>
 
 ## Question 7
@@ -211,6 +214,17 @@ public class Seal {
     G. Make a copy of the `List<Seal> friends` in the constructor 🎃
     H. Make the `Seal` class final 🎃
 
+### My Answer:
+* A - false, the code has issues
+* B - false
+* C - true
+* D - true
+* E - true
+* F - false
+* G - false
+* H - false,
+* **C,D,E**
+
 <hr>
 
 ## Question 8
@@ -223,6 +237,15 @@ public class Seal {
     D. They can only contain abstract methods 🎃
     E. They can be declared final 🎃
     F. All members of an interface are public 🎃
+
+### My Answer:
+* A - false, can only extend an interface
+* B - false, they CAN be extended via an interface
+* C - false 
+* D - false, they can contain static and default methods
+* E - false
+* F - true
+* **F**
 
 <hr>
 
@@ -250,6 +273,15 @@ public class CheetahManager {
     E. Mark `cheetahManager` final 🎃
     F. Add synchronized to `getCheetahManager()` 🎃
 
+### My Answer:
+* A - false
+* B - false
+* C - true 
+* D - true
+* E - false
+* F - false
+* **C,D**
+
 <hr>
 
 ## Question 10
@@ -274,6 +306,15 @@ public class CheetahManager {
     C. The code will not compile because of line 6 🎃
     D. The code will not compile because of line 8 🎃
     E. The code will not compile because of line 9 🎃
+
+### My Answer:
+* CanWalk is fine
+* CanRun is fine
+* CanSprint can not extend 2 interfaces!
+* Therefore the error is on line 8!
+* **D**
+
+<hr>
 
 ## Question 11
 
