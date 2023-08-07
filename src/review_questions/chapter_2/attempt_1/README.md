@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 
-Score: 3/5
+Score: 5/10
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -12,11 +12,11 @@ Score: 3/5
 | 3          | ✅      |
 | 4          | ❌      |
 | 5          | ✅      |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
+| 6          | ✅      |
+| 7          | ❌      |
+| 8          | ❌      |
+| 9          | ❌      |
+| 10         | ✅      |
 | 11         |       |
 | 12         |       |
 | 13         |       |
@@ -193,7 +193,7 @@ public class Panda {
     F.  `A runtime exception is thrown`🎃
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
 
 <hr>
 
@@ -233,7 +233,14 @@ public class Seal {
 * F - false
 * G - false
 * H - false,
-* **C,D,E**
+* **C,D,E**❌❌❌❌
+* CORRECT ANSWER: **C,E,G,H**
+* B is wrong, there is no Immutable interface
+* C is right, all variables need to be final and private to prevent modification by caller.
+* D is wrong, we do NOT want SETTERS for the fields!
+* E IS right, we want to give indirect access to the fields!
+* G IS RIGHT, we want to create a mutable copy to prevent caller of constructor from maintaining access!
+* H IS RIGHT, we prevent the methods from being overriden
 
 <hr>
 
@@ -255,7 +262,9 @@ public class Seal {
 * D - false, they can contain static and default methods
 * E - false
 * F - true
-* **F**
+* **F**❌❌❌❌
+* CORRECT ANSWER: **C,F**
+* Interfaces DO ENABLE MULTIPLE INHERITANCE
 
 <hr>
 
@@ -290,7 +299,12 @@ public class CheetahManager {
 * D - true
 * E - false
 * F - false
-* **C,D**
+* **C,D**❌❌❌❌
+* CORRECTG ANSWER: **D,F**
+* B and C are just cosmetic changes! 
+* D is a requirement to ensure pattern is followed
+* Marking the class FINAL does NOT ensure singleton
+* F is right, we need synchronized on getCheetahManager so two threads do not create two distinct instances!!!
 
 <hr>
 
@@ -322,7 +336,7 @@ public class CheetahManager {
 * CanRun is fine
 * CanSprint can not extend 2 interfaces!
 * Therefore the error is on line 8!
-* **D**
+* **D**✅✅✅✅
 
 <hr>
 
