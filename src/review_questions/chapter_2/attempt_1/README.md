@@ -1,17 +1,17 @@
-# Chapter 2 - Review Questions Attemp #
+# Chapter 2 - Review Questions Attemp 1
 
 ## Results:
 
 Date: 
-Score: 
+Score: 3/5
 
 | Question # | Correct  |
 | ---------- | -------  |
 | 1          | ✅      |
 | 2          | ❌      |
-| 3          |       |
-| 4          |       |
-| 5          |       |
+| 3          | ✅      |
+| 4          | ❌      |
+| 5          | ✅      |
 | 6          |       |
 | 7          |       |
 | 8          |       |
@@ -39,7 +39,7 @@ Score:
     E. Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read 🎃
 
 ### My Answer:
-* **C, E**
+* **C, E**✅✅✅✅
 * A - false, principles are general ideals
 * B - false, clearly not the same thing
 * C - true
@@ -74,10 +74,12 @@ Score:
     F. It compiles but throws exception at runtime🎃
 
 ### My Answer:
-* **A**
+
 * CanClimbTrees inherits `void climb()`.
 * Chipmunk succesfully implements CanClimbTrees
 * EasternChimpmunk is perfect => runs fine
+* **A**❌❌❌❌ CORRECT ANSWER: E
+* EasternChipmunk does not implement climb() !!!
 
 <hr>
 
@@ -105,11 +107,13 @@ public interface MountainClimb extends Climb {}
     E.  None of these are valid functional interfaces🎃
 
 ### My Answer:
-* **A, D**
+
 * Climb is a functional interface
 * Swim is not!
 * ArticMountainClimb is not valid!
 * MountainClimb is a functional interface!
+* **A, D**✅✅✅✅
+* function interfaces CAN have default implementations (provided they are present!!!)
 
 <hr>
 
@@ -128,7 +132,10 @@ public interface MountainClimb extends Climb {}
 
 ### My Answer:
 * A - valid, B - invalid (needs parenthesis), C - invalid (needs braces), D - valid, E - invalid, F valid, G - valid
-* **A, D, G**
+* **A, D, F, G**❌❌❌❌
+* CORRECT ANSWER: A, D
+* F has no right hand-side assignment so is false !!
+* G is invalid as if you specify the parameter Type for one, you mjust do it for all!!!
 
 <hr>
 
@@ -151,7 +158,10 @@ public interface MountainClimb extends Climb {}
 * D - false, MUST be private
 * E - true
 * F - true
-* **B, E, F**
+* **B, E, F**✅✅✅✅ 
+* ANY method which CAN make changes to the singleton, break the design pattern.
+* We must prevent instantiation so having private constructor is a must
+* A public static method is required for all threads to access the same singloeton
 
 <hr>
 
