@@ -338,6 +338,10 @@ public class MySecret implements Secret {
     E. `caller((e) -> { String e = ""; return "Poof" });` 🎃
     F. `caller((e) -> { String f = ""; return "Poof"; });`
 
+### My Answer:
+* A - valid, B - invalid, C - invalid, D - invalid, E - invalid, F - valid
+* **A,F**
+
 <hr>
 
 ## Question 12
@@ -367,6 +371,11 @@ public class Climber {
     E. Compiler error on a different line 🎃
     F. A runtime exception is thrown.
 
+### My Answer:
+* check is provided a lmbda for a functionao interface
+* The lambda does not return a boolean so it gives compiler error on x1, x2 is fine
+* **X**
+
 <hr>
 
 ## Question 13
@@ -379,6 +388,14 @@ public class Climber {
     D. They mark all instance variables static 🎃
     E. They prevent methods from being overridden 🎃
     F. All getter methods are marked synchronized 🎃
+
+### My Answer:
+* An immutable object can not be modifed through setter, they DO define getters. 
+* A - invalid, B - true, C - false, you can define a setter
+* D - false, Instance variables are not static!
+* E - false
+* **B**
+
 
 <hr>
 
@@ -404,6 +421,13 @@ public class TurtleFrog extends Frog {}
     E. Object 🎃
     F. Long 🎃
 
+### My Answer:
+* TurtleFrog extends Frog, Frog implements CanHop
+* So TurtleFrog is both a Frog, and CanHop implementation
+* A - true, B - true, C - false
+* D - true, E - true, F - false
+* **A,B,D**
+
 <hr>
 
 ## Question 15
@@ -415,6 +439,14 @@ public class TurtleFrog extends Frog {}
     C. A reference to an object may be cast to a superclass of the object without an explicit cast. 🎃
     D. All cast exceptions can be detected at compile time 🎃
     E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime 🎃
+
+### My Answer:
+* A - false, object can be casted to SUPERCLASS
+* B - true
+* C - true
+* D - false
+* E - false, this is determined if the method is overriden
+* **B, C**
 
 <hr>
 
