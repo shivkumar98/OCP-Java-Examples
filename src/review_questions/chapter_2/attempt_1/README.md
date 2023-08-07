@@ -471,6 +471,12 @@ public class TurtleFrog extends Frog {}
     E. The code will not compile because of line 2 and 3 🎃
     F. The code will not compile because of line 3 and 4 🎃
 
+### My Answer:
+* Definitely does not compile
+* Line 2 is fine, Line 3 needs implementation so is wrong
+* Line 4 needs default, so is wrong
+* **F**
+
 <hr>
 
 ## Question 17
@@ -483,6 +489,15 @@ public class TurtleFrog extends Frog {}
     D. They implement the `JavaBean` interface 🎃
     E. Variables are created using lazy instantiation 🎃
     F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case 🎃
+
+### My Answer:
+* A - false,
+* B - false, not accessed via `get`
+* C - true
+* D - false
+* E - false
+* F - true
+* **C,F**
 
 <hr>
 
@@ -497,6 +512,15 @@ public class TurtleFrog extends Frog {}
     E. Object composition requires a class variable to be public or accessible from a public method to be used by a class in a different package 🎃
     F. Object composition is always preferred to inheritance.
 
+### My Answer:
+* A - true
+* B - true
+* C - false, relies on IS-A principle
+* D - False
+* E - false
+* F - false
+* **A,B**
+
 <hr>
 
 ## Question 19
@@ -509,6 +533,16 @@ public class TurtleFrog extends Frog {}
     D. Manage write access to a log file 🎃
     E. Provide central access to application configuration data 🎃
     F. Allow multiple instances of a static object to be managed in memory
+
+### My Answer:
+* A - true
+* B - true
+* C - true
+* D - true
+* E - true
+* F - false
+* **A,B,C,D,E**
+
 <hr>
 
 ## Question 20
@@ -532,3 +566,7 @@ public class TurtleFrog extends Frog {}
     D. The code will not compile because of line 5 🎃
     E. The code will not compile because of line 2 and 5 🎃
     F. The code will not compile because of class Falcon does not implement the interface methods🎃
+
+### My Answer:
+* CanFly is valid, HasWings is Valid. Falcon is valid, it inherits all the abstract methods
+* **A**
