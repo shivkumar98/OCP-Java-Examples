@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 
-Score: 5/10
+Score: 9/15
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -17,11 +17,11 @@ Score: 5/10
 | 8          | ❌      |
 | 9          | ❌      |
 | 10         | ✅      |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 11         | ✅      |
+| 12         | ✅      |
+| 13         | ❌      |
+| 14         | ✅      |
+| 15         | ✅      |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -364,7 +364,7 @@ public class MySecret implements Secret {
 
 ### My Answer:
 * A - valid, B - invalid, C - invalid, D - invalid, E - invalid, F - valid
-* **A,F**
+* **A,F**✅✅✅✅
 
 <hr>
 
@@ -398,7 +398,7 @@ public class Climber {
 ### My Answer:
 * check is provided a lmbda for a functionao interface
 * The lambda does not return a boolean so it gives compiler error on x1, x2 is fine
-* **X**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -418,7 +418,8 @@ public class Climber {
 * A - invalid, B - true, C - false, you can define a setter
 * D - false, Instance variables are not static!
 * E - false
-* **B**
+* **B**❌❌❌❌
+* 
 
 
 <hr>
@@ -450,7 +451,7 @@ public class TurtleFrog extends Frog {}
 * So TurtleFrog is both a Frog, and CanHop implementation
 * A - true, B - true, C - false
 * D - true, E - true, F - false
-* **A,B,D**
+* **A,B,D,E**✅✅✅✅
 
 <hr>
 
@@ -470,7 +471,7 @@ public class TurtleFrog extends Frog {}
 * C - true
 * D - false
 * E - false, this is determined if the method is overriden
-* **B, C**
+* **B, C**✅✅✅✅
 
 <hr>
 
