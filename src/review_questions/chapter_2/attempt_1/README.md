@@ -1,9 +1,9 @@
-# Chapter 2 - Review Questions Attemp 1
+# Chapter 2 - Review Questions Attempt 1
 
 ## Results:
 
-Date: 
-Score: 9/15
+Date: 07/08/2023
+Score: 11/20
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -22,11 +22,11 @@ Score: 9/15
 | 13         | ❌      |
 | 14         | ✅      |
 | 15         | ✅      |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 16         | ✅      |
+| 17         | ❌      |
+| 18         | ❌      |
+| 19         | ❌      |
+| 20         | ✅     |
 
 ## Question 1
 
@@ -500,7 +500,7 @@ public class TurtleFrog extends Frog {}
 * Definitely does not compile
 * Line 2 is fine, Line 3 needs implementation so is wrong
 * Line 4 needs default, so is wrong
-* **F**
+* **F**✅✅✅✅
 
 <hr>
 
@@ -522,7 +522,9 @@ public class TurtleFrog extends Frog {}
 * D - false
 * E - false
 * F - true
-* **C,F**
+* **C,F**❌❌❌❌
+* CORRECT ANSWER: B,C,F
+
 
 <hr>
 
@@ -544,7 +546,8 @@ public class TurtleFrog extends Frog {}
 * D - False
 * E - false
 * F - false
-* **A,B**
+* **A,B**❌❌❌❌
+* CORRECT ANSWER: A,B,E 
 
 <hr>
 
@@ -566,7 +569,10 @@ public class TurtleFrog extends Frog {}
 * D - true
 * E - true
 * F - false
-* **A,B,C,D,E**
+* **A,B,C,D,E**❌❌❌❌
+* CORRECT ANSWER: **B,D,E**
+* A would benefit from immutable pattern, not singleton!!
+* C is false as although singleton CAN use lazy instantiation, it is not a requirement!!!
 
 <hr>
 
@@ -594,4 +600,4 @@ public class TurtleFrog extends Frog {}
 
 ### My Answer:
 * CanFly is valid, HasWings is Valid. Falcon is valid, it inherits all the abstract methods
-* **A**
+* **A**✅✅✅✅
