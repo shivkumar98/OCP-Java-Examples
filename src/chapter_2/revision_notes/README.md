@@ -75,3 +75,29 @@ class Lemur extends Animal implements HasTail {
 	}
 }
 ```
+
+<hr>
+
+# 🧠 2.3 Understanding Design Principles
+
+* A design principle is a best practice which is applied globally to the design of an applicationl
+
+## 🟥 Encapsulating Data
+* An encapsulated class has private fields, public setters and getters
+
+## 🟥 Java Beans
+* A JavaBean is a design principle for encapsulating data. It has the following rules for naming:
+1) Properties are private/.
+2) Getters for non-boolean properties are prefixed with `get`
+3) Getters for boolean properties are prefixed with either `is` OR `get`
+4) Setters begin with `set`
+5) After the prefix, the first letter for setter/getter is upper-cased
+
+
+## 🟥 Has-a Relationship
+
+* The `has-a` relationship is the property where an object had a named data object as a member. Also know as the Composition Test.
+
+## 🟥 Composing Objects
+
+* Object Composition is the property of constructing a class using references to other classes.
