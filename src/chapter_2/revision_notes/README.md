@@ -155,3 +155,40 @@ public class HayStorage {
     // Data access methods
 }
 ```
+
+* We can ensure thread-safety by applying `synchronized` to the getInstance method.
+
+## 🟥 Creating Immutable Objects
+
+* This is a creational design pattern where objects are constructed with all data needed during instantiation, properties are all final, setters are not defined, methods can not be overridden.
+
+* We must be careful, we can construct a mutable class by mistake:
+
+```java
+public final class Human {
+	private final List<String> favouriteFoods;
+	public Human(List<String> favouriteFoods) {
+		if (favouriteFoods == null)
+			throw new RuntimeException("food is required!!!");
+		this.favouriteFoods = new ArrayList<String>(favouriteFoods);
+	}
+	
+	public List<String> getFavouriteFoods() {
+		return favouriteFoods;
+	}
+    public static void main(String[] args) {
+		Human shiv = new Human(Arrays.asList("chicken", "falafel"));
+		shiv.getFavouriteFoods().add("pizza");
+		System.out.println(shiv.getFavouriteFoods()); // [chicken, falafel, pizza]
+		// ^Immutability is broken!!!
+	}
+}
+```
+
+* We can fix this issue, by returning a new instance of ArrayList:
+
+```java
+public List<String> getFavouriteFoods() {
+    return new ArrayList(favouriteFoods);
+}
+```
