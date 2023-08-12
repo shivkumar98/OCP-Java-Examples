@@ -192,3 +192,53 @@ public List<String> getFavouriteFoods() {
     return new ArrayList(favouriteFoods);
 }
 ```
+
+
+## 🟥 Builder Pattern
+
+* This is a pattern which can help when the properties of a class become far too large to define in its constructor!
+
+### 🟡 Example:
+
+````java
+public class HumanBuilder {
+	private String name;
+	private int age;
+	private List<String> favoriteFoods;
+	public HumanBuilder setName(String name) {
+		this.name = name;
+		return this;
+	}
+	public HumanBuilder setAge(int age) {
+		this.age = age;
+		return this;
+	}
+	public HumanBuilder setFavoriteFoods(List<String> foods) {
+		this.favoriteFoods = foods;
+		return this;
+	}
+	public HumanV2 build() {
+		return new HumanV2(name, age, favoriteFoods);
+	}
+}
+class HumanV2 {
+	private String name;
+	private int age;
+	private List<String> favouriteFoods;
+	public HumanV2(String name, int age, List<String> favouriteFoods) {
+		this.name = name;
+		this.age = age;
+		this.favouriteFoods = favouriteFoods;
+	}
+}
+````
+
+* We can now construct a `HumanV2`:
+
+```java
+HumanV2 shiv = new HumanBuilder()
+    .setAge(25)
+    .setName("shiv")
+    .setFavoriteFoods(Arrays.asList("pizza","chicken"))
+    .build();
+```
