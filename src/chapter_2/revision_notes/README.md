@@ -147,9 +147,9 @@ public class HayStorage {
     private int amount = 0;
     private HayStorage() {}
     private static HayStorage instance;
-    public static HayStorage getInstance() {
-        if (instance == null)
-            instance = new HayStorage();
+    public static HayStorage getInstance() { // not thread-safe
+        if (instance == null) 
+            instance = new HayStorage(); 
         return instance;
     }
     // Data access methods
