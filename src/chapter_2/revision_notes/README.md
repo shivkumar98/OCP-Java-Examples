@@ -242,3 +242,56 @@ HumanV2 shiv = new HumanBuilder()
     .setFavoriteFoods(Arrays.asList("pizza","chicken"))
     .build();
 ```
+
+
+## 🟥 Factory Pattern
+
+* The Factory pattern lets us create an object of a precise type known until runtime.
+
+### 🟡 Example:
+
+* Suppose we have the following classes/implementations:
+```java
+public abstract class Food {
+	private int quantity;
+	public Food(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getQuantity() { return quantity; }
+	public abstract void consumed();
+}
+
+class Pizza extends Food {
+	public Pizza(int quantity) { super(quantity); }
+	public void consumed() {
+		System.out.println("pizza eaten "+getQuantity());
+	}
+}
+class Falafel extends Food {
+	public Falafel(int quantity) { super(quantity); }
+	public void consumed() {
+		System.out.println("falafel eaten "+getQuantity());
+	}
+}
+class Fish extends Food {
+	public Fish(int quantity) { super(quantity); }
+	public void consumed() {
+		System.out.println("pizza eaten "+getQuantity());
+	}
+}
+```
+
+* We can define a `FoodFactory` class as:
+
+```java
+public class FoodFactory {
+	public static Food getFood(String animalName) {
+		switch(animalName) {
+			case "Human": return new Pizza(2);
+			case "Goat": return new Falafel(20);
+			case "Whale": return new Fish(20);
+		}
+		throw new UnsupportedOperationException();
+	}
+}
+```
