@@ -101,3 +101,57 @@ class Lemur extends Animal implements HasTail {
 ## 🟥 Composing Objects
 
 * Object Composition is the property of constructing a class using references to other classes.
+
+* Composition can help us simulate polymorphic behaviour without having to relate classes through inheritance
+
+<hr>
+
+# 🧠 2.4 Working with Design Patterns
+
+* A design pattern is an established general solution to a specific problem.
+
+
+## 🟥 Singleton Design Pattern
+
+* We can create a class which follows the Singleton design pattern so that multiple classes can access a shared single instance in memory
+
+* A Singleton has:
+    - A private constructor
+    - A static final instance
+    - A static `getInstance()` method
+    - `synchronized` methods which modify data (to ensure thread-safety)
+
+### 🟡 Example: 
+
+```java
+public class HayStorage {
+    private int quantity = 0;
+    private HayStorage() {}
+    private static final HayStorage instance = new HayStorage();
+    public synchronized void addHay(int amount) {
+        quantity += amount;
+    }
+    public synchronized boolean removeHay(int amount) {
+        if (quantity < amount) return false
+        quantity -= amount; return true;
+    }
+}
+``` 
+
+### 🟡 Applying Lazy Instantiation
+
+* In the above, the instance is always instantiated when the class is loaded. We can enforce lazy instantiation but we will lose thread safety!
+
+```java
+public class HayStorage {
+    private int amount = 0;
+    private HayStorage() {}
+    private static HayStorage instance;
+    public static HayStorage getInstance() {
+        if (instance == null)
+            instance = new HayStorage();
+        return instance;
+    }
+    // Data access methods
+}
+```
