@@ -183,7 +183,7 @@ public class Panda {
     F.  `A runtime exception is thrown`🎃
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
 
 <hr>
 
@@ -223,7 +223,7 @@ public class Seal {
 * F - false, this does nothing
 * G - true
 * H - true
-* **C,E,G,H**
+* **C,E,G,H**✅✅✅✅
 <hr>
 
 ## Question 8
@@ -246,7 +246,7 @@ public class Seal {
 * D - false, can contain static and default methods
 * E - false
 * F - true
-* **C,F**
+* **C,F**✅✅✅✅
 
 <hr>
 
@@ -281,7 +281,7 @@ public class CheetahManager {
 * D - true
 * E - false, this will stop instantiation
 * F - true, necessary for thread safety
-* **D,F**
+* **D,F**✅✅✅✅
 
 <hr>
 
@@ -314,7 +314,7 @@ public class CheetahManager {
 * C - false, this is fine
 * D - true
 * E - false
-* **D**
+* **D**✅✅✅✅
 
 ## Question 11
 
