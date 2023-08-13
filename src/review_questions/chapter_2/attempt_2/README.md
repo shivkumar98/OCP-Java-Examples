@@ -8,10 +8,10 @@ Score:
 | Question # | Correct  |
 | ---------- | -------  |
 | 1          | ✅      |
-| 2          | ❌      |
-| 3          |       |
-| 4          |       |
-| 5          |       |
+| 2          | ✅      |
+| 3          | ✅      |
+| 4          | ✅      |
+| 5          | ❌      |
 | 6          |       |
 | 7          |       |
 | 8          |       |
@@ -45,7 +45,7 @@ Score:
 * C - true
 * D - false
 * E - true
-* **C,E**
+* **C,E**✅✅✅✅
 
 <hr>
 
@@ -76,7 +76,7 @@ Score:
 ### My Answer:
 
 * The Chimpmunk interface has inherited the climb method, but EasterChimpmunk does not implement it ths causing a compiler error
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -104,7 +104,7 @@ public interface MountainClimb extends Climb {}
     E.  None of these are valid functional interfaces🎃
 
 ### My Answer:
-* **A,D**
+* **A,D**✅✅✅✅
 
 <hr>
 
@@ -128,7 +128,7 @@ public interface MountainClimb extends Climb {}
 * E - invalid, should have parenthesis (I think)
 * F - invalid
 * G - invalid
-* **A,D**
+* **A,D**✅✅✅✅
 
 <hr>
 
@@ -150,7 +150,8 @@ public interface MountainClimb extends Climb {}
 * D - false, it must be private
 * E - true
 * F - true
-* **B,C,E,F**
+* **B,C,E,F**❌❌❌❌
+* The object does NOT need to be named instance!!!!!
 
 <hr>
 
