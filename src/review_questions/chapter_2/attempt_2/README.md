@@ -476,6 +476,8 @@ public class TurtleFrog extends Frog {}
     E. The code will not compile because of line 2 and 3 🎃
     F. The code will not compile because of line 3 and 4 🎃
 
+* **F**
+
 <hr>
 
 ## Question 17
@@ -488,6 +490,15 @@ public class TurtleFrog extends Frog {}
     D. They implement the `JavaBean` interface 🎃
     E. Variables are created using lazy instantiation 🎃
     F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case 🎃
+
+### My Answer:
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* F - true
+* **B,C,F**
 
 <hr>
 
@@ -502,6 +513,15 @@ public class TurtleFrog extends Frog {}
     E. Object composition requires a class variable to be public or accessible from a public method to be used by a class in a different package 🎃
     F. Object composition is always preferred to inheritance.
 
+### My Answer:
+* A - true
+* B - true
+* C - false
+* D - false
+* E - true
+* F - false
+* **A,B,E**
+
 <hr>
 
 ## Question 19
@@ -514,6 +534,16 @@ public class TurtleFrog extends Frog {}
     D. Manage write access to a log file 🎃
     E. Provide central access to application configuration data 🎃
     F. Allow multiple instances of a static object to be managed in memory
+
+### My Answer:
+* A - no
+* B - yes
+* C - no
+* D - true
+* E - true
+* F - false
+* **B,D,E**
+
 <hr>
 
 ## Question 20
@@ -537,3 +567,6 @@ public class TurtleFrog extends Frog {}
     D. The code will not compile because of line 5 🎃
     E. The code will not compile because of line 2 and 5 🎃
     F. The code will not compile because of class Falcon does not implement the interface methods🎃
+
+### My Answer:
+* **A**
