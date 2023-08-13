@@ -39,13 +39,13 @@ Score:
     E. Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read 🎃
 
 ### My Answer:
-* **C,E**
+
 * A - false, design principles are for solving general problems
 * B - false
 * C - true
 * D - false
 * E - true
-
+* **C,E**
 
 <hr>
 
@@ -74,8 +74,9 @@ Score:
     F. It compiles but throws exception at runtime🎃
 
 ### My Answer:
-* **E**
+
 * The Chimpmunk interface has inherited the climb method, but EasterChimpmunk does not implement it ths causing a compiler error
+* **E**
 
 <hr>
 
@@ -103,7 +104,6 @@ public interface MountainClimb extends Climb {}
     E.  None of these are valid functional interfaces🎃
 
 ### My Answer:
-
 * **A,D**
 
 <hr>
@@ -121,7 +121,6 @@ public interface MountainClimb extends Climb {}
     G.  `(Animal z, m)-> a`🎃
 
 ### My Answer:
-* **A,D**
 * A - valid
 * B - invalid
 * C - invalid
@@ -129,6 +128,8 @@ public interface MountainClimb extends Climb {}
 * E - invalid, should have parenthesis (I think)
 * F - invalid
 * G - invalid
+* **A,D**
+
 <hr>
 
 ## Question 5
@@ -143,13 +144,13 @@ public interface MountainClimb extends Climb {}
     F. Required a `public static` method to retrieve the instance of the singleton
 
 ### My Answer:
-* **B,C,E,F**
 * A - false
 * B - true
 * C - true
 * D - false, it must be private
 * E - true
 * F - true
+* **B,C,E,F**
 
 <hr>
 
@@ -180,6 +181,9 @@ public class Panda {
     E.  `Compiler error on line h3`🎃
     F.  `A runtime exception is thrown`🎃
 
+### My Answer:
+* **A**
+
 <hr>
 
 ## Question 7
@@ -209,6 +213,16 @@ public class Seal {
     G. Make a copy of the `List<Seal> friends` in the constructor 🎃
     H. Make the `Seal` class final 🎃
 
+### My Answer:
+* A - false. The class is not immutable yet!
+* B - false, does not exist
+* C - true
+* D - false, setters are absent  for immutability!
+* E - true, we should not have direct access to a List!
+* F - false, this does nothing
+* G - true
+* H - true
+* **C,E,G,H**
 <hr>
 
 ## Question 8
@@ -221,6 +235,17 @@ public class Seal {
     D. They can only contain abstract methods 🎃
     E. They can be declared final 🎃
     F. All members of an interface are public 🎃
+
+
+### My Answer:
+
+* A - false, only can extend an interface
+* B - false (as above)
+* C - true
+* D - false, can contain static and default methods
+* E - false
+* F - true
+* **C,F**
 
 <hr>
 
@@ -248,6 +273,15 @@ public class CheetahManager {
     E. Mark `cheetahManager` final 🎃
     F. Add synchronized to `getCheetahManager()` 🎃
 
+### My Answer:
+* A - false
+* B - false, aeshetic change only
+* C - false, aesthetic change only
+* D - true
+* E - false, this will stop instantiation
+* F - true, necessary for thread safety
+* **D,F**
+
 <hr>
 
 ## Question 10
@@ -272,6 +306,14 @@ public class CheetahManager {
     C. The code will not compile because of line 6 🎃
     D. The code will not compile because of line 8 🎃
     E. The code will not compile because of line 9 🎃
+
+### My Answer:
+* A - false
+* B - false, this is fine
+* C - false, this is fine
+* D - true
+* E - false
+* **D**
 
 ## Question 11
 
