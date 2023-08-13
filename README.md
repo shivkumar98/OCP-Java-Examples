@@ -23,14 +23,17 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 1.7 Creating Nested Classes](/src/chapter_1/chapter_1_7_creating_nested_classes)
 
 ## Chapter 2: Design Patterns and Principles
+- [📜 Table of Contents📜 ](/src/chapter_2/)
 - [🧠 2.1 Designing an Interface](/src/chapter_2/chapter_2_1_designing_an_interface)
 - [🧠 2.2 Introducing Functional Programming](/src/chapter_2/chapter_2_2_intro_functional_programming)
 - [🧠 2.3 Implementing Polymorphism](/src/chapter_2/chapter_2_3_implementing_polymorphism)
 - [🧠 2.4 Understanding Design Principles](/src/chapter_2/chapter_2_4_understanding_design_principles)
 - [🧠 2.5 Working with Design Patterns](/src/chapter_2/chapter_2_5_working_with_design_patterns)
+- [✅ Review Questions](/src/review_questions/chapter_2/)
+- [📝Revision Notes](/src/chapter_2/revision_notes/)
 
 ## Chapter 3: Generics and Collections
-- [📜 Table of Contents/Summary📜 ](/src/chapter_3/)
+- [📜 Table of Contents📜 ](/src/chapter_3/)
 - [🧠 3.1 Reviewing OCA Collections](/src/chapter_3/chapter_3_1_reviewing_oca_collections)
 - [🧠 3.2 Working with Generics](/src/chapter_3/chapter_3_2_working_with_generics)
 - [🧠 3.3 Using List, Sets, Maps and Queues](/src/chapter_3/chapter_3_3_using_lists_sets_maps_queues)
@@ -42,7 +45,7 @@ I created this repo to go through the examples from the official study guide for
 - [📝Revision Notes](/src/chapter_3/revision_notes/)
 
 ## Chapter 4: Functional Interfaces
-- [📜 Table of Contents/Summary📜 ](/src/chapter_4/)
+- [📜 Table of Contents📜 ](/src/chapter_4/)
 - [🧠 4.1 Using Variables in Lambdas](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
 - [🧠 4.2 Working with Build-in Functional Interfaces](/src/chapter_4/c_4_2_workingWithBuiltInFunctionalInterfaces/)
 - [🧠 4.3 Returning an Optional](/src/chapter_4/c_4_3_returningAnOptional//)
