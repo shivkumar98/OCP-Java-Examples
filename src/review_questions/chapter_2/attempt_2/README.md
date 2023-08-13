@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 
-Score: 
+Score: 14/15 
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -12,16 +12,16 @@ Score:
 | 3          | ✅      |
 | 4          | ✅      |
 | 5          | ❌      |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 6          | ✅      |
+| 7          | ✅      |
+| 8          | ✅      |
+| 9          | ✅      |
+| 10         | ✅      |
+| 11         | ✅      |
+| 12         | ✅      |
+| 13         | ✅      |
+| 14         | ✅      |
+| 15         | ✅      |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -345,7 +345,7 @@ public class MySecret implements Secret {
 * D - false
 * E - false
 * F - true
-* **A,F**
+* **A,F**✅✅✅✅
 
 <hr>
 
@@ -377,7 +377,7 @@ public class Climber {
     F. A runtime exception is thrown.
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -399,7 +399,7 @@ public class Climber {
 * D - false
 * E - true
 * F - false
-* **B,C,E**
+* **B,C,E**✅✅✅✅
 
 <hr>
 
@@ -432,7 +432,7 @@ public class TurtleFrog extends Frog {}
 * D - true
 * E - true
 * F - false
-* **A,B,D,E**
+* **A,B,D,E**✅✅✅✅
 
 <hr>
 
@@ -452,7 +452,7 @@ public class TurtleFrog extends Frog {}
 * C - true
 * D - false
 * E - false
-* **B,C**
+* **B,C**✅✅✅✅
 
 <hr>
 
