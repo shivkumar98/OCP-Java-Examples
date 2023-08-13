@@ -2,8 +2,8 @@
 
 ## Results:
 
-Date: 
-Score: 14/15 
+Date: 13/08/2023
+Score: 19/20 
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -22,11 +22,11 @@ Score: 14/15
 | 13         | ✅      |
 | 14         | ✅      |
 | 15         | ✅      |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 16         | ✅      |
+| 17         | ✅      |
+| 18         | ✅      |
+| 19         | ✅      |
+| 20         | ✅      |
 
 ## Question 1
 
@@ -477,7 +477,7 @@ public class TurtleFrog extends Frog {}
     E. The code will not compile because of line 2 and 3 🎃
     F. The code will not compile because of line 3 and 4 🎃
 
-* **F**
+* **F**✅✅✅✅
 
 <hr>
 
@@ -499,7 +499,7 @@ public class TurtleFrog extends Frog {}
 * D - false
 * E - false
 * F - true
-* **B,C,F**
+* **B,C,F**✅✅✅✅
 
 <hr>
 
@@ -519,9 +519,9 @@ public class TurtleFrog extends Frog {}
 * B - true
 * C - false
 * D - false
-* E - true
+* E - true ?? unsure
 * F - false
-* **A,B,E**
+* **A,B,E**✅✅✅✅
 
 <hr>
 
@@ -537,13 +537,13 @@ public class TurtleFrog extends Frog {}
     F. Allow multiple instances of a static object to be managed in memory
 
 ### My Answer:
-* A - no
-* B - yes
-* C - no
-* D - true
-* E - true
-* F - false
-* **B,D,E**
+* A - no✅
+* B - yes✅
+* C - no✅
+* D - true✅ you only want one class writing to log at one time
+* E - true✅
+* F - false✅
+* **B,D,E**✅✅✅✅
 
 <hr>
 
@@ -570,4 +570,4 @@ public class TurtleFrog extends Frog {}
     F. The code will not compile because of class Falcon does not implement the interface methods🎃
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
