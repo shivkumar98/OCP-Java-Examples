@@ -4,7 +4,7 @@
 
 ## 📜 Contents 📜:
 
-- [🧠 1.1 Reviewing OCA Concepts]()
+- [🧠 1.1 Reviewing OCA Concepts](/src/chapter_1/chapter_1_1_access_modifiers/)
 - [🧠 1.2 Using instanceof]()
 - [🧠 1.3 Understanding Virtual Method Invocation]()
 - [🧠 1.4 Annotating Overridden Methods]()
