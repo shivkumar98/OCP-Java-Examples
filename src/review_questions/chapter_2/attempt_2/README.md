@@ -337,6 +337,15 @@ public class MySecret implements Secret {
     E. `caller((e) -> { String e = ""; return "Poof" });` 🎃
     F. `caller((e) -> { String f = ""; return "Poof"; });`
 
+### My Answer:
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* F - true
+* **A,F**
+
 <hr>
 
 ## Question 12
@@ -366,6 +375,9 @@ public class Climber {
     E. Compiler error on a different line 🎃
     F. A runtime exception is thrown.
 
+### My Answer:
+* **C**
+
 <hr>
 
 ## Question 13
@@ -378,6 +390,15 @@ public class Climber {
     D. They mark all instance variables static 🎃
     E. They prevent methods from being overridden 🎃
     F. All getter methods are marked synchronized 🎃
+
+### My Answer:
+* A - false,
+* B - true
+* C - true
+* D - false
+* E - true
+* F - false
+* **B,C,E**
 
 <hr>
 
@@ -403,6 +424,15 @@ public class TurtleFrog extends Frog {}
     E. Object 🎃
     F. Long 🎃
 
+### My Answer:
+* A - true
+* B - true
+* C - false
+* D - true
+* E - true
+* F - false
+* **A,B,D,E**
+
 <hr>
 
 ## Question 15
@@ -414,6 +444,14 @@ public class TurtleFrog extends Frog {}
     C. A reference to an object may be cast to a superclass of the object without an explicit cast. 🎃
     D. All cast exceptions can be detected at compile time 🎃
     E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime 🎃
+
+### My Answer:
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* **B,C**
 
 <hr>
 
