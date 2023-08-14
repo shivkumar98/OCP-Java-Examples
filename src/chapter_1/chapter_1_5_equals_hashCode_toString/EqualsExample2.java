@@ -21,10 +21,20 @@ class Lion {
 	}
 
 	@Override
+	public int hashCode() {
+		return Objects.hash(age, name);
+	}
+
+	@Override
 	public boolean equals(Object obj) {
-		if (!(obj instanceof Lion)) return false;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
 		Lion other = (Lion) obj;
-		return age == other.age && name.equals(other.name);
+		return age == other.age && Objects.equals(name, other.name);
 	}
 	
 }
