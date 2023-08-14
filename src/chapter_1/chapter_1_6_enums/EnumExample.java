@@ -2,24 +2,37 @@ package chapter_1.chapter_1_6_enums;
 
 public class EnumExample {
 	public static void main(String[] args) {
-		System.out.println(Seasons2.SUMMER.name());
+		SeasonV3 s = SeasonV3.SUMMER;
+		
 	}
 }
 
-enum Season
+enum SeasonV2
 {
-   WINTER("WINTER"), 
-   AUTUMN("https://sit.domain.com:2019/"), 
-   SPRING("https://cit.domain.com:8080/"), 
-   SUMMER("https://dev.domain.com:21323/");
+   WINTER("low"), 
+   AUTUMN("medium"), 
+   SPRING("high"), 
+   SUMMER("max");
 
-   private String url;
+   private String pattern;
 
-   Season(String envUrl) {
-       this.url = envUrl;
+   SeasonV2(String pattern) {
+       this.pattern = pattern;
+   }
+   
+   String getValue() {
+	   return pattern;
    }
 
-   public String getUrl() {
-       return url;
-   }
+   
+}
+
+enum SeasonV3 {
+	
+WINTER {
+public void printHours() { System.out.println("short hours"); }
+}, SUMMER {
+public void printHours() { System.out.println("long hours"); }
+};
+public abstract void printHours();
 }
