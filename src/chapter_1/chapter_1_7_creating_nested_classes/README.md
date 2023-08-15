@@ -59,3 +59,32 @@ class A {
 ```java
 A.B.C c = new A().new B().new C();
 ```
+
+<hr>
+
+## 🔴 1.7.2 Local Inner Classes
+
+* A local inner class is a class defined in a METHOD, the class only exists when the method is called and goes out of scope when method returns.
+* Like local variables, they can't have access modifier
+* Cannot be marked `static` or have static methods.
+* They can access members of enclosing class.
+* An Inner class can only access variables which are EFFECTIVELY FINAL⚠️
+* E.g.:
+```java
+public class Outer {
+    private int length = 5;
+    void calculate() {
+        int width = 5; // THIS IS EFFECTIVELY final
+        // width = 2; // THIS WOULD BREAK BELOW
+        class Inner {
+            void multiply() {
+                System.out.println(length*width);
+            }
+        }
+        new Inner().multiply();
+    }
+    main() {
+        new Outer().calculate(); // 100
+    }
+}
+```
