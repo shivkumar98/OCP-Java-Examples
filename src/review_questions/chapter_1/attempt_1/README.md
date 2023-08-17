@@ -186,14 +186,27 @@ public class BaseballTeam {
 
 ❓What is the result of the following code❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class FlavorsEnum {
+    enum Flavors {
+        VANILLA, CHOCOLATE, STRAWBERRY
+    }
+    public static void main() {
+        System.out.println(Flavors.CHOCOLATE.ordinal());
+    }
+}
+```
+
+    A. 0 🎃
+    B. 1 🎃
+    C. 9 🎃
+    D. CHOCOLATE 🎃
+    E. The code does not compile due to a missing semi-colon🎃
+    F. The code does not compile for a different reason 🎃
 
 ### My Answer:
+
+* **B**
 
 <hr>
 
@@ -201,14 +214,35 @@ public class BaseballTeam {
 
 ❓What is the result of the following code❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class IceCream {
+    enum Flavors {
+        VANILLA, CHOCOLATE, STRAWBERRY
+    }
+    public static void main() {
+        Flavors f = Flavors.STRAWBERRY;
+        switch (f) {
+            case 0: System.out.println("vanilla");
+            case 1: System.out.println("chocolate");
+            case 2: System.out.println("strawberry");
+                break;
+            default: System.out.println("missing flavor");
+        }
+    }
+}
+```
+
+    A. vanilla 🎃
+    B. chocolate 🎃
+    C. strawberry 🎃
+    D. missing flavor 🎃
+    E. The code does not compile 🎃
+    F. An exception is thrown 🎃
 
 ### My Answer:
+
+* The code does not compile!
+* **E**
 
 <hr>
 
