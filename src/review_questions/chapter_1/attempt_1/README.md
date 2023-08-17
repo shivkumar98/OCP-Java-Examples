@@ -169,16 +169,16 @@ public class BaseballTeam {
 
 ## Question 5
 
-❓What is the result of the following code❓
+❓Which of the following statements are true, assuming `a` and `b` are String objects?❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
-
+    A. if a.equals(b) is true, a.hashCode() == b.hashCode() is always true 🎃
+    B. if a.equals(b) is true, a.hashCode() == b.hashCode() is sometimes but not always true🎃
+    C. if a.equals(b) is false, a.hashCode() == b.hashCode() can never be true🎃
+    D. if a.equals(b) is false, a.hashCode() == b.hashCode() can sometimes be true🎃
+ 
 ### My Answer:
+
+* **B,D**
 
 <hr>
 
