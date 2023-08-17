@@ -114,14 +114,24 @@ public class Book {
 
 ❓What is the result of the following code❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+String s1 = "Canada";
+String s2 = new String(s1);
+if (s1 == s2) System.out.println("s1 == s2");
+if (s1.equals(s2)) System.out.println("s1.equals(s2)");
+```
+
+    A. There is no output 🎃
+    B. s1 == s2 🎃
+    C. s1.equals(s2) 🎃
+    D. Both B and C🎃
+    E. The code does not compile🎃
+    F. The code throws a runtime exception🎃
 
 ### My Answer:
+
+* s1 == s2 is false as we have instantiate a brand new string but the second if statement returns true
+* **C**
 
 <hr>
 
