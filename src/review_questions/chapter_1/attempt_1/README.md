@@ -136,16 +136,33 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
 <hr>
 
 ## Question 4
-❓What is the result of the following code❓
+❓What is true about the following code❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class BaseballTeam {
+    private String city, mascot;
+    private int numberOfPlayers;
+    public boolean equals(Object obj) {
+        if (!(obj instanceof BaseballTeam))
+            return false;
+        BaseballTeam other = (BaseballTeam) obj;
+        return (city.equals(other.city) && mascot.equals(other.mascot));
+    }
+    public int hashCode() {
+        return numberOfPlayers;
+    }
+    // imagine setters and getters
+}
+```
+
+    A. The class does not compile🎃
+    B. The class compiles but has an improper equals() method🎃
+    C. The class compiles but has an improper hashCode() method🎃
+    D. The class compiles but has proper equals() and hashCode() methods🎃
 
 ### My Answer:
+* The code DOES compile but the hashCode implementation is improper!
+* **C**
 
 <hr>
 
