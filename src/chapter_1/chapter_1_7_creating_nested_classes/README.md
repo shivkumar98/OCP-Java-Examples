@@ -107,3 +107,25 @@ public class UsingAnnonymousClass {
 	};
 }
 ```
+
+## 🔴 1.7.4 Static Nested Classes
+* A nested class is defined at member level. It can be instantiated without an object of the enclosing class.
+* A nested class can be marked with any of the access modifiers.
+* The outer class can access the nested class's fields/methods
+* You can import a static nested class both regularly and statically.
+```java
+public class OuterClass {
+	private static class InnerClass {
+		private int instanceInt = 10;
+		private void instanceMethod() {
+			System.out.println("hello world");
+		}
+	}
+	public static void main(String[] args) {
+		InnerClass inner = new InnerClass();
+		int x =inner.instanceInt;
+		System.out.println(x);
+		inner.instanceMethod(); // hello world
+	}
+}
+```
