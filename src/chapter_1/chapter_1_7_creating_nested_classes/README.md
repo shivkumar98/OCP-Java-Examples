@@ -74,7 +74,7 @@ A.B.C c = new A().new B().new C();
 public class Outer {
     private int length = 5;
     void calculate() {
-        int width = 5; // THIS IS EFFECTIVELY final
+        int width = 5; // THIS IS EFFECTIVELY FINAL
         // width = 2; // THIS WOULD BREAK BELOW
         class Inner {
             void multiply() {
@@ -86,5 +86,24 @@ public class Outer {
     main() {
         new Outer().calculate(); // 100
     }
+}
+```
+
+<hr>
+
+## 🔴 1.7.3 Annoymous Inner Class
+* Annoymous Inner classes are local classes which have no name, usually used to create an implementation of an abstract class or interface.
+* E.g.:
+
+```java
+public class UsingAnnonymousClass {
+	interface SaleTodayOnly {
+		int priceOff();
+	}
+	SaleTodayOnly sale = new SaleTodayOnly() {
+		public int priceOff() {
+			return 50;
+		}
+	};
 }
 ```
