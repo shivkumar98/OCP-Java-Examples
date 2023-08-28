@@ -270,14 +270,36 @@ public class IceCream {
 
 ## Question 9
 
-❓What is the result of the following code❓
+❓What changes are needed to make the following singleton pattern correct❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class CheetahManager {
+    public static CheetahManager cheetahManager;
+    private CheetahManager() {}
+    public static CheetahManager getCheetahManager() {
+        if (cheetahManager == null) {
+            cheetahManager = new CheetahManager();
+        }
+        return cheetahManager;
+    }
+}
+```
+
+    A. None; the singleton pattern is properly implemented🎃
+    B. Rename cheetahManager to instance🎃
+    C. Rename getCheetahManager() to getInstance()🎃
+    D. Change the access modifier of cheetahManager from public to private🎃
+    E. Mark cheetahManager `final`🎃
+    F. Add synchronized to getCheetahManager()🎃
+
+### My Answer:
+* A - false, we need synchronized to ensure threads access a single instance
+* B - false, not necessary
+* C - false, not necessary
+* D - false
+* E - false, can not be done
+* F - true
+* **F**
 
 ### My Answer:
 
