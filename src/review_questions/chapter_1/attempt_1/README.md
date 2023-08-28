@@ -248,16 +248,23 @@ public class IceCream {
 
 ## Question 8
 
-❓What is the result of the following code❓
+❓Which of the following are true of interfaces❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+    A. They can extend other classes 🎃
+    B. They cannot be extended 🎃
+    C. They enable classes tto have multiple inheritance🎃
+    D. They can only contain abstract methods 🎃
+    E. They can be decalared final🎃
+    F. All members of an interface are public🎃
 
 ### My Answer:
+* A - false, can only extend interfaces
+* B - false, they can be extended by interfaces
+* C - true
+* D - false, can contain default methods
+* E - false
+* F - true
+* **C, F**
 
 <hr>
 
