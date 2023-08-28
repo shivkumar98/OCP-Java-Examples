@@ -310,15 +310,32 @@ public class CheetahManager {
 
 ❓What is the result of the following code❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+1: public interface CanWalk {
+2:     default void walk() { System.out.println("Walking"); }
+3: }
+4: public interface CanRun {
+5:     public default void walk() { System.out.println("Walking"); }
+6:     public abstract void run();
+7: }
+8: public interface CanSprint extends CanWalk, CanRun {
+9:     void sprint();
+10: }
+```
+
+    A. The code compiles without issue 🎃
+    B. The code will not compile due to line 5🎃
+    C. The code will not compile due to line 6🎃
+    D. The code will not compile due to line 8🎃
+    E. The code will not compile due to line 9🎃
 
 ### My Answer:
-
+* A - false
+* B - false, this is fine
+* C - false, this is fine
+* D - true (I think so anyway)
+* E - false this is fine
+* **D**
 <hr>
 
 ## Question 12
