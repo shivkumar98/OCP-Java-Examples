@@ -336,7 +336,38 @@ public class CheetahManager {
 * D - true (I think so anyway)
 * E - false this is fine
 * **D**
+
 <hr>
+
+## Question 11
+
+❓Which lambda can replace the MySecret class to return the same value (choose all that apply)❓
+
+```java
+public interface Secret {
+    String magic(double d);
+}
+public class MySecret implements Secret {
+    public String magic(double d) {
+        return "Poof";
+    }
+}
+```
+
+    A. `caller((e) -> "Poof");` 🎃
+    B. `caller((e) -> {"Poof"});` 🎃
+    C. `caller((e) -> { String e =""; "Poof"; });` 🎃
+    D. `caller((e) -> { String e =""; return "Poof"; }); 🎃
+    E. `caller((e) -> { String e =""; return "Poof" }); 🎃
+    F. `caller((e) -> { String f =""; return "Poof"; }); 🎃
+
+### My Answer:
+
+* **A, F**
+
+<hr>
+
+
 
 ## Question 12
 
