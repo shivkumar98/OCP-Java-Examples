@@ -379,15 +379,39 @@ public class FootballGame {
 
 ❓What is the result of the following code❓
 
+```java
+public class Browsers {
+    static class Browser {
+        public void go() {
+            System.out.println("Inside Browser");
+        }
+    }
+    static class Firefox extends Browser {
+        public void go() {
+            System.out.println("Inside Firefox");
+        }
+    }
+    static class IE extends Browser {
+        public void go() {
+            System.out.println("Inside Firefox");
+        }
+    }
+    public static void main() {
+        Browser b = new Firefox();
+        IE e = (IE) b;
+        e.go();
+    }
+}
+```
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+    A. Inside Browser 🎃
+    B. Inside Firefox 🎃
+    C. Inside IE 🎃
+    D. The code does not compile 🎃
+    E. A runtime exception is thrown 🎃
 
 ### My Answer:
+* **D**
 
 <hr>
 
