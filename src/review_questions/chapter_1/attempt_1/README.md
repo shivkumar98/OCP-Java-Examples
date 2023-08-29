@@ -11,7 +11,7 @@ Score: /20
 | 2          | ✅      |
 | 3          | ✅      |
 | 4          | ✅      |
-| 5          |       |
+| 5          | ❌      |
 | 6          |       |
 | 7          |       |
 | 8          |       |
@@ -66,10 +66,7 @@ public class Employee {
 * **B**❌❌❌❌
 * CORRECT ANSWER: A - while the override doesn't use Object, it is still called when calling equals()
 
-
 <hr>
-
-
 
 ## Question 2
 ❓What is the result of the following code❓
@@ -180,7 +177,8 @@ public class BaseballTeam {
  
 ### My Answer:
 
-* **B,D**
+* **B,D**❌❌❌❌
+* CORRECT ANSWER: A, D - when two objects are equal, they must have equal hashcode. Two objects having same hashCode does not imply they are equal!
 
 <hr>
 
