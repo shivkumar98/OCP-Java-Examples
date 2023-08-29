@@ -530,16 +530,35 @@ public class Outer {
 
 ## Question 17
 
-❓What is the result of the following code❓
+❓What is the result of the following code (choose all that apply)❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+1:  public enum AnimalClasses {
+2:      MAMMAL(true), FISH(Boolean.FALSE), BIRD(false),
+3:      REPTILE(false), AMPHIBIAN(false), INVERTEBRATE(false)
+4:      boolean hasHair;
+5:      pubic AnimalClasses(boolean hasHair) {
+6:          this.hasHair = hasHair;
+7:      }
+8:      public boolean hasHair() {
+9:          return hasHair;
+10:     }
+11:     public void giveWig() {
+12:         hasHair = true; 
+13:     }}
+```
+
+    A. Compiler error on line 2 🎃
+    B. Compiler error on line 3 🎃
+    C. Compiler error on line 5 🎃
+    D. Compiler error on line 8 🎃
+    E. Compiler error on line 12 🎃
+    F. Compiler error on another line 🎃
+    G. The code compiles successfully 🎃
 
 ### My Answer:
+* A - this is fine, B - this is fine, C - this is fine, D - this is fine, E - this is fine.
+* **G**
 
 <hr>
 
