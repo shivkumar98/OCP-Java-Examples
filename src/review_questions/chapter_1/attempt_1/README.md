@@ -1,4 +1,4 @@
-# Chapter 2 - Review Questions Attempt 1
+# Chapter 1 - Review Questions Attempt 1
 
 ## Results:
 
@@ -41,7 +41,7 @@ public class Employee {
         return employeeId;
     }
     public boolean equals(Employee e) {
-        return this.employeeId = e.employeeId;
+        return this.employeeId == e.employeeId;
     }
     public static void main() {
         Employee one = new Employee();
@@ -64,7 +64,9 @@ public class Employee {
 
 ### My Answer:
 *  I THINK it will return failure as it doesn't override the correct method in Object class
-* **B**
+* **B**❌❌❌❌
+* CORRECT ANSWER: A - while the override doesn't use Object, it is still called when calling equals()
+
 
 <hr>
 
