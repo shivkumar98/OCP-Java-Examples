@@ -14,7 +14,7 @@ Score: /20
 | 5          | ❌      |
 | 6          | ✅      |
 | 7          | ✅      |
-| 8          |       |
+| 8          | ❌      |
 | 9          |       |
 | 10         |       |
 | 11         |       |
@@ -273,7 +273,8 @@ public class IceCream {
     F. An exception is thrown. 🎃
 
 ### My Answer:
-* **B**
+* **B**❌❌❌❌
+* CORRECT ANSWER: C - a nested inner class can not contain static members unless it is a static nested class
 
 <hr>
 
