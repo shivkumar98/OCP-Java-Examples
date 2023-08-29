@@ -625,13 +625,32 @@ public class LearnToWalk {
 
 ❓What is the result of the following code❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class FourLegged {
+    String walk = "walk,";
+    static class BabyRhino extends FourLegged {
+        String walk = "toddle,";
+    }
+    public static void main() {
+        FourLegged f = new BabyRhino();
+        BabyRhino b  = new BabyRhino();
+        System.out.print(f.walk);
+        System.out.print(b.walk);
+    }}
+```
+
+    A. toddle,toddle, 🎃
+    B. toddle,walk, 🎃
+    C. walk,toddle, 🎃
+    D. walk,walk, 🎃
+    E. The code does not compile. 🎃
+    F. A runtime exception is thrown 🎃
 
 ### My Answer:
+* I think the code does compile
+* runtime exception is not thrown
+* Strings are not overrided, so it will display what its being referenced as
+* So walk then toddle
+* **C**
 
 <hr>
