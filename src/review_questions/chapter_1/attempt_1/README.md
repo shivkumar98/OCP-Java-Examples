@@ -13,7 +13,7 @@ Score: /20
 | 4          | ✅      |
 | 5          | ❌      |
 | 6          | ✅      |
-| 7          |       |
+| 7          | ✅      |
 | 8          |       |
 | 9          |       |
 | 10         |       |
@@ -242,7 +242,7 @@ public class IceCream {
 ### My Answer:
 
 * The code does not compile!
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
