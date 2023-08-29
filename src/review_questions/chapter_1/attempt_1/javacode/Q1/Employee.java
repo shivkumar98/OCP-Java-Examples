@@ -1,4 +1,4 @@
-package review_questions.chapter_1.attempt_1.javacode;
+package review_questions.chapter_1.attempt_1.javacode.Q1;
 
 public class Employee {
 	public int employeeId;

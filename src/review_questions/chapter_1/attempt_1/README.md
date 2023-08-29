@@ -14,18 +14,18 @@ Score: /20
 | 5          | ❌      |
 | 6          | ✅      |
 | 7          | ✅      |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
+| 8          | ✅      |
+| 9          |          |
+| 10         |          |
+| 11         |          |
+| 12         |          |
+| 13         |          |
+| 14         |          |
+| 15         |          |
+| 16         |          |
+| 17         |          |
+| 18         |          |
+| 19         |          |
 | 20         |      |
 
 ## Question 1
@@ -273,7 +273,8 @@ public class IceCream {
     F. An exception is thrown. 🎃
 
 ### My Answer:
-* **B**
+* **B**❌❌❌❌
+* CORRECT ANSWER: C - a nested inner class can not contain static members unless it is a static nested class
 
 <hr>
 
@@ -308,8 +309,7 @@ public class IceCream {
     F. An exception is thrown🎃
 
 ### My Answer:
-* **B**
-
+* **B**✅✅✅✅ Java 8 requires variables of a local inner class to be effectively final - which it is!
 <hr>
 
 
