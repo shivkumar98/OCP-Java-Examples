@@ -447,16 +447,36 @@ public class IsItFurry {
 
 ## Question 14
 
-❓What is the result of the following code❓
+❓What is a true statement of the following code (choose all that apply)❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+import java.util.*;
+public class IsItFurry {
+    static class Chipmunk { }
+    public static void main() {
+        Chipmunk c = new Chipmunk();
+        ArrayList<Chipmunk> l = new ArrayList<>();
+        Runnable r = new Thread();
+        int result = 0;
+        if (c instanceof Chipmunk) result += 1;
+        if (l instanceof Chipmunk) result += 2;
+        if (r instanceof Chipmunk) result += 4;
+        System.out.println(result);
+    }
+}
+```
+
+    A. The code compiles, and the output is 0 🎃
+    B. The code compiles, and the output is 3 🎃
+    C. The code compiles, and the output is 7 🎃
+    D. c instanceof Chipmunk does not compile 🎃
+    E. l instanceof Chipmunk does not compile 🎃
+    F. r instanceof Chipmunk does not compile 🎃
 
 ### My Answer:
+* c instanceof Chipmunk definitely compiles
+* unsure if the other lines compile
+* **E, F**
 
 <hr>
 
