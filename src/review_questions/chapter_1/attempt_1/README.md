@@ -9,7 +9,7 @@ Score: /20
 | ---------- | -------  |
 | 1          | ❌      |
 | 2          | ✅      |
-| 3          |       |
+| 3          | ✅      |
 | 4          |       |
 | 5          |       |
 | 6          |       |
@@ -108,7 +108,7 @@ public class Book {
 * D - false, you CAN access private fields
 * E - false, casting is fine!
 * F - I can't see why this won't compile
-* **A**✅
+* **A**✅✅✅✅
 
 <hr>
 
@@ -133,7 +133,7 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
 ### My Answer:
 
 * s1 == s2 is false as we have instantiate a brand new string but the second if statement returns true
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
