@@ -370,10 +370,7 @@ public class FootballGame {
 * D is the only correct one!
 * **D**
 
-
 <hr>
-
-
 
 ## Question 12
 
@@ -417,17 +414,35 @@ public class Browsers {
 
 ## Question 13
 
-❓What is the result of the following code❓
+❓Which is a true statement about the following code❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class IsItFurry {
+    static interface Mammal { }
+    static class Furry implements Mammal { }
+    static class Chipmunk extends Furry { }
+    public static void main() {
+        Chipmunk c = new Chipmunk();
+        Mammal m = c;
+        Furry f = c;
+        int result = 0;
+        if (c instanceof Mammal) result += 1;
+        if (c instanceof Furry) result += 2;
+        if (null instanceof Furry) result += 4;
+        System.out.println(result);
+    }
+}
+```
+
+    A. The output is 0 🎃
+    B. The output is 3 🎃
+    C. The output is 7 🎃
+    D. c instanceof Mammal does not compile 🎃
+    E. c instanceof Furry does not compile🎃
+    F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-
+* **F**
 <hr>
 
 ## Question 14
