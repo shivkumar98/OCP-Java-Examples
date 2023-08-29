@@ -497,16 +497,34 @@ public class IsItFurry {
 
 ## Question 16
 
-❓What is the result of the following code❓
+❓Which of the following can be inserted in main❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class Outer {
+    class Inner { }
+
+    public static void main(String[] args) {
+        // INSERT CODE HERE
+    }
+}
+```
+
+    A. Inner in = new Inner(); 🎃
+    B. Inner in = Outer.new Inner(); 🎃
+    C. Outer.Inner in = new Outer.Inner(); 🎃
+    D. Outer.Inner in = new Outer().Inner(); 🎃
+    E. Outer.Inner in = new Outer().new Inner(); 🎃
+    F. Outer.Inner in = Outer.new Inner(); 🎃
 
 ### My Answer:
+* You should only be able to instantiate inner, if outer is instantiated
+* A - true
+* B - false
+* C - false
+* D - false
+* E - true
+* F - false
+* **A,E**
 
 <hr>
 
