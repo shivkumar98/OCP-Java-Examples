@@ -10,7 +10,7 @@ Score: /20
 | 1          | ❌      |
 | 2          | ✅      |
 | 3          | ✅      |
-| 4          |       |
+| 4          | ✅      |
 | 5          |       |
 | 6          |       |
 | 7          |       |
@@ -164,7 +164,7 @@ public class BaseballTeam {
 
 ### My Answer:
 * The code DOES compile but the hashCode implementation is improper!
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
