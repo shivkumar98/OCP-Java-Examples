@@ -7,8 +7,8 @@ Score: /20
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |       |
-| 2          |       |
+| 1          | ❌      |
+| 2          | ✅      |
 | 3          |       |
 | 4          |       |
 | 5          |       |
@@ -51,7 +51,6 @@ public class Employee {
         if (one.equals(two)) System.out.println("Success")
         else System.out.println("Failure");
     }
-
 }
 ```
 
@@ -109,6 +108,7 @@ public class Book {
 * D - false, you CAN access private fields
 * E - false, casting is fine!
 * F - I can't see why this won't compile
+* **A**✅
 
 <hr>
 
