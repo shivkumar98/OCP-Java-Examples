@@ -390,7 +390,7 @@ public class Browsers {
     }
     static class IE extends Browser {
         public void go() {
-            System.out.println("Inside Firefox");
+            System.out.println("Inside IE");
         }
     }
     public static void main() {
@@ -408,7 +408,8 @@ public class Browsers {
     E. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **D**
+* **D**❌❌❌❌
+* CORRECT ANSWER: E - You cannot cast firefox into IE so runtime exception is thrown
 
 <hr>
 

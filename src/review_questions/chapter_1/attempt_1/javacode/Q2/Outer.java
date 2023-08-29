@@ -15,6 +15,6 @@ public class Outer {
 		return x;
 	}
 	public static void main(String[] args) {
-		new Outer.getX();
+		// new Outer.getX();
 	}
 }
