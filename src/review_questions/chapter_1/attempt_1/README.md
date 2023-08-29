@@ -356,7 +356,19 @@ public class FootballGame {
 }
 ```
 
+    A. import my.sports.Football; 🎃
+    B. import static my.sports.*; 🎃
+    C. import static my.sports.Football; 🎃
+    D. import static my.sports.Football.*; 🎃
+    E. static import my.sports.*; 🎃
+    F. static import my.sports.Football; 🎃
+    G. static import my.sports.Football;
+
 ### My Answer:
+* static import is wront, so E, F, G are out
+* We are trying to access a static member of a public class in a different package. So we need to import it statically
+* D is the only correct one!
+* **D**
 
 
 <hr>
