@@ -564,17 +564,36 @@ public class Outer {
 
 ## Question 18
 
-❓What is the result of the following code❓
+❓What is the result of the following code (choose all that apply)❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class Swimmer {
+    enum AnimalClasses {
+    MAMMAL, FISH {
+        public boolean hasFins() { return true; }},
+    BIRD, REPTILE, AMPHIBIAN, INVERTEBRATE;
+    public abstract boolean hasFins();    
+    }
+    public static void main() {
+        System.out.println(AnimalClasses.FISH);
+        System.out.println(AnimalClasses.FISH.ordinal());
+        System.out.println(AnimalClasses.FISH.hasFins());
+        System.our.println(AnimalClasses.BIRD.hasFins());
+    }
+}
+```
+
+    A. fish 🎃
+    B. FISH 🎃
+    C. 0 🎃
+    D. 1 🎃
+    E. false 🎃
+    F. true 🎃
+    G. The code does not compile
 
 ### My Answer:
-
+* I don't think `AnimalClasses.BIRD.hasFins()` compiles!
+* **G**
 <hr>
 
 ## Question 19
