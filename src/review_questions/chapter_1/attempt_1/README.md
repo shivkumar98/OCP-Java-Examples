@@ -482,17 +482,17 @@ public class IsItFurry {
 
 ## Question 15
 
-❓What is the result of the following code❓
+❓Which statements are true about the equals() method (choose all that apply)❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+    A. if equals(null) is called, the method should throw an exception 🎃
+    B. if equals(null) is called, the method should return false 🎃
+    C. if equals(null) is called, the method should return true 🎃
+    D. If equals() is passed the wrong type, the method should throw an exception 🎃
+    E. If equals() is passed the wrong type, the method should return false 🎃
+    F. If equals() is passed the wrong type, the method should return true 🎃
 
 ### My Answer:
-
+* **A, E**
 <hr>
 
 ## Question 16
