@@ -598,17 +598,27 @@ public class Swimmer {
 
 ## Question 19
 
-❓What is the result of the following code❓
+❓Which of the following can be inserted to override the superclass method (choose all that apply)❓
 
-    A. 🎃
-    B. 🎃
-    C. 🎃
-    D. 🎃
-    E. 🎃
-    F. 🎃
+```java
+public class LearnToWalk {
+    public void toddle() {}
+    class BabyRhino extends LearnToWalk {
+        // INSERT CODE HERE
+    }
+}
+```
+
+    A. `public void toddle() {}` 🎃
+    B. `public void Toddle() {}` 🎃
+    C. `public final void toddle() {}` 🎃
+    D. `public static void toddle() {}` 🎃
+    E. `public void toddle() throws Exception {}` 🎃
+    F. `public void toddle(boolean fall)` 🎃
 
 ### My Answer:
-
+* A - true, B - false (method signature changed), C - true (making it final does not change the fact it is overrided), D - false (not an override), E - false (parent does not throw exception), F - false (method signature changed)
+* **A,C**
 <hr>
 
 ## Question 20
