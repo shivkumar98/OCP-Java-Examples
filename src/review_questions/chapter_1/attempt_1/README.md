@@ -15,9 +15,9 @@ Score: /20
 | 6          | ✅      |
 | 7          | ✅      |
 | 8          | ❌      |
-| 9          | ✅        |
-| 10         | ✅        |
-| 11         |          |
+| 9          | ✅      |
+| 10         | ✅      |
+| 11         | ✅      |
 | 12         |          |
 | 13         |          |
 | 14         |          |
@@ -368,7 +368,7 @@ public class FootballGame {
 * static import is wront, so E, F, G are out
 * We are trying to access a static member of a public class in a different package. So we need to import it statically
 * D is the only correct one!
-* **D**
+* **D**✅✅✅✅
 
 <hr>
 
