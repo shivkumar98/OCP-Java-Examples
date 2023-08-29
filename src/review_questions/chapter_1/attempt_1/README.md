@@ -248,122 +248,116 @@ public class IceCream {
 
 ## Question 8
 
-❓Which of the following are true of interfaces❓
+❓What is the result of the following code?❓
 
-    A. They can extend other classes 🎃
-    B. They cannot be extended 🎃
-    C. They enable classes tto have multiple inheritance🎃
-    D. They can only contain abstract methods 🎃
-    E. They can be decalared final🎃
-    F. All members of an interface are public🎃
+```java
+1:  public class Outer {
+2:      private int x =5;
+3:      protected class Inner {
+4:          public static int x = 10;
+5:          public void go() { System.out.println(x); }
+6:      }
+7:      public static void main(String[] args) {
+8:          Outer out = new Outer();
+9:          Outer.Inner in = out.new Inner();
+10:          in.go();
+11:      }
+12:  }
+```
+
+    A. The output is 5. 🎃
+    B. The output is 10. 🎃
+    C. Line 4 generates a compiler error. 🎃
+    D. Line 8 generates a compiler error. 🎃
+    E. Line 9 generates a compiler error. 🎃
+    F. An exception is thrown. 🎃
 
 ### My Answer:
-* A - false, can only extend interfaces
-* B - false, they can be extended by interfaces
-* C - true
-* D - false, can contain default methods
-* E - false
-* F - true
-* **C, F**
+* **B**
 
 <hr>
 
 ## Question 9
 
-❓What changes are needed to make the following singleton pattern correct❓
+❓What is the result of the following code?❓
 
 ```java
-public class CheetahManager {
-    public static CheetahManager cheetahManager;
-    private CheetahManager() {}
-    public static CheetahManager getCheetahManager() {
-        if (cheetahManager == null) {
-            cheetahManager = new CheetahManager();
-        }
-        return cheetahManager;
-    }
-}
+1:  public class Outer {
+2:      private int x = 24;
+3:      public int getX() {
+4:          String message = "x is ";
+5:          class Inner {
+6:              private int x = Outer.this.x;
+7:              public void printX() {
+8:                  System.out.println(message + x);
+9:              }
+10:         }
+11:         Inner in = new Inner();
+12:         in.printX();
+13:         return x;
+14:     }
+15:     public static void main(String[] args) {
+16:         new Outer.getX();
+17:     }}
 ```
-
-    A. None; the singleton pattern is properly implemented🎃
-    B. Rename cheetahManager to instance🎃
-    C. Rename getCheetahManager() to getInstance()🎃
-    D. Change the access modifier of cheetahManager from public to private🎃
-    E. Mark cheetahManager `final`🎃
-    F. Add synchronized to getCheetahManager()🎃
-
-### My Answer:
-* A - false, we need synchronized to ensure threads access a single instance
-* B - false, not necessary
-* C - false, not necessary
-* D - false
-* E - false, can not be done
-* F - true
-* **F**
+    A. x is 10 🎃
+    B. x is 24 🎃
+    C. Line 6 generates a compiler error🎃
+    D. Line 8 generates a compiler error🎃
+    E. Line 11 generates a compiler error🎃
+    F. An exception is thrown🎃
 
 ### My Answer:
+* **B**
 
 <hr>
 
 
 ## Question 10
 
-❓What is the result of the following code❓
+❓The following code appears in the file named `Book.java`. What is the result of compiling the source file❓
 
 ```java
-1: public interface CanWalk {
-2:     default void walk() { System.out.println("Walking"); }
-3: }
-4: public interface CanRun {
-5:     public default void walk() { System.out.println("Walking"); }
-6:     public abstract void run();
-7: }
-8: public interface CanSprint extends CanWalk, CanRun {
-9:     void sprint();
-10: }
+1: public class Book {
+2:     private int pageNumber;
+3:     private class BookReader {
+4:         public int getPage() {
+5:             return pageNumber;
+6: } } }
 ```
 
-    A. The code compiles without issue 🎃
-    B. The code will not compile due to line 5🎃
-    C. The code will not compile due to line 6🎃
-    D. The code will not compile due to line 8🎃
-    E. The code will not compile due to line 9🎃
-
+    A. The code compiles successfully, and one bytecode file is generated: `Book.class` 🎃
+    B. The code compiles successfully, and two bytecode files are generated: `Book.class` and `BookReader.class` 🎃
+    C. The code compiles successfully, and two bytecode files are generated: `Book.class` and `Book$BookReader.class` 🎃
+    D. A compiler error occurs on line 3 🎃
+    E. A compiler error occurs on line 5 🎃
+    
 ### My Answer:
 * A - false
-* B - false, this is fine
-* C - false, this is fine
-* D - true (I think so anyway)
-* E - false this is fine
-* **D**
+* B - false
+* C - true
+* **C**
 
 <hr>
 
 ## Question 11
 
-❓Which lambda can replace the MySecret class to return the same value (choose all that apply)❓
+❓Which of the following statements can be inserted to make `FootballGame` compile?❓
 
 ```java
-public interface Secret {
-    String magic(double d);
+package my.sports;
+public class Football {
+    public static final int TEAM_SIZE = 11;
 }
-public class MySecret implements Secret {
-    public String magic(double d) {
-        return "Poof";
-    }
+package my.apps;
+// INSERT CODE HERE
+public class FootballGame {
+    public int getTeamSize() { return TEAM_SIZE; }
 }
 ```
 
-    A. `caller((e) -> "Poof");` 🎃
-    B. `caller((e) -> {"Poof"});` 🎃
-    C. `caller((e) -> { String e =""; "Poof"; });` 🎃
-    D. `caller((e) -> { String e =""; return "Poof"; }); 🎃
-    E. `caller((e) -> { String e =""; return "Poof" }); 🎃
-    F. `caller((e) -> { String f =""; return "Poof"; }); 🎃
-
 ### My Answer:
 
-* **A, F**
 
 <hr>
 
@@ -372,6 +366,7 @@ public class MySecret implements Secret {
 ## Question 12
 
 ❓What is the result of the following code❓
+
 
     A. 🎃
     B. 🎃
