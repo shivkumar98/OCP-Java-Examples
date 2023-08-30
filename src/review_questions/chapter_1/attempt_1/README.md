@@ -2,8 +2,8 @@
 
 ## Results:
 
-Date: 
-Score: /20
+Date: 30/08/2023
+Score: 11/20
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -26,7 +26,7 @@ Score: /20
 | 17         | ❌      |
 | 18         | ✅      |
 | 19         | ✅        |
-| 20         |         |
+| 20         | ✅        |
 
 ## Question 1
 
@@ -668,6 +668,6 @@ public class FourLegged {
 * runtime exception is not thrown
 * Strings are not overrided, so it will display what its being referenced as
 * So walk then toddle
-* **C**
+* **C**✅✅✅✅
 
 <hr>
