@@ -23,7 +23,7 @@ Score: /20
 | 14         | ❌         |
 | 15         | ❌         |
 | 16         | ❌         |
-| 17         |          |
+| 17         | ❌         |
 | 18         |          |
 | 19         |          |
 | 20         |      |
@@ -570,7 +570,10 @@ public class Outer {
 
 ### My Answer:
 * A - this is fine, B - this is fine, C - this is fine, D - this is fine, E - this is fine.
-* **G**
+* **G**❌❌❌❌
+* CORRECT ANSWER: B, C
+* Enums need a semi-colon to finish listing the enums.
+* Enums can not have a public constructor. Constructor can only be labelled private not allowed public
 
 <hr>
 
