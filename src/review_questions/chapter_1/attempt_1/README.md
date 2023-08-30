@@ -500,7 +500,10 @@ public class IsItFurry {
     F. If equals() is passed the wrong type, the method should return true 🎃
 
 ### My Answer:
-* **A, E**
+* **A, E**❌❌❌❌
+* CORRECT ANSWER: B, E
+* The equals method CAN be passed null and incorrect types, it will just return false
+
 <hr>
 
 ## Question 16
