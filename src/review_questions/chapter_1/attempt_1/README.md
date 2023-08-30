@@ -20,7 +20,7 @@ Score: /20
 | 11         | ✅      |
 | 12         | ❌         |
 | 13         | ❌         |
-| 14         |          |
+| 14         | ❌         |
 | 15         |          |
 | 16         |          |
 | 17         |          |
@@ -481,7 +481,10 @@ public class IsItFurry {
 ### My Answer:
 * c instanceof Chipmunk definitely compiles
 * unsure if the other lines compile
-* **E, F**
+* **E, F**❌❌❌❌
+* CORRECT ANSWER: E
+* ArrayList is a concrete class which does not extend Chipmunk.
+* r is referenced through an interface so it does compile, but of coure it is false
 
 <hr>
 
