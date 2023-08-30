@@ -18,15 +18,15 @@ Score: /20
 | 9          | ✅      |
 | 10         | ✅      |
 | 11         | ✅      |
-| 12         | ❌         |
-| 13         | ❌         |
-| 14         | ❌         |
-| 15         | ❌         |
-| 16         | ❌         |
-| 17         | ❌         |
-| 18         |          |
-| 19         |          |
-| 20         |      |
+| 12         | ❌      |
+| 13         | ❌      |
+| 14         | ❌      |
+| 15         | ❌      |
+| 16         | ❌      |
+| 17         | ❌      |
+| 18         | ✅       |
+| 19         |         |
+| 20         |         |
 
 ## Question 1
 
@@ -593,7 +593,7 @@ public class Swimmer {
         System.out.println(AnimalClasses.FISH);
         System.out.println(AnimalClasses.FISH.ordinal());
         System.out.println(AnimalClasses.FISH.hasFins());
-        System.our.println(AnimalClasses.BIRD.hasFins());
+        System.out.println(AnimalClasses.BIRD.hasFins());
     }
 }
 ```
@@ -608,7 +608,8 @@ public class Swimmer {
 
 ### My Answer:
 * I don't think `AnimalClasses.BIRD.hasFins()` compiles!
-* **G**
+* **G**✅✅✅✅
+* All enums are required to implement an abstract class
 <hr>
 
 ## Question 19
