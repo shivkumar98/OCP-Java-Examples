@@ -24,8 +24,8 @@ Score: /20
 | 15         | ❌      |
 | 16         | ❌      |
 | 17         | ❌      |
-| 18         | ✅       |
-| 19         |         |
+| 18         | ✅      |
+| 19         | ✅        |
 | 20         |         |
 
 ## Question 1
@@ -634,7 +634,8 @@ public class LearnToWalk {
 
 ### My Answer:
 * A - true, B - false (method signature changed), C - true (making it final does not change the fact it is overrided), D - false (not an override), E - false (parent does not throw exception), F - false (method signature changed)
-* **A,C**
+* **A,C**✅✅✅✅
+* E will not compile as it has a checked exception while the parent doesn't
 <hr>
 
 ## Question 20
