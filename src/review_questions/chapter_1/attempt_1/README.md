@@ -21,8 +21,8 @@ Score: /20
 | 12         | ❌         |
 | 13         | ❌         |
 | 14         | ❌         |
-| 15         |          |
-| 16         |          |
+| 15         | ❌         |
+| 16         | ❌         |
 | 17         |          |
 | 18         |          |
 | 19         |          |
@@ -535,8 +535,9 @@ public class Outer {
 * D - false
 * E - true
 * F - false
-* **A,E**
-
+* **A,E**❌❌❌❌
+* CORRECT ANSWER: E
+* You can not instantiate the inner class directly!
 <hr>
 
 ## Question 17
