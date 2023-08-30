@@ -18,8 +18,8 @@ Score: /20
 | 9          | ✅      |
 | 10         | ✅      |
 | 11         | ✅      |
-| 12         |          |
-| 13         |          |
+| 12         | ❌         |
+| 13         | ❌         |
 | 14         |          |
 | 15         |          |
 | 16         |          |
@@ -429,7 +429,7 @@ public class IsItFurry {
         int result = 0;
         if (c instanceof Mammal) result += 1;
         if (c instanceof Furry) result += 2;
-        if (null instanceof Furry) result += 4;
+        if (null instanceof Chipmunk) result += 4;
         System.out.println(result);
     }
 }
@@ -443,7 +443,11 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* **F**
+* **F**❌❌❌❌
+* CORRECT ANSWER: B
+* c is an instance of chipmunk, but the Chipmunk class is an implementation/supertype of Mammal and Furry
+* null is not an instance of any type. So the first two if statements are true
+* The answer is therefore B
 <hr>
 
 ## Question 14
