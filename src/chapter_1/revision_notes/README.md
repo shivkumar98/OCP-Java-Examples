@@ -19,3 +19,14 @@
     - Convert to a larger primitive type
     - Convert to autoboxed type
     - Varargs.
+
+<hr>
+
+# 🧠 1.2 Using instanceof
+* `a instanceof B` will return true if:
+    - `a` is an instance of B
+    - `a` is an instance of a subclass of B (including indirectly)
+    - `a` is an instance of a class which implements B
+* Calling `a instanceof Object` will always return true EXCEPT when a is null.
+* If your are seeing if a object is an instance of a concrete class which is not of the same type (through inheritance) then a compilation error will occur
+* A complilation error does not occur if your are comparing against an object which is referenced through an interface!
