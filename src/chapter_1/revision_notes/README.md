@@ -30,3 +30,14 @@
 * Calling `a instanceof Object` will always return true EXCEPT when a is null.
 * If your are seeing if a object is an instance of a concrete class which is not of the same type (through inheritance) then a compilation error will occur
 * A complilation error does not occur if your are comparing against an object which is referenced through an interface!
+
+<hr>
+
+# 🧠 1.3 Coding equals and hashCode
+## 🟥 equals
+* We can override the `boolean equals(Object object)` method from the `Object class`.
+* Java has a contract for having valid implementations of the `equals()` metho:
+- If two objects are equals, then they MUST have the same hashCode.
+- Two objects having the same hashCode do not require to be equal
+## 🟥 hashCode
+* When implementing equals, you should also implement the hashcode! This is because if you create a hashMap, the hashCode is used to store the mapping key.
