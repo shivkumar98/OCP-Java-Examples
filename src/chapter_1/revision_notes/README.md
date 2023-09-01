@@ -34,6 +34,7 @@
 <hr>
 
 # 🧠 1.3 Coding equals and hashCode
+
 ## 🟥 equals
 * We can override the `boolean equals(Object object)` method from the `Object class`.
 * Java has a contract for having valid implementations of the `equals()` metho:
@@ -41,3 +42,41 @@
 - Two objects having the same hashCode do not require to be equal
 ## 🟥 hashCode
 * When implementing equals, you should also implement the hashcode! This is because if you create a hashMap, the hashCode is used to store the mapping key.
+
+<hr>
+
+# 🧠 1.4 Working with Enums
+* You can define an enum as simply a list of constants:
+```java
+public enum EnumClass {
+	enum1, enum2, enum3
+}
+```
+* We can add a private constructor which allows each enum to store a property:
+```java
+public enum Restaurants {
+    KFC(true), McD(false), Starbucks(false);
+    private boolean servesChicken;
+    private Restaurants(boolean servesChicken) {
+        this.servesChicken = servesChicken;
+    }
+}
+```
+* The constructor is called exactly once when the enum is referenced.
+* We can also define an abstract method within the enum class, which requires all the enums to implement:
+```java
+public enum Seasons {
+	WINTER {void printHours() {
+		System.out.println("11am-4pm");
+		}
+	},
+	SPRING {void printHours() {
+		System.out.println("9am-6pm");
+	}},
+	SUMMER {
+		void printHours() {} 
+	};
+	abstract void printHours();
+}
+```
+* We can also remove the `abstract` modifier so that all of the enums will use a default implementation.
