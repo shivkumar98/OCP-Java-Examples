@@ -80,3 +80,76 @@ public enum Seasons {
 }
 ```
 * We can also remove the `abstract` modifier so that all of the enums will use a default implementation.
+
+<hr>
+
+# 🧠 1.5 Creating Nested Classes
+
+## 🟥 Member Inner Classes
+* A member inner class can have any access modifier, it can extend any class/interface (including other inner classes)
+* Can be abstract or final, they can not contain static members
+* They CAN access enclosing class's members (even private ones)
+```java
+public class Outer {
+	private String greeting ="hi";
+	private class Inner {
+		public void go() {
+			for (int i=0;i<3;i++) 
+				System.out.println(greeting);
+		}	
+	}
+	void callInner() {
+		Inner inner = new Inner();
+	}
+	public static void main(String[] args) {
+		// Inner inner = new Inner(); // COMPILER ERROR
+		new Outer().callInner();;
+	}
+}
+public class Outer {
+	private String greeting ="hi";
+	private class Inner {
+		public void go() {
+			for (int i=0;i<3;i++) 
+				System.out.println(greeting);
+		}	
+	}
+	void callInner() {
+		Inner inner = new Inner();
+	}
+	public static void main(String[] args) {
+		// Inner inner = new Inner(); // COMPILER ERROR
+		new Outer().callInner();
+        Inner inner = new Outer().new Inner();
+	}
+}
+```
+
+<br>
+
+* The inner class can have the same variable names as outside:
+
+```java
+public class A {
+	int x = 11;
+	class B {
+		int x = 22;
+		class C {
+			int x = 33;
+			int y = 456;
+			void printAll() {
+				System.out.println(x); // 33
+				System.out.println(this.x); //33
+				System.out.println(B.this.x); // 22
+				System.out.println(A.this.x); // 11
+			}
+		}
+	}
+	public static void main(String[] args) {
+		int aX = new A().x;
+		int bX = new A().new B().x;
+		int cX = new A().new B().new C().x;
+		new A().new B().new C().printAll();
+	}
+}
+```
