@@ -17,12 +17,12 @@ Score: /20
 | 8          |  ❌        |
 | 9          |  ❌        |
 | 10         |  ✅        |
-| 11         |          |
-| 12         |          |
-| 13         |          |
-| 14         |          |
-| 15         |          |
-| 16         |          |
+| 11         |  ✅        |
+| 12         |  ✅        |
+| 13         |  ✅        |
+| 14         |  ✅        |
+| 15         |  ✅        |
+| 16         |  ✅        |
 | 17         |          |
 | 18         |          |
 | 19         |          |
@@ -362,7 +362,7 @@ public class FootballGame {
     G. static import my.sports.Football;
 
 ### My Answer:
-* **D**
+* **D**✅✅✅✅
 
 <hr>
 
@@ -402,7 +402,7 @@ public class Browsers {
     E. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -436,7 +436,7 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅
 
 <hr>
 
@@ -470,7 +470,7 @@ public class IsItFurry {
 
 ### My Answer:
 * The code does not compile!
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -487,7 +487,8 @@ public class IsItFurry {
 
 ### My Answer:
 * equals() can be passed any type, including incorrect types!
-* **B, E**
+* **B, E**✅✅✅✅
+
 <hr>
 
 ## Question 16
@@ -513,7 +514,7 @@ public class Outer {
 
 ### My Answer:
 * The nested inner class can only be instantiated through Outer
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 17
