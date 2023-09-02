@@ -206,6 +206,7 @@ public class FlavorsEnum {
     F. The code does not compile for a different reason 🎃
 
 ### My Answer:
+* **B**
 
 <hr>
 
@@ -239,6 +240,7 @@ public class IceCream {
     F. An exception is thrown 🎃
 
 ### My Answer:
+* **E**
 
 <hr>
 
@@ -248,7 +250,7 @@ public class IceCream {
 
 ```java
 1:  public class Outer {
-2:      private int x =5;
+2:      private int x = 5;
 3:      protected class Inner {
 4:          public static int x = 10;
 5:          public void go() { System.out.println(x); }
@@ -269,6 +271,7 @@ public class IceCream {
     F. An exception is thrown. 🎃
 
 ### My Answer:
+* **B**
 
 <hr>
 
@@ -303,6 +306,8 @@ public class IceCream {
     F. An exception is thrown🎃
 
 ### My Answer:
+* You can not instantiate a local inner class!
+* **E**
 
 ## Question 10
 
@@ -324,6 +329,7 @@ public class IceCream {
     E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
+* **C**
 
 <hr>
 
