@@ -2,31 +2,31 @@
 
 ## Results:
 
-Date: 
-Score: /20
+Date: 02/08/2023
+Score: 17/20
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |  ✅        |
-| 2          |  ✅        |
-| 3          |  ✅        |
-| 4          |  ✅        |
-| 5          |  ✅        |
-| 6          |  ✅        |
-| 7          |  ✅        |
-| 8          |  ❌        |
-| 9          |  ❌        |
-| 10         |  ✅        |
-| 11         |  ✅        |
-| 12         |  ✅        |
-| 13         |  ✅        |
-| 14         |  ✅        |
-| 15         |  ✅        |
-| 16         |  ✅        |
-| 17         |          |
-| 18         |          |
-| 19         |          |
-| 20         |          |
+| 1          |  ✅      |
+| 2          |  ✅      |
+| 3          |  ✅      |
+| 4          |  ✅      |
+| 5          |  ✅      |
+| 6          |  ✅      |
+| 7          |  ✅      |
+| 8          |  ❌      |
+| 9          |  ❌      |
+| 10         |  ✅      |
+| 11         |  ✅      |
+| 12         |  ✅      |
+| 13         |  ✅      |
+| 14         |  ✅      |
+| 15         |  ✅      |
+| 16         |  ✅      |
+| 17         |  ❌      |
+| 18         |  ✅      |
+| 19         |  ✅      |
+| 20         |  ✅      |
 
 ## Question 1
 
@@ -546,7 +546,10 @@ public class Outer {
     G. The code compiles successfully 🎃
 
 ### My Answer:
-* **G**
+* **G**❌❌❌❌
+* CORRECT ANSWER: B, C
+* A semi-colon is needed if anything other than the enums are present
+* Constructor can not be public!
 
 <hr>
 
@@ -581,7 +584,7 @@ public class Swimmer {
 
 ### My Answer:
 * The code does not compile, as not all of the enums implement the abstract class!
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -605,7 +608,7 @@ public class LearnToWalk {
     F. `public void toddle(boolean fall)` 🎃
 
 ### My Answer:
-* **A, C**
+* **A, C**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -635,6 +638,6 @@ public class FourLegged {
 
 ### My Answer:
 * Strings are not overrided
-* **C**
+* **C**✅✅✅✅
 
 <hr>
