@@ -179,3 +179,20 @@ public class Outer {
 	}
 }
 ```
+
+<br>
+
+## 🟥 Anoymous Inner Classes
+* This is a inner class which is not named! It is declared and instantiated in one line.
+* It is useful for instantiating an interface with a short implementation
+* E.g.:
+```java
+public class AnonInner {
+	abstract class SalesTodayOnly {
+		abstract int dollarsOff();
+	}
+	SalesTodayOnly salesTodayOnly = new SalesTodayOnly() {
+		int dollarsOff() { return 3; }
+	};
+}
+```
