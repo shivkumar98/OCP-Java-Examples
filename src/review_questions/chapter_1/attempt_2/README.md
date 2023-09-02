@@ -541,6 +541,7 @@ public class Outer {
     G. The code compiles successfully 🎃
 
 ### My Answer:
+* **G**
 
 <hr>
 
@@ -574,7 +575,8 @@ public class Swimmer {
     G. The code does not compile
 
 ### My Answer:
-
+* The code does not compile, as not all of the enums implement the abstract class!
+* **G**
 <hr>
 
 ## Question 19
@@ -598,7 +600,7 @@ public class LearnToWalk {
     F. `public void toddle(boolean fall)` 🎃
 
 ### My Answer:
-
+* **A, C**
 <hr>
 
 ## Question 20
@@ -627,5 +629,7 @@ public class FourLegged {
     F. A runtime exception is thrown 🎃
 
 ### My Answer:
+* Strings are not overrided
+* **C**
 
 <hr>
