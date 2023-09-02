@@ -358,6 +358,7 @@ public class FootballGame {
     G. static import my.sports.Football;
 
 ### My Answer:
+* **D**
 
 <hr>
 
@@ -397,6 +398,7 @@ public class Browsers {
     E. A runtime exception is thrown 🎃
 
 ### My Answer:
+* **E**
 
 <hr>
 
@@ -430,7 +432,7 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* **F**❌❌❌❌
+* **B**
 
 <hr>
 
@@ -463,6 +465,8 @@ public class IsItFurry {
     F. r instanceof Chipmunk does not compile 🎃
 
 ### My Answer:
+* The code does not compile!
+* **E**
 
 <hr>
 
@@ -478,7 +482,8 @@ public class IsItFurry {
     F. If equals() is passed the wrong type, the method should return true 🎃
 
 ### My Answer:
-
+* equals() can be passed any type, including incorrect types!
+* **B, E**
 <hr>
 
 ## Question 16
@@ -503,7 +508,8 @@ public class Outer {
     F. Outer.Inner in = Outer.new Inner(); 🎃
 
 ### My Answer:
-
+* The nested inner class can only be instantiated through Outer
+* **E**
 <hr>
 
 ## Question 17
