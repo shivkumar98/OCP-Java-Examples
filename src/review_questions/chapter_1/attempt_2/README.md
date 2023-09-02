@@ -12,11 +12,11 @@ Score: /20
 | 3          |  ✅        |
 | 4          |  ✅        |
 | 5          |  ✅        |
-| 6          |          |
-| 7          |          |
-| 8          |          |
-| 9          |          |
-| 10         |          |
+| 6          |  ✅        |
+| 7          |  ✅        |
+| 8          |  ❌        |
+| 9          |  ❌        |
+| 10         |  ✅        |
 | 11         |          |
 | 12         |          |
 | 13         |          |
@@ -206,7 +206,7 @@ public class FlavorsEnum {
     F. The code does not compile for a different reason 🎃
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅
 
 <hr>
 
@@ -240,7 +240,7 @@ public class IceCream {
     F. An exception is thrown 🎃
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -258,7 +258,7 @@ public class IceCream {
 7:      public static void main(String[] args) {
 8:          Outer out = new Outer();
 9:          Outer.Inner in = out.new Inner();
-10:          in.go();
+10:         in.go();
 11:      }
 12:  }
 ```
@@ -271,7 +271,9 @@ public class IceCream {
     F. An exception is thrown. 🎃
 
 ### My Answer:
-* **B**
+* **B**❌❌❌❌
+* CORRECT ANSWER: C
+* Member inner classes can not contain static members,
 
 <hr>
 
@@ -307,7 +309,9 @@ public class IceCream {
 
 ### My Answer:
 * You can not instantiate a local inner class!
-* **E**
+* **E**❌❌❌❌
+* CORRECT ANSWER: B
+* In order to access outer x, you need to use Outer.this.x
 
 ## Question 10
 
@@ -329,7 +333,7 @@ public class IceCream {
     E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 

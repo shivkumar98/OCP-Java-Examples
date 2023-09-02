@@ -8,5 +8,6 @@ public class Enclosing {
 	public static void main(String[] args) {
 		Nested nested = new Nested();
 		System.out.println(nested.price); // 2
+		nested.x; // DOES NOT COMPILE
 	}
 }
