@@ -7,11 +7,11 @@ Score: /20
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |          |
-| 2          |          |
-| 3          |          |
-| 4          |          |
-| 5          |          |
+| 1          |  ✅        |
+| 2          |  ✅        |
+| 3          |  ✅        |
+| 4          |  ✅        |
+| 5          |  ✅        |
 | 6          |          |
 | 7          |          |
 | 8          |          |
@@ -63,7 +63,7 @@ public class Employee {
 
 ### My Answer:
 * The defined equals() method is called, and since the employeeId matches it returns true!
-* A
+* A✅✅✅✅
 
 <hr>
 
@@ -102,7 +102,7 @@ public class Book {
 * D - false, private fields CAN be accessed
 * E - false
 * F - false
-* **A**
+* **A**✅✅✅✅
 
 <hr>
 
@@ -127,7 +127,7 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
 ### My Answer:
 * s1 != s2
 * s1.equals(s2) is true
-* **C** 
+* **C** ✅✅✅✅
 
 <hr>
 
@@ -161,7 +161,7 @@ public class BaseballTeam {
 * B - false, this is fine
 * C - true, hasCode is not valid
 * D - false
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -180,7 +180,7 @@ public class BaseballTeam {
 * B - false
 * C - false
 * D - true
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 6
