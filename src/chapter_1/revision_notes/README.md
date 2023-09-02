@@ -86,6 +86,7 @@ public enum Seasons {
 # 🧠 1.5 Creating Nested Classes
 
 ## 🟥 Member Inner Classes
+
 * A member inner class can have any access modifier, it can extend any class/interface (including other inner classes)
 * Can be abstract or final, they can not contain static members
 * They CAN access enclosing class's members (even private ones)
@@ -157,6 +158,7 @@ public class A {
 <br>
 
 ## 🟥 Local Inner Classes
+
 * These are classes which are defined within a method. They have access to all the variables of enclosing class and any local variables which are effectively final.
 * They can not contain static members
 * They can not be marked by any access modifier:
@@ -183,6 +185,7 @@ public class Outer {
 <br>
 
 ## 🟥 Anoymous Inner Classes
+
 * This is a inner class which is not named! It is declared and instantiated in one line.
 * It is useful for instantiating an interface with a short implementation
 * E.g.:
@@ -194,5 +197,26 @@ public class AnonInner {
 	SalesTodayOnly salesTodayOnly = new SalesTodayOnly() {
 		int dollarsOff() { return 3; }
 	};
+}
+```
+
+<br>
+
+## 🟥 Static Nested Classes
+
+* This is a static class declared at class level, it can be marked with accesibility modifiers and can access members of enclosing class.
+* It CAN contain static members!
+* E.g.:
+```java
+public class Enclosing {
+	int x = 1;
+	private static class Nested {
+		static int price = 2;
+	}
+	public static void main(String[] args) {
+		Nested nested = new Nested();
+		System.out.println(nested.price); // 2
+		nested.x; // DOES NOT COMPILE
+	}
 }
 ```
