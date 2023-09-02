@@ -153,3 +153,29 @@ public class A {
 	}
 }
 ```
+
+<br>
+
+## 🟥 Local Inner Classes
+* These are classes which are defined within a method. They have access to all the variables of enclosing class and any local variables which are effectively final.
+* They can not contain static members
+* They can not be marked by any access modifier:
+
+```java
+public class Outer {
+	int width = 10;
+	void calculateArea() {
+		int length = 20;
+		class Calculator {
+			void multiply() {
+				System.out.println(width*length);
+			}
+		}
+		Calculator calculator = new Calculator();
+		calculator.multiply();
+	}
+	public static void main(String[] args) {
+		new Outer().calculateArea(); // 200
+	}
+}
+```
