@@ -84,3 +84,55 @@ ZonedDateTime zone3 =
 
 * Note how Month can not be supplied!
 * You can find your own timezone by printing: `ZoneId.systemDefault()`.
+
+<br><br>
+<hr>
+
+## 🔴 5.1.2 Manipulating Dates and Times
+
+* Dates and time classes are immutable.
+* E.g.:
+```java
+LocalDate date = LocalDate.of(2023, Month.SEPTEMBER, 3);
+date = date.plusDays(2);   // 2023-09-05
+date = date.plusWeeks(1);  // 2023-09-12
+date = date.plusMonths(1); // 2023-10-12
+date = date.plusYears(5);  // 2028-10-12
+```
+
+* Here's some examples of going back in time:
+
+```java
+LocalDate date = LocalDate.of(2020, 1, 20);
+LocalTime time = LocalTime.of(5, 15);
+LocalDateTime dateTime = LocalDateTime.of(date, time); // 2020-01-20T05:15
+dateTime = dateTime.minusDays(1);                      // 2020-01-19T05:15
+dateTime = dateTime.minusHours(10);                    // 2020-01-18T19:15
+dateTime = dateTime.minusSeconds(30);                  // 2020-01-18T19:14:30
+```
+
+* We can also chain methods together:
+```java
+LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
+LocalTime time = LocalTime.of(5, 15);
+LocalDateTime dateTime = LocalDateTime.of(date, time)
+        .minusDays(1)
+        .minusHours(10)
+        .minusSeconds(30);
+System.out.println(dateTime); // 2020-01-18T19:14:30
+```
+
+* What does the following print❓
+```java
+LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
+date.plusDays(10);
+System.out.println(date);
+```
+
+* It will print 2020-01-20❗
+
+* What is wrong with the following:❓
+```java
+LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
+date = date.plusMinutes(1); // DOES NOT COMPILE
+```
