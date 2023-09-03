@@ -23,6 +23,7 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 1.6 Working with Enums](/src/chapter_1/chapter_1_6_enums)
 - [🧠 1.7 Creating Nested Classes](/src/chapter_1/chapter_1_7_creating_nested_classes)
 - [✅ Review Questions](/src/review_questions/chapter_1/)
+- [📝Revision Notes](/src/chapter_1/revision_notes/)
 
 ## Chapter 2: Design Patterns and Principles
 - [📜 Table of Contents📜 ](/src/chapter_2/)

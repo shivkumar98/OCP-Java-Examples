@@ -11,6 +11,7 @@
 - [🧠 1.5 Coding equals, hashCode, and toString](/src/chapter_1/chapter_1_5_equals_hashCode_toString/)
 - [🧠 1.6 Working with Enums](/src/chapter_1/chapter_1_6_enums/)
 - [🧠 1.7 Creating Nested Classes](/src/chapter_1/chapter_1_7_creating_nested_classes/)
+- [📝 Revision Notes](/src/chapter_1/revision_notes/)
 - [✅ Review Questions](/src/review_questions/chapter_1/)
 
 <hr>
