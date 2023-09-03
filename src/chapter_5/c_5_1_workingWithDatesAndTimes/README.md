@@ -67,3 +67,20 @@ LocalDateTime.of(int yeat, int/Month month, int day, int hour, int minute, int s
 <br>
 
 ### 🟡 Creating ZonedDateTime
+* In order to create a ZonedDateTime, we first need to get the desired time zone.
+* E.g. to use US/Eastern:
+```java
+LocalDate date = LocalDate.of(2023, 3, 9);
+LocalTime time = LocalTime.of(11, 58);
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+ZoneId zone = ZoneId.of("US/Eastern");
+ZonedDateTime zone1 = 
+        ZonedDateTime.of(date, time, zone);
+ZonedDateTime zone2 = 
+        ZonedDateTime.of(dateTime, zone);
+ZonedDateTime zone3 =
+        ZonedDateTime.of(2023,9,3,12,1,0,0, zone);
+```
+
+* Note how Month can not be supplied!
+* You can find your own timezone by printing: `ZoneId.systemDefault()`.
