@@ -264,6 +264,8 @@ static Duration of(long amount, TemporalUnit unit);
 Duration.of(1, ChronoUnit.NANOS); //PT0.000000001S
 ```
 
+<br>
+
 ### 🟡 ChronoUnit for Differences
 * ChronoUnit is great to measure time between two temporal units (like LocalTime...)
 * E.g.:
@@ -274,3 +276,23 @@ System.out.println(ChronoUnit.HOURS.between(one, two)); // 1 - 15 mins is trunca
 System.out.println(ChronoUnit.MINUTES.between(one, two)); // 75
 ```
 * ⚠️Trying to measure time between a LocalDate and LocalDateTime will give DateTimeException!⚠️
+
+<br>
+
+### 🟡 Manipulating Date and Time using Duration!
+* Durations can be applied to `LocalDateTime` and `LocalTime` and NOT date!
+
+```java
+Duration duration = Duration.ofHours(6);
+LocalDate date = LocalDate.of(2023, 9, 8);
+// date.plus(duration); // throws exception
+
+LocalTime time = LocalTime.of(23, 20);
+System.out.println(time.plus(duration)); // 05:20
+
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+System.out.println(dateTime.plus(duration)); // 2023-09-09T05:20
+```
+
+
+### 🟡 Working with Instants
