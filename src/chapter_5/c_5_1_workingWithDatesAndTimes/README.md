@@ -10,7 +10,7 @@
 3) LocalDateTime - contains date and time, has no timezone
 4) ZonedDateTime - contains date, time and timezone
 
-<br>
+
 
 * Each of these have a `.now()` method. If I print each one on my machine I get:
 
@@ -24,7 +24,7 @@
 * The time is displayed as `hours:minutes:seconds.fractionalseconds`
 * The `+1:00` is the difference from GMT
 
-<br>
+
 
 * We have a time standard UTC - Cordinated Universal Time. UTC uses the same time zone 0 as GMT.
 * The exam will give the UTC offset.
@@ -38,8 +38,6 @@
 - A: `2015-06-20 11:50`
 4) `2015–06–20T04:50 GMT-07:00`
 - A: `2015-06-20 11:50`
-
-<br>
 
 ### 🟡 Creating LocalDate, LocalTime and LocalDateTime
 
@@ -64,8 +62,6 @@ LocalDateTime.of(int yeat, int/Month month, int day, int hour, int minute, int s
 LocalDateTime.of(int yeat, int/Month month, int day, int hour, int minute, int seconds, int nanos); // +nanos
 ```
 
-<br>
-
 ### 🟡 Creating ZonedDateTime
 * In order to create a ZonedDateTime, we first need to get the desired time zone.
 * E.g. to use US/Eastern:
@@ -75,17 +71,17 @@ LocalTime time = LocalTime.of(11, 58);
 LocalDateTime dateTime = LocalDateTime.of(date, time);
 ZoneId zone = ZoneId.of("US/Eastern");
 ZonedDateTime zone1 = 
-        ZonedDateTime.of(date, time, zone);
+    ZonedDateTime.of(date, time, zone);
 ZonedDateTime zone2 = 
-        ZonedDateTime.of(dateTime, zone);
+    ZonedDateTime.of(dateTime, zone);
 ZonedDateTime zone3 =
-        ZonedDateTime.of(2023,9,3,12,1,0,0, zone);
+    ZonedDateTime.of(2023,9,3,12,1,0,0, zone);
 ```
 
 * Note how Month can not be supplied!
 * You can find your own timezone by printing: `ZoneId.systemDefault()`.
 
-<br><br>
+<br>
 <hr>
 
 ## 🔴 5.1.2 Manipulating Dates and Times
@@ -106,9 +102,9 @@ date = date.plusYears(5);  // 2028-10-12
 LocalDate date = LocalDate.of(2020, 1, 20);
 LocalTime time = LocalTime.of(5, 15);
 LocalDateTime dateTime = LocalDateTime.of(date, time); // 2020-01-20T05:15
-dateTime = dateTime.minusDays(1);                      // 2020-01-19T05:15
-dateTime = dateTime.minusHours(10);                    // 2020-01-18T19:15
-dateTime = dateTime.minusSeconds(30);                  // 2020-01-18T19:14:30
+dateTime = dateTime.minusDays(1);    // 2020-01-19T05:15
+dateTime = dateTime.minusHours(10);  // 2020-01-18T19:15
+dateTime = dateTime.minusSeconds(30);      // 2020-01-18T19:14:30
 ```
 
 * We can also chain methods together:
@@ -116,9 +112,9 @@ dateTime = dateTime.minusSeconds(30);                  // 2020-01-18T19:14:30
 LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
 LocalTime time = LocalTime.of(5, 15);
 LocalDateTime dateTime = LocalDateTime.of(date, time)
-        .minusDays(1)
-        .minusHours(10)
-        .minusSeconds(30);
+  .minusDays(1)
+  .minusHours(10)
+  .minusSeconds(30);
 System.out.println(dateTime); // 2020-01-18T19:14:30
 ```
 
@@ -135,4 +131,41 @@ System.out.println(date);
 ```java
 LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
 date = date.plusMinutes(1); // DOES NOT COMPILE
+```
+
+<br>
+<hr>
+
+## 🔴 5.1.3 Working with Periods
+
+* Suppose we had some code which would give some print give toys each month:
+
+```java
+public static void main(String[] args) {
+  LocalDate start = LocalDate.of(2023, Month.SEPTEMBER, 1);
+  LocalDate end = LocalDate.of(2023, Month.NOVEMBER, 30);
+  switchToys(start, end);
+  // give new toy: 2023-09-01
+  // give new toy: 2023-10-01
+  // give new toy: 2023-11-01
+}
+private static void switchToys(LocalDate start, LocalDate end) {
+  LocalDate upTo = start;
+  while (upTo.isBefore(end)) {
+    System.out.println("give new toy: "+upTo);
+    upTo = upTo.plusMonths(1);
+  }
+}
+```
+
+### 🟡 Converting LocalDate and LocalDateTime to Long
+* LocalDate and LocalDateTime can both be converted to a long equivalent which represents the date in days/seconds in relation to 01/01/1970
+* LocalDate has a `toEpochDay()` method, and LocalDateTime has a `toEpochSecond()` method
+
+```java
+LocalDate date = LocalDate.of(2023,1,1);
+date.toEpochDay(); // 19358
+LocalDateTime dateTime = LocalDateTime.of(date, LocalTime.of(0, 0));
+dateTime.toEpochSecond(ZoneOffset.UTC); // 1672531200
+dateTime.toEpochDay() // COMPILER ERROR
 ```
