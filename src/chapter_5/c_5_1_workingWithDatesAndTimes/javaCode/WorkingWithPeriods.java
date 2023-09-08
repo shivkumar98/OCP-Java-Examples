@@ -42,7 +42,8 @@ public class WorkingWithPeriods {
 		switchToys(start, end, Period.ofMonths(1));
 		
 		Period period = Period.of(0, 44, 60);
-		System.out.println(period);
+		System.out.println(period); // P44M60D
+
 	}
 
 	private static void switchToys(LocalDate start, LocalDate end, Period period) {

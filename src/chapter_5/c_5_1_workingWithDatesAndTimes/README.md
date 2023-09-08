@@ -180,6 +180,8 @@ Period.ofDays(int days);
 Period.of(int years, int months, int days);
 ```
 
+* You CAN supply negative arguments!
+
 * ⚠️ You can not chain any of these methods, if you do only the last one will apply!
 
 * The format of the Period will always be `P{years}Y{months}M{days}D` - if any are zero they are excluded!
@@ -221,4 +223,43 @@ private static void switchToys(LocalDate start, LocalDate end, Period period) {
         upTo =upTo.plus(period);
     }
 }
+```
+
+<br>
+<hr>
+
+## 🔴 5.1.4 Working with Durations
+* Periods are useful for creating anything for a day or more
+* Duration lets you create smaller increments of time.
+
+### 🟡 Creating Durations
+
+* We can create a Duration using nanoS, milliS, seconds, minutes and hours:
+
+```java
+Duration nano = Duration.ofNanos(1);
+System.out.println(nano); // PT0.000000001S
+Duration milli = Duration.ofMillis(-1);
+System.out.println(milli); // PT-0.001S
+Duration second = Duration.ofSeconds(1);
+System.out.println(second); // PT1S
+Duration minute = Duration.ofMinutes(1);
+System.out.println(minute); // PT1M
+Duration hourly = Duration.ofHours(1);
+System.out.println(hourly); // PT1H
+```
+
+* The `.ofSeconds()` method has an overload which lets you add/subtract nanos seconds. E.g. one nanosecond below a second would be:
+```java
+Duration.ofSeconds(1, -1); // PT0.000000001S
+```
+
+* The Duration class also has the following method:
+```java
+static Duration of(long amount, TemporalUnit unit);
+```
+
+* This method lets us create durations with far more flexibility. E.g. to create a duration of 1 nano second, we'd use:
+```java
+Duration.of(1, ChronoUnit.NANOS); //PT0.000000001S
 ```
