@@ -169,3 +169,56 @@ LocalDateTime dateTime = LocalDateTime.of(date, LocalTime.of(0, 0));
 dateTime.toEpochSecond(ZoneOffset.UTC); // 1672531200
 dateTime.toEpochDay() // COMPILER ERROR
 ```
+
+### 🟡 Creating Periods
+* The `Period` class has the following static methods:
+```java
+Period.ofYears(int years);
+Period.ofMonths(int months);
+Period.ofWeeks(int weeks);
+Period.ofDays(int days);
+Period.of(int years, int months, int days);
+```
+
+* ⚠️ You can not chain any of these methods, if you do only the last one will apply!
+
+* The format of the Period will always be `P{years}Y{months}M{days}D` - if any are zero they are excluded!
+
+```java
+Period anually = Period.ofYears(1);
+System.out.println(anually); // P1Y
+Period quartly = Period.ofMonths(3);
+System.out.println(quartly); // P3M
+Period weekly = Period.ofWeeks(1);
+System.out.println(weekly); // P7D
+Period everyOtherDay = Period.ofDays(2);
+System.out.println(everyOtherDay); // P2D
+
+Period wrong = Period.ofYears(1).ofDays(1);
+System.out.println(wrong); // P1D
+
+Period correct = Period.of(1, 0, 1);
+System.out.println(correct); // P1Y1D
+```
+
+* You CAN create periods in which one unit exceeds the next largest one and the printing will not do any conversion!
+
+```java
+Period period = Period.of(0, 44, 60);
+System.out.println(period); // P44M60D
+```
+
+* Using Period, we can enable users to determine the length of time which should pass to give out the toys:
+
+```java
+public static void main() {
+    switchToys(start, end, Period.ofMonths(1));
+}
+private static void switchToys(LocalDate start, LocalDate end, Period period) {
+    LocalDate upTo = start;
+    while (upTo.isBefore(end)) {
+        System.out.println("give new toy: "+upTo);
+        upTo =upTo.plus(period);
+    }
+}
+```
