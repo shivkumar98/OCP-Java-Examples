@@ -294,5 +294,21 @@ LocalDateTime dateTime = LocalDateTime.of(date, time);
 System.out.println(dateTime.plus(duration)); // 2023-09-09T05:20
 ```
 
+<br>
 
 ### 🟡 Working with Instants
+* The `Instant` class captures a specific moment in time in the GMT time zone.
+```java
+Instant then = Instant.now();
+someTimeConsumingCode();
+Instant now = Instant.now();
+System.out.println(Duration.between(then, now)); // PT4.677916S
+```
+* We can convert a ZonedDateTime into an instant:
+```java
+LocalDate date = LocalDate.of(2023,9,9);
+ZoneId zone = ZoneId.of("Etc/UTC");
+ZonedDateTime zonedDateTime = ZonedDateTime.of(date, LocalTime.now(), zone);
+Instant instant = zonedDateTime.toInstant();
+System.out.println(instant); // 2023-09-09T16:38:42.578524300Z
+```

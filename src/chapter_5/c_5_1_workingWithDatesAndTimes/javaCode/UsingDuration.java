@@ -15,7 +15,7 @@ public class UsingDuration {
 		System.out.println(time.plus(duration)); // 05:20
 		
 		LocalDateTime dateTime = LocalDateTime.of(date, time);
-		System.out.println(dateTime.plus(duration));
+		System.out.println(dateTime.plus(duration)); // 2023-09-09T05:20
 		
 	}
 }
