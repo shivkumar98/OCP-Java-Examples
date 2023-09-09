@@ -352,7 +352,7 @@ zonedDateTme.plusHours(1); // 2016-03-13T03:30-5:00[US/Eastern]
 ```
 
 ### 🟡 Example 2
-On 2016-11-06, the clocks jump 1 hour back at 2am to 1am:
+* On 2016-11-06, the clocks jump 1 hour back at 2am to 1am:
 ```java
 LocalDate date2 = LocalDate.of(2016, 11, 6);
 LocalTime time2 = LocalTime.of(1, 30);
@@ -360,4 +360,14 @@ ZonedDateTime zonedDateTime2 = ZonedDateTime.of(date, time2, zoneId);
 System.out.println(zonedTime2); // 2016-11-06T01:30-4:00[US/Eastern]
 zonedDateTime2.plusMinutes(30); // 2016-11-06T01:00-5:00[US/Eastern]
 zonedDateTime2.plusHours(1);    // 2016-11-06T01:30-5:00[US/Eastern]
+```
+
+### 🟡 Example 3
+* Suppose we try to create a time which does not exist like 2am on 2016-03-13:
+```java
+// 2am does not exist:
+ZonedDateTime dateTimeWhichDoesNotExist =
+    ZonedDateTime.of(date, LocalTime.of(2, 0), zoneId);
+System.out.println(dateTimeWhichDoesNotExist);
+  // 2016-03-13T03:00-04:00[US/Eastern]		
 ```

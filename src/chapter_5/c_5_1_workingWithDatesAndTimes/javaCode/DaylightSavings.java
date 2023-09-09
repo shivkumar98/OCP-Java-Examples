@@ -17,6 +17,10 @@ public class DaylightSavings {
 		ZonedDateTime dateTime = ZonedDateTime.of(date, time, zoneId);
 		System.out.println(dateTime); // 2016-03-13T03:30-5:00[US/Eastern]
 		System.out.println(dateTime.plusHours(1)); // 2016-03-13T03:30-04:00[US/Eastern]
+		// 2am does not exist:
+		ZonedDateTime dateTimeWhichDoesNotExist =
+				ZonedDateTime.of(date, LocalTime.of(2, 0), zoneId);
+		System.out.println(dateTimeWhichDoesNotExist + "!");
 		
 		
 		//2016-11-6 the time at 2am goes back to 1am
@@ -26,6 +30,8 @@ public class DaylightSavings {
 		System.out.println(zonedDateTime2); // 2016-11-06T01:30-4:00[US/Eastern]
 		System.out.println(zonedDateTime2.plusMinutes(30)); // 2016-11-06T01:00-5.00[US/Eastern]
 		System.out.println(zonedDateTime2.plusHours(1)); // 2016-11-06T:1:30-5:00[US/Eastern]
+		
+		
 	}
 
 }
