@@ -312,3 +312,29 @@ ZonedDateTime zonedDateTime = ZonedDateTime.of(date, LocalTime.now(), zone);
 Instant instant = zonedDateTime.toInstant();
 System.out.println(instant); // 2023-09-09T16:38:42.578524300Z
 ```
+
+* You can not create an instant using `LocalDateTime` as it does NOT contain a time zone.
+* An epoch does represent a specific moment in time so it can be convereted to an instant:
+```java
+Instant instant = Instant.ofEpochSecond(epochSeconds);
+System.out.println(instant); // 2015-05-25T15:55:00Z
+Instant nextHour = instant.plus(1, ChronoUnits.HOURS); // fine
+Instant nextWeek = instant.plus(1, ChronoUnits.WEEKS); // throws exception!
+```
+
+<br>
+<hr>
+
+## 🔴 5.1.5 Accounting for Daylight Savings Time
+* Some, not all, countries addjust the time twice a year to get more sun during the day.
+* In USA, the clocks moves an hour forward in March, then move them back in November.
+* The exam will inform you if a day falls on a clock change.
+
+
+### 🟡 How Daylight Savings Works
+* The clocks on a normal day proceed like so:
+- `1:00 am-1:59 am` -> `2:00 am-3:00 am` -> `3:00 am-4:00 am`
+* March change over:
+- `1:00 am-1:59 am` -> `3:00 am-4:00 am`
+* November change over:
+- `1:00 am-1:59 am` (first time) -> `1:00am-1:59 am` (again) -> `2:00 am- 4:00 am`
