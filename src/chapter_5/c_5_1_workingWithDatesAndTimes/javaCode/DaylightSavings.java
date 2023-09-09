@@ -20,7 +20,7 @@ public class DaylightSavings {
 		// 2am does not exist:
 		ZonedDateTime dateTimeWhichDoesNotExist =
 				ZonedDateTime.of(date, LocalTime.of(2, 0), zoneId);
-		System.out.println(dateTimeWhichDoesNotExist + "!");
+		System.out.println(dateTimeWhichDoesNotExist + "!"); // 2016-03-13T03:00-04:00[US/Eastern]!
 		
 		
 		//2016-11-6 the time at 2am goes back to 1am
