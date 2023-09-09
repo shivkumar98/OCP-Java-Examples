@@ -338,3 +338,15 @@ Instant nextWeek = instant.plus(1, ChronoUnits.WEEKS); // throws exception!
 - `1:00 am-1:59 am` -> `3:00 am-4:00 am`
 * November change over:
 - `1:00 am-1:59 am` (first time) -> `1:00am-1:59 am` (again) -> `2:00 am- 4:00 am`
+
+
+### 🟡 Example 1
+* On 2016-03-13, the clocks jump from 2am to 3am. Using ZonedDateTime we show the DLS coming into effect:
+```java
+LocalDate date = LocalDate.of(2016, 3, 13);
+LocalTime time = LocalTime.of(1, 30);
+ZoneId zoneId = ZoneId.of("US/Eastern");
+ZonedDateTime zonedDateTime = ZonedDateTime.of(date, time, zoneId);
+System.out.println(zonedDateTime); // 2016-03-13T01:30-4:00[US/Eastern]
+zonedDateTme.plusHours(1); // 2016-03-13T03:30-5:00[US/Eastern]
+```
