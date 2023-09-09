@@ -2,7 +2,6 @@
 
 # 🧠 5.2 Reviewing String Class
 
-
 * The String class is final and String objects are immutable.
 
 ## 🔴 String Equality
