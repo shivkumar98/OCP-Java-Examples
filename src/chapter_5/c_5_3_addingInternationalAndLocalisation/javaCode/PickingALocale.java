@@ -1,4 +1,4 @@
-package chapter_5.c_5_3_addingInternationalAndLocalisationjavaCode;
+package chapter_5.c_5_3_addingInternationalAndLocalisation.javaCode;
 
 import java.util.Locale;
 

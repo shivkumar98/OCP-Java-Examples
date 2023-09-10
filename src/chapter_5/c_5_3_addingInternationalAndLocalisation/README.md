@@ -12,6 +12,8 @@
 
 * ***Localization*** means actually supporting multiple locales (a specific geographical, cultural or political region). It can be thought of as a language and country pairing.
 
+<br>
+
 ## 🔴 5.3.1 Picking a Locale
 
 
@@ -54,10 +56,100 @@ Locale.setDefault(locale);
 ```
 
 
-## 🔴 H2
-
-### 🟡 H3
-
-
 <br>
+
+## 🔴 5.3.2 Using a Resource Bundle
+* A ***resource bundle*** contains the local specific object to be used by the program. This can be a properties file or Java class
+* In order for localisation, we must externalise storing of Strings rather than being contained in the program.
+- We can use a property file or resource bundle.
+
+
+### 🟡 Property File Format
+* Key-value properties can have the following syntaxes:
+```properties
+animal=rat
+animal:rat
+animat rat
+```
+* If line begins with `!` or `#` => it's a comment.
+* Spaces between seperator characters are ignored.
+* Spaces at end of a line are NOT ignored⚠️ (beginning ones are!)
+* You can break a line for readability using `\`
+
+
 <hr>
+
+* Suppose we have a Zoo program which needs to support multuiiple locales at once. We create 4 Locales to support this:
+```java
+Locale us = new Locale("en", "US");
+Locale france = new Locale("fr", "FR"):
+Locale englishCananda = new Locale("en", "CA");
+Locale frenchCanada = new Locale("fr", "CA");
+```
+
+### 🟡 Creating a Property File Resource Bundle
+
+* We need an English and French property file resource bundle by creating two property files:
+* `Zoo_en.properties`: 
+```properties
+hello=Hello
+open=The zoo is open.
+```
+* `Zoo_fr.properties`:
+```properties
+hello=Bonjour
+open=Le zoo est ouvert
+```
+* ⚠️These properties files must be in the classpath (i.e. root of src) in order for program to work!⚠️
+* Here is the clas which uses the resource bundle:
+```java
+public class ZooOpen {
+    public static void main(String[] args) {
+      Locale us = new Locale("en", "US");
+      Locale france = new Locale("fr", "FR");
+      printProperties(us);
+      System.out.println("----------");
+      printProperties(france);
+    }
+    public static void printProperties(Locale locale) {
+      ResourceBundle rb = ResourceBundle.getBundle("Zoo", locale);
+      System.out.println(rb.getString("hello"));
+      System.out.println(rb.getString("open"));
+    }
+}
+```
+* The output is:
+```console
+Hello
+The zoop is open.
+----------
+Bonjour
+Le zoo est ouvert
+```
+
+#### 🍏 ResourceBundle Keyset
+
+* The resource bundle is essentially a map so we can extract all the keys:
+```java
+ResourceBundle rb = ResourceBundle.getBundle("Zoo", us);
+      Set<String> keys = rb.keySet();
+      keys.stream().map(k -> k + " "+rb.getString(k))
+            .forEach(System.out::println);
+      // hello Hello
+      // open The zoop is open.
+```
+
+#### 🍏 Properties Class
+* Java has a class called `Properties` which is like a Map
+* Properties enables us to specify a default value when calling `getProperty()`!
+* We can **convert a ResourceBundle into a Properties instance**:
+```java
+Properties properties = new Properties();
+rb.keySet().stream()
+      .forEach(k -> properties.put(k, rb.getString(k)));
+```
+* Here's how we call a property with a fallback default value:
+```java
+properties.getProperty("someMadeUpKey"); // null is returned
+properties.getProperty("someMadeUpKey", "default"); // "default" is returned!
+```
