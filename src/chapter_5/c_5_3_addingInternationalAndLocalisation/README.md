@@ -87,6 +87,8 @@ Locale englishCananda = new Locale("en", "CA");
 Locale frenchCanada = new Locale("fr", "CA");
 ```
 
+<br><br>
+
 ### 🟡 Creating a Property File Resource Bundle
 
 * We need an English and French property file resource bundle by creating two property files:
@@ -153,3 +155,35 @@ rb.keySet().stream()
 properties.getProperty("someMadeUpKey"); // null is returned
 properties.getProperty("someMadeUpKey", "default"); // "default" is returned!
 ```
+
+<br><br>
+
+### 🟡 Creating a Java Class Resource Bundle
+* A property file resource bundle allows only String values.
+* A Java class can allow any datatype, keys are still Strings regardless.
+* In order to implement a resource bundle in Java, you create a class with the same name as a property file.
+* Here's a property class with the same content as the properties file:
+```java
+public class ZooJava_en extends ListResourceBundle {
+    protected Object[][] {
+        return new Object[][] {
+            {"hello","hello sir"},{"open", "zoo is open sir"}
+        }
+    }
+}
+```
+* And here is a program which uses this as a resource bundle:
+```java
+public class ZooOpenUsingJava {
+      public static void main(String[] args) {
+            Locale locale = new Locale("en", "US");
+            ResourceBundle rb = new ResourceBundle.getBundle("ZooJava");
+            rb.keySet().stream()
+                  .forEach(k -> Sytem.out.println(k+": "+rb.getString(k)));
+            // hello: hello sir
+            // open: zoo is open, sir
+      }
+}
+```
+* Using a Java based resource bundle means you can create values of the properties at runtime, as well as using any data type you wish😊
+<hr>

@@ -18,7 +18,7 @@ public class ZooOpen {
 		keys.stream().map(k -> k + " "+rb.getString(k))
 			.forEach(System.out::println);
 		// hello Hello
-		// open The zoop is open.
+		// open The zoo is open.
 
 		
 	}
