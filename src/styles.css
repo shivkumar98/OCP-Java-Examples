@@ -4,21 +4,21 @@ p,ol{
 
 }   
 h1 {font: sans-serif;
-font: size 20px;
+font: size 24px;
 font-weight:bold;
 color:rgb(205, 140, 245)}
 h2 {font: sans-serif;
-font-size:18px;
+font-size:22px;
 font-weight:bold;
 color: rgba(244, 124, 124, 0.845)}
 h3 {font: sans-serif;
-font-size:15px;
+font-size:18px;
 font-weight:bold;
 color: rgb(225, 206, 151);
 }
 h4 {
     font: sans-serif;
-    font-size:18px;
+    font-size:14px;
 font-weight:bold;
 color:  rgb(144, 224, 150) ;
 }

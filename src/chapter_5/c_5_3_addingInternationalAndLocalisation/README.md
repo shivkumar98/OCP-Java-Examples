@@ -12,7 +12,7 @@
 
 * ***Localization*** means actually supporting multiple locales (a specific geographical, cultural or political region). It can be thought of as a language and country pairing.
 
-<br>
+<br><hr>
 
 ## 🔴 5.3.1 Picking a Locale
 
@@ -57,6 +57,7 @@ Locale.setDefault(locale);
 
 
 <br>
+<hr>
 
 ## 🔴 5.3.2 Using a Resource Bundle
 * A ***resource bundle*** contains the local specific object to be used by the program. This can be a properties file or Java class
@@ -77,7 +78,7 @@ animat rat
 * You can break a line for readability using `\`
 
 
-<hr>
+<br>
 
 * Suppose we have a Zoo program which needs to support multuiiple locales at once. We create 4 Locales to support this:
 ```java
@@ -87,7 +88,7 @@ Locale englishCananda = new Locale("en", "CA");
 Locale frenchCanada = new Locale("fr", "CA");
 ```
 
-<br><br>
+<hr>
 
 ### 🟡 Creating a Property File Resource Bundle
 
@@ -129,7 +130,7 @@ Bonjour
 Le zoo est ouvert
 ```
 
-#### 🍏 ResourceBundle Keyset
+#### 🍏 ResourceBundle Keyset 🍏
 
 * The resource bundle is essentially a map so we can extract all the keys:
 ```java
@@ -141,7 +142,8 @@ ResourceBundle rb = ResourceBundle.getBundle("Zoo", us);
       // open The zoop is open.
 ```
 
-#### 🍏 Properties Class
+#### 🍏 Properties Class 🍏
+
 * Java has a class called `Properties` which is like a Map
 * Properties enables us to specify a default value when calling `getProperty()`!
 * We can **convert a ResourceBundle into a Properties instance**:
@@ -156,7 +158,7 @@ properties.getProperty("someMadeUpKey"); // null is returned
 properties.getProperty("someMadeUpKey", "default"); // "default" is returned!
 ```
 
-<br><br>
+<hr>
 
 ### 🟡 Creating a Java Class Resource Bundle
 * A property file resource bundle allows only String values.
@@ -186,4 +188,87 @@ public class ZooOpenUsingJava {
 }
 ```
 * Using a Java based resource bundle means you can create values of the properties at runtime, as well as using any data type you wish😊
+
+
+<br><hr>
+
+## 🔴 5.3.3 Formatting Numbers
+* With dates and prices, the formatting varies.
+* The `java.text` package has classes which allow us to format numbers, currency and dates.
+
 <hr>
+
+### 🟡 Format and Parse Numbers and Currency
+* In order to format or parse, you need an instance of `NumberFormat`. This class contains the following Factory methods:
+```java
+// General purpse formatter:
+NumberFormat.getInstance(); // and overload for Locale
+
+// Same as getInstance:
+NumberFormat.getNumberInstance(); // and overload for Locale
+
+// For formatting currency:
+NumberFormat.getCurrencyInstance(); // and overload for Locale
+
+// For formatting percentages
+NumberFormat.getPercentInstance();
+
+// For rounding decimal values:
+NumberFormat.getIntegerInstance(); // and overload for Locale
+```
+
+#### 🍏 Formatting 🍏
+
+```java
+int attendeesPerYear = 3_200_000;
+int attendeesPerMonth = attendeesPerYear / 12;
+NumberFormat us = NumberFormat.getInstance(Locale.US);
+NumberFormat ger = NumberFormat.getInstance(Locale.GERMANY);
+NumberFormat ca = NumberFormat.getInstance(Locale.CANADA_FRENCH);
+us.format(attendeesPerMonth); // 266,666
+ca.format(attendeesPerMonth); // 266 666
+ger.format(attendeesPerMonth); // 266.666
+```
+
+* We can also format numbers into currencies:
+```java
+double price = 48;
+NumberFormat
+      .getCurrencyInstance(Locale.US)
+      .format(price); // $48.00
+NumberFormat
+      .getCurrencyInstance(Locale.CANADA_FRENCH)
+      .format(price); // 48,00 $ CA
+NumberFormat
+      .getCurrencyInstance(Locale.GERMANY)
+      .format(price); // 48,00 €
+```
+
+#### 🍏 Parsing 🍏
+
+* The `NumberFormat` class defines a `parse()` method which parses a String into a number using a specific locale.
+* If we parse a String with the correct Locale, we get the correct value.
+* If we parse using a mismatching Locale, then any unexpected character is parsed as a formatting character and stops looking at the rest of the string.
+* E.g.:
+```java
+String s = "40.45";
+NumberFormat us = NumberFormat
+            .getInstance(Locale.US);
+NumberFormat fr = NumberFormat
+            .getInstance(Locale.FRANCE);
+us.parse(s); // 40.45
+fr.parse(s); // 40 
+```
+
+<br>
+
+* The parse method can also be used for currency!
+* E.g. if we wanted to extract the numeric value from a String representing ticket sales:
+```java
+String dollarAmount = "$92,807.99";
+NumberFormat cf = 
+            NumberFormat.getCurrencyInstance(Locale.US);
+double value = (double) cf.parse(dollarAmount);
+System.out.println(value); // 92807.99
+```
+
