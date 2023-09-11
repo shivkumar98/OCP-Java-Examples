@@ -272,3 +272,49 @@ double value = (double) cf.parse(dollarAmount);
 System.out.println(value); // 92807.99
 ```
 
+<hr>
+
+### 🟡 Formatting Dates and Times
+* The date and time classes have many methods to get data out of them:
+
+```java
+LocalDate date = LocalDate.of(2020, 2, 3);
+date.getDayOfYear(); // 34
+date.getDayOfMonth(); // 3
+date.getDayOfWeek(); // MONDAY
+date.getMonth(); // FEBRUARY
+```
+
+* The `DateTimeFormatter` class in `java.time.format` package is used for formatting any type of date/time object.
+* ISO is a date standard:
+```java
+LocalDate date = LocalDate.of(2020, Month.JANUARY, 
+				20);
+LocalTime time = LocalTime.of(11,12,34);
+
+LocalDateTime dateTime =
+            LocalDateTime.of(date, time);
+date.format(DateTimeFormatter.ISO_DATE);
+// 2020-01-20
+
+time.format(DateTimeFormatter.ISO_LOCAL_TIME);
+// 11:12:34
+
+dateTime.format(DateTimeFormatter.ISO_DATE_TIME);
+// 2020-01-20T11:12:34
+```
+
+<br>
+
+* We can use some predefined formats:
+```java
+DateTimeFormatter shortDateTime = DateTimeFormatter
+				.ofLocalizedDate(FormatStyle.SHORT);
+dateTime.format(shortDateTime); // 20/01/2020
+
+System.out.println(date.format(shortDateTime)); 
+// 20/01/2020
+
+System.out.println(time.format(shortDateTime));
+// throws UnsupportedTemporalTypeException
+```
