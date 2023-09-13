@@ -318,3 +318,32 @@ System.out.println(date.format(shortDateTime));
 System.out.println(time.format(shortDateTime));
 // throws UnsupportedTemporalTypeException
 ```
+
+* There 2 predefined formats which can appear on the exam: `SHORT` and `MEDIUM`:
+
+```java
+LocalDate date = LocalDate.of(2023, 9, 13);
+LocalTime time = LocalTime.of(11,12,34);
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+
+DateTimeFormatter shortF = 
+            DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+DateTimeFormatter mediumF = 
+            DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+System.out.println(dateTime); // 2023-09-13T11:12:34
+System.out.println(shortF.format(dateTime)); // 13/09/2023, 11:12
+System.out.println(mediumF.format(dateTime)); // 13 Sept 2023, 11:12:34
+
+// You can also define your own DateTimeFormatter
+DateTimeFormatter f = DateTimeFormatter.ofPattern("MMMM dd, yyyy, hh:mm");
+System.out.println(f.format(dateTime)); // September 13, 2023, 11:12
+```
+
+* You can also use `DateTimeFormatter` to parse Strings into Date and Time:
+
+```java
+DateTimeFormatter f = DateTimeFormatter.ofPattern("MM dd yyyy");
+// LocalDate date = LocalDate.parse("01 02 2015"); // THROWS EXCEPTION
+System.out.println(LocalDate.parse("01 02 2015", f)); // 2015-01-02
+System.out.println(LocalTime.parse("16:27")); // 16:27 
+```
