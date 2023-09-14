@@ -88,7 +88,6 @@ F. Variable names
 * **C, D, E**
 <br>
 
-
 ## Question 3
 
 ❓What is the output of the following:
