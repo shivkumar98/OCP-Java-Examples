@@ -67,17 +67,12 @@ F. `Locale.create("IN")`
 
 ❓ Which of the following are common types to localize (Choose all that apply)
 
-A. Booleans
-
-B. Class names
-
-C. Currency
-
-D. Dates
-
-E. Numbers
-
-F. Variable names
+    A. Booleans
+    B. Class names
+    C. Currency
+    D. Dates
+    E. Numbers
+    F. Variable names
 ❓
 
 <hr>
@@ -90,27 +85,25 @@ F. Variable names
 
 ## Question 3
 
-❓What is the output of the following:
-```java
-Predicate<? super String> predicate = s -> s.length() > 3;
-Stream<String> stream = Stream.iterate("-", (s)->s+s);
-boolean b1 = stream.noneMatch(predicate);
-boolean b2 = stream.anyMatch(predicate);
-System.out.println(b1 + " "+ b2);
-```
-A. `false true`
-B. `false false`
-C. `java.util.stream.ReferencePipeline$3@4517d9a3`
-D. The code does not compile
-E. An exception is thrown
-F. The code hands
+❓Which of the following are true (Choose all that apply)
+
+A. All keys must be in the same resource bundle file to be used
+B. All resource bundles are defined as Java classes can be expressed using the property file format instead
+C. All resource bundles defined as porperty files can be expressed using the Java class list bundle format instead
+D. Changing the default locale lasts for only a single run of the program
+E. It is forbidden to have both Props_en.java and Props_en.properties in the class-path of an application
+
 ❓
 
 <hr>
 
-My answer: false true. my answer is **A**
-
-Correct answer: E - the code throws an exception. This is because b2 is trying to reference a stream which is already closed. If this was fine, then A would be the correct answer!
+### My answer:
+* A - yes, I think
+* B - false
+* C - yes
+* D - yes
+* E - no
+* **A,C,D**
 
 <br>
 
