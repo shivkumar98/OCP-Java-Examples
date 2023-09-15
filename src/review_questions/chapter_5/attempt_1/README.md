@@ -109,25 +109,32 @@ E. It is forbidden to have both Props_en.java and Props_en.properties in the cla
 
 ## Question 4:
 
-❓Which are true statements about terminal operations in a stream?
+❓Assume that all bundles mentioned in the answers exist and define the same keys. Which one will be used to find the key in line 8?
 
-A. At most one terminal operation can exist in a stream pipeline
+```java
+Locale.setDefault(new Locale("en", "US"));
+ResourceBundle b = ResourceBundle.getBundle("Dolphins");
+b.getString("name");
+```
 
-B. Terminal operations are a required part of the stream pipeline in order to get a result
-
-C. Terminal operations must have `Stream` as the return type.
-
-D. The referenced `Stream` may be used after the calling a terminal operation
-
-E. The `peek()` method is an example of a terminal operation
+A. `Dolphins.properties`
+B. `Dolphins_en.java`
+C. `Dolphins_en.properties`
+D. `Whales.properties`
+E. `Whales_en_US.properties`
+F. The code does not compile
 ❓
 
 <hr>
-My answer: A - true, B - false, C - false, D - false, E - false:
 
-**A**
-
-Correct answers: A and B. Terminal operations are the final step in a stream pipeline. Exactly 1 is needed because it triggers the execution of the entire stream pipeline
+### My answer:
+* The code DOES compile
+* A - false, no language specified
+* B - true
+* C - true
+* D - false, using different name for bundle
+* E - false, same as above
+* **B,C**
 
 <br>
 
