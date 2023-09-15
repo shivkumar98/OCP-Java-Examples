@@ -178,34 +178,35 @@ F. The code does not compile
 * **C**
 <br>
 
-
-
 ## Question 6:
 
-❓Which of the following can fill in the blank so that the code prints out `false`❓
+❓Which of the following can fill in the blank to create a date of June 21, 2014 (Choose all that apply)❓
 
 ```java
-Stream<String> s = Stream.generate(()->"meow");
-boolean match = s._______(String::isEmpty);
-System.out.println(match);
+import java.time.*;
+
+public class StartOfSummer {
+    public static void main(String[] args) {
+        LocalDate date = _______________;
+}}
 ```
 
-A. `allMatch`
+A. `new LocalDate(2014, 5, 21);`
 
-B. `anyMatch`
+B. `new LocalDate(2014, 6, 21);`
 
-C. `findAny`
+C. `LocalDate.of(2014, 5, 21);`
 
-D. `findFirst`
+D. `LocalDate.of(2014, 6, 21);`
 
-E. `noneMatch`
+E. `LocaleDate.of(2014, Calendar.JUNE, 21);`
 
-F. None of the above
+F. `LocaleDate.of(2014, Month.JUNE, 21);`
 
 <hr>
-My answer:  F - true
 
-Correct answer: A. The allMatch does terminate! anyMatch() runs forever! findAny() and FindFirst() do not take predicates! noneMatch() woiuld run forever!
+### My answer:  F - true
+
 
 **F**
 
