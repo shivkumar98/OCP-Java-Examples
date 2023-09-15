@@ -141,26 +141,41 @@ F. The code does not compile
 
 ## Question 5
 
-❓ Which terminal operations on the `Stream` class are reductions?❓
+❓ Suppose that we have the following property files and code. Which bundles are used on lines 8 and 9 respectively
 
-A. collect()
+```properties
+# Dolphins.properties
+name=The Dolphin
+age=0
 
-B. count()
+# Dolphins_en.properties
+name=Dolly
+age=4
 
-C. findFirst()
+# Dolphins_fr.properties
+name=Dolly
+```
 
-D. map()
+```java
+5: Locale fr = new Locale("fr");
+6: Locale.setDefault(new Locale("en", "US"));
+7: ResourceBundle b = ResourceBundle.getBundle("Dolphins", fr);
+8: b.getString("name");
+9: b.getString("age");
+```
 
-E. peek()
-
-F. sum()
+A. `Dolphins.properties` and `Dolphins.properties`
+B. `Dolphins.properties` and `Dolphins_en.properties`
+C. `Dolphins_en.properties` and `Dolphins_en.properties`
+D. `Whales.properties`
+E. `Whales_en_US.properties`
+F. The code does not compile
+❓
 
 <hr>
-My answer: A - false, B - true, C - true, D - false, E - false, F - true
 
-**B,C,F**
-
-Correct answers: A and B. collect() is a reduction and so is count(). D and E are intermiadiate operations. While sum() is a reduction, it only available on primitive streams! C is not a reduction because it does not look at each element in the stream!
+### My Answer:
+* **C**
 <br>
 
 
