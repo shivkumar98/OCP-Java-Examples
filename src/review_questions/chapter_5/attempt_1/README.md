@@ -563,31 +563,31 @@ F. `zonedDateTime.toInstant()`
 
 ## Question 17
 
-❓Which of the following is equivalent to this code❓
+❓What is the output of the following method if props contains `{veggies=brontosaurus, meat=velociraptor}`
 
 ```java
-UnaryOperator<Integer> u = x -> x * x;
+private static void print(Properties props) {
+    System.out.println(props.get("veggies", "none")
+        + " " + props.get("omini", "none"));
+}
 ```
 
-A. `BiFunction<Integer> f = x -> x*x;`
+A. `brontosaurus none`
 
-B. `BiFunction<Integer, Integer> f = x -> x*x;`
+B. `brontosaurus null`
 
-C. `BinaryOperator<Interger, Integer> f = x -> x*x;`
+C. `none none`
 
-D. `Function<Integer> f = x -> x*x;`
+D. `none null`
 
-E. `Function<Integer, Integer> f = x -> x*x;`
+E. The codes not compile
 
-F. None of these above
+F. A runtime exception is thrown
 
 <hr>
 
-My answer: A is not valid, B is not valid, C is not valid, D is not valid, E is valid!
-
-**E**
-
-Correct answer: E - the other options do not even compile
+### My answer: 
+* **A**
 
 <br>
 
