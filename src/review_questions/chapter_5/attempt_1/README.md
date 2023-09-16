@@ -452,39 +452,39 @@ F. A runtime exception is thrown
 
 ## Question 14:
 
-❓Which of the following is true❓
+❓Note that March 13, 2016, is the weekend that we spring forward, and November 6, 2016, is when we fall back for daylight savings time. Which of the following can be inserted in the blank without the code throwing an exception?
 
 ```java
-4: Stream<Integer> s = Stream.of(1);
-5: IntStream is = s.mapToInt(x -> x);
-6: DoubleStream ds = s.mapToInt(x -> x);
-7: Stream<Iteger> s2 = ds.mapToInt(x -> x);
-8: s2.forEach(System.out::print);
+ZoneId zone = ZoneId.of("US/Eastern");
+LocalDate date = _____________________;a
+LocalTime time1 = LocalTime.of(2, 15);
+ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
 ```
+❓
 
-A. Line 4 does not compile
+A. LocalDate.of(2016, 3, 13);
 
-B. Line 5 does not compile
+B. LocalDate.of(2016, 3, 40);
 
-C. Line 6 does not compile
+C. LocalDate.of(2016, 11, 6);
 
-D. Line 7 does not compile
+D. LocalDate.of(2016, 11, 7);
 
-E. Line 8 does not compile
-
-F. The code throws an exception
-
-G. The code compiles and prints 1.
+E. LocalDate.of(2017, 2, 29);
 
 <hr>
 
-My answer: The code definitely does not compile. Line 4 is fine, line 5 is fine, line 6 is fine, line 7 does not compile, so line 8 also does not compile
-
-**D, E**
-
-Correct answer: D - Line 8 actually does compile!!!
+### My Answer: 
+* On November 6, the time repeats from 1:00am - 1:59am -> 1:00am - 1:59am
+* A - invalid
+* B - invalid
+* C - valid
+* D - valid
+* E - valid
+* **C,D,E**
 
 <br>
+
 
 ## Question 15
 
