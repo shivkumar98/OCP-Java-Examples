@@ -313,50 +313,54 @@ G. A runtime exception is thrown
 
 ## Question 10
 
-❓ Select from the following statements and indicate the order in which they would appear to output 10 lines:❓
+❓ What is the output of the following code?
 
 ```java
-  Stream.generate(()-> "");
-L:    .filter(x -> x.length() > 1)  
-M:    .forEach(System.out::println)
-N:    .limit(10)                    
-O:    .peek(System.out::println)
-;
+LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
+Period p = Period.of(1, 2, 3);
+d = d.minus(p);
+DateTimeFormatter f = DateTimeFormatter.
+    ofLocalizedTime(FormatStyle.SHORT);
+System.out.println(d.format(f));
 ```
 
-A. L, N
+A. `3/7/14 11:22 AM`
 
-B. L, N, O
+B. `5/10/14 11:22 AM`
 
-C. L, N, M
+C. `3/7/14`
 
-D. L, N, M, O
+D. `5/10/15`
 
-E. L, O, M
+E. `11:22 AM`
 
-F. N. M
+F. The code does not compile
 
-G. N, O
+G. A runtime exception is thrown
 
 <hr>
 
-My answer: A - this does not print anything, B - i don't think so, C -  no all elements get filtered out! D - no, E - no, F - yes, G - no
-
-**F**
-
-Correct answer: F - the terminal operation must be the last statement so only C, E and F would be valid. E is out as it would be infinite.  C is invalid as all elements would be filtered out and it will run infinitely!
+### My answer:
+* The period is of 1 year, 2 months, and 3 days
+* d is 2014-3-7 11:22AM
+* **A**
 
 <br>
 
 
 ## Question 11
 
-❓What changes need to be made for this code to print "12345" (choose all that apply)❓
+❓What is the output of the following code?
 ```java
-Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining);
+LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
+Period p = Period.ofDays(1).ofYears(2);
+d = d.minus(p);
+DateTimeFormatter f = DateTimeFormatter.
+    ofLocalizedTime(FormatStyle.SHORT);
+System.out.println(d.format(f));
 ```
 
-A. Change `Collectors.joining()` to `Collectors.joining("")`
+A. 
 
 B. Change `map(x -> x)` to `map(x -> "" + x)`
 
