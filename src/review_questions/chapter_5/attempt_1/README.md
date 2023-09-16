@@ -245,33 +245,34 @@ E. A runtime exception is thrown
 * So it prints 2018 APRIL 30
 * **B**
 
-
-**F**
-
-Correct answer: F - the sorted() method lets us pass in a comparator!
-
 <br>
 
 ## Question 8:
 
-❓Which of the following are true given the declaration `IntStream is = IntStream.empty()` (Choose all that apply)❓
+❓What is the output of the following code
 
-A. `is.average()` returns the type `int`
+```java
+LocalDate date = LocalDate.of(2018, Month.APRIL, 40);
+System.out.println(date.getYear() + " " + date.getMonth()
+    + " " + date.getDayOfMonth());
+```
 
-B. `is.average()` returns the type `OptionalInt`
+A. `2018 APRIL 4`
 
-C. `is.findAny()` returns the type `int`
+B. `2018 APRIL 30`
 
-D. `is.findAny()` returns the type `OptionalInt`
+C. `2018 MAY 10`
 
-E. `is.sum()` returns the type `int`
+D. Another date
 
-F. `is.sum()` returns the type `OptionalInt`
+E. The code does not compile
+
+F. A runtime exception is thrown
 
 <hr>
-My answer:  A - False, B - True, C - False, D - True, E - False
 
-Correct answer: D and E - isAverage() returns an OptionalDouble!
+### My answer:
+* **F**
 
 <br>
 
