@@ -215,67 +215,36 @@ F. `LocaleDate.of(2014, Month.JUNE, 21);`
 
 ## Question 7
 
-❓We have a method that returns a sorted list without changing the original. Which of the following can replace the method implementation to do the same with streams?
+❓ What is the output of the following code?
 
 ```java
-private static List<String> sort(List<String> list) {
-    List<String> copy = new ArrayList<>(list);
-    Collectors.sort(copy, (a,b)->b.compareTo(a));
-    return copy;
-}
+LocalDate date = LocalDate.parse(
+    "2018-04-30", DateTimeFormatter.ISO_LOCAL_DATE);
+date.plusDays(2);
+date.plusHours(3);
+System.out.println(date.getYear() + " "
+    + date.getMonth() + " " + date.getDateOfMonth());
 ```
 
 
-A. 
+A. `2018 APRIL 4`
 
-```java
-return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
-```
+B. `2018 APRIL 30`
 
-B. 
+C. `2018 MAY 2`
 
-```java
-return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .sort();
-```
+D. The code does not compile
 
-C. 
+E. A runtime exception is thrown
 
-```java
-return list.stream()
-    .compareTo((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
-```
-
-D. 
-
-```java
-return list.stream()
-    .compareTo((a,b)->b.compareTo(a))
-    .sort();
-```
-
-E. 
-
-```java
-return list.stream()
-    .sorted((a,b)-> b.compareTo(a))
-    .collect();
-```
-
-F. 
-
-```java
-return list.stream()
-    .sorted((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
-```
 
 <hr>
-My answer:  F 
+
+### My answer:  
+* Date is `2018-04-30` and immutablke
+* So it prints 2018 APRIL 30
+* **B**
+
 
 **F**
 
