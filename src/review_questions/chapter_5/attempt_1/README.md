@@ -384,38 +384,30 @@ F. A runtime exception is thrown.
 
 ## Question 12:
 
-❓What functional interfaces complete the following code? (Choose all that apply)❓
+❓Which of the answer choices is true given the following code (choose all that apply)
 
-```java
-6: ______ x = String::new; 
-7: ______ y = (a,b) -> System.out.println();
-8: ______ z = a -> a+a;
+```console
+2016-08-28T05:00 GMT-4:00
+2016-08-28T09:00 GMT-6:00
 ```
 
-A. `BiConsumer<String, String>`
+A. The first date/time is earlier
 
-B. `BiFunction<String, String>`
+B. The second date/time is earlier
 
-C. `BinaryConsumer<String, String>`
+C. Both date/times are the same
 
-D. `BiFunction<String, String>`
+D. The date/times are 2 hours apart
 
-E. `Consumer<String>`
-
-F. `Supplier<String>`
-
-G. `UnaryOperator<String>`
-
-H. `UnaryOperator<String, String>` 
+E. The date/times are 10 hours apart
 
 
 <hr>
 
-My answer: F applies for line 6,  C applies to line 7, B and G apply to line 8
-
-**B,C,F,G**
-
-Correct answer: A, F, G - D is an invalid interface, C does not exist! A applied to line 7! `BiFunction<String, String>` is not valid. While E can work with line 6, it would be completely useless! Line 6 is creating something, so it is a supplier! So F is valid. H is completely invalid. G does apply to line 8!
+### My Answer:
+* The GMT equivalent of the first date is: `2016-08-28T01:00`
+* The GMT equivalent of the second date is: `2016-08-28T03:00`
+* **A, D**
 
 <br>
 
