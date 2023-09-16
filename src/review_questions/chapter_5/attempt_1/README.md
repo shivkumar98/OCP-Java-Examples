@@ -594,35 +594,45 @@ F. A runtime exception is thrown
 
 ## Question 18
 
-❓What is the result of the following❓
+❓Which of the following prints our all of the values in props?
 
+A. 
 ```java
-DoubleStream s = DoubleStream.of(1.2, 2.4);
-s.peek(System.out.::println).filter(x -> x > 2).count();
+props.keys().stream().map(k -> k.forEach(System.out::println))
 ```
 
-A. 1
+B. 
+```java
+props.keys().stream().map(k -> props.get(k))
+    .forEach(System.out::println);
+```
 
-B. 2
+C. 
+```java
+props.keySet().stream().map(k -> k)
+    .forEach(System.out::println);
+```
 
-C. 2.4
+D.
+```java
+props.keySet().stream().map(k -> props.get(k))
+    .forEach(System.out::println);
+```
 
-D. 1.2 and 2.4
+E.
+```java
+props.stream().map(k -> k) .forEach(System.out::println);
+```
 
-E. There is no output
-
-F. The code does not compile
-
-G. An exception is thrown
-
+F.
+```java
+props.stream().map(k -> k) .forEach(System.out::println);
+```
 
 <hr>
 
-My answer: C
-
-**C**
-
-Correct answer: D - there is a terminal operation, which means the intermediate operations DO run! The peek() comes before the filter so both numbers get printed
+### My answer:
+* **D**
 
 <br>
 
