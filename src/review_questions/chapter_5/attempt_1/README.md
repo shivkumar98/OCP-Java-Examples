@@ -638,28 +638,25 @@ props.stream().map(k -> k) .forEach(System.out::println);
 
 ## Question 19
 
-❓Which of the following return primitives❓
+❓ Which of the following are stored in a Period object (Choose all that apply)
 
-A. `BooleanSupplier`
+A. Year
 
-B. `CharSupplier`
+B. Month
 
-C. `DoubleSupplier`
+C. Day
 
-D. `FloatSupplier`
+D. Hour
 
-E. `IntSupplier`
+E. Minute
 
-F. `StringSupplier`
+F. Second
 
 
 <hr>
 
-My answer: A, C, E
-
-**A, C, E**
-
-Correct answer: ACE!!!
+### My answer:
+* **A,B,C**
 
 <br>
 
