@@ -523,36 +523,41 @@ E. d.equals(p)
 
 ## Question 16
 
-❓What is the output of the following❓
+❓Given the following, which answers can correctly fill in the blank? (Choose all that apply)
 
 ```java
-Stream<String> s = Stream.empty();
-Stream<String> s2 = Stream.empty();
-Map<Boolean, List<String>> p = s.collect(
-    Collectors.partitionBy(b -> b.startsWith("c")));
-Map<Boolean, List<String>> g = s.collect(
-    Collectors.groupBy(b -> b.startsWith("c")));
+LocalDate date = LocalDate.now();
+LocalTime time = LocalTime.now();
+LocalDateTime dateTime = LocalDateTime.now();
+ZoneId zoneId = ZoneId.systemDefault();
+ZonedDateTime zonedDateTime - ZonedDateTime.of(dateTime, zoneId);
+long epochSeconds = 0;
+Instant instant = ___________________;
 ```
 
-A. `{} {}`
+A. `Instant.now()`
 
-B. `{} {false=[], true=[]}`
+B. `Instant.ofEpcochSecond(epochSeconds)`
 
-C. `{false=[], true=[]} {}`
+C. `date.toInstant()`
 
-D. `{false=[], true=[]} {false=[], true=[]}`
+D. `dateTime.toInstant()`
 
-E. The code does not compile
+E. `time.toInstant()`
 
-F. An exception is thrown
+F. `zonedDateTime.toInstant()`
 
 <hr>
 
-My answer: the first Map is partitioned, so it is grouped by false,true - so C and D seem valid. I go for C!
+### My Answer:
+* A - valid
+* B - valid
+* C - invalid
+* D - invalid
+* E - invalid
+* F - valid
+* **A,B,F**
 
-**C**
-
-Correct answer: C!!! - partition will always return map with boolean key. The groupBy returns only keys which are needed
 
 <br>
 
