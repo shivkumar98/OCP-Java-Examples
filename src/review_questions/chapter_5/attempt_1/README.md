@@ -353,36 +353,34 @@ G. A runtime exception is thrown
 ❓What is the output of the following code?
 ```java
 LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
-Period p = Period.ofDays(1).ofYears(2);
+Period p = Period.ofMonths(1).ofYears(2);
 d = d.minus(p);
 DateTimeFormatter f = DateTimeFormatter.
     ofLocalizedTime(FormatStyle.SHORT);
 System.out.println(d.format(f));
 ```
 
-A. 
+A. `5/9/13 11:22 AM`
 
-B. Change `map(x -> x)` to `map(x -> "" + x)`
+B. `5/10/13 11:22 AM`
 
-C. change `x -> x++` to `x -> ++x`
+C. `5/9/14`
 
-D. Add `forEach(System.out::print)` after the call to `collect()`
+D. `5/10/14 11:22 AM`
 
-E. Wrap the entire line in a `System.out.print` statement
+E. The code does not compile.
 
-F. None of the above. The code already prints "12345"
+F. A runtime exception is thrown.
 
 <hr>
 
-My answer: A - this makes no change to the result, so it works. B - this is fine and works. C - this is fine. D - yes. E - yes. F - no
-
-**A, B, C, D, E**
-
-Correct answer: B, C, E - the code does not compile. We need to fix it by using B, without C the stream would just contain "111...". collect() converts this to a string. So we can't use forEach()
+### My Answer:
+* You can not chain Period methods!
+* The period is of 2 years only!
+* d is 2015-5-10 minus 2 years is 2013-5-10
+* **B** - if it is not a typo!
 
 <br>
-
-
 
 ## Question 12:
 
