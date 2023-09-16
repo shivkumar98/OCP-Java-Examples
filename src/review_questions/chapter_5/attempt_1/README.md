@@ -411,42 +411,43 @@ E. The date/times are 10 hours apart
 
 <br>
 
-
 ## Question 13
 
-❓Which of the following is true❓
+❓Note that March 13, 2016, is the weekend that clocks spring ahead for daylight savings time. What is the output of the following?
 
 ```java
-List<Integer> l1 = Arrays.asList(1,2,3);
-List<Integer> l2 = Arrays.asList(4,5,6);
-List<Integer> l3 = Arrays.asList();
-Stream.of(l1, l2, l3).map(x -> x+1)
-    .flatMap(x -> x.stream()).forEach(System.out::println);
+LocalDate date = LocalDate.of(2016, Month.MARCH, 13);
+LocalTime time = LocalTime.of(1, 30);
+ZoneId zone = ZoneId.of("US/Eastern");
+ZonedDateTime dateTime1 = ZonedDateTime.of(date, time, zone)
+ZonedDateTime dateTime2 = dateTime1.plus(1, ChronoUnits.HOURS);
+
+long hours = ChronoUnits.HOURS.between(dateTime1, dateTime2);
+int clock1 = dateTime1.getHours();
+int clock2 = dateTime2.getHours();
+System.out.println(hours, "," + clock1 + clock2);
 ```
 
-A. The code compiles and prints `123456`
+A. 1,1,2
 
-B. The code compiles and prints `234567`
+B. 1,1,3
 
-C. The code compiles but does not print anything
+C. 2,1,2
 
-D. The code compiles but prints stream references
+D. 2,1,3
 
-E.  The code runs infinitely
+E. The code does not compile
 
-F. The code does not compile
-
-G. The code throws an exception
+F. A runtime exception is thrown
 
 <hr>
 
-My answer: D
-
-**D**
-
-Correct Answer: F - the code does not compile!!!. It fails when trying to map the elements. If `flatMap` was called first it would've worked!!!
-
-
+### My answer:
+* Since its daylight savings, the time goes from 1am-1:59am -> 3am-4am
+* dateTime2 is 1 hour after dateTime1, so the time between is 1 hour.
+* dateTime1.getHours() is 1
+* dateTime2 is 3:30 so dateTime2.getHours() is 3
+* **B**
 <br>
 
 ## Question 14:
