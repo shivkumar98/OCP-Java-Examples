@@ -278,32 +278,36 @@ F. A runtime exception is thrown
 
 ## Question 9
 
-❓Which of the following can we add line 5 for the code to run without error and non produce any output? (Choose all that apply)❓
+❓What is the output of the following code?
 
 ```java
-LongStream ls = LongStream.of(1,2,3);                           // LINE 4
-OptionaolLong opt = ls.map(n->n*10).filter(n->n5).findFirst();  // LINE 5
+LocalDate date = LocalDate.of(2018, Month.APRIL, 30);
+date.plusDays(2);
+date.plusYears(3);
+System.out.println(date.getYear() + " "
+    + date.getMonth() + " " + date.getDayOfMonth());
 ```
 
-A. `if (opt.isPresent()) System.out.println(opt.get());`
+A. `2018 APRIL 2`
 
-B. `if (opt.isPresent()) System.out.println(opt.getAsLong());`
+B. `2018 APRIL 30`
 
-C. `opt.ifPresent(System.out.println);`
+C. `2018 MAY 2`
 
-D. `opt.ifPresent(System.out::println)`
+D. `2021 APRIL 2`
 
-E. None of these; the code does not compile
+E. `2021 APRIL 30`
 
-F. None of these; line 5 throws an exception 
+F. `2021 MAY 2`
+
+G. A runtime exception is thrown
 
 <hr>
 
-My answer:  I believe the coede compiles, option B would not work as `getAsLong()` is not a method! C also would not compile. A and D seem fine!
-
-**A and D**
-
-Correct andswer: B and D - since we are using a LongStream we must use getAsLong
+### My answer:  
+* Date is immutable
+* Prints `2018 APRIL 30`
+* **E**
 
 <br>
 
