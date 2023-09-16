@@ -662,42 +662,19 @@ F. Second
 
 ## Question 20
 
-❓What is the simplest way of rewriting this code❓
+❓Which of the following objects could contain the information "eastern standard time"? (Choose all that apply)
 
-```java
-List<Integer> l = IntStream.range(1,6)
-    .mapToObj(i -> i).collect(Collectors.toList());
-l.forEach(System.out::println);
-```
+A. Instant
 
-A. 
-```java
-IntStream.range(1,6);
-```
+B. LocalDate
 
-B. 
-```java
-IntStream.range(1,6)
-    .forEach(System.out::println);`
-```
+C. LocalDateTijme
 
-C. 
-```java
-IntStream.range(1,6)
-    .mapToObj(i->i)
-    .forEach(System.out::println);
-```
+D. LocalTime
 
-D. None of the above is equivalent
-
-E. The provided code does not compile
+E. ZonedDateTime
 
 <hr>
 
-My answer: B
-
-**B**
-
-Correct answer - B!!!
-
-<br>
+### My answer: 
+* **E**
