@@ -488,31 +488,38 @@ E. LocalDate.of(2017, 2, 29);
 
 ## Question 15
 
-❓The `partitioningBy()` collector creates a `Map<Boolean, List<String>>` when passed to `collect()` by default. When specific parameters are passed to `partioningBy()`, which return types can be created? (Choose all that apply)❓
+❓Given the following code, which of the answer choices can fill in the blank to print true (choose all that apply)?
 
-A. `Map<boolean, List<String>>`
+```java
+String m1 = Duration.of(1, ChronoUnits.MINUTES).toString();
+String m2 = Duration.ofMinutes(1).toString();
+String s = Duration.of(60, ChronoUnit.SECONDS).toString();
 
-B. `Map<Boolean, Map<String>>`
+String d = Duration.ofDays(1).toString();
+String p = Period.ofDays(1).toString();
+```
 
-C. `Map<Long, TreeSet<String>>`
+A. m1 == m2
 
-D. `Map<Boolean, List<String>>`
+B. m1.equals(m2)
 
-E. `Map<Boolean, Set<String>>`
+C. m1.equals(s)
 
-F. None of the above
+D. d == p
 
+E. d.equals(p)
 
 <hr>
 
-My answer: A, B
-
-**A, B**
-
-Correct answer: D, E - A and B are not valid!!! Option C is invalid as it partitions to true,false.  The result can be changed to List or Set, making D and E correct!
+### My Answer:
+* A - false
+* B - true
+* C - s is PD60S, m1 is PD1M, so false
+* D not possible
+* E - true
+* **B,E**
 
 <br>
-
 
 ## Question 16
 
