@@ -13,10 +13,10 @@ Score: /20
 | 2          |  ✅    |
 | 3          |  ❌    |
 | 4          |  ❌    |
-| 5          |      |
-| 6          |      |
-| 7          |      |
-| 8          |      |
+| 5          |  ❌    |
+| 6          |  ✅    |
+| 7          |  ❌    |
+| 8          |  ✅   |
 | 9          |      |
 | 10         |      |
 | 11         |      |
@@ -176,15 +176,17 @@ name=Dolly
 A. `Dolphins.properties` and `Dolphins.properties`
 B. `Dolphins.properties` and `Dolphins_en.properties`
 C. `Dolphins_en.properties` and `Dolphins_en.properties`
-D. `Whales.properties`
-E. `Whales_en_US.properties`
+D. `Dolphins_fr.properties` and `Dolphins.properties`
+E. `Dolphins_fr.properties` and `Dolphins_en.properties`
 F. The code does not compile
 ❓
 
 <hr>
 
 ### My Answer:
-* **C**
+* **C**❌❌❌❌
+* CORRECT ANSWER: B
+* Line 8 uses `Dolphins_fr.properties`, line 9 can't find age from this file so it goes up the hierarchy and uses `Dolphins.properties`
 <br>
 
 ## Question 6:
@@ -214,10 +216,9 @@ F. `LocaleDate.of(2014, Month.JUNE, 21);`
 
 <hr>
 
-### My answer:  F - true
+### My answer:  F - true, D - true
 
-
-**F**
+* **D,F**✅✅✅✅
 
 <br>
 
@@ -252,7 +253,9 @@ E. A runtime exception is thrown
 ### My answer:  
 * Date is `2018-04-30` and immutablke
 * So it prints 2018 APRIL 30
-* **B**
+* **B**❌❌❌❌
+* CORRECT ANSWER: D
+* LocalDate does not contain time, you can not ad hours to it.
 
 <br>
 
@@ -281,7 +284,7 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer:
-* **F**
+* **F**✅✅✅✅
 
 <br>
 
