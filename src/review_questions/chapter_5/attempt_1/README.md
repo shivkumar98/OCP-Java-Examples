@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 
-Score: /20
+Score: 6/12
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -17,10 +17,10 @@ Score: /20
 | 6          |  ✅    |
 | 7          |  ❌    |
 | 8          |  ✅   |
-| 9          |      |
-| 10         |      |
-| 11         |      |
-| 12         |      |
+| 9          |  ✅    |
+| 10         |  ❌    |
+| 11         |  ✅    |
+| 12         |  ❌    |
 | 13         |      |
 | 14         |      |
 | 15         |      |
@@ -318,8 +318,9 @@ G. A runtime exception is thrown
 
 ### My answer:  
 * Date is immutable
-* Prints `2018 APRIL 30`
-* **E**
+* Prints `2018 APRIL 30`✅✅✅✅
+* **E**✅✅✅✅
+* NOTE: the book is wrong!
 
 <br>
 
@@ -355,7 +356,9 @@ G. A runtime exception is thrown
 ### My answer:
 * The period is of 1 year, 2 months, and 3 days
 * d is 2014-3-7 11:22AM
-* **A**
+* **A**❌❌❌❌
+* CORRECT ANSWER: E
+* FormatStyle.SHORT only prints time. 
 
 <br>
 
@@ -390,7 +393,8 @@ F. A runtime exception is thrown.
 * You can not chain Period methods!
 * The period is of 2 years only!
 * d is 2015-5-10 minus 2 years is 2013-5-10
-* **B** - if it is not a typo!
+* **B** - if it is not a typo!✅✅✅✅
+* The code in the question is not right!!!
 
 <br>
 
@@ -419,7 +423,10 @@ E. The date/times are 10 hours apart
 ### My Answer:
 * The GMT equivalent of the first date is: `2016-08-28T01:00`
 * The GMT equivalent of the second date is: `2016-08-28T03:00`
-* **A, D**
+* **A, D**❌❌❌
+* CORRECT ANSWER: A,E
+* The first time is 2016-08-28T:09:00 in GMT
+* The second time is 2016-08-28T:15:00 in GMT
 
 <br>
 
