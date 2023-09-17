@@ -9,10 +9,10 @@ Score: /20
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |      |
-| 2          |      |
-| 3          |      |
-| 4          |      |
+| 1          |  ✅    |
+| 2          |  ✅    |
+| 3          |  ❌    |
+| 4          |  ❌    |
 | 5          |      |
 | 6          |      |
 | 7          |      |
@@ -58,7 +58,9 @@ F. `Locale.create("IN")`
 * C invalid, does not follow convention
 * D invalid as above
 * E and F, I don't think so!
-* **A,B**
+* **A,B**✅✅✅✅
+* E and F are wrong as they Locales are created via constructor
+
 
 <br>
 
@@ -80,7 +82,7 @@ F. `Locale.create("IN")`
 ### My answer:
 * D, and E are definitely localised
 * Not sure if currency is localized, the formatting may be localised
-* **C, D, E**
+* **C, D, E**✅✅✅✅
 <br>
 
 ## Question 3
@@ -103,7 +105,10 @@ E. It is forbidden to have both Props_en.java and Props_en.properties in the cla
 * C - yes
 * D - yes
 * E - no
-* **A,C,D**
+* **A,C,D**❌❌❌❌
+* CORRECT ANSWER: C,D
+* Java will look at a parent resource bundle if the key is not present. E.g. it will look in `Props.properties` if it does not find the key in `Props_en.properties`
+* E is false, as Java will look for the java class bundle before a propertyh file of the same name.
 
 <br>
 
@@ -134,7 +139,11 @@ F. The code does not compile
 * C - true
 * D - false, using different name for bundle
 * E - false, same as above
-* **B,C**
+* **B,C**❌❌❌❌
+* CORRECT ANSWER:  B
+* Jave will will first look for `Dolphin_en_US.Java` then `Dolphin_en_US.properties`
+* As neither are present, it will search for `Dolphins_en.Java` 
+* As a match is found, there's no reason for C (which is also valid!)
 
 <br>
 
