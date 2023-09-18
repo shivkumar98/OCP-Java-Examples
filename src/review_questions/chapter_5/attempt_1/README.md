@@ -4,8 +4,8 @@
 
 ## Results:
 
-Date: 
-Score: 7/16
+Date: 18/09/2023
+Score: 11/20
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -24,11 +24,11 @@ Score: 7/16
 | 13         |  ✅    |
 | 14         |  ❌    |
 | 15         |  ❌    |
-| 16         |  ❌    |
-| 17         |      |
-| 18         |      |
-| 19         |      |
-| 20         |      |
+| 16         |  ✅    |
+| 17         |  ❌    |
+| 18         |  ✅    |
+| 19         |  ✅    |
+| 20         |  ✅    |
 
 
 <hr>
@@ -581,7 +581,7 @@ F. `zonedDateTime.toInstant()`
 * D - invalid
 * E - invalid
 * F - valid
-* **A,B,F**
+* **A,B,F**✅✅✅✅
 
 
 <br>
@@ -612,7 +612,10 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer: 
-* **A**
+* **A**❌❌❌❌
+* CORRECT ANSWER: E
+* The `.get()` method does not allow for an overload
+* The Properties class does have a `.getProperty()` method which allows for a default value.
 
 <br>
 
@@ -657,7 +660,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 <hr>
 
 ### My answer:
-* **D**
+* **D**✅✅✅✅
 
 <br>
 
@@ -681,7 +684,7 @@ F. Second
 <hr>
 
 ### My answer:
-* **A,B,C**
+* **A,B,C**✅✅✅✅
 
 <br>
 
@@ -702,4 +705,4 @@ E. ZonedDateTime
 <hr>
 
 ### My answer: 
-* **E**
+* **E**✅✅✅✅
