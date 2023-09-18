@@ -79,6 +79,33 @@ LocalDateTime = dateTime = LocalDateTime.of(date, time)
 				.minusSeconds(30);
 ```
 
+<br>
+
+## 🟥 Working with Periods
+* Periods have the following format: `P1Y2M3D`
+* You can create Periods using the following methods:
+```java
+Period p = Period.of(1, 2, 3);
+Period p1 = Period.ofYears(1)
+Period p2 = Period.ofMonths(2)
+Period p3 = Period.ofDays(1);
+Period p4 = Period.ofWeeks(1);
+```
+* Chaining the methods doesn't work as expected, only the last chained period will apply:
+```java
+Period p = Period.ofYears(1).ofMonths(2).ofDays(1);
+System.out.println(p); // P1D
+```
+* We can add Period to LocalDate and LocalDateTime:
+```java
+LocalDate date = LocalDate.of(2015, 1, 20);
+LocalTime time = LocalTime.of(6, 15);
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+dateTime.plus(Period.ofDays(1));
+date.plus(Period.ofDays(1));
+// time.plus(Period.ofDays(1)); // THROWS UnsupportedTemportalTypeException 
+```
+
 # 🧠 4.2 Working with Built-in Functional Interfaces
 
 ## 🟥 H2
