@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 
-Score: 6/12
+Score: 7/16
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -16,15 +16,15 @@ Score: 6/12
 | 5          |  ❌    |
 | 6          |  ✅    |
 | 7          |  ❌    |
-| 8          |  ✅   |
+| 8          |  ✅    |
 | 9          |  ✅    |
 | 10         |  ❌    |
 | 11         |  ✅    |
 | 12         |  ❌    |
-| 13         |      |
-| 14         |      |
-| 15         |      |
-| 16         |      |
+| 13         |  ✅    |
+| 14         |  ❌    |
+| 15         |  ❌    |
+| 16         |  ❌    |
 | 17         |      |
 | 18         |      |
 | 19         |      |
@@ -423,7 +423,7 @@ E. The date/times are 10 hours apart
 ### My Answer:
 * The GMT equivalent of the first date is: `2016-08-28T01:00`
 * The GMT equivalent of the second date is: `2016-08-28T03:00`
-* **A, D**❌❌❌
+* **A, D**❌❌❌❌
 * CORRECT ANSWER: A,E
 * The first time is 2016-08-28T:09:00 in GMT
 * The second time is 2016-08-28T:15:00 in GMT
@@ -466,7 +466,8 @@ F. A runtime exception is thrown
 * dateTime2 is 1 hour after dateTime1, so the time between is 1 hour.
 * dateTime1.getHours() is 1
 * dateTime2 is 3:30 so dateTime2.getHours() is 3
-* **B**
+* **B**✅✅✅✅
+
 <br>
 
 ## Question 14:
@@ -500,7 +501,9 @@ E. LocalDate.of(2017, 2, 29);
 * C - valid
 * D - valid
 * E - valid
-* **C,D,E**
+* **C,D,E**❌❌❌❌
+* Correct Answer: **A,C,D**
+* A is valid as java will handle daylight savings time
 
 <br>
 
@@ -510,7 +513,7 @@ E. LocalDate.of(2017, 2, 29);
 ❓Given the following code, which of the answer choices can fill in the blank to print true (choose all that apply)?
 
 ```java
-String m1 = Duration.of(1, ChronoUnits.MINUTES).toString();
+String m1 = Duration.of(1, ChronoUnit.MINUTES).toString();
 String m2 = Duration.ofMinutes(1).toString();
 String s = Duration.of(60, ChronoUnit.SECONDS).toString();
 
@@ -536,7 +539,10 @@ E. d.equals(p)
 * C - s is PD60S, m1 is PD1M, so false
 * D not possible
 * E - true
-* **B,E**
+* **B,E**❌❌❌❌
+* CORRECT ANSWER: B,C
+* Option E is false as Period and Durations print seperate prefixes
+* C is valid as period contains only hours minutes and seconds
 
 <br>
 
