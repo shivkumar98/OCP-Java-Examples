@@ -176,7 +176,12 @@ System.out.println(zonedDateTime.plusHours(1));
 System.out.println(ZonedDateTime.of(date, time.plusHours(1), zone));
 // 2016-03-13T03:30-04:00[US/Eastern]
 // Java automatically rolls over
+```
 
+## 🟥 Accounting for Daylight Savings Time
+
+* In USA the times spring forward one hour in March and pulled back in November.
+* In March, the times transition as:
 
 LocalDate dateWhenHoursMoveBack = LocalDate.of(2016, Month.NOVEMBER, 6);
 ZonedDateTime zonedDateTime2 = ZonedDateTime.of(dateWhenHoursMoveBack, time, zone);
