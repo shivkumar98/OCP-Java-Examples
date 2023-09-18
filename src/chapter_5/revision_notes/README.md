@@ -42,8 +42,42 @@ ZonedDateTime of(int year, int month, int day,
     int hour, int minute, int second, int nanos, ZoneId zone);
 ```
 
-### 🟡 Example:
+<br>
 
+## 🟥 Manipulating Dates and Times
+
+* 2014-02-28 is the final day of the month for February. If it were a leap year then we would have 29th February
+* Attempting to add 1 month from 2014-01-29 will rollover to the next month!
+```java
+// LocalDate invalidDate = LocalDate.of(2014, 2, 29);
+// THROWS EXCEPTION
+LocalDate date = LocalDate.of(2014, 1, 29);
+LocalDate notALeapDay = date.plusMonths(1);
+System.out.println(notALeapDay); // 2014-02-28
+```
+
+* You can manipulate dates and times:
+
+```java
+LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
+LocalTime time = LocalTime.of(5, 15);
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+// date.plusHours(1); // COMPILER ERROR
+time.plusHours(1);
+dateTime.plusHours(1);
+date.plusDays(1);
+dateTime.plusDays(1);
+// time.plusDays(1); // COMPILER ERROR
+```
+
+* You can chain these methods:
+
+```java
+LocalDateTime = dateTime = LocalDateTime.of(date, time)
+				.minusDays(1)
+				.minusHours(10)
+				.minusSeconds(30);
+```
 
 # 🧠 4.2 Working with Built-in Functional Interfaces
 
