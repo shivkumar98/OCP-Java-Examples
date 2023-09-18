@@ -105,8 +105,55 @@ dateTime.plus(Period.ofDays(1));
 date.plus(Period.ofDays(1));
 // time.plus(Period.ofDays(1)); // THROWS UnsupportedTemportalTypeException 
 ```
+* The Period units will not rollover, e.g. 12 months prints: `P12M`
 
-# 🧠 4.2 Working with Built-in Functional Interfaces
+<br>
+
+## 🟥 Working with Durations
+* A period is always atleast one day
+* Duration offers smaller units of time.
+* Duration has the following format: `PT1H2M3S`
+* We can create a Duration through the following:
+```java
+Duration d = Duration.ofDays(1); // PT24H
+Duration d1 = Duration.ofHours(24); // PT24H
+Duration d2 = Duration.ofMinutes(1); // PT1M
+Duration sixtySeconds = Duration.ofSeconds(60); // PT1M
+Duration sixtyMins = Duration.ofMinutes(60); // PT1H
+Duration d4 = Duration.ofMillis(1); // PT0.001S
+Duration d5 = Duration.ofNanos(1); // PT0.000000001S
+```
+* Again you can NOT chain these methods
+* You can also use `ChronoUnits` to generate a Duration
+* You can add/subtract Durations to LocalDateTime and LocalTime instances:
+```java
+LocalDate date = LocalDate.of(2023, 9, 18);
+LocalTime time = LocalTime.of(12, 15);
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+Duration duration = Duration.ofHours(6);
+date.plus(duration); // THROWS EXCEPTION
+time.plus(duration); // 18:15
+System.out.println(dateTime.plus(duration)); // 2023-09-18 18:15
+```
+
+### 🟡 Working with Instants
+* An instant represents a specific moment in time in GMT timezone.
+* You can generate an Instant in three ways:
+```java
+Instant now = Instant.now();
+ZonedDateTime zonedDateTime = ZonedDateTime.of(date, time, zoneId);
+Instant usingZone = zonedDateTime.toInstant();
+Instant usingEpochSeconds = Instant.ofEpochSecond(epochSecond);
+```
+* Instant lets you add/subtract temporal units of a day or smaller.
+```java
+Instant instant = Instant.now().plus(1, ChronoUnit.WEEKS); // THROWS EXCEPTION
+```
+
+
+<hr>
+
+# 🧠 H1
 
 ## 🟥 H2
 
