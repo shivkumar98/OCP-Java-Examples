@@ -149,8 +149,40 @@ Instant usingEpochSeconds = Instant.ofEpochSecond(epochSecond);
 ```java
 Instant instant = Instant.now().plus(1, ChronoUnit.WEEKS); // THROWS EXCEPTION
 ```
+<br>
+
+## 🟥 Accounting for Daylight Savings Time
+* In USA the times spring forward one hour in March and pulled back in November.
+* In March, the times transition as:
+
+    `1:00 am - 1:59 am` -> `3:00 am - 4:00 am`
+
+* In November, the times transition as:
+
+    `1:00 am - 1:59 am` -> `1:00 am - 1:59 am` -> `2:00 am - 4:00 am`
+
+* We can see this in action in Java code:
+```java
+LocalDate date = LocalDate.of(2016, 3, 13);
+LocalTime time = LocalTime.of(1, 30);
+ZoneId zone = ZoneId.of("US/Eastern");
+ZonedDateTime zonedDateTime = ZonedDateTime.of(date, time, zone);
+System.out.println(zonedDateTime); 
+// 2016-03-13T01:30-05:00[US/Eastern]
+System.out.println(zonedDateTime.plusHours(1));
+// 2016-03-13T03:30-04:00[US/Eastern]
+
+// trying to make a time which is not possible:
+System.out.println(ZonedDateTime.of(date, time.plusHours(1), zone));
+// 2016-03-13T03:30-04:00[US/Eastern]
+// Java automatically rolls over
 
 
+LocalDate dateWhenHoursMoveBack = LocalDate.of(2016, Month.NOVEMBER, 6);
+ZonedDateTime zonedDateTime2 = ZonedDateTime.of(dateWhenHoursMoveBack, time, zone);
+System.out.println(zonedDateTime2); // 2016-11-06T01:30-04:00[US/Eastern]
+System.out.println(zonedDateTime2.plusHours(1)); // 2016-11-06-01:30-05:00[US/Eastern]
+```
 <hr>
 
 # 🧠 H1
