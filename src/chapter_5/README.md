@@ -3,7 +3,12 @@
 #   Chapter 5: Dates, Strings and Localization
 
 ### 📜 Contents 📜
-
+- [📜 Table of Contents📜 ](/src/chapter_5/)
+- [🧠 5.1 Working with Dates and Times](/src/chapter_5/c_5_1_workingWithDatesAndTimes/)
+- [🧠 5.2 Reviewing String Class](/src/chapter_5/c_5_2_reviewingStringClass/)
+- [🧠 5.3 Adding Internationalization and Localization](/src/chapter_5/c_5_3_addingInternationalAndLocalisation/)
+- [✅ Review Questions](/src/review_questions/chapter_5/)
+- [📝Revision Notes](/src/chapter_5/revision_notes/)
 
 
 <hr>
