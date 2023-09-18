@@ -149,8 +149,22 @@ Instant usingEpochSeconds = Instant.ofEpochSecond(epochSecond);
 ```java
 Instant instant = Instant.now().plus(1, ChronoUnit.WEEKS); // THROWS EXCEPTION
 ```
+<br>
 
+## 🟥 Accounting for Daylight Savings Time
+* In USA the times spring forward one hour in March and pulled back in November.
+* In March, the times transition as:
 
+    `1:00 am - 1:59 am` -> `3:00 am - 4:00 am`
+
+* In November, the times transition as:
+
+    `1:00 am - 1:59 am` -> `1:00 am - 1:59 am` -> `2:00 am - 4:00 am`
+
+* We can see this in action in Java code:
+```java
+
+```
 <hr>
 
 # 🧠 H1
