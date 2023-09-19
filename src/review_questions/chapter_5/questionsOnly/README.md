@@ -338,7 +338,7 @@ LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
 Period p = Period.ofMonths(1).ofYears(2);
 d = d.minus(p);
 DateTimeFormatter f = DateTimeFormatter.
-    ofLocalizedTime(FormatStyle.SHORT);
+    ofLocalizedDateTime(FormatStyle.SHORT);
 System.out.println(d.format(f));
 ```
 
@@ -357,6 +357,9 @@ F. A runtime exception is thrown.
 <hr>
 
 ### My Answer:
+* d = 2013-5-10 11:22
+* 10/5/13 11:22 AM
+* **B**
 
 <br>
 
@@ -383,6 +386,10 @@ E. The date/times are 10 hours apart
 <hr>
 
 ### My Answer:
+* First date:  2016-08-28T09:00
+* Second Date: 2016-08-28T15:00
+* First date is earlier
+* **A,E**
 
 <br>
 
@@ -418,6 +425,9 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer:
+* 1 hour between
+* 1, 3
+* **B**
 
 <br>
 
@@ -427,7 +437,7 @@ F. A runtime exception is thrown
 
 ```java
 ZoneId zone = ZoneId.of("US/Eastern");
-LocalDate date = _____________________;a
+LocalDate date = _____________________;
 LocalTime time1 = LocalTime.of(2, 15);
 ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
 ```
@@ -446,6 +456,12 @@ E. LocalDate.of(2017, 2, 29);
 <hr>
 
 ### My Answer: 
+* A - this is fine, java can handle daylight savings
+* B - invalid
+* C - valid
+* D - valid
+* E - invalid
+* **A,C,D**
 
 <br>
 
@@ -476,6 +492,13 @@ E. d.equals(p)
 <hr>
 
 ### My Answer:
+* A - false
+* B - Durations are equal so true!
+* C - true
+* D - false
+* E - false
+* **B,C**
+
 <br>
 
 ## Question 16
