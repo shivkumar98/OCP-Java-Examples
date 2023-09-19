@@ -7,7 +7,7 @@ public class ReviewingStringClass {
 		System.out.println(sb1 == sb2); // true
 		sb1.append("d");
 		System.out.println(sb1); // cbad
-		System.out.println(sb2);
+		System.out.println(sb2); // cbad
 	}
 
 }

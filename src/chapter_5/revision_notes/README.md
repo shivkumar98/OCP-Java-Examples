@@ -212,6 +212,30 @@ sb1.append("d");
 sb1 == sb2; // true
 ```
 
+<hr>
+
+# 🧠 5.3 Adding Internationalization and Localization
+## 🟥 Getting a Locale
+* You can get the default Locale of the computer the application is running on:
+```java
+Locale locale = Locale.getDefault();
+System.out.println(locale); // en_GB
+```
+* There are 3 ways of creating a Locale:
+```java
+// using a constant from Locale class:
+Locale.GERMAN; // de
+Locale.GERMANY; // de_DE
+// using a constructor:
+new Locale("fr"); // fr
+new Locale("hi", "IN"); // hi_IN
+// using builder:
+Locale customLocale = new Locale.Builder()
+    .setLanguage("en");
+    .setRegion("US")
+    .build();
+```
+
 # 🧠 H1
 
 ## 🟥 H2
