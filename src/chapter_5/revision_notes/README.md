@@ -236,6 +236,70 @@ Locale customLocale = new Locale.Builder()
     .build();
 ```
 
+<br>
+
+## 🟥 Using a Resource Bundle
+
+### 🟡 Creating ResourceBundle Using properties
+* A reource bundle contains LOCALE-SPECIFIC objects to be used a by a program.
+* If we create a resource bundle using "Zoo", and a Locale of "en_GB", the program will first look for `Zoo_en_GB`, then `Zoo_en`, then `Zoo` java/property files. If a key is not present, it will look in the parent file (`Zoo`)
+* We can extract all the key-value pairs using `keySet()`:
+```java
+ResourceBundle rb = ResourceBundle.getBundle("Zoo", new Locale("en", "US"));
+Set<String> keys = rb.keySet();
+keys.stream().map(k -> k + " " + rb.getString(k));
+```
+
+### 🟡 Properties Class
+* Java has a `Properties` class which is like a map. Properties enable you to pass a default value.
+* We can convert a ResourceBundle to a Properties instance as so:
+```java
+ResourceBundle rb = ResourceBundle.getBundle("Zoo", new Locale("en", "US"));
+Properties props = new Properties();
+rb.keySet()
+    .stream()
+    .forEach(k -> props.put(k, rb.getString(k)));
+```
+* We can extract the value of a key using `.get()`, or .`.getProperty()` which allows a default fallback value.
+
+### 🟡 Creating ResourceBundle Using Java Class
+* We can circumvent the need of a `.properties` file by using a Java class which has key-value pairs, but the values can be of any type!
+```java
+public class Zoo_en extends ListResourceBundle {
+    protected Object[][] getContents() {
+        return new Object[][] {
+            {"hello", "Hello, sir"},
+            {"open", "The zoo is open sir"}
+        }
+    }
+}
+```
+
+### 🟡 Determining Which Resource Bundle
+* The exam will have two methods for getting a resource bundle:
+```java
+ResourceBundle.getBundle("name"); // uses default locale
+ResourceBundle.getBundle("name", locale);
+```
+
+* Java handles the logic of picking the best available resource bundle for a given key.
+* Suppose we have a default locale of `en_US` and we create a resource bundle of `new Locale("fr", "FR")`, Java will look for the file in the following priority:
+
+1) `Zoo_fr_FR.java`
+2) `Zoo_fr_FR.properties`
+3) `Zoo_fr.java`
+4) `Zoo_fr.properties`
+5) `Zoo_en_US.java`
+6) `Zoo_en_US.properties`
+7) `Zoo_en.java`
+8) `Zoo_en.properties`
+9) `Zoo.java`
+10) `Zoo.properties`
+11) Throw new `MissingResourceException`
+
+* Java does not need to have all the keys present in the same resource file!
+
+
 # 🧠 H1
 
 ## 🟥 H2
