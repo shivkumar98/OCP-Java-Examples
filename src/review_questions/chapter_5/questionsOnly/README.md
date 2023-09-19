@@ -10,10 +10,10 @@ Score:
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |     |
-| 2          |     |
-| 3          |     |
-| 4          |     |
+| 1          | ✅    |
+| 2          | ✅    |
+| 3          | ✅    |
+| 4          | ✅    |
 | 5          |     |
 | 6          |     |
 | 7          |     |
@@ -55,7 +55,7 @@ F. `Locale.create("IN")`
 
 ### My answer:
 * A is valid, B is valid.
-* **A,B**
+* **A,B**✅✅✅✅
 
 <br>
 
@@ -75,7 +75,7 @@ F. `Locale.create("IN")`
 <hr>
 
 ### My answer:
-* **C, D, E**
+* **C, D, E**✅✅✅✅
 <br>
 
 ## Question 3
@@ -98,7 +98,7 @@ E. It is forbidden to have both Props_en.java and Props_en.properties in the cla
 * C - true
 * D - true
 * E - false
-* **C,D**
+* **C,D**✅✅✅✅
 <br>
 
 ## Question 4:
@@ -123,7 +123,7 @@ F. The code does not compile
 
 ### My answer:
 * It will first look for `Dolphins_en_US` which is not there, then `Dolphin_en.java`
-* **B**
+* **B**✅✅✅✅
 <br>
 
 
@@ -165,7 +165,8 @@ F. The code does not compile
 ### My Answer:
 * Java will first look at Dolphins_fr.properties for name
 * Java will look for age in this file too, but it is not present. It will then use the default locale which is `Dolphins_en.properties`
-* **E**
+* **E**❌❌❌❌
+* CORRECT ANSWER: D
 <br>
 
 ## Question 6:
