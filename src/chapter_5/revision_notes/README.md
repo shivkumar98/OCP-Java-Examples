@@ -191,6 +191,27 @@ System.out.println(zonedDateTime2.plusHours(1)); // 2016-11-06-01:30-05:00[US/Ea
 ```
 <hr>
 
+# 🧠 5.2 Reviewing String Class
+* Here's some Java class which shows the equality behaviour of Strings:
+```java
+String s1 = "bunny";
+String s2 = "bunny";
+s1 == s2; // true 
+s1.equals(s2); // true
+String s3 = new String("bunny");
+s1 == s3; // false
+s2 == s3; // false
+s1.equals(s3); // true
+```
+* StringBuilder is a mutable, non-thread safe version of String:
+```java
+StringBuilder sb1 = new StringBuilder("abc");
+StringBuilder sb2 = sb1.reverse();
+sb1 == sb2; // true
+sb1.append("d");
+sb1 == sb2; // true
+```
+
 # 🧠 H1
 
 ## 🟥 H2
