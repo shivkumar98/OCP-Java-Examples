@@ -196,6 +196,7 @@ F. `LocaleDate.of(2014, Month.JUNE, 21);`
 <hr>
 
 ### My answer: 
+* **D,E**
 <br>
 
 
@@ -227,7 +228,8 @@ E. A runtime exception is thrown
 <hr>
 
 ### My answer:  
-
+* The code does not compile, you cannot add hours to LocalDate
+* **D**
 <br>
 
 ## Question 8:
@@ -255,7 +257,7 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer:
-
+* **F**
 <br>
 
 ## Question 9
@@ -287,6 +289,8 @@ G. A runtime exception is thrown
 <hr>
 
 ### My answer:  
+* 2018 APRIL 30
+* **B**
 
 <br>
 
@@ -320,6 +324,9 @@ G. A runtime exception is thrown
 <hr>
 
 ### My answer:
+* d = 2014-3-7 11:22
+* 11:22 AM is printed
+* E
 <br>
 
 
