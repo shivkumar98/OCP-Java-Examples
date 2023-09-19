@@ -1,11 +1,11 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 5: Review Questions - Attempt #
+# Chapter 5: Review Questions - Attempt 2
 
 ## Results:
 
-Date: 
-Score: 
+Date: 19/09/2023
+Score: 19/20
 
 
 | Question # | Correct |
@@ -14,22 +14,22 @@ Score:
 | 2          | ✅    |
 | 3          | ✅    |
 | 4          | ✅    |
-| 5          |     |
+| 5          |  ❌   |
 | 6          | ✅    |
-| 7          |     |
-| 8          |     |
-| 9          |     |
-| 10         |     |
-| 11         |     |
-| 12         |     |
-| 13         |     |
-| 14         |     |
-| 15         |     |
-| 16         |     |
-| 17         |     |
-| 18         |     |
-| 19         |     |
-| 20         |     |
+| 7          | ✅    |
+| 8          | ✅    |
+| 9          | ✅    |
+| 10         | ✅   |
+| 11         | ✅   |
+| 12         | ✅   |
+| 13         | ✅   |
+| 14         | ✅   |
+| 15         | ✅   |
+| 16         | ✅   |
+| 17         | ✅   |
+| 18         | ✅   |
+| 19         | ✅   |
+| 20         | ✅   |
 
 
 <hr>
@@ -531,7 +531,7 @@ F. `zonedDateTime.toInstant()`
 <hr>
 
 ### My Answer:
-* **A, B, F**
+* **A, B, F**✅✅✅✅
 
 <br>
 
@@ -561,7 +561,7 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer: 
-* **E**
+* **E**✅✅✅✅
 <br>
 
 
@@ -605,7 +605,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 <hr>
 
 ### My answer:
-* **D**
+* **D**✅✅✅✅
 <br>
 
 ## Question 19
@@ -628,7 +628,7 @@ F. Second
 <hr>
 
 ### My answer:
-* **A,B,C**
+* **A,B,C**✅✅✅✅
 <br>
 
 ## Question 20
@@ -648,4 +648,4 @@ E. ZonedDateTime
 <hr>
 
 ### My answer: 
-* **E**
+* **E**✅✅✅✅
