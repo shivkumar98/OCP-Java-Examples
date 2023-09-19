@@ -360,7 +360,7 @@ F. A runtime exception is thrown.
 ### My Answer:
 * d = 2013-5-10 11:22
 * 10/5/13 11:22 AM
-* **B**
+* **B**✅✅✅✅
 
 <br>
 
@@ -381,7 +381,7 @@ C. Both date/times are the same
 
 D. The date/times are 2 hours apart
 
-E. The date/times are 10 hours apart
+E. The date/times are 6 hours apart
 
 
 <hr>
@@ -390,7 +390,7 @@ E. The date/times are 10 hours apart
 * First date:  2016-08-28T09:00
 * Second Date: 2016-08-28T15:00
 * First date is earlier
-* **A,E**
+* **A,E**✅✅✅✅
 
 <br>
 
@@ -428,7 +428,7 @@ F. A runtime exception is thrown
 ### My answer:
 * 1 hour between
 * 1, 3
-* **B**
+* **B**✅✅✅✅
 
 <br>
 
@@ -462,7 +462,7 @@ E. LocalDate.of(2017, 2, 29);
 * C - valid
 * D - valid
 * E - invalid
-* **A,C,D**
+* **A,C,D**✅✅✅✅
 
 <br>
 
@@ -498,7 +498,7 @@ E. d.equals(p)
 * C - true
 * D - false
 * E - false
-* **B,C**
+* **B,C**✅✅✅✅
 
 <br>
 
