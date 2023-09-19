@@ -300,8 +300,42 @@ ResourceBundle.getBundle("name", locale);
 * Java does not need to have all the keys present in the same resource file!
 
 
-# 🧠 H1
+<br>
 
-## 🟥 H2
+## 🟥 Formatting Numbers
+* The `java.text` package has a `NumberFormat` class which can be used to parse and format numbers
 
-### 🟡 H3
+### 🟡 Format and Parse Numbers and Currency
+* We need to create a `NumberFormat`, this class has factory methods to get the desired formatter. Each of these factory methods let you overload a locale
+| Description                    |  Method                                   |
+| ------------------------------ | ------------------------------------------| 
+| A general purpose formatter    | NumberFormat.getInstance()                |
+| Same as above                  | NumberFormat.getNumberInstance()          |
+| For formatting money           | NumberFormat.getCurrencyInstance()        |
+| For formatting percentages     | NumberFormat.getPercentageInstance()      |
+| Rounds decimal values          | NumberFormat.getIntegerInstance()         |
+
+* Here is an example of formatting numbers:
+```java
+NumberFormat us = NumberFormat.getInstance(Locale.US);
+NumberFormat ger = NumberFormat.getInstance(Locale.GERMANY);
+NumberFormat ca = NumberFormat.getInstance(Locale.CANADA_FRENCH);
+int number = 3_200_000 / 12;
+us.format(number);  // 266,666
+ger.format(number); // 266.666
+ca.format(number);  // 266 666
+```
+
+* The NumberFormat class also has a `parse()` methods. If it parses a String with an unexpected character, it will treat it as a formatting character and stops looking at rest of number:
+
+```java
+NumberFormat us = NumberFormat.getInstance(Locale.US);
+NumberFormat ger = NumberFormat.getInstance(Locale.GERMANY);
+String num = "32,000,000";
+System.out.println(us.parseObject(num)); // 32000000
+System.out.println(ger.parse(num)); // 32
+```
+
+* We can also use the parse() method to convert a String to a Number:
+```java
+```
