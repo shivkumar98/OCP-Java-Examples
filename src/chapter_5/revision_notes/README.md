@@ -338,4 +338,56 @@ System.out.println(ger.parse(num)); // 32
 
 * We can also use the parse() method to convert a String to a Number:
 ```java
+String amt = "$92,807.99";
+NumberFormat usDollar = NumberFormat.getCurrencyInstance(Locale.US);
+Number dollar = usDollar.parse(amt);
+System.out.println(dollar); // 92807.99
+```
+
+<br>
+
+## 🟥 Formatting Dates and Times
+* We have a `DateTimeFormatter` class in `java.time.format`
+* We have `ISO_LOCAL_DATE_TIME` which formats the date exactly as is shown in Java:
+```java
+LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
+LocalTime time = LocalTime.of(11, 12, 23);
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+date.format(DateTimeFormatter.ISO_LOCAL_DATE); // 2020-01-20
+time.format(DateTimeFormatter.ISO_LOCAL_TIME); // 11:12:34
+dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME); // 2020-01-20T11:12:34
+```
+
+* We have a built in FormatStyle (SHORT):
+```java
+LocalDate date = LocalDate.of(2023, 9, 19);
+LocalTime time = LocalTime.of(11, 12, 34);
+LocalDateTime dateTime = LocalDateTime.of(date, time);
+DateTimeFormatter shortDate =
+        DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+System.out.println(shortDateTime.format(date)); // 19/09/2023
+// System.out.println(shortDate.format(time));
+// THROWS EXCEPTION
+System.out.println(shortDate.format(dateTime));
+// 19/09/2023
+```
+
+* We also `.ofLocalizedTime()` and `.ofLocalizedDateTime()`:
+```java
+DateTimeFormatter shortTime =
+        DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
+shortTime.format(time); // 11:22
+shortTime.format(dateTime); // 11:22
+shortTime.format(date); // THROWS EXCEPTION
+
+DateTimeFormatter shortDateTime =
+        DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+shortDateTime.format(dateTime); // 19/09/2023, 11:22
+shortDateTime.format(time); // THROWS EXCEPTION
+shortDateTime.format(date); // THROWS EXCEPTION
+```
+
+* We can create our own DateTimeFormatters too:
+```java
+DateTimeFormatter f = DateTimeFormatter.ofPatterm("MMMM dd, yyyy, hh:mm")
 ```

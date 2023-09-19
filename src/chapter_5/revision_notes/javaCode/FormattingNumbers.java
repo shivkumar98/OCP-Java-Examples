@@ -16,7 +16,7 @@ public class FormattingNumbers {
 		String amt = "$92,807.99";
 		NumberFormat usDollar = NumberFormat.getCurrencyInstance(Locale.US);
 		Number dollar = usDollar.parse(amt);
-		System.out.println(dollar);
+		System.out.println(dollar); // 92807.99
 	}
 
 }
