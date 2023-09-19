@@ -1,35 +1,35 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 5: Review Questions - Attempt #
+# Chapter 5: Review Questions - Attempt 2
 
 ## Results:
 
-Date: 
-Score:
+Date: 19/09/2023
+Score: 19/20
 
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |   |
-| 2          |   |
-| 3          |   |
-| 4          |   |
-| 5          |   |
-| 6          |   |
-| 7          |   |
-| 8          |   |
-| 9          |   |
-| 10         |  |
-| 11         |  |
-| 12         |  |
-| 13         |  |
-| 14         |  |
-| 15         |  |
-| 16         |  |
-| 17         |  |
-| 18         |  |
-| 19         |  |
-| 20         |  |
+| 1          | ✅    |
+| 2          | ✅    |
+| 3          | ✅    |
+| 4          | ✅    |
+| 5          |  ❌   |
+| 6          | ✅    |
+| 7          | ✅    |
+| 8          | ✅    |
+| 9          | ✅    |
+| 10         | ✅   |
+| 11         | ✅   |
+| 12         | ✅   |
+| 13         | ✅   |
+| 14         | ✅   |
+| 15         | ✅   |
+| 16         | ✅   |
+| 17         | ✅   |
+| 18         | ✅   |
+| 19         | ✅   |
+| 20         | ✅   |
 
 
 <hr>
@@ -54,7 +54,8 @@ F. `Locale.create("IN")`
 <hr>
 
 ### My answer:
-
+* A is valid, B is valid.
+* **A,B**✅✅✅✅
 
 <br>
 
@@ -74,7 +75,7 @@ F. `Locale.create("IN")`
 <hr>
 
 ### My answer:
-
+* **C, D, E**✅✅✅✅
 <br>
 
 ## Question 3
@@ -92,7 +93,12 @@ E. It is forbidden to have both Props_en.java and Props_en.properties in the cla
 <hr>
 
 ### My answer:
-
+* A - false, can be in different files
+* B - false, numbers can not be represented with property file
+* C - true
+* D - true
+* E - false
+* **C,D**✅✅✅✅
 <br>
 
 ## Question 4:
@@ -116,7 +122,8 @@ F. The code does not compile
 <hr>
 
 ### My answer:
-
+* It will first look for `Dolphins_en_US` which is not there, then `Dolphin_en.java`
+* **B**✅✅✅✅
 <br>
 
 
@@ -156,7 +163,10 @@ F. The code does not compile
 <hr>
 
 ### My Answer:
-
+* Java will first look at Dolphins_fr.properties for name
+* Java will look for age in this file too, but it is not present. It will then use the default locale which is `Dolphins_en.properties`
+* **E**❌❌❌❌
+* CORRECT ANSWER: D
 <br>
 
 ## Question 6:
@@ -187,7 +197,7 @@ F. `LocaleDate.of(2014, Month.JUNE, 21);`
 <hr>
 
 ### My answer: 
-
+* **D,F**✅✅✅✅
 <br>
 
 
@@ -219,7 +229,8 @@ E. A runtime exception is thrown
 <hr>
 
 ### My answer:  
-
+* The code does not compile, you cannot add hours to LocalDate
+* **D**✅✅✅✅
 <br>
 
 ## Question 8:
@@ -247,7 +258,7 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer:
-
+* **F**✅✅✅✅
 <br>
 
 ## Question 9
@@ -279,6 +290,8 @@ G. A runtime exception is thrown
 <hr>
 
 ### My answer:  
+* 2018 APRIL 30
+* **B**✅✅✅✅
 
 <br>
 
@@ -312,7 +325,9 @@ G. A runtime exception is thrown
 <hr>
 
 ### My answer:
-
+* d = 2014-3-7 11:22
+* 11:22 AM is printed
+* **E**✅✅✅✅
 <br>
 
 
@@ -343,6 +358,9 @@ F. A runtime exception is thrown.
 <hr>
 
 ### My Answer:
+* d = 2013-5-10 11:22
+* 10/5/13 11:22 AM
+* **B**✅✅✅✅
 
 <br>
 
@@ -369,6 +387,10 @@ E. The date/times are 6 hours apart
 <hr>
 
 ### My Answer:
+* First date:  2016-08-28T09:00
+* Second Date: 2016-08-28T15:00
+* First date is earlier
+* **A,E**✅✅✅✅
 
 <br>
 
@@ -404,6 +426,9 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer:
+* 1 hour between
+* 1, 3
+* **B**✅✅✅✅
 
 <br>
 
@@ -432,6 +457,12 @@ E. LocalDate.of(2017, 2, 29);
 <hr>
 
 ### My Answer: 
+* A - this is fine, java can handle daylight savings
+* B - invalid
+* C - valid
+* D - valid
+* E - invalid
+* **A,C,D**✅✅✅✅
 
 <br>
 
@@ -462,6 +493,12 @@ E. d.equals(p)
 <hr>
 
 ### My Answer:
+* A - false
+* B - Durations are equal so true!
+* C - true
+* D - false
+* E - false
+* **B,C**✅✅✅✅
 
 <br>
 
@@ -494,7 +531,7 @@ F. `zonedDateTime.toInstant()`
 <hr>
 
 ### My Answer:
-
+* **A, B, F**✅✅✅✅
 
 <br>
 
@@ -524,7 +561,7 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer: 
-
+* **E**✅✅✅✅
 <br>
 
 
@@ -568,7 +605,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 <hr>
 
 ### My answer:
-
+* **D**✅✅✅✅
 <br>
 
 ## Question 19
@@ -591,7 +628,7 @@ F. Second
 <hr>
 
 ### My answer:
-
+* **A,B,C**✅✅✅✅
 <br>
 
 ## Question 20
@@ -611,3 +648,4 @@ E. ZonedDateTime
 <hr>
 
 ### My answer: 
+* **E**✅✅✅✅
