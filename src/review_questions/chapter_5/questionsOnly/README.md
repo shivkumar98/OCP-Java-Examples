@@ -54,6 +54,8 @@ F. `Locale.create("IN")`
 <hr>
 
 ### My answer:
+* A is valid, B is valid.
+* **A,B**
 
 <br>
 
@@ -73,6 +75,7 @@ F. `Locale.create("IN")`
 <hr>
 
 ### My answer:
+* **C, D, E**
 <br>
 
 ## Question 3
@@ -90,6 +93,12 @@ E. It is forbidden to have both Props_en.java and Props_en.properties in the cla
 <hr>
 
 ### My answer:
+* A - false, can be in different files
+* B - false, numbers can not be represented with property file
+* C - true
+* D - true
+* E - false
+* **C,D**
 <br>
 
 ## Question 4:
@@ -113,7 +122,8 @@ F. The code does not compile
 <hr>
 
 ### My answer:
-
+* It will first look for `Dolphins_en_US` which is not there, then `Dolphin_en.java`
+* **B**
 <br>
 
 
@@ -153,6 +163,9 @@ F. The code does not compile
 <hr>
 
 ### My Answer:
+* Java will first look at Dolphins_fr.properties for name
+* Java will look for age in this file too, but it is not present. It will then use the default locale which is `Dolphins_en.properties`
+* **E**
 <br>
 
 ## Question 6:
