@@ -530,6 +530,7 @@ F. `zonedDateTime.toInstant()`
 <hr>
 
 ### My Answer:
+* **A, B, F**
 
 <br>
 
@@ -559,6 +560,7 @@ F. A runtime exception is thrown
 <hr>
 
 ### My answer: 
+* **E**
 <br>
 
 
@@ -602,7 +604,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 <hr>
 
 ### My answer:
-
+* **D**
 <br>
 
 ## Question 19
@@ -625,7 +627,7 @@ F. Second
 <hr>
 
 ### My answer:
-
+* **A,B,C**
 <br>
 
 ## Question 20
@@ -645,3 +647,4 @@ E. ZonedDateTime
 <hr>
 
 ### My answer: 
+* **E**
