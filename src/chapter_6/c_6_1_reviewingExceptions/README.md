@@ -12,6 +12,8 @@
 ## 🟥 6.1.1 Exceptions Terminology
 * When creating a method, you can either deal with the exception or delegate it to method caller. 
 
+<br>
+
 ## 🟥 6.1.2 Categories of Exceptions
 
 * The hierarch of Exceptions is:
@@ -29,6 +31,8 @@ java.lang.RuntimeException
 * A checked exception is any class which extends `Exception` BUT BOT `RuntimeException`
 - Checked exceptions must be either caught or thrown to the caller.
 * An error is fatal and should NOT be caught.
+
+<br>
 
 ## 🟥 6.1.3 Exceptions on the OCP
 * The OCA exam had the following exceptions:
@@ -49,6 +53,24 @@ java.lang.RuntimeException
 2) `java.time.DateTimeException` - when recieving invalid formatter string for a date
 3) `java.util.MissingResourceException` - when the key/resource bundle is not present
 4) `java.lang.IllegalStateException`/`java.lang.UnsupportedOperationException` - attempting to run invalid operatioon in collections or concurrency
+
+<br>
+
+## 🟥 6.1.4 Try Statement
+* A try statment has the following syntax, where a line is attempted to be executed and one or more catch statements and an optional finally clause:
+```java
+try {
+      // protected code
+} catch (ExceptionType e) {
+      // handle exception
+} finally {
+      // finally block
+}
+```
+* **RULE:** If the try has no catches, it must have finally. If there is no finally, then there MUST be a catch!.
+* The above rule does not apply with `try-with-resources`
+
+
 ## 🟥 H2
 
 ### 🟡 H3
