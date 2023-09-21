@@ -67,10 +67,17 @@ try {
       // finally block
 }
 ```
+* Java will not now allow a catch block for for a checked exception which can not be thrown by the try clause
 * **RULE:** If the try has no catches, it must have finally. If there is no finally, then there MUST be a catch!.
 * The above rule does not apply with `try-with-resources`
 
 
-## 🟥 H2
+<br>
 
-### 🟡 H3
+## 🟥 6.1.5 Throw vs Throws
+* The method signature will have **throwS**, the implementatiopn will **throw** a new exception!
+```java
+public String getDataFromDB() throws SQLException {
+      throw new UnsupportedOperationException();
+}
+```
