@@ -19,9 +19,9 @@
                   java.lang.Object
                         ⬆️
                 java.lang.Throwable
-                  ⬆️         ⬆️
-        java.lang.Exception   java.lang.Error
-              ⬆️
+                  ↗️         ↖️
+      java.lang.Exception   java.lang.Error
+            ⬆️
 java.lang.RuntimeException     
 ```
 
@@ -31,7 +31,24 @@ java.lang.RuntimeException
 * An error is fatal and should NOT be caught.
 
 ## 🟥 6.1.3 Exceptions on the OCP
+* The OCA exam had the following exceptions:
+1) `ArithmeticException` - Thrown by JVM when attempting to divide by zero
+2) `NullPointerException` - Thrown by JVM when trying to reference an object which is null
+3) `ArraysIndexOutOfBoundsException` - Thrown by JVM when trying to access an index which is not present
+4) `IllegalArgumentException` - Thrown by programmer when an argument passed to a method is inappropiate
+5) `ClassCastException` - Thrown by JVM when trying to cast an object to an incorrect class
+6) `NumberFormatException` - Thrown by programmer when trying to format a String, but is in an innapropiate format
 
+* The OCP exam includes a mix of unchecked and checked exceptions.
+* Checked exceptions:
+1) `java.text.parseException` - trying to parse a String to a number
+2) `java.sql.SQLException` - dealing with database issues
+3) `java.IO.IOException`/`java.IO.FileNotFoundException`/`java.IO.NotSerializableException` - dealing with IO and NIO.2 issues
+* Unchecked exceptions:
+1) `java.lang.ArrayStoreException` - when trying to add the wrong type to an array
+2) `java.time.DateTimeException` - when recieving invalid formatter string for a date
+3) `java.util.MissingResourceException` - when the key/resource bundle is not present
+4) `java.lang.IllegalStateException`/`java.lang.UnsupportedOperationException` - attempting to run invalid operatioon in collections or concurrency
 ## 🟥 H2
 
 ### 🟡 H3
