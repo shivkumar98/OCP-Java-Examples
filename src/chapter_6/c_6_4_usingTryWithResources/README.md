@@ -74,3 +74,51 @@ try (Scanner s = new Scanner; s.nextLine()) {
 }
 ```
 * The issue is that the Scanner has gone out of scope at the end of the try clause.
+
+## 🟥 6.4.3 AutoCloseable
+* Only resources which can be closed can be put in the try-with-resources statement!⚠️
+* E.g. the following does not compile❌
+```java
+public class Turkey {
+     public static void main() {
+        try (Turkery t = new Turkey()) { // COMPILER ERROR
+
+        }
+     }
+}
+```
+* The compiler will give the following error: `The resource type Turke does not implement java.lang.AutoCloseable`
+* We can rectify this by implementing the `AutoCloseable` interface which has the method `public void close() throws Exception;`:
+```java
+public class TurkeyCage implements AutoCloseable {
+    public void close() {
+        System.out.print("close gate");
+    }
+}
+```
+<br>
+
+* If you decide to throw a Checked Exception in your implementation, you must declare it in your method as with regular exceptions:
+
+```java
+public class Turkey implements AutoCloseable {
+    public void close() throw Exception {
+        throw new Exception("Cage is stuck");
+    }
+
+    public static void main() {
+        try (Turkey t = new Turker()) { // COMPILER ERROR
+
+        }
+    }
+}
+```
+
+* Java recommends that the `close()` implementation does not actually throw `Exception` but a more specific Exception so that the method can be called with unknown side-effects.
+
+
+### 🟡 AutoCloseable vs Closeable
+* AutoCloseable was introduced in Java 7. Closeable was another interface which existed before 7 and differed in the following ways
+    - Closeable restricts the exception thrown to IOException
+    - Required to be idempotent
+* AutoCloseable is less strict than Closeable💡
