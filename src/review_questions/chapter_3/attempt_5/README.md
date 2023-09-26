@@ -7,16 +7,16 @@ Score: /25
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
+| 1          |  ✅    |
+| 2          |  ✅    |
+| 3          |  ✅    |
+| 4          |  ✅    |
+| 5          |  ✅    |
+| 6          |  ✅    |
+| 7          |  ✅    |
+| 8          |  ✅    |
+| 9          |  ❌    |
+| 10         |  ✅    |
 | 11         |       |
 | 12         |       |
 | 13         |       |
@@ -195,21 +195,21 @@ F. Compiler error on line 🎃
 ### My Answer:
 * Compiles fine
 * prints hithere
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 7:
 ❓ Which of the following statements are true for the following code: ❓ 
 ```java
-    Set<Number> numbers = new HashSet<>();  // LINE 3
-    numbers.add(new Integer(86));
-    numbers.add(75);
-    numbers.add(new Integer(86));
-    numbers.add(null);
-    numbers.add(309L);
-    Iterator iter = numbers.iterator();     // LINE 9
-    while (iter.hasNext())
-        System.out.print(iter.next());   
+Set<Number> numbers = new HashSet<>();  // LINE 3
+numbers.add(new Integer(86));
+numbers.add(75);
+numbers.add(new Integer(86));
+numbers.add(null);
+numbers.add(309L);
+Iterator iter = numbers.iterator();     // LINE 9
+while (iter.hasNext())
+    System.out.print(iter.next());   
 ```
 
 A. The code compiles successfully 🎃
@@ -223,7 +223,7 @@ G. An exception is thrown 🎃
 ### My Answer:
 * The code does compile
 * The output is undefined
-* **A, D**
+* **A, D**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -244,7 +244,7 @@ F. An exception is thrown 🎃
 
 ### My Answer:
 * The ceiling gives the lowest element < "On"
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 9:
@@ -275,7 +275,9 @@ E. None of the above 🎃
 * B - invalid, I think
 * C - valid
 * D - invalid cause its a character
-* **A,C**
+* **A,C**❌❌❌❌
+* CORRECT ANSWER - E
+* This was a trick question! If it wasn't my answer would be correct!
 
 <hr>
 
@@ -308,7 +310,7 @@ F. A runtime exception is thrown 🎃
 * The compare method will sort by reverse alphabetical order regardless of casing
 * the natural order is [123, aab, abb]
 * The printed values are: [abb, aab, 123]
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 11:
