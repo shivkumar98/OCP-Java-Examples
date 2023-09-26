@@ -474,75 +474,56 @@ Map<Boolean, List<String>> p = s.collect(
     Collectors.partitionBy(b -> b.startsWith("c")));
 Map<Boolean, List<String>> g = s.collect(
     Collectors.groupBy(b -> b.startsWith("c")));
+System.out.println(p + " " + g);
 ```
 
 A. `{} {}`
-
 B. `{} {false=[], true=[]}`
-
 C. `{false=[], true=[]} {}`
-
 D. `{false=[], true=[]} {false=[], true=[]}`
-
 E. The code does not compile
-
 F. An exception is thrown
 
 ### My Answer:
+* Partion will always have true/false
+* **C**
 
 <hr>
 
 
 ## Question 17
-
 ❓Which of the following is equivalent to this code❓
-
 ```java
 UnaryOperator<Integer> u = x -> x * x;
 ```
-
 A. `BiFunction<Integer> f = x -> x*x;`
-
 B. `BiFunction<Integer, Integer> f = x -> x*x;`
-
 C. `BinaryOperator<Interger, Integer> f = x -> x*x;`
-
 D. `Function<Integer> f = x -> x*x;`
-
 E. `Function<Integer, Integer> f = x -> x*x;`
-
 F. None of these above
 
 ### My Answer:
-
+* **E**
 <hr>
 
 
 ## Question 18
-
 ❓What is the result of the following❓
-
 ```java
 DoubleStream s = DoubleStream.of(1.2, 2.4);
-s.peek(System.out.::println).filter(x -> x > 2).count();
+s.peek(System.out::println).filter(x -> x > 2).count();
 ```
-
 A. 1
-
 B. 2
-
 C. 2.4
-
 D. 1.2 and 2.4
-
 E. There is no output
-
 F. The code does not compile
-
 G. An exception is thrown
 
 ### My Answer:
-
+* **C**
 <hr>
 
 ## Question 19
@@ -550,49 +531,40 @@ G. An exception is thrown
 ❓Which of the following return primitives❓
 
 A. `BooleanSupplier`
-
 B. `CharSupplier`
-
 C. `DoubleSupplier`
-
 D. `FloatSupplier`
-
 E. `IntSupplier`
-
 F. `StringSupplier`
+
+* **A, C, E**
 
 ## Question 20
 
 ❓What is the simplest way of rewriting this code❓
-
 ```java
 List<Integer> l = IntStream.range(1,6)
     .mapToObj(i -> i).collect(Collectors.toList());
 l.forEach(System.out::println);
 ```
-
 A. 
 ```java
 IntStream.range(1,6);
 ```
-
 B. 
 ```java
 IntStream.range(1,6)
     .forEach(System.out::println);`
 ```
-
 C. 
 ```java
 IntStream.range(1,6)
     .mapToObj(i->i)
     .forEach(System.out::println);
 ```
-
 D. None of the above is equivalent
-
 E. The provided code does not compile
 
 ### My Answer:
-
+* **B**
 <hr>
