@@ -428,7 +428,10 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* **F**❌❌❌❌
+* c is an instance of mammal
+* c is also an instance of Furry
+* null is not an instance of Chipmunk
+* **B**
 
 <hr>
 
@@ -461,7 +464,8 @@ public class IsItFurry {
     F. r instanceof Chipmunk does not compile 🎃
 
 ### My Answer:
-
+* The code does no compile as r is referenced by the interface `Runnable`.
+* **F**
 <hr>
 
 ## Question 15
@@ -476,7 +480,9 @@ public class IsItFurry {
     F. If equals() is passed the wrong type, the method should return true 🎃
 
 ### My Answer:
-
+* equals can be passed any type
+* if passed null, it returns false
+* **B**
 <hr>
 
 ## Question 16
@@ -501,6 +507,8 @@ public class Outer {
     F. Outer.Inner in = Outer.new Inner(); 🎃
 
 ### My Answer:
+* Inner can not be instantiated directly
+* **E**
 
 <hr>
 
