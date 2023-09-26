@@ -549,10 +549,10 @@ F. A runtime exception is thrown 🎃
 
 ❓ What is the result of the following code? ❓
 ```java
-    Map m = new HashMap();                  // LINE 4
-    m.put(123, "456");                      // LINE 5
-    m.put("abc", "def");                    
-    System.out.println(m.contains("123"));  // LINE 7
+Map m = new HashMap();                  // LINE 4
+m.put(123, "456");                      // LINE 5
+m.put("abc", "def");                    
+System.out.println(m.contains("123"));  // LINE 7
 ```
 A. `false` 🎃
 B. `true` 🎃
@@ -571,10 +571,10 @@ F. A runtime exception is thrown 🎃
 ❓ Fill in the blanks to make this code compile and print `123`❓
 
 ```java
-    List<String> list = Arrays.asList("1", "2", "3");
-    Iterator iter = list.iterator();
-    while (iter.______())
-        System.out.println(iter._____());
+List<String> list = Arrays.asList("1", "2", "3");
+Iterator iter = list.iterator();
+while (iter.______())
+    System.out.println(iter._____());
 ```
 A. On line 6, fill blank with `hasNext()` 🎃
 B. On line 6, fill blank with `isNext()` 🎃
@@ -584,16 +584,16 @@ E. On line 7, fill blank with `hasNext()` 🎃
 F. On line 7, fill blank with `next()` 🎃
 
 ### My Answer:
-
+* **A, F**
 <hr>
 
 ## Question 22:
 
 ❓ What code change is needed to make the method compile? ❓
 ```java
-    public static T identity(T t){
-        return t;
-    }
+public static T identity(T t){
+    return t;
+}
 ```
 A. Add `<T>` after the public keyword 🎃
 B. Add `<T>` after the static keyword 🎃
@@ -603,7 +603,8 @@ E. Add `<?>` after the static keyword 🎃
 F. No change required the code already compiles 🎃
 
 ### My Answer:
-
+* We need <T> before return type
+* **B**
 <hr>
 
 ## Question 23:
@@ -616,13 +617,15 @@ D. removeAll() method on a Collection 🎃
 E. removeIf() method on a Collection 🎃
 
 ### My Answer:
-
+* Comparable is typically implemented by a class
+* removeIf() can use a lambda
+* **B,E**
 <hr>
 
 ## Question 24:
 ❓ Which of the following compiles and prints out the entire set?❓
 ```java
-    Set<String> s = new HashSet<>();
+Set<String> s = new HashSet<>();
 s.add("lion");
 s.add("tiger");
 s.add("bear");
@@ -653,9 +656,11 @@ F. 🎃
 ```java
 System.out::println
 ```
-
 ### My Answer:
-
+* A - invalid
+* B - invalid, s is already used as variable
+* D,E - invalid
+* **F**
 <hr>
 
 ## Question 25:
@@ -681,7 +686,10 @@ F. {1=13, 2=20, 3=3} 🎃
 G. The code does not compile 🎃
 H. An exception is thrown 🎃
 
-
 ### My Answer:
-
+* map = {1=10, 2=20, 3=null}
+* merge at key 1 as: (10,3) -> 13
+* merget at key 3 will just insert 3
+* map = {1=13, 2=20, 3=3}
+* **F**
 <hr>
