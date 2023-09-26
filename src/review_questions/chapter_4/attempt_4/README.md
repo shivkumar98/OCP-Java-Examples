@@ -198,7 +198,8 @@ F. None of the above
 * C - findAny() - no
 * D - no
 * E - noneMatch, yes
-* **E**
+* **E**❌❌❌❌
+* CORRECT ANSWER: A
 <hr>
 
 
@@ -253,7 +254,8 @@ return list.stream()
 
 ### My Answer:
 * B does not collect!
-* **C**
+* **C**❌❌❌❌
+* CORRECT ANSWER: F
 <hr>
 
 
@@ -279,29 +281,23 @@ F. `is.sum()` returns the type `OptionalInt`
 * C - false
 * D - true
 * E - true
-* **B,D,E**
+* **B,D,E**❌❌❌❌
+* **CORRECT ANSWER: D,E**
+* average() returns OptionalDouble
 <hr>
 
 
 ## Question 9
-
 ❓Which of the following can we add line 5 for the code to run without error and non produce any output? (Choose all that apply)❓
-
 ```java
 LongStream ls = LongStream.of(1,2,3);                           // LINE 4
 OptionalLong opt = ls.map(n->n*10).filter(n-> n < 5).findFirst();  // LINE 5
 ```
-
 A. `if (opt.isPresent()) System.out.println(opt.get());`
-
 B. `if (opt.isPresent()) System.out.println(opt.getAsLong());`
-
 C. `opt.ifPresent(System.out.println);`
-
 D. `opt.ifPresent(System.out::println)`
-
 E. None of these; the code does not compile
-
 F. None of these; line 5 throws an exception 
 
 ### My Answer:
@@ -311,7 +307,7 @@ F. None of these; line 5 throws an exception
 * A - invalid
 * B - valid
 * D - valid
-* **B,D**
+* **B,D**✅✅✅✅
 <hr>
 
 ## Question 10
@@ -342,7 +338,7 @@ G. N, O
 
 ### My Answer:
 * IDK
-* **E**
+* **E**❌❌❌❌
 <hr>
 
 
