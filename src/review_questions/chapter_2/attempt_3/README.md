@@ -217,7 +217,15 @@ public class Seal {
     H. Make the `Seal` class final 🎃
 
 ### My Answer:
-
+* A - no
+* B - no, does not exist
+* C - yes
+* D - no
+* E - yes
+* F - no
+* G - no
+* H - yes, prevent methods from being overidden
+* **C, E, H**
 <hr>
 
 ## Question 8
@@ -232,6 +240,13 @@ public class Seal {
     F. All members of an interface are public 🎃
 
 ### My Answer:
+* A - no, they can extend interfaces
+* B - no, an interface can
+* C - yes
+* D - false, can contain default
+* E - yes
+* F - yes
+* **C,E,F**
 
 <hr>
 
