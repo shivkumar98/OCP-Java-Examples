@@ -275,7 +275,13 @@ public class CheetahManager {
     F. Add synchronized to `getCheetahManager()` 🎃
 
 ### My Answer:
-
+* A - no
+* B - no, not essential
+* C - no, not essential
+* D - no
+* E - no
+* F - yes
+* **F**
 <hr>
 
 ## Question 10
@@ -284,10 +290,10 @@ public class CheetahManager {
 
 ```java
 1:  public interface CanWalk {
-2:      default void walk() { System.out.println1: ("Walking"); }
+2:      default void walk() { System.out.println("Walking"); }
 3:  }
 4:  public interface CanRun {
-5:      public default void walk() { System.out.println: ("Walking"); }
+5:      public default void walk() { System.out.println("Walking"); }
 6:      public abstract void run();
 7:  }
 8:  public interface CanSprint extends CanWalk, CanRun {
@@ -302,7 +308,8 @@ public class CheetahManager {
     E. The code will not compile because of line 9 🎃
 
 ### My Answer:
-
+* Can an interface extend multiple interfaces. I think so
+* **D** - does CanSprint inherit the defaul or abstract method? Java says no! (probna)
 <hr>
 
 ## Question 11
@@ -328,6 +335,11 @@ public class MySecret implements Secret {
     F. `caller((e) -> { String f = ""; return "Poof"; });`
 
 ### My Answer:
+* A - yes
+* B - no
+* C, D, E - no
+* F - yes
+* **A,F**
 
 <hr>
 
@@ -359,6 +371,8 @@ public class Climber {
     F. A runtime exception is thrown.
 
 ### My Answer:
+* x1 does not compile, the lambda needs to be a predicate!
+* **C**
 
 <hr>
 

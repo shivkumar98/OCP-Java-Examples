@@ -239,10 +239,10 @@ public class CheetahManager {
 
 ```java
 1:  public interface CanWalk {
-2:      default void walk() { System.out.println1: ("Walking"); }
+2:      default void walk() { System.out.println("Walking"); }
 3:  }
 4:  public interface CanRun {
-5:      public default void walk() { System.out.println: ("Walking"); }
+5:      public default void walk() { System.out.println("Walking"); }
 6:      public abstract void run();
 7:  }
 8:  public interface CanSprint extends CanWalk, CanRun {
@@ -259,7 +259,6 @@ public class CheetahManager {
 ### My Answer:
 
 <hr>
-
 ## Question 11
 
 ❓Which lambda can replace the `MySecret` class to return the same value (choose all that apply)❓
