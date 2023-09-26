@@ -331,7 +331,7 @@ F. A runtime exception is thrown 🎃
 
 ### My Answer:
 * The get() method uses the key of the map which is Integer, so it will get 16
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -373,7 +373,7 @@ Helper.printException(new Throwable("E"))
 * C - invalid, throwable is superclass of Exception
 * D - valid
 * E - invalid, same as C
-* **A,B,D**
+* **A,B,D**✅✅✅✅
 <hr>
 
 ## Question 13:
@@ -422,7 +422,10 @@ F. None of the above 🎃
 * C - invalid
 * D - valid
 * E - valid
-* **A,B,D,E**
+* **A,B,D,E**❌❌❌❌
+* CORRECT ANSWER: B, E
+* Queue is not a list so A is wrong!
+* D is wrong as the generic declaration is invalid!!!
 <hr>
 
 ## Question 14:
@@ -461,10 +464,9 @@ F. A runtime exception is thrown 🎃
 ### My Answer:
 * Sorted is Comparable, it will sort in ascending order of text
 * t1 will be in natural order which is s1 < s2
-* t2 is sorted by s1, which is a comparator and sorts by num asc which is s1 < s2
+* t2 is sorted by s1, which is a comparator and sorts by num asc which is s2 < s1
 * [88,55], [88,55]
-* **D**
-
+* **C**✅✅✅✅
 <hr>
 
 ## Question 15:
@@ -485,7 +487,7 @@ F. A runtime exception is thrown 🎃
 
 ### My Answer:
 * The list is in descending order, as a result binarySearch result is undefined
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 16:
@@ -502,7 +504,7 @@ F. `compare()` takes two method parameters 🎃
 * Comparator is in java.util
 * compare() is in Comparator interface
 * compare() takes two parameters
-* **B,D,F**
+* **B,D,F**✅✅✅✅
 <hr>
 
 ## Question 17:
@@ -527,7 +529,7 @@ F. Fill Line 3 with `<?>` 🎃
 
 ### My Answer:
 * We need to fill with <T> and line 3 with <>
-* **B,D**
+* **B,D**✅✅✅✅
 <hr>
 
 ## Question 18:
@@ -556,7 +558,8 @@ F. `C c1 = new C();` 🎃
 * B - valid
 * C - valid
 * D,E,F - invalid
-* **A,B,C**
+* **A,B,C**❌❌❌❌
+* CORRECT ANSWER: A,B 
 <hr>
 
 ##  Question 19:
@@ -580,7 +583,7 @@ F. A runtime exception is thrown 🎃
 * LinkedList is both a Queue and List
 * If a list, it will be [10, 12] -> [10]
 * If a queue, it will be [10,12]
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ##  Question 20:
@@ -601,7 +604,7 @@ F. A runtime exception is thrown 🎃
 
 ### My Answer:
 * Map does not have a `contains()` method
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ##  Question 21:
