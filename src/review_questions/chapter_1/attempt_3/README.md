@@ -2,8 +2,8 @@
 
 ## Results:
 
-Date: 
-Score: /20
+Date: 26/09/2023
+Score: 17/20
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -17,16 +17,16 @@ Score: /20
 | 8          |   ✅       |
 | 9          |   ✅       |
 | 10         |   ✅       |
-| 11         |          |
-| 12         |          |
-| 13         |          |
-| 14         |          |
-| 15         |          |
-| 16         |          |
-| 17         |          |
-| 18         |          |
-| 19         |          |
-| 20         |          |
+| 11         |   ✅       |
+| 12         |   ✅       |
+| 13         |   ✅       |
+| 14         |   ❌       |
+| 15         |   ✅       |
+| 16         |   ✅       |
+| 17         |   ❌       |
+| 18         |   ✅       |
+| 19         |   ✅       |
+| 20         |   ✅       |
 
 ## Question 1
 
@@ -360,9 +360,9 @@ public class FootballGame {
 
 ### My Answer:
 * Football is in a seperate package
-* We are importing it staticallyu
+* We are importing it statically
 * import static my.sports.Football.*;
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 12
@@ -402,7 +402,7 @@ public class Browsers {
 
 ### My Answer:
 * You can not cast firefox to IE
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -439,7 +439,7 @@ public class IsItFurry {
 * c is an instance of mammal
 * c is also an instance of Furry
 * null is not an instance of Chipmunk
-* **B**
+* **B**✅✅✅✅
 
 <hr>
 
@@ -473,7 +473,9 @@ public class IsItFurry {
 
 ### My Answer:
 * The code does no compile as r is referenced by the interface `Runnable`.
-* **F**
+* **F**❌❌❌❌
+* CORRECT ANSWER: E
+* Java comcplains because L is referenced by a concrete class
 <hr>
 
 ## Question 15
@@ -490,7 +492,7 @@ public class IsItFurry {
 ### My Answer:
 * equals can be passed any type
 * if passed null, it returns false
-* **B**
+* **B, E**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -516,7 +518,7 @@ public class Outer {
 
 ### My Answer:
 * Inner can not be instantiated directly
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -550,7 +552,9 @@ public class Outer {
 
 ### My Answer:
 * Enum can not have public constructor
-* **C**
+* **C**❌❌❌❌
+* **CORRECT ANSWER: B,C**
+* A semi-colon is missing at the end of the enums!
 <hr>
 
 ## Question 18
@@ -584,7 +588,7 @@ public class Swimmer {
 
 ### My Answer:
 * All enums must implement the abstract method
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -610,7 +614,7 @@ public class LearnToWalk {
 ### My Answer:
 * A - valid
 * C - valid
-* **A,C**
+* **A,C**✅✅✅✅
 
 <hr>
 
@@ -640,5 +644,5 @@ public class FourLegged {
     F. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
