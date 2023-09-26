@@ -1,4 +1,4 @@
-# Chapter 3: Review Questions
+# Chapter 3: Review Questions - Attempt 5
 
 ## Question 1
 
@@ -13,6 +13,10 @@ Which of the following collections classes in the `java.util` package best suit 
     E. LinkedList 🎃
 
 ### My Answer:
+* An array and arrayList would work
+* HashMap and HashSet aren't applicable
+* LinkedList would work
+* **B**
 
 <hr>
 
@@ -30,6 +34,8 @@ Which of the following collections classes in the `java.util` package best suit 
     F. Vector 🎃
 
 ### My Answer:
+* We need a map but also need ordering. A TreeMap would be best
+* **D**
 
 <hr>
 
@@ -53,6 +59,8 @@ Which of the following collections classes in the `java.util` package best suit 
     E. Compiler error on line 7 🎃
 
 ### My Answer:
+* Compiler error on line 7
+* **E**
 
 <hr>
 
@@ -80,6 +88,9 @@ Which of the following collections classes in the `java.util` package best suit 
     G. An exception is thrown 🎃
 
 ### My Answer:
+* [ola, hi, hello] -> [hi, hello]
+* Prints out hihello
+* **E**
 
 <hr>
 
