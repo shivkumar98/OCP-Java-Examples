@@ -2,9 +2,8 @@
 
 ## Results:
 
-Date: 
-Score: 
-✅❌
+Date: 26/06/2023
+Score: 13/20
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -24,10 +23,10 @@ Score:
 | 14         |   ✅    |
 | 15         |   ✅    |
 | 16         |   ✅    |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 17         |   ✅    |
+| 18         |   ✅    |
+| 19         |   ✅    |
+| 20         |   ✅    |
 
 ## Question 1
 
@@ -509,7 +508,7 @@ public class TurtleFrog extends Frog {}
 * D - false
 * E - false
 * F - true
-* **B,C,F**
+* **B,C,F**✅✅✅✅
 <hr>
 
 ## Question 18
@@ -525,12 +524,12 @@ public class TurtleFrog extends Frog {}
 
 ### My Answer:
 * A - yes
-* B - yes
+* B - no
 * C - no
 * D - no
 * E - yes
 * F - no
-* **A,B,E**
+* **A,B,E**✅✅✅✅✅
 <hr>
 
 ## Question 19
@@ -551,7 +550,7 @@ public class TurtleFrog extends Frog {}
 * D - yes
 * E - yes
 * F - no
-* **B,D,E**
+* **B,D,E**✅✅✅✅
 
 <hr>
 
@@ -578,4 +577,4 @@ public class TurtleFrog extends Frog {}
     F. The code will not compile because of class Falcon does not implement the interface methods🎃
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
