@@ -1,14 +1,15 @@
-# Chapter 2 - Review Questions Attemp #
+# Chapter 2 - Review Questions Attempt 3
 
 ## Results:
 
 Date: 
 Score: 
+✅❌
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          | ✅      |
-| 2          | ❌      |
+| 1          |       |
+| 2          |       |
 | 3          |       |
 | 4          |       |
 | 5          |       |
@@ -39,6 +40,12 @@ Score:
     E. Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read 🎃
 
 ### My Answer:
+* A - true
+* B - false
+* C - true
+* D - false
+* E - true
+* **A,C,E**
 
 <hr>
 
@@ -67,12 +74,14 @@ Score:
     F. It compiles but throws exception at runtime🎃
 
 ### My Answer:
+* The code does not compile at line 8 due to it not implementing `climb()`
+* **E**
 
 <hr>
 
 ## Question 3
 
-❓Which of the following are functional interrfaces❓
+❓Which of the following are functional interfaces❓
 
 ```java
 public interface Climb {
@@ -94,6 +103,10 @@ public interface MountainClimb extends Climb {}
     E.  None of these are valid functional interfaces🎃
 
 ### My Answer:
+* Climb and Swim are functional interfaces.
+* MountainClimb inherits from Climb, so it is a functional interface
+* ArticMountain is not valid as it has no implementation
+* **A,B,D**
 
 <hr>
 
@@ -110,6 +123,14 @@ public interface MountainClimb extends Climb {}
     G.  `(Animal z, m)-> a`🎃
 
 ### My Answer:
+* A - valid
+* B - invalid, needs brackets
+* C - invalid, return must be in braces
+* D - valid
+* E - invalid, must be in round brackets
+* F - valid, i think
+* G - valid
+* **A,D,F,G**
 
 <hr>
 
@@ -121,10 +142,17 @@ public interface MountainClimb extends Climb {}
     B. Requires contructor of singleton class to be private 🎃
     C. Singleton object must be named `instance` 🎃
     D. Single object may be private or protected 🎃
-    E. Ensure that there is only one instance of an object in memory 🎃
+    E. Ensures that there is only one instance of an object in memory 🎃
     F. Required a `public static` method to retrieve the instance of the singleton
 
 ### My Answer:
+* A - no
+* B - yes
+* C - no
+* D - no, it must be private
+* E - yes
+* F - yes
+* **B,E,F**
 
 <hr>
 
@@ -156,6 +184,8 @@ public class Panda {
     F.  `A runtime exception is thrown`🎃
 
 ### My Answer:
+* It will print match as p1 has an age less than 5
+* **A**
 
 <hr>
 
