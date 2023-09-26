@@ -9,11 +9,11 @@ Score: /20
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |         |
-| 2          |         |
-| 3          |         |
-| 4          |         |
-| 5          |         |
+| 1          |  ✅       |
+| 2          |  ❌       |
+| 3          |  ❌       |
+| 4          |  ✅       |
+| 5          |  ❌       |
 | 6          |         |
 | 7          |         |
 | 8          |         |
@@ -53,7 +53,7 @@ G. The code hangs
 * stream = "11111..."
 * stream = "11"
 * stream = "1212"
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -78,13 +78,14 @@ D. The code does not compile
 
 E. An exception is thrown
 
-F. The code hands
+F. The code hangs
 ❓
 
 ### My Answer:
 * "growl!" - do ANY start with g? yes
 * "growl!" - do ALL start with g? no, this can no be assumed
-* **B**
+* **B**❌❌❌❌
+* **CORRECT ANSWER: F**
 <hr>
 
 
@@ -110,7 +111,8 @@ F. The code hands
 * stream = [-, --, ----, --------]
 * noneMatch that the length is less than 3, false
 * anyMatch, is true
-* **A**
+* **A**❌❌❌❌
+* **CORRECT ANSWER: E**
 <hr>
 
 ## Question 4:
@@ -134,7 +136,7 @@ E. The `peek()` method is an example of a terminal operation
 * C - false
 * D - false
 * E - false
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 ## Question 5
@@ -161,7 +163,10 @@ F. sum()
 * D - no
 * E - no
 * F - yes
-* **B,F**
+* **B,F**❌❌❌❌
+* CORRECT ANSWER: A,B
+* Sum is only available to primitive streams!
+
 <hr>
 
 ## Question 6:
