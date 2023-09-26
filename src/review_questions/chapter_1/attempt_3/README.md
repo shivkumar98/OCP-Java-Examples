@@ -301,6 +301,7 @@ public class IceCream {
     F. An exception is thrown🎃
 
 ### My Answer:
+* **B**
 
 ## Question 10
 
@@ -322,7 +323,7 @@ public class IceCream {
     E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
-
+* **C**
 <hr>
 
 ## Question 11
@@ -350,7 +351,10 @@ public class FootballGame {
     G. static import my.sports.Football;
 
 ### My Answer:
-
+* Football is in a seperate package
+* We are importing it staticallyu
+* import static my.sports.Football.*;
+* **D**
 <hr>
 
 ## Question 12
@@ -389,6 +393,8 @@ public class Browsers {
     E. A runtime exception is thrown 🎃
 
 ### My Answer:
+* You can not cast firefox to IE
+* **E**
 
 <hr>
 
