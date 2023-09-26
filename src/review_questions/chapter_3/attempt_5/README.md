@@ -378,7 +378,13 @@ Vector<? extends Number> list = new Vector<Integer>();
 F. None of the above 🎃
 
 ### My Answer:
-
+* The List accepts any type
+* A - valid
+* B - valid
+* C - invalid
+* D - valid
+* E - valid
+* **A,B,D,E**
 <hr>
 
 ## Question 14:
@@ -408,25 +414,28 @@ public class Sorted implements Comparable<Sorted>, Comparator<Sorted> {
     }
 }
 ```
-
 A. `[55, 88] [55, 88]` 🎃
 B. `[55, 88] [88, 55]` 🎃
 C. `[88, 55] [55, 88]` 🎃
 D. `[88, 55] [88, 55]` 🎃
 E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
-
 ### My Answer:
+* Sorted is Comparable, it will sort in ascending order of text
+* t1 will be in natural order which is s1 < s2
+* t2 is sorted by s1, which is a comparator and sorts by num asc which is s1 < s2
+* [88,55], [88,55]
+* **D**
 
 <hr>
 
 ## Question 15:
 ❓ What is the result of the following code? ❓ 
 ```java
-    Comparatator<Integer> c = (o1, o2) -> o2-o1;
-    List<Integer> list = Arrays.asList(5, 4, 7, 1);
-    Collections.sort(list, c);
-    System.out.println(Collections.binarySearch(list, 1))
+Comparatator<Integer> c = (o1, o2) -> o2-o1;
+List<Integer> list = Arrays.asList(5, 4, 7, 1);
+Collections.sort(list, c);
+System.out.println(Collections.binarySearch(list, 1))
 ```
 
 A. `0` 🎃
@@ -437,7 +446,8 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* The list is in descending order, as a result binarySearch result is undefined
+* **D**
 <hr>
 
 ## Question 16:
@@ -451,7 +461,10 @@ E. `compare()` takes one method parameter 🎃
 F. `compare()` takes two method parameters 🎃
 
 ### My Answer:
-
+* Comparator is in java.util
+* compare() is in Comparator interface
+* compare() takes two parameters
+* **B,D,F**
 <hr>
 
 ## Question 17:
@@ -475,7 +488,8 @@ E. Fill Line 3 with `<T>` 🎃
 F. Fill Line 3 with `<?>` 🎃
 
 ### My Answer:
-
+* We need to fill with <T> and line 3 with <>
+* **B,D**
 <hr>
 
 ## Question 18:
