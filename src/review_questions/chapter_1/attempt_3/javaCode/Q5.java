@@ -7,6 +7,7 @@ public class Q5 {
 		System.out.println(a.hashCode());
 		String b = new String(a);
 		System.out.println(b.hashCode());
+
 	}
 
 }

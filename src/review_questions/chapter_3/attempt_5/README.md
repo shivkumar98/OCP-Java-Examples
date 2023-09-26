@@ -1,5 +1,41 @@
 # Chapter 3: Review Questions - Attempt 5
 
+## Results:
+
+Date: 26/09/2023
+Score: /25
+
+| Question # | Correct  |
+| ---------- | -------  |
+| 1          |       |
+| 2          |       |
+| 3          |       |
+| 4          |       |
+| 5          |       |
+| 6          |       |
+| 7          |       |
+| 8          |       |
+| 9          |       |
+| 10         |       |
+| 11         |       |
+| 12         |       |
+| 13         |       |
+| 14         |       |
+| 15         |       |
+| 16         |       |
+| 17         |       |
+| 18         |       |
+| 19         |       |
+| 20         |       |
+| 21         |       |
+| 22         |       |
+| 23         |       |
+| 24         |       |
+| 25         |       |
+
+<hr>
+
+
 ## Question 1
 
 ❓ Suppose you have a collection of products for sale in a database and you need to display those products. The products are not unique.
@@ -16,7 +52,7 @@ Which of the following collections classes in the `java.util` package best suit 
 * An array and arrayList would work
 * HashMap and HashSet aren't applicable
 * LinkedList would work
-* **B**
+* **B**✅✅✅✅
 
 <hr>
 
@@ -35,7 +71,7 @@ Which of the following collections classes in the `java.util` package best suit 
 
 ### My Answer:
 * We need a map but also need ordering. A TreeMap would be best
-* **D**
+* **D**✅✅✅✅
 
 <hr>
 
@@ -44,12 +80,12 @@ Which of the following collections classes in the `java.util` package best suit 
 ❓ What is the result of the following statements? ❓ 
 
 ```java
-    List list = new ArrayList();
-    list.add("one");
-    list.add("two");
-    list.add(7);            // LINE 6
-    for (String s: list)    // LINE 7
-    System.out.println(s);
+List list = new ArrayList();
+list.add("one");
+list.add("two");
+list.add(7);            // LINE 6
+for (String s: list)    // LINE 7
+System.out.println(s);
 ```
 
     A. `onetwo` 🎃
@@ -60,7 +96,7 @@ Which of the following collections classes in the `java.util` package best suit 
 
 ### My Answer:
 * Compiler error on line 7
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -69,14 +105,14 @@ Which of the following collections classes in the `java.util` package best suit 
 ❓ What is the result of the following? ❓ 
 
 ```java
-    ArrayDeque<String> greetings = new ArrayDeque<String>();
-    greetings.push("hello");
-    greetings.push("hi");
-    greetings.push("ola");
-    greetings.pop();
-    greetings.peek();
-    while(greetings.peek() != null)
-        System.out.println(greetings.pop);
+ArrayDeque<String> greetings = new ArrayDeque<String>();
+greetings.push("hello");
+greetings.push("hi");
+greetings.push("ola");
+greetings.pop();
+greetings.peek();
+while(greetings.peek() != null)
+    System.out.println(greetings.pop);
 ```
 
     A. `hello` 🎃
@@ -90,7 +126,7 @@ Which of the following collections classes in the `java.util` package best suit 
 ### My Answer:
 * [ola, hi, hello] -> [hi, hello]
 * Prints out hihello
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -130,7 +166,7 @@ Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 * D - invalid
 * E - invalid, cannot have wildcard on RHS
 * F - valid
-* **B,C,F**
+* **B,C,F**✅✅✅✅
 <hr>
 
 ## Question 6:
