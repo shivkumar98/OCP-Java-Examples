@@ -16,10 +16,10 @@ Score:
 | 6          |   ✅    |
 | 7          |   ❌    |
 | 8          |   ❌    |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 9          |   ❌    |
+| 10         |   ✅    |
+| 11         |   ✅    |
+| 12         |   ✅    |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -277,7 +277,7 @@ public class CheetahManager {
 }
 ```
 
-    A.  None; the singleton pattern is properly implemented S🎃
+    A.  None; the singleton pattern is properly implemented🎃
     B.  Rename `cheetahManager` to instance 🎃
     C.  Rename `getCheetahManager()` to `getInstance()` 🎃
     D.  Change the access modifier of `cheetahManager` from public to private 🎃
@@ -288,10 +288,12 @@ public class CheetahManager {
 * A - no
 * B - no, not essential
 * C - no, not essential
-* D - no
-* E - no
+* D - YES
+* E - yes
 * F - yes
-* **F**
+* **D,E,F**❌❌❌❌
+* **CORRECT ANSWER: D,F**
+* marking the class will prevent lazy instantiation
 <hr>
 
 ## Question 10
@@ -319,7 +321,9 @@ public class CheetahManager {
 
 ### My Answer:
 * Can an interface extend multiple interfaces. I think so
-* **D** - does CanSprint inherit the defaul or abstract method? Java says no! (probna)
+* **D** - does CanSprint inherit the defaul or abstract method? Java says no! (probably not)
+✅✅✅✅
+* Interfaces in general can extend multiple interfaces but in this case there is a collision
 <hr>
 
 ## Question 11
@@ -349,7 +353,7 @@ public class MySecret implements Secret {
 * B - no
 * C, D, E - no
 * F - yes
-* **A,F**
+* **A,F**✅✅✅✅
 
 <hr>
 
@@ -382,7 +386,7 @@ public class Climber {
 
 ### My Answer:
 * x1 does not compile, the lambda needs to be a predicate!
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
