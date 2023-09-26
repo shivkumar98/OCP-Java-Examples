@@ -3,35 +3,35 @@
 ## Results:
 
 Date: 26/09/2023
-Score: /25
+Score: 22/25
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |  ✅    |
-| 2          |  ✅    |
-| 3          |  ✅    |
-| 4          |  ✅    |
-| 5          |  ✅    |
-| 6          |  ✅    |
-| 7          |  ✅    |
-| 8          |  ✅    |
-| 9          |  ❌    |
-| 10         |  ✅    |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
-| 23         |       |
-| 24         |       |
-| 25         |       |
+| 1          |  ✅     |
+| 2          |  ✅     |
+| 3          |  ✅     |
+| 4          |  ✅     |
+| 5          |  ✅     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ❌     |
+| 10         |  ✅     |
+| 11         |  ✅     |
+| 12         |  ✅     |
+| 13         |  ❌     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ✅     |
+| 17         |  ✅     |
+| 18         |  ❌     |
+| 19         |  ✅     |
+| 20         |  ✅     |
+| 21         |  ✅     |
+| 22         |  ✅     |
+| 23         |  ✅     |
+| 24         |  ✅     |
+| 25         |  ✅     |
 
 <hr>
 
@@ -625,7 +625,7 @@ E. On line 7, fill blank with `hasNext()` 🎃
 F. On line 7, fill blank with `next()` 🎃
 
 ### My Answer:
-* **A, F**
+* **A, F**✅✅✅✅
 <hr>
 
 ## Question 22:
@@ -645,7 +645,7 @@ F. No change required the code already compiles 🎃
 
 ### My Answer:
 * We need <T> before return type
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 23:
@@ -660,7 +660,7 @@ E. removeIf() method on a Collection 🎃
 ### My Answer:
 * Comparable is typically implemented by a class
 * removeIf() can use a lambda
-* **B,E**
+* **B,E**✅✅✅✅
 <hr>
 
 ## Question 24:
@@ -701,7 +701,7 @@ System.out::println
 * A - invalid
 * B - invalid, s is already used as variable
 * D,E - invalid
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## Question 25:
@@ -732,5 +732,5 @@ H. An exception is thrown 🎃
 * merge at key 1 as: (10,3) -> 13
 * merget at key 3 will just insert 3
 * map = {1=13, 2=20, 3=3}
-* **F**
+* **F**✅✅✅✅
 <hr>
