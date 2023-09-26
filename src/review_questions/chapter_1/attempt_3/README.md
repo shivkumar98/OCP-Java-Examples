@@ -170,7 +170,12 @@ public class BaseballTeam {
     D. if a.equals(b) is false, a.hashCode() == b.hashCode() can sometimes be true🎃
  
 ### My Answer:
-
+* A - false, two strings with same content can have to different hashCodes
+* B - true, yes you can have two strings with same content and same hashCode
+* C - false
+* D - true
+* It is not required that two different string must have two different hashcodes!
+* **B,D**
 <hr>
 
 ## Question 6
@@ -196,7 +201,7 @@ public class FlavorsEnum {
     F. The code does not compile for a different reason 🎃
 
 ### My Answer:
-
+* **B**
 <hr>
 
 ## Question 7
@@ -229,7 +234,8 @@ public class IceCream {
     F. An exception is thrown 🎃
 
 ### My Answer:
-
+* The code does not compile as case clauses are wrong
+* **E**
 <hr>
 
 ## Question 8
@@ -238,7 +244,7 @@ public class IceCream {
 
 ```java
 1:  public class Outer {
-2:      private int x =5;
+2:      private int x = 5;
 3:      protected class Inner {
 4:          public static int x = 10;
 5:          public void go() { System.out.println(x); }
@@ -259,6 +265,8 @@ public class IceCream {
     F. An exception is thrown. 🎃
 
 ### My Answer:
+* An inner class cannot have static variables.
+* **C**
 
 <hr>
 
