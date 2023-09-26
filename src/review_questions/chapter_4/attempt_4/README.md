@@ -5,30 +5,30 @@
 ## Results:
 
 Date: 26/09/2023
-Score: /20
+Score: 8/20
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |  ✅       |
-| 2          |  ❌       |
-| 3          |  ❌       |
-| 4          |  ✅       |
-| 5          |  ❌       |
-| 6          |         |
-| 7          |         |
-| 8          |         |
-| 9          |         |
-| 10         |         |
-| 11         |         |
-| 12         |         |
-| 13         |         |
-| 14         |         |
-| 15         |         |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 1          |  ✅    |
+| 2          |  ❌    |
+| 3          |  ❌    |
+| 4          |  ✅    |
+| 5          |  ❌    |
+| 6          |  ❌    |
+| 7          |  ❌    |
+| 8          |  ❌    |
+| 9          |  ✅    |
+| 10         |  ❌    |
+| 11         |  ❌    |
+| 12         |  ❌    |
+| 13         |  ❌    |
+| 14         |  ❌    |
+| 15         |  ✅    |
+| 16         |  ✅    |
+| 17         |  ✅    |
+| 18         |  ❌    |
+| 19         |  ✅    |
+| 20         |  ✅    |
 
 
 <hr>
@@ -441,7 +441,7 @@ G. The code compiles and prints 1.
 * B - false
 * C - true
 * D - true
-* **C,D**❌❌❌
+* **C,D**❌❌❌❌
 <hr>
 
 
@@ -487,7 +487,7 @@ F. An exception is thrown
 
 ### My Answer:
 * Partion will always have true/false
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -505,7 +505,7 @@ E. `Function<Integer, Integer> f = x -> x*x;`
 F. None of these above
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 
@@ -524,7 +524,7 @@ F. The code does not compile
 G. An exception is thrown
 
 ### My Answer:
-* **C**
+* **C**❌❌❌❌
 <hr>
 
 ## Question 19
@@ -538,7 +538,7 @@ D. `FloatSupplier`
 E. `IntSupplier`
 F. `StringSupplier`
 
-* **A, C, E**
+* **A, C, E**✅✅✅✅
 
 ## Question 20
 
@@ -567,5 +567,5 @@ D. None of the above is equivalent
 E. The provided code does not compile
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅
 <hr>
