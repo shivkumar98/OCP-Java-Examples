@@ -404,21 +404,15 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 ```
 
 A. The code compiles and prints `123456`
-
 B. The code compiles and prints `234567`
-
 C. The code compiles but does not print anything
-
 D. The code compiles but prints stream references
-
 E.  The code runs infinitely
-
 F. The code does not compile
-
 G. The code throws an exception
 
 ### My Answer:
-
+* **B**
 <hr>
 
 ## Question 14:
@@ -434,21 +428,19 @@ G. The code throws an exception
 ```
 
 A. Line 4 does not compile
-
 B. Line 5 does not compile
-
 C. Line 6 does not compile
-
 D. Line 7 does not compile
-
 E. Line 8 does not compile
-
 F. The code throws an exception
-
 G. The code compiles and prints 1.
 
 ### My Answer:
-
+* A - false
+* B - false
+* C - true
+* D - true
+* **C,D**
 <hr>
 
 
@@ -457,18 +449,16 @@ G. The code compiles and prints 1.
 ❓The `partitioningBy()` collector creates a `Map<Boolean, List<String>>` when passed to `collect()` by default. When specific parameters are passed to `partioningBy()`, which return types can be created? (Choose all that apply)❓
 
 A. `Map<boolean, List<String>>`
-
 B. `Map<Boolean, Map<String>>`
-
 C. `Map<Long, TreeSet<String>>`
-
 D. `Map<Boolean, List<String>>`
-
 E. `Map<Boolean, Set<String>>`
-
 F. None of the above
 
 ### My Answer:
+* We can change the value type of the map!
+* A - impossible
+* **D,E**
 
 <hr>
 
