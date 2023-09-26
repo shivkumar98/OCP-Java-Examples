@@ -362,7 +362,7 @@ F. None of the above. The code already prints "12345"
 * B - invalid
 * C - valid
 * D - valid
-* A,C,D
+* A,C,D❌❌❌❌
 <hr>
 
 
@@ -387,7 +387,7 @@ H. `UnaryOperator<String, String>`
 
 ### My Answer:
 * E, A, G
-* **A,E,G**
+* **A,E,G**❌❌❌❌
 
 <hr>
 
@@ -413,7 +413,7 @@ F. The code does not compile
 G. The code throws an exception
 
 ### My Answer:
-* **B**
+* **B**❌❌❌❌
 <hr>
 
 ## Question 14:
@@ -441,7 +441,7 @@ G. The code compiles and prints 1.
 * B - false
 * C - true
 * D - true
-* **C,D**
+* **C,D**❌❌❌
 <hr>
 
 
@@ -459,7 +459,7 @@ F. None of the above
 ### My Answer:
 * We can change the value type of the map!
 * A - impossible
-* **D,E**
+* **D,E**✅✅✅✅
 
 <hr>
 
