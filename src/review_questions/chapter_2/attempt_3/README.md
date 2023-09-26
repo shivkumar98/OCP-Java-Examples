@@ -8,14 +8,14 @@ Score:
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |       |
-| 2          |  ✅     |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
+| 1          |   ❌    |
+| 2          |   ✅    |
+| 3          |   ❌    |
+| 4          |   ❌    |
+| 5          |   ✅    |
+| 6          |   ✅    |
+| 7          |   ❌    |
+| 8          |   ❌    |
 | 9          |       |
 | 10         |       |
 | 11         |       |
@@ -159,7 +159,7 @@ public interface MountainClimb extends Climb {}
 * D - no, it must be private
 * E - yes
 * F - yes
-* **B,E,F**
+* **B,E,F**✅✅✅✅
 
 <hr>
 
@@ -192,7 +192,7 @@ public class Panda {
 
 ### My Answer:
 * It will print match as p1 has an age less than 5
-* **A**
+* **A**✅✅✅✅
 
 <hr>
 
@@ -232,7 +232,9 @@ public class Seal {
 * F - no
 * G - no
 * H - yes, prevent methods from being overidden
-* **C, E, H**
+* **C, E, H**❌❌❌❌
+* **CORRECT ANSWER: C,E,G,H**
+* We need to copy `List<Seal>` to prevent constructor from maintaining access to a mutable structure
 <hr>
 
 ## Question 8
@@ -253,7 +255,8 @@ public class Seal {
 * D - false, can contain default
 * E - yes
 * F - yes
-* **C,E,F**
+* **C,E,F**❌❌❌❌
+* **CORRECT ANSWER: C,G**
 
 <hr>
 
