@@ -541,7 +541,8 @@ public class Outer {
     G. The code compiles successfully 🎃
 
 ### My Answer:
-
+* Enum can not have public constructor
+* **C**
 <hr>
 
 ## Question 18
@@ -574,7 +575,8 @@ public class Swimmer {
     G. The code does not compile
 
 ### My Answer:
-
+* All enums must implement the abstract method
+* **G**
 <hr>
 
 ## Question 19
@@ -598,6 +600,9 @@ public class LearnToWalk {
     F. `public void toddle(boolean fall)` 🎃
 
 ### My Answer:
+* A - valid
+* C - valid
+* **A,C**
 
 <hr>
 
@@ -627,5 +632,5 @@ public class FourLegged {
     F. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* **C**
 <hr>
