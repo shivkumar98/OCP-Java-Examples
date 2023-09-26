@@ -154,7 +154,14 @@ E. peek()
 F. sum()
 
 ### My Answer:
-
+* A reduction is an operation which takes all elements and reduces to single value
+* A - false
+* B - yes
+* C - no, has nothing to do with all elements
+* D - no
+* E - no
+* F - yes
+* **B,F**
 <hr>
 
 ## Question 6:
@@ -180,7 +187,13 @@ E. `noneMatch`
 F. None of the above
 
 ### My Answer:
-
+* s = (meow, meow, meow...)
+* A - allMatch? false
+* B - anyMatch? false
+* C - findAny() - no
+* D - no
+* E - noneMatch, yes
+* **E**
 <hr>
 
 
@@ -234,7 +247,8 @@ return list.stream()
 ```
 
 ### My Answer:
-
+* B does not collect!
+* **C**
 <hr>
 
 
@@ -255,7 +269,12 @@ E. `is.sum()` returns the type `int`
 F. `is.sum()` returns the type `OptionalInt`
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - false
+* D - true
+* E - true
+* **B,D,E**
 <hr>
 
 
