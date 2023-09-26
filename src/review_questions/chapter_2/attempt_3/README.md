@@ -388,7 +388,13 @@ public class Climber {
     F. All getter methods are marked synchronized 🎃
 
 ### My Answer:
-
+* A - no
+* B - yes
+* C - no, they can have setters which are private
+* D - false
+* E - true
+* F - false
+* **B,E**
 <hr>
 
 ## Question 14
@@ -414,6 +420,13 @@ public class TurtleFrog extends Frog {}
     F. Long 🎃
 
 ### My Answer:
+* A - yes
+* B - yes
+* C - no
+* D - yes
+* E - yes
+* F - no
+* **A,B,D,E**
 
 <hr>
 
@@ -428,7 +441,12 @@ public class TurtleFrog extends Frog {}
     E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime 🎃
 
 ### My Answer:
-
+* A - no
+* B - yes
+* C - yes
+* D - false
+* E - no
+* **B,C**
 <hr>
 
 ## Question 16
@@ -453,6 +471,7 @@ public class TurtleFrog extends Frog {}
     F. The code will not compile because of line 3 and 4 🎃
 
 ### My Answer:
+* **F**
 
 <hr>
 
