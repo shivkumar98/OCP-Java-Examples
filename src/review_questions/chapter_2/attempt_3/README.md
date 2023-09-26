@@ -9,7 +9,7 @@ Score:
 | Question # | Correct  |
 | ---------- | -------  |
 | 1          |       |
-| 2          |       |
+| 2          |  ✅     |
 | 3          |       |
 | 4          |       |
 | 5          |       |
@@ -45,7 +45,9 @@ Score:
 * C - true
 * D - false
 * E - true
-* **A,C,E**
+* **A,C,E**❌❌❌❌
+* **CORRECT ANSWER: C,E**
+* A is incorrect, principles are a general solution
 
 <hr>
 
@@ -75,7 +77,7 @@ Score:
 
 ### My Answer:
 * The code does not compile at line 8 due to it not implementing `climb()`
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -106,7 +108,9 @@ public interface MountainClimb extends Climb {}
 * Climb and Swim are functional interfaces.
 * MountainClimb inherits from Climb, so it is a functional interface
 * ArticMountain is not valid as it has no implementation
-* **A,B,D**
+* **A,B,D**❌❌❌❌
+* **CORRECT ANSWER: A,D**
+* Abstract classes can not be functional interfaces
 
 <hr>
 
@@ -130,7 +134,10 @@ public interface MountainClimb extends Climb {}
 * E - invalid, must be in round brackets
 * F - valid, i think
 * G - valid
-* **A,D,F,G**
+* **A,D,F,G**❌❌❌❌
+* **CORRECT ANSWER: A,D**
+* F is invalid, it needs a RHS expression
+* G is invalid, all parameters need to be specified
 
 <hr>
 
