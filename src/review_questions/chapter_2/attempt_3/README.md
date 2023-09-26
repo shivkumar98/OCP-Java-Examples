@@ -20,10 +20,10 @@ Score:
 | 10         |   ✅    |
 | 11         |   ✅    |
 | 12         |   ✅    |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
+| 13         |   ❌    |
+| 14         |   ✅    |
+| 15         |   ✅    |
+| 16         |   ✅    |
 | 17         |       |
 | 18         |       |
 | 19         |       |
@@ -408,7 +408,9 @@ public class Climber {
 * D - false
 * E - true
 * F - false
-* **B,E**
+* **B,E**❌❌❌❌
+* **CORRECT ANSWER: B,C,E**
+
 <hr>
 
 ## Question 14
@@ -440,7 +442,7 @@ public class TurtleFrog extends Frog {}
 * D - yes
 * E - yes
 * F - no
-* **A,B,D,E**
+* **A,B,D,E**✅✅✅✅
 
 <hr>
 
@@ -460,7 +462,7 @@ public class TurtleFrog extends Frog {}
 * C - yes
 * D - false
 * E - no
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -485,7 +487,7 @@ public class TurtleFrog extends Frog {}
     F. The code will not compile because of line 3 and 4 🎃
 
 ### My Answer:
-* **F**
+* **F**✅✅✅✅
 
 <hr>
 
