@@ -7,16 +7,16 @@ Score: /20
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |          |
-| 2          |          |
-| 3          |          |
-| 4          |          |
-| 5          |          |
-| 6          |          |
-| 7          |          |
-| 8          |          |
-| 9          |          |
-| 10         |          |
+| 1          |   ✅       |
+| 2          |   ✅       |
+| 3          |   ✅       |
+| 4          |   ✅       |
+| 5          |   ❌       |
+| 6          |   ✅       |
+| 7          |   ✅       |
+| 8          |   ✅       |
+| 9          |   ✅       |
+| 10         |   ✅       |
 | 11         |          |
 | 12         |          |
 | 13         |          |
@@ -209,7 +209,7 @@ public class FlavorsEnum {
     F. The code does not compile for a different reason 🎃
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -243,7 +243,7 @@ public class IceCream {
 
 ### My Answer:
 * The code does not compile as case clauses are wrong
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 8
@@ -274,7 +274,7 @@ public class IceCream {
 
 ### My Answer:
 * An inner class cannot have static variables.
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -309,7 +309,7 @@ public class IceCream {
     F. An exception is thrown🎃
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅
 
 ## Question 10
 
@@ -331,7 +331,7 @@ public class IceCream {
     E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 11
