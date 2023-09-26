@@ -513,7 +513,12 @@ E. `C c2 = new B();` 🎃
 F. `C c1 = new C();` 🎃
 
 ### My Answer:
-
+* C has become a generic!
+* A - valid
+* B - valid
+* C - valid
+* D,E,F - invalid
+* **A,B,C**
 <hr>
 
 ##  Question 19:
@@ -534,7 +539,10 @@ E. The code does not compile in either scenario 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* LinkedList is both a Queue and List
+* If a list, it will be [10, 12] -> [10]
+* If a queue, it will be [10,12]
+* **A,D**
 <hr>
 
 ##  Question 20:
@@ -552,6 +560,11 @@ C. Compiler error on line 4 🎃
 D. Compiler error on line 5 🎃
 E. Compiler error on line 7 🎃
 F. A runtime exception is thrown 🎃
+
+### My Answer:
+* Map does not have a `contains()` method
+* **E**
+<hr>
 
 ##  Question 21:
 
