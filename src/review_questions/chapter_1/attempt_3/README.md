@@ -63,7 +63,7 @@ public class Employee {
 
 ### My Answer:
 * Employee one and two have the same ID. The equals method checks for equality of ID, so it will print Success!
-* **A**
+* **A**✅✅✅✅
 
 <hr>
 
@@ -98,7 +98,7 @@ public class Book {
 
 ### My Answer:
 * The code DOES compile! Hash code is correct!
-* **A**
+* **A**✅✅✅✅
 
 
 <hr>
@@ -124,7 +124,7 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
 ### My Answer:
 * s2 is a seperate string in String pool, so equality fails
 * They share the same content!
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 4
@@ -155,7 +155,7 @@ public class BaseballTeam {
 ### My Answer:
 * The class does compile!
 * The hashCode is improper.
-* **D**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -175,7 +175,15 @@ public class BaseballTeam {
 * C - false
 * D - true
 * It is not required that two different string must have two different hashcodes!
-* **B,D**
+* **B,D**❌❌❌❌
+* **CORRECT ANSWER: A,D**
+* If two strings are equal, it must be that their hashCode is the same as seen below:
+```java
+String a = "a";
+System.out.println(a.hashCode()); // 97
+String b = new String(a);
+System.out.println(b.hashCode()); // 97
+```
 <hr>
 
 ## Question 6
