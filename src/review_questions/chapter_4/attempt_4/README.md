@@ -37,7 +37,7 @@ Score: /20
 
 ❓ What is the output of the following?
 ```java
-Stream<String> stream = Stream.iterate("", (s)->s+"1"));
+Stream<String> stream = Stream.iterate("", (s)->s+"1");
 System.out.println(stream.limit(2).map(x->x+"2"));
 ```
 
@@ -50,7 +50,10 @@ F. An exception is thrown
 G. The code hangs
 
 ### My Answer:
-
+* stream = "11111..."
+* stream = "11"
+* stream = "1212"
+* **D**
 <hr>
 
 ## Question 2:
@@ -79,7 +82,9 @@ F. The code hands
 ❓
 
 ### My Answer:
-
+* "growl!" - do ANY start with g? yes
+* "growl!" - do ALL start with g? no, this can no be assumed
+* **B**
 <hr>
 
 
@@ -102,7 +107,10 @@ F. The code hands
 ❓
 
 ### My Answer:
-
+* stream = [-, --, ----, --------]
+* noneMatch that the length is less than 3, false
+* anyMatch, is true
+* **A**
 <hr>
 
 ## Question 4:
@@ -121,7 +129,12 @@ E. The `peek()` method is an example of a terminal operation
 ❓
 
 ### My Answer:
-
+* A - valid
+* B - valid
+* C - false
+* D - false
+* E - false
+* **A,B**
 <hr>
 
 ## Question 5
