@@ -487,7 +487,13 @@ public class TurtleFrog extends Frog {}
     F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case 🎃
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* F - true
+* **B,C,F**
 <hr>
 
 ## Question 18
@@ -502,7 +508,13 @@ public class TurtleFrog extends Frog {}
     F. Object composition is always preferred to inheritance.
 
 ### My Answer:
-
+* A - yes
+* B - yes
+* C - no
+* D - no
+* E - yes
+* F - no
+* **A,B,E**
 <hr>
 
 ## Question 19
@@ -517,6 +529,13 @@ public class TurtleFrog extends Frog {}
     F. Allow multiple instances of a static object to be managed in memory
 
 ### My Answer:
+* A - no
+* B - yes
+* C - no, not a requirement of singletons
+* D - yes
+* E - yes
+* F - no
+* **B,D,E**
 
 <hr>
 
@@ -541,3 +560,6 @@ public class TurtleFrog extends Frog {}
     D. The code will not compile because of line 5 🎃
     E. The code will not compile because of line 2 and 5 🎃
     F. The code will not compile because of class Falcon does not implement the interface methods🎃
+
+### My Answer:
+* **A**
