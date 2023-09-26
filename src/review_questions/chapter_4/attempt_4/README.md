@@ -284,7 +284,7 @@ F. `is.sum()` returns the type `OptionalInt`
 
 ```java
 LongStream ls = LongStream.of(1,2,3);                           // LINE 4
-OptionaolLong opt = ls.map(n->n*10).filter(n->n5).findFirst();  // LINE 5
+OptionalLong opt = ls.map(n->n*10).filter(n-> n < 5).findFirst();  // LINE 5
 ```
 
 A. `if (opt.isPresent()) System.out.println(opt.get());`
@@ -300,7 +300,13 @@ E. None of these; the code does not compile
 F. None of these; line 5 throws an exception 
 
 ### My Answer:
-
+* ls = [1,2,3]
+* ls = [10,20,30] -> [] 
+* opt = Optional.empty();
+* A - invalid
+* B - valid
+* D - valid
+* **B,D**
 <hr>
 
 ## Question 10
@@ -308,12 +314,11 @@ F. None of these; line 5 throws an exception
 ❓ Select from the following statements and indicate the order in which they would appear to output 10 lines:❓
 
 ```java
-  Stream.generate(()-> "");
+Stream.generate(()-> "1");
 L:    .filter(x -> x.length() > 1)  
 M:    .forEach(System.out::println)
 N:    .limit(10)                    
-O:    .peek(System.out::println)
-;
+O:    .peek(System.out::println);
 ```
 
 A. L, N
@@ -331,7 +336,8 @@ F. N. M
 G. N, O
 
 ### My Answer:
-
+* IDK
+* **E**
 <hr>
 
 
@@ -343,19 +349,19 @@ Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining);
 ```
 
 A. Change `Collectors.joining()` to `Collectors.joining("")`
-
 B. Change `map(x -> x)` to `map(x -> "" + x)`
-
 C. change `x -> x++` to `x -> ++x`
-
 D. Add `forEach(System.out::print)` after the call to `collect()`
-
 E. Wrap the entire line in a `System.out.print` statement
-
 F. None of the above. The code already prints "12345"
 
 ### My Answer:
-
+* stream = [1, 2, 3, 4, 5...] -> [1,2,3,4,5]
+* A - valid
+* B - invalid
+* C - valid
+* D - valid
+* A,C,D
 <hr>
 
 
@@ -370,22 +376,17 @@ F. None of the above. The code already prints "12345"
 ```
 
 A. `BiConsumer<String, String>`
-
 B. `BiFunction<String, String>`
-
 C. `BinaryConsumer<String, String>`
-
 D. `BiFunction<String, String>`
-
 E. `Consumer<String>`
-
 F. `Supplier<String>`
-
 G. `UnaryOperator<String>`
-
 H. `UnaryOperator<String, String>` 
 
 ### My Answer:
+* E, A, G
+* **A,E,G**
 
 <hr>
 
