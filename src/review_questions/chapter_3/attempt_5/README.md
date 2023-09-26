@@ -138,27 +138,22 @@ Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 ❓ What is the result of the following code: ❓ 
 
 ```java
-    public class Hello<T> {
-        T t;
-        public Hello(T t) { this. t = t };
-        public String toString() { return t.toString() };   // LINE 4
-        public static void main(String[] args){
-            System.out.println(new Hello<String>("hi"));    // LINE 6
-            System.out.println(new Hello("there"));         // LINE 7
-        }
+public class Hello<T> {
+    T t;
+    public Hello(T t) { this. t = t };
+    public String toString() { return t.toString() };   // LINE 4
+    public static void main(String[] args){
+        System.out.println(new Hello<String>("hi"));    // LINE 6
+        System.out.println(new Hello("there"));         // LINE 7
     }
+}
 ```
 
 A. `hi` 🎃
-
 B. `hi` followed by a runtime exception 🎃
-
 C. `hithere` 🎃
-
 D. Compiler error on line 4 🎃
-
 E. Compiler error on line 6 🎃
-
 F. Compiler error on line 🎃
 
 ### My Answer:
@@ -240,6 +235,11 @@ map.add('x', new Double(123.4));
 E. None of the above 🎃
 
 ### My Answer:
+* A - valid
+* B - invalid, I think
+* C - valid
+* D - invalid cause its a character
+* **A,C**
 
 <hr>
 
@@ -269,17 +269,20 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* The compare method will sort by reverse alphabetical order regardless of casing
+* the natural order is [123, aab, abb]
+* The printed values are: [abb, aab, 123]
+* **A**
 <hr>
 
 ## Question 11:
 ❓ What is the result of the following: ❓ 
 ```java
-    Map<Integer, Integer> map = new HashMap<>(10);  // LINE 3
-    for (int i = 1; i <=10; i++) {                  
-        map.put(i, i*i);                            // LINE 5
-    }                           
-    System.out.println(map.get(4));                 // LINE 7
+Map<Integer, Integer> map = new HashMap<>(10);  // LINE 3
+for (int i = 1; i <=10; i++) {                  
+    map.put(i, i*i);                            // LINE 5
+}                           
+System.out.println(map.get(4));                 // LINE 7
 ```
 A. `16` 🎃
 B. `25` 🎃
@@ -287,21 +290,23 @@ C. Compiler error on line 3 🎃
 D. Compiler error on line 5 🎃
 E. Compiler error on line 7 🎃
 F. A runtime exception is thrown 🎃
-### My Answer:
 
+### My Answer:
+* The get() method uses the key of the map which is Integer, so it will get 16
+* **A**
 <hr>
 
 ## Question 12:
 ❓ Which of the following statements fill in the blank so Helper compiles successfully ❓ 
 ```java
-    public class Helper {
-        public static <U extends Exception> void printException(U u){
-            System.out.println(u.getMessage());
-        }
-        public static void main(String[] args){
-            ______________________
-        }
+public class Helper {
+    public static <U extends Exception> void printException(U u){
+        System.out.println(u.getMessage());
     }
+    public static void main(String[] args){
+        ______________________
+    }
+}
 ```
 A. 🎃
 ```java
@@ -324,7 +329,13 @@ E. 🎃
 Helper.printException(new Throwable("E"))
 ```
 ### My Answer:
-
+* The method will accept anything which extends Exception or is exception
+* A - valid
+* B - valid
+* C - invalid, throwable is superclass of Exception
+* D - valid
+* E - invalid, same as C
+* **A,B,D**
 <hr>
 
 ## Question 13:
