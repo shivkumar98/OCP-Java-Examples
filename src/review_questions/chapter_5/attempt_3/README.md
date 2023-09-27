@@ -419,6 +419,8 @@ private static void print(Properties props) {
     F. A runtime exception is thrown
 
 ### My answer:
+* The `get()` method does not accept overload!
+* **E**
 
 <hr>
 
@@ -453,7 +455,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 ```
 
 ### My answer:
-
+* **D*
 <hr>
 
 ## Question 19
@@ -466,7 +468,8 @@ props.stream().map(k -> k) .forEach(System.out::println);
     F. Second
 
 ### My answer:
-
+* A period contains days, months and years
+* **A,B,C**
 <hr>
 
 ## Question 20
@@ -478,5 +481,5 @@ props.stream().map(k -> k) .forEach(System.out::println);
     E. ZonedDateTime
 
 ### My answer:
-
+* **E**
 <hr>
