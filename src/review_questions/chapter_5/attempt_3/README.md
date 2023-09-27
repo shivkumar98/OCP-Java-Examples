@@ -226,7 +226,9 @@ System.out.println(date.getYear() + " "
     G. A runtime exception is thrown
 
 ### My answer:
-
+* Date is immutable.
+* If date is valid, it prints 2018 APRIL 30
+* **B**
 <hr>
 
 ## Question 10
@@ -248,7 +250,9 @@ System.out.println(d.format(f));
     G. A runtime exception is thrown
 
 ### My answer:
-
+* The formatter will show as time in format: `HH:mm AM/PM`
+* 11:22 AM is printed
+* **E**
 <hr>
 
 ## Question 11
@@ -269,7 +273,11 @@ System.out.println(d.format(f));
     F. A runtime exception is thrown.
 
 ### My answer:
-
+* f will show data time as DD/MM/YY HH:mm AM
+* p can not be chained, so ps is a period of 2Y
+* d = 10/5/2013 11:22 AM
+* answer is B (options are typos though)
+* **B** 
 <hr>
 
 ## Question 12:
@@ -286,7 +294,12 @@ System.out.println(d.format(f));
     E. The date/times are 6 hours apart
 
 ### My answer:
-
+* I need to add the hours
+* dateTime1 = 2016-08-28T09:00 GMT
+* dateTime2 = 2016-08-28T15:00 GMT
+* first is ealier
+* 6 hours apart
+* **A,E**
 <hr>
 
 ## Question 13
