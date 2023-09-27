@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 27/09/2023
-Score:
+Score: 
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -49,7 +49,7 @@ Score:
 * A - valid
 * B - valid
 * C,D,E,F - invalid
-* **A,B**
+* **A,B**✅✅✅✅
 
 <hr>
 
@@ -65,7 +65,7 @@ Score:
 ❓
 
 ### My answer:
-* **C,D,E**
+* **C,D,E**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -84,7 +84,7 @@ Score:
 * C - true
 * D - true
 * E - false
-* **C,D**
+* **C,D**✅✅✅✅
 <hr>
 
 ## Question 4:
@@ -104,7 +104,7 @@ F. The code does not compile
 ### My answer:
 * The resource bundle will first look for `Dolphins_en_US.java/.properties`
 * As these do not exist, it will then look for `Dolphins_en.java/.properties`
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 5
@@ -141,7 +141,8 @@ name=Dolly
 * The resource bundle will first look for `Dolphins_fr.properties`, the name is "Dolly"
 * It will then look for "age" in that file which is absent
 * It will then look at `Dolphins_en.properties` as it is the default locale, the age is 4
-* **E**
+* **E**❌❌❌❌
+* CORRECT ANSWER: D
 
 <hr>
 
