@@ -9,26 +9,26 @@ Score:
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |         |
-| 2          |         |
-| 3          |         |
-| 4          |         |
-| 5          |         |
-| 6          |         |
-| 7          |         |
-| 8          |         |
-| 9          |         |
-| 10         |         |
-| 11         |         |
-| 12         |         |
-| 13         |         |
-| 14         |         |
-| 15         |         |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 1          |  ✅      |
+| 2          |  ✅      |
+| 3          |  ✅      |
+| 4          |  ✅      |
+| 5          |  ❌      |
+| 6          |  ✅      |
+| 7          |  ✅      |
+| 8          |  ✅      |
+| 9          |  ✅      |
+| 10         |  ✅      |
+| 11         |  ✅      |
+| 12         |  ✅      |
+| 13         |  ✅      |
+| 14         |  ✅      |
+| 15         |  ✅      |
+| 16         |  ✅      |
+| 17         |  ✅      |
+| 18         |  ✅      |
+| 19         |  ✅      |
+| 20         |  ✅      |
 
 
 <hr>
@@ -375,7 +375,7 @@ String p = Period.ofDays(1).toString();
 * m1 and m2 are the same durations so B is true, A is false to String references
 * C is valid
 * D and E are false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -401,7 +401,7 @@ Instant instant = ___________________;
 * B - valid
 * C,D,E - invalid
 * F - valid
-* **A,B,F**
+* **A,B,F**✅✅✅✅
 <hr>
 
 ## Question 17
@@ -421,7 +421,7 @@ private static void print(Properties props) {
 
 ### My answer:
 * The `get()` method does not accept overload!
-* **E**
+* **E**✅✅✅✅
 
 <hr>
 
@@ -456,7 +456,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 ```
 
 ### My answer:
-* **D*
+* **D*✅✅✅✅✅
 <hr>
 
 ## Question 19
@@ -470,7 +470,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 
 ### My answer:
 * A period contains days, months and years
-* **A,B,C**
+* **A,B,C**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -482,5 +482,5 @@ props.stream().map(k -> k) .forEach(System.out::println);
     E. ZonedDateTime
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
