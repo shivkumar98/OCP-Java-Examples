@@ -138,6 +138,10 @@ name=Dolly
 ❓
 
 ### My answer:
+* The resource bundle will first look for `Dolphins_fr.properties`, the name is "Dolly"
+* It will then look for "age" in that file which is absent
+* It will then look at `Dolphins_en.properties` as it is the default locale, the age is 4
+* **E**
 
 <hr>
 
@@ -160,7 +164,8 @@ public class StartOfSummer {
     F. `LocaleDate.of(2014, Month.JUNE, 21);`
 
 ### My answer:
-
+* LocalDate is not instantiable
+* **D, F**
 <hr>
 
 ## Question 7
@@ -181,7 +186,8 @@ System.out.println(date.getYear() + " "
     E. A runtime exception is thrown
 
 ### My answer:
-
+* You can not use DateTimeFormatter with a LocalDate!
+* **D**
 <hr>
 
 ## Question 8:
@@ -199,7 +205,7 @@ System.out.println(date.getYear() + " " + date.getMonth()
     F. A runtime exception is thrown
 
 ### My answer:
-
+* **F**
 <hr>
 
 ## Question 9
