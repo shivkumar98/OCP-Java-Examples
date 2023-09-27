@@ -166,7 +166,7 @@ public class StartOfSummer {
 
 ### My answer:
 * LocalDate is not instantiable
-* **D, F**
+* **D, F**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -188,7 +188,7 @@ System.out.println(date.getYear() + " "
 
 ### My answer:
 * You can not use DateTimeFormatter with a LocalDate!
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -206,7 +206,7 @@ System.out.println(date.getYear() + " " + date.getMonth()
     F. A runtime exception is thrown
 
 ### My answer:
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## Question 9
@@ -229,7 +229,7 @@ System.out.println(date.getYear() + " "
 ### My answer:
 * Date is immutable.
 * If date is valid, it prints 2018 APRIL 30
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 10
@@ -253,7 +253,7 @@ System.out.println(d.format(f));
 ### My answer:
 * The formatter will show as time in format: `HH:mm AM/PM`
 * 11:22 AM is printed
-* **E**
+* **E**✅✅✅✅ (THE BOOK IS WRONG!!!)
 <hr>
 
 ## Question 11
