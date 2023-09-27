@@ -253,7 +253,7 @@ System.out.println(d.format(f));
 ### My answer:
 * The formatter will show as time in format: `HH:mm AM/PM`
 * 11:22 AM is printed
-* **E**✅✅✅✅ (THE BOOK IS WRONG!!!)
+* **E**✅✅✅✅ 
 <hr>
 
 ## Question 11
@@ -278,7 +278,7 @@ System.out.println(d.format(f));
 * p can not be chained, so ps is a period of 2Y
 * d = 10/5/2013 11:22 AM
 * answer is B (options are typos though)
-* **B** 
+* **B** ✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -300,7 +300,7 @@ System.out.println(d.format(f));
 * dateTime2 = 2016-08-28T15:00 GMT
 * first is ealier
 * 6 hours apart
-* **A,E**
+* **A,E**✅✅✅✅
 <hr>
 
 ## Question 13
@@ -327,7 +327,7 @@ System.out.println(hours, "," + clock1 + clock2);
 ### My answer:
 * dateTime2 is 1 hour ahead, so it is 2016-03-13T3:30
 * hours between is 1 hour
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -352,7 +352,7 @@ ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
 * C - valid
 * D - valid
 * E - doees not exist (not leap year)
-* **A,C,D**
+* **A,C,D**✅✅✅✅
 <hr>
 
 ## Question 15
