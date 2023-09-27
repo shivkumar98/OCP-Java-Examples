@@ -4,7 +4,7 @@
 
 ## Results:
 
-Date: 
+Date: 27/09/2023
 Score:
 
 | Question # | Correct |
@@ -44,9 +44,14 @@ Score:
     F. `Locale.create("IN")`
 ❓
 
-<hr>
-
 ### My answer:
+
+* A - valid
+* B - valid
+* C,D,E,F - invalid
+* **A,B**
+
+<hr>
 
 ## Question 2:
 
@@ -59,10 +64,8 @@ Score:
     F. Variable names
 ❓
 
-
-
 ### My answer:
-
+* **C,D,E**
 <hr>
 
 ## Question 3
@@ -76,7 +79,12 @@ Score:
 ❓
 
 ### My answer:
-
+* A - false, can be in different files
+* B - false
+* C - true
+* D - true
+* E - false
+* **C,D**
 <hr>
 
 ## Question 4:
@@ -94,7 +102,9 @@ E. `Whales_en_US.properties`
 F. The code does not compile
 
 ### My answer:
-
+* The resource bundle will first look for `Dolphins_en_US.java/.properties`
+* As these do not exist, it will then look for `Dolphins_en.java/.properties`
+* **B**
 <hr>
 
 ## Question 5
