@@ -322,10 +322,11 @@ System.out.println(hours, "," + clock1 + clock2);
     D. 2,1,3
     E. The code does not compile
     F. A runtime exception is thrown
-<hr>
 
 ### My answer:
-
+* dateTime2 is 1 hour ahead, so it is 2016-03-13T3:30
+* hours between is 1 hour
+* **B**
 <hr>
 
 ## Question 14:
@@ -345,7 +346,12 @@ ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
     E. LocalDate.of(2017, 2, 29);
 
 ### My answer:
-
+* A - valid date time
+* B - this does not exist
+* C - valid
+* D - valid
+* E - doees not exist (not leap year)
+* **A,C,D**
 <hr>
 
 ## Question 15
@@ -365,7 +371,10 @@ String p = Period.ofDays(1).toString();
     E. d.equals(p)
 
 ### My answer:
-
+* m1 and m2 are the same durations so B is true, A is false to String references
+* C is valid
+* D and E are false
+* **B,C**
 <hr>
 
 ## Question 16
@@ -387,7 +396,11 @@ Instant instant = ___________________;
     F. `zonedDateTime.toInstant()`
 
 ### My answer:
-
+* A - valid
+* B - valid
+* C,D,E - invalid
+* F - valid
+* **A,B,F**
 <hr>
 
 ## Question 17
