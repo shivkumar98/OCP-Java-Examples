@@ -178,5 +178,39 @@ Door does not close
 26: }
 ```
 
+<hr>
+
+## 🟥 6.4.5 Putting it Together
+
 * Resources are closed after the `try` clause ends and before any `catch`/`finally` clauses
 * Resources are closed in reverse order in which they are created
+
+<br>
+
+* What does the following print?
+```java
+public class Auto implements AutoCloseable {
+    int num;
+    Auto(int num) { this.num = num; }
+    public void close() {
+        System.out.println("Close: " + num);
+    }
+    public static void main(String[] args) {
+        try (Auto auto1 = new Auto(1); Auto auto2 = new Auto(2)) {
+            throw new RuntimeException();
+        } catch (Exception e) {
+            System.out.println("ex");
+        } finally {
+            System.out.println("finally");
+        }
+    }
+}
+```
+
+* ANSWER: 
+```
+Close: 2
+Close: 1
+ex
+finally
+```
