@@ -29,3 +29,17 @@ public class Assertions {
     }
 }
 ```
+
+<hr>
+
+## 🟥 6.6.2 Enabling Assertions
+* By default, assert statements are ignored by JVM. You can enable assertions using:
+```
+java -enableassertions ClassName
+java -ea ClassName
+```
+* We can also target the assertions for a specific class or package. E.g. if you wanted to enable assertions only for classes in com.wiley.demos:
+```
+java -ea:com.wiley.demos... my.prgrams.Main
+```
+* The elipsis means any class in com.wiley.demos and its subpackages.
