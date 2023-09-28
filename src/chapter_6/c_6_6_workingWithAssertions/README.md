@@ -1,0 +1,31 @@
+<link href="../../styles.css" rel="stylesheet"></link>
+
+
+# 🧠 6.6 Working With Assertions
+
+* An assertion is a expressions which you place in your code to state something which is true.
+* In this section, we will learn the syntax for assertion and how to turn them on/off.
+
+## 🟥 6.6.1 The assert Statement
+* The syntax for an assert statement has two forms:
+```java
+assert boolean_expression;
+assert boolean_expression: error_message;
+```
+* The `error_message` must be a String which is used in the `AssertionError` (if thrown)
+* There are 3 possible outcomees of an assert statement:
+1) If assertions are disable, Java will skip over
+2) If the boolean expression is true, nothing happens
+3) If the boolean expression is false, then a java.lang.AssertionError is thrown
+
+* You enable assertions by running `java -ea className`.
+* Here is an example:
+```java
+public class Assertions {
+    public static void main(String[] args) {
+        int numGuests = -5;
+        assert numGuests > 0;
+        System.out.println(numGuests);
+    }
+}
+```
