@@ -74,3 +74,5 @@ public class TestSeasons {
 
 4) Preconditions: ensuring conditions are met before method is invoked
 5) Post Conditions: ensuring conditions are met after method is invoked
+
+* Assertions should not be used to check for valid arguments passed into a method
