@@ -57,17 +57,32 @@ Score:
 
 ## Question 2:
 
-❓ Which of the following are common types to localize (Choose all that apply)
-    A. Booleans
-    B. Class names
-    C. Currency
-    D. Dates
-    E. Numbers
-    F. Variable names
+❓ Which of the following changes when made independently would make this code compile (choose all that apply)
+
+```java
+1 : public class StuckTurkeyCage implements AutoCloseable {
+2 :     public void close() throws Exception {
+3 :         throw new Exception("Cage door does not close");
+4 :     }
+5 :     public static void main(String[] args) {
+6 :         try (StuckTurkeyCage t = new StuckTurkeyCage()) {
+7 :             System.out.println("put turkeys in");
+8 :         }
+9 :     }
+10: }
+```
+    A. Remove throws Exception from the declaration on line 2
+    B. Add throws Exception to the declaration on line 5
+    C. Change line 8 to } catch (Exception e) {}
+    D. Change line 8 to } finally {}
+    E. None of the above will make the code compile
+    F. The code already compiles as is
 ❓
 
 ### My answer:
-* **C,D,E**✅✅✅✅
+* The code does NOT compile as is!
+* We need to catch the checled exception!
+* **B, C**
 <hr>
 
 ## Question 3
