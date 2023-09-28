@@ -43,3 +43,34 @@ java -ea ClassName
 java -ea:com.wiley.demos... my.prgrams.Main
 ```
 * The elipsis means any class in com.wiley.demos and its subpackages.
+
+<hr>
+
+## 🟥 6.6.3 Using Assertions
+* You can use assertion for many reasons, such as the following:
+1) Internal Invariants: used to assert the validity of an object's state.
+2) Internal Invariants: used to assert that a value is within a certain constraint.
+3) Control Flow Invariants: used to assert a line is indeed unreachable
+
+* Suppose we have a zoo which is closed in Winter:
+```java
+public enum Seasons {
+    SPRING, SUMMER, FALL
+}
+public class TestSeasons {
+    public static void test(Seasons s) {
+        switch (s) {
+            case SPRING:
+            case FALL:
+                System.out.println("Shorter hours");
+                break;
+            case SUMMER:
+                System.out.println("Longer hours");
+                break;
+            default:
+                assert false: "Invalid season";
+        }}}
+```
+
+4) Preconditions: ensuring conditions are met before method is invoked
+5) Post Conditions: ensuring conditions are met after method is invoked
