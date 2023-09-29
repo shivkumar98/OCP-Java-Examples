@@ -304,23 +304,22 @@ E. Line 7 is an appropiate use of an assertion <br>
 <hr>
 
 ## Question 11
-❓What is the output of the following code?
-```java
-LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
-Period p = Period.ofMonths(1).ofYears(2);
-d = d.minus(p);
-DateTimeFormatter f = DateTimeFormatter.
-    ofLocalizedDateTime(FormatStyle.SHORT);
-System.out.println(d.format(f));
-```
-    A. `5/9/13 11:22 AM`
-    B. `5/10/13 11:22 AM`
-    C. `5/9/14`
-    D. `5/10/14 11:22 AM`
-    E. The code does not compile.
-    F. A runtime exception is thrown.
+❓Which of the following are runtime exceptions (choose all that apply)
+A. `Exception` <br>
+B. `IllegalStateException`<br>
+C. `IOException` <br>
+D. `MissingResourceException` <br>
+E. `DateTimeParseException` <br>
+F. `SQLException` <br>
 
 ### My answer:
+* A - false
+* B - true
+* C - false
+* D - false
+* E - true
+* F - false
+* **B,E**
 
 <hr>
 
