@@ -219,25 +219,26 @@ G. The code does not compile <br>
 <hr>
 
 ## Question 7
-❓ What is the output of the following code?
+❓ What is the result of running `java EchoInput hi there` with the following code?
 ```java
-LocalDate date = LocalDate.parse(
-    "2018-04-30", DateTimeFormatter.ISO_LOCAL_DATE);
-date.plusDays(2);
-date.plusHours(3);
-System.out.println(date.getYear() + " "
-    + date.getMonth() + " " + date.getDateOfMonth());
+public class EchoInput {
+    public static void main(String [] args) {
+        id(args.length <= 3) assert false;
+        System.out.println(args[0] + args[1] + args[2]);
+    }
+}
 ```
 
-    A. `2018 APRIL 4`
-    B. `2018 APRIL 30`
-    C. `2018 MAY 2`
-    D. The code does not compile
-    E. A runtime exception is thrown
+A. `hithere` <br>
+B. The `assert` statement throws an AssertionError <br>
+C. The code throws an `ArrayIndexOutOfBoundsException` <br>
+D. The code compiles and runs successfully, but there is not output
+E. The code does not compile
 
 ### My answer:
-* You can not use DateTimeFormatter with a LocalDate!
-* **D**✅✅✅✅
+* The command does not enable the assertions, so no assertion exception is thrown
+* Therefore it prints nothing an ArrayIndexOutOfBoundsException is thrown
+* **C**
 <hr>
 
 ## Question 8:
