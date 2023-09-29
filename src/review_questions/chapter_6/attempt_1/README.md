@@ -356,28 +356,28 @@ F. None of the above; the code does not compile. <br>
 <hr>
 
 ## Question 13
-❓Note that March 13, 2016, is the weekend that clocks spring ahead for daylight savings time. What is the output of the following?
+❓Which of the following can legally fill in the blank? (Choose all that apply)
 ```java
-LocalDate date = LocalDate.of(2016, Month.MARCH, 13);
-LocalTime time = LocalTime.of(1, 30);
-ZoneId zone = ZoneId.of("US/Eastern");
-ZonedDateTime dateTime1 = ZonedDateTime.of(date, time, zone)
-ZonedDateTime dateTime2 = dateTime1.plus(1, ChronoUnits.HOURS);
-
-long hours = ChronoUnits.HOURS.between(dateTime1, dateTime2);
-int clock1 = dateTime1.getHours();
-int clock2 = dateTime2.getHours();
-System.out.println(hours, "," + clock1 + clock2);
+public class AhChoo {
+    static class SneezeException extends Exception { }
+    static class SniffleException extends SneezeException { }
+    public static void main(String[] args) throws SneezeException {
+        try {
+            throw new SneezeException();
+        } catch (SneezeException | RuntimeException e) {
+            ____________
+            throw e;
+        }
 ```
-    A. 1,1,2
-    B. 1,1,3
-    C. 2,1,2
-    D. 2,1,3
-    E. The code does not compile
-    F. A runtime exception is thrown
+A. `// leave line blank` <br>
+B. `e = new Exception();` <br>
+C. `e = new RuntimeException();` <br>
+D. `e = new SneezeException();` <br>
+E. `e = new SniffleException();` <br>
+F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* **A**
 <hr>
 
 ## Question 14:
