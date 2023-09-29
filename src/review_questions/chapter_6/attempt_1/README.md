@@ -175,27 +175,47 @@ G. The code does not compile <br>
 * **C**
 <hr>
 
-## Question 6:
-❓Which of the following can fill in the blank to create a date of June 21, 2014 (Choose all that apply)❓
+## Question 6
+❓ What is the output of the following code?
 ```java
-import java.time.*;
-
-public class StartOfSummer {
+import java.io.*;
+public class AutocloseableFlow {
+    static class Door implements AutoCloseable {
+        public void close() {
+            System.out.println("D");
+        }
+    }
+    static class Window implements Closeable {
+        public void close() {
+            System.out.println("W");
+            throw new RuntimeException();
+        }
+    }
     public static void main(String[] args) {
-        LocalDate date = _______________;
-}}
+        try {
+            Door d = new Door(); Window w = new Window()
+        }
+        {
+            System.out.print("T");
+        } catch (Exception e) {
+            System.out.print("E");
+        } finally {
+            System.out.print("F");
+        } } }
 ```
 
-    A. `new LocalDate(2014, 5, 21);`
-    B. `new LocalDate(2014, 6, 21);`
-    C. `LocalDate.of(2014, 5, 21);`
-    D. `LocalDate.of(2014, 6, 21);`
-    E. `LocaleDate.of(2014, Calendar.JUNE, 21);`
-    F. `LocaleDate.of(2014, Month.JUNE, 21);`
+A. `TWF` <br>
+B. `TWDF`<br>
+C. `TWDEF` <br>
+D. `TWF` followed by an exception <br>
+E. `TWDF` followed by an exception <br>
+F. `TWEF` followed by an exception <br>
+G. The code does not compile <br>
+❓
 
 ### My answer:
-* LocalDate is not instantiable
-* **D, F**✅✅✅✅
+* Code does not compile due to missing semi-colon:
+* **G**
 <hr>
 
 ## Question 7
