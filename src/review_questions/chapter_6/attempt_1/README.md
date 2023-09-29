@@ -325,19 +325,34 @@ F. `SQLException` <br>
 
 ## Question 12:
 
-❓Which of the answer choices is true given the following code (choose all that apply)
-```console
-2016-08-28T05:00 GMT-4:00
-2016-08-28T09:00 GMT-6:00
+❓ Which of the following can legally fill in the blank? (choose all that apply)
+```java
+public class AhChoo {
+    static class SneezeException extends Exception { }
+    static class SniffleException extends SneezeException { }
+    public static void main(String[] args) throws SneezeException {
+        try {
+            throw new SneezeException();
+        } catch (SneezeException e) {
+            __________
+            throw e;
+        } } }
 ```
-A. The first date/time is earlier
-B. The second date/time is earlier
-C. Both date/times are the same
-D. The date/times are 2 hours apart
-E. The date/times are 6 hours apart
 
+A. `// leave line blank` <br>
+B. `e = new Exception();` <br>
+C. `e = new RuntimeException();` <br>
+D. `e = new SneezeException();` <br>
+E. `e = new SniffleException();` <br>
+F. None of the above; the code does not compile. <br>
 ### My answer:
-
+* The code does compile
+* A - valid
+* B - invalid, e is of type SneezeException
+* C - invalid
+* D - valid
+* E - valid
+* **A,D,E**
 <hr>
 
 ## Question 13
