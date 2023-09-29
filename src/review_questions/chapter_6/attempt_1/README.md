@@ -381,23 +381,27 @@ F. None of the above; the code does not compile. <br>
 <hr>
 
 ## Question 14:
-❓Note that March 13, 2016, is the weekend that we spring forward, and November 6, 2016, is when we fall back for daylight savings time. Which of the following can be inserted in the blank without the code throwing an exception?
-
+❓Which of the following can legally fill in the blank? (Choose all that apply)
 ```java
-ZoneId zone = ZoneId.of("US/Eastern");
-LocalDate date = _____________________;
-LocalTime time1 = LocalTime.of(2, 15);
-ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
+public class AhChoo {
+    static class SneezeException extends Exception { }
+    static class SniffleException extends SneezeException { }
+    public static void main(String[] args) throws SneezeException {
+        try {
+            throw new SneezeException();
+        } catch (SneezeException | SniffleException e) {
+            ____________
+            throw e;
+        }
 ```
-
-A. LocalDate.of(2016, 3, 13);
-B. LocalDate.of(2016, 3, 40);
-C. LocalDate.of(2016, 11, 6);
-D. LocalDate.of(2016, 11, 7);
-E. LocalDate.of(2017, 2, 29);
-
+A. `// leave line blank` <br>
+B. `e = new Exception();` <br>
+C. `e = new RuntimeException();` <br>
+D. `e = new SneezeException();` <br>
+E. `e = new SniffleException();` <br>
+F. None of the above; the code does not compile. <br>
 ### My answer:
-
+* **F**
 <hr>
 
 ## Question 15
