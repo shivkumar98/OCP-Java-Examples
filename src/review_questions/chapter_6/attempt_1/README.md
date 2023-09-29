@@ -87,42 +87,32 @@ Score:
 
 ## Question 3
 
-❓Which of the following are true (Choose all that apply)
-    A. All keys must be in the same resource bundle file to be used
-    B. All resource bundles are defined as Java classes can be expressed using the property file format instead
-    C. All resource bundles defined as porperty files can be expressed using the Java class list bundle format instead
-    D. Changing the default locale lasts for only a single run of the program
-    E. It is forbidden to have both Props_en.java and Props_en.properties in the class-path of an application
+❓
 ❓
 
 ### My answer:
-* A - false, can be in different files
-* B - false
-* C - true
-* D - true
-* E - false
-* **C,D**✅✅✅✅
+
 <hr>
 
 ## Question 4:
-❓Assume that all bundles mentioned in the answers exist and define the same keys. Which one will be used to find the key in line 8?
-```java
-Locale.setDefault(new Locale("en", "US"));
-ResourceBundle b = ResourceBundle.getBundle("Dolphins");
-b.getString("name");
-```
-A. `Dolphins.properties`
-B. `Dolphins_en.java`
-C. `Dolphins_en.properties`
-D. `Whales.properties`
-E. `Whales_en_US.properties`
-F. The code does not compile
+❓Which of the following are true statements (choose all that apply)
+
+A. A traditional `try` statement without a catch block requires a finally block<br>
+B. A traditional `try` statement without a finally block requires a catch block <br>
+C. A traditional `try` statement with only one state with only one statement can omit {} <br>
+D. A try-with-resources statement without a catch block requires a finally block <br>
+E. A try-with-resources statement without a finally block requires a catch block <br>
+F. A try-with-resources statement with only one statement can omit the {}
 
 ### My answer:
-* The resource bundle will first look for `Dolphins_en_US.java/.properties`
-* As these do not exist, it will then look for `Dolphins_en.java/.properties`
-* **B**✅✅✅✅
+* A - true
+* B - true
+* C - I don't THINK so
+* D - true
+* E - false
+* F - I don't THINK so
 <hr>
+
 
 ## Question 5
 ❓ Suppose that we have the following property files and code. Which bundles are used on lines 8 and 9 respectively
