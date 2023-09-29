@@ -263,24 +263,18 @@ E. The code does not compile <br>
 <hr>
 
 ## Question 9
-❓What is the output of the following code?
-```java
-LocalDate date = LocalDate.of(2018, Month.APRIL, 30);
-date.plusDays(2);
-date.plusYears(3);
-System.out.println(date.getYear() + " "
-    + date.getMonth() + " " + date.getDayOfMonth());
-```
-A. `2018 APRIL 2`
-B. `2018 APRIL 30`
-C. `2018 MAY 2`
-D. `2021 APRIL 2`
-E. `2021 APRIL 30`
-F. `2021 MAY 2`
-G. A runtime exception is thrown
+❓Which of the following prints `OhNo` with the assertion failure when the number is negative? (Choose all that apply)
+
+A. `assert n < 0: "OhNo2";` <br>
+B. `assert n < 0; "OhNo";` <br>
+C. `assert n < 0 ("OhNo");` <br>
+D. `assert(n < 0): "OhNo";` <br>
+E. `assert(n < 0, "OhNo");` <br>
 
 ### My answer:
-
+* A - valid
+* D - valid
+* **A, D**
 <hr>
 
 ## Question 10
