@@ -278,25 +278,29 @@ E. `assert(n < 0, "OhNo");` <br>
 <hr>
 
 ## Question 10
-❓ What is the output of the following code?
+❓ Which of the following are true of the code? (Choose all that apply)
 ```java
-LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
-Period p = Period.of(1, 2, 3);
-d = d.minus(p);
-DateTimeFormatter f = DateTimeFormatter.
-    ofLocalizedTime(FormatStyle.SHORT);
-System.out.println(d.format(f));
+4:   private int addPlusOne(int a, int b) {
+5:       boolean assert = false;
+6:       assert a++ > 0;
+7:       assert b > 0;
+8:       return a + b;
+9:   }
 ```
-    A. `3/7/14 11:22 AM`
-    B. `5/10/14 11:22 AM`
-    C. `3/7/14`
-    D. `5/10/15`
-    E. `11:22 AM`
-    F. The code does not compile
-    G. A runtime exception is thrown
+
+A. Line 5 does not compile <br>
+B. Line 6 and 7 do not compile because they are missing the String message <br>
+C. Line 6 and 7 do not compile because of missing parentheses <br>
+D. Line 6 is an appropiate use of an assertion <br>
+E. Line 7 is an appropiate use of an assertion <br>
 
 ### My answer:
-
+* A - true, assert is a keyword
+* B - false
+* C - false
+* D - false
+* E - true
+* **A,E**
 <hr>
 
 ## Question 11
