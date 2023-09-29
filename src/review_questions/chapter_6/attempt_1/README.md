@@ -42,12 +42,12 @@ Score:
 7: }
 ```
 
-    A. throw on line 5 and throw on line 6
-    B. throw on line 5 and throws on line 6
-    C. throws on line 5 and throw on line 6
-    D. throws on line 5 and throws on line 6
-    E. None of the above. SQLException is a checked exception and cannot be thrown
-    F. None of the above. SQLException is a runtime exception and cannot be thrown
+A. throw on line 5 and throw on line 6 <br>
+B. throw on line 5 and throws on line 6 <br>
+C. throws on line 5 and throw on line 6 <br>
+D. throws on line 5 and throws on line 6 <br>
+E. None of the above. SQLException is a checked exception and cannot be thrown <br>
+F. None of the above. SQLException is a runtime exception and cannot be thrown <br>
 ❓
 
 ### My answer:
@@ -71,12 +71,12 @@ Score:
 9 :     }
 10: }
 ```
-    A. Remove throws Exception from the declaration on line 2
-    B. Add throws Exception to the declaration on line 5
-    C. Change line 8 to } catch (Exception e) {}
-    D. Change line 8 to } finally {}
-    E. None of the above will make the code compile
-    F. The code already compiles as is
+A. Remove throws Exception from the declaration on line 2 <br>
+B. Add throws Exception to the declaration on line 5 <br>
+C. Change line 8 to } catch (Exception e) {} <br>
+D. Change line 8 to } finally {} <br>
+E. None of the above will make the code compile <br>
+F. The code already compiles as is <br>
 ❓
 
 ### My answer:
@@ -86,18 +86,38 @@ Score:
 <hr>
 
 ## Question 3
+❓ Which of the following fills in the blank to make the code compile? (Choose all that apply)
 
-❓
+```java
+public static void main(String[] args) {
+    try {
+        throw new IOException();
+    } catch (___________________) { }
+}
+```
+
+A. `FileNotFoundException | IOException e` <br>
+B. `FileNotFoundException e | IOException e` <br>
+C. `FileNotFoundException | RuntimeException e` <br>
+D. `FileNotFoundException e | RuntimeException e` <br>
+E. `IOException | RuntimeException e` <br>
+F. `IOException e | RuntimeException e` <br>
 ❓
 
 ### My answer:
-
+* A - false, FileNotFoundException is a IOException
+* B - false, invalid syntax
+* C - true
+* D - false, invalid syntax
+* E - true
+* F - false, invalid syntax
+* **C,E**
 <hr>
 
 ## Question 4:
 ❓Which of the following are true statements (choose all that apply)
 
-A. A traditional `try` statement without a catch block requires a finally block<br>
+A. A traditional `try` statement without a catch block requires a finally block <br>
 B. A traditional `try` statement without a finally block requires a catch block <br>
 C. A traditional `try` statement with only one state with only one statement can omit {} <br>
 D. A try-with-resources statement without a catch block requires a finally block <br>
