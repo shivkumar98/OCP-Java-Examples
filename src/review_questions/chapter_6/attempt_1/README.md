@@ -232,8 +232,8 @@ public class EchoInput {
 A. `hithere` <br>
 B. The `assert` statement throws an AssertionError <br>
 C. The code throws an `ArrayIndexOutOfBoundsException` <br>
-D. The code compiles and runs successfully, but there is not output
-E. The code does not compile
+D. The code compiles and runs successfully, but there is not output <br>
+E. The code does not compile <br>
 
 ### My answer:
 * The command does not enable the assertions, so no assertion exception is thrown
@@ -242,21 +242,24 @@ E. The code does not compile
 <hr>
 
 ## Question 8:
-❓What is the output of the following code
+❓Which of the following command lines cause this program to fail on the assertion (Choose all that apply)
 ```java
-LocalDate date = LocalDate.of(2018, Month.APRIL, 40);
-System.out.println(date.getYear() + " " + date.getMonth()
-    + " " + date.getDayOfMonth());
-```
-    A. `2018 APRIL 4`
-    B. `2018 APRIL 30`
-    C. `2018 MAY 10`
-    D. Another date
-    E. The code does not compile
-    F. A runtime exception is thrown
+public class On {
+    public static void main(String[] args) {
+        String s = null;
+        assert s != null;
+    }
+}
+``` 
+A. `java -da On` <br>
+B. `java -ea On` <br>
+C. `java -da -ea:On On` <br>
+D. `java -ea -da:On on` <br>
+E. The code does not compile <br>
 
 ### My answer:
-* **F**✅✅✅✅
+* The code DOES compile
+* **B**
 <hr>
 
 ## Question 9
@@ -268,18 +271,16 @@ date.plusYears(3);
 System.out.println(date.getYear() + " "
     + date.getMonth() + " " + date.getDayOfMonth());
 ```
-    A. `2018 APRIL 2`
-    B. `2018 APRIL 30`
-    C. `2018 MAY 2`
-    D. `2021 APRIL 2`
-    E. `2021 APRIL 30`
-    F. `2021 MAY 2`
-    G. A runtime exception is thrown
+A. `2018 APRIL 2`
+B. `2018 APRIL 30`
+C. `2018 MAY 2`
+D. `2021 APRIL 2`
+E. `2021 APRIL 30`
+F. `2021 MAY 2`
+G. A runtime exception is thrown
 
 ### My answer:
-* Date is immutable.
-* If date is valid, it prints 2018 APRIL 30
-* **B**✅✅✅✅
+
 <hr>
 
 ## Question 10
@@ -301,9 +302,7 @@ System.out.println(d.format(f));
     G. A runtime exception is thrown
 
 ### My answer:
-* The formatter will show as time in format: `HH:mm AM/PM`
-* 11:22 AM is printed
-* **E**✅✅✅✅ 
+
 <hr>
 
 ## Question 11
@@ -324,11 +323,7 @@ System.out.println(d.format(f));
     F. A runtime exception is thrown.
 
 ### My answer:
-* f will show data time as DD/MM/YY HH:mm AM
-* p can not be chained, so ps is a period of 2Y
-* d = 10/5/2013 11:22 AM
-* answer is B (options are typos though)
-* **B** ✅✅✅✅
+
 <hr>
 
 ## Question 12:
@@ -338,19 +333,14 @@ System.out.println(d.format(f));
 2016-08-28T05:00 GMT-4:00
 2016-08-28T09:00 GMT-6:00
 ```
-    A. The first date/time is earlier
-    B. The second date/time is earlier
-    C. Both date/times are the same
-    D. The date/times are 2 hours apart
-    E. The date/times are 6 hours apart
+A. The first date/time is earlier
+B. The second date/time is earlier
+C. Both date/times are the same
+D. The date/times are 2 hours apart
+E. The date/times are 6 hours apart
 
 ### My answer:
-* I need to add the hours
-* dateTime1 = 2016-08-28T09:00 GMT
-* dateTime2 = 2016-08-28T15:00 GMT
-* first is ealier
-* 6 hours apart
-* **A,E**✅✅✅✅
+
 <hr>
 
 ## Question 13
@@ -375,9 +365,7 @@ System.out.println(hours, "," + clock1 + clock2);
     F. A runtime exception is thrown
 
 ### My answer:
-* dateTime2 is 1 hour ahead, so it is 2016-03-13T3:30
-* hours between is 1 hour
-* **B**✅✅✅✅
+
 <hr>
 
 ## Question 14:
@@ -390,19 +378,14 @@ LocalTime time1 = LocalTime.of(2, 15);
 ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
 ```
 
-    A. LocalDate.of(2016, 3, 13);
-    B. LocalDate.of(2016, 3, 40);
-    C. LocalDate.of(2016, 11, 6);
-    D. LocalDate.of(2016, 11, 7);
-    E. LocalDate.of(2017, 2, 29);
+A. LocalDate.of(2016, 3, 13);
+B. LocalDate.of(2016, 3, 40);
+C. LocalDate.of(2016, 11, 6);
+D. LocalDate.of(2016, 11, 7);
+E. LocalDate.of(2017, 2, 29);
 
 ### My answer:
-* A - valid date time
-* B - this does not exist
-* C - valid
-* D - valid
-* E - doees not exist (not leap year)
-* **A,C,D**✅✅✅✅
+
 <hr>
 
 ## Question 15
@@ -422,10 +405,7 @@ String p = Period.ofDays(1).toString();
     E. d.equals(p)
 
 ### My answer:
-* m1 and m2 are the same durations so B is true, A is false to String references
-* C is valid
-* D and E are false
-* **B,C**✅✅✅✅
+
 <hr>
 
 ## Question 16
@@ -447,11 +427,7 @@ Instant instant = ___________________;
     F. `zonedDateTime.toInstant()`
 
 ### My answer:
-* A - valid
-* B - valid
-* C,D,E - invalid
-* F - valid
-* **A,B,F**✅✅✅✅
+
 <hr>
 
 ## Question 17
@@ -470,8 +446,6 @@ private static void print(Properties props) {
     F. A runtime exception is thrown
 
 ### My answer:
-* The `get()` method does not accept overload!
-* **E**✅✅✅✅
 
 <hr>
 
@@ -506,7 +480,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 ```
 
 ### My answer:
-* **D*✅✅✅✅✅
+
 <hr>
 
 ## Question 19
@@ -519,8 +493,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
     F. Second
 
 ### My answer:
-* A period contains days, months and years
-* **A,B,C**✅✅✅✅
+
 <hr>
 
 ## Question 20
@@ -532,5 +505,5 @@ props.stream().map(k -> k) .forEach(System.out::println);
     E. ZonedDateTime
 
 ### My answer:
-* **E**✅✅✅✅
+
 <hr>
