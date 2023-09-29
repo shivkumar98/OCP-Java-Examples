@@ -135,42 +135,44 @@ F. A try-with-resources statement with only one statement can omit the {}
 
 
 ## Question 5
-❓ Suppose that we have the following property files and code. Which bundles are used on lines 8 and 9 respectively
-```properties
-# Dolphins.properties
-name=The Dolphin
-age=0
-
-# Dolphins_en.properties
-name=Dolly
-age=4
-
-# Dolphins_fr.properties
-name=Dolly
-```
+❓ What is the output of the following code?
 ```java
-5: Locale fr = new Locale("fr");
-6: Locale.setDefault(new Locale("en", "US"));
-7: ResourceBundle b = ResourceBundle.getBundle("Dolphins", fr);
-8: b.getString("name");
-9: b.getString("age");
+import java.io.*;
+public class AutocloseableFlow {
+    static class Door implements AutoCloseable {
+        public void close() {
+            System.out.println("D");
+        }
+    }
+    static class Window implements Closeable {
+        public void close() {
+            System.out.println("W");
+            throw new RuntimeException();
+        }
+    }
+    public static void main(String[] args) {
+        try (Door d = new Door(); Window w = new Window()) {
+            System.out.print("T");
+        } catch (Exception e) {
+            System.out.print("E");
+        } finally {
+            System.out.print("F");
+        } } }
 ```
 
-    A. `Dolphins.properties` and `Dolphins.properties`
-    B. `Dolphins.properties` and `Dolphins_en.properties`
-    C. `Dolphins_en.properties` and `Dolphins_en.properties`
-    D. `Dolphins_fr.properties` and `Dolphins.properties`
-    E. `Dolphins_fr.properties` and `Dolphins_en.properties`
-    F. The code does not compile
+A. `TWF` <br>
+B. `TWDF`<br>
+C. `TWDEF` <br>
+D. `TWF` followed by an exception <br>
+E. `TWDF` followed by an exception <br>
+F. `TWEF` followed by an exception <br>
+G. The code does not compile <br>
 ❓
 
 ### My answer:
-* The resource bundle will first look for `Dolphins_fr.properties`, the name is "Dolly"
-* It will then look for "age" in that file which is absent
-* It will then look at `Dolphins_en.properties` as it is the default locale, the age is 4
-* **E**❌❌❌❌
-* CORRECT ANSWER: D
-
+* The code DOES compile
+* TWDEF is printed
+* **C**
 <hr>
 
 ## Question 6:
