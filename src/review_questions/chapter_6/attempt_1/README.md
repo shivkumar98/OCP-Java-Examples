@@ -21,9 +21,9 @@ Score:
 | 10         |  ✅     |
 | 11         |  ❌     |
 | 12         |  ✅     |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -393,7 +393,8 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-* **A**
+* **A**✅✅✅✅
+* Since a multi-catch is used, the variable in catch block is effectively final and cannot be reassigned!
 <hr>
 
 ## Question 14:
@@ -417,7 +418,9 @@ D. `e = new SneezeException();` <br>
 E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 ### My answer:
-* **F**
+* **F**✅✅✅✅
+* A multicatch can catch both a superclass and subclass!
+
 <hr>
 
 ## Question 15
@@ -437,6 +440,7 @@ C. `Three` <br>
 D. `Four` <br>
 E. `Five` <br>
 E. `Six` <br>
+
 ### My answer:
 * Checked exceptions extends `Exception` but not `RuntimeException`
 * A - false
@@ -445,7 +449,8 @@ E. `Six` <br>
 * D - false as A is RuntimeException
 * E - true
 * F - false, as Three is not an Exception
-* **B,E**
+* **B,E**✅✅✅✅
+
 <hr>
 
 ## Question 16
@@ -476,7 +481,9 @@ F. The code does not compile <br>
 
 ### My answer:
 * There is an unecessary semi-colon in the try clause
-* **F** 
+* **F** ❌❌❌❌
+* **CORRECT ANSWER: C**
+* The exception in the try block becomes the primary exception. The two supressed exceptions are from trying to close the two resources!
 <hr>
 
 ## Question 17
