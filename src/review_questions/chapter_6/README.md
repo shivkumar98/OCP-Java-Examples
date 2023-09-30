@@ -2,4 +2,4 @@
 
 | Attempt| Date | Score | Questions Wrong |
 | -------|----- |------| ----------------|
-| [Attempt 1](/src/review_questions/chapter_6/attempt_1/)      | d | ds | s |
+| [Attempt 1](/src/review_questions/chapter_6/attempt_1/)      | 30/09/23 | 12/20 | 3,4,8,11,16,17,18,19 |
