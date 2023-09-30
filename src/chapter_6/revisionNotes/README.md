@@ -64,6 +64,9 @@ public String getDataFromDB() throws SQLException {
 
 <hr>
 
+# 🧠 6.2 Creating Custom Exceptions
+* You can create a custom exception error by extending pre-existing errors, runtime and checked exceptions.
+
 ## 🟥 H2
 
 ### 🟡 H3
