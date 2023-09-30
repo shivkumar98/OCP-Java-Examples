@@ -4,15 +4,15 @@
 
 ## Results:
 
-Date: 27/09/2023
+Date: 30/09/2023
 Score: 
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
+| 1          |  ✅     |
+| 2          |  ✅     |
+| 3          |  ❌     |
+| 4          |  ❌     |
 | 5          |       |
 | 6          |       |
 | 7          |       |
@@ -51,7 +51,7 @@ F. None of the above. SQLException is a runtime exception and cannot be thrown <
 ❓
 
 ### My answer:
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -82,7 +82,8 @@ F. The code already compiles as is <br>
 ### My answer:
 * The code does NOT compile as is!
 * We need to catch the checled exception!
-* **B, C**
+* **B, C**✅✅✅✅
+* Option D is incorrect as the exception would still be unhandled
 <hr>
 
 ## Question 3
@@ -111,7 +112,9 @@ F. `IOException e | RuntimeException e` <br>
 * D - false, invalid syntax
 * E - true
 * F - false, invalid syntax
-* **C,E**
+* **C,E**❌❌❌❌
+* **CORRECT ANSWER: E**
+* Option C is incorrect as FileNotFoundException is not thrown so can't be caught!
 <hr>
 
 ## Question 4:
@@ -131,6 +134,9 @@ F. A try-with-resources statement with only one statement can omit the {}
 * D - true
 * E - false
 * F - I don't THINK so
+* **A,B,D**❌❌❌❌
+* **CORRECT ANSWER: A,B**
+* Try-with-resources does not need a catch/finally block!
 <hr>
 
 
