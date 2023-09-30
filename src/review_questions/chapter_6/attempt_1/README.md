@@ -17,10 +17,10 @@ Score:
 | 6          |  ✅     |
 | 7          |  ✅     |
 | 8          |  ❌     |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 9          |  ✅     |
+| 10         |  ✅     |
+| 11         |  ❌     |
+| 12         |  ✅     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -286,7 +286,7 @@ E. `assert(n < 0, "OhNo");` <br>
 ### My answer:
 * A - valid
 * D - valid
-* **A, D**
+* **A, D**✅✅✅✅
 <hr>
 
 ## Question 10
@@ -312,7 +312,7 @@ E. Line 7 is an appropiate use of an assertion <br>
 * C - false
 * D - false
 * E - true
-* **A,E**
+* **A,E**✅✅✅✅
 <hr>
 
 ## Question 11
@@ -331,7 +331,9 @@ F. `SQLException` <br>
 * D - false
 * E - true
 * F - false
-* **B,E**
+* **B,E**❌❌❌❌
+* **CORRECT ANSWER: B,D,E**
+* MissingResourceException IS a runtime exception!
 
 <hr>
 
@@ -357,6 +359,7 @@ C. `e = new RuntimeException();` <br>
 D. `e = new SneezeException();` <br>
 E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
+
 ### My answer:
 * The code does compile
 * A - valid
@@ -364,7 +367,8 @@ F. None of the above; the code does not compile. <br>
 * C - invalid
 * D - valid
 * E - valid
-* **A,D,E**
+* **A,D,E**✅✅✅
+* Since SneezeException is caught, only exceptions of same type or subtypes can be assigned to the variable
 <hr>
 
 ## Question 13
