@@ -13,10 +13,10 @@ Score:
 | 2          |  ✅     |
 | 3          |  ❌     |
 | 4          |  ❌     |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
+| 5          |  ✅     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ❌     |
 | 9          |       |
 | 10         |       |
 | 11         |       |
@@ -178,7 +178,10 @@ G. The code does not compile <br>
 ### My answer:
 * The code DOES compile
 * TWDEF is printed
-* **C**
+* **C**✅✅✅✅
+* After both resources are opened, T is printed
+* The resources are closed, so WD is printed
+* Then the catch/finally are run, so EF is printed!
 <hr>
 
 ## Question 6
@@ -221,7 +224,7 @@ G. The code does not compile <br>
 
 ### My answer:
 * Code does not compile due to missing semi-colon:
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -244,7 +247,7 @@ E. The code does not compile <br>
 ### My answer:
 * The command does not enable the assertions, so no assertion exception is thrown
 * Therefore it prints nothing an ArrayIndexOutOfBoundsException is thrown
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -265,7 +268,10 @@ E. The code does not compile <br>
 
 ### My answer:
 * The code DOES compile
-* **B**
+* **B**❌❌❌❌
+* **CORRECT ANSWER: B,C**
+* The -da means -disableAssertions. The colon lets you specify a specific class to enable/disable assertions
+* C disables all assertions but then enables it for the `On` class!
 <hr>
 
 ## Question 9
