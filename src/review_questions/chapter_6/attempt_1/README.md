@@ -498,16 +498,27 @@ F. IOException, Closeable <br>
 <hr>
 
 ## Question 19
-❓ Which of the following are stored in a Period object (Choose all that apply)
-    A. Year
-    B. Month
-    C. Day
-    D. Hour
-    E. Minute
-    F. Second
+❓ Which of the following cannot fill in the blank? (Choose all that apply)
+```java
+public void read() throws SQLException {
+    try {
+        readFromDatabase();
+    } catch (________________ e) {
+        throw e;
+    }
+}
+public void readFromDatabase() throws SQLException { }
+```
+
+A. `Exception` <br>
+B. `RuntimeException` <br>
+C. `SQLException` <br>
+D. `SQLException | IOException` <br>
+E. `SQLException | RuntimeException` <br>
 
 ### My answer:
-
+* I have no clue!
+* **B,E**
 <hr>
 
 ## Question 20
