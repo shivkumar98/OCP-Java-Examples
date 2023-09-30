@@ -405,43 +405,42 @@ F. None of the above; the code does not compile. <br>
 <hr>
 
 ## Question 15
-❓Given the following code, which of the answer choices can fill in the blank to print true (choose all that apply)?
+❓ Which of the following are checked exceptions? (Choose all that apply)
 ```java
-String m1 = Duration.of(1, ChronoUnit.MINUTES).toString();
-String m2 = Duration.ofMinutes(1).toString();
-String s = Duration.of(60, ChronoUnit.SECONDS).toString();
-
-String d = Duration.ofDays(1).toString();
-String p = Period.ofDays(1).toString();
+class One extends RuntimeException{}
+class Two extends Exception{}
+class Three extends Error{}
+class Four extends One{}
+class Five extends Two{}
+class Six extends Three{}
 ```
-    A. m1 == m2
-    B. m1.equals(m2)
-    C. m1.equals(s)
-    D. d == p
-    E. d.equals(p)
 
+A. `One` <br>
+B. `Two` <br>
+C. `Three` <br>
+D. `Four` <br>
+E. `Five` <br>
+E. `Six` <br>
 ### My answer:
-
+* Checked exceptions extends `Exception` but not `RuntimeException`
+* A - false
+* B - true
+* C - false, Error is not an Exception
+* D - false as A is RuntimeException
+* E - true
+* F - false, as Three is not an Exception
+* **B,E**
 <hr>
 
 ## Question 16
-❓Given the following, which answers can correctly fill in the blank? (Choose all that apply)
-```java
-LocalDate date = LocalDate.now();
-LocalTime time = LocalTime.now();
-LocalDateTime dateTime = LocalDateTime.now();
-ZoneId zoneId = ZoneId.systemDefault();
-ZonedDateTime zonedDateTime - ZonedDateTime.of(dateTime, zoneId);
-long epochSeconds = 0;
-Instant instant = ___________________;
-```
-    A. `Instant.now()`
-    B. `Instant.ofEpcochSecond(epochSeconds)`
-    C. `date.toInstant()`
-    D. `dateTime.toInstant()`
-    E. `time.toInstant()`
-    F. `zonedDateTime.toInstant()`
+❓ Why shouldn't every class be marked `Serializable`? (Choose all that apply)
 
+A. The compiler will throw an exception if certain classes are marked `Serizable` <br>
+B. Only final classes can be marked `Seriazable` <br>
+C. Classes can implement only one interface, so marking them `Serializable` would prevent them from using any other interface. <br>
+D. The data of some classes cannot be easily serializable, such as those managing threads or processes <br>
+E. Only concrete classes can be marked `Serializable` <br>
+F. Classes that store most of their  <br>
 ### My answer:
 
 <hr>
