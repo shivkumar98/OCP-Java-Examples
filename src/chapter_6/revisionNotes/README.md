@@ -6,7 +6,8 @@
 
 ## 🟥 Categories of Exceptions
 * Checked exceptions, RuntimeExceptions and Error all extends `java.lang.Throwable`
-* Checked exceptions extend `java.lang.Exception` but not `java.lang.RuntimeException`. These MUST be declared or handled in a try/
+* Checked exceptions extend `java.lang.Exception` but not `java.lang.RuntimeException`. These MUST be declared or handled in a try/catch clause.
+* If a checked exception is not declared, then it can not be caught without compiler error!
 * Errors are fatal and should not be caught by the program.
 
 ## 🟥 Categories of Exceptions
@@ -66,6 +67,38 @@ public String getDataFromDB() throws SQLException {
 
 # 🧠 6.2 Creating Custom Exceptions
 * You can create a custom exception error by extending pre-existing errors, runtime and checked exceptions.
+
+<hr>
+
+# 🧠 6.3 Using Multi-catch
+* Multi-catch enables us to catch multiple exception types, and reduce code duplication
+* E.g.:
+```java
+try {
+    Path path = Paths.get("dophinsBorn.txt");
+    String text = new String(Files.readAllBytes(path));
+    LocalDate date = LocalDate.parse(text);
+    System.out.println(date);
+} catch (DateTimeParseException | IOException e) {
+    e.printStackTrace();
+    throw new RuntimeException(e); // catch and re-thrown
+}
+```
+* Java does not alloq you to use mulit-catch for subclasses of an exception, as this would be redundant:
+```java
+try {
+    throw new IOException();
+} catch (FileNotFoundException | IOException e) { } // COMPILER ERROR
+```
+
+* The caught exception of a multi-catch clause is **EFFECTIVELY FINAL**, meaning it can NOT be reassigned:
+```java
+try {
+    throw new IOException();
+} catch (IOException | RuntimeException e) {
+    e = new RuntimeException(); // COMPILER ERROR
+}
+```
 
 ## 🟥 H2
 
