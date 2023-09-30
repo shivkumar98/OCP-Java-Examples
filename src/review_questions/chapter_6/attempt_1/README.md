@@ -478,37 +478,23 @@ E. Serializable <br>
 <hr>
 
 ## Question 18
-❓Which of the following prints our all of the values in props?
-A. 
-```java
-props.keys().stream().map(k -> k.forEach(System.out::println))
-```
-B. 
-```java
-props.keys().stream().map(k -> props.get(k))
-    .forEach(System.out::println);
-```
-C. 
-```java
-props.keySet().stream().map(k -> k)
-    .forEach(System.out::println);
-```
-D.
-```java
-props.keySet().stream().map(k -> props.get(k))
-    .forEach(System.out::println);
-```
-E.
-```java
-props.stream().map(k -> k) .forEach(System.out::println);
-```
-F.
-```java
-props.stream().map(k -> k) .forEach(System.out::println);
-```
+❓ Which pairs fill in the blanks? The `close()` method is not allowed to throw a(n) _________ in a class that implements ___________. (Choose all that apply)
+
+A. Exception, Autocloseable <br>
+B. Exception, Closeable <br>
+C. IllegalStateException, AutoCloseable <br>
+D. IllegalStateException, Closeable <br>
+E. IOException, AutoCloseable <br>
+F. IOException, Closeable <br>
 
 ### My answer:
-
+* A - false
+* B - false
+* C - true
+* D - true
+* E - false
+* F - true
+* **C,D,F**
 <hr>
 
 ## Question 19
