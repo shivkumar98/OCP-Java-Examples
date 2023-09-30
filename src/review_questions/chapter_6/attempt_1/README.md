@@ -464,22 +464,17 @@ F. The code does not compile <br>
 <hr>
 
 ## Question 17
-❓What is the output of the following method if props contains `{veggies=brontosaurus, meat=velociraptor}`
-```java
-private static void print(Properties props) {
-    System.out.println(props.get("veggies", "none")
-        + " " + props.get("omini", "none"));
-}
-```
-    A. `brontosaurus none`
-    B. `brontosaurus null`
-    C. `none none`
-    D. `none null`
-    E. The codes not compile
-    F. A runtime exception is thrown
+❓ Fill in the blank: A class that implements ____________ may be in a try-with-resource statement? (Choose all that apply)
+    
+A. AutoCloseable <br>
+B. Closeable <br>
+C. Exception <br>
+D. RuntimeException <br>
+E. Serializable <br>
 
 ### My answer:
-
+* I think all of these can be in a try-with-resource statement!
+* **A**
 <hr>
 
 ## Question 18
