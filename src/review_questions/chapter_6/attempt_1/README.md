@@ -433,16 +433,34 @@ E. `Six` <br>
 <hr>
 
 ## Question 16
-❓ Why shouldn't every class be marked `Serializable`? (Choose all that apply)
+❓ What is the output of the following?
+```java
+public class SnowStorm {
+    static class Walk implements AutoCloseable {
+        public void close() {
+            throw new RuntimeException("snow");
+        }
+    }
+    public static void main(String[] args) {
+        try (Walk walk1 = new Walk(); Walk walk2 = new Walk();) {
+            throw new RuntimeException("rain");
+        } catch(Exception e) {
+            System.out.println(e.getMessage()
+                + " " + e.getSupressed().length);
+        } } }
+```
 
-A. The compiler will throw an exception if certain classes are marked `Serizable` <br>
-B. Only final classes can be marked `Seriazable` <br>
-C. Classes can implement only one interface, so marking them `Serializable` would prevent them from using any other interface. <br>
-D. The data of some classes cannot be easily serializable, such as those managing threads or processes <br>
-E. Only concrete classes can be marked `Serializable` <br>
-F. Classes that store most of their  <br>
+A. `rain 0` <br>
+B. `rain 1` <br>
+C. `rain 2` <br>
+D. `snow 0` <br>
+E. `snow 1` <br>
+F. `snow 2` <br>
+F. The code does not compile <br>
+
 ### My answer:
-
+* There is an unecessary semi-colon in the try clause
+* **F** 
 <hr>
 
 ## Question 17
