@@ -5,8 +5,8 @@
 ## Results:
 
 Date: 30/09/2023
-Score: 
-✅  ❌ 
+Score: 12/20
+
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅     |
@@ -24,11 +24,11 @@ Score:
 | 13         |  ✅     |
 | 14         |  ✅     |
 | 15         |  ✅     |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 16         |  ❌     |
+| 17         |  ❌     |
+| 18         |  ❌     |
+| 19         |  ❌     |
+| 20         |  ✅     |
 
 
 <hr>
@@ -497,7 +497,10 @@ E. Serializable <br>
 
 ### My answer:
 * I think all of these can be in a try-with-resource statement!
-* **A**
+* **A**❌❌❌❌
+* **CORRECT ANSWER: A,B**
+* Closeable was the original interface for IO classes. AutoCloseable was added in Java 7 along with try-with-resources. Closeable extends AutoCloseable
+
 <hr>
 
 ## Question 18
@@ -517,7 +520,11 @@ F. IOException, Closeable <br>
 * D - true
 * E - false
 * F - true
-* **C,D,F**
+* **C,D,F**❌❌❌❌
+* **CORRECT ANSWER: B**
+* The Closeable interface throws IOException, hence it can not throw Exception in its implementations!
+* IllegalStateException is a runtime exception and can be thrown by any method.
+
 <hr>
 
 ## Question 19
@@ -541,7 +548,10 @@ E. `SQLException | RuntimeException` <br>
 
 ### My answer:
 * I have no clue!
-* **B,E**
+* **B,E**❌❌❌❌
+* **CORRECT ANSWER: D**
+* SQLException must be caught! A, C, D, E all catch it!
+* Option B is not allowed, as it does not handle the exception!
 <hr>
 
 ## Question 20
@@ -554,5 +564,5 @@ D. The `toString()` method must be coded <br>
 E. None of the above <br>
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
