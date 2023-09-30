@@ -522,13 +522,14 @@ E. `SQLException | RuntimeException` <br>
 <hr>
 
 ## Question 20
-❓Which of the following objects could contain the information "eastern standard time"? (Choose all that apply)
-    A. Instant
-    B. LocalDate
-    C. LocalDateTijme
-    D. LocalTime
-    E. ZonedDateTime
+❓ Which of the following is true when creating your own exception class?
+
+A. One or more constructors must be coded. <br>
+B. Only checked exceptions may be created <br>
+C. Only unchecked exception may be created <br>
+D. The `toString()` method must be coded <br>
+E. None of the above <br>
 
 ### My answer:
-
+* **E**
 <hr>
