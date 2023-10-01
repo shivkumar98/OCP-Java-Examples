@@ -103,6 +103,7 @@ try {
 <hr>
 
 # 🧠 6.4 Using Try-With-Resources
+## 🟥 Introduction
 * The try-with-resources statements enables use classes which need to be closed, without explicitly closing them.
 * E.g. suppose we have the following method which reads the first line of file 1 and writes it to file 2:
 ```java
@@ -128,6 +129,39 @@ public void newApproach(Path p1, Path p2) throws IOException {
     }
 }
 ```
+
+## 🟥 Try-With-Resources Basics
+
+* Any resources opened within the try clause are closed at the end of the try clause!
+* Having a catch/finally block is completely optional for try-with-resources!
+* We can see the flow of the program in the following program:
+```java
+public class TwryWithResources {
+    public static void main() {
+        try (ThrowsException t = new ThrowsException();) {
+            System.out.println("T");
+        } catch (Exception e) {
+            System.out.println("C");
+        } finally {
+            System.out.println("F");
+        }
+    }
+}
+class ThrowsException implements AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        System.out.println("I");
+        throw new IOException();
+    }
+}
+```
+1) The `ThrowsException` is instantiated, the try clause is executed so it prints `T`
+2) The try clause finishes, so `close()` is called so it prints `I`. This then throws an IOException
+3) The catch clause catches the IOException, so it prints `C`
+4) The finally clause executes, so it prints `F`
+5) The program prints `TICF`
+
+* Attempting to reference `t` outside the Catch clause will cause a compiler error.
 
 ## 🟥 H2
 
