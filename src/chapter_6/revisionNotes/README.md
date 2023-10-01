@@ -246,6 +246,20 @@ try (JammedTurkeyCage t = new JammedTurkeyCage()){
 
 <hr>
 
+# 🧠 6.5 Rethrowing Exceptions
+* A common pattern is to log the exception and rethrow it.
+* E.g.:
+```java
+public void multiCatch() throws SQLException, DateTimeParseException {
+    try {
+        parseData();
+    } catch (SQLException | DateTimeParseException e) {
+        System.err.println(e);
+        throw e;
+    }
+}
+```
+
 ## 🟥 H2
 
 ### 🟡 H3
