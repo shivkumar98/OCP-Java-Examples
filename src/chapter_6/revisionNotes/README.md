@@ -260,6 +260,21 @@ public void multiCatch() throws SQLException, DateTimeParseException {
 }
 ```
 
-## 🟥 H2
+<hr>
 
-### 🟡 H3
+# 🧠 6.6 Working With Assertions
+* You can create assertions with the following syntax:
+```java
+assert boolean_expression;
+assert boolean_expression : error_message;
+```
+* By default the assertions are disabled. You can enable assertions globally using
+```
+java -enableassertions ClassName
+java -ea ClassName
+```
+* You can target specific classes too:
+```
+java -da -ea:SpecificClassName
+```
+* If an assertion fails, a `java.lang.AssertionError` is thrown.
