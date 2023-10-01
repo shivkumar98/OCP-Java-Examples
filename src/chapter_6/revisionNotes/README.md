@@ -100,6 +100,35 @@ try {
 }
 ```
 
+<hr>
+
+# 🧠 6.4 Using Try-With-Resources
+* The try-with-resources statements enables use classes which need to be closed, without explicitly closing them.
+* E.g. suppose we have the following method which reads the first line of file 1 and writes it to file 2:
+```java
+public void oldApproach(Path p1, Path p2) throws IOException {
+    BufferedReader in = null;
+    BufferedWriter out = null;
+    try {
+        in = Files.newBufferedReader(p1);
+        out = Files.newBufferedWriter(p2);
+        out.write(in.readLine());
+    } finally {
+        if (in != null) in.colose();
+        if (out != null) out.close();
+    }
+}
+```
+* This can be re-written to use try-with-resources:
+```java
+public void newApproach(Path p1, Path p2) throws IOException {
+    try (BufferedReader in = Files.newBufferedReader(p1);
+        BufferedWriter out = Files.newBufferedWriter(p2)) {
+            out.write(in.readLine());
+    }
+}
+```
+
 ## 🟥 H2
 
 ### 🟡 H3
