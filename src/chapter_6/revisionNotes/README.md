@@ -163,6 +163,14 @@ class ThrowsException implements AutoCloseable {
 
 * Attempting to reference `t` outside the Catch clause will cause a compiler error.
 
+
+## 🟥 AutoCloseable
+* You can only instantiate a `AutoCloseable`/`Closeable` implementation, in the try clause
+* The AutoCloseable class has a single method:
+```java
+public void close() throws Exception;
+```
+* `Closeable` is an older class, it not extends `AutoCloseable`. It restricts the exception thrown to `IOException`. the implementation must also be idempotent!
 ## 🟥 H2
 
 ### 🟡 H3
