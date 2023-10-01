@@ -238,6 +238,12 @@ try (JammedTurkeyCage t = new JammedTurkeyCage()){
 ```
 1. The exception is thrown in the try clause but is supressed, the resource is closed but a finally clause runs so the exception is supressed again.
 2. Only the RuntimeException is thrown.
+
+
+## 🟥 Putting It Together
+* Resources are closed after the try clause ends and before any catch/finally blocks!
+* Resources are closed in reverse order that they are created!
+
 ## 🟥 H2
 
 ### 🟡 H3
