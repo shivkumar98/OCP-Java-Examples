@@ -171,6 +171,73 @@ class ThrowsException implements AutoCloseable {
 public void close() throws Exception;
 ```
 * `Closeable` is an older class, it not extends `AutoCloseable`. It restricts the exception thrown to `IOException`. the implementation must also be idempotent!
+
+
+## 🟥 Supressed Exceptions
+* If multiple exceptions are thrown, all but the first one is called supressed exceptions.
+```java
+public class JammedTurkeyCage implements AutoCloseable {
+    public void close() throws IllegalStateException {
+        throw new IllegalStateException("Cage door does not close");
+    }
+
+    public static void main() {
+        try (JammedTurkeyCage t = new JammedTurkeyCage()) {
+            throw new IllegalStateException("turkeys have run off");
+        } catch (IllegalStateException e) {
+            System.out.println("caught: " +e.getMessage());
+            for (Throwable t:e.getSuppressed())
+                System.out.println(t.getMessage());
+        }
+    }
+}
+```
+1. The try instantiates the `JammedTurkeyCage`, it throws the exception which is caught and printed.
+2. As a result the `IllegalStateException("Cage door does not close")` is supressed.
+3. We can retrieve this suppressed exception by calling the `.getSupressed()` on the caught exception. This then prints `Cage door does not clause`
+
+* We can also see the supressed exception when the wrong type is caught:
+```java
+try (JammedTurkeyCage t = new JammedTurkeyCage()) {
+    throw new RuntimeException("turkeys have run off");
+} catch (IllegalStateException e) {
+    System.out.println("caught: "+ e.getMessage());
+}
+```
+* Running this will throw an exception, and the following is printed in console:
+```
+Exception in thread "main" java.lang.RuntimeException: turkeys ran off
+    atJammedTurkeyCage.main(JammedTurkeyCage.java:20)
+    Suppressed: java.lang.IllegalStateException: Cage door does not close
+```
+
+* We also have suppressed exceptions, when there are 2 instances of AutoCloseable:
+```java
+try (JammedTurkeyCage t1 = new JammedTurkeyCage();
+     JammedTurkeyCage t2 = new JammedTurkeyCage()) {
+        System.out.println("turkeys entered cages");
+     } catch (IllegalStateException e) {
+        System.out.println("caught: " + e.getMessage());
+        for (Throwable t: e.getSupressed())
+            System.out.println(t.getMessage());
+     }
+```
+1. The try clause will print `turkeys entered cages`
+2. The resources will be closed. `t2` is closed, and it will throw an exception
+3. The exception is caught, so it will print `caught: Cage door does not close`
+3. `t1` is closed after but the exception is already thrown and caught, so it becomes supressed!
+4. The supressed exception from `t1` is printed: `Cage door does not close`
+
+* You also get supressed exceptions when there is a finally clause but no catches:
+```java
+try (JammedTurkeyCage t = new JammedTurkeyCage()){
+    throw new IllegalStateException("turkeys ran off");
+} finally {
+    throw new RuntimeException("and we couldn't find them");
+}
+```
+1. The exception is thrown in the try clause but is supressed, the resource is closed but a finally clause runs so the exception is supressed again.
+2. Only the RuntimeException is thrown.
 ## 🟥 H2
 
 ### 🟡 H3
