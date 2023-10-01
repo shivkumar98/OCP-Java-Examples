@@ -244,6 +244,8 @@ try (JammedTurkeyCage t = new JammedTurkeyCage()){
 * Resources are closed after the try clause ends and before any catch/finally blocks!
 * Resources are closed in reverse order that they are created!
 
+<hr>
+
 ## 🟥 H2
 
 ### 🟡 H3
