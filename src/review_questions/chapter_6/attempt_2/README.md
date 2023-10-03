@@ -9,18 +9,18 @@ Score:
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 1          |  ✅    |
+| 2          |  ✅    |
+| 3          |  ✅    |
+| 4          |  ✅    |
+| 5          |  ✅    |
+| 6          |  ✅    |
+| 7          |  ✅    |
+| 8          |  ✅    |
+| 9          |  ✅    |
+| 10         |  ✅    |
+| 11         |  ✅    |
+| 12         |  ✅    |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -280,7 +280,7 @@ E. `assert(n < 0, "OhNo");` <br>
 
 ### My answer:
 * A - true, D = true
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 10
@@ -304,9 +304,9 @@ E. Line 7 is an appropiate use of an assertion <br>
 * A - true
 * B - false
 * C - false
-* D - true
-* E - false
-* **A,D**
+* D - false
+* E - true
+* **A,E**✅✅✅✅
 <hr>
 
 ## Question 11
@@ -320,7 +320,7 @@ F. `SQLException` <br>
 
 ### My answer:
 * A - false, B - true, C - false, D - true, E - true, F - false
-* B,D,E
+* B,D,E✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -348,7 +348,7 @@ F. None of the above; the code does not compile. <br>
 
 ### My answer:
 * A - true, B - false, C - false, D - true, E - true
-* **A,D**
+* **A,D, E**✅✅✅✅
 <hr>
 
 ## Question 13
