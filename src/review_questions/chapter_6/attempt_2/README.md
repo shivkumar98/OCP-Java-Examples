@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 03/10/23
-Score: 
+Score: 18/20
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -25,10 +25,10 @@ Score:
 | 14         |  ✅    |
 | 15         |  ✅    |
 | 16         |  ❌    |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 17         |  ✅    |
+| 18         |  ✅    |
+| 19         |  ❌    |
+| 20         |  ✅    |
 
 
 <hr>
@@ -467,7 +467,7 @@ D. RuntimeException <br>
 E. Serializable <br>
 
 ### My answer:
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 ## Question 18
@@ -487,7 +487,7 @@ F. IOException, Closeable <br>
 * D - false
 * E - false
 * F - false
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -516,7 +516,9 @@ E. `SQLException | RuntimeException` <br>
 * C - valid
 * D - invalid
 * E - valid
-* **A,C,E**
+* **A,C,E**❌❌❌❌
+* **CORRECT ANSWER: D**
+* D is not allowed, because the IOException is not thrown/declared
 <hr>
 
 ## Question 20
@@ -529,5 +531,5 @@ D. The `toString()` method must be coded <br>
 E. None of the above <br>
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
