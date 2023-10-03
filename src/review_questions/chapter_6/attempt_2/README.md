@@ -52,7 +52,7 @@ F. None of the above. SQLException is a runtime exception and cannot be thrown <
 
 ### My answer:
 * The signature uses throws, and the method uses throw new ...
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -87,7 +87,7 @@ F. The code already compiles as is <br>
 * D - false
 * E - false
 * F - false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -116,7 +116,7 @@ F. `IOException e | RuntimeException e` <br>
 * D - false
 * E - true
 * F - false
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 4:
@@ -136,7 +136,7 @@ F. A try-with-resources statement with only one statement can omit the {}
 * D - false
 * E - false
 * F - false
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 
