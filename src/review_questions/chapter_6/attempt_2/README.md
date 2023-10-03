@@ -279,7 +279,8 @@ D. `assert(n < 0): "OhNo";` <br>
 E. `assert(n < 0, "OhNo");` <br>
 
 ### My answer:
-
+* A - true, D = true
+* **A,D**
 <hr>
 
 ## Question 10
@@ -300,7 +301,12 @@ D. Line 6 is an appropiate use of an assertion <br>
 E. Line 7 is an appropiate use of an assertion <br>
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - true
+* E - false
+* **A,D**
 <hr>
 
 ## Question 11
@@ -313,7 +319,8 @@ E. `DateTimeParseException` <br>
 F. `SQLException` <br>
 
 ### My answer:
-
+* A - false, B - true, C - false, D - true, E - true, F - false
+* B,D,E
 <hr>
 
 ## Question 12:
@@ -340,7 +347,8 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* A - true, B - false, C - false, D - true, E - true
+* **A,D**
 <hr>
 
 ## Question 13
