@@ -67,3 +67,14 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 5.3 Adding Internationalization and Localization](/src/chapter_5/c_5_3_addingInternationalAndLocalisation/)
 - [✅ Review Questions](/src/review_questions/chapter_5/)
 - [📝Revision Notes](/src/chapter_5/revision_notes/)
+
+## Chapter 6: Exceptions and Assertions
+- [📜 Table of Contents📜 ](/src/chapter_6/)
+- [🧠 6.1 Reviewing Exceptions](/src/chapter_6/c_6_1_reviewingExceptions/)
+- [🧠 6.2 Creating Custom Exceptions](/src/chapter_6/c_6_2_creatingCustomExceptions/)
+- [🧠 6.3 Using Multi-catch](/src/chapter_6/c_6_3_usingMultiCatch/)
+- [🧠 6.4 Using Try-With-Resources](/src/chapter_6/c_6_4_usingTryWithResources/)
+- [🧠 6.5 Rethrowing Exceptions](/src/chapter_6/c_6_5_rethrowingExceptions/)
+- [🧠 6.6 Working With Assertions](/src/chapter_6/c_6_6_workingWithAssertions/)
+- [📝Revision Notes](/src/chapter_6/revisionNotes/)
+- [✅ Review Questions](/src/review_questions\chapter_6)
