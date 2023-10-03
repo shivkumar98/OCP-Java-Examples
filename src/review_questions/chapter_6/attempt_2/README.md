@@ -373,7 +373,7 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* **A**
 <hr>
 
 ## Question 14:
@@ -398,7 +398,8 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* Compiler error due to unreachable catch clause
+* **F**
 <hr>
 
 ## Question 15
@@ -420,7 +421,7 @@ E. `Five` <br>
 E. `Six` <br>
 
 ### My answer:
-
+* **B, E**
 <hr>
 
 ## Question 16
@@ -450,7 +451,8 @@ F. `snow 2` <br>
 F. The code does not compile <br>
 
 ### My answer:
-
+* runtime exception is thrown and caught, the exceptions from walk1 and walk2 are supressed
+* **F**
 <hr>
 
 ## Question 17
