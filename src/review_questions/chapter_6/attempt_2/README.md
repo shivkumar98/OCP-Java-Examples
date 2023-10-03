@@ -176,7 +176,8 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* TWDEF
+* **C**
 <hr>
 
 ## Question 6
@@ -218,7 +219,7 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* **G**
 <hr>
 
 ## Question 7
@@ -239,7 +240,8 @@ D. The code compiles and runs successfully, but there is not output <br>
 E. The code does not compile <br>
 
 ### My answer:
-
+* Throws an exception as args[2] does not exist
+* **C**
 <hr>
 
 ## Question 8:
@@ -259,7 +261,12 @@ D. `java -ea -da:On on` <br>
 E. The code does not compile <br>
 
 ### My answer:
-
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* **B,C**
 <hr>
 
 ## Question 9
