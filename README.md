@@ -77,4 +77,4 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 6.5 Rethrowing Exceptions](/src/chapter_6/c_6_5_rethrowingExceptions/)
 - [🧠 6.6 Working With Assertions](/src/chapter_6/c_6_6_workingWithAssertions/)
 - [📝Revision Notes](/src/chapter_6/revisionNotes/)
-- [✅ Review Questions](/src/review_questions\chapter_6)
+- [✅ Review Questions](/src/review_questions/chapter_6)
