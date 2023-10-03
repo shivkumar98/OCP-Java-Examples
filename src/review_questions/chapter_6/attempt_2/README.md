@@ -177,7 +177,7 @@ G. The code does not compile <br>
 
 ### My answer:
 * TWDEF
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 6
@@ -219,7 +219,7 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -241,7 +241,7 @@ E. The code does not compile <br>
 
 ### My answer:
 * Throws an exception as args[2] does not exist
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -266,7 +266,7 @@ E. The code does not compile <br>
 * C - true
 * D - false
 * E - false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 9
