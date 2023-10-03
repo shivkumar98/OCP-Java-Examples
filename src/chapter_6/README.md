@@ -1,6 +1,6 @@
 <link href="../../style.css" rel="stylesheet"></link>
 
-#   Chapter 6: Exceptions and Assertions
+# Chapter 6: Exceptions and Assertions
 
 ### 📜 Contents 📜
 - [🧠 6.1 Reviewing Exceptions](/chapter_6/c_6_1_reviewingExceptions/)
