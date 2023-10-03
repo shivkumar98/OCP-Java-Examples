@@ -465,7 +465,7 @@ D. RuntimeException <br>
 E. Serializable <br>
 
 ### My answer:
-
+* **A,B**
 <hr>
 
 ## Question 18
@@ -479,7 +479,13 @@ E. IOException, AutoCloseable <br>
 F. IOException, Closeable <br>
 
 ### My answer:
-
+* A - false
+* B - true
+* C - false
+* D - false
+* E - false
+* F - false
+* **B**
 <hr>
 
 ## Question 19
@@ -502,7 +508,13 @@ D. `SQLException | IOException` <br>
 E. `SQLException | RuntimeException` <br>
 
 ### My answer:
-
+* SQLException is a checked exception, if it is decalred, it must be caught
+* A - valid
+* B - invalid
+* C - valid
+* D - invalid
+* E - valid
+* **A,C,E**
 <hr>
 
 ## Question 20
@@ -515,5 +527,5 @@ D. The `toString()` method must be coded <br>
 E. None of the above <br>
 
 ### My answer:
-
+* **E**
 <hr>
