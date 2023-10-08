@@ -1,7 +1,7 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
 
-# 🧠 7.1 Reviewing Exceptions
+# 🧠 7.1 Introducing Threads
 
 * A thread is the smallest unit of execution that can be scheduled by the operating system.
 * A process is a group of associated threads that execute in the same shared environment - threads in the same process can access the same memory space and can communicate with each other.
@@ -59,4 +59,69 @@
 () -> {}
 ```
 
+<hr>
+
+## 🟥 7.1.4 Creating a Thread
+* The easiest way to execute a threads is to use `java.lang.Thread` and starting it using `Thread.start()`.
+* Java does not guarantee that a thread will be processed when started, it may be immediate or delayed slightly
+* We can define a task that a Thread instance will execute in two ways:
+1) Provide a Runnable object or lambda expression to Thread constructor
+```java
+public class PrintData implements Runnable {
+    public void run() {
+        for(int i=0; i<3; i++)
+            System.out.println("Printing record: "+i);
+    }
+    public static void main() {
+      (new Thread(new PrintData())).start();
+    }
+}
+```
+2) Create a class which extends `Thread` and overrides the run method
+```java
+public class ReadInventoryThread extends Thread {
+    public void run() {
+        System.out.println("Printing zoo inventory");
+    }
+    public static void main() {
+      (new ReadInventoryThread()).start();
+    }
+}
+```
+* The first approach is far more common. Whenever you start a task with `Thread.start()` it starts the task in a seperate OS thread.
+* What is the output of the following code snippet❓❓❓
+```java
+public static void main(String[] args) {
+    System.out.println("begin");
+    (new ReadInventoryThread()).start();
+    (new Thread(new PrintData())).start();
+    (new ReadInventoryThread()).start();
+    System.out.println("end");
+}
+```
+* ANSWER: the output is unknown till runtime!✅ ✅ ✅ 
+* Running the code on my system prints the following:
+```
+begin
+Printing zoo inventory
+end
+Printing zoo inventory
+Printing record: 0
+Printing record: 1
+Printing record: 2
+```
+* This code uses 4 threads, the `main()` thread,, and three additional threads.
+* We can create threads and not call the `start()` method, if we call `run()` then the threads will execute on the thread it was called from. The thread will wait till its completed the previous task before moving to the next line
+* E.g.:
+```java
+System.out.println("start");
+new PrintData().run();
+(new Thread(new PrintData())).run();
+(new ReadInventoryThread()).run();
+System.out.println("end");
+```
+* This prints the following:
+```
+
+```
 ### 🟡 H3
