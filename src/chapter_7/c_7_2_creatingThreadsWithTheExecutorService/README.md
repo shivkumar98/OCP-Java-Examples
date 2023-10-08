@@ -101,3 +101,125 @@ try {
 * The `invokeAll()` method executes a collections of tasks and returns a `List` of ordered `Future` objects and `Future.isDone()` returns true for all the items.
 * The `invokeAny()` method executes a collections of tasks, and returns the result of one of the tasks which succesfully completed execution (unfinished tasks get cancelled). The result is not guranteed!
 * The `ExecutorService` interface includes overloaded versions of these methods which takes a timeout value and `TimeUnit` parameter.
+
+<hr>
+
+## 🟥 7.2.4 Waiting For Results
+* The `submit()` method returns a `java.util.concurrent.Future<V>`:
+```java
+Future<?> future = service.submit(() -> System.out.println("Hello Zoo"));
+```
+* The `Future` class has the following methods:
+1) `boolean isDone()` - returns if the task is completed, threw exception or cancelled
+2) `boolean isCancelled()` - returns true if the task is cancelled before finishing normally
+3) `boolean cancel()` - attempts to cancel execution of the task
+4) `V get()` - returns result of task, waits endlessly if not yet available
+5) `V get(long timeout, TimeUnit unit)` - retrieves result of task, waiting the timeout. If result is not ready after timeout, a checked `TimeoutException` is thrown
+
+* Here's the example of the polling example using submit:
+```java
+import java.util.concurrent.*;
+public class CheckResults {
+    private static int counter = 0;
+    public static void main() throws InterruptedException, ExecutionException {
+        ExecutorService service = null;
+        try {
+            service = Executors.newSingleThreadExecutor();
+            Future<?> result = service.submit(() -> {
+                for(int i=0; i<500; i++) CheckResults.counter++;
+            });
+            results.get(10, TimeUnit.SECONDS);
+            System.out.println("Reached");
+        } catch (TimeoutException e) {
+            System.out.println("Not reached in time");
+        } finally {
+            if(service != null) service.shutdown();
+        }
+    }
+}
+```
+* Instead of doing complex things with Threads directly, the Concurrency API enables us to do it through a more simple interface. It waits at most for 10s, or throws a TimeoutException if the task is not done.
+
+
+### 🟡 Introducing Callable
+* When the Concurrency API was release in Java 5, it introduced the `java.util.concurrent.Callable` interface. It is similar to `Runnable` except it has a `call()` method which returns a value and can throw a checked exception.
+* Callable is a functional interface defined as:
+```java
+@FunctionalInterface public interface Callable<V> {
+    V call() throws Exception;
+}
+```
+* `ExecutorService` has an overloaded `submit()` method which takes a `Callable` object and returns a generic `Future<T>` object.
+* Calling the get() method on Future does NOT ALWAYS rturn null, it CAN return a generic type
+
+### 🟡 Ambigious Lambda Expressions: Callable vs Supplier
+* Callable is very similar to `Supplier` as it takes no arguments and returns a generic type
+* A difference is that Callable can throw aa checked exception
+* This makes telling lambda expressions apart is difficult
+* Consider the example which uses the same lambda expression for three different method calls:
+```java
+public class AmbigouosLambdaSample {
+    public static void useCallable(Callable<Integer> expression){}
+    public static void useSupplier(Supplier<Integer> expression){}
+
+    public static void use(Supplier<Integer> expression) {}
+    public static void use(Callable<Integer> expression) {}
+    public static void main() {
+        useCallable(() -> {throw new IOException();});
+        useSupplier(() -> {throw new IOException();}); // COMPILER ERROR
+        use(() ->{throw new IOException();}); // COMPILER ERROR
+    }
+}
+```
+* The second line clearly does not compile, as supplier does not throw checked exceptions!
+* For the last line, the compiler does not take the body of the lambda expression into account. As a result it can not tell if it is a Supplier or Callable
+* This is called **ambigious lambda expression**
+* We can resolve this compiler error by using an explicit cast:
+```java
+use((Callable<Integer>)() -> {throw new IOException("");});
+```
+* Here is an example of using `Callable`:
+```java
+import java.util.concurrent.*;
+
+public class AddData {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ExecutorService service = null;
+	    try {
+	        service = Executors.newSingleThreadExecutor();
+	        Future<Integer> result = service.submit(() -> 30+11);
+	        System.out.println(result.get()); // 41
+	    } finally {
+	        if(service != null) service.shutdown();
+	    }
+    }
+}
+```
+* The Callable interface supports a return type when using ExecutorService.
+
+### 🟡 Waiting for All Tasks to Finish
+
+* After submitting a set of tasks to the thread executor, it is common to wait for the results; we can call `.get()` on each Future object returned by submit.
+* If do not need results of the tasks and are finished with the thread executor we can shutdown the thread using `shutdown()` and use `awaitTermination(long timeout, TimeUnit unit)` which waits for all tasks to finish in allotted time, and returns sooner if all tasks finish or InterruptedException is detected.
+```java
+ExecutorService service = null;
+try {
+    service = Executor.newSingleThreadExecutor();
+    // add tasks to the thread executor
+} finally {
+    if(service != null) service.shutdown();
+}
+if (service != null) {
+    service.awaitTermination(1, TimeUnit.MINUTES)s;
+    // check if all tasks are finished:
+    if(service.isTerminated())
+        System.out.println("All tasks finished");
+    else
+        System.out.println("At least one task is still running");
+}
+```
+
+
+<hr>
+
+## 🟥 7.2.5 Scheduling Tasks
