@@ -122,6 +122,54 @@ System.out.println("end");
 ```
 * This prints the following:
 ```
-
+start
+Printing record: 0
+Printing record: 1
+Printing record: 2
+Printing record: 0
+Printing record: 1
+Printing record: 2
+Printing zoo inventory
+end
 ```
+
+<hr>
+
+## 🟥 7.1.5 Polling with Sleep
+* **Polling** is the process of intermittently checking data at some fixed interval.
+* Suppose you have a thread which modifies a static vounter and your `main()` thread is to increase the value above 100:
+```java
+public class CheckResults {
+    private static int counter = 0;
+    public static void main() {    
+        new Thread(() -> {
+            for(int i=0; i<500; i++)
+                CheckResults.counter++;
+            }).start();
+        while(CheckResults.counter<100) {
+            System.out.println("Not reached yet");
+        }
+        System.out.println("Reached");
+    }
+}
+```
+* The code as is would be wildly inefficient! The while loop could execute a million times - this is bad practice! We can improve the efficiency by using `Thread.sleep()`:
+```java
+public class CheckResults {
+    private static int counter = 0;
+    public static void main() throws InterruptedException {    
+        new Thread(() -> {
+            for(int i=0; i<500; i++)
+                CheckResults.counter++;
+            }).start();
+        while(CheckResults.counter<100) {
+            System.out.println("Not reached yet");
+            Thread.sleep(1000); // 1 second
+        }
+        System.out.println("Reached");
+    }
+}
+```
+* This change has stopped the while rule running infinitely
+
 ### 🟡 H3
