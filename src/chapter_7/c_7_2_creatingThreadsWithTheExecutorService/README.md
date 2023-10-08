@@ -79,3 +79,25 @@ try {
     if(service!=null) service.shutdown();
 }
 ```
+
+
+<hr>
+
+## 🟥 7.2.3 Submitting Tasks
+* You can submit tasks to an ExecutorService in multiple ways
+* The first way is to use `execute()` which is inherited from the `Executor` interface (ExecutorService extends Execute)
+    - The `execute()` method takes a `Runnable` lambda expression or instance which completes the task asynchrously
+    - This is a **fire-and-forget** type use as the results are not readily available
+* The ExecutorService also has a `submit()` method whichh can also do tasks asynchrously, it returns a `Future` object which can determine if the task is complete.
+
+### 🟡 execute() vs submit()
+* The submit() does the same thing as execute() but returns an object which can be used to track the result.
+* It is recommended to use `submit()` over `execute()`, which shall be used for the rest of this chapter.
+
+
+### 🟡 Submitting Task Collections
+* The `invokeAll()` and `invokeAny()` take a `Collection` object which contains a list of tasks to execute.
+* Both of these methods execute synchrously - the program will wait for the results before returning control to enclosing program.
+* The `invokeAll()` method executes a collections of tasks and returns a `List` of ordered `Future` objects and `Future.isDone()` returns true for all the items.
+* The `invokeAny()` method executes a collections of tasks, and returns the result of one of the tasks which succesfully completed execution (unfinished tasks get cancelled). The result is not guranteed!
+* The `ExecutorService` interface includes overloaded versions of these methods which takes a timeout value and `TimeUnit` parameter.
