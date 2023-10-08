@@ -171,5 +171,3 @@ public class CheckResults {
 }
 ```
 * This change has stopped the while rule running infinitely
-
-### 🟡 H3
