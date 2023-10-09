@@ -11,7 +11,7 @@ public class AddData {
 	        try {
 	            service = Executors.newSingleThreadExecutor();
 	            Future<Integer> result = service.submit(() -> 30+11);
-	            System.out.println(result.get());
+	            System.out.println(result.get()); // 41
 	        } finally {
 	            if(service != null) service.shutdown();
 	        }
