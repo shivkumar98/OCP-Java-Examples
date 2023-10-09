@@ -238,5 +238,29 @@ ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 ```java
 ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 Runnable task1 = () -> System.out.println("Hello Zoo");
+Callable<String> task2 = () -> "Monkey";
+
+Future<?> result1 = service.schedule(task1, 10, TimeUnit.SECONDS);
+Future<?> result2 = service.schedule(task2, 8, TimeUnit.SECONDS);
 ```
 
+<hr>
+
+## 🟥 7.2.6 Increasing Concurrency with Pools
+* So far we have only instantiated single thread executors. We shall now look at thread pools which will allow us to do more concurrent tasks.
+* A **thread pool** is a group of pre-instantiated threads which are available to perform any number of tasks.
+* Here are some methods from the `Executors` class:
+1) `newSingleThreadExecutor()` - returns `ExecutorService`. Creates a single-threaded executor operating off an unbounded queue. Results are processed in order they're submitted
+2) `newSingleThreadScheduledExecutor()` - returns `ScheduledExecutorService`. Creates a single-threaded executor which can schedule commands after delay/period
+3) `newCachedThreadPool()` - returns `ExecutorService`. Creates a thread pool which can create new threads as needed (able to resue available threads)
+4) `newFixedThreadPool(int nThreads)` - returns `ExecutorService`. Creates a thread pool which resuses a fixed number of threads
+5) `newScheduledThreadPool(int nThreads)` - returns `ScheduledExecutorService`. Creates a\ thread pool that can schedule commands to run after a given delay/period
+
+* A single thread executor will wait for the thread to become available before running next task. A pooled thread executor can run tasks concurrently. If the pool is out of threads, the task will be queued by the thread executor.
+
+* The `newCachedThreadPool()` will created an unbounded thread pool, allocating new threads whenever required. This is strongly discouraged, but can be used for short-lived asynchrous tasks
+* The `newFixedThreadPool()` will bound the number of threads. If the number of tasks < nThreads, all tasks will execute concurrently.
+* The `newScheduledThreadPool()` is identical to the above but returns an instance of `ScheduledExecutorService()`.
+
+### 🟡 Choosing a Pool size
+* You generally want a handful more threads than you could possibly ever need.
