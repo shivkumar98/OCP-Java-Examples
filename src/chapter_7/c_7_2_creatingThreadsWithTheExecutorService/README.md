@@ -223,3 +223,20 @@ if (service != null) {
 <hr>
 
 ## 🟥 7.2.5 Scheduling Tasks
+* The `ScheduledExecutorService` is a subinterface of `ExecutorService`. We can use an instance of this class to schedule a task which needs to happen repeatedly for a given interval.
+* We can get an instance via a factory method:
+```java
+ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+```
+* The `ScheduledExecutorService` has the following methods:
+1) `schedule(Callable<V> callable, long delay, TimeUnit unit)` - creates and executes a Callable task after the given delay
+2) `schedule(Runnable command, long delay, TimeUnit unit)` - creates and executes a Runnable task after the given delay
+3) `scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)` - creates a new task after initial delay, and new tasks after each period delay
+4) `scheduleAtFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit)` - creates a new task after initial delay, and commences new task after termination of previous task + period delay
+
+* Here is an example of using the `schedule()` method:
+```java
+ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+Runnable task1 = () -> System.out.println("Hello Zoo");
+```
+
