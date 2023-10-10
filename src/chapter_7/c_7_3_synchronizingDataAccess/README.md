@@ -144,11 +144,33 @@ private void incrementAndReport() {
 
 <hr>
 
-## 🟥 7.2.3 Synchronizing Methods
+## 🟥 7.3.3 Synchronizing Methods
+* Java offers a far more convienent syntax for synchronizing a method; the following method definitions are equivalent:
+```java
+private void incrementAndReport() {
+    synchronized(this) {
+        System.out.println((++sheepCount)+" ");
+    }
+}
+private synchronized void incrementAndReport() {
+    System.out.println((++sheepCount)+" ");
+}
+```
+* We can also synchronize static methods, the object we use to monitor is the class object. The following methods are equivalent:
+```java
+public static void printDaysWork() {
+    synchronized(SheepManager.class) {
+        System.out.println("Finished work");
+    }
+}
+public static synchronized void printDaysWork() {
+    System.out.println("Finished work");
+}
+```
 
 <hr>
 
-## 🟥 7.2.4 Understanding the Cost of Synchronization
+## 🟥 7.3.4 Understanding the Cost of Synchronization
 
 
 
