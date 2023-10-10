@@ -141,6 +141,7 @@ private void incrementAndReport() {
     }
 }
 ```
+
 <hr>
 
 ## 🟥 7.2.3 Synchronizing Methods
