@@ -172,6 +172,3 @@ public static synchronized void printDaysWork() {
 
 ## 🟥 7.3.4 Understanding the Cost of Synchronization
 * Synchronizing threads makes them perform in a single-threaded manner, and can lead to harsh performance reductions.
-
-
-### 🟡 H3
