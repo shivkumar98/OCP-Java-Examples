@@ -23,7 +23,7 @@ public class ConcurrentClasses {
 		Deque<Integer> deque = new ConcurrentLinkedDeque<>();
 		deque.offer(10);
 		deque.push(4);
-		System.out.println(deque.peek());
-		System.out.println(deque.pop());
+		System.out.println(deque.peek()); // 4
+		System.out.println(deque.pop()); // 4
 	}
 }
