@@ -5,7 +5,7 @@
 * The `Concurrency API` also included classes and interfaces which help you coordinate access to collections across multiple processes
 * This section will show the concurrent classes available in the Concurrency API
 
-## 🟥 7.4.1 Indtroducing Concurrent Collections
+## 🟥 7.4.1 Introducing Concurrent Collections
 * We could use `synchronized` methods, but the Concurrent collections which offer better performance and more convience
 * E.g. here's using a synchronized method and rewriting it to use a concurrent class:
 ```java
@@ -35,6 +35,32 @@ public class ZooManager {
 ## 🟥 7.4.2 Understanding Memory Consistency Errors
 * Concurrent Collections solve `memory consistency errors` - this is their purpose.
 * **Memory consistency errors** is when two threads have inconsistent views of data.
+* When two threads attempt to modify the same non-concurrent collection, Java will throw a `ConcurrentModificationException` at runtime.
+* We can get this exception even single threaded, e.g. trying to delete a key from a map while looping through it:
+```java
+Map<String, Object> food = new HashMap<>();
+    food.put("chicken", 21);
+    food.put("beef", 12);
+    for (String key: food.keySet())
+        food.remove(key); 
+    // throws ConcurrentModification exception
+```
+
+* We can fix this, they keyset is updated after each loop:
+```java
+Map<String, Object> concurrentFood = 
+        new ConcurrentHashMap<>();
+concurrentFood.put("chicken", 21);
+concurrentFood.put("beef", 12);
+for (String key: concurrentFood.keySet()) {
+    System.out.println("concurrentFood:"+concurrentFood);		
+    concurrentFood.remove(key);
+}
+// concurrentFood:{chicken=21, beef=12}
+// concurrentFood:{beef=12}
+```
+* At any given instance, each thread has a consistent view of the same data❗
+
 <hr>
 
 ## 🟥 7.4.3 Working with Concurrent Classes
