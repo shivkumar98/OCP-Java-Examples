@@ -42,6 +42,51 @@ Arrays.asList(1,2,3,4,5,6)
 ```
 
 ### 🟡 Understanding Performance Improvements
+* We have a task which requires processing 4,000 records which take 10 milliseconds to finish. Here is an application which simulates this:
+```java
+import java.util.*;
+
+public class WhaleDataCalculator {
+
+    public int processRecord(int input) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            
+        }
+        return input+1;
+    }
+
+    public void processAllData(List<Integer> data) {
+        data.stream().map(a -> processRecord(a)).count();
+    }
+
+    public static void main(String[] args) {
+        WhaleCalculator calculator = new WhaleCalculator();
+
+        // define the data
+        List<Integer> data = new ArrayList<>();
+        for(int i=0;i<4000;i++) data.add(i);
+
+        // process data
+        long start = System.currentMillis();
+        calculator.processAllData(data);
+        double time = (System.currentTimeMillis()-start)/1000.0;
+
+        // Report results
+        System.out.println("\nTasks completed in: "+time+" seconds");
+    }
+}
+```
+* This will take 40 seconds to complete.
+* We can make this a parallel stream by processing the results concurrently:
+```java
+public void processAllData(List<Integer> data) {
+    data.parallelStream().map(a->processRecord(a)).count();
+}
+```
+* Depending on the number of CPUs available, the task can be completed in roughly 10 seconds.
+* We can improve performance by scaling the number of processors - this property is called **scaling**
 
 ### 🟡 Understanding Independent Operations
 
