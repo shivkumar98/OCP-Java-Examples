@@ -1,6 +1,4 @@
-@ -1,76 +0,0 @@
 <link href="../../styles.css" rel="stylesheet"></link>
-
 
 # 🧠 7.4 Using Concurrent Collections
 * The `Concurrency API` also included classes and interfaces which help you coordinate access to collections across multiple processes
