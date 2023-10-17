@@ -91,7 +91,6 @@ Size: 6
 * A regular array list would throw a `ConcurrentModificationException`
 * These `CopyOnWrite` classes use alot of memoery since, a new collection is allocated when its modified⚠️
 
-
 <hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
