@@ -20,4 +20,31 @@ Stream<Integer> parallelStream = Arrays.asList(1,2,3,4,5,6).parallelStream();
 
 ## 🟥 7.5.2 Processing Tasks in Parallel
 
+* Parallel streams can have unexpected results:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .forEach(s->System.out.println(s+ " "));
+```
+* This can generate the following:
+```
+4 1 6 2 3 5
+5 2 1 6 3 4
+1 2 4 5 6 3
+```
+
+### 🟡 Ordering `forEach` Results
+* The Streams API includes a `forEachOrdered()` method which forces parallel stream to process result in order with a performance hit:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .forEachOrdered(s->System.out.println(s+ " "));
+```
+
+### 🟡 Understanding Performance Improvements
+
+### 🟡 Understanding Independent Operations
+
+### 🟡 Avoiding Stateful Operations
+
 ## 🟥 7.5.3 Processomg Parallel Reductions
