@@ -42,6 +42,28 @@ Arrays.asList(1,2,3,4,5,6)
 ```
 
 ### 🟡 Understanding Performance Improvements
+* We have a taskk which requires processing 4,000 records which take 10 milliseconds to finish. Here is an application which simulates this:
+```java
+import java.util.*;
+
+public class WhaleDataCalculator {
+
+    public int processRecord(int input) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            
+        }
+        return input+1;
+    }
+
+    public void processAllData(List<Integer> data) {
+        data.stream().map(a -> processRecord(a)).count();
+    }
+
+    public
+}
+```
 
 ### 🟡 Understanding Independent Operations
 
