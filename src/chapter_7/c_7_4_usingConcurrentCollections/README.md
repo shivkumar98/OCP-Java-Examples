@@ -94,5 +94,27 @@ Size: 6
 <hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
+* The Concurrency API includes methods to convert non-concurrent collections into concurrent variants. These methods contain synchronized methods which return a reference of the same type as underlyind collection:
 
+| Method Name                                   |
+| --------------------------------------------- |
+| `synchronizedCollection(Collection<T> c)`     |
+| `synchronizedList(List<t> list)`              |
+| `synchronizedMap(Map<K,V> map)`        |
+| `synchronizedNavigableMap(NavigableMap<K,V> m) ` |
+| `synchronizedNavigableSet(NavigableSet<T> s)` |
+| `synchronizedSet(Set<T> s)`                   |
+| `synchronizedSortedMap(SortedMap<K,V> m)`     |
+| `synchronizedSortedSet(SortedSet<T> s)`       |
+
+* The above methods will synchroinized the `get()/set()` methods, but it will NOT synchronize any iterators you may create from the synchronized collection⚠️
+* You MUST use a synchronized block for iterators like below:
+```java
+List<Integer> list = Collections.synchronizedList(new ArrayList<>(Arrays.asList(4,3,52)));
+synchronized(list) {
+    for (int data: list)
+        System.out.println(data+" ");
+}
+```
+* Unlike Concurrent Collections, you can not concurrently modify a synchronized collection in an iterator without an exceptions being thrown!
 <hr>
