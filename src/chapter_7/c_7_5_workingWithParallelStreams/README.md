@@ -90,6 +90,31 @@ public void processAllData(List<Integer> data) {
 * It's not always beneficial to use parallel stream, for small streams its faster to do serial streams as parallel streams have cost of setting up and allocating🫰
 
 ### 🟡 Understanding Independent Operations
+* Parallel Streams rely on the propery that many stream operations can be executed independently to improve performance.
+* In the above example, the `processRecord()` can be executed seperately without impacting the invocation of the method on other pieces of the stream.
+* Here's an example which maps the stream contents to uppercase Strings:
+```java
+Arrays.asList("jackal","kangaroo","lemur")
+    .parallelStream()
+    .map(s -> s.toUpperCase())
+    .forEach(System.out::println);
+```
+* Many common streams including `map()`, `forEach()`, and `filter()` can be processed independently but order is never guaranteed.
+```java
+Arrays.asList("jackal","kangaroo","lemur")
+    .parallelStream()
+    .map(s -> {System.out.println(s); return s.toUpperCase();})
+    .forEach(System.out::print)
+```
+* This example has an embedded print statement, as the results are not ordered and the print can occurs even before intermediate operations:
+```
+kangaroo
+KANGAROO
+lemur
+jackal
+JACKAL
+LEMUR
+```
 
 ### 🟡 Avoiding Stateful Operations
 
