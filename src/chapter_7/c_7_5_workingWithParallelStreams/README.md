@@ -138,4 +138,21 @@ for (Integer e: data) {
 ```
 
 ## 🟥 7.5.3 Processomg Parallel Reductions
+* Using parallel streams leads to improved performance and changes to the design of you application.
+* **Parallel reductions** are reduction operations on parallel streams.
 
+### 🟡 Performing Order-Based Tasks
+* Due to order not being guaranteed, methods like `findAny()` on parallel streams may result in unexpected behavior.
+* The following will always print 1
+```java
+System.out.println(Arrays.asList(1,2,3,4,5,6).stream().findAny().get());
+```
+* With parallel stream, the result is undefined:
+```java
+System.out.println(Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get());
+```
+* Stream operations like `findFirst()`, `limit`, `skip` can be slower in parallel environment dues to this task veing forced to coordinate all of its threads in synchronized-like fashion.
+
+### 🟡 Combining Results with `reduce()`
+
+### 🟡 Combining Results with `collect()`
