@@ -86,7 +86,8 @@ public void processAllData(List<Integer> data) {
 }
 ```
 * Depending on the number of CPUs available, the task can be completed in roughly 10 seconds.
-* We can improve performance by scaling the number of processors - this property is called **scaling**
+* We can improve performance by scaling the number of processors - this property is called **scaling**🎃
+* It's not always beneficial to use parallel stream, for small streams its faster to do serial streams as parallel streams have cost of setting up and allocating🫰
 
 ### 🟡 Understanding Independent Operations
 
