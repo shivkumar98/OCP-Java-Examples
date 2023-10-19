@@ -154,5 +154,32 @@ System.out.println(Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get());
 * Stream operations like `findFirst()`, `limit`, `skip` can be slower in parallel environment dues to this task veing forced to coordinate all of its threads in synchronized-like fashion.
 
 ### 🟡 Combining Results with `reduce()`
+* The `reduce()` method combines a stream into a single object. This method takes an `identity`, `accumulator`, and `combiner`
+* E.g here's concatenation of a string:
+```java
+String s = Arrays.asList('w','o','l','f')
+    .stream()
+    .reduce("", (c,s1)->c+s1, (x,y)->x+y);
+```
+* If we did this using a parallel stream, we could have w+o, l+f being formed. With a serial stream, the string is built one character at a time.
+* The Stream API has a way of preventing issues from occuring as a result of elements being in wrong order. The `reduce()` operation must adhere to the following properties:
+1) `identity` must be defined such for all elements in the stream u, `combiner.apply(identity,u)` = `u`
+2) `accumulator` operator op must be statless and associative - `(a op b) op c` = `a op (b op c)`
+3) `combiner` must be associative, stateless and compatible with identity, such that for all u and t: `combiner.apply(u, accumulator.apply(identity,t))` = `accumulator.apply(u,t)`
+
+* Here is an example of using a non-associative accumulator:
+```java
+long l = Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .reduce(0,(a,b) -> (a-b)); // NOT ASSOCIATIVE ACCUMULATOR
+```
+* This will print -21, 3 or some other value! A serial stream will always print -21!
+* Here's an example with violates the rule on the identity:
+```java
+System.out.println(Arrays.asList("w","o","l","f")
+    .parallelStream()
+    .reduce("X",String::concat));
+```
+* The output is `XwXoXlXf``
 
 ### 🟡 Combining Results with `collect()`
