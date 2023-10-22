@@ -232,8 +232,38 @@ Weights: 94 73 8 92 75 63 76 60 73 3
 <br>
 
 ### 🟡 Working with a RecursiveTask
-
-
+* Suppose we want to compute the sum of all weight values while processing the data.
+* Instead of extending `RecursiveAction`, we could extend the generic `RecursiveTask` to calculate and return each sum in the `compute()` methyod.
+* Here we use `RecursiveTask<Double>`:
+```java
+public class WeighAnimalTask extends RecursiveTask<Double> {
+    private int start;
+    private int end;
+    private Double[] weights;
+    public WeighAnimalTask(Double[] weights, int start, int end) {
+        this.start = start;
+        this.end = end;
+        this.weights = weights;
+    }
+    protected Double compute() {
+        if(end-start<3) {
+            double sum = 0;
+            for(int i=start; i<end; i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Animal Weighed: "+i);
+                sum += weights[i];
+            }
+            return sum;
+        } else {
+            int middle = start+((end-start)/2);
+            System.out.println("[start"+start+",middle="+middle+",end="+end+"]");
+            RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+            otherTask.fork();
+            return new WeighAnimalTaskk(weights,middle,end).compute() + otherTask.join;
+        }
+    }
+}
+```
 
 
 <br>
