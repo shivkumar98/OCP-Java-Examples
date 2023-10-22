@@ -108,12 +108,22 @@ Adding animals
 
 
 ### 🟡 Thread Pool Size and Cyclic Barrier Limit
+* The number of available threads must be equal or greater to the CyclicBarrier limit value.
+* E.g., if we have the following snippet, the code will hang indefinitely as this is a form of deadlock:
+```java
+ExecutorService service = Executors.newFixedThreadPool(2);
+```
+
+* The `CyclicBarrier` class allows you to peform complex, multi-threaded tasks where threads stop at a logical barrier. This is better than single threaded as the same task types can be done concurrentlyu
+* There is a slight performance cost to using `CyclicBarrier` - one thread may be super slow which causes the other threads to wait
+* When a CyclicBarrier is broken, all threads are released and the number of threads waiting on the CyclicBarrier goes to zero.
 
 <hr>
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
 
 ### 🟡 Introducing Recursion
+
 
 
 
