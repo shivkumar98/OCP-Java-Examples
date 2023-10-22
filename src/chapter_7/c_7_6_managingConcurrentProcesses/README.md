@@ -108,7 +108,11 @@ Adding animals
 
 
 ### 🟡 Thread Pool Size and Cyclic Barrier Limit
-
+* The number of available threads must be equal or greater to the CyclicBarrier limit value.
+* E.g., if we have the following snippet, the code will hang indefinitely as this is a form of deadlock:
+```java
+ExecutorService service = Executors.newFixedThreadPool(2);
+``
 <hr>
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
