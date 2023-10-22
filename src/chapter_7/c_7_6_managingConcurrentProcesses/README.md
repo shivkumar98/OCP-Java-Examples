@@ -122,12 +122,40 @@ ExecutorService service = Executors.newFixedThreadPool(2);
 <hr>
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
+* Suppose we need to measure the weight of all the animals in our zoo. Furthermore, we ask exactly one person to perform this task and complete it in an hour. When we hace no idea how many tasks need to be performed, we can split the task into multiple other tasks using fork/join framework.
+
+
+<hr>
 
 ### 🟡 Introducing Recursion
+* This framework is reliant on recursion to solve complex taskks.
+* Recursion is the process by which a task calls itself to solve a problem.
+* A recursive solution is created with a base case and recursive case:
+* BASE CASE: a non-recursive method that is used to terminate the recursive path
+* RECURSIVE CASE: a recursive method that may call itself 1 or more times to solve a problem.
+* E.g. heres how we can calculate a factorial using recursion:
+```java
+public static int factorial(int n) {
+    if(n<=1) return 1;
+    else return n*factorial(n-1);
+}
+```
+* If the base case never is reached, then the program will run infinitely; java throws a `StackOverflowError` anytime a recursion occurs too deeply
+<hr>
 
 
-
-
+* Let's use an array of Double values called weights, an suppose we have 10 animals in the zoo:
+```java
+Double[] weights = new Double[10];
+```
+* We have a constraint that a person can weigh at most three animals in an hour.
+* Conceptually, we start off with a single zoo worker. They peform a recursive step by dividing the set of animals into two sets of 5
+* The set is then subdivided until each worker has at most 3 animals to weigh - this is the base case.
+* Applying the fork/join framework requires us to perform three steps:
+1) Create a `ForkJoinTask`
+2) Create the `ForkJoinPool`
+3) Start the `ForkJoinTask`
+* For the exam I need to know how to implement the fork/join solution by extending one of two classes: `RecursiveAction` and `RecursiveTask` - both are implementations of `ForkJoinTask` interface.
 
 <br>
 
