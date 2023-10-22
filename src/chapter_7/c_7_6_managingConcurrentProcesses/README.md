@@ -8,6 +8,7 @@
 2) `ForkJoinPool`
 
 ## 🟥 7.6.1 Creating a CyclicBarrier
+
 ### 🟡 Introducing CyclicBarrier
 * Suppose we have a lion pen which needs to be emptied, cleaned, and then filled back up with lions. We have 4 zoo workers, we do not want the to start cleaning when lions are present, and we do not want them to return until cleaning is complete.
 * We want all four workkers to work concurrently, pausing between the end of one set of tasks and the start of the next.
