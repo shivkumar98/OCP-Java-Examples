@@ -159,6 +159,8 @@ Double[] weights = new Double[10];
 
 <br>
 
+### 🟡 Working with `RecursiveAction`
+
 * The `RecursiveAction` is an abstract class which requires us to implement the `void compute()` method to perform the bulk of the workk
 * The `RecursiveTask` is an abstract class which requires us to implement the `<T> T compute()` method to perform the bulk of the work.
 * Let's define a `WeightAnimalAction` which extends `RecursiveAction`:
@@ -200,9 +202,32 @@ public static void main() {
     ForkJoinTask<?> task = new WeighAnimalAction(weights,0,weights.length);
     ForkJoinPool pool = new ForkJoinPool();
     pool.invoke(task);
+
+    // Print results
+    System.out.println();
+    System.out.println("Weights: ");
+    Arrays.asList(weights).stream().forEach(
+        d -> System.out.print(d.intValue()+" "));
 }
 ```
+* By default the `ForkJoinPool` class will use the number of processes as the number of threads to create. The following is a sample output of this code:
+```
+[start,middle=5,end=10]
+[start=0,middle=2,end=5]
+Animal Weighed: 0
+Animal Weighed: 2
+[start=5,middle=7,end=10]
+Animal Weighed: 1
+Animal Weighed: 3
+Animal Weighed: 5
+Animal Weighed: 6
+Animal Weighed: 7
+Animal Weighed: 8
+Animal Weighed: 9
+Animal Weighed: 4
 
+Weights: 94 73 8 92 75 63 76 60 73 3
+```
 
 <br>
 
