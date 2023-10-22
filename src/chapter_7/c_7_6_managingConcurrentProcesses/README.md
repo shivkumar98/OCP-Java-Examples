@@ -232,8 +232,50 @@ Weights: 94 73 8 92 75 63 76 60 73 3
 <br>
 
 ### 🟡 Working with a RecursiveTask
-
-
+* Suppose we want to compute the sum of all weight values while processing the data.
+* Instead of extending `RecursiveAction`, we could extend the generic `RecursiveTask` to calculate and return each sum in the `compute()` methyod.
+* Here we use `RecursiveTask<Double>`:
+```java
+public class WeighAnimalTask extends RecursiveTask<Double> {
+    private int start;
+    private int end;
+    private Double[] weights;
+    public WeighAnimalTask(Double[] weights, int start, int end) {
+        this.start = start;
+        this.end = end;
+        this.weights = weights;
+    }
+    protected Double compute() {
+        if(end-start<3) {
+            double sum = 0;
+            for(int i=start; i<end; i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Animal Weighed: "+i);
+                sum += weights[i];
+            }
+            return sum;
+        } else {
+            int middle = start+((end-start)/2);
+            System.out.println("[start"+start+",middle="+middle+",end="+end+"]");
+            RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+            otherTask.fork();
+            return new WeighAnimalTaskk(weights,middle,end).compute() + otherTask.join;
+        }
+    }
+}
+```
+* The base case is mostly unchanged, except for returning a sum value, the recursice case is much different.
+* `invokeAll()` method doesn't return a value, so we instead issue a `fork()` and `join()` command to retrieve the recursive data.
+* The `fork()` method instructs the fork/join frameworkkd  to complete the task in a seperate thread, while the `join()` method causes the current thread to wait for the results.
+* We compute the `[middle,end]` range using the current thread, and the `[start,middle]` range in another thread.
+* We then combine the results, waiting for the otherTask to complete.
+* We can then update the main method to include the results of the entire task:
+```java
+ForkJoinTask<Double> task = new weighAnimalTask(weights,0,weights.length);
+ForkJoinPool pool = new ForkJoinPool();
+Double sum = pool.invoke(task);
+System.out.println("Sum: "+sum);
+```
 
 
 <br>
