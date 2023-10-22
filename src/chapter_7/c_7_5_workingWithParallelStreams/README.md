@@ -158,6 +158,8 @@ System.out.println(Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get());
 ```
 * Stream operations like `findFirst()`, `limit`, `skip` can be slower in parallel environment dues to this task veing forced to coordinate all of its threads in synchronized-like fashion.
 
+<br>
+
 ### 🟡 Combining Results with `reduce()`
 * The `reduce()` method combines a stream into a single object. This method takes an `identity`, `accumulator`, and `combiner`
 * E.g here's concatenation of a string:
@@ -186,6 +188,8 @@ System.out.println(Arrays.asList("w","o","l","f")
     .reduce("X",String::concat));
 ```
 * The output is `XwXoXlXf``
+
+<br>
 
 ### 🟡 Combining Results with `collect()`
 * The Streams API includes a 3 argument version of collect() which takes accumulator and combiner operators, and a supplier operator
