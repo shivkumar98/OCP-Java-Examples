@@ -18,6 +18,8 @@ Stream<Integer> parallelStream = stream.parallel();
 Stream<Integer> parallelStream = Arrays.asList(1,2,3,4,5,6).parallelStream();
 ```
 
+<hr>
+
 ## 🟥 7.5.2 Processing Tasks in Parallel
 
 * Parallel streams can have unexpected results:
@@ -137,6 +139,9 @@ for (Integer e: data) {
 2 4 3 5 6 1
 ```
 
+<hr>
+
+
 ## 🟥 7.5.3 Processomg Parallel Reductions
 * Using parallel streams leads to improved performance and changes to the design of you application.
 * **Parallel reductions** are reduction operations on parallel streams.
@@ -183,3 +188,47 @@ System.out.println(Arrays.asList("w","o","l","f")
 * The output is `XwXoXlXf``
 
 ### 🟡 Combining Results with `collect()`
+* The Streams API includes a 3 argument version of collect() which takes accumulator and combiner operators, and a supplier operator
+* The accumulator and combiner operators need to be stateless and associative, and the combiner operation being compatible with the accumulator operator
+* Here's a 3 argument version of collect on a parallel stream:
+```java
+Stream<String> stream = Stream.of("w", "o", "l", "f").parallel();
+SortedSet<String> set = stream.collect(ConcurrentSkipListSet::new, Set::add,
+    Set::addAll);
+```
+* A concurrent collection must be used to combine the results, ensuring ConcurrentModificationException does not occur.
+
+#### 🟢 Using the One-Argument collect() Method
+* The one argument version of collect() takes a collector as argument:
+```java
+Stream<String> stream = Stream.of("w","o","l","f").parallel();
+Set<String> set = stream.collect(Collectors.toSet());
+System.out.println(set); // [f, w, l, o]
+```
+* Doing a parallel reduction requires additional considerations, e.g. if you want to preserve the ordering of the original set, you need to use something like `List` which reduces performance, as some operations are unable to be completed in parallel.
+* The following rules ensure that a parallel reduction will be performed efficiently in Java using a collector:
+1) Stream is parallel
+2) The collector parameter has the `Collector.Characteristics.CONCURRENT` characteristic
+3) Either stream is unordered, or collector has `Collector.Characteristics.UNORDERED` characteristic
+* Any class which implements the `Collector` interface includes a characteristics() method which returns a set of attribute available to the collector.
+* E.g. `Collectors.toSet()` has the `UNORDERED` characteristic but not `CONCURRENT` - hence the above example is not a concurrent reduction
+* The `Collectors` class includes two sets of methods for retrieving collectors which are both `CONCURRENT` and `UNORDERED`:
+1) `Collectors.toConcurrentMap()`
+2) `Collectors.groupingByConcurrent()`
+* Here is an example of using `toConcurrentMap()`:
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears").parallel();
+ConcurrentMap<Integer, String> map = ohMy
+    .collect(Collectors.toConcurrentMap(String::length, k -> k, 
+        (s1,s2)->s1+","+s2));
+System.out.println(map); // 5=lions,bears, 6=tigers
+System.out.println(map.getClass()); // java.util.concurrent.ConcurrentHashMap
+```
+* The particular class is not guaranteed, only that the class is a `ConcurrentMap` implementation!
+* Here's an example of using `groupingBy()`:
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears").parallel();
+ConcurrentMap<Integer, List<String>> map = ohMy
+    .collect(Collectors.groupingByConcurrent(String::length));
+System.out.println(map); // {5=[lions, bears], 5=[tigers]}
+```
