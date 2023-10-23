@@ -82,26 +82,29 @@ G. Both methods return void <br>
 <hr>
 
 ## Question 3
-❓ Which of the following fills in the blank to make the code compile? (Choose all that apply)
+❓ Which lines need to be changed to make the code compile? (Choose all that apply)
 
 ```java
-public static void main(String[] args) {
-    try {
-        throw new IOException();
-    } catch (___________________) { }
-}
+ExecutorService service = Executors.newSingleThreadScheduledExecutor();
+servie.scheduleWithFixedDelay(() -> { // w1
+    System.out.println("Open Zoo");
+    return null; // w2
+}, 0, 1, TimeUnit.MINUTES);
+Future<?> result = service.submit(() -> System.out.println("Wake Staff")); // w3
+System.out.println(result.get()); // w4
 ```
 
-A. `FileNotFoundException | IOException e` <br>
-B. `FileNotFoundException e | IOException e` <br>
-C. `FileNotFoundException | RuntimeException e` <br>
-D. `FileNotFoundException e | RuntimeException e` <br>
-E. `IOException | RuntimeException e` <br>
-F. `IOException e | RuntimeException e` <br>
+A. It compiles and runs without issue <br>
+B. Line w1 <br>
+C. Line w2 <br>
+D. Line w3 <br>
+E. Line w4 <br>
+F. It compile but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* I have NO idea
+* **A**
 <hr>
 
 ## Question 4:
