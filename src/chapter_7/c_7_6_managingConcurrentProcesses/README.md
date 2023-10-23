@@ -281,6 +281,13 @@ System.out.println("Sum: "+sum);
 <br>
 
 ### 🟡 Identifying Fork/Join Issues
-
-
+* Tips for Reviewing a Fork/Join class:
+1) The class should extend `RecursiveAction` or `RecursiveTask`
+2) If the class extends `RecursiveAction`, then it should override a `protected compute()` method which takes no arguments and returns void.
+3) If the class extends `RecursiveTask`, it should override a `protected compute()` method which takes no arguments and returns a generic type listed in the class definition.
+4) The `invokeAll()` method takes two instances of the fork/join class and does not return a result.
+5) The `fork()` method causes a new task to be submitted to the pool and is similar to the thread executor `submit()` method
+6) The `join()` method is calleed after the `fork()` method and causes the current thread to wait for the results of a subtask
+7) Calling `compute()` within a `compute()` method causes the task to wait for the results of the subtaskk
+8) The `fork()` method should be called before the current thread peforms a `compute()` operation, with `join()` called to read the results afterwards.
 
