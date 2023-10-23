@@ -90,4 +90,8 @@ Got Water! (from tails)
 
 ### 🟡 Livelock
 * Livelock is a special case of Deadlock, the threads attempt to resolve a deadlock but both end up blocking each other. We have a constant cycle of switching states
+
+<hr>
+
+
 ## 🟥 7.7.2 Managing Race Conditions
