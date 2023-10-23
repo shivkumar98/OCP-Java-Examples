@@ -108,17 +108,28 @@ F. It compile but throws an exception at runtime <br>
 <hr>
 
 ## Question 4:
-❓Which of the following are true statements (choose all that apply)
+❓Which statement about the following code is true?
 
-A. A traditional `try` statement without a catch block requires a finally block <br>
-B. A traditional `try` statement without a finally block requires a catch block <br>
-C. A traditional `try` statement with only one state with only one statement can omit {} <br>
-D. A try-with-resources statement without a catch block requires a finally block <br>
-E. A try-with-resources statement without a finally block requires a catch block <br>
-F. A try-with-resources statement with only one statement can omit the {}
+```java
+AtomicLong value1 = new AtomicLong(0);
+final long[] value2 = {0};
+IntStream.iterate(1, i -> 1).limit(100).parallel()
+    .forEach(i -> value1.incrementAndGet());
+IntStream.iterate(1, i -> 1).limit(100).parallel()
+    .forEach(i -> ++value2[0]);
+System.out.println(value1+" "+value2[0]);
+```
+
+A. It outputs `100 100` <br>
+B. It outputs `100 99` <br>
+C. The output cannot be determined ahead of time. <br>
+D. The code does not compile <br>
+E. It compiles but throws an exception at runtime <br>
+F. It compiles but enters an infinite loop at runtime <br>
 
 ### My answer:
-
+* I don't believe the output can be determined. We have a non thread safe counter for value2
+* **C**
 <hr>
 
 
