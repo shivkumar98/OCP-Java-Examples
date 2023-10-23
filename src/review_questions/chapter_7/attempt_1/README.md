@@ -57,30 +57,28 @@ F. `s.parallel()` <br>
 
 ## Question 2:
 
-❓ Which of the following changes when made independently would make this code compile (choose all that apply)
+❓ Which of the following statements about the `Callable call()` and `Runnable run()` methods are correct? (choose all that apply)
 
-```java
-1 : public class StuckTurkeyCage implements AutoCloseable {
-2 :     public void close() throws Exception {
-3 :         throw new Exception("Cage door does not close");
-4 :     }
-5 :     public static void main(String[] args) {
-6 :         try (StuckTurkeyCage t = new StuckTurkeyCage()) {
-7 :             System.out.println("put turkeys in");
-8 :         }
-9 :     }
-10: }
-```
-A. Remove throws Exception from the declaration on line 2 <br>
-B. Add throws Exception to the declaration on line 5 <br>
-C. Change line 8 to } catch (Exception e) {} <br>
-D. Change line 8 to } finally {} <br>
-E. None of the above will make the code compile <br>
-F. The code already compiles as is <br>
+A. Both can throw unchecked exceptions <br>
+B. Callable takes a generic method argument <br>
+C. Callable can throw a checked exception <br>
+D. Both can be implemented with lambda expressions <br>
+E. Runnable returns a generic type <br>
+F. Callable returns a generic type <br>
+G. Both methods return void <br>
 ❓
 
 ### My answer:
+* A - yes!
+* B - I don't think so
+* C - I think so
+* D - yes!
+* E - I don't think so!
+* F - no!
+* G - yes!
+* **A, D, F, G**
 
+* 
 <hr>
 
 ## Question 3
