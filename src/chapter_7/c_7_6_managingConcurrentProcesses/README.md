@@ -1,6 +1,6 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 🧠 7.6
+# 🧠 7.6 Managing Concurrent Processes
 * The Concurrency API includes classes which enable you to coordinate tasks between related threads.
 * These classes are for very specific scenarios
 * The classes I need to know for OCP:
@@ -290,5 +290,5 @@ System.out.println("Sum: "+sum);
 6) The `join()` method is calleed after the `fork()` method and causes the current thread to wait for the results of a subtask
 7) Calling `compute()` within a `compute()` method causes the task to wait for the results of the subtaskk
 8) The `fork()` method should be called before the current thread peforms a `compute()` operation, with `join()` called to read the results afterwards.
-9) Since `comput`
+9) Since `compute()` takes no arguments, the constructor of the class is often used to pass instructions to the task.
 
