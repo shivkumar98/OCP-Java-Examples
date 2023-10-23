@@ -86,7 +86,7 @@ Got Water! (from tails)
 * A strategy to avoid deadlockks is for all threads to order their resource requests. E.g. we can enforce that both foxes need to obtain food before water.
 
 ### 🟡 Starvation
-
+* If a thread is continually denied access to a shared resource, it experiences **starvation**
 ### 🟡 Livelock
 
 ## 🟥 7.7.2 Managing Race Conditions
