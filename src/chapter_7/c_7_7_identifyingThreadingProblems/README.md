@@ -81,7 +81,9 @@ Got Food! (from foxy)
 Got Water! (from tails)
 ```
 
-### 🟡 Preventing Deadlockks
+### 🟡 Preventing Deadlocks
+* In most situations you can not fix a deadlock after is has occured!
+* A strategy to avoid deadlockks is for all threads to order their resource requests. E.g. we can enforce that both foxes need to obtain food before water.
 
 ### 🟡 Starvation
 
