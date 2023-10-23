@@ -134,42 +134,18 @@ F. It compiles but enters an infinite loop at runtime <br>
 
 
 ## Question 5
-❓ What is the output of the following code?
-```java
-import java.io.*;
-public class AutocloseableFlow {
-    static class Door implements AutoCloseable {
-        public void close() {
-            System.out.println("D");
-        }
-    }
-    static class Window implements Closeable {
-        public void close() {
-            System.out.println("W");
-            throw new RuntimeException();
-        }
-    }
-    public static void main(String[] args) {
-        try (Door d = new Door(); Window w = new Window()) {
-            System.out.print("T");
-        } catch (Exception e) {
-            System.out.print("E");
-        } finally {
-            System.out.print("F");
-        } } }
-```
-
-A. `TWF` <br>
-B. `TWDF`<br>
-C. `TWDEF` <br>
-D. `TWF` followed by an exception <br>
-E. `TWDF` followed by an exception <br>
-F. `TWEF` followed by an exception <br>
-G. The code does not compile <br>
+❓ Fill in the blanks: __________ occur(s) when two or more threads are blocked forever but both appear active. ___________ occur(s) when two or more threads try to complete a related task at the same time.
 ❓
+A. Livelock, Deadlock <br>
+B. Deadlock, Starvation <br>
+C. Race conditions, Deadlock <br>
+D. Livelock, Race conditions <br>
+E. Starvation, Race conditions <br>
+F. Deadlock, Livelock <br>
 
 ### My answer:
-
+* The first blank is livelock. The second has to be race conditions because it can't be deadlock
+* **D**
 <hr>
 
 ## Question 6
