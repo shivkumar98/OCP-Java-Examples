@@ -93,7 +93,6 @@ Got Water! (from tails)
 
 <hr>
 
-
 ## 🟥 7.7.2 Managing Race Conditions
 * A **race condition** is an undesirable result which occurs when two tasks which should be done sequentially, are completed at the sametime
 * Suppose we have a zoo website, where new visitors can register.
