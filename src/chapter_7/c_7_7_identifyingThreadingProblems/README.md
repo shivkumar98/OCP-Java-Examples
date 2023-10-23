@@ -95,3 +95,13 @@ Got Water! (from tails)
 
 
 ## 🟥 7.7.2 Managing Race Conditions
+* A **race condition** is an undesirable result which occurs when two tasks which should be done sequentially, are completed at the sametime
+* Suppose we have a zoo website, where new visitors can register.
+* Suppose two user attempt to create an account with the same name: `ZooFan`
+* There are 3 possible outcomes for this race condition:
+1) Both users are able to register with the same name - this is the worst outcome as it leads to invalid data
+2) Both users are unable to create an account - this is a preferred outcome as no data is invalid
+3) One user is able to create the account, the other recieves an error message - this is the most preferred outcome
+
+* For the exam, I need to understand that race conditions lead to invalid data if they are not properly handled.
+* Race conditions occur in highly concurrent application. One solution to the above system, is that the username is reserved once its entered.
