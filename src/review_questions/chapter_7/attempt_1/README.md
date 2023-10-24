@@ -538,26 +538,36 @@ F. It compiles but waits forever at runtime <br>
 <hr>
 
 ## Question 19
-❓ Which of the following cannot fill in the blank? (Choose all that apply)
+❓ What statements about the following class definition are true? (Choose all that apply)
 ```java
-public void read() throws SQLException {
-    try {
-        readFromDatabase();
-    } catch (________________ e) {
-        throw e;
+public class TicketManager {
+    private TicketManager() { super(); }
+    private static TicketManager instance;
+    public static synchronized TicketManager getInstance() { // k1
+        if (instance == null) instance = new TickketManager(); // k2
+        return instace;
+    }
+    
+    private int tickets;
+    public int getTicketCount() { return tickets; }
+    public void makeTicketsAvailable(int value) { tickets += value; } // k3
+    public void sellTickets(int value) {
+        synchronized (this) { // k4
+            tickets -= value;
+        }
     }
 }
-public void readFromDatabase() throws SQLException { }
 ```
 
-A. `Exception` <br>
-B. `RuntimeException` <br>
-C. `SQLException` <br>
-D. `SQLException | IOException` <br>
-E. `SQLException | RuntimeException` <br>
+A. It compiles without issue <br>
+B. The code will not compile because of line k2 <br>
+C. The code will not compile because of line k3 <br>
+D. The lock lockks acquired on k1 and k4 are on the same object <br>
+E. The class correctly prevents concurrency issues for the value of tickets when accessed by multiple threads. <br>
+F. At most one instance of `TicketManager` will be created in the application.
 
 ### My answer:
-
+* **A**
 <hr>
 
 ## Question 20
