@@ -327,29 +327,46 @@ H. It compiles but throws an exception at runtime
 
 ## Question 12:
 
-❓ Which of the following can legally fill in the blank? (choose all that apply)
+❓ What is the result of executing the following application (choose all that apply)
 ```java
-public class AhChoo {
-    static class SneezeException extends Exception { }
-    static class SniffleException extends SneezeException { }
-    public static void main(String[] args) throws SneezeException {
-        try {
-            throw new SneezeException();
-        } catch (SneezeException e) {
-            __________
-            throw e;
-        } } }
+import java.util.concurrent.*;
+public class CountNumbers extends RecursiveAction {
+    private int start;
+    private int end;
+    public CountNumbers(int start, int end) {
+        this.start = start;
+        this.end = end;
+        public CountNumbers(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+    }
+    protected void compute() {
+        if (start<0) return;
+        else {
+            int middle = start + ((end-start)/2);
+            invokeAll(new CountNumbers(start, middle),
+                new CountNumbers(middle, end)); // m1
+        }
+    }
+    public static void main(String[] args) {
+        ForkJoinTask<?> task = new CountNumbers(0, 4); // m2
+        ForkJoinPool pool = new ForkJoinPool();
+        Object result = pool.invoke(task); // m3
+    }
+}
 ```
 
-A. `// leave line blank` <br>
-B. `e = new Exception();` <br>
-C. `e = new RuntimeException();` <br>
-D. `e = new SneezeException();` <br>
-E. `e = new SniffleException();` <br>
-F. None of the above; the code does not compile. <br>
+A. It compiles and runs without issue <br>
+B. The code will not compile because of m1 <br>
+C. The code will not compile because of m2 <br>
+D. The code will not compile because of m3 <br>
+E. It compiles but throws an exception at runtime <br>
+F. It compiles but hangs at runtime <br>
 
 ### My answer:
-
+* Total random guess
+* **A**
 <hr>
 
 ## Question 13
