@@ -505,17 +505,36 @@ G. It compiles but throws an exception at runtime <br>
 <hr>
 
 ## Question 18
-❓ Which pairs fill in the blanks? The `close()` method is not allowed to throw a(n) _________ in a class that implements ___________. (Choose all that apply)
+❓ What is the result of executing the following application? (Choose all that apply)
 
-A. Exception, Autocloseable <br>
-B. Exception, Closeable <br>
-C. IllegalStateException, AutoCloseable <br>
-D. IllegalStateException, Closeable <br>
-E. IOException, AutoCloseable <br>
-F. IOException, Closeable <br>
+```java
+import java.util.concurrent.*;
+import java.util.stream.*;
+public class StockRoomTracker {
+    public static void await(CyclicBarrier cb) { // j1
+        try { cb.await(); } catch (InterruptedException | BrokenBarrierException e) {
+            // Handle exception
+        }
+    }
+    public static void main() {
+        CyclicBarrier cb = new CyclicBarrier(10,
+            () -> System.out.println("Stock Room Full!")); // j2
+        IntStream.iterate(1, i -> 1).limit(9)
+            .parallel().forEach(i -> await(cb)); // j3
+    }
+}
+```
+
+A. It outputs `Stock Room Full!` <br>
+B. The code will not compile because of line j1 <br>
+C. The code will not compile because of line j2 <br>
+D. The code will not compile because of line j3 <br>
+E. It compiles but throws an exception at runtime <br>
+F. It compiles but waits forever at runtime <br>
 
 ### My answer:
-
+* I have zero idea
+* **F**
 <hr>
 
 ## Question 19
