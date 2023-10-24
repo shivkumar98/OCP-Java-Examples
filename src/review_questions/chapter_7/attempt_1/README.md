@@ -372,12 +372,12 @@ F. It compiles but hangs at runtime <br>
 ## Question 13
 ❓ What statements about the following code snippet are true? (Choose all that apply)
 ```java
-Stream<String> cats = Stream.of("leopard","lynx","ocelot","puma").parallel();
-Stream<String> bears = Stream.of("panda","grizzly","polar").parallel();
-ConcurrentMap<Boolean, List<String>> data = Stream.of(cats,bears)
-    .flatMap(s -> s)
-    .collect(Collectors.groupingByConcurrent(s -> !s.startsWith("p")));
-System.out.println(data.get(false).size()+" "+data.get(true).size());
+4: Stream<String> cats = Stream.of("leopard","lynx","ocelot","puma").parallel();
+5: Stream<String> bears = Stream.of("panda","grizzly","polar").parallel();
+6: ConcurrentMap<Boolean, List<String>> data = Stream.of(cats,bears)
+7:     .flatMap(s -> s)
+8:     .collect(Collectors.groupingByConcurrent(s -> !s.startsWith("p")));
+9: System.out.println(data.get(false).size()+" "+data.get(true).size());
 ```
 A. It outputs `3 4` <br>
 B. It outputs `4 3` <br>
@@ -393,28 +393,27 @@ G. The `collect()` operation is always executed in a single-threaded fashion <br
 <hr>
 
 ## Question 14:
-❓Which of the following can legally fill in the blank? (Choose all that apply)
+❓ What is the result of calling the following method?
+
 ```java
-public class AhChoo {
-    static class SneezeException extends Exception { }
-    static class SniffleException extends SneezeException { }
-    public static void main(String[] args) throws SneezeException {
-        try {
-            throw new SneezeException();
-        } catch (SneezeException | SniffleException e) {
-            ____________
-            throw e;
-        }
+public void addAndPrintItems(BlockingDeque<Integer> deque) {
+    deque.offer(103);
+    deque.offerFirst(20, 1, TimeUnit.SECONDS);
+    deque.offerLast(85, 7, TimeUnit.HOURS);
+    System.out.print(deque.pollFirst(200, TimeUnit.NANOSECONDS));
+    System.out.print(" "+deque.pollLast(1, TimeUnit.MINUTES));
+}
 ```
-A. `// leave line blank` <br>
-B. `e = new Exception();` <br>
-C. `e = new RuntimeException();` <br>
-D. `e = new SneezeException();` <br>
-E. `e = new SniffleException();` <br>
-F. None of the above; the code does not compile. <br>
+A. It outputs `20 85` <br>
+B. It outputs `103 85` <br>
+C. It outputs `20 103` <br>
+D. The code will not compile <br>
+E. It compiles but throws an exception at runtime <br>
+F. The output cannot be determined ahead of time <br>
 
 ### My answer:
-
+* I have no idea!
+* **A**
 <hr>
 
 ## Question 15
