@@ -467,16 +467,41 @@ F. It compiles but the output cannot be determined ahead of time <br>
 <hr>
 
 ## Question 17
-❓ Fill in the blank: A class that implements ____________ may be in a try-with-resource statement? (Choose all that apply)
+❓ Assuming 100 milliseconds is enough time for the tasks submitted to the thread executor to complete, what is the result of executing the following program (Choose all that apply)
+
+```java
+import java.util.concurrent.*;
+public class SheepManager {
+    private static AtomicInteger sheepCount1 = new AtomicInteger(0); // w1
+    private static int sheepCount2 = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService service = null;
+        try {
+            service = Executors.newSingleThreadExecutor(); // w2
+            for(int i=0;i<100;i++)
+                service.execute(() ->
+                    {sheepCount1.getAndIncrement(); sheepCount2++;}); // w3
+            Thread.sleep(100);
+            System.out.println(sheepCount1+" "+sheepCount2);
+        } finally {
+            if(service != null) service.shutdown();
+        }
+    }
+}
+```
     
-A. AutoCloseable <br>
-B. Closeable <br>
-C. Exception <br>
-D. RuntimeException <br>
-E. Serializable <br>
+A. It outputs `100 99` <br>
+B. It outputs `100 100` <br>
+C. The output cannot be determined ahead of time <br>
+D. The code will not compile because of line w1 <br>
+E. The code will not compile because of line w2 <br>
+F. The code will not compile because of line w3 <br>
+G. It compiles but throws an exception at runtime <br>
 
 ### My answer:
-
+* The code does compile I think
+* **C**
 <hr>
 
 ## Question 18
