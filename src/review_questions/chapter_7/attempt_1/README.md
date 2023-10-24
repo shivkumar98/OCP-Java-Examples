@@ -270,23 +270,24 @@ F. The code does not compile <br>
 <hr>
 
 ## Question 10
-❓ Which of the following are true of the code? (Choose all that apply)
+❓ What statements about the following code are true? (Choose all that apply)
 ```java
-4:   private int addPlusOne(int a, int b) {
-5:       boolean assert = false;
-6:       assert a++ > 0;
-7:       assert b > 0;
-8:       return a + b;
-9:   }
+System.out.println(Arrays.asList("duck","chicken","flamingo","pelican")
+    .parallelStream().parallel() // q1
+    .reduce(0,
+        (c1, c2) -> c1.length() + c2.length(), // q2
+        (s1, s2) -> s1 + s2)); // q3
 ```
 
-A. Line 5 does not compile <br>
-B. Line 6 and 7 do not compile because they are missing the String message <br>
-C. Line 6 and 7 do not compile because of missing parentheses <br>
-D. Line 6 is an appropiate use of an assertion <br>
-E. Line 7 is an appropiate use of an assertion <br>
+A. It compiles and runs without issue, outputting the total length of all strings in the stream <br>
+B. The code will not compile because of line q1 <br>
+C. The code will not compile because of line q2 <br>
+D. The code will not compile because of line q3 <br>
+E. It compiles but throws an exception at runtime <br>
 
 ### My answer:
+* It looks fine to me!
+* **A**
 
 <hr>
 
