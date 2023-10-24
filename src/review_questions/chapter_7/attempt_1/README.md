@@ -417,25 +417,25 @@ F. The output cannot be determined ahead of time <br>
 <hr>
 
 ## Question 15
-❓ Which of the following are checked exceptions? (Choose all that apply)
-```java
-class One extends RuntimeException{}
-class Two extends Exception{}
-class Three extends Error{}
-class Four extends One{}
-class Five extends Two{}
-class Six extends Three{}
-```
+❓ Which of the following are valid `Callable` expressions (Choose all that apply)
 
-A. `One` <br>
-B. `Two` <br>
-C. `Three` <br>
-D. `Four` <br>
-E. `Five` <br>
-E. `Six` <br>
+A. `a -> {return 10;}` <br>
+B. `() -> {String s = "";}` <br>
+C. `() ->  5` <br>
+D. `() -> {return null}` <br>
+E. `() -> "The" + "Zoo"` <br>
+F. `(int count) -> count+1` <br>
+G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 
 ### My answer:
-
+* A - valid
+* B - invalud
+* C - valid
+* D - valid
+* E - valid
+* F - invalid
+* G - valid
+* **A,C,D,E,G**
 <hr>
 
 ## Question 16
