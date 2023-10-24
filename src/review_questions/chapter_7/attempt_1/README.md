@@ -571,14 +571,19 @@ F. At most one instance of `TicketManager` will be created in the application.
 <hr>
 
 ## Question 20
-❓ Which of the following is true when creating your own exception class?
+❓ Which of the following properties of concurrency are true? (Choose all that apply)
 
-A. One or more constructors must be coded. <br>
-B. Only checked exceptions may be created <br>
-C. Only unchecked exception may be created <br>
-D. The `toString()` method must be coded <br>
-E. None of the above <br>
+A. By itself, concurrency does not guarantee which task will be completed first <br>
+B. Concurrency always improves the performance of an application <br>
+C. Computers with a single processor do not benefit <br>
+D. Applications with many resource-heavy tasks tend to benefit more than concurrency than one with CPU intensive tasks <br>
+E. Concurrency tasks do not share the same memory <br>
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* **A**
 <hr>
