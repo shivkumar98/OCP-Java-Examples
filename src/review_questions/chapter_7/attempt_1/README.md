@@ -370,28 +370,26 @@ F. It compiles but hangs at runtime <br>
 <hr>
 
 ## Question 13
-❓Which of the following can legally fill in the blank? (Choose all that apply)
+❓ What statements about the following code snippet are true? (Choose all that apply)
 ```java
-public class AhChoo {
-    static class SneezeException extends Exception { }
-    static class SniffleException extends SneezeException { }
-    public static void main(String[] args) throws SneezeException {
-        try {
-            throw new SneezeException();
-        } catch (SneezeException | RuntimeException e) {
-            ____________
-            throw e;
-        }
+Stream<String> cats = Stream.of("leopard","lynx","ocelot","puma").parallel();
+Stream<String> bears = Stream.of("panda","grizzly","polar").parallel();
+ConcurrentMap<Boolean, List<String>> data = Stream.of(cats,bears)
+    .flatMap(s -> s)
+    .collect(Collectors.groupingByConcurrent(s -> !s.startsWith("p")));
+System.out.println(data.get(false).size()+" "+data.get(true).size());
 ```
-A. `// leave line blank` <br>
-B. `e = new Exception();` <br>
-C. `e = new RuntimeException();` <br>
-D. `e = new SneezeException();` <br>
-E. `e = new SniffleException();` <br>
-F. None of the above; the code does not compile. <br>
+A. It outputs `3 4` <br>
+B. It outputs `4 3` <br>
+C. The code will not compile because of line 6 <br>
+D. The code will not compile because of line 7 <br>
+E. The code will not compile because of line 8 <br>
+F. It compiles but throws an exception at runtime <br>
+G. The `collect()` operation is always executed in a single-threaded fashion <br>
 
 ### My answer:
-
+* 3 and 4 are printed I thinkk
+* **A**
 <hr>
 
 ## Question 14:
