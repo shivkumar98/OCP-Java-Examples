@@ -164,24 +164,30 @@ E. The thread executor creates new temporary threads to complete the additional 
 <hr>
 
 ## Question 7
-❓ What is the result of running `java EchoInput hi there` with the following code?
+❓ What is the result of executiong the following code snippet?
 ```java
-public class EchoInput {
-    public static void main(String [] args) {
-        id(args.length <= 3) assert false;
-        System.out.println(args[0] + args[1] + args[2]);
-    }
-}
+List<Integer> l1 = Arrays.asList(1,2,3);
+List<Integer> l2 = new CopyOnWriteArrayList<>(l1);
+Set<Integer> s3 = new ConcurrentSkipListSet<>();
+s3.addAll(l1);
+
+for(Integer item:l2) l2.add(4); // x1
+for(Integer item:s3) s3.add(5); // x2
+System.out.println(l1.size()+" "+l2.size()+" "+s3.size());
 ```
 
-A. `hithere` <br>
-B. The `assert` statement throws an AssertionError <br>
-C. The code throws an `ArrayIndexOutOfBoundsException` <br>
-D. The code compiles and runs successfully, but there is not output <br>
-E. The code does not compile <br>
+A. It outputs `3 6 4` <br>
+B. It outputs `6 6 6` <br>
+C. It outputs `6 3 4` <br>
+D. The code does not compile <br>
+E. It compiles but throws an exception at runtime on line x1 <br>
+F. It compiles but throws an exception at runtime on line x2 <br>
+G. It compiles but enters an infinite loop at runtime
 
 ### My answer:
-
+* 3 6 1
+* None of the options seem applicable
+* **A**
 <hr>
 
 ## Question 8:
