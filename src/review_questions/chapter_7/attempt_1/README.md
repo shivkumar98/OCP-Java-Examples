@@ -292,16 +292,37 @@ E. It compiles but throws an exception at runtime <br>
 <hr>
 
 ## Question 11
-❓Which of the following are runtime exceptions (choose all that apply)
-A. `Exception` <br>
-B. `IllegalStateException`<br>
-C. `IOException` <br>
-D. `MissingResourceException` <br>
-E. `DateTimeParseException` <br>
-F. `SQLException` <br>
+❓ What statements about the following code snippet are true? (Choose all that apply)
+
+```java
+Object o1 = new Object();
+Object o2 = new Object();
+ExecutorService service = Executors.newFixedThreadPool(2);
+Future<?> f1 = service.submit(() -> {
+    synchronized (ol) {
+        synchronized (o2) { System.out.println("Tortoise"); } // t1
+    }
+});
+Future<?> f2 = service.submit(() -> {
+    synchronized (o2) {
+        synchronized (o1) { System.out.println("Hare"); } //t2
+    }
+})
+f1.get();
+f2.get();
+```
+
+A. If the code does output anything, the order cannot be determined <br>
+B. The code will always output Tortoise followed by Hare <br>
+C. The code will always output Hare followed by Tortoise <br>
+D. The code does not compile because of line `t1` <br>
+E. The code does not compile because of line `t2` <br>
+F. The code may produce a deadlock at runtime
+G. The code may produce a livelock at runtime
+H. It compiles but throws an exception at runtime
 
 ### My answer:
-
+* **F**
 <hr>
 
 ## Question 12:
