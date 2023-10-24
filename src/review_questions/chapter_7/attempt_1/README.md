@@ -149,45 +149,18 @@ F. Deadlock, Livelock <br>
 <hr>
 
 ## Question 6
-❓ What is the output of the following code?
-```java
-import java.io.*;
-public class AutocloseableFlow {
-    static class Door implements AutoCloseable {
-        public void close() {
-            System.out.println("D");
-        }
-    }
-    static class Window implements Closeable {
-        public void close() {
-            System.out.println("W");
-            throw new RuntimeException();
-        }
-    }
-    public static void main(String[] args) {
-        try {
-            Door d = new Door(); Window w = new Window()
-        }
-        {
-            System.out.print("T");
-        } catch (Exception e) {
-            System.out.print("E");
-        } finally {
-            System.out.print("F");
-        } } }
-```
+❓ Which happens when more tasks are submitted to a thread executor than available threads?
 
-A. `TWF` <br>
-B. `TWDF`<br>
-C. `TWDEF` <br>
-D. `TWF` followed by an exception <br>
-E. `TWDF` followed by an exception <br>
-F. `TWEF` followed by an exception <br>
-G. The code does not compile <br>
+A. The thread executor will throw an exception with a task is submitted that is over its thread limitr <br>
+B. The task will be added to an internal queue and completed when there is an available thread <br>
+C. The thread executor weill discard any task over its thread limit <br>
+D. The call to submit the task to the thread executor will wait unitl there is a thread available before continuing <br>
+E. The thread executor creates new temporary threads to complete the additional tasks <br>
 ❓
 
 ### My answer:
-
+* Total guess is that its B
+* **B**
 <hr>
 
 ## Question 7
