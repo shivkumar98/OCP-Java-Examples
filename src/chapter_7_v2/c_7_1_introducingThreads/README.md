@@ -77,7 +77,6 @@ public class CalculateAverages implements Runnable {
 <hr>
 
 ## 🟥 7.1.4 Creating a Thread
-
 * The simplest way to execute a thread is by using the `java.lang.Thread` class.
 * You first define the thread with a process to start and then call `Thread.start()`
 * Java does not guarantee that a task will be processed when the thread is started,
@@ -87,15 +86,58 @@ public class CalculateAverages implements Runnable {
 * Examples:
 ```java
 public class PrintData implements Runnable {
-    public void run() {
-        for(int i=0;i<3;i++)
-            System.out.println("Printing record: "+i);
-    }
-    public static void main(String[] args) {
-        (new Thread(new PrintData())).start();
-    }
+	public void run() {
+		for(int i=0;i<3;i++) 
+			System.out.println("Printing record: "+i);
+	}
+	public static void main(String[] args) {
+		new PrintData().run(); // prints 3 times
+		new Thread(new PrintData()).start(); // prints 3 times
+		new Thread(() -> System.out.println("using lambda")).start();
+		// prints "using lambda"
+	}
 }
 ```
+```java
+public class ReadInventoryThread extends Thread {
+	public void run() {
+		System.out.println("Print manga inventory");
+	}
+	public static void main(String[] args) {
+		(new ReadInventoryThread()).start();
+		// Print manga inventory
+	}
+}
+```
+* When you start a task with `Thread.start()`, this starts the task in a seperate OS thread. E.g. what does the following print?
+```java
+public static void main() {
+    System.out.println("begin");
+    (new ReadInventoryThread()).start();
+    (new Thread(new PrintData)).start();
+    (new ReadInventoryThread()).start();
+    System.out.println("end");
+}
+```
+* The answer is that we do not know until runtime. This is just one possible output:
+```
+begin
+Print manga inventory
+Printing record: 0
+end
+Print manga inventory
+Printing record: 1
+Printing record: 2
+```
+* This uses a total of four threads (one for main method)
+* As we saw in the first example, we CAN call the `run()` method from a Runnable implementation, as well as call it from a constructed thread:
+```java
+new PrintData().run();
+(new Thread(new PrintData())).run();
+(new ReadInventoryThread()).run();
+```
+* It will not execute on a seperate thread, doing it this way
+* In general, you shouldn't extend the Thread class but instead implement the `Runnable` interface.
 <hr>
 
 ## 🟥 7.1.5 Polling with Sleep
