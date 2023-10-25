@@ -78,6 +78,24 @@ public class CalculateAverages implements Runnable {
 
 ## 🟥 7.1.4 Creating a Thread
 
+* The simplest way to execute a thread is by using the `java.lang.Thread` class.
+* You first define the thread with a process to start and then call `Thread.start()`
+* Java does not guarantee that a task will be processed when the thread is started,
+* We can define the `Thread` instance will execute can be done in 2 ways
+1) Provide a `Runnable` object or lambda expression to the `Thread` constructor
+2) Create a subclass of `Thread` and override `run()` method
+* Examples:
+```java
+public class PrintData implements Runnable {
+    public void run() {
+        for(int i=0;i<3;i++)
+            System.out.println("Printing record: "+i);
+    }
+    public static void main(String[] args) {
+        (new Thread(new PrintData())).start();
+    }
+}
+```
 <hr>
 
 ## 🟥 7.1.5 Polling with Sleep
