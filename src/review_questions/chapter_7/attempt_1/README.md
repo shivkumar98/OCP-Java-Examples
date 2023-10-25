@@ -633,3 +633,40 @@ H. The code will not compile because of line o2
 ### My answer:
 * NO IDEA!!!
 <hr>
+
+
+## Question 22
+❓ What is the result of executing the following program?
+
+```java
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.*;
+public class PrintCounter {
+    static int counter = 0;
+    public static void main() throws InterruptedException, ExecutionException {
+        ExecutorService service = Executors.newSingleThreadExecutor();
+        List<Future<?>> results = new ArrayList<>();
+        IntStream.iterate(0,i -> i+1).limit(5).forEach(
+            i -> results.add(service.execute(() -> counter++)) //n1
+        );
+        for(Future<?> result: results) {
+            System.out.println(result.get()+" "); // n2
+        }
+        service.shutdown();
+    }
+}
+```
+
+A. It prints `0 1 2 3 4` <br>
+B. It prints `1 2 3 4 5` <br>
+C. It prints `null null null null null` <br>
+D. It outputs `Exception!` 10 times <br>
+E. It hangs indefinitely at runtime <br>
+F. It throws an unhandled exception at runtime
+G. The code will not compile because of line o1
+H. The code will not compile because of line o2
+
+### My answer:
+* NO IDEA!!!
+<hr>
