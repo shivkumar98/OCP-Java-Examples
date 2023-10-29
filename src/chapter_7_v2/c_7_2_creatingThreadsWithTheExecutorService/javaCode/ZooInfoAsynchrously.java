@@ -10,7 +10,8 @@ public class ZooInfoAsynchrously {
             service = Executors.newSingleThreadExecutor();
             System.out.println("begin");
             service.execute(
-                () -> System.out.println("Printing zoo inventory"));
+                () -> System
+                .out.println("Printing zoo inventory"));
             service.execute(() -> {
                 for(int i=0;i<3;i++)
                 System.out.println("Printing record: "+i);

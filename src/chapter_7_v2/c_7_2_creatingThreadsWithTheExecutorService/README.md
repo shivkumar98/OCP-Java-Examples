@@ -64,12 +64,57 @@ Printing zoo inventory
 <hr>
 
 ## 🟥 7.2.3 Submitting Tasks
-
+1) We can execute tasks to be done asynchrously using the `execute()` methood which takes a `Runnable` lambda or implementation. The return type is `void` - so we do not know the result of the task
+2) We can submit tasks to be done asynchrously and obtain a `Future<T>` object using `submit()`
+3) We can send off a set of taks using `invokeAll()` and `invokeAny()`
+    - `invokeAll()` will synchrously return the results of all tasks as a Collection of Future objects. 
+    - `invokeAny()` will synchrously return the result of any one of the finished tasks, cancelling any unfinished tasks.
 ### 🟡 execute() vs submit()
+* `execute()` does not support `Callable` expressions.
 
 ### 🟡 Submitting Task Collections
+* The `invokeAny()` and `invokeAll()` methods are **SYNCHRONOUS** - they will wait for results to be available before returning control to the enclosing program.
+* `invokeAll()` executes all tasks in the collection and returns a `List` of ordered `Future` objects. This method will wait indefinitely till all tasks are completed.
+* `invokeAny()` executes a collection of tasks and returns the result of one of the tasks that successfully completed execution. This method will only wait till one task is complete.
 
+* Here is an example of using `invokeAll()`:
+```java
+class CallableClass implements Callable<String> {
+	private int i;
+	public CallableClass(int i) {
+		this.i = i;
+	}
+	public String call() throws Exception {
+		return ""+i;
+	}
+}
 
+// MAIN METHOD:
+public static void main(String[] args) {
+    ExecutorService service = null;
+    try {
+        service = Executors.newFixedThreadPool(2);
+        List<Callable<String>> list = 
+                List.of(new CallableClass(1),
+                        new CallableClass(2),
+                        new CallableClass(3),
+                        new CallableClass(4)
+                        );
+        List<Future<String>> futureList = service.invokeAll(list);
+        for (Future<String> future: futureList)
+            System.out.println(future.get());
+    } finally {
+        service.shutdown();
+    }
+}
+```
+* The above code prints:
+```
+1
+2
+3
+4
+```
 
 <hr>
 
