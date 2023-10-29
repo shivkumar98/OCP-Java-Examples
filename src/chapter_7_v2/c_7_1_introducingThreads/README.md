@@ -1,13 +1,15 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
 
-# 🧠 7.1 Introducing Threads V2
+# 🧠 7.1 Introducing Threads
 * A thread is the smallest unit of execution that can be scheduled by the OS
 * A process is a collection of threads executing in a shared environment - sharing same memoery space and communicate with each other.
 * **Single threaded process** is one which contains exactly one thread
 * **Multi threaded process** is one which contains one or more threads
 * Static variables enable us to perform multithreaded tasks. If one thread updates a static variables, than another thread can access this information immediately.
 * **Task** is a single unit of work performed by a thread.
+
+<hr>
 
 ## 🟥 7.1.1 Distinguishing Thread Types
 * All java applications in this book have been multi-threaded!
@@ -16,6 +18,8 @@
 * If a system thread encounters a problem it generates a Java `Error` rather than `Exception`
 * **User-defined thread** is created by the developer to achieve a specific task.
 * We are often not concerned with system threads,
+
+
 <hr>
 
 ## 🟥 7.1.2 Understanding Thread Concurrency
@@ -26,6 +30,9 @@
     - A thread is given an allotted time, if the task does not finish within that time then a `context switch` occurs.
     - A **context switch** is the process of storing a thread's current state.
 * `Thread priority` is a numeric value associated with the thread and is used by the thread scheduler to determine which threads should be executed.
+
+
+
 <hr>
 
 ## 🟥 7.1.3 Introducing Runnable
@@ -73,6 +80,7 @@ public class CalculateAverages implements Runnable {
     }
 }
 ```
+
 
 <hr>
 
@@ -138,6 +146,8 @@ new PrintData().run();
 ```
 * It will not execute on a seperate thread, doing it this way
 * In general, you shouldn't extend the Thread class but instead implement the `Runnable` interface.
+
+
 <hr>
 
 ## 🟥 7.1.5 Polling with Sleep
