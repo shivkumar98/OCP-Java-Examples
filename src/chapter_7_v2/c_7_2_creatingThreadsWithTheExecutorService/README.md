@@ -50,9 +50,15 @@ Printing zoo inventory
 <hr>
 
 ## 🟥 7.2.2 Shutting Down a Thread Executor
-
-### 🟡 Finally Shutting Down a Thread Executor
-
+* You need to call the `shutdown()` method when you are finished with a thread executor. If you do not the application will never terminate.
+* The `ExecutorService` has the following shutdown process:
+1) Reject any new tasks while continuing with previously submitted tasks.
+    - If a new task is submitted to the thread executor, a `RejectedExecutionException` is thrown
+    - `isShutdown() = true`
+    - `isTerminatedFalse() = false`
+2) When all active tasks are completed, the lifecycle is complete
+    - `isShutDown() = true`
+    - `isTerminated() = true`
 
 
 <hr>
