@@ -141,3 +141,40 @@ new PrintData().run();
 <hr>
 
 ## 🟥 7.1.5 Polling with Sleep
+* **Polling** is checking data to see if a result is finished at some fixed interval
+* Suppose we have a thread which updates a static `counter` value in the `main()` thread and you want to check if the counter is > 100
+* We could do it using the following class:
+```java
+public class CheckResults {
+    private static int counter = 0;
+    public static void main(String[] args) {
+
+        new Thread(() -> {
+            for(int i=0; i<500;i++) CheckResults.counter++;
+        }).start();
+        while(CheckResults.counter<100) {
+            System.out.println("Not reached yet");
+        }
+        System.out.println("Reached");
+    }
+}
+```
+* In this class, the `while` loop could run indefinitely! This is BAD PRACTICE as we are consuming CPU resource unecessarily!
+* We can improve this class by using `Thread.sleep()`:
+
+```java
+public class CheckResults {
+    private static int counter = 0;
+    public static void main(String[] args) throws InterruptedException {
+
+        new Thread(() -> {
+            for(int i=0;i<500;i++) CheckResults.counter++;
+        }).start();
+        while (CheckResults.counter<100) {
+            System.out.println("Not reached yet");
+            Thread.sleep(1000); // 1 SECOND
+        }
+        System.out.println("Reached");
+    }
+}
+```
