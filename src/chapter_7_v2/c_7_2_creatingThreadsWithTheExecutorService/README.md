@@ -242,9 +242,14 @@ ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 4) `scheduleAtFixedDelay(Runnable runnable, long initialDelay, long delay, TimeUnit unit)` - executes the runnable after the initial delay, and commences the next runnable after the termination + delay value
 
 
-
 <hr>
 
 ## 🟥 7.2.6 Increasing Concurrency with Pools
+* A **thread pool** is a group of pre-instantiated threads which can be reused to perform some tasks
+* We can create a thread pool using the following methods from Executors:
+1) `newCachedThreadPool()` - Created a thrad pool which creates threads when needed but will also reuse old threads which are available
+2) `newFixedThreadPool(n threads)` - Creates a thread pool, and only reuses a fixed amount of threads
+3) `newFixedScheduledThreadPool(n threads)` - creates a thread pool whicvh can schedule commands to run after a given delay or period
+
 
 ### 🟡 Choosing a Pool size
