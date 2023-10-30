@@ -230,6 +230,17 @@ if (service!=null) {
 <hr>
 
 ## 🟥 7.2.5 Scheduling Tasks
+* The `ScheduledExecutorService` is a subinterface of `ExecutorService` which lets you schedule a task which needs to be done repeatedly for some fixed interval
+* We obtain an instance using the `Executors` factory class:
+```java
+ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+```
+* We have the following methods for `ScheduledExecutorService`:
+1) `schedule(Callable<V> callable, long delay, TimeUnit unit)` - executes the callable after the given delay - returns a `ScheduledFuture<V>`
+2) `schedule(Runnable runnable, long delay, TimeUnit unit)` - executes the runnable after the given delay - returns a `ScheduledFuture<V>`
+3) `scheduleAtFixedRate(Runnable runnable, long initialDelay, long period, TimeUnit unit)` - executes the runnable after the initial delay, and creates and executes the runnable every period value
+4) `scheduleAtFixedDelay(Runnable runnable, long initialDelay, long delay, TimeUnit unit)` - executes the runnable after the initial delay, and commences the next runnable after the termination + delay value
+
 
 
 <hr>
