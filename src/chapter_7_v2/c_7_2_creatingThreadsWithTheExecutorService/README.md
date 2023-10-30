@@ -119,13 +119,113 @@ public static void main(String[] args) {
 <hr>
 
 ## 🟥 7.2.4 Waiting For Results
+* The `submit()` method returns a `Future<V>` object:
+```java
+Future<?> future = service.submit(() -> System.out.println("Hello Zoo"));
+```
+* This `future` object has the following methods:
+1) `boolean isDone()` - true if the task was complete, threw an exception or cancelled
+2) `boolean isCancelled()` - true if cancelled before completed normally
+3) `boolean cancel()` - attempts to cancel execution of the task
+4) `V get()` - obtains result, will wait endlessly if not available
+5) `V get(long timeout, TimeUnit unit)` - obtains the result waiting the specified time. If unavailable then `TimeoutException` is thrown.
+
+* We previously wrote a `CheckResults` class using thread polling:
+```java
+public class CheckResults {
+    private static int counter = 0;
+    public static void main(String[] args) throws InterruptedException {
+
+        new Thread(() -> {
+            for(int i=0;i<500;i++) CheckResults.counter++;
+        }).start();
+        while (CheckResults.counter<100) {
+            System.out.println("Not reached yet");
+            Thread.sleep(1000); // 1 SECOND
+        }
+        System.out.println("Reached");
+    }
+}
+```
+* Here is the same class which uses a Future object:
+```java
+public class CheckResults {
+    private static int counter = 0;
+    public static void main(String[] args) throw InterruptedException, ExecutionException {
+        ExecutorService service = null;
+        try {
+            service = Executors.newSingleThreadExecutor();
+            Future<?> future = service.submit(() -> {
+                for(int i=0;i<500;i++) CheckResults.counter++;
+            });
+            future.get(10, TimeUnit.SECONDS);
+            System.out.println("Reached");
+        } catch (TimeoutException e) {
+            System.out.println("Not reached in time");
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* This implementation does not use the Thread class directly - which is the exact purpose of the Concurrency API.
 
 ### 🟡 Introducing Callable
+* Java 5 introduced the `Callable` interface. It has a `call()` which returns a value:
+```java
+@FunctionalInterface public interface Callable<V> {
+    V call() throws Exception;
+}
+```
+* In comparison, the Runnable interface has a `run()` method which returns void and throws no checked exceptions.
+* The `ExecutorService` has an overload for `submit()` which takes a `Callable` and returns `Future<T>`
+* Here is an example of using `Callable`:
+```java
+public class AddData {
+    public static void main(String[] args) throws InterruptedException,
+        ExecutionException {
+        ExecutorService service = null;
+        try {
+            service = Executors.newSingleThreadExecutor();
+            Future<Integer> result =
+                service.submit(() -> 30+11);
+            System.out.println(result.get());
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
 
-### 🟡 Ambigious Lambda Expressions: Callable vs Supplier
+### 🟡 Checked Exceptions in Callable and Runnable
+* The `Callable` interface allows you to throw a checked exception. Meaning if you are supplied a lambda to the `Executors.submit()` and it DOES return something, you can write statements which have checked exceptions
+* Conversely, the `Runnable` interface does not allow for exceptions. Meaning if you use a lambda expression which does not return anything, you can not write statements which throw checked exceptions
+```java
+service.submit(() -> {Thread.sleep(1000); return null;}); // compiles fine
+service.submit(() -> {Thread.sleep(1000);}); // COMPILER ERROR
+```
 
 ### 🟡 Waiting for All Tasks to Finish
-
+* We can use the `Future.get()` method to wait for the results to finish
+* If we do not ned the results of tasks and finished with our thread executor we can use the `awaitTermination(long timeout, TimeUnit unit)` method which waits for a specified time for all tasks to finish.
+* E.g.:
+```java
+ExecutorService service = null;
+try {
+    service = Executors.newSingleThreadExecutor();
+    // tasks...
+} finally {
+    if(service!=null) service.shutdown();
+}
+if (service!=null) {
+    service.awaitTermination(1, TimeUnit.MINUTES);
+    // check if all tasks are finished:
+    if(service.isTerminated())
+        System.out.println("All tasks finished")l
+    else
+        System.out.println("At least one task is still running");
+}
+```
 
 <hr>
 
