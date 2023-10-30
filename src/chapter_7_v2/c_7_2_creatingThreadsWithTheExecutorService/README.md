@@ -7,6 +7,8 @@
 * This class has built in polling and scheduling.
 
 
+
+
 <hr>
 
 ## 🟥 7.2.1 Introducing the Single-Thread Executor
@@ -59,6 +61,7 @@ Printing zoo inventory
 2) When all active tasks are completed, the lifecycle is complete
     - `isShutDown() = true`
     - `isTerminated() = true`
+
 
 
 <hr>
@@ -115,6 +118,7 @@ public static void main(String[] args) {
 3
 4
 ```
+
 
 <hr>
 
@@ -226,6 +230,7 @@ if (service!=null) {
         System.out.println("At least one task is still running");
 }
 ```
+
 
 <hr>
 
