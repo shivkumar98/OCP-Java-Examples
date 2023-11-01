@@ -75,11 +75,45 @@ public class SheepManager {
 ```
 * This is BETTER, but our results are unordered! Using the atomic class, we have ensured the data is consistent between threads!
 
-
-
 <hr>
 
 ## 🟥 7.3.2 Improving Access with Synchronized Blocks
+* We need to use a monitor (AKA lock) to synchronize access to the sheepCount.
+* Any java object can be used as a monitor:
+```java
+SheepManager manager = new SheepManager();
+synchronized(manager) {
+    // work to be done by one thread at a time
+}
+```
+* The above is a **Synchronized Block**
+* We can update our application to use a synchronized block:
+```java
+public class SheepManager {
+    private int sheepCount = 0;
+    private void incrementAndReport() {
+        synchronized(this) {
+            System.out.print((++sheepCount)+" ");
+        }
+    }
+    public static void main() {
+        ExecutorService service = null;
+        try {
+            service = Executorts.newFixedThreadPool(20);
+            SheepManager manager = new SheepManager();
+            for(int i=0;i<10;i++)
+                service.submit(() -> manager.incrementAndReport());
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* This will ALWAYS output the following:
+```
+1 2 3 4 5 6 7 8 9 10
+```
+
 
 
 <hr>
