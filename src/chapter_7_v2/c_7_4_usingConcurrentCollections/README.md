@@ -36,7 +36,24 @@ public class ZooManager {
 <hr>
 
 ## 🟥 7.4.2 Understanding Memory Consistency Errors
-
+* **Memory consistency errors** occur when two thread have inconsistentg views of the same data
+* JVM will throw a `ConcurrentModificationException` when two threads attempt to modify a non-concurrent collection - this can occur even in a single-thread:
+```java
+Map<String,Integer> animalData = new HashMap<>();
+animalData.put("penguin",1);
+animalData.put("flamingo",2);
+for(String key:animalData.keySet())
+    animalData.remove(key); // THROWS ConcurrentModificationException
+```
+* We can avoid this issue by using the concurrent collection:
+```java
+Map<String,Integer> animalData = new ConcurrentHashMap<>();
+animalData.put("penguin",1);
+animalData.put("flamingo",2);
+for(String key:animalData.keySet())
+    animalData.remove(key);
+```
+* They iterator updates after each loop completes.
 
 <hr>
 
