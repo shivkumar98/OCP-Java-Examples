@@ -115,11 +115,21 @@ public class SheepManager {
 ```
 
 
-
 <hr>
 
 ## 🟥 7.3.3 Synchronizing Methods
-
+* Java offers a compiler enhancement which means you do not need to declare the synchronized block literally
+* The following two methods are equivalent
+```java
+private void incrementAndReport() {
+    synchronized(this) {
+        System.out.print((++sheepCount)+" ");
+    }
+}
+private synchronized void incrementAndReport() {
+    System.out.print((+sheepCount)+" ");
+}
+```
 
 
 <hr>
