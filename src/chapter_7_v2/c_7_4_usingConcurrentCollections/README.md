@@ -58,13 +58,59 @@ for(String key:animalData.keySet())
 <hr>
 
 ## 🟥 7.4.3 Working with Concurrent Classes
+* You should use concurrent classes when you have multiple threads writing to a collection outside a synchronized block/method
+* A read-only, immutable collection is not required to be implemented as a concurrent collection.
+* It is good practice to pass the non-concurrent interface into a method
+* Here is a list of `Concurrent collection classes`:
+1) `ConcurrentHashMap` - interface is `ConcurrentMap`
+2) `ConcurrentLinkedDeque` - interface is `Deque`
+3) `ConcurrentLinkedQueue` - interface is `Queue`
+4) `ConcurrentSkipListMap` - interfaces are `ConcurrentMap`, `SortedMap`, `NavigableMap`
+5) `ConcurrentSkipListSet` - interfaces are `SortedSet`, `NavigableSet`
+6) `CopyOnWriteArrayList` - interfaces is `List`
+7) `CopyOnWriteArraySet` - interfaces is `Set`
+8) `LinkedBlockingDeque` - interfaces are `BlockingQueue`, `BlockingDeque`
+9) `LinkedBlockkingQueue` - interface is `BlockingQueue`
+
+* The ConcurrentHashMap, ConcurrentLinkedQueue and ConcurrentLinkedDeque behave exactly as their non-concurrent versions:
+```java
+Map<String,Integer> map = new ConcurrentHashMap<>();
+map.put("zebra", 52);
+map.put("elephant", 10);
+System.out.println(map.get("elephant")); // 10
+```
+
+### 🟡 Understanding Blocking Queues
+* We have two classes which implement blocking interfaces: `LinkedBlockingQueue` and `LinkedBlockingDeque`
+* `BlockingQueue` has methods which wait a specied amount of time to finish an operation:
+1) `poll(long timeout, TimeUnit unit)` - retrieves and removes item in alotted time, returns null if time elapses.
+* `BlockkingDeque` has the following methods:
+1) `offerFirst(E e, long timeout, TimeUnit unit)` - adds item to front of queue, waiting the alotted time. Returns false if time elapses
+2) `offerLast(E e, long timeout, TimeUnit unit)` - adds item to back of queue, waiting the alotted time.
+3) `pollFirst(long timeout, TimeUnit unit)` - retrieves and removes the first item, returns null if time elapses
+4) `pollLast(long timeout, TimeUnit unit)` - retrieves and removes last item.
 
 ### 🟡 Understanding SkipList Collections
+* The `ConcurrentSkipListMap` and `ConcurrentSkipListSet` are concurrent versions of their ordered counterparts: `TreeMap` and `TreeSet`
 
 
 ### 🟡 Understanding CopyOnWrite Collections
-
-
+* The `CopyOnWriteArrayList`, and `CopyOnWriteArraySet` classes copy all their eleents to a new underlying structure anytime an element is removed, added or modified - reference has changed.
+* These classes are useful when you need to iterate over a collection in a multithreaded environment
+* E.g.:
+```java
+List<Integer> list = new CopyOnWriteArrayList<>(Arrays.asList(4,3,52));
+for(Integer item: list) {
+    System.out.print(item+" ");
+    list.add(9)
+}
+System.out.println("/nSize: "+list.size());
+```
+* This will print the following:
+```
+4 3 52
+Size: 6
+```
 
 
 <hr>
