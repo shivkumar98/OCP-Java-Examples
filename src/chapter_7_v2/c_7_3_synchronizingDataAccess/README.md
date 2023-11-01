@@ -135,3 +135,4 @@ private synchronized void incrementAndReport() {
 <hr>
 
 ## 🟥 7.3.4 Understanding the Cost of Synchronization
+* Using synchronized methods means that the application will behave in a more single-threaded manner
