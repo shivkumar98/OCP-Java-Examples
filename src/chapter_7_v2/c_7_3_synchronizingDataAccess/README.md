@@ -30,6 +30,9 @@ public class SheepManager {
 1 9 8 1 7 6 4 3 5 2
 ```
 
+
+<hr>
+
 ## 🟥 7.3.1 Protecting Data with Atomic Classes
 * The pre-increment operator is not thread safe. We can ensure the sheepCount is thread safe by using atomic classes which have thread safe increment operators!
 * We have the following **Atomic Classes**:
@@ -74,6 +77,8 @@ public class SheepManager {
 1 10 9 8 6 3 2 7 5 4 
 ```
 * This is BETTER, but our results are unordered! Using the atomic class, we have ensured the data is consistent between threads!
+
+
 
 <hr>
 
