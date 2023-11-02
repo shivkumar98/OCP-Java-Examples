@@ -116,4 +116,24 @@ Size: 6
 <hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
+* The Concurrency API has methods to obtain synchronized versions of non-concurrent objects.
+* We have the following methods:
+1) `synchronizedCollection(Collection<T> c)`
+2) `synchronizedList(List<T> list)`
+3) `synchronizedMap(Map<K,V> m)`
+4) `synchronizedNavigableMap(NavigableMap<K,V> m)`
+5) `synchronizedNavigableSet(NavigableSet<T> s)`
+6) `synchronizedSet(Set<T> s)`
+7) `synchronizedSortedMap(SortedMap<K,V> m)`
+8) `synchronizedSortedSet(SortedSet<T> s)`
 
+* While these methods will synchronize access to the data of the collection, they will not synchronize access of iterators
+* Also, unlike the concurrent collections, you will always get a `ConcurrentModificationException` if you attempt to modify the collection in a for loop:
+```java
+Map<String, Object> foodData = new HashMap<String, Object>();
+foodData.put("penguin", 1);
+foodData.put("flamingo", 2);
+Map<String,Object> synchronizedFoodData = Collections.synchronizedMap(foodData);
+for(String key: synchronizedFoodData.keySet())
+    synchronizedFoodData.remove(key); // throw ConcurrentModificationException
+```
