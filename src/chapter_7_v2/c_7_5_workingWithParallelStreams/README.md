@@ -21,20 +21,102 @@ Stream<Integer> parallelStream =
 ```
 
 
-<hr>
+<br><hr>
+
 
 ## 🟥 7.5.2 Processing Tasks in Parallel
+* Using a parallel stream means results are no longer determinent. E.g. the following code will have different outputs at each run:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .forEach(s->System.out.print(s+" "));
+// 3 6 5 1 2 4
+```
 
 ### 🟡 Ordering `forEach` Results
+* We can force a parallel stream to process results in order:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .forEachOrdered(s->System.out.println(s+" "));
+// 1 2 3 4 5 6
+```
 
 ### 🟡 Understanding Performance Improvements
+* Suppose we have to process 4000 records, each record takes 10ms to finish.
+* We can simulate this with the following program:
+```java
+public class WhaleDataCalculator {
+    public int processRecord(int input) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            // Handle interrupted exception
+        }
+        return input+1;
+    }
+    public void processAllData(List<Integer> data) {
+        data.stream().map(a->processRecord(a));
+    }
+    public static void main() {
+        WhaleDataCalculator calculator = new WhaleDataCalculator();
+        // define data:
+        List<Integer> data = new ArrayList<Integer>();
+        for(int i=0;i<4000;i++) data.add(i);
+        // process data:
+        long start = System.currentTimeMillis();
+        calculator.processAllData(data);
+        double time = (System.currentTimeMillis()-start)/1000.0;
+        // report results:
+        System.out.println("\nTasks completed in: "+time+" seconds");
+    }
+}
+```
+* This program will take 40 seconds on average
+* If we update the `processRecord()` method to:
+```java
+public void processAllData(List<Integer> data) {
+    data.parallelStream().map(s->processRecord(a))
+}
+```
+* It took 10 seconds
 
 ### 🟡 Understanding Independent Operations
-
+* We should use parallel streams whenever the operation is independent of the subsequent operation.
+* E.g. suppose we want to make all elements of a stream uppercase:
+```java
+Arrays.asList("jackal","kangaroo","lemur")
+    .parallelStream()
+    .map(s -> s.toUpperCase())
+    .forEach(System.out::println);
+```
+* As this is a parallel stream, the order of the printing is not guaranteed
+* Suppose we have an imbedded print statement in map operation:
+```java
+Arrays.asList("jackal","kangaroo","lemur")
+    .parallelStream()
+    .map(s -> {System.out.println(s); return s.toUpperCase();})
+    .forEach(System.out::println);
+```
+* This will output an indetermined result like:
+```
+kangaroo
+lemur
+LEMUR
+jackal
+KANGAROO
+JACKAL
+```
 ### 🟡 Avoiding Stateful Operations
+* **Stateful lambda expressions** is an expression whose result id dependent on any state which may change in the pipeline.
+* E.g. consider the following:
+```java
+
+```
 
 
-<hr>
+
+<br><hr>
 
 ## 🟥 7.5.3 Processomg Parallel Reductions
 
