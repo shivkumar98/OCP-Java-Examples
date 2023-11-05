@@ -124,11 +124,96 @@ System.out.println(data);
 
 <br><hr>
 
-## 🟥 7.5.3 Processomg Parallel Reductions
+## 🟥 7.5.3 Processing Parallel Reductions
+* **Parallel Reductions** are reduction operations on parallel streams.
 
 ### 🟡 Performing Order-Based Tasks
-
+* When we use the `findAny()` on a serial stream, then the first element is called:
+```java
+int x = Arrays.asList(1,2,3,4,5,6).stream().findAny().get();
+System.out.println(x);
+```
+* But if we use a parallel stream, the result can not be determined:
+```java
+int x = Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get();
+// prints 4 on my machine
+```
 
 ### 🟡 Combining Results with `reduce()`
+* The stream operation `reduce(U identity, BiFunction accumulator, BinaryOperator combiner)` combines a stream into a single object.
+* E.g. concatenating a String:
+```java
+String str = Arrays.asList('w','o','l','f')
+    .stream()
+    .reduce("", (partial,c)->partial+c,(x,y)->x+y);
+// wolf
+```
+* If elements are reduced in pairs to create intermediate values in a parallel way - this could lead to unexpected behavior.
+* The Stream API still allows for parallel processing provided the arguments satisfy the requirements:
+1) The identity can be applied to all elements, u, such that `combiner(u)=u`
+2) The accumulator, op, must be associative: `(a op b) op c` = `a op (b op c)`
+3) The combiner must me associative and stateless such that: `combiner.apply(u,accumulator.apply(identity,t)` = `accumulator.apply(u,t)` 
+
+* Here is an example where the accumulator is not associative:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .stream()
+    .reduce(0, (a,b)->a-b);
+// always is -21
+
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .reduce(0,(a,b)->(a-b)); // non associative
+// can print either 3 or 21
+```
+* Here is an example where the identity can not be applied:
+```java
+Arrays.asList("w","o","l","f")
+    .stream()
+    .reduce("X", String::concat);
+// prints Xwolf
+
+Arrays.asList("w","o","l","f")
+    .parallelStream()
+    .reduce("X", String::concat);
+// prints XwXoXlXf
+```
 
 ### 🟡 Combining Results with `collect()`
+* The Streams API has a 3 argument version of collect: `collect(Supplier<R> supplier, BiConsumer<R,R> accumulator, BiConsumer<R,R> consumer)`
+
+* The supplier is used in place of identity; the previous requirements also apply here
+* Here's an example:
+```java
+Stream<String> stream = Stream.of("w","o","l","f")
+    .parallel();
+SortedSet<String> set = stream
+    .collect(ConcurrentSkipListSet::new,
+             Set::add,
+             Set::addAll);
+System.out.println(set); // [f, l, o, w]
+```
+* We have the following requirements such that a parallel reduction with collect is done efficiently:
+1) The stream is parallel
+2) The parameter of the collect operation has the characteristic: `Collector.Characteristics.CONCURRENT`
+3) Eithr the stream is unordered, or collector has the characteristic `Collector.Charactersics.UNORDERED`
+* Here is an example:
+```java
+Stream<String> ohMy = Stream.of("lions","tigers","bears")
+    .parallel();
+ConcurrentMap<Integer, String> map =
+    ohMy.collect(
+        Collectors.toConcurrentMap(String::length,k->k,(s1,s2)->s1+","s2)
+    );
+// {5=lions,bears, 6=tigers}
+// className: ConcurrentHashMap
+```
+* Here is an example of replacing `groupingBy()`:
+```java
+Stream<String> ohMy = Stream.of("lions","tigers","bears")
+    .parallel();
+ConcurrentMap<Integer,List<String>> map =
+    ohMy.collect(Collectors.groupingByConcurrent(String::length));
+// {5=[lions, bears], 6=[tigers]}
+// className: ConcurrentHashMap
+```
