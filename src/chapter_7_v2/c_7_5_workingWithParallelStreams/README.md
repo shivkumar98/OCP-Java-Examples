@@ -1,9 +1,11 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 🧠 7.5 Workking with Parallel Streams
+# 🧠 7.5 Working with Parallel Streams
 * So far we have worked with **Serial Streams** - results are ordered, and one entry is processed at a time
 * **Parallel streams** are capable of processing entries concurrently using multiple threads.
 * While we can improve performance, we will also have different expected results.
+
+
 
 <br><hr>
 
@@ -22,7 +24,6 @@ Stream<Integer> parallelStream =
 
 
 <br><hr>
-
 
 ## 🟥 7.5.2 Processing Tasks in Parallel
 * Using a parallel stream means results are no longer determinent. E.g. the following code will have different outputs at each run:
