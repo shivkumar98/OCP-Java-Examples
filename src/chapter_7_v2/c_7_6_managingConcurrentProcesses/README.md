@@ -141,19 +141,119 @@ try {
 17 Adds Lion
 16 Adds Lion
 ```
+* The CyclicBarrier limit must be smaller or equal to the number of threads available, otherwise the code will hang indefinintely!
 
-### 🟡 Introducing CyclicBarrier
-
-### 🟡 Thread Pool Size and Cyclic Barrier Limit
 
 <br><hr>
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
+* Suppose we need to weigh all the animals in the zoo.
+* If we had a single worker, it would take 1 hour to complete
+* Suppose we have 10 animals, so we initialise an array to store the weights:
+```java
+Double[] weights = new Double[10];
+```
+* We are constrained that a worker can only weight 3 animals in an hour.
+* The 10 animals are split into 5, and then the 5 is split to 2 and 3 animals.
+* We apply the fork/join framework with 3 steps:
+1) Create a `ForkJoinTask`
+2) Create the `ForkJoinPool`
+3) Start the `ForkJoinTask`
 
-### 🟡 Introducing Recursion
+* We have the choice of extending either `RecursiveAction` or `RecursiveTask` (both implement `ForkJoinTask`)
 
 ### 🟡 Working with `RecursiveAction`
+* This requires us to implement `void compute()` to perform the task:
+```java
+public class WeighAnimalAction extends RecursiveAction {
+    private int start;
+    private int end;
+    private Double[] weights;
+    public WeighAnimalAction(Double[] weights, int start, int end) {
+        this.start = start;
+        this.end = end;
+        this.weights = weights;
+    }
+    protected void compute() {
+        if(end-start <= 3)
+            for(int i=start;i<end;i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Anmal Weighed: "+i);
+            }
+        else {
+            int middle = start + ((end-start)/2);
+            System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+            invokeAll(new WeighAnimalAction(weights,start,middle),
+                      new WeighAnimalAction(weights,middle,end));
+        }
+    }
+    public static void main(String[] args) {
+        Double[] weights = new Double[10];
 
-### 🟡 Working with a RecursiveTask
+        ForkJoinTask<?> task = new
+            WeighAnimalAction(weights, 0, weights.length);
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(task);
+
+        // Printt results:
+        System.out.println("Weights: ");
+        Arrays.asList(weights).stream().forEach(
+            d -> System.out.println(d.intValue()+" ");
+        )
+    }
+}
+```
+* Here is sample output:
+```
+[start=0,middle=5,end=10]
+[start=0,middle=2,end=5]
+Animal Weighed: 0
+Animal Weighed: 1
+Animal Weighed: 2
+Animal Weighed: 3
+Animal Weighed: 4
+[start=5,middle=7,end=10]
+Animal Weighed: 7
+Animal Weighed: 8
+Animal Weighed: 9
+Animal Weighed: 5
+Animal Weighed: 6
+
+Weights: 82 45 61 31 93 73 71 20 47 66
+```
+
+### 🟡 Working with a `RecursiveTask`
+* Suppose we wanted to find the sum while processing data.
+* We would need to extend `RecursiveTask`:
+
+```java
+public class WeighAnimalTask extends RecursiveTask<Double> {
+    private int start;
+    private int end;
+    private Double[] weights;
+    public WeighAnimalTask(Double[] weights, int start, int end) {
+        this.start = start;
+        this.end = end;
+        this.weights = weights;
+    }
+    protected Double compute() {
+        if(end-start <= 3) {
+            double sum = 0;
+            for (int i=start; i<end; i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Animal Weighed: "+i);
+                sum += weights[i];
+            }
+            return sum;
+        } else {
+            int middle = start+((end-start)/2);
+            System.out.println("[start="+start+",middl="+middle+",end="+end+"]");
+            RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+            otherTask.fork();
+            return new WeighAnimalTask
+        }
+    }
+}
+```
 
 ### 🟡 Identifying Fork/Join Issues
