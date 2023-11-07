@@ -44,18 +44,18 @@ try {
 ```
 * Running this application will print:
 ```
-26 Removing Lion
-24 Removing Lion
-24 Cleaning cage
-24 Adds Lion
-25 Removing Lion
-23 Removing Lion
-26 Cleaning cage
-23 Cleaning cage
-25 Cleaning cage
-23 Adds Lion
-26 Adds Lion
-25 Adds Lion
+18 Removing Lion
+18 Cleaning cage
+18 Adds Lion
+15 Removing Lion
+17 Removing Lion
+16 Removing Lion
+16 Cleaning cage
+16 Adds Lion
+17 Cleaning cage
+15 Cleaning cage
+17 Adds Lion
+15 Adds Lion
 ```
 * Clearly this is not achieving what we expect!
 <br>
@@ -71,9 +71,7 @@ public void performTasks(CyclicBarrier c1) {
         addLion();
     }
 }
-```
-* We update the main program and supply a `CyclicBarrier(int parties)` object:
-```java
+// MAIN METHOD:
 ExecutorService service = Executors.newFixedThreadPool(4);
 LionPenManager manager = new LionPenManager();
 CyclicBarrier c1 = new CyclicBarrier(4);
@@ -84,7 +82,66 @@ try {
     if(service!=null) service.shutdown();
 }
 ```
-* Now when a thread calls `removeLion()`, it will be paused by `c1.await()` until the number of `parties` from the 
+* We update the main program and supply a `CyclicBarrier(int parties)` object.
+* Now when a thread calls `removeLion()`, it will be paused by `c1.await()` until the number of `parties` from the CyclicBarrier is reached (4 in this case)
+* Now if we run this code, we get the following result:
+```
+15 Removing Lion
+17 Removing Lion
+18 Removing Lion
+16 Removing Lion
+17 Cleaning cage
+16 Cleaning cage
+16 Adds Lion
+17 Adds Lion
+15 Cleaning cage
+15 Adds Lion
+18 Cleaning cage
+18 Adds Lion
+```
+* We have now ensured, that the threads will not begin the other tasks until the CyclicBarrier limit is achieved.
+* We still need the `addLion()` to be coordinated:
+```java
+public void performTasks(CyclicBarrier c1, CyclicBarrier c2) {
+    try {
+        removeLion();
+        c1.await();
+        cleanCage();
+        c2.await();
+        addLion();
+    } catch (Exception e) {
+        // handle exception
+    }
+}
+// MAIN METHOD:
+ExecutorService service = Executors.newFixedThreadPool(4);
+LionPenManager manager = new LionPenManager();
+CyclicBarrier c1 = new CyclicBarrier(4);
+CyclicBarrier c2 = new CyclicBarrier(4);
+try {
+    for(int i=0;i<4;i++)
+        service.submit(() -> manager.performTasks(c1,c2));
+    
+} finally {
+    if(service!=null) service.shutdown();
+}
+```
+* Running the application:
+```
+16 Removing Lion
+18 Removing Lion
+15 Removing Lion
+17 Removing Lion
+15 Cleaning cage
+17 Cleaning cage
+16 Cleaning cage
+18 Cleaning cage
+15 Adds Lion
+18 Adds Lion
+17 Adds Lion
+16 Adds Lion
+```
+
 ### 🟡 Introducing CyclicBarrier
 
 ### 🟡 Thread Pool Size and Cyclic Barrier Limit
