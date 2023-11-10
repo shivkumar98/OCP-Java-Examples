@@ -228,32 +228,65 @@ Weights: 82 45 61 31 93 73 71 20 47 66
 
 ```java
 public class WeighAnimalTask extends RecursiveTask<Double> {
-    private int start;
-    private int end;
-    private Double[] weights;
-    public WeighAnimalTask(Double[] weights, int start, int end) {
-        this.start = start;
-        this.end = end;
-        this.weights = weights;
-    }
-    protected Double compute() {
-        if(end-start <= 3) {
-            double sum = 0;
-            for (int i=start; i<end; i++) {
-                weights[i] = (double)new Random().nextInt(100);
-                System.out.println("Animal Weighed: "+i);
-                sum += weights[i];
-            }
-            return sum;
-        } else {
-            int middle = start+((end-start)/2);
-            System.out.println("[start="+start+",middl="+middle+",end="+end+"]");
-            RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
-            otherTask.fork();
-            return new WeighAnimalTask
-        }
-    }
+	private int start;
+	private int end;
+	private Double[] weights;
+	public WeighAnimalTask(Double[] weights, int start, int end) {
+		this.start = start;
+		this.end = end;
+		this.weights = weights;
+	}
+	@Override
+	protected Double compute() {
+		if (end - start <= 3) {
+			double sum = 0;
+			for (int i=start; i<end;i++) {
+				weights[i] = (double) new Random().nextInt(100);
+				System.out.println("Animal "+i+ " Weighed: "+weights[i]);
+				sum += weights[i];
+			}
+			return sum;
+		} else {
+			int middle = start+((end-start)/2);
+			System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+			RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+			otherTask.fork();
+			return new WeighAnimalTask(weights,middle,end).compute()+otherTask.join();
+		}
+	}
+	 public static void main(String[] args) {
+		Double[] weights = new Double[10];
+		ForkJoinTask<Double> task = new WeighAnimalTask(weights,0,weights.length);
+		ForkJoinPool pool = new ForkJoinPool();
+		Double sum = pool.invoke(task);
+		System.out.println("final sum: "+sum);
+	}
 }
 ```
-
+* Here's a sample output:
+```
+[start=0,middle=5,end=10]
+[start=5,middle=7,end=10]
+[start=0,middle=2,end=5]
+Animal 0 Weighed: 79.0
+Animal 1 Weighed: 52.0
+Animal 7 Weighed: 8.0
+Animal 5 Weighed: 98.0
+Animal 2 Weighed: 78.0
+Animal 6 Weighed: 47.0
+Animal 8 Weighed: 7.0
+Animal 3 Weighed: 53.0
+Animal 4 Weighed: 78.0
+Animal 9 Weighed: 60.0
+final sum: 560.0
+```
 ### 🟡 Identifying Fork/Join Issues
+* Here are tips for using the Fork/Join Classes:
+1) The class should extend either `RecursiveAction` or `RecursiveTask`
+2) If the class extends `RecursiveAction` then it should override `protected void compute()`
+3) If the class extends `RecursiveTask` then it should override `protected V compute()`
+4) The `invokeAll()` methods needs to two instances of the fork/join class, it does not return a result
+5) The `fork()` method causes a new task to be submitted to the pool and is similar to the thread executor `submit()` method
+6) The `join()` method is called after the `fork()` method and causes the current thread to wait for the results of a subtask
+7) Calling the `compute()` method within `compute()` causes the task to wait for the result of the subtask
+8) The `fork()` method should be called before the current thread performs a `compute()` operation, with `join()` called to read the results afterward
