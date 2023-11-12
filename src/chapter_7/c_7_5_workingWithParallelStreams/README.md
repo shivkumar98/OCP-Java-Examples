@@ -1,238 +1,220 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 🧠 7.5 Workking with Parallel Streams
-* Streams have built in concurrency options. So far all the streams we have seen were `serial streams` - results are ordered and entries can only be processed one at a time.
-* A **parallel stream** is able to processed concurently with multuple threads.
-* You can use a parallel stream and the `map()` method to concurrently operated on elements in the stream.
-* Parallel streams can improve performance as well as change expected results.
+# 🧠 7.5 Working with Parallel Streams
+* So far we have worked with **Serial Streams** - results are ordered, and one entry is processed at a time
+* **Parallel streams** are capable of processing entries concurrently using multiple threads.
+* While we can improve performance, we will also have different expected results.
+
+
+
+<br><hr>
 
 ## 🟥 7.5.1 Creating Parallel Streams
-* For the exam, I need to be aware of the following two methods for creating parallel streams:
-1) `parallel()` - you can call `parallel` on an existing serial stream:
+* We can create parallel streams in two ways
+1) `parallel()` - we can convert an existing stream by calling this method:
 ```java
 Stream<Integer> stream = Arrays.asList(1,2,3,4,5,6).stream();
 Stream<Integer> parallelStream = stream.parallel();
 ```
-2) `parallelStream()` - we can call `parallelStream()` on any `Collection` implementation (the interface includes this method):
+2) `parallelStream()` - we can convert a collection using this method:
 ```java
-Stream<Integer> parallelStream = Arrays.asList(1,2,3,4,5,6).parallelStream();
+Stream<Integer> parallelStream =
+    Arrays.asList(1,2,3,4,5,6).parallelStream();
 ```
 
-<hr>
+
+<br><hr>
 
 ## 🟥 7.5.2 Processing Tasks in Parallel
-
-* Parallel streams can have unexpected results:
+* Using a parallel stream means results are no longer determinent. E.g. the following code will have different outputs at each run:
 ```java
 Arrays.asList(1,2,3,4,5,6)
     .parallelStream()
-    .forEach(s->System.out.println(s+ " "));
-```
-* This can generate the following:
-```
-4 1 6 2 3 5
-5 2 1 6 3 4
-1 2 4 5 6 3
+    .forEach(s->System.out.print(s+" "));
+// 3 6 5 1 2 4
 ```
 
 ### 🟡 Ordering `forEach` Results
-* The Streams API includes a `forEachOrdered()` method which forces parallel stream to process result in order with a performance hit:
+* We can force a parallel stream to process results in order:
 ```java
 Arrays.asList(1,2,3,4,5,6)
     .parallelStream()
-    .forEachOrdered(s->System.out.println(s+ " "));
+    .forEachOrdered(s->System.out.println(s+" "));
+// 1 2 3 4 5 6
 ```
 
 ### 🟡 Understanding Performance Improvements
-* We have a task which requires processing 4,000 records which take 10 milliseconds to finish. Here is an application which simulates this:
+* Suppose we have to process 4000 records, each record takes 10ms to finish.
+* We can simulate this with the following program:
 ```java
-import java.util.*;
-
 public class WhaleDataCalculator {
-
     public int processRecord(int input) {
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {
-            
+            // Handle interrupted exception
         }
         return input+1;
     }
-
     public void processAllData(List<Integer> data) {
-        data.stream().map(a -> processRecord(a)).count();
+        data.stream().map(a->processRecord(a));
     }
-
-    public static void main(String[] args) {
-        WhaleCalculator calculator = new WhaleCalculator();
-
-        // define the data
-        List<Integer> data = new ArrayList<>();
+    public static void main() {
+        WhaleDataCalculator calculator = new WhaleDataCalculator();
+        // define data:
+        List<Integer> data = new ArrayList<Integer>();
         for(int i=0;i<4000;i++) data.add(i);
-
-        // process data
-        long start = System.currentMillis();
+        // process data:
+        long start = System.currentTimeMillis();
         calculator.processAllData(data);
         double time = (System.currentTimeMillis()-start)/1000.0;
-
-        // Report results
+        // report results:
         System.out.println("\nTasks completed in: "+time+" seconds");
     }
 }
 ```
-* This will take 40 seconds to complete.
-* We can make this a parallel stream by processing the results concurrently:
+* This program will take 40 seconds on average
+* If we update the `processRecord()` method to:
 ```java
 public void processAllData(List<Integer> data) {
-    data.parallelStream().map(a->processRecord(a)).count();
+    data.parallelStream().map(s->processRecord(a))
 }
 ```
-* Depending on the number of CPUs available, the task can be completed in roughly 10 seconds.
-* We can improve performance by scaling the number of processors - this property is called **scaling**🎃
-* It's not always beneficial to use parallel stream, for small streams its faster to do serial streams as parallel streams have cost of setting up and allocating🫰
+* It took 10 seconds
 
 ### 🟡 Understanding Independent Operations
-* Parallel Streams rely on the propery that many stream operations can be executed independently to improve performance.
-* In the above example, the `processRecord()` can be executed seperately without impacting the invocation of the method on other pieces of the stream.
-* Here's an example which maps the stream contents to uppercase Strings:
+* We should use parallel streams whenever the operation is independent of the subsequent operation.
+* E.g. suppose we want to make all elements of a stream uppercase:
 ```java
 Arrays.asList("jackal","kangaroo","lemur")
     .parallelStream()
     .map(s -> s.toUpperCase())
     .forEach(System.out::println);
 ```
-* Many common streams including `map()`, `forEach()`, and `filter()` can be processed independently but order is never guaranteed.
+* As this is a parallel stream, the order of the printing is not guaranteed
+* Suppose we have an imbedded print statement in map operation:
 ```java
 Arrays.asList("jackal","kangaroo","lemur")
     .parallelStream()
     .map(s -> {System.out.println(s); return s.toUpperCase();})
-    .forEach(System.out::print)
+    .forEach(System.out::println);
 ```
-* This example has an embedded print statement, as the results are not ordered and the print can occurs even before intermediate operations:
+* This will output an indetermined result like:
 ```
 kangaroo
-KANGAROO
 lemur
-jackal
-JACKAL
 LEMUR
+jackal
+KANGAROO
+JACKAL
 ```
-
 ### 🟡 Avoiding Stateful Operations
-* Side effect can appear in parallel statements, if the lambda expression is stateful
-* A **stateful lambda expression** is one whose result is dependent on any state which may change during execution of a pipeline
-* We should avoid stateful lambda expressions, as demonstrated in this example:
+* **Stateful lambda expressions** is an expression whose result id dependent on any state which may change in the pipeline.
+* E.g. consider the following:
 ```java
-List<Integer> data = Collections.synchronizedLise(new ArrayList<>());
-Arrays.asList(1,2,3,4,5,6).parallelStream()
-    .map(i-> {data.add(i); return i;})
-    .forEachOrdered(i -> System.out.print(i+" "));
-
-System.out.println();
-for (Integer e: data) {
-    System.out.print(e+" ");
-}
+List<Integer> data = Collections.synchronizedList(new ArrayList<>());
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .map(i -> {data.add(i);return i})
+    .forEachOrdered(i->System.out.print(" "));
+// PRINTS: 1 2 3 4 5 6
+System.out.println(data);
+// PRINTS 1 6 3 4 2 5
 ```
-* Here is a sample generated by this code:
-```
-1 2 3 4 5 6
-2 4 3 5 6 1
-```
+* Stateful operations should be avoided when using parallel streams!
 
-<hr>
+<br><hr>
 
-
-## 🟥 7.5.3 Processomg Parallel Reductions
-* Using parallel streams leads to improved performance and changes to the design of you application.
-* **Parallel reductions** are reduction operations on parallel streams.
+## 🟥 7.5.3 Processing Parallel Reductions
+* **Parallel Reductions** are reduction operations on parallel streams.
 
 ### 🟡 Performing Order-Based Tasks
-* Due to order not being guaranteed, methods like `findAny()` on parallel streams may result in unexpected behavior.
-* The following will always print 1
+* When we use the `findAny()` on a serial stream, then the first element is called:
 ```java
-System.out.println(Arrays.asList(1,2,3,4,5,6).stream().findAny().get());
+int x = Arrays.asList(1,2,3,4,5,6).stream().findAny().get();
+System.out.println(x);
 ```
-* With parallel stream, the result is undefined:
+* But if we use a parallel stream, the result can not be determined:
 ```java
-System.out.println(Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get());
+int x = Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get();
+// prints 4 on my machine
 ```
-* Stream operations like `findFirst()`, `limit`, `skip` can be slower in parallel environment dues to this task veing forced to coordinate all of its threads in synchronized-like fashion.
-
-<br>
 
 ### 🟡 Combining Results with `reduce()`
-* The `reduce()` method combines a stream into a single object. This method takes an `identity`, `accumulator`, and `combiner`
-* E.g here's concatenation of a string:
+* The stream operation `reduce(U identity, BiFunction accumulator, BinaryOperator combiner)` combines a stream into a single object.
+* E.g. concatenating a String:
 ```java
-String s = Arrays.asList('w','o','l','f')
+String str = Arrays.asList('w','o','l','f')
     .stream()
-    .reduce("", (c,s1)->c+s1, (x,y)->x+y);
+    .reduce("", (partial,c)->partial+c,(x,y)->x+y);
+// wolf
 ```
-* If we did this using a parallel stream, we could have w+o, l+f being formed. With a serial stream, the string is built one character at a time.
-* The Stream API has a way of preventing issues from occuring as a result of elements being in wrong order. The `reduce()` operation must adhere to the following properties:
-1) `identity` must be defined such for all elements in the stream u, `combiner.apply(identity,u)` = `u`
-2) `accumulator` operator op must be statless and associative - `(a op b) op c` = `a op (b op c)`
-3) `combiner` must be associative, stateless and compatible with identity, such that for all u and t: `combiner.apply(u, accumulator.apply(identity,t))` = `accumulator.apply(u,t)`
+* If elements are reduced in pairs to create intermediate values in a parallel way - this could lead to unexpected behavior.
+* The Stream API still allows for parallel processing provided the arguments satisfy the requirements:
+1) The identity can be applied to all elements, u, such that `combiner(u)=u`
+2) The accumulator, op, must be associative: `(a op b) op c` = `a op (b op c)`
+3) The combiner must me associative and stateless such that: `combiner.apply(u,accumulator.apply(identity,t)` = `accumulator.apply(u,t)` 
 
-* Here is an example of using a non-associative accumulator:
+* Here is an example where the accumulator is not associative:
 ```java
-long l = Arrays.asList(1,2,3,4,5,6)
-    .parallelStream()
-    .reduce(0,(a,b) -> (a-b)); // NOT ASSOCIATIVE ACCUMULATOR
-```
-* This will print -21, 3 or some other value! A serial stream will always print -21!
-* Here's an example with violates the rule on the identity:
-```java
-System.out.println(Arrays.asList("w","o","l","f")
-    .parallelStream()
-    .reduce("X",String::concat));
-```
-* The output is `XwXoXlXf``
+Arrays.asList(1,2,3,4,5,6)
+    .stream()
+    .reduce(0, (a,b)->a-b);
+// always is -21
 
-<br>
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .reduce(0,(a,b)->(a-b)); // non associative
+// can print either 3 or 21
+```
+* Here is an example where the identity can not be applied:
+```java
+Arrays.asList("w","o","l","f")
+    .stream()
+    .reduce("X", String::concat);
+// prints Xwolf
+
+Arrays.asList("w","o","l","f")
+    .parallelStream()
+    .reduce("X", String::concat);
+// prints XwXoXlXf
+```
 
 ### 🟡 Combining Results with `collect()`
-* The Streams API includes a 3 argument version of collect() which takes accumulator and combiner operators, and a supplier operator
-* The accumulator and combiner operators need to be stateless and associative, and the combiner operation being compatible with the accumulator operator
-* Here's a 3 argument version of collect on a parallel stream:
-```java
-Stream<String> stream = Stream.of("w", "o", "l", "f").parallel();
-SortedSet<String> set = stream.collect(ConcurrentSkipListSet::new, Set::add,
-    Set::addAll);
-```
-* A concurrent collection must be used to combine the results, ensuring ConcurrentModificationException does not occur.
+* The Streams API has a 3 argument version of collect: `collect(Supplier<R> supplier, BiConsumer<R,R> accumulator, BiConsumer<R,R> consumer)`
 
-#### 🟢 Using the One-Argument collect() Method
-* The one argument version of collect() takes a collector as argument:
+* The supplier is used in place of identity; the previous requirements also apply here
+* Here's an example:
 ```java
-Stream<String> stream = Stream.of("w","o","l","f").parallel();
-Set<String> set = stream.collect(Collectors.toSet());
-System.out.println(set); // [f, w, l, o]
+Stream<String> stream = Stream.of("w","o","l","f")
+    .parallel();
+SortedSet<String> set = stream
+    .collect(ConcurrentSkipListSet::new,
+             Set::add,
+             Set::addAll);
+System.out.println(set); // [f, l, o, w]
 ```
-* Doing a parallel reduction requires additional considerations, e.g. if you want to preserve the ordering of the original set, you need to use something like `List` which reduces performance, as some operations are unable to be completed in parallel.
-* The following rules ensure that a parallel reduction will be performed efficiently in Java using a collector:
-1) Stream is parallel
-2) The collector parameter has the `Collector.Characteristics.CONCURRENT` characteristic
-3) Either stream is unordered, or collector has `Collector.Characteristics.UNORDERED` characteristic
-* Any class which implements the `Collector` interface includes a characteristics() method which returns a set of attribute available to the collector.
-* E.g. `Collectors.toSet()` has the `UNORDERED` characteristic but not `CONCURRENT` - hence the above example is not a concurrent reduction
-* The `Collectors` class includes two sets of methods for retrieving collectors which are both `CONCURRENT` and `UNORDERED`:
-1) `Collectors.toConcurrentMap()`
-2) `Collectors.groupingByConcurrent()`
-* Here is an example of using `toConcurrentMap()`:
+* We have the following requirements such that a parallel reduction with collect is done efficiently:
+1) The stream is parallel
+2) The parameter of the collect operation has the characteristic: `Collector.Characteristics.CONCURRENT`
+3) Eithr the stream is unordered, or collector has the characteristic `Collector.Charactersics.UNORDERED`
+* Here is an example:
 ```java
-Stream<String> ohMy = Stream.of("lions", "tigers", "bears").parallel();
-ConcurrentMap<Integer, String> map = ohMy
-    .collect(Collectors.toConcurrentMap(String::length, k -> k, 
-        (s1,s2)->s1+","+s2));
-System.out.println(map); // 5=lions,bears, 6=tigers
-System.out.println(map.getClass()); // java.util.concurrent.ConcurrentHashMap
+Stream<String> ohMy = Stream.of("lions","tigers","bears")
+    .parallel();
+ConcurrentMap<Integer, String> map =
+    ohMy.collect(
+        Collectors.toConcurrentMap(String::length,k->k,(s1,s2)->s1+","s2)
+    );
+// {5=lions,bears, 6=tigers}
+// className: ConcurrentHashMap
 ```
-* The particular class is not guaranteed, only that the class is a `ConcurrentMap` implementation!
-* Here's an example of using `groupingBy()`:
+* Here is an example of replacing `groupingBy()`:
 ```java
-Stream<String> ohMy = Stream.of("lions", "tigers", "bears").parallel();
-ConcurrentMap<Integer, List<String>> map = ohMy
-    .collect(Collectors.groupingByConcurrent(String::length));
-System.out.println(map); // {5=[lions, bears], 5=[tigers]}
+Stream<String> ohMy = Stream.of("lions","tigers","bears")
+    .parallel();
+ConcurrentMap<Integer,List<String>> map =
+    ohMy.collect(Collectors.groupingByConcurrent(String::length));
+// {5=[lions, bears], 6=[tigers]}
+// className: ConcurrentHashMap
 ```

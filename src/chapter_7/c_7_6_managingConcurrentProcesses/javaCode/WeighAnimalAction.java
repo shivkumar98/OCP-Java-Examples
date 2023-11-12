@@ -1,4 +1,4 @@
-package chapter_7_v2.c_7_6_managingConcurrentProcesses.javaCode;
+package chapter_7.c_7_6_managingConcurrentProcesses.javaCode;
 
 import java.util.Arrays;
 import java.util.Random;

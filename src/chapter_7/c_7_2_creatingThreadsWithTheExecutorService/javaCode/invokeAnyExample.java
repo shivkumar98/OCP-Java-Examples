@@ -1,4 +1,4 @@
-package chapter_7_v2.c_7_2_creatingThreadsWithTheExecutorService.javaCode;
+package chapter_7.c_7_2_creatingThreadsWithTheExecutorService.javaCode;
 
 import java.util.ArrayList;
 import java.util.List;

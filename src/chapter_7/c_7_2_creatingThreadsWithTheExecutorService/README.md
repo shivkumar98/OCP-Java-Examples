@@ -2,218 +2,230 @@
 
 
 # 🧠 7.2 Creating Threads with the `ExecutorService`
+* The Concurrency API has the `ExecutorService` class which creates and manages threads for you.
+* You obtain an instance of this class, and send tasks to be processed.
+* This class has built in polling and scheduling.
 
-* Java introduced `ExecutorService` with the `Concurrency API`, this service creates/manages threads for you.
-* You first obtain an instance of `ExecutorService` interface, and then send the service task to be processed.
-* This framework consists of thread pooling and scheduling features.
+
+
 
 <hr>
 
 ## 🟥 7.2.1 Introducing the Single-Thread Executor
-* We can obtain an instance of the `ExecutorService` using the `Executors` factory class.
-* Here is an example using `newSingleThreadExecutor()`:
+* We have an `Executor` factory class to get an instance of ExecutorService.
+* Here is an example of using `Executor.newSingleThreadExecutor`:
 ```java
 import java.util.concurrent.*;
-
 public class ZooInfo {
     public static void main(String[] args) {
         ExecutorService service = null;
         try {
             service = Executors.newSingleThreadExecutor();
             System.out.println("begin");
-            service.execute(() -> System.out.println("Printing zoo inventory"));
-            service.execute(() -> {for(int i=0;i<3;i++)
-                System.out.println("Printing record: "+i);}
+            service.execute(
+                () -> System.out.println("Printing zoo inventory"));
+            service.execute(() -> {
+                for(int i=0;i<3;i++)
+                System.out.println("Printing record: "+i);
+                }
             );
             service.execute(() -> System.out.println("Printing zoo inventory"));
-            System.out.println("end");
+            System.out.println("end");   
         } finally {
-            if(service != null) service.shutdown();
+            if(service!=null) service.shutdown();
         }
     }
 }
 ```
-* In this example, we only use one thread. Here is a possible output for this code snippet:
+* This example uses exactly ONE thread, and all the tasks are completely asynchrously. Here is an example output:
 ```
 begin
 Printing zoo inventory
+end
 Printing record: 0
 Printing record: 1
-end
 Printing record: 2
 Printing zoo inventory
 ```
-* The operations run in the order that they are called
-* The `end` being printed is due to the `main()` method having its own thread.
+* Notice how the end text is displayed but the executor service - this is because the `main()` thread is INDEPENDENT of the thread from ExecutorService.
 
 <hr>
 
 ## 🟥 7.2.2 Shutting Down a Thread Executor
-* Once you are finished using a thread executor, it is important to call the `shutdown()` method.
-* Using thread executor, we create a `non-daemon` thread on the first task which is executed. Failing to call `shutdown()` will result in your application never terminating.
-* The shutdown process for a thread executor involves first rejecting any new tasks submitted to the thread executor while continuing to execute any previous submitted tasks.
-* During this time, calling `isShutdown()` will return true and `isTerminated()` will return false.
-* If a new task is submiutted while thread executor is shutting down, a `RejectedExecutionException` is thrown.
-* Once all active tasks have been completed, `isShutdown()` and `isTerminated()` will both return true.
-* The `ExecutorService` life cycle looks like:
-```          shutdown()                       All Tasks Finished
-|Active| ---------------->  |Shutting Down| ---------------------> |Shutdown|
-Accepts new tasks           Rejects new tasks                      Rejects new tasks
-Executes tasks              Executes tasks                         No tasks running
-isShutdown() = false        isShutdown() = true                    isShutdown()=true
-isTerminated() = false      isTerminated() = false                 isTerminated()=true
-```
+* You need to call the `shutdown()` method when you are finished with a thread executor. If you do not the application will never terminate.
+* The `ExecutorService` has the following shutdown process:
+1) Reject any new tasks while continuing with previously submitted tasks.
+    - If a new task is submitted to the thread executor, a `RejectedExecutionException` is thrown
+    - `isShutdown() = true`
+    - `isTerminatedFalse() = false`
+2) When all active tasks are completed, the lifecycle is complete
+    - `isShutDown() = true`
+    - `isTerminated() = true`
 
-* For the exam, I need to be aware that `shutdown()` does not stop any tasks which have already been SUBMITTED
-* The `ExecutorService` provides a `shutdownNow()` method which ATTEMPTS to stop all running tasks and discards any which have not started yet.
-* This method returns a `List<Runnable>` of tasks which were submitteed to the thread executor but were never started.
-
-### 🟡 Finally Shutting Down a Thread Executor
-* ExecutorService does NOT implement `AutoCloseable`, so you can not use a try-with-resources statement. You can use a `finally` block which is not required but considered good practice:
-```java
-ExecutorService service = null;
-try {
-    service = Executors.newSingleThreadExecutor();
-    // Add tasks to thread executor
-} finally {
-    if(service!=null) service.shutdown();
-}
-```
 
 
 <hr>
 
 ## 🟥 7.2.3 Submitting Tasks
-* You can submit tasks to an ExecutorService in multiple ways
-* The first way is to use `execute()` which is inherited from the `Executor` interface (ExecutorService extends Execute)
-    - The `execute()` method takes a `Runnable` lambda expression or instance which completes the task asynchrously
-    - This is a **fire-and-forget** type use as the results are not readily available
-* The ExecutorService also has a `submit()` method whichh can also do tasks asynchrously, it returns a `Future` object which can determine if the task is complete.
-
+1) We can execute tasks to be done asynchrously using the `execute()` methood which takes a `Runnable` lambda or implementation. The return type is `void` - so we do not know the result of the task
+2) We can submit tasks to be done asynchrously and obtain a `Future<T>` object using `submit()`
+3) We can send off a set of taks using `invokeAll()` and `invokeAny()`
+    - `invokeAll()` will synchrously return the results of all tasks as a Collection of Future objects. 
+    - `invokeAny()` will synchrously return the result of any one of the finished tasks, cancelling any unfinished tasks.
 ### 🟡 execute() vs submit()
-* The submit() does the same thing as execute() but returns an object which can be used to track the result.
-* It is recommended to use `submit()` over `execute()`, which shall be used for the rest of this chapter.
-
+* `execute()` does not support `Callable` expressions.
 
 ### 🟡 Submitting Task Collections
-* The `invokeAll()` and `invokeAny()` take a `Collection` object which contains a list of tasks to execute.
-* Both of these methods execute synchrously - the program will wait for the results before returning control to enclosing program.
-* The `invokeAll()` method executes a collections of tasks and returns a `List` of ordered `Future` objects and `Future.isDone()` returns true for all the items.
-* The `invokeAny()` method executes a collections of tasks, and returns the result of one of the tasks which succesfully completed execution (unfinished tasks get cancelled). The result is not guranteed!
-* The `ExecutorService` interface includes overloaded versions of these methods which takes a timeout value and `TimeUnit` parameter.
+* The `invokeAny()` and `invokeAll()` methods are **SYNCHRONOUS** - they will wait for results to be available before returning control to the enclosing program.
+* `invokeAll()` executes all tasks in the collection and returns a `List` of ordered `Future` objects. This method will wait indefinitely till all tasks are completed.
+* `invokeAny()` executes a collection of tasks and returns the result of one of the tasks that successfully completed execution. This method will only wait till one task is complete.
+
+* Here is an example of using `invokeAll()`:
+```java
+class CallableClass implements Callable<String> {
+	private int i;
+	public CallableClass(int i) {
+		this.i = i;
+	}
+	public String call() throws Exception {
+		return ""+i;
+	}
+}
+
+// MAIN METHOD:
+public static void main(String[] args) {
+    ExecutorService service = null;
+    try {
+        service = Executors.newFixedThreadPool(2);
+        List<Callable<String>> list = 
+                List.of(new CallableClass(1),
+                        new CallableClass(2),
+                        new CallableClass(3),
+                        new CallableClass(4)
+                        );
+        List<Future<String>> futureList = service.invokeAll(list);
+        for (Future<String> future: futureList)
+            System.out.println(future.get());
+    } finally {
+        service.shutdown();
+    }
+}
+```
+* The above code prints:
+```
+1
+2
+3
+4
+```
+
 
 <hr>
 
 ## 🟥 7.2.4 Waiting For Results
-* The `submit()` method returns a `java.util.concurrent.Future<V>`:
+* The `submit()` method returns a `Future<V>` object:
 ```java
 Future<?> future = service.submit(() -> System.out.println("Hello Zoo"));
 ```
-* The `Future` class has the following methods:
-1) `boolean isDone()` - returns if the task is completed, threw exception or cancelled
-2) `boolean isCancelled()` - returns true if the task is cancelled before finishing normally
+* This `future` object has the following methods:
+1) `boolean isDone()` - true if the task was complete, threw an exception or cancelled
+2) `boolean isCancelled()` - true if cancelled before completed normally
 3) `boolean cancel()` - attempts to cancel execution of the task
-4) `V get()` - returns result of task, waits endlessly if not yet available
-5) `V get(long timeout, TimeUnit unit)` - retrieves result of task, waiting the timeout. If result is not ready after timeout, a checked `TimeoutException` is thrown
+4) `V get()` - obtains result, will wait endlessly if not available
+5) `V get(long timeout, TimeUnit unit)` - obtains the result waiting the specified time. If unavailable then `TimeoutException` is thrown.
 
-* Here's the example of the polling example using submit:
+* We previously wrote a `CheckResults` class using thread polling:
 ```java
-import java.util.concurrent.*;
 public class CheckResults {
     private static int counter = 0;
-    public static void main() throws InterruptedException, ExecutionException {
+    public static void main(String[] args) throws InterruptedException {
+
+        new Thread(() -> {
+            for(int i=0;i<500;i++) CheckResults.counter++;
+        }).start();
+        while (CheckResults.counter<100) {
+            System.out.println("Not reached yet");
+            Thread.sleep(1000); // 1 SECOND
+        }
+        System.out.println("Reached");
+    }
+}
+```
+* Here is the same class which uses a Future object:
+```java
+public class CheckResults {
+    private static int counter = 0;
+    public static void main(String[] args) throw InterruptedException, ExecutionException {
         ExecutorService service = null;
         try {
             service = Executors.newSingleThreadExecutor();
-            Future<?> result = service.submit(() -> {
-                for(int i=0; i<500; i++) CheckResults.counter++;
+            Future<?> future = service.submit(() -> {
+                for(int i=0;i<500;i++) CheckResults.counter++;
             });
-            results.get(10, TimeUnit.SECONDS);
+            future.get(10, TimeUnit.SECONDS);
             System.out.println("Reached");
         } catch (TimeoutException e) {
             System.out.println("Not reached in time");
         } finally {
-            if(service != null) service.shutdown();
+            if(service!=null) service.shutdown();
         }
     }
 }
 ```
-* Instead of doing complex things with Threads directly, the Concurrency API enables us to do it through a more simple interface. It waits at most for 10s, or throws a TimeoutException if the task is not done.
-
+* This implementation does not use the Thread class directly - which is the exact purpose of the Concurrency API.
 
 ### 🟡 Introducing Callable
-* When the Concurrency API was release in Java 5, it introduced the `java.util.concurrent.Callable` interface. It is similar to `Runnable` except it has a `call()` method which returns a value and can throw a checked exception.
-* Callable is a functional interface defined as:
+* Java 5 introduced the `Callable` interface. It has a `call()` which returns a value:
 ```java
 @FunctionalInterface public interface Callable<V> {
     V call() throws Exception;
 }
 ```
-* `ExecutorService` has an overloaded `submit()` method which takes a `Callable` object and returns a generic `Future<T>` object.
-* Calling the get() method on Future does NOT ALWAYS rturn null, it CAN return a generic type
-
-### 🟡 Ambigious Lambda Expressions: Callable vs Supplier
-* Callable is very similar to `Supplier` as it takes no arguments and returns a generic type
-* A difference is that Callable can throw aa checked exception
-* This makes telling lambda expressions apart is difficult
-* Consider the example which uses the same lambda expression for three different method calls:
-```java
-public class AmbigouosLambdaSample {
-    public static void useCallable(Callable<Integer> expression){}
-    public static void useSupplier(Supplier<Integer> expression){}
-
-    public static void use(Supplier<Integer> expression) {}
-    public static void use(Callable<Integer> expression) {}
-    public static void main() {
-        useCallable(() -> {throw new IOException();});
-        useSupplier(() -> {throw new IOException();}); // COMPILER ERROR
-        use(() ->{throw new IOException();}); // COMPILER ERROR
-    }
-}
-```
-* The second line clearly does not compile, as supplier does not throw checked exceptions!
-* For the last line, the compiler does not take the body of the lambda expression into account. As a result it can not tell if it is a Supplier or Callable
-* This is called **ambigious lambda expression**
-* We can resolve this compiler error by using an explicit cast:
-```java
-use((Callable<Integer>)() -> {throw new IOException("");});
-```
+* In comparison, the Runnable interface has a `run()` method which returns void and throws no checked exceptions.
+* The `ExecutorService` has an overload for `submit()` which takes a `Callable` and returns `Future<T>`
 * Here is an example of using `Callable`:
 ```java
-import java.util.concurrent.*;
-
 public class AddData {
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
+    public static void main(String[] args) throws InterruptedException,
+        ExecutionException {
         ExecutorService service = null;
-	    try {
-	        service = Executors.newSingleThreadExecutor();
-	        Future<Integer> result = service.submit(() -> 30+11);
-	        System.out.println(result.get()); // 41
-	    } finally {
-	        if(service != null) service.shutdown();
-	    }
+        try {
+            service = Executors.newSingleThreadExecutor();
+            Future<Integer> result =
+                service.submit(() -> 30+11);
+            System.out.println(result.get());
+        } finally {
+            if(service!=null) service.shutdown();
+        }
     }
 }
 ```
-* The Callable interface supports a return type when using ExecutorService.
+
+### 🟡 Checked Exceptions in Callable and Runnable
+* The `Callable` interface allows you to throw a checked exception. Meaning if you are supplied a lambda to the `Executors.submit()` and it DOES return something, you can write statements which have checked exceptions
+* Conversely, the `Runnable` interface does not allow for exceptions. Meaning if you use a lambda expression which does not return anything, you can not write statements which throw checked exceptions
+```java
+service.submit(() -> {Thread.sleep(1000); return null;}); // compiles fine
+service.submit(() -> {Thread.sleep(1000);}); // COMPILER ERROR
+```
 
 ### 🟡 Waiting for All Tasks to Finish
-
-* After submitting a set of tasks to the thread executor, it is common to wait for the results; we can call `.get()` on each Future object returned by submit.
-* If do not need results of the tasks and are finished with the thread executor we can shutdown the thread using `shutdown()` and use `awaitTermination(long timeout, TimeUnit unit)` which waits for all tasks to finish in allotted time, and returns sooner if all tasks finish or InterruptedException is detected.
+* We can use the `Future.get()` method to wait for the results to finish
+* If we do not ned the results of tasks and finished with our thread executor we can use the `awaitTermination(long timeout, TimeUnit unit)` method which waits for a specified time for all tasks to finish.
+* E.g.:
 ```java
 ExecutorService service = null;
 try {
-    service = Executor.newSingleThreadExecutor();
-    // add tasks to the thread executor
+    service = Executors.newSingleThreadExecutor();
+    // tasks...
 } finally {
-    if(service != null) service.shutdown();
+    if(service!=null) service.shutdown();
 }
-if (service != null) {
-    service.awaitTermination(1, TimeUnit.MINUTES)s;
+if (service!=null) {
+    service.awaitTermination(1, TimeUnit.MINUTES);
     // check if all tasks are finished:
     if(service.isTerminated())
-        System.out.println("All tasks finished");
+        System.out.println("All tasks finished")l
     else
         System.out.println("At least one task is still running");
 }
@@ -223,48 +235,26 @@ if (service != null) {
 <hr>
 
 ## 🟥 7.2.5 Scheduling Tasks
-* The `ScheduledExecutorService` is a subinterface of `ExecutorService`. We can use an instance of this class to schedule a task which needs to happen repeatedly for a given interval.
-* We can get an instance via a factory method:
+* The `ScheduledExecutorService` is a subinterface of `ExecutorService` which lets you schedule a task which needs to be done repeatedly for some fixed interval
+* We obtain an instance using the `Executors` factory class:
 ```java
 ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 ```
-* The `ScheduledExecutorService` has the following methods:
-1) `schedule(Callable<V> callable, long delay, TimeUnit unit)` - creates and executes a Callable task after the given delay
-2) `schedule(Runnable command, long delay, TimeUnit unit)` - creates and executes a Runnable task after the given delay
-3) `scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)` - creates a new task after initial delay, and new tasks after each period delay
-4) `scheduleAtFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit)` - creates a new task after initial delay, and commences new task after termination of previous task + period delay
+* We have the following methods for `ScheduledExecutorService`:
+1) `schedule(Callable<V> callable, long delay, TimeUnit unit)` - executes the callable after the given delay - returns a `ScheduledFuture<V>`
+2) `schedule(Runnable runnable, long delay, TimeUnit unit)` - executes the runnable after the given delay - returns a `ScheduledFuture<V>`
+3) `scheduleAtFixedRate(Runnable runnable, long initialDelay, long period, TimeUnit unit)` - executes the runnable after the initial delay, and creates and executes the runnable every period value
+4) `scheduleAtFixedDelay(Runnable runnable, long initialDelay, long delay, TimeUnit unit)` - executes the runnable after the initial delay, and commences the next runnable after the termination + delay value
 
-* Here is an example of using the `schedule()` method:
-```java
-ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-Runnable task1 = () -> System.out.println("Hello Zoo");
-Callable<String> task2 = () -> "Monkey";
-
-Future<?> result1 = service.schedule(task1, 10, TimeUnit.SECONDS);
-Future<?> result2 = service.schedule(task2, 8, TimeUnit.SECONDS);
-```
 
 <hr>
 
 ## 🟥 7.2.6 Increasing Concurrency with Pools
-* So far we have only instantiated single thread executors. We shall now look at thread pools which will allow us to do more concurrent tasks.
-* A **thread pool** is a group of pre-instantiated threads which are available to perform any number of tasks.
-* Here are some methods from the `Executors` class:
-1) `newSingleThreadExecutor()` - returns `ExecutorService`. Creates a single-threaded executor operating off an unbounded queue. Results are processed in order they're submitted
-2) `newSingleThreadScheduledExecutor()` - returns `ScheduledExecutorService`. Creates a single-threaded executor which can schedule commands after delay/period
-3) `newCachedThreadPool()` - returns `ExecutorService`. Creates a thread pool which can create new threads as needed (able to resue available threads)
-4) `newFixedThreadPool(int nThreads)` - returns `ExecutorService`. Creates a thread pool which resuses a fixed number of threads
-5) `newScheduledThreadPool(int nThreads)` - returns `ScheduledExecutorService`. Creates a\ thread pool that can schedule commands to run after a given delay/period
+* A **thread pool** is a group of pre-instantiated threads which can be reused to perform some tasks
+* We can create a thread pool using the following methods from Executors:
+1) `newCachedThreadPool()` - Created a thrad pool which creates threads when needed but will also reuse old threads which are available
+2) `newFixedThreadPool(n threads)` - Creates a thread pool, and only reuses a fixed amount of threads
+3) `newFixedScheduledThreadPool(n threads)` - creates a thread pool whicvh can schedule commands to run after a given delay or period
 
-* A single thread executor will wait for the thread to become available before running next task. A pooled thread executor can run tasks concurrently. If the pool is out of threads, the task will be queued by the thread executor.
-
-* The `newCachedThreadPool()` will created an unbounded thread pool, allocating new threads whenever required. This is strongly discouraged, but can be used for short-lived asynchrous tasks
-* The `newFixedThreadPool()` will bound the number of threads. If the number of tasks < nThreads, all tasks will execute concurrently.
-* The `newScheduledThreadPool()` is identical to the above but returns an instance of `ScheduledExecutorService()`.
 
 ### 🟡 Choosing a Pool size
-* You generally want a handful more threads than you could possibly ever need. You do not want to consume too much resources/cpu power.
-* The CPU count can be determined with the following command:
-```java
-Runtime.getRuntime().availableProcessors()
-```

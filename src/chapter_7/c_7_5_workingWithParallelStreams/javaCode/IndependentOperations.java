@@ -1,4 +1,4 @@
-package chapter_7_v2.c_7_5_workingWithParallelStreams.javaCode;
+package chapter_7.c_7_5_workingWithParallelStreams.javaCode;
 
 import java.util.Arrays;
 

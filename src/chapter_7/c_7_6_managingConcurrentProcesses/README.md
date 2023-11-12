@@ -1,294 +1,294 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
 # 🧠 7.6 Managing Concurrent Processes
-* The Concurrency API includes classes which enable you to coordinate tasks between related threads.
-* These classes are for very specific scenarios
-* The classes I need to know for OCP:
+* The concurrency API includes the following classes to to coordinate tasks among thread groups:
 1) `CyclicBarrier`
 2) `ForkJoinPool`
 
+<br><hr>
+
 ## 🟥 7.6.1 Creating a CyclicBarrier
-
-### 🟡 Introducing CyclicBarrier
-* Suppose we have a lion pen which needs to be emptied, cleaned, and then filled back up with lions. We have 4 zoo workers, we do not want the to start cleaning when lions are present, and we do not want them to return until cleaning is complete.
-* We want all four workkers to work concurrently, pausing between the end of one set of tasks and the start of the next.
-* We use the `CyclicBarrier` class to achieve this, let's start the code without this though:
+* Suppose we have the following situation where we have lions in a cage, and 4 zoo workers who need to coordinate the following tasks:
+1) Remove lions from the cage - only 1 worker can move a lion at a time
+2) Clean the cage - can only be done when lions are cleared
+3) Bring in the lions - can only be done when cage is cleaned
+* The Zoo worker would have the following class:
 ```java
-import java.util.concurrent.*;
-public class LionPenManager {
-    private void removeAnimals() { System.out.println("Removing animals"); }
-    private void cleanPen() { System.out.println("Cleaning the pen"); }
-    private void addAnimals() { System.out.println("Adding animals"); }
-
-    public void performTask() {
-        removeAnimals(); cleanPen(); addAnimals();
-    }
-
-    public static void main() {
-        ExecutorService service = null;
-        try {
-            service = Executors.newFixedThreadPool(4);
-            LionPenManager manager = new LionPenManager();
-            for(int i=0;i<4;i++)
-                service.submit(() -> manager.peformTask());
-        } finally {
-            if(service != null) service.shutdown();
-        }
-    }
+public void LionPenManager {
+    void removeLion() {
+		System.out.println(Thread.currentThread().getId()+" Removing Lion");
+	}
+	void cleanCage() {
+		System.out.println(Thread.currentThread().getId()+" Cleaning cage");
+	}
+	void addLion() {
+		System.out.println(Thread.currentThread().getId()+" Adds Lion");
+	}
+	public void performTasks() {
+		removeLion();
+		cleanCage();
+		addLion();
+	}
 }
 ```
-* Here is a sample output based on the above:
-```
-Removing animals
-Removing animals
-Cleaning the pen
-Adding animals
-Removing animals
-Cleaning the pen
-Adding animals
-Removing animals
-Cleaning the pen
-Adding animals
-Cleaning the pen
-Adding animals
-```
-* Due to this being multithreaded, the order is completely random.
-* We can improve these results by using `CyclicBarrier`, this class takes a limit value - number of threads to wait for
-* As each thread finishes, it calls the await method on the cyclic barrier. Once the specified number of threads have each called `await()`, the barrier is release and all threads can continue.
-* Here's an implementation using `CyclicBarrier`:
+* Without any intervention, if I wrote an application in which 4 managers did NOT coordinate tasks:
 ```java
-import java.util.concurrent.*;
-public class LionPenManager {
-    private void removalAnimals() { System.out.println("Removing animals"); }
-    private void cleanPen() { System.out.println("Cleaning the pen"); }
-    private void addAnimals() { System.out.printn("Adding animals"); }
-
-    public void performTask(CyclicBarrier c1, CyclicBarrier c2) {
-        try {
-            removeAnimals();
-            c1.await();
-            cleanPen();
-            c2.await();
-            addAnimals();
-        } catch (InterruptedException | BrokenBarrierException e) {
-            // Handle checked exceptions here
-        }
-    }
-    public static void main() {
-        ExecutorService service = null;
-        try {
-            service = Executor.newFixedThreadPool(4);
-            LionPenManager manager = new LionPenManager();
-            CyclicBarrier c1 = new CyclicBarrier(4);
-            CyclicBarrier c2 = new CyclicBarrier(4,
-                () -> System.out.println("*** Pen Cleaned!"));
-            for(int i=0;i<4;i++)
-                service.submit(() -> manager.performTask(c1,c2));
-        } finally {
-            if(service != null) service.shutdown();
-        }
-    }
+ExecutorService service = Executors.newFixedThreadPool(4);
+LionPenManager manager = new LionPenManager();
+try {
+    for (int i=0;i<4;i++) // 4 lions
+        service.submit(() -> manager.performTasks());
+} finally {
+    if(service!=null) service.shutdown();
 }
 ```
-* Here is the following sample output based on the above implementation:
+* Running this application will print:
 ```
-Removing animals
-Removing animals
-Removing animals
-Removing animals
-Cleaning the pen
-Cleaning the pen
-Cleaning the pen
-Cleaning the pen
-*** Pen Cleaned!
-Adding animals
-Adding animals
-Adding animals
-Adding animals
+18 Removing Lion
+18 Cleaning cage
+18 Adds Lion
+15 Removing Lion
+17 Removing Lion
+16 Removing Lion
+16 Cleaning cage
+16 Adds Lion
+17 Cleaning cage
+15 Cleaning cage
+17 Adds Lion
+15 Adds Lion
 ```
+* Clearly this is not achieving what we expect!
+<br>
 
-
-### 🟡 Thread Pool Size and Cyclic Barrier Limit
-* The number of available threads must be equal or greater to the CyclicBarrier limit value.
-* E.g., if we have the following snippet, the code will hang indefinitely as this is a form of deadlock:
+* We can create a logical barrier for our program, which will restrict the threads from moving to the next tasks until the current task is completed!
+* We update the `performTask()` method such that it accepts a CyclicBarrier:
 ```java
-ExecutorService service = Executors.newFixedThreadPool(2);
+public void performTasks(CyclicBarrier c1) {
+    try {
+        removeLion();
+        c1.await();
+        cleanCage();
+        addLion();
+    }
+}
+// MAIN METHOD:
+ExecutorService service = Executors.newFixedThreadPool(4);
+LionPenManager manager = new LionPenManager();
+CyclicBarrier c1 = new CyclicBarrier(4);
+try {
+    for(int i=0;i<4;i++)
+        service.submit(() -> manager.performTask(c1));
+} finally {
+    if(service!=null) service.shutdown();
+}
 ```
+* We update the main program and supply a `CyclicBarrier(int parties)` object.
+* Now when a thread calls `removeLion()`, it will be paused by `c1.await()` until the number of `parties` from the CyclicBarrier is reached (4 in this case)
+* Now if we run this code, we get the following result:
+```
+15 Removing Lion
+17 Removing Lion
+18 Removing Lion
+16 Removing Lion
+17 Cleaning cage
+16 Cleaning cage
+16 Adds Lion
+17 Adds Lion
+15 Cleaning cage
+15 Adds Lion
+18 Cleaning cage
+18 Adds Lion
+```
+* We have now ensured, that the threads will not begin the other tasks until the CyclicBarrier limit is achieved.
+* We still need the `addLion()` to be coordinated:
+```java
+public void performTasks(CyclicBarrier c1, CyclicBarrier c2) {
+    try {
+        removeLion();
+        c1.await();
+        cleanCage();
+        c2.await();
+        addLion();
+    } catch (Exception e) {
+        // handle exception
+    }
+}
+// MAIN METHOD:
+ExecutorService service = Executors.newFixedThreadPool(4);
+LionPenManager manager = new LionPenManager();
+CyclicBarrier c1 = new CyclicBarrier(4);
+CyclicBarrier c2 = new CyclicBarrier(4);
+try {
+    for(int i=0;i<4;i++)
+        service.submit(() -> manager.performTasks(c1,c2));
+    
+} finally {
+    if(service!=null) service.shutdown();
+}
+```
+* Running the application:
+```
+16 Removing Lion
+18 Removing Lion
+15 Removing Lion
+17 Removing Lion
+15 Cleaning cage
+17 Cleaning cage
+16 Cleaning cage
+18 Cleaning cage
+15 Adds Lion
+18 Adds Lion
+17 Adds Lion
+16 Adds Lion
+```
+* The CyclicBarrier limit must be smaller or equal to the number of threads available, otherwise the code will hang indefinintely!
 
-* The `CyclicBarrier` class allows you to peform complex, multi-threaded tasks where threads stop at a logical barrier. This is better than single threaded as the same task types can be done concurrentlyu
-* There is a slight performance cost to using `CyclicBarrier` - one thread may be super slow which causes the other threads to wait
-* When a CyclicBarrier is broken, all threads are released and the number of threads waiting on the CyclicBarrier goes to zero.
 
-<hr>
+<br><hr>
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
-* Suppose we need to measure the weight of all the animals in our zoo. Furthermore, we ask exactly one person to perform this task and complete it in an hour. When we hace no idea how many tasks need to be performed, we can split the task into multiple other tasks using fork/join framework.
-
-
-<hr>
-
-### 🟡 Introducing Recursion
-* This framework is reliant on recursion to solve complex taskks.
-* Recursion is the process by which a task calls itself to solve a problem.
-* A recursive solution is created with a base case and recursive case:
-* BASE CASE: a non-recursive method that is used to terminate the recursive path
-* RECURSIVE CASE: a recursive method that may call itself 1 or more times to solve a problem.
-* E.g. heres how we can calculate a factorial using recursion:
-```java
-public static int factorial(int n) {
-    if(n<=1) return 1;
-    else return n*factorial(n-1);
-}
-```
-* If the base case never is reached, then the program will run infinitely; java throws a `StackOverflowError` anytime a recursion occurs too deeply
-<hr>
-
-
-* Let's use an array of Double values called weights, an suppose we have 10 animals in the zoo:
+* Suppose we need to weigh all the animals in the zoo.
+* If we had a single worker, it would take 1 hour to complete
+* Suppose we have 10 animals, so we initialise an array to store the weights:
 ```java
 Double[] weights = new Double[10];
 ```
-* We have a constraint that a person can weigh at most three animals in an hour.
-* Conceptually, we start off with a single zoo worker. They peform a recursive step by dividing the set of animals into two sets of 5
-* The set is then subdivided until each worker has at most 3 animals to weigh - this is the base case.
-* Applying the fork/join framework requires us to perform three steps:
+* We are constrained that a worker can only weight 3 animals in an hour.
+* The 10 animals are split into 5, and then the 5 is split to 2 and 3 animals.
+* We apply the fork/join framework with 3 steps:
 1) Create a `ForkJoinTask`
 2) Create the `ForkJoinPool`
 3) Start the `ForkJoinTask`
-* For the exam I need to know how to implement the fork/join solution by extending one of two classes: `RecursiveAction` and `RecursiveTask` - both are implementations of `ForkJoinTask` interface.
 
-<br>
+* We have the choice of extending either `RecursiveAction` or `RecursiveTask` (both implement `ForkJoinTask`)
 
 ### 🟡 Working with `RecursiveAction`
-
-* The `RecursiveAction` is an abstract class which requires us to implement the `void compute()` method to perform the bulk of the workk
-* The `RecursiveTask` is an abstract class which requires us to implement the `<T> T compute()` method to perform the bulk of the work.
-* Let's define a `WeightAnimalAction` which extends `RecursiveAction`:
+* This requires us to implement `void compute()` to perform the task:
 ```java
-import java.util.*;
-import java.util.concurrent.*;
 public class WeighAnimalAction extends RecursiveAction {
     private int start;
     private int end;
     private Double[] weights;
     public WeighAnimalAction(Double[] weights, int start, int end) {
-        this.weights = weights;
         this.start = start;
-        this.end = ends;
+        this.end = end;
+        this.weights = weights;
     }
     protected void compute() {
-        if(end-start < 3)
-            for(int i=start; i<end; i++) {
-                 weights[i] = (double)new Random().nextInt(100);
-                 System.out.println("Animal Weighed: "+i);
+        if(end-start <= 3)
+            for(int i=start;i<end;i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Anmal Weighed: "+i);
             }
         else {
-            int middle = start+((end-start)/2);
+            int middle = start + ((end-start)/2);
             System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
             invokeAll(new WeighAnimalAction(weights,start,middle),
                       new WeighAnimalAction(weights,middle,end));
         }
     }
+    public static void main(String[] args) {
+        Double[] weights = new Double[10];
+
+        ForkJoinTask<?> task = new
+            WeighAnimalAction(weights, 0, weights.length);
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(task);
+
+        // Printt results:
+        System.out.println("Weights: ");
+        Arrays.asList(weights).stream().forEach(
+            d -> System.out.println(d.intValue()+" ");
+        )
+    }
 }
 ```
-* We start by defining the task and the arguments on which the task will operate, such as `start`, `end` and `weights`.
-* We then override the `compute()` method which defines are base and recursive processes.
-* For the base case, we split the work from one `WeighAnimalAction` object into two `WeighAnimalAction` instances. The amount of work is not split evenly!
-* We create the `ForkJoinPool` and start the task:
-```java
-public static void main() {
-    Double[] weights = new Double[10];
-
-    ForkJoinTask<?> task = new WeighAnimalAction(weights,0,weights.length);
-    ForkJoinPool pool = new ForkJoinPool();
-    pool.invoke(task);
-
-    // Print results
-    System.out.println();
-    System.out.println("Weights: ");
-    Arrays.asList(weights).stream().forEach(
-        d -> System.out.print(d.intValue()+" "));
-}
+* Here is sample output:
 ```
-* By default the `ForkJoinPool` class will use the number of processes as the number of threads to create. The following is a sample output of this code:
-```
-[start,middle=5,end=10]
+[start=0,middle=5,end=10]
 [start=0,middle=2,end=5]
 Animal Weighed: 0
-Animal Weighed: 2
-[start=5,middle=7,end=10]
 Animal Weighed: 1
+Animal Weighed: 2
 Animal Weighed: 3
-Animal Weighed: 5
-Animal Weighed: 6
+Animal Weighed: 4
+[start=5,middle=7,end=10]
 Animal Weighed: 7
 Animal Weighed: 8
 Animal Weighed: 9
-Animal Weighed: 4
+Animal Weighed: 5
+Animal Weighed: 6
 
-Weights: 94 73 8 92 75 63 76 60 73 3
+Weights: 82 45 61 31 93 73 71 20 47 66
 ```
 
-<br>
+### 🟡 Working with a `RecursiveTask`
+* Suppose we wanted to find the sum while processing data.
+* We would need to extend `RecursiveTask`:
 
-### 🟡 Working with a RecursiveTask
-* Suppose we want to compute the sum of all weight values while processing the data.
-* Instead of extending `RecursiveAction`, we could extend the generic `RecursiveTask` to calculate and return each sum in the `compute()` methyod.
-* Here we use `RecursiveTask<Double>`:
 ```java
 public class WeighAnimalTask extends RecursiveTask<Double> {
-    private int start;
-    private int end;
-    private Double[] weights;
-    public WeighAnimalTask(Double[] weights, int start, int end) {
-        this.start = start;
-        this.end = end;
-        this.weights = weights;
-    }
-    protected Double compute() {
-        if(end-start<3) {
-            double sum = 0;
-            for(int i=start; i<end; i++) {
-                weights[i] = (double)new Random().nextInt(100);
-                System.out.println("Animal Weighed: "+i);
-                sum += weights[i];
-            }
-            return sum;
-        } else {
-            int middle = start+((end-start)/2);
-            System.out.println("[start"+start+",middle="+middle+",end="+end+"]");
-            RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
-            otherTask.fork();
-            return new WeighAnimalTaskk(weights,middle,end).compute() + otherTask.join;
-        }
-    }
+	private int start;
+	private int end;
+	private Double[] weights;
+	public WeighAnimalTask(Double[] weights, int start, int end) {
+		this.start = start;
+		this.end = end;
+		this.weights = weights;
+	}
+	@Override
+	protected Double compute() {
+		if (end - start <= 3) {
+			double sum = 0;
+			for (int i=start; i<end;i++) {
+				weights[i] = (double) new Random().nextInt(100);
+				System.out.println("Animal "+i+ " Weighed: "+weights[i]);
+				sum += weights[i];
+			}
+			return sum;
+		} else {
+			int middle = start+((end-start)/2);
+			System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+			RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+			otherTask.fork();
+			return new WeighAnimalTask(weights,middle,end).compute()+otherTask.join();
+		}
+	}
+	 public static void main(String[] args) {
+		Double[] weights = new Double[10];
+		ForkJoinTask<Double> task = new WeighAnimalTask(weights,0,weights.length);
+		ForkJoinPool pool = new ForkJoinPool();
+		Double sum = pool.invoke(task);
+		System.out.println("final sum: "+sum);
+	}
 }
 ```
-* The base case is mostly unchanged, except for returning a sum value, the recursice case is much different.
-* `invokeAll()` method doesn't return a value, so we instead issue a `fork()` and `join()` command to retrieve the recursive data.
-* The `fork()` method instructs the fork/join frameworkkd  to complete the task in a seperate thread, while the `join()` method causes the current thread to wait for the results.
-* We compute the `[middle,end]` range using the current thread, and the `[start,middle]` range in another thread.
-* We then combine the results, waiting for the otherTask to complete.
-* We can then update the main method to include the results of the entire task:
-```java
-ForkJoinTask<Double> task = new weighAnimalTask(weights,0,weights.length);
-ForkJoinPool pool = new ForkJoinPool();
-Double sum = pool.invoke(task);
-System.out.println("Sum: "+sum);
+* Here's a sample output:
+```
+[start=0,middle=5,end=10]
+[start=5,middle=7,end=10]
+[start=0,middle=2,end=5]
+Animal 0 Weighed: 79.0
+Animal 1 Weighed: 52.0
+Animal 7 Weighed: 8.0
+Animal 5 Weighed: 98.0
+Animal 2 Weighed: 78.0
+Animal 6 Weighed: 47.0
+Animal 8 Weighed: 7.0
+Animal 3 Weighed: 53.0
+Animal 4 Weighed: 78.0
+Animal 9 Weighed: 60.0
+final sum: 560.0
 ```
 
-
-<br>
-
 ### 🟡 Identifying Fork/Join Issues
-* Tips for Reviewing a Fork/Join class:
-1) The class should extend `RecursiveAction` or `RecursiveTask`
-2) If the class extends `RecursiveAction`, then it should override a `protected compute()` method which takes no arguments and returns void.
-3) If the class extends `RecursiveTask`, it should override a `protected compute()` method which takes no arguments and returns a generic type listed in the class definition.
-4) The `invokeAll()` method takes two instances of the fork/join class and does not return a result.
+* Here are tips for using the Fork/Join Classes:
+1) The class should extend either `RecursiveAction` or `RecursiveTask`
+2) If the class extends `RecursiveAction` then it should override `protected void compute()`
+3) If the class extends `RecursiveTask` then it should override `protected V compute()`
+4) The `invokeAll()` methods needs to two instances of the fork/join class, it does not return a result
 5) The `fork()` method causes a new task to be submitted to the pool and is similar to the thread executor `submit()` method
-6) The `join()` method is calleed after the `fork()` method and causes the current thread to wait for the results of a subtask
-7) Calling `compute()` within a `compute()` method causes the task to wait for the results of the subtaskk
-8) The `fork()` method should be called before the current thread peforms a `compute()` operation, with `join()` called to read the results afterwards.
-9) Since `compute()` takes no arguments, the constructor of the class is often used to pass instructions to the task.
-
+6) The `join()` method is called after the `fork()` method and causes the current thread to wait for the results of a subtask
+7) Calling the `compute()` method within `compute()` causes the task to wait for the result of the subtask
+8) The `fork()` method should be called before the current thread performs a `compute()` operation, with `join()` called to read the results afterward
+9) The `compute()` method takes no class, so constructor of class is used to pass instructions to task

@@ -2,150 +2,166 @@
 
 
 # 🧠 7.1 Introducing Threads
-
-* A thread is the smallest unit of execution that can be scheduled by the operating system.
-* A process is a group of associated threads that execute in the same shared environment - threads in the same process can access the same memory space and can communicate with each other.
-* Single-threaded processes consist of only single threads, multi-threaded processes consist of one or more threads
-* A task is a single unit of work performed by a thread.
-* Throughtout this chapter, a task will commonly be expressed as a lambda expression.
+* A thread is the smallest unit of execution that can be scheduled by the OS
+* A process is a collection of threads executing in a shared environment - sharing same memoery space and communicate with each other.
+* **Single threaded process** is one which contains exactly one thread
+* **Multi threaded process** is one which contains one or more threads
+* Static variables enable us to perform multithreaded tasks. If one thread updates a static variables, than another thread can access this information immediately.
+* **Task** is a single unit of work performed by a thread.
 
 <hr>
 
 ## 🟥 7.1.1 Distinguishing Thread Types
-* All Java applications are multi-threaded, including the ones which print `Hello World!` to the screen - to understand this we shall go through concepts of system and user-defined threads.
-* A **system thread** is created by JVM and runs in the background
-      - E.g. garbage collection
-      - For the most part, system defined threads are invisible to the app developer
-      - If a system thread encounters a problem for which ist can not recover,, it will throw an `Error` instead of an `Exception`
-* A **user-defined thread** is one created by the developer to achieve a specific task
-      - All the apps contained a single user-defined thread which calls the main methof
-      - We commonly refer to apps which contain a single user-defined thread as single-threaded applications.
+* All java applications in this book have been multi-threaded!
+* **System thread** is created by JVM and runs in the background of the application.
+    - E.g. garbage collection is a system thread
+* If a system thread encounters a problem it generates a Java `Error` rather than `Exception`
+* **User-defined thread** is created by the developer to achieve a specific task.
+* We are often not concerned with system threads,
+
 
 <hr>
 
 ## 🟥 7.1.2 Understanding Thread Concurrency
-* We said that multi-threading allows the OS to execute multiple threads at the same time
-* Concurrency is the property of executing multiple threads at the same time
-* Only a multi-core, or multi-CPU, systems can execute multiple task at a time
-* The OS uses a `thread scheduler` to determine which threads should be executed concurrently
-* A thread scheduler enables the OS to run multiple processes at the same time even on a single core CPU
-* A thread scheduler may employ a round-robin schedule in which threads are assigned an equal number of CPU cycles to each thread.
-* Each thread is given an alotted time, if the thread does not finish then a `context switch` occurs - the thread's current state is stored which can be later restored to continue execution
+* **Concurrency** is the property of executing multiple threads and processes at the same time.
+* We can achieve concurrency with single core CPUs, in fact we often have more threads than cores.
+* Operating Systems use a **thread scheduler** to determine which threads should be currently executing.
+    - A thread scheduler may employ a `round-robin schedule`.
+    - A thread is given an allotted time, if the task does not finish within that time then a `context switch` occurs.
+    - A **context switch** is the process of storing a thread's current state.
+* `Thread priority` is a numeric value associated with the thread and is used by the thread scheduler to determine which threads should be executed.
 
-* A thread can interrupt another thread, if it has higher `thread priority` - this is a numeric value which the thread scheduler uses to figure out which thread should be executed currentlyl
-      - Thread priority in java is specified through integer values.
-      - Java has the following threaad priorty constants:
 
-| Constant Variable | Value  |
-| ----------------- | ------ |
-| Thread.MIN_PRIORITY | 1    |
-| Thread.NORM_PRIORTY | 5    |
-| Thrad.MAX_PRIORITY  | 10   |
 
 <hr>
 
 ## 🟥 7.1.3 Introducing Runnable
-* Runnable is a functional interface which takes no arguments and returns no data:
+* `java.lang.Runnable` is a functional interface which takes no arguments and returns no data:
 ```java
-@FunctionalInterface public interface Runnable {
-      void run();
+@Functionalnterface 
+public interface Runnable {
+    void run();
 }
 ```
-* This interface is used commonly to define work a thread will execute.
-* The following expressions rely on the above Runnable interface:
+* This interface is used to define the work a thread will execute, seperate from the main application thread.
+* The following lambda expressions ARE valid implementation of the Runnable interface:
 ```java
-() -> System.out.println("Hello World");
-() -> {int i=10; i++};
+() -> System.out.println("Hello World")
+() -> {int i=10; i++;}
+() -> {return;}
 () -> {}
 ```
+*  The followin are INVALID implementations of Runnable interface:
+```java
+() -> ""
+() -> 5
+() -> {return new Object();}
+```
+
+### 🟡 Creating Runnable Classes
+* The Runnable existed as an interface since Java 1, only Java 8 made it a functional interface
+* Here is a class which implements the interface:
+```java
+public class CalculateAverage implements Runnable {
+    public void run() {
+        // Define work here
+    }
+}
+```
+* It is common to pass data into the constructor:
+```java
+public class CalculateAverages implements Runnable {
+    private double[] scores;
+    public CalculateAverages(double[] scores) {
+        this.scores = scores;
+    }
+    public void run() {
+        // define work here which uses scores
+    }
+}
+```
+
 
 <hr>
 
 ## 🟥 7.1.4 Creating a Thread
-* The easiest way to execute a threads is to use `java.lang.Thread` and starting it using `Thread.start()`.
-* Java does not guarantee that a thread will be processed when started, it may be immediate or delayed slightly
-* We can define a task that a Thread instance will execute in two ways:
-1) Provide a Runnable object or lambda expression to Thread constructor
+* The simplest way to execute a thread is by using the `java.lang.Thread` class.
+* You first define the thread with a process to start and then call `Thread.start()`
+* Java does not guarantee that a task will be processed when the thread is started,
+* We can define the `Thread` instance will execute can be done in 2 ways
+1) Provide a `Runnable` object or lambda expression to the `Thread` constructor
+2) Create a subclass of `Thread` and override `run()` method
+* Examples:
 ```java
 public class PrintData implements Runnable {
-    public void run() {
-        for(int i=0; i<3; i++)
-            System.out.println("Printing record: "+i);
-    }
-    public static void main() {
-      (new Thread(new PrintData())).start();
-    }
+	public void run() {
+		for(int i=0;i<3;i++) 
+			System.out.println("Printing record: "+i);
+	}
+	public static void main(String[] args) {
+		new PrintData().run(); // prints 3 times
+		new Thread(new PrintData()).start(); // prints 3 times
+		new Thread(() -> System.out.println("using lambda")).start();
+		// prints "using lambda"
+	}
 }
 ```
-2) Create a class which extends `Thread` and overrides the run method
 ```java
 public class ReadInventoryThread extends Thread {
-    public void run() {
-        System.out.println("Printing zoo inventory");
-    }
-    public static void main() {
-      (new ReadInventoryThread()).start();
-    }
+	public void run() {
+		System.out.println("Print manga inventory");
+	}
+	public static void main(String[] args) {
+		(new ReadInventoryThread()).start();
+		// Print manga inventory
+	}
 }
 ```
-* The first approach is far more common. Whenever you start a task with `Thread.start()` it starts the task in a seperate OS thread.
-* What is the output of the following code snippet❓❓❓
+* When you start a task with `Thread.start()`, this starts the task in a seperate OS thread. E.g. what does the following print?
 ```java
-public static void main(String[] args) {
+public static void main() {
     System.out.println("begin");
     (new ReadInventoryThread()).start();
-    (new Thread(new PrintData())).start();
+    (new Thread(new PrintData)).start();
     (new ReadInventoryThread()).start();
     System.out.println("end");
 }
 ```
-* ANSWER: the output is unknown till runtime!✅ ✅ ✅ 
-* Running the code on my system prints the following:
+* The answer is that we do not know until runtime. This is just one possible output:
 ```
 begin
-Printing zoo inventory
-end
-Printing zoo inventory
+Print manga inventory
 Printing record: 0
+end
+Print manga inventory
 Printing record: 1
 Printing record: 2
 ```
-* This code uses 4 threads, the `main()` thread,, and three additional threads.
-* We can create threads and not call the `start()` method, if we call `run()` then the threads will execute on the thread it was called from. The thread will wait till its completed the previous task before moving to the next line
-* E.g.:
+* This uses a total of four threads (one for main method)
+* As we saw in the first example, we CAN call the `run()` method from a Runnable implementation, as well as call it from a constructed thread:
 ```java
-System.out.println("start");
 new PrintData().run();
 (new Thread(new PrintData())).run();
 (new ReadInventoryThread()).run();
-System.out.println("end");
 ```
-* This prints the following:
-```
-start
-Printing record: 0
-Printing record: 1
-Printing record: 2
-Printing record: 0
-Printing record: 1
-Printing record: 2
-Printing zoo inventory
-end
-```
+* It will not execute on a seperate thread, doing it this way
+* In general, you shouldn't extend the Thread class but instead implement the `Runnable` interface.
+
 
 <hr>
 
 ## 🟥 7.1.5 Polling with Sleep
-* **Polling** is the process of intermittently checking data at some fixed interval.
-* Suppose you have a thread which modifies a static vounter and your `main()` thread is to increase the value above 100:
+* **Polling** is checking data to see if a result is finished at some fixed interval
+* Suppose we have a thread which updates a static `counter` value in the `main()` thread and you want to check if the counter is > 100
+* We could do it using the following class:
 ```java
 public class CheckResults {
     private static int counter = 0;
-    public static void main() {    
+    public static void main(String[] args) {
+
         new Thread(() -> {
-            for(int i=0; i<500; i++)
-                CheckResults.counter++;
-            }).start();
+            for(int i=0; i<500;i++) CheckResults.counter++;
+        }).start();
         while(CheckResults.counter<100) {
             System.out.println("Not reached yet");
         }
@@ -153,21 +169,22 @@ public class CheckResults {
     }
 }
 ```
-* The code as is would be wildly inefficient! The while loop could execute a million times - this is bad practice! We can improve the efficiency by using `Thread.sleep()`:
+* In this class, the `while` loop could run indefinitely! This is BAD PRACTICE as we are consuming CPU resource unecessarily!
+* We can improve this class by using `Thread.sleep()`:
+
 ```java
 public class CheckResults {
     private static int counter = 0;
-    public static void main() throws InterruptedException {    
+    public static void main(String[] args) throws InterruptedException {
+
         new Thread(() -> {
-            for(int i=0; i<500; i++)
-                CheckResults.counter++;
-            }).start();
-        while(CheckResults.counter<100) {
+            for(int i=0;i<500;i++) CheckResults.counter++;
+        }).start();
+        while (CheckResults.counter<100) {
             System.out.println("Not reached yet");
-            Thread.sleep(1000); // 1 second
+            Thread.sleep(1000); // 1 SECOND
         }
         System.out.println("Reached");
     }
 }
 ```
-* This change has stopped the while rule running infinitely

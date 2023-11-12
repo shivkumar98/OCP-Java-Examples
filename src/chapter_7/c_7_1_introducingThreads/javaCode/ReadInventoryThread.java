@@ -1,4 +1,4 @@
-package chapter_7_v2.c_7_1_introducingThreads.javaCode;
+package chapter_7.c_7_1_introducingThreads.javaCode;
 
 public class ReadInventoryThread extends Thread {
 	public void run() {
