@@ -131,23 +131,25 @@ F. It compiles but enters an infinite loop at runtime <br>
 
 ### My answer:
 * The value of value1 is 100, but the value of value2 is undertermined
-* **C
+* **C**
 <hr>
 
 
 ## Question 5
-❓ ❓
+❓ Fill in the blanks: ________ occur(s) when two or more threads are blocked forever but both appear active. _________ occur(s) when two or more threads try to complete a related task at the same time ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. Livelock, Deadlock <br>
+B. Deadlock, Starvation <br>
+C. Race conditions, Deadlock <br>
+D. Livelock, Race conditions <br>
+E. Starvation, Race conditions <br>
+F. Deadlock, Livelock <br>
 ❓
 
 ### My answer:
-
+* The second blank is race conditions.
+* The first blank is Livelock
+* **D**
 <hr>
 
 ## Question 6
