@@ -167,18 +167,33 @@ E. The call to submit the task to the thread executor will wait until there is a
 <hr>
 
 ## Question 7
-❓ ❓
+❓ What is the result of executing the following code snippet? ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+List<Integer> l1 = Arrays.asList(1,2,3);
+List<Integer> l2 = new CopyOnWriteArrayList<>(l1);
+Set<Integer> s3 = new ConcurrentSkipListSet<>();
+s3.addAll(l1);
+
+for(Integer item: l2) l2.add(4); // x1
+for(Integer item: s3) s3.add(5); // x2
+System.out.println(l1.size()+" "+l2.side()+" "+s3.size());
+```
+
+A. It outputs `3 6 4` <br>
+B. It outputs `6 6 6` <br>
+C. It outputs `6 3 4` <br>
+D. The code does not compile <br>
+E. It compiles but throws an exception at runtime on line x1 <br>
+F. It compiles but throws an exception at runtime on line x2 <br>
+G. It compiles but enters an infinite loop at runtime <br>
+
 ❓
 
 ### My answer:
-
+* The code does compile!
+* l1 has size 3, l2 has size 6, s3 has size 4
+* **A**
 <hr>
 
 ## Question 8:
