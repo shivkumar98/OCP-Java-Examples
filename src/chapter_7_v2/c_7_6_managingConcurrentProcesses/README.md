@@ -280,6 +280,7 @@ Animal 4 Weighed: 78.0
 Animal 9 Weighed: 60.0
 final sum: 560.0
 ```
+
 ### 🟡 Identifying Fork/Join Issues
 * Here are tips for using the Fork/Join Classes:
 1) The class should extend either `RecursiveAction` or `RecursiveTask`
@@ -290,3 +291,4 @@ final sum: 560.0
 6) The `join()` method is called after the `fork()` method and causes the current thread to wait for the results of a subtask
 7) Calling the `compute()` method within `compute()` causes the task to wait for the result of the subtask
 8) The `fork()` method should be called before the current thread performs a `compute()` operation, with `join()` called to read the results afterward
+9) The `compute()` method takes no class, so constructor of class is used to pass instructions to task
