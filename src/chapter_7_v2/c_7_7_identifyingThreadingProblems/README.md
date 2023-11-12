@@ -93,6 +93,7 @@ If we removed the synchronized blocks, then both foxy and tail would've been abl
 ### 🟡 Livelock
 * **Livelock** is a special case of starvation. When two threads attempt to resolve a deadlock by continually attempting to acquire resources but are unable to do so, and restart part of the process
 
+
 <br><hr>
 
 ## 🟥 7.7.2 Managing Race Conditions
