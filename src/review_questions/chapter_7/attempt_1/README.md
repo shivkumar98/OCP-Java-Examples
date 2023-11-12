@@ -78,18 +78,35 @@ G. Both methods return void <br>
 <hr>
 
 ## Question 3
-❓ ❓
+❓ Which lines need to be changed to make the code compile? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+ExecutorService service = Executors.newSingleThreadScheduleExecutor();
+service.scheduleWithFixedDelay(() -> { // w1
+    System.out.println("Open Zoo");
+    return null; // w2
+}, 0, 1, TimeUnit.MINUTES);
+Future<?> result = service.submit(() -> System.out.println("Wake staff")); // w3
+System.out.println(result.get()); // w4
+```
+
+A. It compiles and runs without issue <br>
+B. Line w1 <br>
+C. Line w2 <br>
+D. Line w3 <br>
+E. Line w4 <br>
+F. It compiiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* Definitely does not compile
+* A - false
+* B - false, this is fine
+* C - false, this is fine
+* D - true, does not compile
+* E - false, this is fine
+* F - false
+* **D**
 <hr>
 
 ## Question 4:
