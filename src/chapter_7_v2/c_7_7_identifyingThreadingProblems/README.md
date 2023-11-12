@@ -96,3 +96,9 @@ If we removed the synchronized blocks, then both foxy and tail would've been abl
 <br><hr>
 
 ## 🟥 7.7.2 Managing Race Conditions
+* A **Race Condition** is a an undesirable result which occurs when two task are completed at the same time, when they should be done sequentially.
+* Suppose we have a website, and two different users attempt to register with username `ZooFan` at the same time
+* This is a race condition with the following outcomes:
+1) Both uses are able to register the username - UNDESIRABLE
+2) Both users are unasble to register - NOT UNDESIREABLE
+3) One user is able to register, while the other recieves an error messager - MOST DESIRABLE
