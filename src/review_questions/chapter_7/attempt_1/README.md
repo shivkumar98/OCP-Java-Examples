@@ -197,18 +197,34 @@ G. It compiles but enters an infinite loop at runtime <br>
 <hr>
 
 ## Question 8:
-❓ ❓
+❓ What statements about the following code are true? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+Integer i1 = Arrays.asList(1,2,3,4,5).stream().findAny().get();
+synchronized(i1) { // y1
+    Integer i2 = Arrays.asList(6,7,8,9,10)
+        .parallelStream()
+        .sorted() // y2
+        .findAny().get(); // y3
+    System.out.println(i1+" "+i2);
+}
+```
+
+A. It outputs `1 6` <br>
+B. It outputs `1 10` <br>
+C. The code will not compile because of line y1 <br>
+D. The code will not compile because of line y2 <br>
+E. The code will not compile because of line y3 <br>
+F. It compiles but throws an exception at runtime <br>
+G. The output cannot be determined ahead of time <br>
+H. It compiles but waits forever at runtime <br>
+
 ❓
 
 ### My answer:
-
+* i1 is 1
+* i2 is 6
+* **A**
 <hr>
 
 ## Question 9
