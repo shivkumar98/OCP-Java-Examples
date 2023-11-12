@@ -29,7 +29,8 @@ Score:
 | 18         |       |
 | 19         |       |
 | 20         |       |
-
+| 21         |       |
+| 22         |       |
 
 <hr>
 
@@ -52,18 +53,28 @@ F. `s.parallel()` <br>
 <hr>
 
 ## Question 2:
-❓ ❓
+❓ Which of the following statements abolut the `Callable call()` and `Runnable run()` methods are correct? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. Both can throw unchecked exceptions <br>
+B. Callable takes a generic method argument <br>
+C. Callable can throw a checked exception <br>
+D. Both can be implemented with lambda expressions <br>
+E. Runnable returns a generic type <br>
+F. Callable returns a generic type <br>
+G. Both methods return void <br>
 ❓
 
 ### My answer:
-
+* Callable does not return anything, it can throw a checked exception (as can Runnable)
+* Runnable returns a generic argument
+* A - true
+* B - false, callable does not take arguments
+* C - true
+* D - true
+* E - true
+* F - false
+* G - false
+* **A,C,D,E**
 <hr>
 
 ## Question 3
