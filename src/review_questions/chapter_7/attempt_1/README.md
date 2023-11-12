@@ -153,18 +153,17 @@ F. Deadlock, Livelock <br>
 <hr>
 
 ## Question 6
-❓ ❓
+❓ Which happens when more tasks are submitted to a thread executor than available threads? ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. The thread executor will throw an exception when a task is submitted that is over its thread limit <br>
+B. The task will be added to an internal queue and completed when there is an available thread <br>
+C. The thread executor will discard any task over its thread limit <br>
+D. The call to submit the task to the thread executor will wait until there is a thread available before continuing. <br>
+E. The call to submit the task to the thread executor will wait until there is a thread available before continuing <br>
 ❓
 
 ### My answer:
-
+* **B**
 <hr>
 
 ## Question 7
