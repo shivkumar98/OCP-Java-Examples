@@ -110,18 +110,28 @@ F. It compiiles but throws an exception at runtime <br>
 <hr>
 
 ## Question 4:
-❓ ❓
+❓ What statement about the following code is true? ❓
+```java
+AtomicLong value1 = new AtomicLong(0);
+final long[] value2 = {0};
+IntStream.iterate(1, i -> 1).limit(100).parallel()
+    .forEach(i -> value1.incrementAndGet());
+IntStream.iterate(1, i -> 1).limit(100).parallel()
+    .forEach(i -> ++value2[0]);
+System.out.println(value1+"  "+value2[0])
+```
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. It outputs 100 100 <br>
+B. It outputs 100 99 <br>
+C. The output cannot be determined ahead of time <br>
+D. The code does not compile <br>
+E. It compiles but throws an exception at runtime <br>
+F. It compiles but enters an infinite loop at runtime <br>
 ❓
 
 ### My answer:
-
+* The value of value1 is 100, but the value of value2 is undertermined
+* **C
 <hr>
 
 
