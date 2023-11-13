@@ -274,22 +274,37 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* MyTask inherits RecursiveTask
+* A - true, I think
+* B - false
+* C - true
+* D - true, I think
+* E - false, I dont think so
+* F - false, I dont think so
+* **A,C,D**
 <hr>
 
 ## Question 10
-❓ ❓
+❓ What statements about the following code are true? (Choose all that apply) ❓
+```java
+System.out.println(Arrays.asList("duck","chicken","flamingo","pelican")
+    .parallelStream().parallel() // q1
+    .reduce(0,
+        (c1, c2) -> c1.length() + c2.length(), // q2
+        (s1, s2) -> s1 + s2)); // q3
+```
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. It compiles and runs without issue, outputting the total length of all the strings in the stream <br>
+B. The code will not compile because of line q1 <br>
+C. The code will not compile because of line q2 <br>
+D. The code will not compile because of line q3 <br>
+E. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* I think it does compile, don't think there is an issue with any of the lines
+* calling parallel on a parallel stream is LEGAL i THINK
+* **A**
 <hr>
 
 ## Question 11
