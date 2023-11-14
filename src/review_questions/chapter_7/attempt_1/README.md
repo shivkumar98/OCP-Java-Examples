@@ -434,17 +434,27 @@ F. The output cannot be determined ahead of time <br>
 <hr>
 
 ## Question 15
-❓ ❓
+❓ Which of the following are valid `Callable` expressions? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. `a -> {return 10;}` <br>
+B. `() -> {String s = "";}` <br>
+C. `() -> 5` <br>
+D. `() -> {return null}` <br>
+E. `() -> "The" + "Zoo"` <br>
+F. `(int count) -> count+1` <br>
+G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 ❓
 
 ### My answer:
+* Callable takes no arguments, and returns something
+* A - invalid
+* B - invalid
+* C - valid
+* D - invalid, incorrect syntax
+* E - valid
+* F - invalid
+* G - valid
+* **C,E,G**
 
 <hr>
 
