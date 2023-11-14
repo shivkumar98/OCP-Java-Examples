@@ -403,23 +403,34 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-* I think it compiles fine!
+* I think it compiles fine!z
 * **B**
 <hr>
 
 ## Question 14:
-❓ ❓
+❓ What is thr result of the followsing method ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+public void addAndPrintItems(BlockingDeque<Integer> deque) {
+    deque.offer(103);
+    deque.offerFirst(20, 1, TimeUnitSeconds);
+    deque.offerLast(85, 7, TimeUnit.HOURS);
+    System.out.print(deque.pollFirst(200, TimeUnit.NANOSECONDS));
+    System.out.print(" "+deque.pollLast(1, TimeUnit.MINUTES));
+}
+```
+
+A. It outputs 20 85 <br>
+B. It outputs 103 <br>
+C. It outputs 20 103 <br>
+D. The code will not compile <br>
+E. It compiles but throws an exception at runtime <br>
+F. The output cannot be determined ahead of time <br>
 ❓
 
 ### My answer:
-
+* Total random guess, think it compiles but can not be determined
+* **F**
 <hr>
 
 ## Question 15
