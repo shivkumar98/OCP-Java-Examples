@@ -342,18 +342,43 @@ F. The code may produce a deadlock at runtime <br>
 <hr>
 
 ## Question 12:
-❓ ❓
+❓ What is the result of executing the following application? (Choose all that apply)❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+import java.util.concurrent.*;
+public class CountNumbers extends RecursiveAction {
+    private int start;
+    private int end;
+    public CountNumbers(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+    protected void compute() {
+        if (start<0) return;
+        else {
+            int middle = start + ((end-start)/2);
+            invokeAll(new CountNumbers(start, middle), new CountNumbers(middle, end)); // m1
+        }
+    }
+    public static void main(String[] args) {
+        ForkJoinTask<?> task = new CountNumbers(0, 4); // m2
+        ForkJoinPool pool = new ForkJoinPool();
+        Object result = pool.invoke(task); // m3
+    }
+}
+```
+A. It compiles and runs without issue <br>
+B. The code will not compile because of `m1` <br>
+C. The code will not compile because of `m2` <br>
+D. The code will not compile because of `m3` <br>
+E. It compiles but throws an exception at runtime <br>
+F. It compiles but hangs at runtime <br>
 ❓
 
 ### My answer:
-
+* I think code compiles
+* I think there's a chance the recursion is not set up right
+* **F**
 <hr>
 
 ## Question 13
