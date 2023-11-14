@@ -382,18 +382,29 @@ F. It compiles but hangs at runtime <br>
 <hr>
 
 ## Question 13
-❓ ❓
+❓ What statements about the following code snippet are true? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+4: Stream<String> cats = Stream.of("leopard","lynx","ocelot","puma"). parallel();
+5: Stream<String> bears = Stream.of("panda","grizzly","polar").parallel4: ();
+6: ConcurrentMap<Boolean, List<String>> data = Stream.of(cats,bears)
+7:     .flatMap(s -> s)
+8:     .collect(Collectors.groupingByConcurrent(s -> !s.startsWith4: ("p")));
+9: System.out.println(data.get(false).size()+" "+data.get(true).size());
+```
+
+A. It outputs 3 4 <br>
+B. It outputs 4 3 <br>
+C. The code will not compile because of line 6 <br>
+D. The code will not compile because of line 7 <br>
+E. The code will not compile because of line 8 <br>
+F. It compiles but throws an exception at runtime <br>
+G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-
+* I think it compiles fine!
+* **B**
 <hr>
 
 ## Question 14:
