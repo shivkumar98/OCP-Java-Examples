@@ -489,17 +489,43 @@ F. It compiles but the output cannot be determined ahead of time <br>
 <hr>
 
 ## Question 17
-❓ ❓
+❓ Assuming 100 milliseconds is enough time for tasks submitted to the thread executor to complete, what is the result of executing the following program? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+import java.util.concurrent.*;
+public class SheepManager {
+    private static AtomicInteger sheepCount1 = new AtomicInteger(0); // w1
+    private static int sheepCount2 = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService service = null;
+        try {
+            service = Executors.newSingleThreadExecutor(); // w2
+            for (int i=0; i<100; i++)
+                service.execute(() ->
+                    {sheepCount1.getAndIncrement(); sheepCount2++;}); // w3
+            Thread.sleep(100);
+            System.out.println(sheepCount1+" "+sheepCount2);
+        } finally {
+            if(service != null) service.shutdown();
+        }
+    }
+}
+```
+
+A. It outputs `100 99` <br>
+B. It outputs `100 100` <br>
+C. The output cannot be determined ahead of time <br>
+D. The code will not compile because of line w1 <br>
+E. The code will not compile because of line w2 <br>
+F. The code will not compile because of line w3 <br>
+G. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
+* The for loop means the task is executed concurrently
+* w1 is fine, w2 is fine, w3 is fine
+* **C**
 
 <hr>
 
