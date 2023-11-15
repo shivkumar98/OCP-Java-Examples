@@ -15,7 +15,7 @@ Score:
 | 4          |  ✅     |
 | 5          |  ✅     |
 | 6          |  ✅     |
-| 7          |       |
+| 7          |  ✅     |
 | 8          |       |
 | 9          |       |
 | 10         |       |
@@ -226,7 +226,7 @@ G. It compiles but enters an infinite loop at runtime <br>
 ### My answer:
 * The code does compile!
 * l1 has size 3, l2 has size 6, s3 has size 4
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -257,7 +257,12 @@ H. It compiles but waits forever at runtime <br>
 ### My answer:
 * i1 is 1
 * i2 is 6
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **G**
+* The code compiles fine, however sorting a parallel stream does not mean the findAny() method will return the first record!
+
 <hr>
  
 ## Question 9
