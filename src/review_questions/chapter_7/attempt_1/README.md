@@ -9,9 +9,9 @@ Score:
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
+| 1          |  ✅     |
+| 2          |  ❌     |
+| 3          |  ❌     |
 | 4          |       |
 | 5          |       |
 | 6          |       |
@@ -49,7 +49,7 @@ F. `s.parallel()` <br>
 * There is no constructor
 * You convert a stream using `.parallel()`
 * You convert a collection using `.parallelStream()`
-* **D,F**
+* **D,F**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -74,7 +74,10 @@ G. Both methods return void <br>
 * E - true
 * F - false
 * G - false
-* **A,C,D,E**
+* **A✅,C✅,D✅,E❌**
+<br>
+
+* CORRECT ANSWER: A,C,D,F - callable returns a generic type, and can throw a checked exception
 <hr>
 
 ## Question 3
@@ -106,7 +109,34 @@ F. It compiiles but throws an exception at runtime <br>
 * D - true, does not compile
 * E - false, this is fine
 * F - false
-* **D**
+* **D**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **B,C**
+* The code does not compile due to lines w1, and w2
+* A `ScheduledExecutorService` can not be assigned to an `ExecutorService`
+* This class only supports runnable not callable, so it can not return something
+* w3 WILL compile
+* Running the following java program:
+```java
+ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+service.scheduleAtFixedRate(() -> {
+    System.out.println("Open Zoo");
+    // return null; // COMPILER ERROR
+}, 0, 1, TimeUnit.SECONDS);
+Future<?> result = service.submit(() -> System.out.println("wake staff"));
+System.out.println(result.get()); // This will print null once
+```
+* has the following output:
+```
+Open Zoo
+Wake staff
+null
+Open Zoo
+Open Zoo
+Open Zoo
+...
+```
 <hr>
 
 ## Question 4:
