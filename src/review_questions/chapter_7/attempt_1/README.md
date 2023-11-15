@@ -620,18 +620,55 @@ E. Concurrent tasks do not share the same memory <br>
 <hr>
 
 ## Question 21
-❓ ❓
+❓ Assuming an implementation of the `performCount()` method is provided prior to runtime, which of the following are possible results of executing the following application? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.*;
+public class CountZooAnimals {
+    public static Integer peformCount(int exhibitNumber) {
+        // IMPLEMENTATION OMITTED
+    }
+    public static void printResults(Future<?> f) {
+        try {
+            System.out.println(f.get()); // o1
+        } catch (Exception e) {
+            System.out.println("Exception!");
+        }
+    }
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ExecutorService service = Executors.newSingleThreadExecutor();
+        final List<Future<?>> results = new ArrayList<>();
+        IntStream.range(0, 10)
+            .forEach(i -> results.add(
+                service.submit(() -> performCount(i)))); // o2
+        results.stream().forEach(f -> printResults(f));
+        service.shutdown();
+    }
+}
+```
+
+A. It outputs a number 10 times <br>
+B. It outputs a Boolean value 10 times <br>
+C. It outputs a null value 10 times <br>
+D. It outputs Exception! 10 times <br>
+E. It hangs indefinitely at runtime <br>
+F. It throws an unhandled exception at runtime <br>
+G. The code will not compile because of line o1 <br>
+H. The code will not compile because of line o2 <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - not possible
+* C - true
+* D - not possible, as exception is not declared
+* E - false
+* F - false
+* G - false
+* H - false
+* **A,C**
 <hr>
 
 
