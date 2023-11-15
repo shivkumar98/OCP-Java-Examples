@@ -673,16 +673,38 @@ H. The code will not compile because of line o2 <br>
 
 
 ## Question 22
-❓ ❓
+❓ What is the resultg of executing the following program? ❓
+```java
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.*;
+public class PrintCounter {
+    static int counter = 0;
+    public static void main(String[] args) throws InterruptedException,
+        ExecutionException {
+            ExecutorService service = Executors.newSingleThreadExecutor();
+            List<Future<?>> results = new ArrayList<>();
+            IntStream.iterate(0,i -> i+1).limit(5).forEach(
+                i -> results.add(service.execute(() -> counter++)); // n1
+            );
+            for(Future<?> result : result) {
+                System.out.println(result.get()+" "); // n2
+            }
+            service.shutdown();
+        }
+}
+```
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. It prints `0 1 2 3 4` <br>
+B. It prints `1 2 3 4 5` <br>
+C. It prints `null null null null` <br>
+D. It hangs indefinitely at runtime <br>
+E. The output cannot be determined <br>
+F. The code will not compile because of line n1 <br>
+F. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
-
+* not a parallel stream
+* **A**
 <hr>
