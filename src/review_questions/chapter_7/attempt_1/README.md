@@ -459,18 +459,33 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 <hr>
 
 ## Question 16
-❓ ❓
+❓ What us the result of executing the following application? (Choose all that apply) ❓
+```java
+import java.util.concurrent.*;
+import java.util.stream.*;
+public class PrintConstants {
+    public static void main(String[] args) {
+        ExecutorService service = Executors.newScheduledThreadPool(10);
+        DoubleStream.of(3.14159, 2.71828) // b1
+            .forEach(c -> service.submit( // b2
+                () -> System.out.println(10*c)));  // b3
+        service.execute(() -> System.out.println("Printed")); // b4
+    }
+}
+```
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. It compiles and outputs the two numbers, followed by `Printed` <br>
+B. The code will not compile because of line b1 <br>
+C. The code will not compile because of line b2 <br>
+D. The code will not compile because of line b3 <br>
+E. The code will not compile because of line b4 <br>
+F. It compiles but the output cannot be determined ahead of time <br>
 ❓
 
 ### My answer:
-
+* All lines seem to compile
+* There is a chance for Printed to be displayed before all numbers have been printed
+* **F**
 <hr>
 
 ## Question 17
