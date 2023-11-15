@@ -554,26 +554,50 @@ B. The code will not compile because of line `j1` <br>
 C. The code will not compile because of line `j2` <br>
 D. The code will not compile because of line `j3` <br>
 E. It compiles but throws an exception at runtime <br>
-F.  <br>
+F. It compiles but waits forever at run time <br>
 ❓
 
 ### My answer:
-
+* The cyclic barrier's limit is not reached!
+* **F**
 <hr>
 
 ## Question 19
-❓ ❓
+❓ What statements about the following class definition are true? (Choose all that apply) ❓
+```java
+public class TicketManager {
+    private TicketManager() { super(); }
+    private static TicketManager instance;
+    public static synchronized TicketManager getInstance() { // k1
+        if (instance == null) instance = new TicketManager(); // k2
+        return instance;
+    }
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+    private int tickets;
+    public int getTicketCount() { return tickets; }
+    public void makeTicketsAvailable (int value) { tickets += value; } // k3
+    public void sellTickets(int value) {
+        synchronized (this) { // k4
+            tickets -= value;
+        }
+    }
+}
+```
+
+A. It compiles without issue <br>
+B. The code will not compile because of line k2 <br>
+C. The code will not compile because of line k3 <br>
+D. The locks acquired on k1 and k4 are the same object <br>
+E. The class correctly prevents concurrency issues for the value of `tickets` when accessed by multiple threads <br>
+F. At most one instance of `TicketManager` will be created in the application <br>
 ❓
 
 ### My answer:
-
+* D is true
+* The code does compile!
+* E is true
+* F is true
+* **D,E,F**
 <hr>
 
 ## Question 20
