@@ -530,13 +530,30 @@ G. It compiles but throws an exception at runtime <br>
 <hr>
 
 ## Question 18
-❓ ❓
+❓ What is the result of executing the following application? (Choose all that apply) ❓
+```java
+import java.util.concurrent.*;
+import java.util.stream.*;
+public class StockRoomTracker {
+    public static void await(CyclicBarrier cb) { // j1
+        try { cb.await(); } catch (InterruptedException | BrokenBarrierException e) {
+            // Handle exception
+        }
+    }
+    public static void main(String[] args) {
+        CyclicBarrier cb = new CyclicBarrier(10,
+            () -> System.out.println("Stock Room Full!")); // j2
+        IntStream.iterate(1, i -> 1).limit(9)
+            .parallel().forEach(i -> await(cb)); // j3
+    }
+}
+```
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
+A. It outputs Stock Room Full! <br>
+B. The code will not compile because of line `j1` <br>
+C. The code will not compile because of line `j2` <br>
+D. The code will not compile because of line `j3` <br>
+E. It compiles but throws an exception at runtime <br>
 F.  <br>
 ❓
 
