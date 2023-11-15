@@ -12,9 +12,9 @@ Score:
 | 1          |  ✅     |
 | 2          |  ❌     |
 | 3          |  ❌     |
-| 4          |       |
-| 5          |       |
-| 6          |       |
+| 4          |  ✅     |
+| 5          |  ✅     |
+| 6          |  ✅     |
 | 7          |       |
 | 8          |       |
 | 9          |       |
@@ -161,7 +161,10 @@ F. It compiles but enters an infinite loop at runtime <br>
 
 ### My answer:
 * The value of value1 is 100, but the value of value2 is undertermined
-* **C**
+* **C**✅✅✅✅
+<br>
+
+* My answer was fully correct!
 <hr>
 
 
@@ -179,7 +182,7 @@ F. Deadlock, Livelock <br>
 ### My answer:
 * The second blank is race conditions.
 * The first blank is Livelock
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 6
@@ -193,7 +196,7 @@ E. The call to submit the task to the thread executor will wait until there is a
 ❓
 
 ### My answer:
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 7
