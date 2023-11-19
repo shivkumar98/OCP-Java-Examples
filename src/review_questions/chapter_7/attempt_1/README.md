@@ -454,7 +454,7 @@ F. It compiles but hangs at runtime <br>
 
 ```java
 4: Stream<String> cats = Stream.of("leopard","lynx","ocelot","puma"). parallel();
-5: Stream<String> bears = Stream.of("panda","grizzly","polar").parallel4: ();
+5: Stream<String> bears = Stream.of("panda","grizzly","polar").parallel();
 6: ConcurrentMap<Boolean, List<String>> data = Stream.of(cats,bears)
 7:     .flatMap(s -> s)
 8:     .collect(Collectors.groupingByConcurrent(s -> !s.startsWith4: ("p")));
@@ -471,8 +471,8 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-* I think it compiles fine!z
-* **B**
+* I think it compiles fine!
+* **B**❌❌❌❌
 <hr>
 
 ## Question 14:
