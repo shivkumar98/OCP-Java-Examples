@@ -346,7 +346,20 @@ E. It compiles but throws an exception at runtime <br>
 ### My answer:
 * I think it does compile, don't think there is an issue with any of the lines
 * calling parallel on a parallel stream is LEGAL i THINK
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **C**
+* You can call parallel on a parallel stream
+* Line q2 does not compile because the lambda has parameters: (int, String)
+* Here would be the correct implementation of the method:
+```java
+Arrays.asList("duck","chicken","flamingo","pelican")
+    .parallelStream().parallel() // LEGAL BUT UNECESSARY
+    .reduce(0,
+            (partialLength, str)->partialLength+str.length(),
+            (s1,s2)->s1+s2); // 26
+```
 <hr>
 
 ## Question 11
