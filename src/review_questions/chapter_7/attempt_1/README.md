@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 
-Score: 
+Score: /22 
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -16,9 +16,9 @@ Score:
 | 5          |  ✅     |
 | 6          |  ✅     |
 | 7          |  ✅     |
-| 8          |       |
-| 9          |       |
-| 10         |       |
+| 8          |  ❌     |
+| 9          |  ❌     |
+| 10         |  ❌     |
 | 11         |       |
 | 12         |       |
 | 13         |       |
@@ -393,7 +393,14 @@ F. The code may produce a deadlock at runtime <br>
 
 ### My answer:
 * The code does not compile because the lambda does not return anything
-* **D, E**
+* **D, E**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **A,F**
+* The code does compile, we have two tasks being submittted to the same ExecutorService
+* We can not guarantee which task is reached first, so it could be that Tortoise is printed and then the program is deadlocked OR the Hare is printed then the program is deadlocked!
+* Either way, we experience deadlock at runtime
 <hr>
 
 ## Question 12:

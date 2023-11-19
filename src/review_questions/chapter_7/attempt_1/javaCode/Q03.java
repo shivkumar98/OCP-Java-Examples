@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class Q3 {
+public class Q03 {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 		service.scheduleAtFixedRate(() -> {
