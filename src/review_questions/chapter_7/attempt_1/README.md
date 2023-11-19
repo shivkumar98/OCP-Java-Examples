@@ -19,8 +19,8 @@ Score: /22
 | 8          |  ❌     |
 | 9          |  ❌     |
 | 10         |  ❌     |
-| 11         |       |
-| 12         |       |
+| 11         |  ❌     |
+| 12         |  ❌     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -440,7 +440,13 @@ F. It compiles but hangs at runtime <br>
 ### My answer:
 * I think code compiles
 * I think there's a chance the recursion is not set up right
-* **F**
+* **F**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **E**
+* The base condition is never reached as the start field is always positive 
+* TThis create an infinite loop and throws exception at runtime
 <hr>
 
 ## Question 13
