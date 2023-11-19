@@ -274,7 +274,7 @@ public class FindMin extends MyTask {
     private Integer[] elements;
     private int a;
     private int b;
-    public FindMin(Integer[], int a,, int b) {
+    public FindMin(Integer[], int a, int b) {
         this.elements = elements;
         this.a = a;
         this.b = b;
@@ -319,7 +319,11 @@ F. The code does not compile <br>
 * D - true, I think
 * E - false, I dont think so
 * F - false, I dont think so
-* **A,C,D**
+* **A✅,C✅,D**❌
+<br>
+
+* CORRECT ANSWER: **A,C,E**
+* Since we call join() straight after fork(), this application has single-threaded performance
 <hr>
 
 ## Question 10
