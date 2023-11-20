@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 
-Score: 
+Score: /22 
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -16,11 +16,11 @@ Score:
 | 5          |  ✅     |
 | 6          |  ✅     |
 | 7          |  ✅     |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 8          |  ❌     |
+| 9          |  ❌     |
+| 10         |  ❌     |
+| 11         |  ❌     |
+| 12         |  ❌     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -274,7 +274,7 @@ public class FindMin extends MyTask {
     private Integer[] elements;
     private int a;
     private int b;
-    public FindMin(Integer[], int a,, int b) {
+    public FindMin(Integer[], int a, int b) {
         this.elements = elements;
         this.a = a;
         this.b = b;
@@ -319,7 +319,11 @@ F. The code does not compile <br>
 * D - true, I think
 * E - false, I dont think so
 * F - false, I dont think so
-* **A,C,D**
+* **A✅,C✅,D**❌
+<br>
+
+* CORRECT ANSWER: **A,C,E**
+* Since we call join() straight after fork(), this application has single-threaded performance
 <hr>
 
 ## Question 10
@@ -342,7 +346,20 @@ E. It compiles but throws an exception at runtime <br>
 ### My answer:
 * I think it does compile, don't think there is an issue with any of the lines
 * calling parallel on a parallel stream is LEGAL i THINK
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **C**
+* You can call parallel on a parallel stream
+* Line q2 does not compile because the lambda has parameters: (int, String)
+* Here would be the correct implementation of the method:
+```java
+Arrays.asList("duck","chicken","flamingo","pelican")
+    .parallelStream().parallel() // LEGAL BUT UNECESSARY
+    .reduce(0,
+            (partialLength, str)->partialLength+str.length(),
+            (s1,s2)->s1+s2); // 26
+```
 <hr>
 
 ## Question 11
@@ -376,7 +393,14 @@ F. The code may produce a deadlock at runtime <br>
 
 ### My answer:
 * The code does not compile because the lambda does not return anything
-* **D, E**
+* **D, E**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **A,F**
+* The code does compile, we have two tasks being submittted to the same ExecutorService
+* We can not guarantee which task is reached first, so it could be that Tortoise is printed and then the program is deadlocked OR the Hare is printed then the program is deadlocked!
+* Either way, we experience deadlock at runtime
 <hr>
 
 ## Question 12:
@@ -416,7 +440,13 @@ F. It compiles but hangs at runtime <br>
 ### My answer:
 * I think code compiles
 * I think there's a chance the recursion is not set up right
-* **F**
+* **F**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **E**
+* The base condition is never reached as the start field is always positive 
+* TThis create an infinite loop and throws exception at runtime
 <hr>
 
 ## Question 13
@@ -424,7 +454,7 @@ F. It compiles but hangs at runtime <br>
 
 ```java
 4: Stream<String> cats = Stream.of("leopard","lynx","ocelot","puma"). parallel();
-5: Stream<String> bears = Stream.of("panda","grizzly","polar").parallel4: ();
+5: Stream<String> bears = Stream.of("panda","grizzly","polar").parallel();
 6: ConcurrentMap<Boolean, List<String>> data = Stream.of(cats,bears)
 7:     .flatMap(s -> s)
 8:     .collect(Collectors.groupingByConcurrent(s -> !s.startsWith4: ("p")));
@@ -441,8 +471,8 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-* I think it compiles fine!z
-* **B**
+* I think it compiles fine!
+* **B**❌❌❌❌
 <hr>
 
 ## Question 14:
