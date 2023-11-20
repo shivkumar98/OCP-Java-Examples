@@ -21,9 +21,9 @@ Score: /22
 | 10         |  ❌     |
 | 11         |  ❌     |
 | 12         |  ❌     |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 13         |  ❌     |
+| 14         |  ❌     |
+| 15         |  ✅     |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -529,7 +529,7 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 * E - valid
 * F - invalid
 * G - valid
-* **C,E,G**
+* **C,E,G**✅✅✅✅
 
 <hr>
 
@@ -555,13 +555,21 @@ C. The code will not compile because of line b2 <br>
 D. The code will not compile because of line b3 <br>
 E. The code will not compile because of line b4 <br>
 F. It compiles but the output cannot be determined ahead of time <br>
+G. It compiles but throws an exception at runtime <br>
+H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
 * All lines seem to compile
 * There is a chance for Printed to be displayed before all numbers have been printed
-* **F**
-<hr>
+* **F**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **F,H**
+* F is correct since the task can complete at any time
+* The service is not shutdown so it waits forever at runtime               
+<hr>   
 
 ## Question 17
 ❓ Assuming 100 milliseconds is enough time for tasks submitted to the thread executor to complete, what is the result of executing the following program? (Choose all that apply) ❓
