@@ -479,13 +479,13 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓ What is thr result of the followsing method ❓
 
 ```java
-public void addAndPrintItems(BlockingDeque<Integer> deque) {
-    deque.offer(103);
-    deque.offerFirst(20, 1, TimeUnitSeconds);
-    deque.offerLast(85, 7, TimeUnit.HOURS);
-    System.out.print(deque.pollFirst(200, TimeUnit.NANOSECONDS));
-    System.out.print(" "+deque.pollLast(1, TimeUnit.MINUTES));
-}
+3: public void addAndPrintItems(BlockingDeque<Integer> deque) {
+4:     deque.offer(103);
+5:     deque.offerFirst(20, 1, TimeUnitSeconds);
+6:     deque.offerLast(85, 7, TimeUnit.HOURS);
+7:     System.out.print(deque.pollFirst(200, TimeUnit.NANOSECONDS));
+8:     System.out.print(" "+deque.pollLast(1, TimeUnit.MINUTES));
+9: }
 ```
 
 A. It outputs 20 85 <br>
@@ -498,7 +498,14 @@ F. The output cannot be determined ahead of time <br>
 
 ### My answer:
 * Total random guess, think it compiles but can not be determined
-* **F**
+* **F**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **D**
+* The methods on line 5,6,7,8 all throw a checked exception `InterruptedException`
+ * If this method was fixed, the answer would be F because the offerFirst(), offerLast(), pollFirst() and pollLast() methods could be blocked.
+ * If this was a non-blocking deque then the answer would be A
 <hr>
 
 ## Question 15
