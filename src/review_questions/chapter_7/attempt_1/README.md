@@ -608,7 +608,7 @@ G. It compiles but throws an exception at runtime <br>
 ### My answer:
 * The for loop means the task is executed concurrently
 * w1 is fine, w2 is fine, w3 is fine
-* **C**❌❌❌❌
+* **C**❌❌❌q
 
 <br>
 
@@ -646,7 +646,8 @@ F. It compiles but waits forever at run time <br>
 
 ### My answer:
 * The cyclic barrier's limit is not reached!
-* **F**
+* **F**✅✅✅✅
+* Even if the limit was raised to 10, it is not guarantteed will allocate 10 threads
 <hr>
 
 ## Question 19
