@@ -24,8 +24,8 @@ Score: /22
 | 13         |  ❌     |
 | 14         |  ❌     |
 | 15         |  ✅     |
-| 16         |       |
-| 17         |       |
+| 16         |  ❌     |
+| 17         |  ❌     |
 | 18         |       |
 | 19         |       |
 | 20         |       |
@@ -608,8 +608,12 @@ G. It compiles but throws an exception at runtime <br>
 ### My answer:
 * The for loop means the task is executed concurrently
 * w1 is fine, w2 is fine, w3 is fine
-* **C**
+* **C**❌❌❌❌
 
+<br>
+
+* CORRECT ANSWER: **B**
+* The executor is single threaded, making it impossible for non safe concurrent writes taking place
 <hr>
 
 ## Question 18
