@@ -767,7 +767,12 @@ H. The code will not compile because of line o2 <br>
 * F - false
 * G - false
 * H - false
-* **A,C**
+* **A,C**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **A,C,D,E**
+* The `peformCount()` method could throw a runtime exception or have a deadlock which would leads to program hanging indefinitely
 <hr>
 
 
