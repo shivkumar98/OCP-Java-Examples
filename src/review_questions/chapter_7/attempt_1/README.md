@@ -791,7 +791,7 @@ public class PrintCounter {
             IntStream.iterate(0,i -> i+1).limit(5).forEach(
                 i -> results.add(service.execute(() -> counter++)); // n1
             );
-            for(Future<?> result : result) {
+            for(Future<?> result : results) {
                 System.out.println(result.get()+" "); // n2
             }
             service.shutdown();
@@ -805,10 +805,17 @@ C. It prints `null null null null` <br>
 D. It hangs indefinitely at runtime <br>
 E. The output cannot be determined <br>
 F. The code will not compile because of line n1 <br>
-F. The code will not compile because of line n2 <br>
+G. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
 * not a parallel stream
-* **A**
+* **A**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **F**
+* The `execute()` method returns void so n1 does not compile
+* If `submit()` was used instead, then the program would print `0 1 2 3 4`
+
 <hr>
