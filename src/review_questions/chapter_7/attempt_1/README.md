@@ -26,9 +26,9 @@ Score: /22
 | 15         |  ✅     |
 | 16         |  ❌     |
 | 17         |  ❌     |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 18         |  ❌     |
+| 19         |  ❌     |
+| 20         |  ❌     |
 | 21         |       |
 | 22         |       |
 
@@ -710,7 +710,12 @@ E. Concurrent tasks do not share the same memory <br>
 * C - false
 * D - false
 * E - false
-* **A**
+* **A**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **A,D**
+* Resource heavy tasks benefit more from concurrency
 <hr>
 
 ## Question 21
