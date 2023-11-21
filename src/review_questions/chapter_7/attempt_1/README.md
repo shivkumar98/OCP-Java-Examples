@@ -608,7 +608,7 @@ G. It compiles but throws an exception at runtime <br>
 ### My answer:
 * The for loop means the task is executed concurrently
 * w1 is fine, w2 is fine, w3 is fine
-* **C**❌❌❌q
+* **C**❌❌❌❌
 
 <br>
 
@@ -685,7 +685,13 @@ F. At most one instance of `TicketManager` will be created in the application <b
 * The code does compile!
 * E is true
 * F is true
-* **D,E,F**
+* **A,D,E,F**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **A, F**
+* The locks on lines k1 and k4 are not the same! k1 has the lock on `TicketManager.class`, while k4 has it on an instance.
+* The `makeTicketsAvailable()` method is not synchronized so E is false
 <hr>
 
 ## Question 20
