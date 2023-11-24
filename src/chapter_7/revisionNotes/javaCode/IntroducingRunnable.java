@@ -9,6 +9,8 @@ public class IntroducingRunnable {
 				
 			}
 		};
-		Runnable r3 = () -> {int i=10; i++;}
+		Runnable r3 = () -> {int i=10; i++;};
+		//Runnable r4 = () -> null; // COMPILER ERROR
+		
 	}
 }

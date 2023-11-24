@@ -42,6 +42,28 @@ Runnable r4 = () -> null; // COMPILER ERROR
 
 
 ## 🟥 7.1.4 Creating a Thread
+* You can instantiate the `Thread` class in order to complete a task
+* You can execute a task by either:
+1) Padding in a Runnable lambda/ohject
+2) Create a class which extends Thread, and implement run() method
+
+```java
+Thread thr = new Thread(()->System.out.println("hello"));
+thr.run(); // hello
+```
+
+```java
+public class Printer extends Thread {
+    public void run() {
+        for(int i=0;i<3;i++) System.out.print(i+" ");
+    }
+    public static void main() {
+        (new Printer()).start(); // 0 1 2
+    }
+}
+```
+
+* The order in which results of a thread are not guaranteed
 
 ## 🟥 7.1.5 Polling with Sleep
 
