@@ -21,6 +21,25 @@
 * A thread priorty is a numeric value associated with a thread, which is to be used by the thread scheduler.
 
 ## 🟥 7.1.3 Introducing Runnable
+* `Runnable` is a functional interface which takes no arguments, and returns void:
+```java
+public interface Runnable {
+    void run();
+}
+```
+* Here are some examples:
+```java
+Runnable r = () ->  System.out.println("hello");
+Runnable r2 = new Runnable() {
+    public void run() {
+        // TODO Auto-generated method stub
+        
+    }
+};
+Runnable r3 = () -> {int i=10; i++;};
+Runnable r4 = () -> null; // COMPILER ERROR
+```
+
 
 ## 🟥 7.1.4 Creating a Thread
 
