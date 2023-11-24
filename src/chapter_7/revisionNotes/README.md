@@ -15,6 +15,10 @@
 * Hence we call single-threaded applications ones which have only the main method.
 
 ## 🟥 7.1.2 Understanding Thread Concurrency
+* Concurrency is thte propertty of executing multtiple threads and processes at the same time
+* Concurrency can benefit an application, even on single core CPUs
+* OSs use a thread scheduler to determine which tthreads should be running currently.
+* A thread priorty is a numeric value associated with a thread, which is to be used by the thread scheduler.
 
 ## 🟥 7.1.3 Introducing Runnable
 
