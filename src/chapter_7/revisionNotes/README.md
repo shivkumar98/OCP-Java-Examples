@@ -311,6 +311,56 @@ if(service != null) {
 <hr>
 
 ## 🟥 7.2.5 Scheduling Tasks
+* The `ScheduledExecutorService` class is used to schedule tasks with delays repeatedly
+* We again use the `Executors` factory class to obtain an instance:
+```java
+ScheduledExecutorService service 
+    = Executors.newSingleThreadScheduledExecutor();
+```
+
+### 🟡 ScheduledExecutorService methods
+* These methods are only available on the `ScheduledExecutorService`!
+* The following will not compile:
+```java
+ExecutorService service 
+    = Executors.newSingleThreadScheduledExecutor();
+service.schedule(()->1, 1, TimeUnit.SECONDS); // COMPILER ERROR
+```
+
+1) `schedule(Callable<V> callable, long delay, TimeUnit unit)` 
+
+2) `schedule(Runnable command, long delay, TimeUnit unit)`
+```java
+ScheduledExecutorService service
+    = Executors.newSingleThreadScheduledExecutor();
+Future<?> f = service.schedule(()->{
+    System.out.println("hello world");
+}, 10, TimeUnit.SECONDS);
+// prints hello world after 10s
+```
+
+3) `scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit)`
+* Executes the runnable after initial delay, creating a new task every fixed period of time
+```java
+ScheduledExecutorService scheduledService
+    = Executors.newSingleThreadScheduledExecutor();
+scheduledService.scheduleAtFixedRate(
+    ()->System.out.println("hello"),
+    0, 1, TimeUnit.SECONDS);
+scheduledService.schedule(()->1, 1, TimeUnit.SECONDS);
+```
+* This prints the following:
+
+<img src="screenshots/fixedRate.gif" height="150px">
+
+
+4) `scheduleAtFixedDelay(Runnable command, long delay, TimeUnit unit)`
+* Executes the runnable after initial delay, creating a new task after termination of previous and fixed period of time
+```java
+scheduledService.scheduleWithFixedDelay(
+    ()->System.out.println("hello"),
+    0, 1, TimeUnit.SECONDS);
+```
 
 ## 🟥 7.2.6 Increasing Concurrency with Pools
 
