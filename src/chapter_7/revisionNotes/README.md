@@ -66,7 +66,38 @@ public class Printer extends Thread {
 * The order in which results of a thread are not guaranteed
 
 ## 🟥 7.1.5 Polling with Sleep
-
+* Polling is the process of checking data intermittently at some fixed interval
+* The `Thread.sleep()` method is used to implement polling.
+* This method throws `InterruptedException`
+* E.g.:
+```java
+public class CheckResults {
+    static long counter = 0L;
+    static long limit = 1_000_000_000L;;
+    public static void main(String[] args) throws InterruptedException {
+        new Thread(() -> {
+            for(long i=0;i<limit;i++) CheckResults.counter++;
+        }).start();
+        while(counter<limit) {
+            System.out.println(counter+" not reached yet");
+            Thread.sleep(1); // 1ms
+        }
+        System.out.println(counter+" reached!");
+    }
+}
+```
+* This prints the following:
+```
+0 not reached yet
+55480739 not reached yet
+202760739 not reached yet
+350824739 not reached yet
+473640739 not reached yet
+559944739 not reached yet
+707944739 not reached yet
+847736739 not reached yet
+1000000000 reached!
+```
 
 
 <br><hr>
