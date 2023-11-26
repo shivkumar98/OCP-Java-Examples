@@ -102,8 +102,38 @@ public class CheckResults {
 <br><hr>
 
 # 🧠 7.2 Creating Threads with the `ExecutorService`
+* The `ExecutorService` creates and managed threads for you
 
 ## 🟥 7.2.1 Introducing the Single-Thread Executor
+* The `Executors` is a factory class to obtain instances of ExeuctorServices
+* Here is how to get a single threaded thread executor:
+```java
+ExecutorService service = null;
+try {
+    service = Executors.newSingleThreadExecutor();
+    service.execute(
+        () -> System.out.println("Began printing zoo")
+    );
+    service.execute(
+        () -> {for(int i=0;i<3++;i++)
+            System.out.println("Printing record: "+i);}
+    );
+    service.execute(
+        () -> System.out.println("Finished printing zoo");
+    )
+} finally {
+    if(service!=null) service.shutdown();
+}
+```
+* The results do not have a guaranteed order:
+```
+Began printing zoo
+Printing record: 0
+Finished printing zoo
+Printing record: 1
+Printing record: 2
+```
+* If we do not shutdown the ExecutorService, the program will not terminate!
 
 ## 🟥 7.2.2 Shutting Down a Thread Executor
 
