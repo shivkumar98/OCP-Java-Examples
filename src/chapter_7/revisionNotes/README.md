@@ -154,18 +154,45 @@ Printing record: 2
 
 * `shutdownNow()` returns a `List<Runnable>` os taskks which were submitted but never started
 
+
+## 🟥 7.2.3 Submitting Tasks
 ### 🟡 ExecutorService Methods
 * We have 5 different methods for ExecutorService:
 1) `void execute(Runnable command)`
 ```java
-
+Runnable r = () -> System.out.println("runnable");
+sevice.execute(r); // prints runnable
 ```
 2) `Future<?> submit(Runnable task)`
+```java
+Runnable r = () -> System.out.println("runnable");
+Future<?> f1 = sevice.submit(r); // prints runnable
+System.out.println(f1.get()); // prints null
+```
 3) `<T> Future<?> submit(Callable<T> task)`
+```java
+Callable<Integer> c = () -> 1;
+Future<?> f1 = sevice.submit(r);
+System.out.println(f1.get()); // prints 1
+```
 4) `<T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks)`
+- This method will wait indefinitely until all tasks are complete
+```java
+Callable<Integer> c = () -> 1;
+List<Callable<Integer>> list = Arrays.asList(c, c);
+List<Future<Integer>> f3 = service.invokeAll(list);
+System.out.println(f3.get(0).get()); // 1
+System.out.println(f3.get(1).get()); // 1
+```
 5) `<T> T invokeAny(Collection<? extends Callable<T>> tasks)`
-
-## 🟥 7.2.3 Submitting Tasks
+- This method will execute the tasks asynchrously, returning the result of one of them and cancelling any unfinished tasks
+```java
+Callable<Integer> c1 = () -> 1;
+Callable<Integer> c2 = () -> 2;
+List<Callable<Integer>> list2 = Arrays.asList(c2, c2);
+Integer x = service.invokeAny(list2);
+System.out.println(x); // prints either 1 or 2
+```
 
 ## 🟥 7.2.4 Waiting For Results
 
