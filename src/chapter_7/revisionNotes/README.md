@@ -99,7 +99,6 @@ public class CheckResults {
 1000000000 reached!
 ```
 
-
 <br><hr>
 
 # 🧠 7.2 Creating Threads with the `ExecutorService`
