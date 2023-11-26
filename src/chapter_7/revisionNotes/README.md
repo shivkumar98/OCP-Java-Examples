@@ -14,14 +14,19 @@
 * A user-defined thread is created by the developer, e.g. the main method is a user-defined thread but we can create more user-defined thrads
 * Hence we call single-threaded applications ones which have only the main method.
 
+<hr>
+
 ## 🟥 7.1.2 Understanding Thread Concurrency
 * Concurrency is thte propertty of executing multtiple threads and processes at the same time
 * Concurrency can benefit an application, even on single core CPUs
 * OSs use a thread scheduler to determine which tthreads should be running currently.
 * A thread priorty is a numeric value associated with a thread, which is to be used by the thread scheduler.
 
+<hr>
+
 ## 🟥 7.1.3 Introducing Runnable
-* `Runnable` is a functional interface which takes no arguments, and returns void:
+* `Runnable` is a functional interface which takes no arguments, does not throw checked exception and returns void,
+:
 ```java
 public interface Runnable {
     void run();
@@ -40,6 +45,7 @@ Runnable r3 = () -> {int i=10; i++;};
 Runnable r4 = () -> null; // COMPILER ERROR
 ```
 
+<hr>
 
 ## 🟥 7.1.4 Creating a Thread
 * You can instantiate the `Thread` class in order to complete a task
@@ -64,6 +70,8 @@ public class Printer extends Thread {
 ```
 
 * The order in which results of a thread are not guaranteed
+
+<hr>
 
 ## 🟥 7.1.5 Polling with Sleep
 * Polling is the process of checking data intermittently at some fixed interval
@@ -135,6 +143,8 @@ Printing record: 2
 ```
 * If we do not shutdown the ExecutorService, the program will not terminate!
 
+<hr>
+
 ## 🟥 7.2.2 Shutting Down a Thread Executor
 * It is essential to call `shutdown()` on a thread executor, otherwise the application will never terminate
 * A daemon thread is a background thread which can continue running even when application terminates
@@ -154,6 +164,7 @@ Printing record: 2
 
 * `shutdownNow()` returns a `List<Runnable>` os taskks which were submitted but never started
 
+<hr>
 
 ## 🟥 7.2.3 Submitting Tasks
 ### 🟡 ExecutorService Methods
@@ -194,7 +205,110 @@ Integer x = service.invokeAny(list2);
 System.out.println(x); // prints either 1 or 2
 ```
 
+<hr>
+
 ## 🟥 7.2.4 Waiting For Results
+* A `Future` object is returned when calling `submit`. E.g.:
+```java
+Future<?> future = service.submit(() -> System.out.println("Hello Zoo"));
+```
+### 🟡 Future Methods
+1) `boolean isDone()` - if the task is completed, throws an exception, or is cancelled, then returns true
+2) `boolean isCancelled()` - if the task was cancelled before completing normally, then returns true
+3) `boolean cancel()` - attempt to cancel execution of task
+4) `V get()` - retrieves result of task
+5) `V get(long timeout, TimeUnit unit)` - waits the specified amount of time to retrieve the result. Throws `TimeoutException` if out of time
+
+<br>
+
+* Here is the counter example which uses a Future object to poll for the results:
+```java
+public class CheckResultsV2 {
+    private static long counter = 0;
+    static long limit = 1_000_000_000L;
+    public static void main(String[] args) {
+        ExuctorService service = null;
+        try {
+            service = Executors.newSingleThreadExecutor();
+            Future<?> result = service.submit(() -> {
+                for(long i=0;i<limit;i++) counter++;
+            });
+            result.get(100, TimeUnit.MILLISECONDS);
+            System.out.println(counter+" limit reached");   
+        } catch (TimeoutException e) {
+            System.out.println("Not reached in time");
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* If the for loop has finished within the 100ms limit, then it will print:
+```java
+1000000000 limit reached
+```
+* If the task does not complete in time, then it will print the following for example:
+```java
+7367732825 not reached in time
+```
+
+<br>
+
+### 🟡 Introducing Callable
+* The `Callable` is a functional defined as:
+```java
+public interface Callable<V> {
+    V call() throws Exception;
+}
+```
+* Here is an example of using Callable:
+```java
+public class AddData {
+    public static void main(String[] args) throws InterruptedException,
+        ExecutionException {
+            ExecutorService service = null;
+            try {
+                service = Executors.newSingleThreadExecutor();
+                Future<Integer> result = 
+                    service.submit(()->30+11);
+                System.out.println(result.get()); // 41
+            } finally {
+                if(service!=null) service.shutdown();
+            }
+        }
+}
+```
+* Since Callable throws a checked exception, it means we can write lambdas with code which throws checkeed exceptions without try/catch:
+```java
+service.submit(()-> {Thread.sleep(1000); return null; });
+service.submit(()-> {Thread.sleep(1000); }); // COMPILER ERROR
+```
+
+<br>
+
+### 🟡 Waiting for All Tasks to Finish
+* Suppose we do not need the results of the tasks and are finished with using the thread executor, then we can used `awaitTermination(long timeout, TimeUnit unit)`. 
+* This method waits for the specified amount of time to complete all tasks
+* E.g.:
+```java
+ExecutorService service = null;
+try {
+    service = Executors.newSingleThreadExecutor();
+    // tasks for thread executor
+} finally {
+    if(service != null) service.shutdown();
+}
+if(service != null) {
+    service.awaitTerminated(1, TimeUnit.MINUTES);
+    // check if all tasks are finished
+    if (service.shutdown())
+        System.out.println("All tasks finished");
+    else
+        System.out.println("At least one task is still running");
+}
+```
+
+<hr>
 
 ## 🟥 7.2.5 Scheduling Tasks
 
