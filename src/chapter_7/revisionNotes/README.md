@@ -136,6 +136,34 @@ Printing record: 2
 * If we do not shutdown the ExecutorService, the program will not terminate!
 
 ## 🟥 7.2.2 Shutting Down a Thread Executor
+* It is essential to call `shutdown()` on a thread executor, otherwise the application will never terminate
+* A daemon thread is a background thread which can continue running even when application terminates
+* A thread executor creates a NON-DAEMON thread!
+* There are 3 stages of the ExecutorService lifecycle:
+1) `Create new thread executor`
+- Accepts and executes new tasks
+2) `Shutting down`
+- Rejects new tasks
+- Still continues to executes tasks
+- `isShutdown() = true`
+3) `Shutdown`
+- This is when all tasks are finished
+- No running tasks
+- `isTerminated() = true`
+<br>
+
+* `shutdownNow()` returns a `List<Runnable>` os taskks which were submitted but never started
+
+### 🟡 ExecutorService Methods
+* We have 5 different methods for ExecutorService:
+1) `void execute(Runnable command)`
+```java
+
+```
+2) `Future<?> submit(Runnable task)`
+3) `<T> Future<?> submit(Callable<T> task)`
+4) `<T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks)`
+5) `<T> T invokeAny(Collection<? extends Callable<T>> tasks)`
 
 ## 🟥 7.2.3 Submitting Tasks
 
