@@ -311,6 +311,26 @@ if(service != null) {
 <hr>
 
 ## 🟥 7.2.5 Scheduling Tasks
+* The `ScheduledExecutorService` class is used to schedule tasks with delays repeatedly
+* We again use the `Executors` factory class to obtain an instance:
+```java
+ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+```
+
+### 🟡 ScheduledExecutorService methods
+1) `schedule(Callable<V> callable, long delay, TimeUnit unit)` 
+2) `schedule(Runnable command, long delay, TimeUnit unit)`
+```java
+ScheduledExecutorService service
+        = Executors.newSingleThreadScheduledExecutor();
+Future<?> f = service.schedule(()->{
+    System.out.println("hello world");
+}, 10, TimeUnit.SECONDS);
+// prints hello world after 10s
+```
+3) `scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit)`
+4) `scheduleAtFixedDelay(Runnable command, long delay, TimeUnit unit)`
+
 
 ## 🟥 7.2.6 Increasing Concurrency with Pools
 
