@@ -515,7 +515,6 @@ static synchronized void printDaysWork() {
     System.out.print("Finished work");  
 }
 ```
-## 🟥 7.3.4 Understanding Cost of Synchronization
 
 <br><hr>
 
