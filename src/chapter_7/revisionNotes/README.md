@@ -362,9 +362,18 @@ scheduledService.scheduleWithFixedDelay(
     0, 1, TimeUnit.SECONDS);
 ```
 
+<hr>
+
 ## 🟥 7.2.6 Increasing Concurrency with Pools
+* A **Thread Pool** is a group of pre-instantiated reusable threads to perform arbritary tasks
 
-
+### 🟡 Executors Methods
+* The `Executors` have the following methods
+1) `ExecutorService newSingleThreadExecutor()` - a single worker thread is operating off an unbounded queue.
+2) `ScheduledExecutorService newSingleThreadScheduledExecutor`
+3) `ExecutorService newCachedPool()` - creates a thread pool which creates new threads as needed
+4) `ExecutorService newFixedThreadPool(int nThreads)` - creates a thread pool which reuses a fixed number of threads operating off an unbounded queue
+5) `ScheduledExecutorService newScheduledThreadPool(int nThreads)` - create a thread pool for scheduling commands
 
 <br><hr>
 
