@@ -454,8 +454,45 @@ public class SheepManagerV2 {
 <hr>
 
 ## 🟥 7.3.2 Improving Access with Synchronized Blocks
+* We can synchronize access of threads to code, using the `synchronized` keyword which takkes a `lock`
+* E.g.:
+```java
+SheepManagerV3 manager = new SheepManagerV3();
+synchronized(manager) { // this is a synchronized block
+    // code here
+}
+```
+* We update the `SheepManager` class:
+```java
+public class SheepManagerV3 {
+    int sheepCount = 0;
+    void incrementAndReport() {
+        synchronized(this) { // the lock is the SheepManagerV3.class
+            System.out.print((++sheepCount)+" ");
+        }
+    }
+    public static void main(String[] args) {
+        ExecutorService service = null;
+        SheepManagerV3 manager = new SheepManagerV3();
+        try {
+            service = Executors.newFixedThreadPool(20);
+            for(int i=0;i<10;i++){
+                service.submit(()->manager.incrementReport());
+            }
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* This will ALWAYS print the following:
+```java
+1 2 3 4 5 6 7 8 9 10
+```
 
+## 🟥 7.3.3 Synchronizing Methods
 
+## 🟥 7.3.4 Understanding Cost of Synchronization
 
 <br><hr>
 
