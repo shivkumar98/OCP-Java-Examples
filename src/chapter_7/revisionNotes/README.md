@@ -379,8 +379,79 @@ scheduledService.scheduleWithFixedDelay(
 <br><hr>
 
 # 🧠 7.3 Synchronizing Data Access
+* **Thread Safety** is the property that an object guarantees safe execution by multiple threads at the same time
+* Here is an example of a non-thread safe object:
+```java
+public class SheepManager {
+    int sheepCount = 0;
+    void incrementAndReport() {
+        System.out.println((++sheepCount)+" ");
+    }
+    public static void main(String[] args) {
+        ExecutorService service = null;
+        try {
+            service = Executors.newFixedThreadPool(20);
+            SheepManager manager = new SheepManager();
+            for(int i=0;i<10;i++)
+                service.submit(()->manager.incrementAndReport());
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* Running this prints the following samples:
+```java
+3 10 9 8 7 6 4 5 1 2
+1 9 2 8 7 6 4 5 5 3 
+```
+<hr>
 
 ## 🟥 7.3.1 Protecting Data with Atomic Classes
+* **Atomic** is the property that a single unit of execution can be carried out without interference from other threads.
+* Atomic classes ensure data is consistent!
+* The Concurrency API includes atomic classes:
+1) `AtomicBoolean`
+2) `AtomicInteger`
+3) `AtomicIntegerArray`
+4) `AtomicLong`
+5) `AtomicLongArray`
+6) `AtomicReference`
+7) `AtomicReferenceArray`
+
+* These classes have access to the atomic methods:
+1) `get()`
+2) `set()`
+3) `getAndSet()`
+4) `incrementAndGet()`/`getAndIncrement()`
+5) `decrementAndGet()`/`getAndDecrement()`
+
+* We can update our `SheepManager` to use a thread safe counter:
+```java
+public class SheepManagerV2 {
+	AtomicInteger sheepCount = new AtomicInteger(0);
+	void incrementAndReport() {
+		System.out.print(sheepCount.incrementAndGet()+" ");
+	}
+	public static void main(String[] args) {
+		SheepManagerV2 manager = new SheepManagerV2();
+		ExecutorService service = null;
+		try {
+			service = Executors.newFixedThreadPool(20);
+			for(int i=0;i<10;i++)
+				service.submit(()->manager.incrementAndReport());
+		} finally {
+			if(service!=null) service.shutdown();
+		}
+	}
+}
+```
+* This prints the following samples:
+```java
+1 10 9 3 2 8 7 4 6 5 
+2 10 9 7 8 6 5 4 1 3 
+```
+<hr>
 
 ## 🟥 7.3.2 Improving Access with Synchronized Blocks
 
@@ -390,11 +461,21 @@ scheduledService.scheduleWithFixedDelay(
 
 # 🧠 7.4 Using Concurrent Collections
 
+
 ## 🟥 7.4.1 Introducing Concurrent Collections
+
+
+<hr>
 
 ## 🟥 7.4.2 Understanding Memory Consistency Errors
 
+
+<hr>
+
 ## 🟥 7.4.3 Working with Concurrent Classes
+
+
+<hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
 
