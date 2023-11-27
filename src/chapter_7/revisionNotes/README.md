@@ -379,8 +379,34 @@ scheduledService.scheduleWithFixedDelay(
 <br><hr>
 
 # 🧠 7.3 Synchronizing Data Access
+* **Thread Safety** is the property that an object guarantees safe execution by multiple threads at the same time
+* Here is an example of a non-thread safe object:
+```java
+public class SheepManager {
+    int sheepCount = 0;
+    void incrementAndReport() {
+        System.out.println((++sheepCount)+" ");
+    }
+    public static void main(String[] args) {
+        ExecutorService service = null;
+        try {
+            service = Executors.newFixedThreadPool(20);
+            SheepManager manager = new SheepManager();
+            for(int i=0;i<10;i++)
+                service.submit(()->manager.incrementAndReport());
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+
+<hr>
 
 ## 🟥 7.3.1 Protecting Data with Atomic Classes
+
+
+<hr>
 
 ## 🟥 7.3.2 Improving Access with Synchronized Blocks
 
@@ -390,11 +416,21 @@ scheduledService.scheduleWithFixedDelay(
 
 # 🧠 7.4 Using Concurrent Collections
 
+
 ## 🟥 7.4.1 Introducing Concurrent Collections
+
+
+<hr>
 
 ## 🟥 7.4.2 Understanding Memory Consistency Errors
 
+
+<hr>
+
 ## 🟥 7.4.3 Working with Concurrent Classes
+
+
+<hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
 
