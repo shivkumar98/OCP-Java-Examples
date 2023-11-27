@@ -491,7 +491,30 @@ public class SheepManagerV3 {
 ```
 
 ## 🟥 7.3.3 Synchronizing Methods
-
+* We can apply the `synchronized` keyword to methods
+* The following are equivalent:
+```java
+void incrementAndReport() {
+    synchronized(this) {
+        System.out.print((++sheepCount)+" ");
+    }
+}
+synchronized void incrementAndReport() {
+    System.out.print((++sheepCount)+" ");
+}
+```
+* We can apply this keyword to static methods.
+* The following are equivalent:
+```java
+static void printDaysWork() {
+    synchronized(SheepManager.class) {
+        System.out.print("Finished work");
+    }
+}
+static synchronized void printDaysWork() {
+    System.out.print("Finished work");  
+}
+```
 ## 🟥 7.3.4 Understanding Cost of Synchronization
 
 <br><hr>
