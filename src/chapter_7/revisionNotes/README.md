@@ -519,15 +519,26 @@ static synchronized void printDaysWork() {
 <br><hr>
 
 # 🧠 7.4 Using Concurrent Collections
-
+* The Concurrency API includes Concurrent Collections which have built in thread safe methods
 
 ## 🟥 7.4.1 Introducing Concurrent Collections
-
-
+```java
+Map<String, Object> foodDate
+    = new ConcurrentHashMap<String,Object>();
+```
+* We can access/modify concurrent collections same way as non-concurrent ones!
 <hr>
 
 ## 🟥 7.4.2 Understanding Memory Consistency Errors
-
+* **Memory Consistency Errors** - occurs when two threads have inconsistent views of the same data.
+* When two threads attempt to modify the same non-concurrent collection, the JVM may throw `ConcurrentModificationException`
+```java
+Map<String, Object> food = new HashMap<String, Object>();
+food.put("pizza",1);
+food.put("chicken",2);
+for (String key: food.keySet())
+    food.remove(key); // throws exception
+```
 
 <hr>
 
