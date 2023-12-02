@@ -539,12 +539,98 @@ food.put("chicken",2);
 for (String key: food.keySet())
     food.remove(key); // throws exception
 ```
+* We can circumvent this by using a concurrent collection:
+```java
+Map<String, Object> food = new ConcurrentHashMap<>();
+food.put("pizza",1);
+food.put("chicken",2);
+for (String key: food.keySet())
+    food.remove(key);
+```
 
 <hr>
 
 ## 🟥 7.4.3 Working with Concurrent Classes
+* There are additional methods to concurrent classes which are not available to the non-concurrent versions.
 
+### 🟡 Concurrent Collection Classes
+| Class Name         | Collections FW Interface                   |
+| -------------------| -------------------------------------------|
+| ConcurrentHashMap  | ConcurrentMap                              |
+| ConcurrentLinkedQueue | Queue                                   |
+| ConcurrentLinkedDeque | Deque                                   |
+| ConcurrentSkipListMap | ConcurrentMap, SortedMap, NavigableSet  |
+| ConcurrentSkipListSet | SortedSet, NavigableSet                 |
+| CopyOnWriteArrayList  | List                                    |
+| CopyOnWriteArraySet   | Set                                     |
+| LinkedBlockingQueue   | BlockingQueue                           |
+| LinkedBlockingDeque   | BlockingQueue, BlockingDeque            |
 
+<br>
+
+### 🟡 Understanding Blocking Queues
+* `BlockingQueue` is like `Queue` except it has methods which will wait a specific amount of time to complete an operation.
+* `BlockingQueue` has the following **waiting methods**:
+1) `boolean offer(E e, long timeout, TimeUnit unit)` - adds item to a queue waiting for a specified time
+2) `E poll(long timeout, TimeUnit unit)` - retrieves and removes an item from the queue
+
+* `LinkedBlockingQueue` maintains a linked list between elements. Here is an example:
+```java
+try {
+    BlockingQueue<Integer> blockingQueue
+        = new LinkedBlockingQueue
+    blockingQueue.offer(1);
+    System.out.println(blockingQueue); // [1]
+    blockingQueue.offer(2, 3, TimeUnit.SECONDS);
+    System.out.println(blockingQueue); // [1,2]
+    int poll = blockingQueue.poll(10, TimeUnit.MICROSECONDS); // 1
+}
+```
+
+* `BlockingDeque` is like `Deque` but has methods which will wait a specified amont of time:
+1) `boolean offerFirst(E e, long timeout, TimeUnit unit)` - adds item to front of queue, waiting for given time
+2) `boolean offerLast(E e, long timeout, TimeUnit unit)` - adds item to back of queue, waiting for given time
+3) `E pollFirst(long timeout, TimeUnit unit)` - retrieves and removes item from front of queue
+4) `E pollLast(long timeout, TimeUnit unit)` - retrieves and removes item from back of queue
+
+* `LinkedBlockingDeque` is a doubly-linked list. Here is an example:
+```java
+try {
+    BlockingDeque<Integer> blockingDeque
+        = new LinkedBlockingDeque<>();
+    blockingDeque.offer(1); // [1]
+    blockingDeque.offerFirst(2, 1, TimeUnit.SECONDS); // [2, 1]
+    blockingDeque.offerLast(3, 1, TimeUnit.SECONDS); // [2, 1, 3]
+    System.out.println(blockingDeque.poll()); // 2
+    System.out.println(blockingDeque.pollFirst(1, TimeUnit.SECONDS));
+    // 1
+    System.out.println(blockingDeque.pollLast(1,TimeUnit.SECONDS));
+    // 3
+}
+```
+
+<br>
+
+### 🟡 Understanding SkipList Collections
+* `ConcurrentSkipListSet` is the concurrent version of `TreeSet`
+* `ConcurrentSkipListMap` is the concurrent version of `TreeMap`
+
+<br>
+
+### 🟡 Understanding CopyOnWriteCollections
+* `CopyOnWriteArrayList` and `CopyOnWriteArraySet` are slightly different compared to the above
+* These classes copy all of its elements to a new underlying structure anytime an element is added, modified or removed from the collection
+
+```java
+List<Integer> list = new CopyOnWriteArrayList<>(Arrays.asList(4,3,52));
+for(Integer item: list) {
+    System.out.print(item+" "); // 4 3 52
+    list.add(9);
+}
+System.out.println(list); // [4, 3, 52, 9, 9, 9]
+```
+* Notice how the for loop printed 3 elements, but the size of the List was 6 after the for loop finished
+* Using an ArrayList would throw a `ConcurrentModificationException`
 <hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
