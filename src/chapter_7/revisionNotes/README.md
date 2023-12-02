@@ -314,47 +314,238 @@ if(service != null) {
 * The `ScheduledExecutorService` class is used to schedule tasks with delays repeatedly
 * We again use the `Executors` factory class to obtain an instance:
 ```java
-ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+ScheduledExecutorService service 
+    = Executors.newSingleThreadScheduledExecutor();
 ```
 
 ### 🟡 ScheduledExecutorService methods
+* These methods are only available on the `ScheduledExecutorService`!
+* The following will not compile:
+```java
+ExecutorService service 
+    = Executors.newSingleThreadScheduledExecutor();
+service.schedule(()->1, 1, TimeUnit.SECONDS); // COMPILER ERROR
+```
+
 1) `schedule(Callable<V> callable, long delay, TimeUnit unit)` 
+
 2) `schedule(Runnable command, long delay, TimeUnit unit)`
 ```java
 ScheduledExecutorService service
-        = Executors.newSingleThreadScheduledExecutor();
+    = Executors.newSingleThreadScheduledExecutor();
 Future<?> f = service.schedule(()->{
     System.out.println("hello world");
 }, 10, TimeUnit.SECONDS);
 // prints hello world after 10s
 ```
-3) `scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit)`
-4) `scheduleAtFixedDelay(Runnable command, long delay, TimeUnit unit)`
 
+3) `scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit)`
+* Executes the runnable after initial delay, creating a new task every fixed period of time
+```java
+ScheduledExecutorService scheduledService
+    = Executors.newSingleThreadScheduledExecutor();
+scheduledService.scheduleAtFixedRate(
+    ()->System.out.println("hello"),
+    0, 1, TimeUnit.SECONDS);
+scheduledService.schedule(()->1, 1, TimeUnit.SECONDS);
+```
+* This prints the following:
+
+<img src="screenshots/fixedRate.gif" height="150px">
+
+
+4) `scheduleAtFixedDelay(Runnable command, long delay, TimeUnit unit)`
+* Executes the runnable after initial delay, creating a new task after termination of previous and fixed period of time
+```java
+scheduledService.scheduleWithFixedDelay(
+    ()->System.out.println("hello"),
+    0, 1, TimeUnit.SECONDS);
+```
+
+<hr>
 
 ## 🟥 7.2.6 Increasing Concurrency with Pools
+* A **Thread Pool** is a group of pre-instantiated reusable threads to perform arbritary tasks
 
+### 🟡 Executors Methods
+* The `Executors` have the following methods
+1) `ExecutorService newSingleThreadExecutor()` - a single worker thread is operating off an unbounded queue.
+2) `ScheduledExecutorService newSingleThreadScheduledExecutor`
+3) `ExecutorService newCachedPool()` - creates a thread pool which creates new threads as needed
+4) `ExecutorService newFixedThreadPool(int nThreads)` - creates a thread pool which reuses a fixed number of threads operating off an unbounded queue
+5) `ScheduledExecutorService newScheduledThreadPool(int nThreads)` - create a thread pool for scheduling commands
 
 
 <br><hr>
 
 # 🧠 7.3 Synchronizing Data Access
+* **Thread Safety** is the property that an object guarantees safe execution by multiple threads at the same time
+* Here is an example of a non-thread safe object:
+```java
+public class SheepManager {
+    int sheepCount = 0;
+    void incrementAndReport() {
+        System.out.println((++sheepCount)+" ");
+    }
+    public static void main(String[] args) {
+        ExecutorService service = null;
+        try {
+            service = Executors.newFixedThreadPool(20);
+            SheepManager manager = new SheepManager();
+            for(int i=0;i<10;i++)
+                service.submit(()->manager.incrementAndReport());
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* Running this prints the following samples:
+```java
+3 10 9 8 7 6 4 5 1 2
+1 9 2 8 7 6 4 5 5 3 
+```
+<hr>
 
 ## 🟥 7.3.1 Protecting Data with Atomic Classes
+* **Atomic** is the property that a single unit of execution can be carried out without interference from other threads.
+* Atomic classes ensure data is consistent!
+* The Concurrency API includes atomic classes:
+1) `AtomicBoolean`
+2) `AtomicInteger`
+3) `AtomicIntegerArray`
+4) `AtomicLong`
+5) `AtomicLongArray`
+6) `AtomicReference`
+7) `AtomicReferenceArray`
+
+* These classes have access to the atomic methods:
+1) `get()`
+2) `set()`
+3) `getAndSet()`
+4) `incrementAndGet()`/`getAndIncrement()`
+5) `decrementAndGet()`/`getAndDecrement()`
+
+* We can update our `SheepManager` to use a thread safe counter:
+```java
+public class SheepManagerV2 {
+	AtomicInteger sheepCount = new AtomicInteger(0);
+	void incrementAndReport() {
+		System.out.print(sheepCount.incrementAndGet()+" ");
+	}
+	public static void main(String[] args) {
+		SheepManagerV2 manager = new SheepManagerV2();
+		ExecutorService service = null;
+		try {
+			service = Executors.newFixedThreadPool(20);
+			for(int i=0;i<10;i++)
+				service.submit(()->manager.incrementAndReport());
+		} finally {
+			if(service!=null) service.shutdown();
+		}
+	}
+}
+```
+* This prints the following samples:
+```java
+1 10 9 3 2 8 7 4 6 5 
+2 10 9 7 8 6 5 4 1 3 
+```
+<hr>
 
 ## 🟥 7.3.2 Improving Access with Synchronized Blocks
+* We can synchronize access of threads to code, using the `synchronized` keyword which takkes a `lock`
+* E.g.:
+```java
+SheepManagerV3 manager = new SheepManagerV3();
+synchronized(manager) { // this is a synchronized block
+    // code here
+}
+```
+* We update the `SheepManager` class:
+```java
+public class SheepManagerV3 {
+    int sheepCount = 0;
+    void incrementAndReport() {
+        synchronized(this) { // the lock is the SheepManagerV3.class
+            System.out.print((++sheepCount)+" ");
+        }
+    }
+    public static void main(String[] args) {
+        ExecutorService service = null;
+        SheepManagerV3 manager = new SheepManagerV3();
+        try {
+            service = Executors.newFixedThreadPool(20);
+            for(int i=0;i<10;i++){
+                service.submit(()->manager.incrementReport());
+            }
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* This will ALWAYS print the following:
+```java
+1 2 3 4 5 6 7 8 9 10
+```
 
-
+## 🟥 7.3.3 Synchronizing Methods
+* We can apply the `synchronized` keyword to methods
+* The following are equivalent:
+```java
+void incrementAndReport() {
+    synchronized(this) {
+        System.out.print((++sheepCount)+" ");
+    }
+}
+synchronized void incrementAndReport() {
+    System.out.print((++sheepCount)+" ");
+}
+```
+* We can apply this keyword to static methods.
+* The following are equivalent:
+```java
+static void printDaysWork() {
+    synchronized(SheepManager.class) {
+        System.out.print("Finished work");
+    }
+}
+static synchronized void printDaysWork() {
+    System.out.print("Finished work");  
+}
+```
 
 <br><hr>
 
 # 🧠 7.4 Using Concurrent Collections
+* The Concurrency API includes Concurrent Collections which have built in thread safe methods
 
 ## 🟥 7.4.1 Introducing Concurrent Collections
+```java
+Map<String, Object> foodDate
+    = new ConcurrentHashMap<String,Object>();
+```
+* We can access/modify concurrent collections same way as non-concurrent ones!
+<hr>
 
 ## 🟥 7.4.2 Understanding Memory Consistency Errors
+* **Memory Consistency Errors** - occurs when two threads have inconsistent views of the same data.
+* When two threads attempt to modify the same non-concurrent collection, the JVM may throw `ConcurrentModificationException`
+```java
+Map<String, Object> food = new HashMap<String, Object>();
+food.put("pizza",1);
+food.put("chicken",2);
+for (String key: food.keySet())
+    food.remove(key); // throws exception
+```
+
+<hr>
 
 ## 🟥 7.4.3 Working with Concurrent Classes
+
+
+<hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
 
