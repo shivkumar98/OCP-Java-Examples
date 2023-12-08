@@ -630,12 +630,32 @@ for(Integer item: list) {
 System.out.println(list); // [4, 3, 52, 9, 9, 9]
 ```
 * Notice how the for loop printed 3 elements, but the size of the List was 6 after the for loop finished
-* Using an ArrayList would throw a `ConcurrentModificationException`
+* Using an ArrayList would throw a `ConcurrentModificationException` ⚠️
 <hr>
 
 ## 🟥 7.4.4 Obtaining Synchronized Collections
+* We can convert existing non-concurrent collections into their concurrent counter parts!💡
 
+### 🟡 Synchronized Collection Methods
+* We have the following methods:
+1) `synchronizedCollection(Collection<T> c)`
+2) `synchronizedList(List<T> list)`
+3) `synchronizedMap(Map<K,V> m)`
+4) `synchronizedNavigableMap(NavigableMap<K,V> m)`
+5) `synchronizedNavigableSet(NavigableSet<T> s)`
+6) `synchronizedSet(Set<T> s)`
+7) `synchronizedSortedMap(SortedMap<K,V> m)`
+8) `synchronizedSortedSet(SortedSet<T> s)`
+* These methods will synchronize the getters/setters but do not synchronize iterators that you may create.
 
+```java
+List<Integer> list = Collections.synchronizedList(
+    new ArrayList<>(Arrays.asList(4,3,52)));
+for (int data: list) {
+    System.out.print(data+" ");
+    // list.add(9); // throws ConcurrentModificationException
+}
+```
 
 <br><hr>
 
