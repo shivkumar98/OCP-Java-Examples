@@ -693,14 +693,26 @@ Arrays.asList(1,2,3,4,5,6)
 ```
 
 * Parallel Streams greatly improve operations which can be done INDEPENDENTLY💡
-* E.g. makking all elements uppercase:
+* E.g. making all elements uppercase:
 ```java
 Arrays.asList("jackal","kangaroo","lemur")
     .parallelStream()
     .map(s -> s.toUpperCase())
     .forEach(System.out::println);
+// KANGAROO LEMUR JACKAL
 ```
+* Observe how ordering has been lost!
+<br>
 
+* Its common to use parallel streams for filter, map, and forEach
+* Here is an example of some imbedded operations in a map lambda:
+```java
+Arrays.asList("jackal","kangaroo","lemur")
+    .parallelStream()
+    .map(s -> {System.out.println(s); return s.toUpperCase();})
+    .forEach(System.out::println);
+// kangaroo KANGAROO lemur jackal JACKAL LEMUR
+```
 
 ## 🟥 7.5.3 Processing Parallel Reductions
 
