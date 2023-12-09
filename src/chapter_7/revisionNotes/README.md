@@ -523,8 +523,7 @@ static synchronized void printDaysWork() {
 
 ## 🟥 7.4.1 Introducing Concurrent Collections
 ```java
-Map<String, Object> foodDate
-    = new ConcurrentHashMap<String,Object>();
+Map<String, Object> foodDate = new ConcurrentHashMap<String,Object>();
 ```
 * We can access/modify concurrent collections same way as non-concurrent ones!
 <hr>
@@ -675,6 +674,33 @@ Stream<Integer> stream = Arrays.asList(1,2,3).parallelStream();
 ```
 
 ## 🟥 7.5.2 Processing Tasks in Parallel
+* Using a parallel stream means that results may be ordered in an unpredictable way:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .forEach(s -> System.out.print(s+" "));
+// Possible outpus:
+// 5 3 1 2 4 6
+// 4 2 1 3 6 5
+// 5 1 3 2 4 6
+```
+* We can FORCE ordering with cost to performance using `forEachOrdered()`:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .forEachOrdered(s -> System.out.print(s+" "));
+// ALWAYS PRINTS: 1 2 3 4 5 6
+```
+
+* Parallel Streams greatly improve operations which can be done INDEPENDENTLY💡
+* E.g. makking all elements uppercase:
+```java
+Arrays.asList("jackal","kangaroo","lemur")
+    .parallelStream()
+    .map(s -> s.toUpperCase())
+    .forEach(System.out::println);
+```
+
 
 ## 🟥 7.5.3 Processing Parallel Reductions
 
