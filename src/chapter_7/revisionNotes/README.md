@@ -656,12 +656,23 @@ for (int data: list) {
     // list.add(9); // throws ConcurrentModificationException
 }
 ```
-
+* The iterators must be manually synchronized
+* Also, using these converted exceptions will always throw a `ConcurrentModificationException`!
 <br><hr>
 
 # 🧠 7.5 Working with Parallel Streams
-
+* Streams API has built in concurrency support.
+* We have previously seen serial streams, we shall now convert these into parallel streams which means results can be processed concurrently
 ## 🟥 7.5.1 Creating Parallel Streams
+1) We can convert an existing Stream to a Parallel Stream using `.parallel()`:
+```java
+Stream<Integer> stream = Arrays.asList(1,2,3).stream().parallel();
+```
+- We could use the parallel() method on an already parallel stream
+2) OR we can use the `parallelStream()` method on a Collection:
+```java
+Stream<Integer> stream = Arrays.asList(1,2,3).parallelStream();
+```
 
 ## 🟥 7.5.2 Processing Tasks in Parallel
 
