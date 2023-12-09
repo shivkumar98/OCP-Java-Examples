@@ -715,8 +715,169 @@ Arrays.asList("jackal","kangaroo","lemur")
 ```
 
 ## 🟥 7.5.3 Processing Parallel Reductions
+* Parallel reductions are reduction operations on parallel streams!
+* Parallel reductions lead to results which can not be determined:
+```java
+Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get();
+// the value can not be determined until runtime
+```
+* Results of ordered operations will be consistent with serial streams:
+```java
+Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+    .skip(5)
+    .limit(2)
+    .findFirst().get();
+// will always return 6
+```
 
+<hr>
 
+### 🟡 Combining Results with reduce()
+* Consider the following reduction on a serial stream:
+```java
+Stream<Character> str = Stream.of('1','2','3','4','5');
+String string = str
+    .reduce("", 
+		 (String s, Character c)->{System.out.println("s:"+s+",c:"+c); return s+c;},
+		(String t, String u)->{System.out.println("t:"+t+",u:"+u); return t+u;}
+    );
+```
+* Running this code will print the following:
+```java
+s:,c:1
+s:1,c:2
+s:12,c:3
+s:123,c:4
+s:1234,c:5
+```
+* We can see the accumulator was called, but not the combiner!
+* If we use a parallel stream:
+```java
+Stream<Character> parallelStr = Stream.of('1','2','3','4','5')
+    .parallel();
+String parallelString = parallelStr
+    .reduce("", 
+        (String s, Character c)->{System.out.println("s:"+s+",c:"+c); return s+c;},
+        (String t, String u)->{System.out.println("t:"+t+",u:"+u); return t+u;} );
+```
+* This prints the following:
+```java
+s:, c:3
+s:, c:2
+s:, c:4
+s:, c:1
+s:, c:5
+t:1, u:2
+t:4, u:5
+t:3, u:45
+t:12, u:345
+```
+* We can see how the characters were converted to Strings with the identity
+* The combiner, then joined up the Strings!
+
+#### 🌱 Requirements for Parallel Reduction with collect() 🌱 
+
+* In order for the final result to be correct, we have the following requirements for the `reduce()` arguments:
+1) The `identity` needs to be defined such that for any element in Stream, u, we have that:
+```java
+combiner.apply(identity, u) = u
+```
+2) The `accumulator op` needs to be associative:
+```java
+(a op b) op c = a op (b op c)
+```
+3) The combiner operator must be associative
+
+<br>
+
+* Here is an example of accumulator not being associative:
+```java
+System.out.println(Arrays.asList(1,2,3,4,5,6)
+    .parallelStream()
+	.reduce(0, (a,b)-> {System.out.println("a:"+a+" ,b:"+b); return a-b;});
+```
+* This prints the following:
+```java
+a:0 ,b:6 // -6
+a:0 ,b;5 // -5
+a:0 ,b:2 // -2
+a:0 ,b:3 // -3
+a:-5 ,b:-6 // 1
+a:0 ,b:4 // -4
+a:-4 ,b:1 // -5
+a:0 ,b:1 // -1
+a:-2 ,b:-3 // 1
+a:-1 ,b:1 // -2
+a:-2 ,b:-5 // 3
+```
+* If this were a serial stream, then the output would correctly be: -21
+
+<br>
+
+* Here is an example of identity not being valid:
+```java
+Arrays.asList("w","o","l","f")
+    .parallelStream()
+    .reduce("X",String::concat);
+// XwXoXlXf
+```
+
+<hr>
+
+### 🟡 Combining Results with reduce()
+* The `reduce()` method also has a combiner as third argument:
+```java
+Stream<String> stream
+    = Stream.of("w","o","l","f").parallel();
+SortedSet<String> set
+    = stream.collect(
+        ()->new TreeSet<>(),
+        (a,b)->{System.out.println("a:"+a+",b:"+b); a.add(b);},
+        (t,c)->{System.out.println("t:"+t+",c:"+c); t.addAll(c);});
+    );
+System.out.println(set);
+```
+* This prints the following:
+```java
+a:[],b:o
+a:[],b:l
+a:[],b:w
+a:[],b:f
+t:[w],c:[o]
+t:[l],c:[f]
+t:[o, w],c:[f, l]
+[f, l, o, w]
+```
+
+#### 🌱 Requirements for Parallel Reduction with reduce() 🌱
+1) The stream is parallel
+2) The parameter of the collect operation has the `Collector.Characteristics.CONCURRENT` characteristic
+3) Either the stream is unordered, or the collect operation has the characteristic `Collector.Characteristics.UNORDERED`
+
+* The `Collectors` class has two methods which are BOTH `UNORDERED` AND `CONCURRENT`:
+1) `Collectors.toConcurrentMap()`
+2) `Collectors.groupingByConcurrent()`
+
+* E.g. 1:
+```java
+Stream<String> ohMy = Stream.of("lions","tigers","bears")
+    .parallel();
+ConcurrentMap<Integer, String> map = ohMy
+    .collect(Collectors.toConcurrentMap(
+        String::length, 
+        k -> k,
+        (s1, s2) -> s1 + "," + s2));
+System.out.println(map); // {5=lions,bears, 6=tigers}
+```
+
+* E.g. 2:
+```java
+Stream<String> ohMy = Stream.of("lions", "tigers", "bears").parallel();
+ConcurrentMap<Integer, List<String>> map = ohMy.collect(
+    Collectors.groupingByConcurrent(String::length));
+System.out.println(map); // {5=[lions, bears], 6=[tigers]}
+```
 
 <br><hr>
 
