@@ -885,6 +885,118 @@ System.out.println(map); // {5=[lions, bears], 6=[tigers]}
 # 🧠 7.6 Managing Concurrent Processes
 * I must be familiar with the following two classes in the `Concu`
 ## 🟥 7.6.1 Creating a CyclicBarrier
+* Suppose we have a situation where there are lions in a cage, and 4 zoo workkers who need to coordinate the tasks:
+1) Remove lion from cage
+2) Clean the cage, once all lions are removed
+3) Begin bring lion into cage, when cage is finished cleaning
+
+* We can coordinate these tasks using `CyclicBarrier`:
+
+```java
+public class LionPenManager {
+    void removeLion() {
+		System.out.println(Thread.currentThread().getId()+" Removing Lion");
+	}
+	void cleanCage() {
+		System.out.println(Thread.currentThread().getId()+" Cleaning cage");
+	}
+	void addLion() {
+		System.out.println(Thread.currentThread().getId()+" Adds Lion");
+	}
+	public void performTasks() {
+		removeLion();
+		cleanCage();
+		addLion();
+	}
+}
+// MAIN METHOD:
+ExecutorService service = null;
+try {
+    service = Executors.newFixedThreadPool(4);
+    LionPenManager manager = new LionPenManager();
+    for(int i=0;i<4;i++) {
+        service.submit(()->manager.performTasks());
+    }
+} finally {
+    if(service!=null) service.shutdown();
+}
+```
+* The following is a sample from the above:
+```java
+25 Removing Lion
+24 Removing Lion
+26 Removing Lion
+23 Removing Lion
+26 Cleaning Cage
+24 Cleaning Cage
+26 Adds Lion
+25 Cleaning Cage
+24 Adds Lion
+23 Cleaning Cage
+25 Adds Lion
+23 Adds Lion
+```
+
+<br>
+
+* We can add a logical barrier so that cleaning the cage does not begin till all lions are removed, and no lions are added before the cage is cleaned by all the workers:
+
+```java
+public class LionManagerV2 {
+      void removeLion() {
+		System.out.println(Thread.currentThread().getId()+" Removing Lion");
+	}
+	void cleanCage() {
+		System.out.println(Thread.currentThread().getId()+" Cleaning cage");
+	}
+	void addLion() {
+		System.out.println(Thread.currentThread().getId()+" Adds Lion");
+	}
+	public void performTasks(CyclicBarrier c1, CyclicBarrier c2) {
+		removeLion();
+        c1.await();
+		cleanCage();
+        c2.await();
+        System.out.println("c2 barrier limit surpassed");
+		addLion();
+	}
+}
+// MAIN METHOD:
+Executor service = null;
+try {
+    service = Executors.newFixedThreadPooll(4);
+    LionPenManagerV2 manager = new LionPenManagerV2();
+    CyclicBarrierLimit c1 = new CyclicBarrierLimit(4);
+    CyclicBarrierLimit c2 = new CyclicBarrierLimit(4,
+        ()->System.out.println("*** Pen cleaned!!"));
+    for(int i=0;i<3;i++){
+        service.submit(()->manager.performTask(c1,c2));
+    }
+} finally {
+    if(service!=null) service.shutdown();
+}
+```
+
+* Here is a sample of the above:
+```java
+23 Removing Lion
+25 Removing Lion
+24 Removing Lion
+26 Removing Lion
+26 Cleaning Cage
+23 Cleaning Cage
+24 Cleaning Cage
+25 Cleaning Cage
+*** Pen cleaned!!
+c2 barrier limit surpassed
+c2 barrier limit surpassed
+c2 barrier limit surpassed
+25 Adds Lion
+23 Adds Lion
+26 Adds Lion
+c2 barrier limit surpassed
+24 Adds Lion
+```
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
 
