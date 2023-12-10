@@ -999,9 +999,135 @@ c2 barrier limit surpassed
 ```
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
+* The Fork/Join helps speed up parallel processing by employing the divide and conquer technique
+* We need to create a ForkJoinTask, then a ForkJoinPool, then start the ForkJoinTask
 
+<br>
 
+### 🟡 ForkJoinTask
+* The `ForkJoinTask` has two subclasses which themselves should be extended:
+1) `RecursiveAction` - for void tasks
+2) `RecursiveTask<V>` for tasks which return a value
 
+### 🟡 Workking with RecursiveAction
+* Suppose we need to weigh 10 animals using the Fork/Join framework:
+```java
+public class WeighAnimalAction extends RecursiveAction {
+    private int start;
+    private int end;
+    private Double[] weights;
+    public WeighAnimalAction(Double[] weights, int start, int end) {
+        this.start = start;
+        this.end = end;
+        this.weights = weights;
+    }
+    protected void compute() {
+        if (end-start<=3) {
+            System.out.println("BASE CASE FROM: "+start
+            +", TO: "+end);
+            for(int i=start;i<end;i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Animal "+i+" weighs "+weights[i]);
+            }
+        } else {
+            int middle = start+((end-start)/2);
+            System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+            invokeAll(new WeighAnimalAction(weights,start,middle),
+                       new WeighAnimalAction(weights,middle,end));
+        }
+    }
+}
+// MAIN METHOD:
+Double[] weights = new Double[10];
+ForkJoinTask<?> task = new WeighAnimalAction(weights,0,weights.length);
+ForkJoinPool pool = new ForkJoinPool();
+pool.invoke(task);
+
+// printing results:
+Arrays.asList(weights).stream().forEach(
+    d->System.out.print(d.intValue()+" "));
+```
+* Running the above prints the following:
+```
+[start=0,middle=5,end=10]
+[start=0,middle=2,end=5]
+BASE CASE FROM: 0, TO: 2
+[start=5,middle=7,end=10]
+BASE CASE FROM: 2, TO 5
+BASE CASE FROM: 5, TO 7
+BASE CASE FROM: 7, TO 10
+Animal 0 weighs 53.0
+Animal 1 weighs 75.0
+Animal 2 weighs 41.0
+Animal 5 weighs 56.0
+Animal 3 weighs 87.0
+Animal 7 weighs 35.0
+Animal 4 weighs 59.0
+Animal 8 weighs 68.0
+Animal 6 weighs 56.0
+Animal 9 weighs 9.0
+```
+
+### 🟡 Working with `RecursiveTask<V>`
+* Suppose we want to calculate the sum of the weights of the animals:
+```java
+public class WeighAnimalTask extends RecursiveTask<Double> {
+    private int start;
+    private int end;
+    private Double[] weights;
+    public WeighAnimalTask(Double[] weights, int start, int end) {
+        this.start = start;
+        this.end = end;
+        this.weights = weights;
+    }
+    protected Double compute() {
+        if(end-start<4) {
+            System.out.println("BASE CASE FROM: "+start
+            +", TO: "+end);
+            double sum = 0;                   
+            for(int i=start;i<end;i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Animal: "+i+" weighed "+weights[i]);
+                sum += weights[i];
+            }
+            return sum;
+        } else {
+            int middle = start+((end-start)/2);
+            System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+            RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+            otherTask.fork();
+            return new WeighAnimalTask(weights,middle,end).compute()+otherTask.join();
+        }
+    }
+}
+// MAIN METHOD:
+Double[] weights = new Double[10];
+ForkJoinTask<Double> task = new WeighAnimalTask(weights,0,weights.length);
+ForkJoinPool pool = new ForkJoinPool();
+Double sum = pool.invoke(task);
+System.out.println("Sum: "+sum);
+```
+* Running the above code generates the following sample:
+```
+[start=0,middle=5,end=10]
+[start=5,middle=7,end=10]
+BASE CASE FROM: 7, TO: 10
+[start=0,middle=2,end=5]
+BASE CASE FROM: 5, TO: 7
+BASE CASE FROM: 2, TO: 5
+BASE CASE FROM: 0, TO: 2
+Animal: 7 weighed 0.0
+Animal: 8 weighed 40.0
+Animal: 9 weighed 29.0
+Animal: 2 weighed 69.0
+Animal: 3 weighed 83.0
+Animal: 5 weighed 71.0
+Animal: 0 weighed 55.0
+Animal: 1 weighed 45.0
+Animal: 6 weighed 49.0
+Animal: 4 weighed 87.0
+Sum: 528.0
+```
 
 <br><hr>
 
