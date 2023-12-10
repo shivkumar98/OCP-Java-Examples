@@ -883,7 +883,7 @@ System.out.println(map); // {5=[lions, bears], 6=[tigers]}
 <br><hr>
 
 # 🧠 7.6 Managing Concurrent Processes
-
+* I must be familiar with the following two classes in the `Concu`
 ## 🟥 7.6.1 Creating a CyclicBarrier
 
 ## 🟥 7.6.2 Applying the Fork/Join Framework
