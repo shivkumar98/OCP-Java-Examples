@@ -1210,3 +1210,4 @@ foxy moving
 * Livelock is when two threads attempt to resolve a deadlockk by continually attempting to acquire resources but are unable to do so, so restart the process continually.
 
 ## 🟥 7.7.2 Managing Race Conditions
+* A race condition is an undesirable result which occurs when two tasks which should be done sequentially are done at the same time.
