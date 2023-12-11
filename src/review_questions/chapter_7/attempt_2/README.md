@@ -5,19 +5,19 @@
 ## Results:
 
 Date: 
-Score:
+Score: 7/9
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
+| 1          |  ✅     |
+| 2          |  ❌     |
+| 3          |  ❌     |
+| 4          |  ✅     |
+| 5          |  ✅     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ✅     |
 | 10         |       |
 | 11         |       |
 | 12         |       |
@@ -195,7 +195,7 @@ G. It compiles but enters an infinite loop at runtime <br>
 * l2 will have 3 additionaly elements, its size will be 6
 * s3 is a set, so it will have size 4
 * l1 has a fixed size of 3
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -227,7 +227,7 @@ H. It compiles but waits forever at runtime <br>
 * I don't think it can be determined ahead of time
 * The lock is on i1
 * Calling sorted on parallel stream does not guarantee result
-* **G**
+* **G**✅✅✅✅
 
 <hr>
  
@@ -278,7 +278,8 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-* **A,C,E**
+* **A,C,E**✅✅✅✅
+* Since `join()` is called straight after `fork()`, it generates single threaded performance
 
 <hr>
 
