@@ -109,7 +109,7 @@ public class CheckResults {
 
 <br><hr>
 
-# 🧠 7.2 Creating Threads with the `ExecutorService`
+# 🧠 7.2 Creating Threads with the ExecutorService
 * The `ExecutorService` creates and managed threads for you
 
 ## 🟥 7.2.1 Introducing the Single-Thread Executor
@@ -1129,6 +1129,15 @@ Animal: 4 weighed 87.0
 Sum: 528.0
 ```
 
+### 🟡 Identifying Fork/Join Issues
+* Tips for Reviewing a Fork/Join Class:
+1) Ther class should extend either `RecursiveAction` and `RecursiveTask`
+- If extending `RecursiveAction`, then override `protected void compute()`
+- If extending `RecursiveTask<V>`, then override `protected V compute()`
+2) The `invokeAll()` method takes two instances of `ForkJoinTask`
+3) The `fork()` method causes a new task to be submitted to the pool
+4) The `join()` method is called after `fork()` and causes the current thread to wait for the result of a subtask
+5) The `fork()` method should be called before the current thread performs a compute operation, with `join()` called to read the results afterward
 <br><hr>
 
 # 🧠 7.7 Identifying Threading Problems
