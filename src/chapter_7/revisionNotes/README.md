@@ -252,7 +252,6 @@ public class CheckResultsV2 {
 7367732825 not reached in time
 ```
 
-<br>
 
 ### 🟡 Introducing Callable
 * The `Callable` is a functional defined as:
@@ -284,7 +283,6 @@ service.submit(()-> {Thread.sleep(1000); return null; });
 service.submit(()-> {Thread.sleep(1000); }); // COMPILER ERROR
 ```
 
-<br>
 
 ### 🟡 Waiting for All Tasks to Finish
 * Suppose we do not need the results of the tasks and are finished with using the thread executor, then we can used `awaitTermination(long timeout, TimeUnit unit)`. 
@@ -565,8 +563,6 @@ for (String key: food.keySet())
 | LinkedBlockingQueue   | BlockingQueue                           |
 | LinkedBlockingDeque   | BlockingQueue, BlockingDeque            |
 
-<br>
-
 ### 🟡 Understanding Blocking Queues
 * `BlockingQueue` is like `Queue` except it has methods which will wait a specific amount of time to complete an operation.
 * `BlockingQueue` has the following **waiting methods**:
@@ -608,13 +604,10 @@ try {
 }
 ```
 
-<br>
 
 ### 🟡 Understanding SkipList Collections
 * `ConcurrentSkipListSet` is the concurrent version of `TreeSet`
 * `ConcurrentSkipListMap` is the concurrent version of `TreeMap`
-
-<br>
 
 ### 🟡 Understanding CopyOnWriteCollections
 * `CopyOnWriteArrayList` and `CopyOnWriteArraySet` are slightly different compared to the above
@@ -1002,7 +995,6 @@ c2 barrier limit surpassed
 * The Fork/Join helps speed up parallel processing by employing the divide and conquer technique
 * We need to create a ForkJoinTask, then a ForkJoinPool, then start the ForkJoinTask
 
-<br>
 
 ### 🟡 ForkJoinTask
 * The `ForkJoinTask` has two subclasses which themselves should be extended:
@@ -1138,12 +1130,83 @@ Sum: 528.0
 3) The `fork()` method causes a new task to be submitted to the pool
 4) The `join()` method is called after `fork()` and causes the current thread to wait for the result of a subtask
 5) The `fork()` method should be called before the current thread performs a compute operation, with `join()` called to read the results afterward
+
 <br><hr>
 
 # 🧠 7.7 Identifying Threading Problems
 
-<br><hr>
-
 ## 🟥 7.7.1 Understanding Liveness
+* **Liveness** is the property of an application running without unexpected delays
+* There are 2 types of Liveness problems!
+
+### 🟡 1 Deadlock
+* Deadlock occurs when two or more threads are blocked forever, waiting for each other
+* Here is a program which will be deadlocked:
+```java
+public class Food {}
+public class Water {}
+public class Fox {
+    String name;
+    public Fox(String name) {
+        this.name = name;
+    }
+    void move() {
+        try {
+            System.out.println(name+" moving");
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // handle exception
+        }
+    }
+     void eatAndDrink(Food food, Water water) {
+        synchronized(food) {
+            System.out.println(name+" Got Food!");
+            move();
+            synchronized(water) {
+                System.out.println(name+" Got Water!");
+            }
+        }
+    }
+    void drinkAndEat(Food food, Water water) {
+        synchronized(water) {
+            System.out.println(name+" Got Water!");
+            move();
+            synchronized(food) {
+                System.out.println(name+" Got Food!");
+            }
+        }
+    }
+    public static void main() {
+        Fox foxy = new Fox("foxy");
+        Fox tails = new Fox("tails");
+        Food food = new Food();
+        Water water = new Water();
+
+        // process data
+        ExecutorService service = null;
+        try {
+            service = Executors.newScheduledThreadPool(10);
+            service.submit(() -> foxy.eatAndDrink(food,water));
+            service.submit(() -> tails.drinkAndEat(food,water));
+        } finally {
+            if(service!=null) service.shutdown();
+        }
+    }
+}
+```
+* Here is a sample output:
+```
+foxy Got Food!
+tails Got Food!
+tails moving
+foxy moving
+```
+
+### 🟡 2 Starvation
+* Starvation happens when a single thread is continually denied access to a resource or lock.
+
+
+### 🟡 3 Livelock
+* Livelock is when two threads attempt to resolve a deadlockk by continually attempting to acquire resources but are unable to do so, so restart the process continually.
 
 ## 🟥 7.7.2 Managing Race Conditions
