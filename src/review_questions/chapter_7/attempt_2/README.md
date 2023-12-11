@@ -648,8 +648,13 @@ H. The code will not compile because of line o2 <br>
 ❓
 
 ### My answer:
-
-
+* A - true
+* B - false
+* C - true
+* D - true
+* E - trye
+* F - false
+* **A,C,D,E**
 <hr>
 
 
@@ -686,5 +691,5 @@ G. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
-
+* **F**
 <hr>
