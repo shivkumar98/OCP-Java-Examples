@@ -156,7 +156,7 @@ E. The call to submit the task to the thread executor will wait until there is a
 ❓
 
 ### My answer:
-
+* **B**
 <hr>
 
 ## Question 7
@@ -184,7 +184,10 @@ G. It compiles but enters an infinite loop at runtime <br>
 ❓
 
 ### My answer:
-
+* l2 will have 3 additionaly elements, its size will be 6
+* s3 is a set, so it will have size 4
+* l1 has a fixed size of 3
+* **A**
 <hr>
 
 ## Question 8:
@@ -213,6 +216,10 @@ H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
+* I don't think it can be determined ahead of time
+* The lock is on i1
+* Calling sorted on parallel stream does not guarantee result
+* **G**
 
 <hr>
  
@@ -263,7 +270,7 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* **A,C,E**
 
 <hr>
 
@@ -285,7 +292,7 @@ E. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* **A**
 <hr>
 
 ## Question 11
