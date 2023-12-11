@@ -134,7 +134,7 @@ F. It compiles but enters an infinite loop at runtime <br>
 ❓
 
 ### My answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 5
@@ -150,7 +150,7 @@ F. Deadlock, Livelock <br>
 
 ### My answer:
 * The second is race condition
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 6
@@ -164,7 +164,7 @@ E. The call to submit the task to the thread executor will wait until there is a
 ❓
 
 ### My answer:
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 7
