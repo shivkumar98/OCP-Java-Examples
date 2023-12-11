@@ -52,7 +52,7 @@ F. `s.parallel()` <br>
 * D - true
 * E - false
 * F - true
-* **D,F**
+* **D,F**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -72,7 +72,11 @@ G. Both methods return void <br>
 * Call returns an argument, while run returns nothing. Neither accepts arguments. So B is wrong and E is wrong, and G is wrong
 * C is false, I think
 * D is correct, F is correct
-* **D,,F**
+* **D,F**❌❌❌❌
+
+* CORRECT ANSWER: **A,C,D,F**
+* All methods can throw unchecked exceptions
+* Only callable can throw checked exception NOT runnable!!!
 
 <hr>
 
@@ -100,8 +104,12 @@ F. It compiiles but throws an exception at runtime <br>
 ### My answer:
 * You can not return something with scheduled executors!
 * w3 is potentially wrong but i dont remember
-* **C, D**
+* **C, D**❌❌❌❌
+<br>
 
+* CORRECT ANSWER: **B,C**
+* w1 will not compile as it is not a method in ExecutorService"
+* w2 does not compile as I rightly said
 
 <hr>
 
