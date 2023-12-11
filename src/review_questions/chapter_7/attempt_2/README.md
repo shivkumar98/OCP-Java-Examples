@@ -325,7 +325,8 @@ F. The code may produce a deadlock at runtime <br>
 ❓
 
 ### My answer:
-
+* Whatever task is started first will determine what is outputted
+* **A**
 <hr>
 
 ## Question 12:
@@ -363,7 +364,8 @@ F. It compiles but hangs at runtime <br>
 ❓
 
 ### My answer:
-
+* The base case can never be reached!
+* **F**
 <hr>
 
 ## Question 13
@@ -388,7 +390,7 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-
+* **B**
 <hr>
 
 ## Question 14:
@@ -413,7 +415,7 @@ F. The output cannot be determined ahead of time <br>
 ❓
 
 ### My answer:
-
+* **F**
 <hr>
 
 ## Question 15
@@ -429,7 +431,14 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - true
+* D - true
+* E - true
+* F - false
+* G - true
+* **A,C,D,E,G**
 <hr>
 
 ## Question 16
