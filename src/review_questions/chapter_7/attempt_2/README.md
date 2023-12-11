@@ -468,7 +468,8 @@ H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
-             
+* Idk lol
+* **C**
 <hr>   
 
 ## Question 17
@@ -506,7 +507,8 @@ G. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* It's a single threaderd process
+* **B**
 <hr>
 
 ## Question 18
@@ -516,7 +518,8 @@ import java.util.concurrent.*;
 import java.util.stream.*;
 public class StockRoomTracker {
     public static void await(CyclicBarrier cb) { // j1
-        try { cb.await(); } catch (InterruptedException | BrokenBarrierException e) {
+        try { cb.await(); } catch (InterruptedException |
+            BrokenBarrierException e) {
             // Handle exception
         }
     }
@@ -538,7 +541,11 @@ F. It compiles but waits forever at run time <br>
 ❓
 
 ### My answer:
-
+* j1 is fine as it is handled in code
+* j2 is fine also
+* j3 is fine
+* limit is never reached so it ends up waiting forever
+* **F**
 <hr>
 
 ## Question 19
@@ -572,6 +579,12 @@ F. At most one instance of `TicketManager` will be created in the application <b
 ❓
 
 ### My answer:
+* A - true
+* B,C - false
+* D - false
+* E - false
+* F - true
+* **A,F**
 
 <hr>
 
@@ -586,8 +599,12 @@ E. Concurrent tasks do not share the same memory <br>
 ❓
 
 ### My answer:
-
-
+* A - true
+* B - false
+* C - false
+* D - true
+* E - false
+* **A,D**
 <hr>
 
 ## Question 21
