@@ -18,9 +18,9 @@ Score: 7/9
 | 7          |  ✅     |
 | 8          |  ✅     |
 | 9          |  ✅     |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 10         |  ❌     |
+| 11         |  ❌     |
+| 12         |  ❌     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -301,7 +301,10 @@ E. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-* **A**
+* **A**❌❌❌❌
+
+* CORRECT ANSWER: **C**
+* c2 is not a string, its an int!
 <hr>
 
 ## Question 11
@@ -335,7 +338,11 @@ F. The code may produce a deadlock at runtime <br>
 
 ### My answer:
 * Whatever task is started first will determine what is outputted
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* **CORRECT ANSWER: A,F**
+* A deadlock does occur!
 <hr>
 
 ## Question 12:
@@ -374,7 +381,10 @@ F. It compiles but hangs at runtime <br>
 
 ### My answer:
 * The base case can never be reached!
-* **F**
+* **F**❌❌❌❌
+
+* CORRECT ANSWER: **E**
+* While an infinite loop is created, due to the fact memory is finite, JVM will throw a StackOverflowError
 <hr>
 
 ## Question 13
