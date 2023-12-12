@@ -409,7 +409,10 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-* **B**
+* **B**❌❌❌❌
+* **CORRECT ANSWER: A,G**
+* A new stream is created by using flatMap, meaning the stream is no longer parallel
+* So performance is single-threaded
 <hr>
 
 ## Question 14:
@@ -434,7 +437,10 @@ F. The output cannot be determined ahead of time <br>
 ❓
 
 ### My answer:
-* **F**
+* **F**❌❌❌❌
+
+* CORRECT ANSWER: **D**
+* The code will not compile because lines 5-8 each throw an `InterruptedException`
 <hr>
 
 ## Question 15
@@ -457,7 +463,7 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 * E - true
 * F - false
 * G - true
-* **A,C,D,E,G**
+* **C,D,E,G**✅✅✅✅
 <hr>
 
 ## Question 16
