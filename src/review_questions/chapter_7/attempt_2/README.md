@@ -574,7 +574,7 @@ F. It compiles but waits forever at run time <br>
 * j2 is fine also
 * j3 is fine
 * limit is never reached so it ends up waiting forever
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -613,7 +613,7 @@ F. At most one instance of `TicketManager` will be created in the application <b
 * D - false
 * E - false
 * F - true
-* **A,F**
+* **A,F**✅✅✅✅
 
 <hr>
 
@@ -633,7 +633,7 @@ E. Concurrent tasks do not share the same memory <br>
 * C - false
 * D - true
 * E - false
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 21
@@ -683,7 +683,7 @@ H. The code will not compile because of line o2 <br>
 * D - true
 * E - trye
 * F - false
-* **A,C,D,E**
+* **A,C,D,E**✅✅✅✅
 <hr>
 
 
@@ -720,5 +720,5 @@ G. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
-* **F**
+* **F**✅✅✅✅
 <hr>
