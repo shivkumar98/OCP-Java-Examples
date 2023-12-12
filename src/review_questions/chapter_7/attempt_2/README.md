@@ -494,7 +494,11 @@ H. It compiles but waits forever at runtime <br>
 
 ### My answer:
 * Idk lol
-* **C**
+* **C**❌❌❌❌
+
+* CORRECT ANSWER: **F,H**
+* Even though we have a serial stream, we do not know when the tasks will be completed due to tasks being submitted to the thread executor, so F is correct
+* The executor service was never closed so H is correct
 <hr>   
 
 ## Question 17
@@ -533,7 +537,7 @@ G. It compiles but throws an exception at runtime <br>
 
 ### My answer:
 * It's a single threaderd process
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 18
