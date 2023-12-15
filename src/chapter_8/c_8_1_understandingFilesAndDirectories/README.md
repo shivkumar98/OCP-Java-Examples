@@ -95,5 +95,21 @@ System.out.println(newDirectory.exists()); // true
 System.out.println(newDirectory.mkdir()); // false as already exists
 System.out.println(newDirectory.delete()); // true
 ```
+11) `mkdirs()` - creates directory, and parent structures as needed.
+12) `getParent()` - returns path name of the parent directory
+```java
+System.out.println(child.getParent());
+// C:\Users\shiv.kumar\Documents\Github\OCP-Java-Examples\src\home
+System.out.println(parent.getParent()); 
+// C:\Users\shiv.kumar\Documents\Github\OCP-Java-Examples
+```
+12) `listFiles()` - returns `File[]` denoting files in the directory
+```java
+File[] files = child.listFiles();
+System.out.println(Arrays.toString(files)); // null
+File[] files2 = parent.listFiles();
+System.out.println(Arrays.toString(files2)); 
+// [C:\Users\shiv.kumar\Documents\Github\OCP-Java-Examples\src\.classpath, ...]
+```
 
 ## 🟥 8.1.2

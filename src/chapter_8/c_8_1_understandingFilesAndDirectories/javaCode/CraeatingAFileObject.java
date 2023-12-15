@@ -1,6 +1,7 @@
 package chapter_8.c_8_1_understandingFilesAndDirectories.javaCode;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class CraeatingAFileObject {
 	public static void main(String[] args) {
@@ -27,6 +28,18 @@ public class CraeatingAFileObject {
 	    	newDirectory.mkdir();
 	    System.out.println(newDirectory.exists()); // true
 	    System.out.println(newDirectory.mkdir()); // false as already exists
-	    System.out.println(newDirectory.delete());
+	    System.out.println(newDirectory.delete()); // true
+	    
+	    System.out.println(child.getParent());
+	    // C:\Users\shiv.kumar\Documents\Github\OCP-Java-Examples\src\home
+	    System.out.println(parent.getParent()); 
+	    // C:\Users\shiv.kumar\Documents\Github\OCP-Java-Examples
+	    
+	    File[] files = child.listFiles();
+	    System.out.println(Arrays.toString(files)); // null
+	    File[] files2 = parent.listFiles();
+	    System.out.println(Arrays.toString(files2)); // null
+
+
 	}
 }
