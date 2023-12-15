@@ -22,7 +22,7 @@
 * The `File` class cannot read or write data within the file directly, but it can be a passed as a reference to stream class to read and write data.
 
 
-### 🟡 Creating a File Object
+#### 🌱 Creating a File Object
 * The File object is often initialised using either the absolute or relative path.
 * The seperate character varies from OS's, we can obtain the seperator character using either:
 ```java
@@ -30,5 +30,34 @@ System.getProperty("file.seperator");
 System.out.println(java.io.File.separator);
 // both print \ on my windows machine
 ```
+
+* The following code creates a File object and determines if the path it references exists within the file system:
+```java
+public class FileSample {
+    public static void main(String[] args) {
+		File file = new File("\\home\\zoo.txt");
+		System.out.println(file.exists()); // false
+    }
+}
+```
+* This example uses an absolute path (which does not existt on my pc)
+* So that I can verify that this method does indeed work, I find some code which gets the directory of my OCP project:
+```java
+System.out.println(System.getProperty("user.dir"));
+// C:\Users\shiv.kumar\Documents\Github\OCP-Java-Examples
+```
+* I then create a file in the `src` folder of my project:
+
+<img src="2023-12-15-09-42-52.png" width="250px">
+
+* I then created a parent and child class for this file, and ran:
+```java
+File parent = new File(System.getProperty("user.dir")+"\\src");
+File child = new File(parent, "home\\zoo.txt");
+System.out.println(child.exists()); // true
+```
+
+### 🟡 Commonly Used java.io.File Methods
+ 
 
 ## 🟥 8.1.2
