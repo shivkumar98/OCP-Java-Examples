@@ -108,3 +108,52 @@ new BufferedInputStream(new InputStream()); // COMPILER ERROR
 
 
 ## 🟥 8.2.3 Common Stream Operations
+* Before going into specific stream classes, here are some common processes when working with streams
+
+### 🟡 Closing the Stream
+* It is imperative to close streams to avoid having resource leaks - which can lead to resources being lockked by the OS
+* We can close streams using the `try-with-resources` with a finally block.
+
+### 🟡 Flushing the Stream
+* When data is written using an `OutputStream`, the OS does not guarantee that data is not written to the file straight away
+* In alot of OS's, a cached file is stored in memory, with the writing only occuring when the cache is filled or time has passed.
+* Java provides a `flush()` method which will immediately flush the data to disk - doing so can lead to delay in the application
+* The `flush()` method is implicitly called by the `close()` method.  
+
+### 🟡 Marking the Stream
+* The `InputStream` and `Reader` classes have a `mark(int i)` and `reset()` methods to move the stream back to an earlier position
+* You can verify you have access to these methods using `markSupported()`
+* You can call `mark(int i)` to give a read-ahead value, and then you use the `reset()` method to revert the stream to an earlier state
+```java
+// data.txt = ABCDE
+String location = System.getProperty("user.dir")+"\\src"+
+				"\\chapter_8\\c_8_2_introducingStreams\\javaCode\\data.txt";
+InputStream inputStream = new FileInputStream(location);
+BufferedInputStream bs = new BufferedInputStream(inputStream);
+System.out.println((char) bs.read()); // A
+if (bs.markSupported()) {
+  bs.mark(2);
+  System.out.println((char) bs.read()); // B
+  System.out.println((char) bs.read()); // C
+  System.out.println("before reset"); // before reset
+  bs.reset();
+  System.out.println((char) bs.read()); // B
+  System.out.println((char) bs.read()); // C
+  System.out.println((char) bs.read()); // D
+  System.out.println((char) bs.read()); // E
+}
+```
+* If the limit is exceeded, an exception MAY be thrown. As you can see here, the program was fine!
+
+### 🟡 Skipping Over Data
+* The `IntputStream` and `Reader` classes also have a `skip(long)` method which allow you to skip over a number of bytes. It returns the actual number of byters which were skipped.
+* If it returns a value less than 1, then no bytes were skipped
+* Assume we have an instance of `InputStream` instance whose next values are `TIGERS`:
+```java
+InputStream is = ...;
+System.out.println((char)is.read()); // prints T
+is.skip(2); // skips IG
+is.read(); // E is NOT printed
+System.out.println((char)is.read()); // prints R
+System.out.println((char)is.read()); // prints S
+```
