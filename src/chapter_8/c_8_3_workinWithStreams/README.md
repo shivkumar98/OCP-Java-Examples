@@ -68,9 +68,31 @@ public class WorkingWithBufferedInputStream {
 <hr>
 
 ## 🟥 8.3.2 The FileReader and FilerWriter Classes
+* The FileReader and FileWriter classes are the most convenient classes for reading and writing text data
+* These classes have a `read()` and `write()` which read ad write char values, unlike the byte values from the FileInput/Output classes.
+* The Writer class offers a `write(String)` which allows a String object to be directly written to a stream
 
-### 🟡 H3
+### 🟡 The BufferedReader and BufferedWriter Classes
+```java
+static List<String> readFile(Fille source) throws IOException {
+  List<String> data = new ArrayList<>();
+  try (BufferedReader reader = new BufferedReader(ney FileReader(source))) {
+    String s;
+    while ((s=reader.readLine()) != null) {
+      data.add(s);
+    }
+  }
+  return data;
+}
 
+// MAIN METHOD: 
+String source = System.getProperty("user.dir")+"\\src"+
+				"\\chapter_8\\c_8_3_workinWithStreams\\javaCode\\text.txt"
+// this file has 3 lines
+List<String> data = readFile(new File(source));
+System.out.println(data);
+// [Line 1, Line 2, Line 3]
+```
 <hr>
 
 ## 🟥 8.3.3 The ObjectInputStream and ObjectOutputStream Classes
