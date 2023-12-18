@@ -9,10 +9,12 @@ public class WorkingWithFileInputClass {
 		FileInputStream ir = new FileInputStream(location);
 
 		try (InputStream in = new FileInputStream(location)) {
+
 			int b;
 			while((b=in.read())!=-1) {
 				System.out.println((char)b);
 			}
+
 		}
 	}
 }
