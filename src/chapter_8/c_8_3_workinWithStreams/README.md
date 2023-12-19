@@ -96,6 +96,14 @@ System.out.println(data);
 <hr>
 
 ## 🟥 8.3.3 The ObjectInputStream and ObjectOutputStream Classes
+* Serialisation is the process of writing an in memory Java object to the disk, deserialisation is converted the stored data into an object.
+
+### 🟡 The Serializable Interface
+* You can serialise a java object provided it implements `java.io.Serializable` - an interface which contains no methods and serves to act as a marker
+* You implement `Serializable` to indicate you have taken premeasures to ensure an object can be serialized
+* Trying to Serialize a class which does not properly implement Serializable, will throw a `NotSerializablleException`.
+* You can apply the `transient` keyword to instance variables to skip deserialization.
+* Static fields are also ignored even without the transient keyword
 
 <hr>
 
