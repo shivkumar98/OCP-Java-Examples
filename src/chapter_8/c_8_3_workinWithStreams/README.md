@@ -96,6 +96,37 @@ System.out.println(data);
 <hr>
 
 ## 🟥 8.3.3 The ObjectInputStream and ObjectOutputStream Classes
+* Serialisation is the process of writing an in memory Java object to the disk, deserialisation is converted the stored data into an object.
+
+### 🟡 The Serializable Interface
+* You can serialise a java object provided it implements `java.io.Serializable` - an interface which contains no methods and serves to act as a marker
+* You implement `Serializable` to indicate you have taken premeasures to ensure an object can be serialized
+* Trying to Serialize a class which does not properly implement Serializable, will throw a `NotSerializablleException`.
+* You can apply the `transient` keyword to instance variables to skip deserialization.
+* Static fields are also ignored even without the transient keyword
+* Here is an example of a class which implements the interface:
+```java
+public class Animal implements Serializable {
+  private static final long serialVersionUID = 1L;
+  private String name;
+  private int age;
+  private char type;
+  public Animal(String name, int age, char type) {
+    this.name = name; this.age = age; this.type = type;
+  }
+  public String toString() {
+    return "Animal [name=" + name + ", age=" + age + ", type=" + type + "]";
+  }
+}
+```
+* The `serialVersionUID` is a good practice to avoid conflicts with deserialisation
+
+### 🟡 Serializing and Deserializing Objects
+* The `java.io` API has two classes to achieve this: `ObjectInputStream` and `ObjectOutputStream`
+* The `ObjectOutputStream` class has a `void writeObject(Object)` method which if is not serializable or contains an embedded reference to a class which is not Serializable then a `NotSerializableException` at runtime.
+* The `ObjectInputStream` class has a `Objectt readObject()` method
+
+
 
 <hr>
 
