@@ -124,10 +124,89 @@ public class Animal implements Serializable {
 ### 🟡 Serializing and Deserializing Objects
 * The `java.io` API has two classes to achieve this: `ObjectInputStream` and `ObjectOutputStream`
 * The `ObjectOutputStream` class has a `void writeObject(Object)` method which if is not serializable or contains an embedded reference to a class which is not Serializable then a `NotSerializableException` at runtime.
-* The `ObjectInputStream` class has a `Objectt readObject()` method
+* Here is a method which serializes the Animal objects:
+```java
+static void createAnimalsFile(List<Animal> animals, File dataFile) {
+  try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(dataFile))) {
+    for (Animal animal: animals) {
+      out.writeObject(animal);
+    }
+  }  
+}
+```
+* The `ObjectInputStream` class has a `Object readObject()` method.
+* Here is a method which deserializes data:
+```java
+static List<Animal> getAnimals(File dataFile) {
+  try (ObjectInputStream in = new ObjectInputStream(
+    new FileInputStream(new File(dataFile)))) {
+      List<Animal> data = new ArrayList<>();
+      while(true) {
+        Object object = in.readObject();
+        if (object instanceof Animal)
+          data.add((Animal) object);
+      }
+    } catch (EOFException e) {
 
+    }
+    return data;
+}
+```
+* Here is a program which serialises some Animal data:
+```java
+List<Animal> animals = new ArrayList<>();
+animals.add(new Animal("Monkey", 5, 'M'));
+animals.add(new Animal("Parrot", 2, 'B'));
+String animalFile = System.getProperty("user.dir")+"\\src"+
+    "\\chapter_8\\c_8_3_workinWithStreams\\javaCode\\animal.data";
+File dataFile = new File(animalFile);
+createAnimalsFile(animals, dataFile);
+```
+* This created the `animal.data` file with the following inside:
 
+![](2023-12-19-16-24-11.png)
 
+* The folllowing code deserializes the above and prints the results:
+```java
+List<Animal> deserializedData = getAnimals(dataFile);
+System.out.println(deserializedData);
+// [Animal [name=Monkey, age=5, type=M], Animal [name=Parrot, age=2, type=B]]
+```
+
+### 🟡 Understanding Object Creation
+* When you deserialize an object, it is not NECESSARILLY created through the constructor but calls the first no-argument constructor nonseriallizable parent class.
+
+```java
+public class Animal implements Serializable {
+	private static final long serialVersionUID = 2L;
+  private transient String name;
+  private transient int age = 10;
+  private static char type = 'C';
+  { this.age = 14; }
+	public Animal() {
+    this.name = "Unknown";
+    this.age = 12;
+    this.type = type;
+	}
+	public Animal(String name, int age, char type) {
+    this.name = name;
+    this.age = age;
+    this.type = type;
+	}
+	public String getName() { return name; }
+	public int getAge() { return age; }
+	public char getType() { return type; }
+	public String toString() {
+	  return "Animal [name=" + name + ", age=" + age + ", type=" + type + "]";
+	}
+}
+```
+* Rerunning the above program generates the following
+```
+[Animal [name=null, age=0, type=B], Animal [name=null, age=0, type=B]]
+```
+* Since name and age are transient, they get the default value the class would recieve.
+* The type is a static field, so it maintains the value of which it was last set to.
 <hr>
 
 ## 🟥 8.3.4 The PrintStream and PrintWriter Classes
