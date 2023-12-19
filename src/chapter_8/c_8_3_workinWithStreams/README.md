@@ -124,10 +124,52 @@ public class Animal implements Serializable {
 ### 🟡 Serializing and Deserializing Objects
 * The `java.io` API has two classes to achieve this: `ObjectInputStream` and `ObjectOutputStream`
 * The `ObjectOutputStream` class has a `void writeObject(Object)` method which if is not serializable or contains an embedded reference to a class which is not Serializable then a `NotSerializableException` at runtime.
-* The `ObjectInputStream` class has a `Objectt readObject()` method
+* Here is a method which serializes the Animal objects:
+```java
+static void createAnimalsFile(List<Animal> animals, File dataFile) {
+  try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(dataFile))) {
+    for (Animal animal: animals) {
+      out.writeObject(animal);
+    }
+  }  
+}
+```
+* The `ObjectInputStream` class has a `Object readObject()` method.
+* Here is a method which deserializes data:
+```java
+static List<Animal> getAnimals(File dataFile) {
+  try (ObjectInputStream in = new ObjectInputStream(
+    new FileInputStream(new File(dataFile)))) {
+      List<Animal> data = new ArrayList<>();
+      while(true) {
+        Object object = in.readObject();
+        if (object instanceof Animal)
+          data.add((Animal) object);
+      }
+    } catch (EOFException e) {
 
+    }
+    return data;
+}
+```
+* Here is a program which serialises some Animal data:
+```java
+List<Animal> animals = new ArrayList<>();
+animals.add(new Animal("Monkey", 5, 'M'));
+animals.add(new Animal("Parrot", 2, 'B'));
+String animalFile = System.getProperty("user.dir")+"\\src"+
+    "\\chapter_8\\c_8_3_workinWithStreams\\javaCode\\animal.data";
+File dataFile = new File(animalFile);
+createAnimalsFile(animals, dataFile);
+```
+* This created the `animal.data` file with the following inside:
 
+![](2023-12-19-16-24-11.png)
 
+* The folllowing code deserializes the above and prints the results:
+```java
+
+```
 <hr>
 
 ## 🟥 8.3.4 The PrintStream and PrintWriter Classes

@@ -28,8 +28,8 @@ public class ObjectStreamSample {
 		List<Animal> animals = new ArrayList<>();
 		try (ObjectInputStream in = 
 				new ObjectInputStream(
-						new BufferedInputStream(
-								new FileInputStream(dataFile)))) {
+						
+								new FileInputStream(dataFile))) {
 			while(true) {
 				Object object = in.readObject();
 				if (object instanceof Animal)
@@ -41,7 +41,7 @@ public class ObjectStreamSample {
 		return animals;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		List<Animal> animals = new ArrayList<>();
 		animals.add(new Animal("Monkey", 5, 'M'));
 		animals.add(new Animal("Parrot", 2, 'B'));
@@ -49,12 +49,18 @@ public class ObjectStreamSample {
 				"\\chapter_8\\c_8_3_workinWithStreams\\javaCode\\animal.data";
 		File dataFile = new File(animalFile);
 		createAnimalsFile(animals, dataFile);
+		
+		List<Animal> deserializedData = getAnimals(dataFile);
+		System.out.println(deserializedData);
+		// [Animal [name=Monkey, age=5, type=M], Animal [name=Parrot, age=2, type=B]]
 	}
 
-	static void createAnimalsFile(List<Animal> animals, File dataFile) {
+	static void createAnimalsFile(List<Animal> animals, File dataFile) throws IOException {
 		try (ObjectOutputStream out = new ObjectOutputStream(
 				new FileOutputStream(dataFile))) {
-			for (Animal animal: animals)
+			for (Animal animal: animals) {
+				out.writeObject(animal);
+			}
 		}
 		
 	}
