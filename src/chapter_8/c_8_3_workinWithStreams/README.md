@@ -210,6 +210,43 @@ public class Animal implements Serializable {
 <hr>
 
 ## 🟥 8.3.4 The PrintStream and PrintWriter Classes
+* These are high oevel stream classes which write formatted representation of Java objects to TEXT-BASED output stream.
+* `System.out` and `System.err` are actually PrintStream objects!
+* Both classes support the underlying `write()` method as well as methods like `print()`, `println()`, `format()`, and `printf()`
+* These methods do NOT throw a checked IOException
+
+### 🟡 print()
+* The `print()` method is overloaded with Java primitives, String and Object. Typically this method calls `String.valueOf()` on the argument and call the underlying stream's write() method
+* E.g. the following print and write methods are equivalent
+```java
+PrintWriter out = new PrintWriter("zoo.log");
+
+out.print(5); // PrintWriter method
+out.write(String.valueOf(5)); // Writer method
+
+out.print(2.0); // PrintWriter method
+out.write(String.valueOf(2.0)); // Writer method
+
+Animal animal = new Animal();
+out.print(animal); // PrintWriter method
+out.write(animal==null?"null":animal.toString()); // Writer method
+```
+
+### 🟡 println()
+* This method is same as print method except it prints to a new line
+* This method is useful when you are unsure of the new line symbol on a system. You can always obtain it using:
+```java
+System.getProperty("line.seperator"); // \n on my system
+```
+
+
+### 🟡 format() and printf()
+* These methods are akin to the methods in `C`.
+* These two methods have identical ehaviour and only differ in name:
+```jaa
+public PrintWriter format(String format, Object args...)
+public PrintWriter printf(String format, Object args...)
+```
 
 <hr>
 
