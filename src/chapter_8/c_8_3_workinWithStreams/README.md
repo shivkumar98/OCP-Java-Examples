@@ -210,6 +210,17 @@ public class Animal implements Serializable {
 <hr>
 
 ## 🟥 8.3.4 The PrintStream and PrintWriter Classes
+* These are high oevel stream classes which write formatted representation of Java objects to TEXT-BASED output stream.
+* `System.out` and `System.err` are actually PrintStream objects!
+* Both classes support the underlying `write()` method as well as methods like `print()`, `println()`, `format()`, and `printf()`
+* These methods do NOT throw a checked IOException
+
+### print()
+* The `print()` method is overloaded with Java primitives, String and Object. Typically this method calls `String.valueOf()` on the argument and call the underlying stream's write() method
+* E.g. the following are equivalent
+```java
+PrintWriter out = new PrintWriter("zoo.log");
+```
 
 <hr>
 
