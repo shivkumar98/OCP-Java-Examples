@@ -164,7 +164,7 @@ createAnimalsFile(animals, dataFile);
 ```
 * This created the `animal.data` file with the following inside:
 
-![](2023-12-19-16-24-11.png)
+![](screenshots/2023-12-19-16-24-11.png)
 
 * The folllowing code deserializes the above and prints the results:
 ```java
@@ -274,5 +274,4 @@ CIt has rained 1.200000 inches this year
 
 ## 🟥 8.3.5 Review of Stream Classes
 * Here is a diagram of the classes in the `java.io` package:
-![](2023-12-21-11-44-14.png)
-
+![](screenshots/2023-12-21-11-44-14.png)
