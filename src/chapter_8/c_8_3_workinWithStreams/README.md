@@ -248,6 +248,28 @@ public PrintWriter format(String format, Object args...)
 public PrintWriter printf(String format, Object args...)
 ```
 
+<br>
+
+* Consider the following application:
+```java
+String destination = System.getProperty("user.dir")+"\\src"+
+    "\\chapter_8\\c_8_3_workinWithStreams\\javaCode\\zoo.log";
+File source = new File(destination);
+try (PrintWriter out = new PrintWriter(new FileWriter(source))){
+  out.print("Today's weather is: ");
+  out.println("Sunny");
+  out.println("Today's temperature is: "+1/3.0);
+  out.print('C');
+  out.format("It has rained %f inches this year", 1.2F);
+}
+```
+* This will output:
+```
+Today's weather is: Sunny
+Today's temperature is: 0.3333333333333333
+CIt has rained 1.200000 inches this year
+```
+* Notice how `format()` did not print a new line!
 <hr>
 
 ## 🟥 8.3.5 Review of Stream Classes
