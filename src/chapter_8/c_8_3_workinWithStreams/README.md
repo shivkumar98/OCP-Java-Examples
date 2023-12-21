@@ -273,6 +273,6 @@ CIt has rained 1.200000 inches this year
 <hr>
 
 ## 🟥 8.3.5 Review of Stream Classes
-
-
+* Here is a diagram of the classes in the `java.io` package:
+![](2023-12-21-11-44-14.png)
 
