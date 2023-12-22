@@ -211,18 +211,23 @@ E. The parent of the path pointed to by a File object must exist <br>
 
 
 ## Question 9
-❓  ❓
-
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+❓ What are the requirements for a class that you want to serialize with `ObjectOutputStream` (choose all that apply) ❓
+A. The class must implement the `Serializable` interface <br>
+B. The class must extend the `Serializable` class <br>
+C. The class must declare a static `serialVersionUID` variable <br>
+D. All instance members of the class must be `Serializable` <br>
+E. All instance members of the class must be marked `transient` <br>
+F. Any class can be serialized with `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-
+* A - true!
+* B - false! Serializable is an interface!
+* C - false! but considered good practice
+* D - false, not even possible
+* E - false, not a requirement
+* F - false! only those which implement the interface
+* **A**
 <hr>
 
 
