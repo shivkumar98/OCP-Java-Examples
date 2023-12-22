@@ -157,18 +157,21 @@ F. The code does not compile <br>
 
 
 ## Question 6
-❓  ❓
-
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+❓ Which of the following are true statements about serialisation in Java (Choose all that apply) ❓
+A. The process of converting serialised data back into memory is called deserialization <br>
+B. All non-thread classes should be marked `Serializable` <br>
+C. The `Serializable` interface requires implementing `serialize()` and `deserialize()` methods <br>
+D. The `Serializable` interface is marked final and cannot be extended <br>
+E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundException` even if the return object is not explicitly cast <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false, the interface has zero methods
+* D - false
+* E - true
+* **A,E**
 <hr>
 
 
