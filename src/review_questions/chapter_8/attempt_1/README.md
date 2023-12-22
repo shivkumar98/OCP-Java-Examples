@@ -123,17 +123,35 @@ F. None of the above <br>
 
 
 ## Question 5
-❓  ❓
+❓ What is the result of executing the following code? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+String line;
+Console c = System.console();
+Writer w = c.writer();
+if ((line = c.readLine()) != null)
+    w.append(line);
+w.flush();
+```
+
+A. The code runs without error but prints nothing <br>
+B. The code prints what was entered by the user <br>
+C. An ArrayIndexOutOfBoundsException might be thrown <br>
+D. A NullPointerException might be thrown <br>
+E. An IOException might be thrown <br>
+F. The code does not compile <br>
 ❓
 
 ### My answer:
+* I'm not entirely sure if this compiles or not
+* A - false
+* B - false
+* C - false, I don't think this is possible
+* D - higly likely as `line` is not initialised
+* E - false
+* F - false
+* **D**
+
 
 <hr>
 
