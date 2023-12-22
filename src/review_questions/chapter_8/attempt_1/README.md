@@ -61,18 +61,22 @@ F. `BufferedReader` <br>
 <hr>
 
 ## Question 2
-❓  ❓
+❓ Why doews `Console.readPassword()` return a `char[]` instead of String object (Choose all that apply)❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. It improves performance <br>
+B. It is more secure <br>
+C. To encrypt the password data <br>
+D. To support all character encodings <br>
+E. Because Java puts all String values in a reusable pool <br>
+F. So that the value can be removed from memory immediately after use <br>
 ❓
 
 ### My answer:
-
+* B - true, it is more secure as it is not echoed to the console
+* C - false, it does no encryption
+* E - true
+* F - true
+* **B,E,F**
 <hr>
 
 
