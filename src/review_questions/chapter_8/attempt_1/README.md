@@ -81,18 +81,17 @@ F. So that the value can be removed from memory immediately after use <br>
 
 
 ## Question 3
-❓  ❓
+❓ Which of the following are true (Choose all that apply)  ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. A new Console object is created every time `System.console()` is called <br>
+B. Console can only be used for reading input and not writing output <br>
+C. Console is obtained using the singleton pattern <br>
+D. When getting a `Console` object, it might be `null` <br>
+E. When getting a `Console` object, it willl never be `null`  <br>
 ❓
 
 ### My answer:
-
+* **C,D**
 <hr>
 
 
