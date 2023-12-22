@@ -96,19 +96,30 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 
 
 ## Question 4
-❓  ❓
+❓ Which of the following can fill in the blank to make the code compile? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+Console c = System.console();
+String s = _________________;
+```
+
+A. `c.input()` <br>
+B. `c.read()` <br>
+C. `c.readLine()` <br>
+D. `c.readPassword()` <br>
+E. `c.readString()` <br>
+F. None of the above <br>
 ❓
 
 ### My answer:
-
-<hr>
+* A - false
+* B - false, this returns byte data
+* C - true
+* D - false, returns `char[]`
+* E - false
+* F - false
+* **C**
+<hr> 
 
 
 ## Question 5
