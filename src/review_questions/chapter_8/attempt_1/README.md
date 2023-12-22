@@ -191,18 +191,22 @@ E. Top <br>
 
 
 ## Question 8
-❓  ❓
+❓ Assuming / is the root directory, which of the following are true statements? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. `/home/parrot` is an absolute path <br>
+B. `/home/parrot` is a directory <br>
+C. `/home/parrot` is a relative path <br>
+D. The path pointed to froma `File` object must exist <br>
+E. The parent of the path pointed to by a File object must exist <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - true
+* C - false. I think...
+* D - false
+* E - false, I think...
+* **A,B**
 <hr>
 
 
