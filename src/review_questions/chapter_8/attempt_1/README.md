@@ -176,18 +176,17 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 
 
 ## Question 7
-❓  ❓
+❓ Fill in the blank: _________ is the topmost directory on a file system ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. Absolute <br>
+B. Directory <br>
+C. Parent <br>
+D. Root <br>
+E. Top <br>
 ❓
 
 ### My answer:
-
+* **D**
 <hr>
 
 
