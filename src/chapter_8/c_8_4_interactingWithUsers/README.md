@@ -22,6 +22,8 @@ try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)
 
 ![](screenshots/sample-program.gif)
 
+<hr>
+
 ## 🟥 8.4.2 The New Way
 * Java 6 introduced `java.io.Console` which is a singleton which is accessed using `System.console()` - this can potentially return null
 * Here is the previous program rewritten:
