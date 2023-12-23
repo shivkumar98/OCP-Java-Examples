@@ -439,18 +439,19 @@ F. `out` <br>
 
 
 ## Question 19
-❓  ❓
+❓ Suppose that you need to write data consists of int, double, boolean, and String values to a file that maintains the format of the original data. For performance reasons, you also want to buffer the data. Which three `java.io` classes can be chained together to best achieve this result? ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. `FileWriter` <br>
+B. `FileOutputStream` <br>
+C. `BufferedOutputStream` <br>
+D. `ObjectOutputStream` <br>
+E. `DirectoryStream` <br>
+F. `PrintWriter` <br>
+G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-
+* **B,C,D**
 <hr>
 
 
