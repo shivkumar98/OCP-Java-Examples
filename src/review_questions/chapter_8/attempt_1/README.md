@@ -550,12 +550,32 @@ H. The value may not be known until runtime <br>
 <hr>
 
 ## Question 23
-❓  ❓
+❓ Assume that you have an `InputSream` whose next bytes are `XYZABC`. What is the result of calling the following method on the stream, using a `count` value of 3 ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+public static String pullBytes(InputStream is, int count) throws IOException {
+    is.mark(count);
+    final StringBuilder sb = new StringBuilder();
+    for(int i=0;i<count;i++)
+        sb.append((char)is.read());
+    is.reset();
+    is.skip(1);
+    sb.append((char)is.read());
+    return sb.toString();
+}
+```
+
+A. It will return a String value of `XYZ` <br>
+B. It will return a String value of `XYZA` <br>
+C. It will return a String value of `XYZX` <br>
+D. It will return a String value of `XYZB` <br>
+E. It will return a String value of `XYZY` <br>
+F. The code does not compile <br>
+G. The code compiles but throws an exception at runtime <br>
+H. The result cannot be determined with the information given <br>
 ❓
+
+### My answer:
+* it marks 3 bytes ahead
+* It then appends `XYZ`
+* 
