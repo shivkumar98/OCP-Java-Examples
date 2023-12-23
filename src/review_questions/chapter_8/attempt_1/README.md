@@ -456,18 +456,24 @@ G. `PipedOutputStream` <br>
 
 
 ## Question 20
-❓  ❓
+❓ What are some reasons to use a character stream, such as `Reader`/`Writer`, over a byte stream, such as `InputStream`/`OutputStream` (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. More convient code syntax when working with String data <br>
+B. Improved performance <br>
+C. Automatic character encoding <br>
+D. Built-in serialization and deserialization <br>
+E. Character streams are high-level streams <br>
+F. Multi-threading support <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - true, possibly
+* C - true
+* D - false
+* E - true
+* F - false
+* **A,B,C,E**
 <hr>
 
 
@@ -488,6 +494,19 @@ F.  <br>
 
 
 ## Question 22
+❓  ❓
+
+A.  <br>
+B.  <br>
+C.  <br>
+D.  <br>
+E.  <br>
+F.  <br>
+❓
+
+<hr>
+
+## Question 23
 ❓  ❓
 
 A.  <br>
