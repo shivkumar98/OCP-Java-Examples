@@ -304,18 +304,24 @@ E. None of the above <br>
 
 
 ## Question 13
-❓  ❓
+❓ Which of the following are built-in streams in Java (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. `System.err` <br>
+B. `System.error` <br>
+C. `System.in` <br>
+D. `System.input` <br>
+E. `System.out` <br>
+F. `System.ouput` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false, this does not exist
+* C - true
+* D - false, does not exist
+* E - true
+* F - false, does not exist
+* **A,C,E**
 <hr>
 
 
