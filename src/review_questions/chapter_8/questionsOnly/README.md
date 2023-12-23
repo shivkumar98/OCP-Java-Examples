@@ -1,6 +1,6 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 8: Review Questions - Attempt 1
+# Chapter 8: Review Questions - Attempt #
 
 ## Results:
 
@@ -51,13 +51,7 @@ F. `BufferedReader` <br>
 ❓
 
 ### My answer:
-* A - false
-* B - false
-* C - false
-* D - true
-* E - false
-* F - false
-* **D**
+
 <hr>
 
 ## Question 2
@@ -72,11 +66,7 @@ F. So that the value can be removed from memory immediately after use <br>
 ❓
 
 ### My answer:
-* B - true, it is more secure as it is not echoed to the console
-* C - false, it does no encryption
-* E - true
-* F - true
-* **B,E,F**
+
 <hr>
 
 
@@ -91,7 +81,7 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 ❓
 
 ### My answer:
-* **C,D**
+
 <hr>
 
 
@@ -112,13 +102,7 @@ F. None of the above <br>
 ❓
 
 ### My answer:
-* A - false
-* B - false, this returns byte data
-* C - true
-* D - false, returns `char[]`
-* E - false
-* F - false
-* **C**
+
 <hr> 
 
 
@@ -143,15 +127,6 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-* I'm not entirely sure if this compiles or not
-* A - false
-* B - false
-* C - false, I don't think this is possible
-* D - higly likely as `line` is not initialised
-* E - false
-* F - false
-* **D**
-
 
 <hr>
 
@@ -166,12 +141,7 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 ❓
 
 ### My answer:
-* A - true
-* B - false
-* C - false, the interface has zero methods
-* D - false
-* E - true
-* **A,E**
+
 <hr>
 
 
@@ -186,7 +156,7 @@ E. Top <br>
 ❓
 
 ### My answer:
-* **D**
+
 <hr>
 
 
@@ -201,12 +171,7 @@ E. The parent of the path pointed to by a File object must exist <br>
 ❓
 
 ### My answer:
-* A - true
-* B - true
-* C - false. I think...
-* D - false
-* E - false, I think...
-* **A,B**
+
 <hr>
 
 
@@ -221,13 +186,7 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-* A - true!
-* B - false! Serializable is an interface!
-* C - false! but considered good practice
-* D - false, not even possible
-* E - false, not a requirement
-* F - false! only those which implement the interface
-* **A**
+
 <hr>
 
 
@@ -251,12 +210,7 @@ F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-* I think the code does compile! So that makes D and E false
-* A - I think this method can delete files within a directory, so true!
-* B - I'm not sure it can delete a directory tree, so false!
-* C - true
-* F - false
-* **A,C**
+*
 <hr>
 
 
@@ -273,13 +227,7 @@ F. `mkdir()` <br>
 ❓
 
 ### My answer:
-* A - possible
-* B - false
-* C - true
-* D - possible
-* E - true
-* F - true
-* **A,C,E,F**
+
 <hr>
 
 
@@ -294,12 +242,7 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-* A - false, uses incorrect seperator
-* B - false
-* C - true, forward slashes do not need to be escaped
-* D - false
-* E - false
-* **C**
+
 <hr>
 
 
@@ -315,13 +258,7 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-* A - true
-* B - false, this does not exist
-* C - true
-* D - false, does not exist
-* E - true
-* F - false, does not exist
-* **A,C,E**
+
 <hr>
 
 
@@ -337,7 +274,7 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-* E - true, PrintReader is not a thing
+
 <hr>
 
 
@@ -361,10 +298,7 @@ E. The code does not compile for another reason <br>
 ❓
 
 ### My answer:
-* I believe the code does compile, because the method correctly throws an `IOException`
-* A - true
-* D - true
-* **A,D**
+
 <hr>
 
 
@@ -380,13 +314,7 @@ F. Classes that store most of their data in static fields would not be easily se
 ❓
 
 ### My answer:
-* A - false, this is just an interface with no methods
-* B - false
-* C - false, multiple interface implementation is a thing
-* D - true
-* E - false
-* F - true, static variables are not easily serialized!
-* **D,F**
+
 <hr>
 
 
@@ -403,9 +331,6 @@ G. `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-* A - true
-* D - true
-* **A,D**
 
 <hr>
 
@@ -428,13 +353,7 @@ F. `out` <br>
 ❓
 
 ### My answer:
-* A - true
-* B - false
-* C - true
-* D - true
-* E - true
-* F - false
-* **A,C,D,E**
+
 <hr>
 
 
@@ -451,7 +370,7 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-* **B,C,D**
+
 <hr>
 
 
@@ -467,13 +386,7 @@ F. Multi-threading support <br>
 ❓
 
 ### My answer:
-* A - true
-* B - true, possibly
-* C - true
-* D - false
-* E - true
-* F - false
-* **A,B,C,E**
+
 <hr>
 
 
@@ -505,14 +418,7 @@ G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-* A - false, this is initialised in the constructor
-* B - true
-* C - true, this is marked transient
-* D - false, this is initalised 
-* E - false, this is initialised
-* F - false
-* G - false
-* **B,C**
+
 <hr>
 
 ## Question 22
@@ -546,7 +452,7 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-* **B**
+
 <hr>
 
 ## Question 23
@@ -576,9 +482,3 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
-* it marks 3 bytes ahead
-* It then appends `XYZ`
-* It then resets
-* `X` is skipped
-* `Y` is appended
-* **E**
