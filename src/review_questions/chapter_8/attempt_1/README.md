@@ -478,20 +478,35 @@ F. Multi-threading support <br>
 
 
 ## Question 21
-❓  ❓
+❓ Assuming the following class has proper public getter/setter methods for all of its private fields, which of the following fields will always be null after an instance of the class is serialized and then deserialized (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+public class Zebra implements Serializable {
+    private static final long serialUID = 1L;
+    private transient String name = "George";
+    private static String birthPlace = "Africa";
+    private transient Integer age;
+    private java.util.List<Zebra> friends = new java.util.ArrayList<>();
+    private Object tail = null;
+    { age = 10; }
+    public Zebra() {
+        this.name = "Sophia";
+    }
+}
+```
+
+A. `name` <br>
+B. `tail` <br>
+C. `age` <br>
+D. `friends` <br>
+E. `birthPlace` <br>
+F. The code does not compile <br>
+G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
 
 <hr>
-
 
 ## Question 22
 ❓  ❓
