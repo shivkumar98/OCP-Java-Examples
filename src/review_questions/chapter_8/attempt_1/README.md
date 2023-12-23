@@ -505,20 +505,48 @@ G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* A - false, this is initialised in the constructor
+* B - true
+* C - true, this is marked transient
+* D - false, this is initalised 
+* E - false, this is initialised
+* F - false
+* G - false
+* **B,C**
 <hr>
 
 ## Question 22
-❓  ❓
+❓ What is the value of `name` after an instance of Eaglle is serialized and deserialized? ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+public class Bird implements Serializable {
+    protected transient String name = "Bridget";
+    public void setName(String name) { this.name = name; }
+    public String getName() { return name; }
+    public Bird() {
+        this.name = "Matt";
+    }
+}
+public class Eagle extends Bird implements Serializable {
+    { this.name = "Janette"; }
+    public Eagle() {
+        this.name = "Daniel";
+    }
+}
+```
+
+A. `Bridget` <br>
+B. `Matt` <br>
+C. `Janette` <br>
+D. `Daniel` <br>
+E. `null` <br>
+F. The code does not compile <br>
+G. The code compiles but throws an exception at runtime <br>
+H. The value may not be known until runtime <br>
 ❓
 
+### My answer:
+* **B**
 <hr>
 
 ## Question 23
