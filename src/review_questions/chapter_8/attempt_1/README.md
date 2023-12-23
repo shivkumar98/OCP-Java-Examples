@@ -11,10 +11,10 @@ Score:
 | ---------- | ------- |
 | 1          |  ❌     |
 | 2          |  ✅     |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
+| 3          |  ✅     |
+| 4          |  ✅     |
+| 5          |  ❌     |
+| 6          |  ✅     |
 | 7          |       |
 | 8          |       |
 | 9          |       |
@@ -57,7 +57,7 @@ F. `BufferedReader` <br>
 * D - true
 * E - false
 * F - false
-* **D**❌ ❌ ❌ ❌ 
+* **D**❌❌❌❌❌
 <br>
 
 * CORRECT ANSWER: **A,D**
@@ -128,7 +128,7 @@ F. None of the above <br>
 * D - false, returns `char[]`
 * E - false
 * F - false
-* **C**
+* **C**✅✅✅✅✅
 <hr> 
 
 
@@ -160,7 +160,14 @@ F. The code does not compile <br>
 * D - higly likely as `line` is not initialised
 * E - false
 * F - false
-* **D**
+* **D**❌❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **B,D,E**
+* B is true! This will indeed take input from user and print it to the console
+* D is true because console could be nudd
+* E is true as the append() method throws an IOException
 
 
 <hr>
@@ -181,7 +188,8 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 * C - false, the interface has zero methods
 * D - false
 * E - true
-* **A,E**
+* **A,E**✅✅✅✅✅
+* E is true as the exception can be thrown by `readObject()` regardless of whether there is casting"
 <hr>
 
 
