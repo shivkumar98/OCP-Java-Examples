@@ -369,18 +369,24 @@ E. The code does not compile for another reason <br>
 
 
 ## Question 16
-❓  ❓
+❓ Why shouldn't every class be marked Serializable (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. The compiler will throw an excepiton if certain classes are marked `Serializable` <br>
+B. Only final classes can be marked `Serializable` <br>
+C. Classes can implement only one interface, so marking them `Serializable` would prevent them from using any other interface <br>
+D. The data of some classes cannot be easily serialized, such as those managing threads or processes <br>
+E. Only concrete classes can be marked `Serializable` <br>
+F. Classes that store most of their data in static fields would not be easily serializable <br>
 ❓
 
 ### My answer:
-
+* A - false, this is just an interface with no methods
+* B - false
+* C - false, multiple interface implementation is a thing
+* D - true
+* E - false
+* F - true, static variables are not easily serialized!
+* **D,F**
 <hr>
 
 
