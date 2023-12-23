@@ -57,7 +57,15 @@ F. `BufferedReader` <br>
 * D - true
 * E - false
 * F - false
-* **D**
+* **D**❌ ❌ ❌ ❌ 
+<br>
+
+* CORRECT ANSWER: **A,D**
+* The InputStream can accept only high-level input Streams
+* B is incorrect as FileInputStream is a low level class
+* C is incorrect because you can not use BufferedWriter directly
+* E is incorrect as it can only take a InputStream and not an OutputStream
+* A is correct as the BufferedInputStream can be wrapped twice
 <hr>
 
 ## Question 2
