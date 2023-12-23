@@ -391,17 +391,21 @@ F. Classes that store most of their data in static fields would not be easily se
 
 
 ## Question 17
-❓  ❓
+❓ Which of the following stream classes are high-level? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. `ObjectInputStream` <br>
+B. `PrintStream` <br>
+C. `FileWriter` <br>
+D. `PrintWriter` <br>
+E. `OutputStream` <br>
+F. `FileInputStream` <br>
+G. `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
+* A - true
+* D - true
+* **A,D**
 
 <hr>
 
