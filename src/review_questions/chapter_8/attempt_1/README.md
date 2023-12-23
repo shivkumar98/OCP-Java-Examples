@@ -263,6 +263,29 @@ F. It compiles but may throw an exception at runtime <br>
 ## Question 11
 ❓ Which of the following are methods available to instances of the `java.io.File` class? (Choose all that apply) ❓
 
+A. `mv()` <br>
+B. `createDirectory()` <br>
+C. `mkdirs()` <br>
+D. `move()` <br>
+E. `renameTo()` <br>
+F. `copy()` <br>
+F. `mkdir()` <br>
+❓
+
+### My answer:
+* A - possible
+* B - false
+* C - true
+* D - possible
+* E - true
+* F - true
+* **A,C,E,F**
+<hr>
+
+
+## Question 12
+❓ Suppose that the file `c:/book/java` exists. Which of the following lines of code creates an object that represents the file? (Choose all that apply) ❓
+
 A. `new File("c:\book\java");` <br>
 B. `new File("c:\\book\\java");` <br>
 C. `new File("c:/book/java");` <br>
@@ -271,23 +294,12 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-
-<hr>
-
-
-## Question 12
-❓  ❓
-
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
-❓
-
-### My answer:
-
+* A - false, uses incorrect seperator
+* B - false
+* C - true, forward slashes do not need to be escaped
+* D - false
+* E - false
+* **C**
 <hr>
 
 
