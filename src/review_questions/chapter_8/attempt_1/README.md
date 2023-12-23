@@ -326,34 +326,45 @@ F. `System.ouput` <br>
 
 
 ## Question 14
-❓  ❓
+❓ Which of the following are not java.io classes? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. `BufferedReader` <br>
+B. `BufferedWriter` <br>
+C. `FileReader` <br>
+D. `FileWriter` <br>
+E. `PrintReader` <br>
+F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-
+* E - true, PrintReader is not a thing
 <hr>
 
 
 ## Question 15
-❓  ❓
+❓ Assuming `zoo-data.txt` is a multiline text file, what is true of the following method? ❓
+```java
+private void echo() throws IOException {
+    try (FileReader fileReader = new FileReader("zoo-data.txt");
+      BufferedReader bufderedReader = new BufferedReader(fileReader)) {
+        System.out.println(bufferedReader.readLine());
+      }
+}
+```
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+
+A. It prints the first line of the file to the console <br>
+B. It prints the entire contents of the file <br>
+C. The code does not compile because the reader is not closed <br>
+D. The code does compile, but the reader is not closed <br>
+E. The code does not compile for another reason <br>
 ❓
 
 ### My answer:
-
+* I believe the code does compile, because the method correctly throws an `IOException`
+* A - true
+* D - true
+* **A,D**
 <hr>
 
 
