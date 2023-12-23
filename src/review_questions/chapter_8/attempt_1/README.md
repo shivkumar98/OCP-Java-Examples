@@ -261,14 +261,13 @@ F. It compiles but may throw an exception at runtime <br>
 
 
 ## Question 11
-❓  ❓
+❓ Which of the following are methods available to instances of the `java.io.File` class? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. `new File("c:\book\java");` <br>
+B. `new File("c:\\book\\java");` <br>
+C. `new File("c:/book/java");` <br>
+D. `new File("c://book//java");` <br>
+E. None of the above <br>
 ❓
 
 ### My answer:
