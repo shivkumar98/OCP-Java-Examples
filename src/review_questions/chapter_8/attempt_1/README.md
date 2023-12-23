@@ -411,18 +411,30 @@ G. `ObjectOutputStream` <br>
 
 
 ## Question 18
-❓  ❓
+❓ Which values when inserted into the blank would allow the code to compile? (Choose all that apply) ❓
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+```java
+1: Console console = System.console();
+2: String color = console.readLine("What is your favorite color? ");
+3: Console.____________("Your favorite color is "+color);
+```
+
+A. `print` <br>
+B. `printf` <br>
+C. `println` <br>
+D. `format` <br>
+E. `writer().println` <br>
+F. `out` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - true
+* D - true
+* E - true
+* F - false
+* **A,C,D,E**
 <hr>
 
 
