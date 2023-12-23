@@ -232,18 +232,31 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 
 
 ## Question 10
-❓  ❓
+❓ The following method is designed to delete a directory tree recursively. Which of the following properties reflect the method definition (choose all that apply)❓
+```java
+1: public static void deleteTree(File file) {
+2:     if(!file.isFile())
+3:         for(File entry: file.listFiles())
+4:             deleteTree(entry);
+5:     else file.delete();
+6: }
+```
 
-A.  <br>
-B.  <br>
-C.  <br>
-D.  <br>
-E.  <br>
-F.  <br>
+A. It can delete a directory that contains only files <br>
+B. It can delete a directory tree of arbritary length <br>
+C. It can delete a single file <br>
+D. The code will not compile because of line 2 <br>
+E. The code will not compile because of line 3 <br>
+F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* I think the code does compile! So that makes D and E false
+* A - I think this method can delete files within a directory, so true!
+* B - I'm not sure it can delete a directory tree, so false!
+* C - true
+* F - false
+* **A,C**
 <hr>
 
 
