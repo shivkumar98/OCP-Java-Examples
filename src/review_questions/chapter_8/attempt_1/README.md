@@ -9,8 +9,8 @@ Score:
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
+| 1          |  ❌     |
+| 2          |  ✅     |
 | 3          |       |
 | 4          |       |
 | 5          |       |
@@ -81,10 +81,11 @@ F. So that the value can be removed from memory immediately after use <br>
 
 ### My answer:
 * B - true, it is more secure as it is not echoed to the console
-* C - false, it does no encryption
-* E - true
+* C - false, it does noencryption
+* E - true 
++
 * F - true
-* **B,E,F**
+* **B,E,F**✅✅✅✅✅
 <hr>
 
 
@@ -99,7 +100,8 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 ❓
 
 ### My answer:
-* **C,D**
+* **C,D**✅✅✅✅✅
+* If the program runs without an environment, the console will be null!
 <hr>
 
 
