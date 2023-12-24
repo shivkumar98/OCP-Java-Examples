@@ -95,11 +95,18 @@ new FileInputStream(bs); // COMPILER ERROR
 | OutputStreamWriter | High | Writes character data from existing OutputStream |
 | PrintWriter           | High   | Writes formatted representations of Java objects to a text-based output stream |
 
-
-
 ## 🟥 8.2.3 Common Stream Operations
+* A resource can be closed automatically using try-with-resources or manually closed using the `.close()` method
 
+<br>
 
+* The `InputStream` and `Reader` classes include `mark(int)` and `reset()` methods which enable you to go back to an earlier position of the stream
+* You should only call `mark(int)` if `markSupported()` returns true. Calling `mark(int i)` will create a lookahead buffer with size i
+* You call `reset()` so you go back to the stream where `mark(int)` was invoked
+
+<br>
+
+* The InputStream and Reader classes also have a `skip(int)` method
 
 <hr>
 
