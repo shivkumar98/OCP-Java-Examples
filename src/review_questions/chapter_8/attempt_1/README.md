@@ -15,10 +15,10 @@ Score:
 | 4          |  ✅     |
 | 5          |  ❌     |
 | 6          |  ✅     |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
+| 7          |  ✅     |
+| 8          |  ❌     |
+| 9          |  ✅     |
+| 10         |  ❌     |
 | 11         |       |
 | 12         |       |
 | 13         |       |
@@ -251,7 +251,7 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 * D - false, not even possible
 * E - false, not a requirement
 * F - false! only those which implement the interface
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 
@@ -280,7 +280,11 @@ F. It compiles but may throw an exception at runtime <br>
 * B - I'm not sure it can delete a directory tree, so false!
 * C - true
 * F - false
-* **A,C**
+* **A,C**❌❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **C,F**
+* F is true as methods from the `File` class can throw exceptions such as a directory not existing!
 <hr>
 
 
