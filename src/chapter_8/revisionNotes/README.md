@@ -31,6 +31,8 @@
 ## 🟥 8.2.1 Stream Fundamentals
 * The contents of a file can be accessed or written via a Stream - a list of data elements presented sequentially
 
+<hr>
+
 ## 🟥 8.2.2 Stream Nomenclature
 
 ### 🟡 Byte Streams vs Character Streams
