@@ -4,8 +4,8 @@
 
 ## Results:
 
-Date: 10/19
-Score: 
+Date: 24/12/2023
+Score: 10/23 (43%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -28,10 +28,10 @@ Score:
 | 17         |  ❌     |
 | 18         |  ❌     |
 | 19         |  ✅     |
-| 20         |       |
-| 21         |       |
-| 22         |       |
-| 23         |       |
+| 20         |  ❌     |
+| 21         |  ❌     |
+| 22         |  ❌     |
+| 23         |  ❌     |
 
 <hr>
 
@@ -531,7 +531,13 @@ F. Multi-threading support <br>
 * D - false
 * E - true
 * F - false
-* **A,B,C,E**
+* **A,B,C,E**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,C**
+* Character streams offer convience and not improvement in performance
+* They also automatically handle encoding
+* They do not have built in serialization nor are considered as high level
 <hr>
 
 
@@ -570,7 +576,11 @@ G. The code compiles but throws an exception at runtime <br>
 * E - false, this is initialised
 * F - false
 * G - false
-* **B,C**
+* **B,C**❌❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,C**
+* Upon deserialization, constructors and initializers are skipped
 <hr>
 
 ## 🟨 Question 22 🟨
@@ -604,7 +614,11 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-* **B**
+* **B**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **E**
+* The name is transient, meaning its skipped when serialized and deserialized
 <hr>
 
 ## 🟨 Question 23 🟨
@@ -639,4 +653,9 @@ H. The result cannot be determined with the information given <br>
 * It then resets
 * `X` is skipped
 * `Y` is appended
-* **E**
+* **E**❌❌❌❌❌
+<br>
+
+* CORRECT ANSWEER: H
+* The code did not check if the stream supports mark.
+* If it did, then the answer would indeed be E
