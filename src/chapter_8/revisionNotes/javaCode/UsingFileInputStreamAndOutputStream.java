@@ -8,7 +8,7 @@ public class UsingFileInputStreamAndOutputStream {
 	public static void main(String[] args) throws IOException {
 		String location = System.getProperty("user.dir")+"\\src"+"\\chapter_8"
 				+"\\revisionNotes\\javaCode\\text.txt";
-		FileOutputStream fos = new FileOutputStream(location);
+		FileOutputStream fos = nezzzzw FileOutputStream(location);
 		fos.write('a');
 		FileInputStream fis = new FileInputStream(location);
 		System.out.println("fis.read(): "+(char)fis.read()); // a

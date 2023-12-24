@@ -24,14 +24,14 @@
 11) `listFiles()`
 
 
-<hr>
+<br><hr>
 
 # 🧠 8.2 Introducing Streams
 
 ## 🟥 8.2.1 Stream Fundamentals
 * The contents of a file can be accessed or written via a Stream - a list of data elements presented sequentially
 
-<hr>
+<br>
 
 ## 🟥 8.2.2 Stream Nomenclature
 
@@ -97,6 +97,8 @@ new FileInputStream(bs); // COMPILER ERROR
 | OutputStreamWriter | High | Writes character data from existing OutputStream |
 | PrintWriter           | High   | Writes formatted representations of Java objects to a text-based output stream |
 
+<br>
+
 ## 🟥 8.2.3 Common Stream Operations
 * A resource can be closed automatically using try-with-resources or manually closed using the `.close()` method
 
@@ -110,7 +112,7 @@ new FileInputStream(bs); // COMPILER ERROR
 
 * The InputStream and Reader classes also have a `skip(int)` method
 
-<hr>
+<br><hr>
 
 # 🧠 8.3 Working with Streams
 
@@ -134,11 +136,68 @@ public static void main(String[] args) throws IOException {
 }
 ```
 
-### The BufferedInputStream and BufferedOutputStream
+### 🟡 The BufferedInputStream and BufferedOutputStream
 * You can wrap the `FileInputStream` and `FileOutputStream` classes using these buffered wrappers.
+* Here's the previous program rewritten with buffered classes:
+```java
+public static void main(String[] args) throws IOException {
+    String location = System.getProperty("user.dir")
+        + "\\src" + "\\chapter_8" + 
+        "\\c_8_4_interactingWithUsers\\javaCode\\text.txt";
 
+    BufferedInputStream bufferedInputStream
+        = new BufferedInputStream(new FileInputStream(location));
+    BufferedOutputStream bufferedOutputStream
+        = new BufferedOutputStream(new FileOutputStream(location));
+    bufferedOutputStream.write('A');
+    bufferedOutputStream.flush(); // necessary!
+        
+    System.out.println((char)bufferedInputStream.read()); // A
+    System.out.println(bufferedInputStream.read()); // -1
+}
+```
+* The `flush()` memory is necessary so that data is written to the disk
+
+<br>
 
 ## 🟥 8.3.2 The FileReader and FilerWriter Classes
+```java
+public static void main(String[] args) throws IOException {
+    String location = System.getProperty("user.dir")+"\\src"+"\\chapter_8"
+            +"\\revisionNotes\\javaCode\\text3.txt";
+    try (
+    FileWriter fileWriter = new FileWriter(location);
+    FileReader fileReader = new FileReader(location)) {
+        fileWriter.write("line 1");
+        fileWriter.write("\nline 2");
+        fileWriter.flush();
+        System.out.println((char)fileReader.read()); // l
+    }
+}
+```
+* `FileWriter` has a `write(String)` method for writing whole strings to the file
+
+### 🟡 The BufferedReader and BufferedWriter Classes
+
+```java
+public static void main(String[] args) throws IOException {
+    String location = System.getProperty("user.dir")+"\\src"+"\\chapter_8"
+            +"\\revisionNotes\\javaCode\\text4.txt";
+    try (
+    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(location));
+    BufferedReader bufferedReader = new BufferedReader(new FileReader(location))) {
+        bufferedWriter.write("line 1");
+        bufferedWriter.write("\nline 2");
+        bufferedWriter.flush();
+        System.out.println(bufferedReader.readLine()); // line 1
+        System.out.println(bufferedReader.readLine()); // line 2
+        System.out.println(bufferedReader.readLine()); // null
+    }
+} 
+```
+* The Reader/Writer classes have automatic character encoding
+
+<hr>
 
 ## 🟥 8.3.3 The ObjectInputStream and ObjectOutputStream Classes
 
