@@ -224,8 +224,14 @@ E. The parent of the path pointed to by a File object must exist <br>
 * C - false. I think...
 * D - false
 * E - false, I think...
-* **A,B**
+* **A,B**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **A**
+* It could be EITHER a directory or a file without an extnesion
 <hr>
+
 
 
 ## Question 9
