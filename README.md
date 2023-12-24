@@ -78,3 +78,23 @@ I created this repo to go through the examples from the official study guide for
 - [🧠 6.6 Working With Assertions](/src/chapter_6/c_6_6_workingWithAssertions/)
 - [📝Revision Notes](/src/chapter_6/revisionNotes/)
 - [✅ Review Questions](/src/review_questions/chapter_6)
+
+## Chapter 7: Concurrency
+- [📜 Table of Contents📜 ](/src/chapter_7/)
+- [🧠 7.1 Introducing Threads](/src/chapter_7/c_7_1_introducingThreads/)
+- [🧠 7.2 Creating Threads with the ExecutorService](/src/chapter_7/c_7_2_creatingThreadsWithTheExecutorService/)
+- [🧠 7.3 Synchronizing Data Access](/src/chapter_7/c_7_3_synchronizingDataAccess/)
+- [🧠 7.4 Using Concurrent Collections](/src/chapter_7/c_7_4_usingConcurrentCollections/)
+- [🧠 7.5 Working with Parallel Streams](/src/chapter_7/c_7_5_workingWithParallelStreams/)
+- [🧠 7.6 Managing Concurrent Processes](/src/chapter_7/c_7_6_managingConcurrentProcesses/)
+- [🧠 7.7 Identifying Thread Problems](/src/chapter_7/c_7_7_identifyingThreadingProblems/)
+- [📝Revision Notes](/src/chapter_7/revisionNotes/)
+- [✅ Review Questions](/src/review_questions/chapter_7/)
+
+## Chapter 8: IO
+- [🧠 8.1 Understanding Files and Directories](src/chapter_8/c_8_1_understandingFilesAndDirectories/)
+- [🧠 8.2 Introducing Streams](/src/chapter_8/c_8_2_introducingStreams/)
+- [🧠 8.3 Workking With Streams](src/chapter_8/c_8_3_workinWithStreams/)
+- [🧠 8.4 Interacting with Users](/src/chapter_8/c_8_4_interactingWithUsers/)
+- [📝Revision Notes](src/chapter_8/revisionNotes)
+- [✅ Review Questions](src/review_questions/chapter_8/)
