@@ -23,9 +23,9 @@ Score:
 | 12         |  ❌     |
 | 13         |  ✅     |
 | 14         |  ✅     |
-| 15         |       |
-| 16         |       |
-| 17         |       |
+| 15         |  ❌     |
+| 16         |  ✅     |
+| 17         |  ❌     |
 | 18         |       |
 | 19         |       |
 | 20         |       |
@@ -429,7 +429,7 @@ F. Classes that store most of their data in static fields would not be easily se
 * D - true
 * E - false
 * F - true, static variables are not easily serialized!
-* **D,F**
+* **D,F**✅✅✅✅✅
 <hr>
 
 
@@ -448,7 +448,13 @@ G. `ObjectOutputStream` <br>
 ### My answer:
 * A - true
 * D - true
-* **A,D**
+* **A,D**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,B,D,G**
+* ObjectInputStream and ObjectOutputStream are high level streams
+* PrintStream and PrintWriter are also high level streams which operate on files directly
+
 
 <hr>
 
