@@ -5,9 +5,23 @@
 # 🧠 8.1 Understanding Files and Directories
 
 ## 🟥 8.1.1 Conceptuazlizing the File System
+* Root directory is the upper most directory 
 
 ## 🟥 8.1.2 Introducing the File Class
-
+* The File class is used to represent the pathname of a file/directory
+* It can not read/write to the file itself
+* The `File` class has the following methods:
+1) `exists()`
+2) `getName()` 
+3) `getAbsolutePath()`
+4) `isFile()`/`isDirectory()`
+5) `length()` - returns number of bytes of file
+6) `lastModified()`
+7) `delete()` - can only delete a directory if it is empty
+8) `renameTo(File)` - a `move()` method does not exist⚠️
+9) `mkdir()`/`mkdirs()`
+10) `getParent()`
+11) `listFiles()`
 
 
 <hr>
