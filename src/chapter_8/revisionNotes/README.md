@@ -200,6 +200,48 @@ public static void main(String[] args) throws IOException {
 <hr>
 
 ## 🟥 8.3.3 The ObjectInputStream and ObjectOutputStream Classes
+* In order to serialize an object, you MUST implement `Serializable` interface
+
+```java
+class Animal implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String name;
+    private int age;
+    private char type;
+    public Animal(String name, int age, char type) {
+        this.name = name;
+        this.age = age;
+        this.type = type;
+    }
+    public String getName() { return name; }
+    public int getAge() { return age; }
+    public char getType() { return char; }
+    public String toString() {
+        return "Animal [name="+name+", age="+age+", type="+type+"]";
+    }
+}
+public class UsingObjectInputStream {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        String location = System.getProperty("user.dir")+"\\src"+"\\chapter_8"
+				+"\\revisionNotes\\javaCode\\Animals-data.log";
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(location));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(location))) {
+            List<Animal> animals = Arrays.asList(new Animal("Tiger",2,'m'),
+                new Animal("Parrot",1,'b'));
+            for(Animal animal:animals)
+                objectOutputStream.writeObject(animal);
+            System.out.println(objectInputStream.readObject()); // Animal [name=Tiger, age=1, type=m]
+			System.out.println(objectInputStream.readObject()); // Animal [name=parrot, age=2, type=b]
+			System.out.println(objectInputStream.readObject()); // throws EOF Exception
+        }
+    }
+}
+```
+
+### 🟡 Understanding Object Creation
+* When Java objects are deserialized, the constructor of the serialized class is NOT calllled!
+* Java will call the first nonserializable parent class's constructor.
+* This will skip default initializers and static variables
 
 ## 🟥 8.3.4 The PrintStream and PrintWriter Classes
 

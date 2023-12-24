@@ -12,9 +12,9 @@ public class UsingBufferedReaderAndBufferedWriter {
 			bufferedWriter.write("line 1");
 			bufferedWriter.write("\nline 2");
 			bufferedWriter.flush();
-			System.out.println(bufferedReader.readLine()); 
-			System.out.println(bufferedReader.readLine());
-			System.out.println(bufferedReader.readLine());
+			System.out.println(bufferedReader.readLine()); // line 1
+			System.out.println(bufferedReader.readLine()); // line 2
+			System.out.println(bufferedReader.readLine()); // null
 		}
 		
 		
