@@ -93,6 +93,7 @@ new FileInputStream(bs); // COMPILER ERROR
 | ObjectOutputStream | High      | Serializes primitive data and objects from existing OutputStream |
 | InputStreamReader | High | Reads character data from existing InputStream                 |
 | OutputStreamWriter | High | Writes character data from existing OutputStream |
+| PrintWriter           | High   | Writes formatted representations of Java objects to a text-based output stream |
 
 
 
