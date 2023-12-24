@@ -334,7 +334,11 @@ E. None of the above <br>
 * C - true, forward slashes do not need to be escaped
 * D - false
 * E - false
-* **C**
+* **C**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **B,C**
+* I disagree with this answer but oh well
 <hr>
 
 
