@@ -4,7 +4,7 @@
 
 ## Results:
 
-Date:
+Date: 10/19
 Score: 
 ✅  ❌ 
 | Question # | Correct |
@@ -26,11 +26,12 @@ Score:
 | 15         |  ❌     |
 | 16         |  ✅     |
 | 17         |  ❌     |
-| 18         |       |
-| 19         |       |
+| 18         |  ❌     |
+| 19         |  ✅     |
 | 20         |       |
 | 21         |       |
 | 22         |       |
+| 23         |       |
 
 <hr>
 
@@ -483,7 +484,12 @@ F. `out` <br>
 * D - true
 * E - true
 * F - false
-* **A,C,D,E**
+* **A,C,D,E**❌❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **B,D,E**
+* The console has two output methods: `format` and `printf`
+* You can also obtain the `PrintWriter` using `.writer` and then printing using `println`
 <hr>
 
 
@@ -500,7 +506,10 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-* **B,C,D**
+* **B,C,D**✅✅✅✅
+
+* Since I need to write primitives and String values, only OutputStream classes are appropiate.
+* Data should be written to file using `FileOutputStream`, buffered using `BufferedOutputStream`, and serialized with `ObjectOutputStream`
 <hr>
 
 
