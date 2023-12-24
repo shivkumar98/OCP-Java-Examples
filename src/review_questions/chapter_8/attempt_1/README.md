@@ -20,8 +20,8 @@ Score:
 | 9          |  ✅     |
 | 10         |  ❌     |
 | 11         |  ❌     |
-| 12         |       |
-| 13         |       |
+| 12         |  ❌     |
+| 13         |  ✅     |
 | 14         |       |
 | 15         |       |
 | 16         |       |
@@ -360,7 +360,7 @@ F. `System.ouput` <br>
 * D - false, does not exist
 * E - true
 * F - false, does not exist
-* **A,C,E**
+* **A,C,E**✅✅✅✅
 <hr>
 
 
