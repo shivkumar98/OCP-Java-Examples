@@ -2,12 +2,12 @@
 
 # Chapter 8 - IO
 ### 📜 Contents 📜
-- [🧠 8.1 Understanding Files and Directories]()
-- [🧠 8.2 Introducing Streams]()
-- [🧠 8.3 Workking With Streams]()
-- [🧠 8.4 Interacting with Users]()
-- [📝Revision Notes]()
-- [✅ Review Questions]()
+- [🧠 8.1 Understanding Files and Directories](/src/chapter_8/c_8_1_understandingFilesAndDirectories/)
+- [🧠 8.2 Introducing Streams](/src/chapter_8/c_8_2_introducingStreams/)
+- [🧠 8.3 Workking With Streams](/src/chapter_8/c_8_3_workinWithStreams/)
+- [🧠 8.4 Interacting with Users](/src/chapter_8/c_8_4_interactingWithUsers/)
+- [📝Revision Notes](/src/chapter_8/revisionNotes)
+- [✅ Review Questions](/src/review_questions/chapter_8/)
 
 <hr>
 
