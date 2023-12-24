@@ -229,7 +229,7 @@ E. The parent of the path pointed to by a File object must exist <br>
 <br>
 
 * CORRECT ANSWER: **A**
-* It could be EITHER a directory or a file without an extnesion
+* It could be EITHER a directory or a file without an extension
 <hr>
 
 
