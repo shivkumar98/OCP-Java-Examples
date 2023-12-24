@@ -22,7 +22,7 @@ Score:
 | 11         |  ❌     |
 | 12         |  ❌     |
 | 13         |  ✅     |
-| 14         |       |
+| 14         |  ✅     |
 | 15         |       |
 | 16         |       |
 | 17         |       |
@@ -376,7 +376,7 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-* E - true, PrintReader is not a thing
+* E - true, PrintReader is not a thing✅✅✅✅✅
 <hr>
 
 
@@ -403,7 +403,11 @@ E. The code does not compile for another reason <br>
 * I believe the code does compile, because the method correctly throws an `IOException`
 * A - true
 * D - true
-* **A,D**
+* **A,D**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A**
+* The try-with-resources block will automatically close resources.
 <hr>
 
 
