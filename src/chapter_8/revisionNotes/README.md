@@ -29,8 +29,72 @@
 # 🧠 8.2 Introducing Streams
 
 ## 🟥 8.2.1 Stream Fundamentals
+* The contents of a file can be accessed or written via a Stream - a list of data elements presented sequentially
 
 ## 🟥 8.2.2 Stream Nomenclature
+
+### 🟡 Byte Streams vs Character Streams
+* The `java.io` API has two sets of classes:
+1) Stream classes with `Reader`/`Writer` in their name are used for inputting/outputting CHARACTER and STRING data
+2) Stream classes with `Stream` in their name are used for inputting/outputting BINARY or BYTE data
+
+<br>
+
+* MOST `Input` stream classes have a CORRESPONDING `Output` stream class💡
+* MOST `Writer` classes have a CORRESPONDING `Reader` class💡 
+
+### 🟡 Low Level vs High Level Streams
+* Low level streams connects directly with the source of the data. E.g. `FileInputStream`
+* High level streams is built on top of another stream using wrapping. E.g. BufferecReader is a high level stream:
+```java
+try (BufferedReader bufferedReader = new BufferedReader(
+                                        new FileReader("zoo-data.txt"))) {
+    System.out.println(bufferedReader.readLine());
+}
+```
+
+### 🟡 Stream Base Classes
+
+* The `java.io` library defines four abstract classes:
+1) `InputStream`
+2) `OutputStream`
+3) `Reader`
+4) `Writer`
+
+* The constructor of HIGH-LEVEL streams take a reference of the abstract class which they implement. E.g.:
+```java
+BufferedInputStream bs = new BufferedInputStream();
+new BufferedInputStream(bs); // perfectly fine to re-wrap
+new BufferedInputStream(new FileInputStream("zoo.txt")); // wrapping a low level stream
+// You can NOT wrap a high level stream in a low level stream:
+new FileInputStream(bs); // COMPILER ERROR
+```
+
+### 🟡 Decoding Java I/O Class Names
+* Rules:
+1) A class containing `InputStream`/`OutputStream` in its name is used for reading/writing binary data
+2) A class with the word `Reader`/`Writer` in its name is used for reading/writing character/string data
+3) A class with `Buffered` in its name reads/writes data in groups of bytes which often improves performance
+
+### 🟡 The `java.io` Stream Classes
+| Class Name    | Low/High Level | Description                                              |
+| ------------- | -------------- | -------------------------------------------------------- |
+| InputStream   | N/A            | Abstract class                                           |
+| OutputStream  | N/A            | Abstract class                                           |
+| Reader        | N/A            | Abstract class                                           |
+| Writer        | N/A            | Abstract class                                           |
+| FileInputStream | Low          | Used for reading file data as bytes                      |
+| FileOutputStream | Low         | Used for writing file data as bytes                      |
+| FileReader    | Low            | Reads file data as characters                            |
+| FileWriter    | Low            | Writes file data as character                            |
+| BufferedReader | High          | Reads character data from existing Reader                |
+| BufferedWriter | High          | Writes character data from existing Writer              |
+| ObjectInputStream | High       | Deserializes primitive data type and objects from existing InputStream |
+| ObjectOutputStream | High      | Serializes primitive data and objects from existing OutputStream |
+| InputStreamReader | High | Reads character data from existing InputStream                 |
+| OutputStreamWriter | High | Writes character data from existing OutputStream |
+
+
 
 ## 🟥 8.2.3 Common Stream Operations
 
