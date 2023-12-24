@@ -115,6 +115,28 @@ new FileInputStream(bs); // COMPILER ERROR
 # 🧠 8.3 Working with Streams
 
 ## 🟥 8.3.1 The FileInputStream and FileOutputStream Classes
+* We can instantiate these classes by either passing in a File instance, or a String pointing to the location of the file
+* We use the `int read()` method to read from the `FileInputStream`
+* We use the `void write(int)` method writes to the `FileOutputStream`
+<br>
+
+* Here is the program which appends `a` to a `text.txt` file:
+```java
+public static void main(String[] args) throws IOException {
+    String location = System.getProperty("user.dir")
+        + "\\src" + "\\chapter_8" + 
+        "\\c_8_4_interactingWithUsers\\javaCode\\text.txt";
+    FileOutputStream fos = new FileOutputStream(location);
+    fos.write('a'); // writes 'a' to the file as an int
+    FileInputStream fis = new FileInputStream(location);
+    System.out.println("fis.read(): "+(char)fis.read()); // prints a
+    System.out.println(fis.read()); // continues to return -1 
+}
+```
+
+### The BufferedInputStream and BufferedOutputStream
+* You can wrap the `FileInputStream` and `FileOutputStream` classes using these buffered wrappers.
+
 
 ## 🟥 8.3.2 The FileReader and FilerWriter Classes
 
