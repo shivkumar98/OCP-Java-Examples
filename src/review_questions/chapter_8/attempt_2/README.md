@@ -9,9 +9,9 @@ Score:
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
+| 1          |  ✅     |
+| 2          |  ✅     |
+| 3          |  ✅     |
 | 4          |       |
 | 5          |       |
 | 6          |       |
@@ -57,7 +57,7 @@ F. `BufferedReader` <br>
 * D - true
 * E - false not related
 * F - false, this is abstract class
-* **A,D**
+* **A,D**✅✅✅✅
 <br>
 
 <hr>
@@ -80,7 +80,7 @@ F. So that the value can be removed from memory immediately after use <br>
 * D - false
 * E - true
 * G - true
-* **B,E,F**
+* **B,E,F**✅✅✅✅
 <br>
 
 <hr>
@@ -102,7 +102,7 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 * C - true
 * D - true
 * E - false
-* **C,D**
+* **C,D**✅✅✅
 <br>
 
 <hr>
@@ -598,5 +598,3 @@ H. The result cannot be determined with the information given <br>
 ### My answer:
 * **H**
 <br>
-
-<hr>
