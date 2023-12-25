@@ -178,7 +178,6 @@ public static void main(String[] args) throws IOException {
 * `FileWriter` has a `write(String)` method for writing whole strings to the file
 
 ### 🟡 The BufferedReader and BufferedWriter Classes
-
 ```java
 public static void main(String[] args) throws IOException {
     String location = System.getProperty("user.dir")+"\\src"+"\\chapter_8"
