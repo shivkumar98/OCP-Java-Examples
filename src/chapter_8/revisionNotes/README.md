@@ -301,5 +301,16 @@ printWriter.format("It is %f degrees today",1/3.0);
 # 🧠 8.4 Interacting With Users
 
 ## 🟥 8.4.1 The Old Way
+* Like how System.out returns a PrintStream, System.out returns InputStream to obtain input from user.
+* We can use BufferedReader to capture text from the user:
+```java
+public static void main(String[] args) throws IOException {
+try (BufferedReader reader = 
+        new BufferedReader(new InputStreamReader(System.in))) {
+    System.out.println("enter some text: ");
+    String input = reader.readLine();
+    System.out.println("You entered: "+input);   
+}
+```
 
 ## 🟥 8.4.2 The New Way
