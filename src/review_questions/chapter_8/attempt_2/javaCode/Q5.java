@@ -8,7 +8,7 @@ public class Q5 {
 		Console c = System.console();
 		Writer w  = c.writer();
 		if((line = c.readLine()) != null) {
-			w.append(line)
+			w.append(line);
 		}
 	}
 }

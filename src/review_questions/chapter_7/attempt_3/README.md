@@ -302,7 +302,8 @@ E. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* The code will not compile due to line q2
+* **C**
 <hr>
 
 ## Question 11
@@ -335,7 +336,7 @@ F. The code may produce a deadlock at runtime <br>
 ❓
 
 ### My answer:
-
+* **A**
 <hr>
 
 ## Question 12:
@@ -373,7 +374,8 @@ F. It compiles but hangs at runtime <br>
 ❓
 
 ### My answer:
-
+* A stackoverflow exception is thrown
+* **E**
 <hr>
 
 ## Question 13
