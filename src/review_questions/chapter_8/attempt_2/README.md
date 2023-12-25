@@ -4,9 +4,9 @@
 
 ## Results:
 
-Date:
-Score: 15/18 (83%)
-✅  ❌ 
+Date: 25/12/2023
+Score: 20/23 (87%)
+
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅     |
@@ -27,10 +27,11 @@ Score: 15/18 (83%)
 | 16         |  ✅     |
 | 17         |  ❌     |
 | 18         |  ❌     |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
+| 19         |  ✅     |
+| 20         |  ✅     |
+| 21         |  ✅     |
+| 22         |  ✅     |
+| 23         |  ✅     |
 
 <hr>
 
@@ -476,7 +477,7 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-* **B,C,D**
+* **B,C,D**✅✅✅✅✅
 
 <br>
 
@@ -500,7 +501,7 @@ F. Multi-threading support <br>
 * D - false
 * E - false
 * F - false
-* **A,C**
+* **A,C**✅✅✅✅✅
 <br>
 
 <hr>
@@ -535,7 +536,7 @@ G. The code compiles but throws an exception at runtime <br>
 ### My answer:
 * name willl be null
 * age can also be nulll
-* **A,C**
+* **A,C**✅✅✅✅
 <br>
 
 <hr>
@@ -571,7 +572,7 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅✅
 <br>
 
 <hr>
@@ -603,5 +604,5 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
-* **H**
+* **H**✅✅✅✅✅
 <br>
