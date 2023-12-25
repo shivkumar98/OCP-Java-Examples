@@ -400,7 +400,10 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-
+* true = `[leopard,lynx,ocelot,grizzly]`
+* false = `[puma,polar,panda]`
+* It will output `3 4`
+* **A**
 <hr>
 
 ## Question 14:
@@ -425,7 +428,8 @@ F. The output cannot be determined ahead of time <br>
 ❓
 
 ### My answer:
-
+* The `deque` could be blockkked so cannot be determined ahead of time
+* **F**
 <hr>
 
 ## Question 15
@@ -441,7 +445,15 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 ❓
 
 ### My answer:
-
+* A callable takes no arguments and returns a generic type
+* A - false
+* B - false, its not returning anything
+* C - true
+* D - true
+* E - true
+* F - falllse
+* G - true
+* **C,D,E,G**
 <hr>
 
 ## Question 16
