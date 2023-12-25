@@ -242,14 +242,42 @@ public class UsingObjectInputStream {
 * When Java objects are deserialized, the constructor of the serialized class is NOT calllled!
 * Java will call the first nonserializable parent class's constructor.
 * This will skip default initializers and static variables
+* For transient variables, it will have the default value when deserialised
+* For static values, it will just be the last value it was set for the class
+<hr>
 
 ## 🟥 8.3.4 The PrintStream and PrintWriter Classes
+* Both the `PrintStream` and `PrintWriter` classes are used to write formatted representation of Java objects to a text-based output stream.
+```java
+String location = System.getProperty("user.dir")+"\\src"+"\\chapter_8"
+				+"\\revisionNotes\\javaCode\\usingPrintWriter.txt";
+PrintWriter printWriter = new PrintWriter(location);
+Animal animal = new Animal("Tiger",1,'m');
+printWriter.print(animal);
+printWriter.print("\n line 2");
+printWriter.flush();
+
+PrintStream printStream = new PrintStream(location);
+printStream.print(animal);
+printStream.flush();
+```
+* Both of these write `Animal [name=Tiger, age=1, type=m]` to the file
+
+<br>
+
+* `System.out` and `System.err` are PrintStream objects
+* The `PrintStream` and `PrintWriter` classes have the following methods: `print()`,`println()`, `format()` and `printf()`. These methods do not throw any checked exceptions!
+* There is a format() method which is analagous to method in C:
+```java
+printWriter.format("It is %f degrees today",1/3.0);
+// It is 0.333333 degrees today
+```
+* There is also a `printf()` method which has exact same behaviour as the `format()` method
 
 ## 🟥 8.3.5 Review of Stream Classes
 
 
-
-<hr>
+<br><hr>
 
 # 🧠 8.4 Interacting With Users
 

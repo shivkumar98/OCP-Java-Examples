@@ -1,0 +1,2 @@
+Animal [name=Tiger, age=1, type=m]
+ line 25It is 0.333333 degrees today
