@@ -7,7 +7,7 @@ public class ConsoleSample {
 		Console console = System.console();
 		if (console!=null) {
 			System.out.println("enter some text");
-			 String input = console.readLine("enter some text");
+			 String input = console.readLine();
 			 console.writer().println("You entered: "+input);
 		}
 	}

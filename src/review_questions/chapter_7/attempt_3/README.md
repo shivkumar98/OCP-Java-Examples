@@ -475,6 +475,9 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 * F - falllse
 * G - true
 * **C,D,E,G**❌❌❌❌
+
+* CORRECT ANSWER: **C,E,G**
+* D does not compile!
 <hr>
 
 ## Question 16
