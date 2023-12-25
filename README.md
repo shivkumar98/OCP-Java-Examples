@@ -92,6 +92,7 @@ I created this repo to go through the examples from the official study guide for
 - [✅ Review Questions](/src/review_questions/chapter_7/)
 
 ## Chapter 8: IO
+- [📜 Table of Contents📜 ](/src/chapter_8/)
 - [🧠 8.1 Understanding Files and Directories](src/chapter_8/c_8_1_understandingFilesAndDirectories/)
 - [🧠 8.2 Introducing Streams](/src/chapter_8/c_8_2_introducingStreams/)
 - [🧠 8.3 Workking With Streams](src/chapter_8/c_8_3_workinWithStreams/)
