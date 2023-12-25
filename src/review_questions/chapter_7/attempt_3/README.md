@@ -311,7 +311,8 @@ E. It compiles but throws an exception at runtime <br>
 
 ### My answer:
 * The code will not compile due to line q2
-* **C**
+* **C**✅✅✅✅
+* c2 is not a String but an int!
 <hr>
 
 ## Question 11
@@ -344,7 +345,10 @@ F. The code may produce a deadlock at runtime <br>
 ❓
 
 ### My answer:
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,F**
 <hr>
 
 ## Question 12:
@@ -383,7 +387,7 @@ F. It compiles but hangs at runtime <br>
 
 ### My answer:
 * A stackoverflow exception is thrown
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 13
