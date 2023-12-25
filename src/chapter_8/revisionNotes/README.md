@@ -313,6 +313,8 @@ try (BufferedReader reader =
 }
 ```
 
+<br>
+
 ## 🟥 8.4.2 The New Way
 * The `java.io.Console` can be obtained using `System.console()` via singleton pattern.
 * Here is the previous program re-written using Console:
@@ -326,3 +328,6 @@ public static void main(String[] args) {
 		}
 	}
 ```
+* You can obtain an instance of PrintWriter using `console.writer()`. This then gives you access to `printf()`, `format()` and print/println methods!
+
+* The console also has access to a readPassword() method which returns a `char[]` array which can be immediately removed from memory after use and also hides echoing to the console when user is typing
