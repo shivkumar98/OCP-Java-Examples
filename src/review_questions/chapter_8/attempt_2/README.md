@@ -5,7 +5,7 @@
 ## Results:
 
 Date:
-Score: 11/12
+Score: 15/18 (83%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -21,12 +21,12 @@ Score: 11/12
 | 10         |  ✅     |
 | 11         |  ✅     |
 | 12         |  ✅     |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ✅     |
+| 17         |  ❌     |
+| 18         |  ❌     |
 | 19         |       |
 | 20         |       |
 | 21         |       |
@@ -334,7 +334,7 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-* **A,C,E**
+* **A,C,E**✅✅✅✅✅
 <br>
 
 <hr>
@@ -352,7 +352,7 @@ F. `PrintWriter` <br>
 
 ### My answer:
 * PrintReader does not exist
-* **E**
+* **E**✅✅✅✅✅
 <br>
 
 <hr>
@@ -381,7 +381,7 @@ E. The code does not compile for another reason <br>
 * C - false
 * D - false, it is automatically closed
 * E - false
-* **A**
+* **A**✅✅✅✅✅
 <br>
 
 <hr>
@@ -404,7 +404,7 @@ F. Classes that store most of their data in static fields would not be easily se
 * D - true
 * E - false
 * F - true
-* **D,F**
+* **D,F**✅✅✅✅✅
 <br>
 
 <hr>
@@ -429,10 +429,12 @@ G. `ObjectOutputStream` <br>
 * E - false abstract class
 * F - false, this is low level
 * G - true
-* **A,B,C,G**
-
+* **A,B,C,G**❌❌❌❌
 <br>
 
+* CORRECT ANSWER: **A,B,D,G**
+* FileWriter is a low level class
+* PrintWriter is high level
 <hr>
 
 ## 🟨 Question 18 🟨
@@ -454,9 +456,11 @@ F. `out` <br>
 
 ### My answer:
 * You cannot use `print`/`println`/`format()`/`printf()` methods directly from Console
-* **E**
+* **E**❌❌❌❌❌
 <br>
 
+* CORRECT ANSWER: **B,D,E**
+* The console does have two output methods: format() and printf()!
 <hr>
 
 ## 🟨 Question 19 🟨
