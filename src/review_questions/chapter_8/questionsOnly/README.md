@@ -34,7 +34,7 @@ Score:
 
 <hr>
 
-## Question 1
+## 🟨 Question 1 🟨
 ❓ Which clases will allow the following to compile (Choose all that apply) ❓
 
 ```java
@@ -52,9 +52,11 @@ F. `BufferedReader` <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-## Question 2
+## 🟨 Question 2 🟨
 ❓ Why doews `Console.readPassword()` return a `char[]` instead of String object (Choose all that apply)❓
 
 A. It improves performance <br>
@@ -67,10 +69,12 @@ F. So that the value can be removed from memory immediately after use <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
 
-## Question 3
+## 🟨 Question 3 🟨
 ❓ Which of the following are true (Choose all that apply)  ❓
 
 A. A new Console object is created every time `System.console()` is called <br>
@@ -82,10 +86,11 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 4
+## 🟨 Question 4 🟨
 ❓ Which of the following can fill in the blank to make the code compile? (Choose all that apply) ❓
 
 ```java
@@ -103,10 +108,11 @@ F. None of the above <br>
 
 ### My answer:
 
-<hr> 
+<br>
 
+<hr>
 
-## Question 5
+## 🟨 Question 5 🟨
 ❓ What is the result of executing the following code? (Choose all that apply) ❓
 
 ```java
@@ -128,10 +134,11 @@ F. The code does not compile <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 6
+## 🟨 Question 6 🟨
 ❓ Which of the following are true statements about serialisation in Java (Choose all that apply) ❓
 A. The process of converting serialised data back into memory is called deserialization <br>
 B. All non-thread classes should be marked `Serializable` <br>
@@ -140,12 +147,8 @@ D. The `Serializable` interface is marked final and cannot be extended <br>
 E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundException` even if the return object is not explicitly cast <br>
 ❓
 
-### My answer:
 
-<hr>
-
-
-## Question 7
+## 🟨 Question 7 🟨
 ❓ Fill in the blank: _________ is the topmost directory on a file system ❓
 
 A. Absolute <br>
@@ -157,10 +160,11 @@ E. Top <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 8
+## 🟨 Question 8 🟨
 ❓ Assuming / is the root directory, which of the following are true statements? (Choose all that apply) ❓
 
 A. `/home/parrot` is an absolute path <br>
@@ -172,10 +176,11 @@ E. The parent of the path pointed to by a File object must exist <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 9
+## 🟨 Question 9 🟨
 ❓ What are the requirements for a class that you want to serialize with `ObjectOutputStream` (choose all that apply) ❓
 A. The class must implement the `Serializable` interface <br>
 B. The class must extend the `Serializable` class <br>
@@ -187,10 +192,11 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 10
+## 🟨 Question 10 🟨
 ❓ The following method is designed to delete a directory tree recursively. Which of the following properties reflect the method definition (choose all that apply)❓
 ```java
 1: public static void deleteTree(File file) {
@@ -210,11 +216,12 @@ F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-*
+
+<br>
+
 <hr>
 
-
-## Question 11
+## 🟨 Question 11 🟨
 ❓ Which of the following are methods available to instances of the `java.io.File` class? (Choose all that apply) ❓
 
 A. `mv()` <br>
@@ -223,15 +230,16 @@ C. `mkdirs()` <br>
 D. `move()` <br>
 E. `renameTo()` <br>
 F. `copy()` <br>
-F. `mkdir()` <br>
+G. `mkdir()` <br>
 ❓
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 12
+## 🟨 Question 12 🟨
 ❓ Suppose that the file `c:/book/java` exists. Which of the following lines of code creates an object that represents the file? (Choose all that apply) ❓
 
 A. `new File("c:\book\java");` <br>
@@ -243,10 +251,11 @@ E. None of the above <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 13
+## 🟨 Question 13 🟨
 ❓ Which of the following are built-in streams in Java (Choose all that apply) ❓
 
 A. `System.err` <br>
@@ -259,10 +268,11 @@ F. `System.ouput` <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 14
+## 🟨 Question 14 🟨
 ❓ Which of the following are not java.io classes? (Choose all that apply) ❓
 
 A. `BufferedReader` <br>
@@ -275,10 +285,11 @@ F. `PrintWriter` <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 15
+## 🟨 Question 15 🟨
 ❓ Assuming `zoo-data.txt` is a multiline text file, what is true of the following method? ❓
 ```java
 private void echo() throws IOException {
@@ -289,7 +300,6 @@ private void echo() throws IOException {
 }
 ```
 
-
 A. It prints the first line of the file to the console <br>
 B. It prints the entire contents of the file <br>
 C. The code does not compile because the reader is not closed <br>
@@ -299,10 +309,11 @@ E. The code does not compile for another reason <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 16
+## 🟨 Question 16 🟨
 ❓ Why shouldn't every class be marked Serializable (Choose all that apply) ❓
 
 A. The compiler will throw an excepiton if certain classes are marked `Serializable` <br>
@@ -315,10 +326,11 @@ F. Classes that store most of their data in static fields would not be easily se
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 17
+## 🟨 Question 17 🟨
 ❓ Which of the following stream classes are high-level? (Choose all that apply) ❓
 
 A. `ObjectInputStream` <br>
@@ -332,10 +344,11 @@ G. `ObjectOutputStream` <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 18
+## 🟨 Question 18 🟨
 ❓ Which values when inserted into the blank would allow the code to compile? (Choose all that apply) ❓
 
 ```java
@@ -354,10 +367,11 @@ F. `out` <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 19
+## 🟨 Question 19 🟨
 ❓ Suppose that you need to write data consists of int, double, boolean, and String values to a file that maintains the format of the original data. For performance reasons, you also want to buffer the data. Which three `java.io` classes can be chained together to best achieve this result? ❓
 
 A. `FileWriter` <br>
@@ -371,10 +385,11 @@ G. `PipedOutputStream` <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 20
+## 🟨 Question 20 🟨
 ❓ What are some reasons to use a character stream, such as `Reader`/`Writer`, over a byte stream, such as `InputStream`/`OutputStream` (Choose all that apply) ❓
 
 A. More convient code syntax when working with String data <br>
@@ -387,10 +402,11 @@ F. Multi-threading support <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-
-## Question 21
+## 🟨 Question 21 🟨
 ❓ Assuming the following class has proper public getter/setter methods for all of its private fields, which of the following fields will always be null after an instance of the class is serialized and then deserialized (Choose all that apply) ❓
 
 ```java
@@ -419,9 +435,11 @@ G. The code compiles but throws an exception at runtime <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-## Question 22
+## 🟨 Question 22 🟨
 ❓ What is the value of `name` after an instance of Eaglle is serialized and deserialized? ❓
 
 ```java
@@ -453,9 +471,11 @@ H. The value may not be known until runtime <br>
 
 ### My answer:
 
+<br>
+
 <hr>
 
-## Question 23
+## 🟨 Question 23 🟨
 ❓ Assume that you have an `InputSream` whose next bytes are `XYZABC`. What is the result of calling the following method on the stream, using a `count` value of 3 ❓
 
 ```java
@@ -482,3 +502,7 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
+
+<br>
+
+<hr>
