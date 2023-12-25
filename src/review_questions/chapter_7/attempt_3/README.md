@@ -132,7 +132,9 @@ F. It compiles but enters an infinite loop at runtime <br>
 ❓
 
 ### My answer:
-
+* As the the streams are being incremented in parallel, there can be concurrency issues
+* As such, the value1 variable can not be determined ahead of time
+* **C**
 <hr>
 
 ## Question 5
@@ -147,7 +149,9 @@ F. Deadlock, Livelock <br>
 ❓
 
 ### My answer:
-
+* The second blank is Race Condition
+* The first blank is LiveLock
+* **D**
 <hr>
 
 ## Question 6
@@ -161,7 +165,7 @@ E. The call to submit the task to the thread executor will wait until there is a
 ❓
 
 ### My answer:
-
+* **B**
 <hr>
 
 ## Question 7
