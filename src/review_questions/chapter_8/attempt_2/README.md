@@ -1,37 +1,36 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 8: Review Questions - Attempt 1
+# Chapter 8: Review Questions - Attempt 2
 
 ## Results:
 
-Date: 24/12/2023
-Score: 10/23 (43%)
-
+Date:
+Score: 
+✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |  ❌     |
-| 2          |  ✅     |
-| 3          |  ✅     |
-| 4          |  ✅     |
-| 5          |  ❌     |
-| 6          |  ✅     |
-| 7          |  ✅     |
-| 8          |  ❌     |
-| 9          |  ✅     |
-| 10         |  ❌     |
-| 11         |  ❌     |
-| 12         |  ❌     |
-| 13         |  ✅     |
-| 14         |  ✅     |
-| 15         |  ❌     |
-| 16         |  ✅     |
-| 17         |  ❌     |
-| 18         |  ❌     |
-| 19         |  ✅     |
-| 20         |  ❌     |
-| 21         |  ❌     |
-| 22         |  ❌     |
-| 23         |  ❌     |
+| 1          |       |
+| 2          |       |
+| 3          |       |
+| 4          |       |
+| 5          |       |
+| 6          |       |
+| 7          |       |
+| 8          |       |
+| 9          |       |
+| 10         |       |
+| 11         |       |
+| 12         |       |
+| 13         |       |
+| 14         |       |
+| 15         |       |
+| 16         |       |
+| 17         |       |
+| 18         |       |
+| 19         |       |
+| 20         |       |
+| 21         |       |
+| 22         |       |
 
 <hr>
 
@@ -52,21 +51,15 @@ F. `BufferedReader` <br>
 ❓
 
 ### My answer:
-* A - false
-* B - false
-* C - false
+* A - true
+* B - false, you can not wrap a high level stream in a low level stream
+* C - false, can only take reference of InputStream
 * D - true
-* E - false
-* F - false
-* **D**❌❌❌❌❌
+* E - false not related
+* F - false, this is abstract class
+* **A,D**
 <br>
 
-* CORRECT ANSWER: **A,D**
-* The InputStream can accept only high-level input Streams
-* B is incorrect as FileInputStream is a low level class
-* C is incorrect because you can not use BufferedWriter directly
-* E is incorrect as it can only take a InputStream and not an OutputStream
-* A is correct as the BufferedInputStream can be wrapped twice
 <hr>
 
 ## 🟨 Question 2 🟨
@@ -81,12 +74,15 @@ F. So that the value can be removed from memory immediately after use <br>
 ❓
 
 ### My answer:
-* B - true, it is more secure as it is not echoed to the console
-* C - false, it does noencryption
-* E - true 
-+
-* F - true
-* **B,E,F**✅✅✅✅✅
+* A - false
+* B - true
+* C - false, no encryption involved
+* D - false
+* E - true
+* G - true
+* **B,E,F**
+<br>
+
 <hr>
 
 
@@ -101,10 +97,15 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 ❓
 
 ### My answer:
-* **C,D**✅✅✅✅✅
-* If the program runs without an environment, the console will be null!
-<hr>
+* A - false
+* B - false, it can produce a PrintWriter
+* C - true
+* D - true
+* E - false
+* **C,D**
+<br>
 
+<hr>
 
 ## 🟨 Question 4 🟨
 ❓ Which of the following can fill in the blank to make the code compile? (Choose all that apply) ❓
@@ -124,14 +125,13 @@ F. None of the above <br>
 
 ### My answer:
 * A - false
-* B - false, this returns byte data
+* B - false, this returns a String
 * C - true
-* D - false, returns `char[]`
-* E - false
-* F - false
-* **C**✅✅✅✅✅
-<hr> 
+* D - false
+* E - false, does not exist
+<br>
 
+<hr>
 
 ## 🟨 Question 5 🟨
 ❓ What is the result of executing the following code? (Choose all that apply) ❓
@@ -154,25 +154,15 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-* I'm not entirely sure if this compiles or not
-* A - false
-* B - false
-* C - false, I don't think this is possible
-* D - higly likely as `line` is not initialised
-* E - false
-* F - false
-* **D**❌❌❌❌❌
+* if console is not null, this will print what was entered by user
+* B - true
+* D - ture
+* E - I dont THINK so!
+* **B,D**
 
 <br>
 
-* CORRECT ANSWER: **B,D,E**
-* B is true! This will indeed take input from user and print it to the console
-* D is true because console could be nudd
-* E is true as the append() method throws an IOException
-
-
 <hr>
-
 
 ## 🟨 Question 6 🟨
 ❓ Which of the following are true statements about serialisation in Java (Choose all that apply) ❓
@@ -186,13 +176,13 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 ### My answer:
 * A - true
 * B - false
-* C - false, the interface has zero methods
+* C - false
 * D - false
 * E - true
-* **A,E**✅✅✅✅✅
-* E is true as the exception can be thrown by `readObject()` regardless of whether there is casting"
-<hr>
+* **A,E**
+<br>
 
+<hr>
 
 ## 🟨 Question 7 🟨
 ❓ Fill in the blank: _________ is the topmost directory on a file system ❓
@@ -205,9 +195,10 @@ E. Top <br>
 ❓
 
 ### My answer:
-* **D**✅✅✅✅✅
-<hr>
+* **C**
+<br>
 
+<hr>
 
 ## 🟨 Question 8 🟨
 ❓ Assuming / is the root directory, which of the following are true statements? (Choose all that apply) ❓
@@ -221,19 +212,14 @@ E. The parent of the path pointed to by a File object must exist <br>
 
 ### My answer:
 * A - true
-* B - true
-* C - false. I think...
+* B - false, it could be a file too!
+* C - false
 * D - false
-* E - false, I think...
-* **A,B**❌❌❌❌
-
+* E - false
+* **A**
 <br>
 
-* CORRECT ANSWER: **A**
-* It could be EITHER a directory or a file without an extension
 <hr>
-
-
 
 ## 🟨 Question 9 🟨
 ❓ What are the requirements for a class that you want to serialize with `ObjectOutputStream` (choose all that apply) ❓
@@ -246,15 +232,16 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-* A - true!
-* B - false! Serializable is an interface!
-* C - false! but considered good practice
-* D - false, not even possible
-* E - false, not a requirement
-* F - false! only those which implement the interface
-* **A**✅✅✅✅
-<hr>
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* F - false
+* **A**
+<br>
 
+<hr>
 
 ## 🟨 Question 10 🟨
 ❓ The following method is designed to delete a directory tree recursively. Which of the following properties reflect the method definition (choose all that apply)❓
@@ -276,18 +263,16 @@ F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-* I think the code does compile! So that makes D and E false
-* A - I think this method can delete files within a directory, so true!
-* B - I'm not sure it can delete a directory tree, so false!
+* If we pass in a directory, the directory itself will not be deleted
+* The code code could also throw a runtime exception if the file does not exist
+* A - false
+* B - false
 * C - true
-* F - false
-* **A,C**❌❌❌❌❌
+* F - true
+* **C,F**
 <br>
 
-* CORRECT ANSWER: **C,F**
-* F is true as methods from the `File` class can throw exceptions such as a directory not existing!
 <hr>
-
 
 ## 🟨 Question 11 🟨
 ❓ Which of the following are methods available to instances of the `java.io.File` class? (Choose all that apply) ❓
@@ -302,22 +287,17 @@ G. `mkdir()` <br>
 ❓
 
 ### My answer:
-* A - possible
+* A - false
 * B - false
 * C - true
-* D - possible
+* D - false
 * E - true
-* F - true
+* F - false
 * G - true
-* **A,C,E,F,G**❌❌❌❌
+* **C,E,G**
 <br>
 
-* CORRECT ANSWER: **C,E,G**
-* The methods available are `mkdir()`/`mkdirs()`/`renameTo()`
-* There is no move type method, you need to use the renameTo() method
-
 <hr>
-
 
 ## 🟨 Question 12 🟨
 ❓ Suppose that the file `c:/book/java` exists. Which of the following lines of code creates an object that represents the file? (Choose all that apply) ❓
@@ -330,18 +310,14 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-* A - false, uses incorrect seperator
-* B - false
-* C - true, forward slashes do not need to be escaped
+* A - false
+* B - true
+* C - true
 * D - false
-* E - false
-* **C**❌❌❌❌
+* **B,C**
 <br>
 
-* CORRECT ANSWER: **B,C**
-* I disagree with this answer but oh well
 <hr>
-
 
 ## 🟨 Question 13 🟨
 ❓ Which of the following are built-in streams in Java (Choose all that apply) ❓
@@ -355,15 +331,10 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-* A - true
-* B - false, this does not exist
-* C - true
-* D - false, does not exist
-* E - true
-* F - false, does not exist
-* **A,C,E**✅✅✅✅
-<hr>
+* **A,C,E**
+<br>
 
+<hr>
 
 ## 🟨 Question 14 🟨
 ❓ Which of the following are not java.io classes? (Choose all that apply) ❓
@@ -377,9 +348,11 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-* E - true, PrintReader is not a thing✅✅✅✅✅
-<hr>
+* PrintReader does not exist
+* **E**
+<br>
 
+<hr>
 
 ## 🟨 Question 15 🟨
 ❓ Assuming `zoo-data.txt` is a multiline text file, what is true of the following method? ❓
@@ -392,7 +365,6 @@ private void echo() throws IOException {
 }
 ```
 
-
 A. It prints the first line of the file to the console <br>
 B. It prints the entire contents of the file <br>
 C. The code does not compile because the reader is not closed <br>
@@ -401,16 +373,15 @@ E. The code does not compile for another reason <br>
 ❓
 
 ### My answer:
-* I believe the code does compile, because the method correctly throws an `IOException`
 * A - true
-* D - true
-* **A,D**❌❌❌❌
+* B - false
+* C - false
+* D - false, it is automatically closed
+* E - false
+* **A**
 <br>
 
-* CORRECT ANSWER: **A**
-* The try-with-resources block will automatically close resources.
 <hr>
-
 
 ## 🟨 Question 16 🟨
 ❓ Why shouldn't every class be marked Serializable (Choose all that apply) ❓
@@ -424,15 +395,16 @@ F. Classes that store most of their data in static fields would not be easily se
 ❓
 
 ### My answer:
-* A - false, this is just an interface with no methods
+* A - false
 * B - false
-* C - false, multiple interface implementation is a thing
+* C - false
 * D - true
 * E - false
-* F - true, static variables are not easily serialized!
-* **D,F**✅✅✅✅✅
-<hr>
+* F - true
+* **D,F**
+<br>
 
+<hr>
 
 ## 🟨 Question 17 🟨
 ❓ Which of the following stream classes are high-level? (Choose all that apply) ❓
@@ -448,17 +420,17 @@ G. `ObjectOutputStream` <br>
 
 ### My answer:
 * A - true
-* D - true
-* **A,D**❌❌❌❌
+* B - true
+* C - true
+* D - false, does not exist
+* E - false abstract class
+* F - false, this is low level
+* G - true
+* **A,B,C,G**
+
 <br>
 
-* CORRECT ANSWER: **A,B,D,G**
-* ObjectInputStream and ObjectOutputStream are high level streams
-* PrintStream and PrintWriter are also high level streams which operate on files directly
-
-
 <hr>
-
 
 ## 🟨 Question 18 🟨
 ❓ Which values when inserted into the blank would allow the code to compile? (Choose all that apply) ❓
@@ -478,20 +450,11 @@ F. `out` <br>
 ❓
 
 ### My answer:
-* A - true
-* B - false
-* C - true
-* D - true
-* E - true
-* F - false
-* **A,C,D,E**❌❌❌❌❌
+* You cannot use `print`/`println`/`format()`/`printf()` methods directly from Console
+* **E**
 <br>
 
-* CORRECT ANSWER: **B,D,E**
-* The console has two output methods: `format` and `printf`
-* You can also obtain the `PrintWriter` using `.writer` and then printing using `println`
 <hr>
-
 
 ## 🟨 Question 19 🟨
 ❓ Suppose that you need to write data consists of int, double, boolean, and String values to a file that maintains the format of the original data. For performance reasons, you also want to buffer the data. Which three `java.io` classes can be chained together to best achieve this result? ❓
@@ -506,12 +469,11 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-* **B,C,D**✅✅✅✅
+* **B,C,D**
 
-* Since I need to write primitives and String values, only OutputStream classes are appropiate.
-* Data should be written to file using `FileOutputStream`, buffered using `BufferedOutputStream`, and serialized with `ObjectOutputStream`
+<br>
+
 <hr>
-
 
 ## 🟨 Question 20 🟨
 ❓ What are some reasons to use a character stream, such as `Reader`/`Writer`, over a byte stream, such as `InputStream`/`OutputStream` (Choose all that apply) ❓
@@ -526,20 +488,15 @@ F. Multi-threading support <br>
 
 ### My answer:
 * A - true
-* B - true, possibly
+* B - not necessarily
 * C - true
 * D - false
-* E - true
+* E - false
 * F - false
-* **A,B,C,E**❌❌❌❌
+* **A,C**
 <br>
 
-* CORRECT ANSWER: **A,C**
-* Character streams offer convience and not improvement in performance
-* They also automatically handle encoding
-* They do not have built in serialization nor are considered as high level
 <hr>
-
 
 ## 🟨 Question 21 🟨
 ❓ Assuming the following class has proper public getter/setter methods for all of its private fields, which of the following fields will always be null after an instance of the class is serialized and then deserialized (Choose all that apply) ❓
@@ -569,18 +526,11 @@ G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-* A - false, this is initialised in the constructor
-* B - true
-* C - true, this is marked transient
-* D - false, this is initalised 
-* E - false, this is initialised
-* F - false
-* G - false
-* **B,C**❌❌❌❌❌
+* name willl be null
+* age can also be nulll
+* **A,C**
 <br>
 
-* CORRECT ANSWER: **A,C**
-* Upon deserialization, constructors and initializers are skipped
 <hr>
 
 ## 🟨 Question 22 🟨
@@ -614,11 +564,9 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-* **B**❌❌❌❌
+* **E**
 <br>
 
-* CORRECT ANSWER: **E**
-* The name is transient, meaning its skipped when serialized and deserialized
 <hr>
 
 ## 🟨 Question 23 🟨
@@ -648,14 +596,7 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
-* it marks 3 bytes ahead
-* It then appends `XYZ`
-* It then resets
-* `X` is skipped
-* `Y` is appended
-* **E**❌❌❌❌❌
+* **H**
 <br>
 
-* CORRECT ANSWEER: H
-* The code did not check if the stream supports mark.
-* If it did, then the answer would indeed be E
+<hr>
