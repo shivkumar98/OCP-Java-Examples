@@ -483,7 +483,8 @@ H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
-             
+* We do not not in what order the tasks would be completed
+* **F**
 <hr>   
 
 ## Question 17
@@ -521,7 +522,9 @@ G. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* A single threaded executor is used
+* The output would be 100 100
+* **C**
 <hr>
 
 ## Question 18
@@ -553,7 +556,13 @@ F. It compiles but waits forever at run time <br>
 ❓
 
 ### My answer:
-
+* A - false, this will never be reached
+* B - false, this is fine
+* C - false, this is fine
+* D - false, this is fine
+* E - false
+* F - true
+* **F**
 <hr>
 
 ## Question 19
