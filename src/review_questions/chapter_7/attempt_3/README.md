@@ -193,7 +193,11 @@ G. It compiles but enters an infinite loop at runtime <br>
 ❓
 
 ### My answer:
-
+* The code does compile
+* l2 has 3 items, it gets doubled after the for loop
+* s3 has 3 items, its size is 4 after for loop
+* `3 6 4` is printed
+* **A**
 <hr>
 
 ## Question 8:
@@ -222,7 +226,8 @@ H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
-
+* You CAN call sorted on a paralle stream, this will not sort the stream however
+* **G**
 <hr>
  
 ## Question 9
@@ -272,8 +277,11 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-
-
+* A - true
+* B - true
+* D - true
+* E - true
+* **A,B,D,E**
 <hr>
 
 ## Question 10
