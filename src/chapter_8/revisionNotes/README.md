@@ -197,7 +197,7 @@ public static void main(String[] args) throws IOException {
 ```
 * The Reader/Writer classes have automatic character encoding
 
-<hr>
+<br>
 
 ## 🟥 8.3.3 The ObjectInputStream and ObjectOutputStream Classes
 * In order to serialize an object, you MUST implement `Serializable` interface
@@ -244,7 +244,8 @@ public class UsingObjectInputStream {
 * This will skip default initializers and static variables
 * For transient variables, it will have the default value when deserialised
 * For static values, it will just be the last value it was set for the class
-<hr>
+
+<br>
 
 ## 🟥 8.3.4 The PrintStream and PrintWriter Classes
 * Both the `PrintStream` and `PrintWriter` classes are used to write formatted representation of Java objects to a text-based output stream.
@@ -275,7 +276,26 @@ printWriter.format("It is %f degrees today",1/3.0);
 * There is also a `printf()` method which has exact same behaviour as the `format()` method
 
 ## 🟥 8.3.5 Review of Stream Classes
-
+* We have the following classes in the `java.io` package:
+1) `InputStream`
+- FileInputStream
+- BufferedInputStream
+- ObjectInputStream
+2) `OutputStream`
+- FileOutputStream
+- BufferedOutputStream
+- ObjectOutputStream
+- PrintStram
+3) `Reader`
+- InputStreamReader
+- FileInputReader
+- BufferedReader
+- FileReader
+4) `Writer`
+- OutputStreamWriter
+- PrintWriter
+- BufferedWriter
+- FileWriter
 
 <br><hr>
 
