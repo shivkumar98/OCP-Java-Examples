@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 
-Score: 7/9 (78%)
+Score: 9/15 (60%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -18,12 +18,12 @@ Score: 7/9 (78%)
 | 7          |  ✅     |
 | 8          |  ✅     |
 | 9          |  ❌     |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 10         |  ✅     |
+| 11         |  ❌     |
+| 12         |  ✅     | 
+| 13         |  ❌     |
+| 14         |  ❌     |
+| 15         |  ❌     |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -415,7 +415,11 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 * true = `[leopard,lynx,ocelot,grizzly]`
 * false = `[puma,polar,panda]`
 * It will output `3 4`
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,G**
+* As `.flatMap()` is used, the elements will be processed one at a time in a single-threaded fashion
 <hr>
 
 ## Question 14:
@@ -440,8 +444,13 @@ F. The output cannot be determined ahead of time <br>
 ❓
 
 ### My answer:
-* The `deque` could be blockkked so cannot be determined ahead of time
-* **F**
+* The `deque` could be blocked so cannot be determined ahead of time
+* **F**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **D - The code does not compile!**
+* The code on lines 5,6,7,8 throw a checked `InterupptedException`
+* If the code did compile, the answer woulld be F
 <hr>
 
 ## Question 15
@@ -465,7 +474,7 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 * E - true
 * F - falllse
 * G - true
-* **C,D,E,G**
+* **C,D,E,G**❌❌❌❌
 <hr>
 
 ## Question 16
