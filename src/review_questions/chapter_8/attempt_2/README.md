@@ -605,4 +605,3 @@ H. The result cannot be determined with the information given <br>
 
 ### My answer:
 * **H**✅✅✅✅✅
-<br>
