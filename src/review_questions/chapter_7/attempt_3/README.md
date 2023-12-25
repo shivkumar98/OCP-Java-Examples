@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 
-Score: 5/6
+Score: 7/9 (78%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -15,9 +15,9 @@ Score: 5/6
 | 4          |  ✅     |
 | 5          |  ✅     |
 | 6          |  ✅     |
-| 7          |       |
-| 8          |       |
-| 9          |       |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ❌     |
 | 10         |       |
 | 11         |       |
 | 12         |       |
@@ -200,7 +200,7 @@ G. It compiles but enters an infinite loop at runtime <br>
 * l2 has 3 items, it gets doubled after the for loop
 * s3 has 3 items, its size is 4 after for loop
 * `3 6 4` is printed
-* **A**
+* **A**✅✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -230,7 +230,7 @@ H. It compiles but waits forever at runtime <br>
 
 ### My answer:
 * You CAN call sorted on a paralle stream, this will not sort the stream however
-* **G**
+* **G**✅✅✅✅✅
 <hr>
  
 ## Question 9
@@ -284,7 +284,12 @@ F. The code does not compile <br>
 * B - true
 * D - true
 * E - true
-* **A,B,D,E**
+* **A,B,D,E**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,C,E**
+* RecursiveTask is the class which is being inherited
+* Since the code calls join() directly after fork(), it will generate single-threaded performance
 <hr>
 
 ## Question 10
