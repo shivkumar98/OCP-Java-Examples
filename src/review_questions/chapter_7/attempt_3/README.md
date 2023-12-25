@@ -484,7 +484,8 @@ H. It compiles but waits forever at runtime <br>
 
 ### My answer:
 * We do not not in what order the tasks would be completed
-* **F**
+* The service is not closed after use, so it will wait forever at runtime
+* **F,H**
 <hr>   
 
 ## Question 17
@@ -596,7 +597,12 @@ F. At most one instance of `TicketManager` will be created in the application <b
 ❓
 
 ### My answer:
-
+* A - true
+* B,C - false
+* D - false, one is using a static reference
+* E - false
+* F - true
+* **A,F**
 <hr>
 
 ## Question 20
@@ -610,8 +616,12 @@ E. Concurrent tasks do not share the same memory <br>
 ❓
 
 ### My answer:
-
-
+* A - true
+* B - false
+* C - false
+* D - true
+* E - false
+* **A,D**
 <hr>
 
 ## Question 21
@@ -655,8 +665,15 @@ H. The code will not compile because of line o2 <br>
 ❓
 
 ### My answer:
-
-
+* A - true
+* B - false
+* C - true
+* D - false
+* E - true
+* F - true
+* G - false
+* H - false
+* **A,C,E,F**
 <hr>
 
 
@@ -693,5 +710,5 @@ G. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
-
+* **E**
 <hr>
