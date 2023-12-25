@@ -5,22 +5,22 @@
 ## Results:
 
 Date:
-Score: 
+Score: 11/12
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅     |
 | 2          |  ✅     |
 | 3          |  ✅     |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 4          |  ✅     |
+| 5          |  ❌     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ✅     |
+| 10         |  ✅     |
+| 11         |  ✅     |
+| 12         |  ✅     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -129,6 +129,7 @@ F. None of the above <br>
 * C - true
 * D - false
 * E - false, does not exist
+* **C**✅✅✅✅
 <br>
 
 <hr>
@@ -158,10 +159,12 @@ F. The code does not compile <br>
 * B - true
 * D - ture
 * E - I dont THINK so!
-* **B,D**
+* **B,D**❌❌❌❌
 
 <br>
 
+* CORRECT ANSWER: **B,D,E**
+* The append method throws an IOException!
 <hr>
 
 ## 🟨 Question 6 🟨
@@ -179,7 +182,7 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 * C - false
 * D - false
 * E - true
-* **A,E**
+* **A,E**✅✅✅✅
 <br>
 
 <hr>
@@ -195,7 +198,7 @@ E. Top <br>
 ❓
 
 ### My answer:
-* **C**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -216,7 +219,7 @@ E. The parent of the path pointed to by a File object must exist <br>
 * C - false
 * D - false
 * E - false
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -238,7 +241,7 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 * D - false
 * E - false
 * F - false
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -269,7 +272,7 @@ F. It compiles but may throw an exception at runtime <br>
 * B - false
 * C - true
 * F - true
-* **C,F**
+* **C,F**✅✅✅✅
 <br>
 
 <hr>
@@ -294,7 +297,7 @@ G. `mkdir()` <br>
 * E - true
 * F - false
 * G - true
-* **C,E,G**
+* **C,E,G**✅✅✅✅
 <br>
 
 <hr>
@@ -314,7 +317,7 @@ E. None of the above <br>
 * B - true
 * C - true
 * D - false
-* **B,C**
+* **B,C**✅✅✅✅✅
 <br>
 
 <hr>
