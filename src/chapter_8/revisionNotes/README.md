@@ -314,3 +314,15 @@ try (BufferedReader reader =
 ```
 
 ## 🟥 8.4.2 The New Way
+* The `java.io.Console` can be obtained using `System.console()` via singleton pattern.
+* Here is the previous program re-written using Console:
+```java
+public static void main(String[] args) {
+		Console console = System.console();
+		if (console!=null) {
+			System.out.println("enter some text");
+			 String input = console.readLine();
+			 console.writer().println("You entered: "+input);
+		}
+	}
+```
