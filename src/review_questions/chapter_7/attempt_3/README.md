@@ -4,8 +4,8 @@
 
 ## Results:
 
-Date: 
-Score: 9/15 (60%)
+Date: 25/12/2023
+Score: 14/22 (64%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -24,13 +24,13 @@ Score: 9/15 (60%)
 | 13         |  ❌     |
 | 14         |  ❌     |
 | 15         |  ❌     |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
+| 16         |  ✅     |
+| 17         |  ✅     |
+| 18         |  ✅     |
+| 19         |  ✅     |
+| 20         |  ✅     |
+| 21         |  ❌     |
+| 22         |  ❌     |
 
 <hr>
 
@@ -506,7 +506,7 @@ H. It compiles but waits forever at runtime <br>
 ### My answer:
 * We do not not in what order the tasks would be completed
 * The service is not closed after use, so it will wait forever at runtime
-* **F,H**
+* **F,H**✅✅✅✅
 <hr>   
 
 ## Question 17
@@ -546,7 +546,7 @@ G. It compiles but throws an exception at runtime <br>
 ### My answer:
 * A single threaded executor is used
 * The output would be 100 100
-* **C**
+* **B**✅✅✅✅✅
 <hr>
 
 ## Question 18
@@ -584,7 +584,7 @@ F. It compiles but waits forever at run time <br>
 * D - false, this is fine
 * E - false
 * F - true
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -623,7 +623,7 @@ F. At most one instance of `TicketManager` will be created in the application <b
 * D - false, one is using a static reference
 * E - false
 * F - true
-* **A,F**
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -642,7 +642,7 @@ E. Concurrent tasks do not share the same memory <br>
 * C - false
 * D - true
 * E - false
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 21
@@ -694,7 +694,12 @@ H. The code will not compile because of line o2 <br>
 * F - true
 * G - false
 * H - false
-* **A,C,E,F**
+* **A,C,E,F**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,C,D,E**
+* The code could throw a runtime exception, os D is correct
+* Any exception will be caught by the try/catch so F is impossible!
 <hr>
 
 
@@ -731,5 +736,10 @@ G. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
-* **E**
+* **E**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **F**
+* The execute method on the service does not return anything, its a void
+* Therefore it will not compile!
 <hr>
