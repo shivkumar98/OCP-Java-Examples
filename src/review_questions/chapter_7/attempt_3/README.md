@@ -5,13 +5,13 @@
 ## Results:
 
 Date: 
-Score:
+Score: 2/3
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
+| 1          |  ✅     |
+| 2          |  ✅     |
+| 3          |  ❌     |
 | 4          |       |
 | 5          |       |
 | 6          |       |
@@ -52,7 +52,7 @@ F. `s.parallel()` <br>
 * D - true
 * E - false
 * F - true
-* **D,F**
+* **D,F**✅✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -76,7 +76,7 @@ G. Both methods return void <br>
 * E - false
 * F - true
 * G - false
-* **A,C,D,F**
+* **A,C,D,F**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -103,12 +103,15 @@ F. It compiiles but throws an exception at runtime <br>
 ### My answer:
 * w1 is fine
 * w2 is an issue, you can not return something with schedule
-* w3 could be an issue
-* w4 could also be an issue
 * C - true
 * D - false
 * E - true
-* **C,E**
+* **C** ❌❌❌❌
+
+<br>
+
+* Correct ANSWER: **B,C**
+* The method `.scheduleWithFixedDelay()` is not accessiblle to a `ExecutorService` reference
 <hr>
 
 ## Question 4:
