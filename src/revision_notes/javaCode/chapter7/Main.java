@@ -15,15 +15,15 @@ public class Main {
 		ExecutorService service = null;
 		try {
 			service = Executors.newSingleThreadExecutor();
-			Future<?> i = service.execute(r);
+//			Future<?> i = service.execute(r);
 			// service.execute(c); // COMPILER ERROR
 			Future<?> f1 = service.submit(r);
 			Future<?> f2 = service.submit(c);
-			System.out.println(f1.get());
-			System.out.println(f2.get());
+			System.out.println(f1.get()); // null
+			System.out.println(f2.get()); // 1
 			
 		} finally {
-			System.out.println(counter);
+
 			service.shutdown();
 		}
 	}
