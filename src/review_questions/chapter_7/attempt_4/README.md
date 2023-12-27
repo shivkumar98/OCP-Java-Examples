@@ -471,7 +471,7 @@ H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
-             
+* **F,H**            
 <hr>   
 
 ## Question 17
@@ -509,7 +509,7 @@ G. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* **B**
 <hr>
 
 ## Question 18
@@ -541,7 +541,7 @@ F. It compiles but waits forever at run time <br>
 ❓
 
 ### My answer:
-
+* **F**
 <hr>
 
 ## Question 19
@@ -575,7 +575,12 @@ F. At most one instance of `TicketManager` will be created in the application <b
 ❓
 
 ### My answer:
-
+* A - true
+* B,C - false
+* D - false
+* E - false
+* F - true
+* **A,F**
 <hr>
 
 ## Question 20
@@ -589,8 +594,7 @@ E. Concurrent tasks do not share the same memory <br>
 ❓
 
 ### My answer:
-
-
+* **A,D**
 <hr>
 
 ## Question 21
@@ -634,8 +638,7 @@ H. The code will not compile because of line o2 <br>
 ❓
 
 ### My answer:
-
-
+* **A,C,D**
 <hr>
 
 
@@ -672,5 +675,5 @@ G. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
-
+* **F**
 <hr>
