@@ -381,7 +381,93 @@ List<Integer> list = Collections.synchronizedList(
 <hr>
 
 ## 🟥 7.5 Working with Parallel Streams
+### 🟡 Creating Parallel Streams
+* You can create a paralle stream by calling `.parallel()` on an existing stream or calling `.parallelStream()` on a collection:
+```java
+Stream<Integer> stream = Arrays.asList(1,2,3,4).parallelStream();
+```
 
+### 🟡 Processing Tasks in Parallel
+* Using a parallel stream means that results CAN be unpredictable
+```java
+Arrays.asList(1,2,3,4,5,6)
+	.parallelStream()
+	.sorted()
+	.forEach(System.out::println);
+// PRINTS: 4 1 6 5 2 3
+```
+
+* If tasks can be done in parallel and independently, we will always know the result!❗
+```java
+List<String> list = Arrays.asList("Jackal", "Monkey", "Tiger")
+	.parallelStream()
+	.map(String::toUpperCase)
+	.collect(Collectors.toList());
+System.out.println(list); // [JACKAL, MONKEY, TIGER]
+```
+
+### 🟡 Processing Parallel Reductions
+* With parallel streams, behaviour can not be defined:
+```java
+Arrays.asList(1,2,3,4,5,6).stream().findAny(); // will ALWAYS be 1
+Arrays.asList(1,2,3,4,5,6).parallelStream().findAny(); // unable to predict the result
+```
+
+* E.g.:
+```java
+int x = Arrays.asList("1234","56","789")
+	.parallelStream()
+	.reduce(0,
+	(n,str)-> n + str.length(),
+	(str1,str2)-> str1+str2);
+System.out.println(x); // 9
+
+String str = Arrays.asList("abc","de","fgh")
+	.parallelStream()
+	.reduce("", (result,s)->result+s.toUpperCase(), (s1,s2)->s1+s2);
+System.out.println(str); // ABCDEFGH
+```
+
+### Using `.collect()` Method
+* A parallel stream can be reduced efficiently using the collect method, providing the following requirements are met:
+1) The stream is parallel
+2) The collect() paramaeter has the `Collector.Characteristics.CONCURRENT` characteristic
+3) The stream is unordered, OR the collect() parameter has the `Collector.Characteristic.UNORDERED` characteristic
+
+* The `Collectors.toSet()` method is an example of a collector which DOES NOT have the `CONCURRENT` charactteristic:
+```java
+Stream<String> stream = Stream.of("w","o","l","f")
+		.parallel();
+System.out.println(Collectors.toSet().characteristics());
+// [UNORDERED, IDENTITY_FINISH]
+
+Set<String> set =
+	stream.collect(Collectors.toSet());
+System.out.println(set); // [f, w, l, o]
+```
+
+* The Collectors class does have 2 collectors which are both `CONCURRENT` AND `UNORDERED`:
+1) `Collectors.toConcurrentMap()`
+2) `Collectors.groupingByConcurrent()`
+
+* E.g.:
+```java
+Stream<String> ohMy = Stream.of("lions","tigers","bears")
+	.parallel();
+ConcurrentMap<Integer,String> map = ohMy.collect(
+	Collectors.toConcurrentMap(s->s.length(),
+	k->k,
+	(s1,s2)->s1+","+s2)
+);
+System.out.println(map); // {5=bears,lions, 6=tigers}
+```
+
+```java
+Stream<String> parallelStream = Stream.of("lions", "tigers", "bears").parallel();
+ConcurrentMap<Integer, List<String>> groupedMap = parallelStream
+	.collect(Collectors.groupingByConcurrent(str->str.length()));
+System.out.println(groupedMap); // {5=[lions, bears], 6=[tigers]}
+```
 <hr>
 
 ## 🟥 7.6 Managing Concurrent Processes
