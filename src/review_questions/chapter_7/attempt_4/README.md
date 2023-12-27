@@ -365,6 +365,7 @@ F. It compiles but hangs at runtime <br>
 
 ### My answer:
 * Base case is never reached
+* **E**
 <hr>
 
 ## Question 13
@@ -389,7 +390,9 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-
+* it prints 4 3
+* It is single threaded performance as flatMap is used
+* **B,G**
 <hr>
 
 ## Question 14:
@@ -414,7 +417,8 @@ F. The output cannot be determined ahead of time <br>
 ❓
 
 ### My answer:
-
+* Does not compile
+# **D**
 <hr>
 
 ## Question 15
@@ -430,7 +434,14 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - true
+* D - false, does not compile
+* E - true
+* F - false
+* G - true
+* **C,E,,G**
 <hr>
 
 ## Question 16
