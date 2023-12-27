@@ -4,33 +4,33 @@
 
 ## Results:
 
-Date: 
-Score:
+Date: 27/12/23
+Score: 20/22
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
+| 1          |   ✅    |
+| 2          |   ✅    |
+| 3          |   ❌    |
+| 4          |   ✅    |
+| 5          |   ✅    |
+| 6          |   ✅    |
+| 7          |   ✅    |
+| 8          |   ✅    |
+| 9          |   ✅    |
+| 10         |   ✅    |
+| 11         |   ✅    |
+| 12         |   ✅    |
+| 13         |   ✅    |
+| 14         |   ✅    |
+| 15         |   ✅    |
+| 16         |   ✅    |
+| 17         |   ✅    |
+| 18         |   ✅    |
+| 19         |   ✅    |
+| 20         |   ✅    |
+| 21         |   ❌    |
+| 22         |   ✅    |
 
 <hr>
 
@@ -52,7 +52,7 @@ F. `s.parallel()` <br>
 * D - true
 * E - false
 * F - true
-* **D,F**
+* **D,F**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -76,7 +76,7 @@ G. Both methods return void <br>
 * E - false, it returns void
 * F - true
 * G - false, callable returns something
-* **A,C,D,F**
+* **A,C,D,F**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -105,7 +105,10 @@ F. It compiiles but throws an exception at runtime <br>
 * w2 is fine!
 * w3 is fine!
 * w4 is fine!
-* **B**
+* **B** ❌❌❌❌ 
+
+* CORRECT ANSWER: **B,C**
+* You can not use callable with scheduled executor
 <hr>
 
 ## Question 4:
@@ -130,7 +133,7 @@ F. It compiles but enters an infinite loop at runtime <br>
 
 ### My answer:
 * We have a parallel stream, we do not know the value of `value2` as it is not thread safe
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 5
@@ -145,7 +148,7 @@ F. Deadlock, Livelock <br>
 ❓
 
 ### My answer:
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 6
@@ -159,7 +162,7 @@ E. The call to submit the task to the thread executor will wait until there is a
 ❓
 
 ### My answer:
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -190,7 +193,7 @@ G. It compiles but enters an infinite loop at runtime <br>
 * l2 will have a size of 6
 * s3 will have a size of 4
 * l1 has a size of 3
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -220,7 +223,7 @@ H. It compiles but waits forever at runtime <br>
 
 ### My answer:
 * i2 is a parallel stream, we can not determine the result of findAny
-* **G**
+* **G**✅✅✅✅✅
 <hr>
  
 ## Question 9
@@ -272,7 +275,7 @@ F. The code does not compile <br>
 ### My answer:
 * `.join()` is called straight after `.fork()` so single thread performance
 * It does find the minimum!
-* **A,E**
+* **A,C,E**✅✅✅✅
 <hr>
 
 ## Question 10
@@ -293,7 +296,7 @@ E. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 11
@@ -326,7 +329,7 @@ F. The code may produce a deadlock at runtime <br>
 ❓
 
 ### My answer:
-* **A,F**
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -365,7 +368,7 @@ F. It compiles but hangs at runtime <br>
 
 ### My answer:
 * Base case is never reached
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 13
@@ -390,9 +393,9 @@ G. The `collect()` operation is always executed in a single-threaded fashion
 ❓
 
 ### My answer:
-* it prints 4 3
+* it prints 3 4
 * It is single threaded performance as flatMap is used
-* **B,G**
+* **A,G**✅✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -418,7 +421,7 @@ F. The output cannot be determined ahead of time <br>
 
 ### My answer:
 * Does not compile
-# **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 15
@@ -441,7 +444,7 @@ G. `() -> {System.out.println("Giraffe"); return 10;}` <br>
 * E - true
 * F - false
 * G - true
-* **C,E,,G**
+* **C,E,G**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -471,7 +474,7 @@ H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
-* **F,H**            
+* **F,H**✅✅✅✅✅
 <hr>   
 
 ## Question 17
@@ -509,7 +512,7 @@ G. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-* **B**
+* **B**✅✅✅✅✅
 <hr>
 
 ## Question 18
@@ -541,7 +544,7 @@ F. It compiles but waits forever at run time <br>
 ❓
 
 ### My answer:
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -580,7 +583,7 @@ F. At most one instance of `TicketManager` will be created in the application <b
 * D - false
 * E - false
 * F - true
-* **A,F**
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -594,7 +597,7 @@ E. Concurrent tasks do not share the same memory <br>
 ❓
 
 ### My answer:
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 21
@@ -638,7 +641,8 @@ H. The code will not compile because of line o2 <br>
 ❓
 
 ### My answer:
-* **A,C,D**
+* **A,C,D**❌❌❌❌
+* CORRECT ANSWER: **A,C,D,E** - it can hang!
 <hr>
 
 
@@ -675,5 +679,5 @@ G. The code will not compile because of line n2 <br>
 ❓
 
 ### My answer:
-* **F**
+* **F**✅✅✅✅
 <hr>
