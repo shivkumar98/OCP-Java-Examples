@@ -129,7 +129,8 @@ F. It compiles but enters an infinite loop at runtime <br>
 ❓
 
 ### My answer:
-
+* We have a parallel stream, we do not know the value of `value2` as it is not thread safe
+* **C**
 <hr>
 
 ## Question 5
@@ -144,7 +145,7 @@ F. Deadlock, Livelock <br>
 ❓
 
 ### My answer:
-
+* **D**
 <hr>
 
 ## Question 6
@@ -158,7 +159,7 @@ E. The call to submit the task to the thread executor will wait until there is a
 ❓
 
 ### My answer:
-
+* **B**
 <hr>
 
 ## Question 7
