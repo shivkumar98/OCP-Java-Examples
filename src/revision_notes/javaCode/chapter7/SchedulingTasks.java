@@ -22,7 +22,8 @@ public class SchedulingTasks {
 		System.out.println(f.get()); // 1
 		System.out.println(f2.get()); // null
 		
-		Future<?> f3 = scheduledService.scheduleAtFixedRate(r, 1, 1, TimeUnit.SECONDS);
+//		Future<?> f3 = scheduledService.scheduleAtFixedRate(r, 1, 1, TimeUnit.SECONDS);
+		Future<?> f4 = scheduledService.scheduleWithFixedDelay(r, 0, 1, TimeUnit.SECONDS);
 		
 		
 	}

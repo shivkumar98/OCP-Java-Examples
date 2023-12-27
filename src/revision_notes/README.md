@@ -197,11 +197,72 @@ scheduledAtFixedDelay(Runnable r, long initialDelay, long delay, TimeUnit unit);
 ```java
 Future<?> f3 = scheduledService.scheduleAtFixedRate(r, 1, 1, TimeUnit.SECONDS);
 // this will print hello exactly every second		
+
+Future<?> f4 = scheduledService.scheduleWithFixedDelay(r, 0, 1, TimeUnit.SECONDS);
+// this will print hello exactly 1 second after the previous hello is printed
 ```
 
 <hr>
 
 ## 🟥 7.3 Synchronizing Data Access
+
+### 🟡 Atomic Classes
+* We have the following Atomic classes in the Concurrency API:
+1) `AtomicBoolean`
+2) `AtomicInteger`
+3) `AtomicLong`
+4) `AtomicReference`
+5) `AtomicIntegerArray`
+6) `AtomicLongArray`
+7) `AtomicReferenceArray`
+
+* Here are common methods for these classes:
+```java
+get();
+set();
+getAndSet(newValue); // gets old value while setting new value
+incrementAndGet(); // increments and returns the incremented value
+getAndIncrement(); // gets old value and increments after
+decrementAndGet(); // decrements and returns decremented value
+getAndDecrement(); // gets old value and decrements after
+```
+* Here is an example of using an Atomic class to ensure a counter is kept THREAD-SAFE and to prevent race conditions:
+```java
+public class SheepManager {
+	AtomicInteger sheepCount = new AtomicInteger(0);
+	void incrementAndReport() {
+		System.out.print(sheepCount.incrementAndGet()+" ");
+	}
+	public static void main(String[] argS) {
+		SheepManager manager = new SheepManager();
+		ExecutorService service = null;
+		try {
+			service = Executors.newFixedThreadPool(20);
+			for(int i=0;i<10;i++)
+				service.submit(()->manager.incrementAndReport()))
+		} finally {
+			if(service!=null) service.shutdown();
+		}
+	}
+}
+```
+* Here are samples of what would be printed:
+```java
+1 10 9 3 2 8 7 4 6 5 
+2 10 9 7 8 6 5 4 1 3 
+```
+
+### 🟡 Synchronized Methods
+* We can synchronize access to methods using `synchronized` keyword. The following are equivalent:
+```java
+synchronized void print() {
+	System.out.print("hello");
+}
+void incrementAndReport() {
+	synchronized(this) {
+		System.out.print("hello");}
+}
+```
 
 <hr>
 
