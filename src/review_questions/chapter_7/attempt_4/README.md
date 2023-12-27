@@ -187,7 +187,10 @@ G. It compiles but enters an infinite loop at runtime <br>
 ❓
 
 ### My answer:
-
+* l2 will have a size of 6
+* s3 will have a size of 4
+* l1 has a size of 3
+* **A**
 <hr>
 
 ## Question 8:
@@ -216,7 +219,8 @@ H. It compiles but waits forever at runtime <br>
 ❓
 
 ### My answer:
-
+* i2 is a parallel stream, we can not determine the result of findAny
+* **G**
 <hr>
  
 ## Question 9
@@ -266,8 +270,9 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-
-
+* `.join()` is called straight after `.fork()` so single thread performance
+* It does find the minimum!
+* **A,E**
 <hr>
 
 ## Question 10
