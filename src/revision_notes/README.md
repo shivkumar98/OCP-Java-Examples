@@ -636,4 +636,9 @@ return new WeighAnimalTask(weights,middle,end).compute()+otherTask;
 ```
 <hr>
 
-## 🟥 7.7 Identifyuing Threading Problems
+## 🟥 7.7 Identifying Threading Problems
+* Liveliness is the property of an application not encountering unexpected delays
+* Deadlock is when a resource is blocked from being used from a thread
+* Starvation occurs when a thread is perpetually denied access to a shared resouce as a result of other threads constantly taking the resource
+* Livelock occurs when two or more threads are blocked forever but appear active. This is often the result of two threads trying to attempt to resolve a deadlock
+* Race conditions are when two or more threads try to complete a related task at the same time. It is the undesirablee result which occurs when two tasks which should be done sequentially are done at the same time
