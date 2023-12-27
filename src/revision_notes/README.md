@@ -268,6 +268,116 @@ void incrementAndReport() {
 
 ## 🟥 7.4 Using Concurrent Collections
 
+### 🟡 Concurrent Classes
+* We have the following Concurrent Collection Classes:
+```java
+ConcurrentHashMap // ConcurrentMap
+ConcurrentLinkedDeque // Deque
+ConcurrentLinkedQueue // Queue
+ConcurrentSkipListMap // ConcurrentMap/SortedMap/NavigableMap
+ConcurrentSkipListSet // SortedSet/NavigableSet
+CopyOnWriteArrayList // List
+CopyOnWriteArraySet // Set
+LinkedBlockingDeque // BlockingQueue/BlockingDeque
+LinkedBlockingQueue // BlockkingQueue
+```
+### 🟡 ConcurrentModificationException
+* Using Concurrent classes enables us to avoid `ConcurrentModificationException` when workking with for-loops:
+```java
+Map<String, Integer> food = new HashMap<>();
+food.putAll(Map.of("pizza", 1, "chicken", 2));
+for (String key: food.keySet()) {
+	food.remove(key); // throws ConcurrentModificationException
+}
+```
+* If we used `new ConcurrentHashMap<>()` instead, we would not have this problem!💡
+
+### 🟡 Blocking Queues
+* The `LinkedlockingDeque` and `LinkedBlockingQueue` implement the `BlockingQueue` and `BlockingDeque` interfaces
+1) `BlockingQueue` waiting methods:
+```java
+boolean offer(E e, long timeout, TimeUnit unit); 
+// adds item to queue in alotted time if space is available
+
+E poll(long timeout, TimeUnit unit);
+// retrieves and removes an item from the queue in alotted time if available
+```
+* These methods can throw an `InterruptedException` as they can be interrupted before finishing:
+```java
+try {
+	BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>();
+	blockingQueue.offer(39);
+	blockingQueue.offer(3,4,TimeUnit.SECONDS);
+	System.out.println(blockingQueue.poll(10, TimeUnit.SECONDS));
+} catch (InterruptedException e) {
+	// handle
+}
+```
+
+2) `BlockingDeque` waiting methods:
+```java
+boolean offerFirst(E e, long timeout, TimeUnit unit);
+// adds item to front of queue
+
+boolean offerLast(E e, long timeout, TimeUnit unit);
+// adds item to back of queue
+
+E pollFirst(long timeout, TimeUnit unit); 
+// retrieves and removes element at front of queue
+
+E pollLast(long timeout, TimeUnit unit);
+// retrieves and removes element at back of queue
+```
+* Again, `InterruptedException` must be caught and handled!
+
+### 🟡 SkipList Collections
+* The `ConcurrentSkipListMap` and `ConcurrentSkipListSet` are concurrent versions of `TreeMap` and `TreeSet`
+* These 
+### 🟡 CopyOnWrite Collections
+* The `CopyOnWriteArrayList` and `CopyOnWriteSet` are concurrent versions of Lists and Sets.
+* These classes let us add/remove elements in a for loop, the iterator takes a snapshot of the elements and loops over these elements during each iteration
+```java
+List<Integer> regularList = Arrays.asList(1,2,3);
+
+/* The following code throws exception:
+for(int i:l1) 
+	l1.add(i); // UnsupportedOperationException
+*/
+
+List<Integer> l2 = new CopyOnWriteArrayList<>(l1);
+for (int i:l2) {
+	System.out.print(i+ " "); // 1 2 3
+	l2.add(i);
+}
+System.out.println(l2); // [1,2,3,1,2,3]
+
+Set<Integer> s3 = new CopyOnWriteArraySet<>();
+s3.addAll(l2);
+for(int i:s3) {
+	System.out.print(i+ " "); // 1 2 3
+	s3.add(4);
+}
+System.out.println("\n"+s3); // [1,2,3,4]
+```
+
+### 🟡 Obtaining Synchronized Collections
+* We can convert non-concurrent collections into synchronized versions using the following methods:
+```java
+synchronizedCollection(Collection<T> c)
+synchronizedList(List<T> list)
+synchronizedMap(Map<Kk,V> map)
+synchronizedNavigableMap(NavigableMap<K,V> map)
+synchronizedNavigableSet(NavigableSet<T> set)
+synchronziedSet(Set<T> set)
+synchronizedSortedMap(SortedMap<K,V> map)
+synchronizedSortedSet(SortedSet<T> set)
+```
+* E.g.:
+```java
+List<Integer> list = Collections.synchronizedList(
+	new ArrayList<>(Arrays.asList(4,3,42)));
+```
+
 <hr>
 
 ## 🟥 7.5 Working with Parallel Streams
