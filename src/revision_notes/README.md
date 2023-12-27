@@ -471,7 +471,169 @@ System.out.println(groupedMap); // {5=[lions, bears], 6=[tigers]}
 <hr>
 
 ## 🟥 7.6 Managing Concurrent Processes
+### 🟡 Creating a CyclicBarrier
+* We can use the `CyclicBarrierLimit` class to create thresholds in a method to ensure that a type of task if not done until another is done:
+```java
+void performTask(CyclicBarrier c1) {
+	try {
+		System.out.println("Task 1");
+		c1.await();
+		System.out.println("Task 2");
+	}
+}
+// MAIN METHOD:
+ExecutorService service = null;
+try {
+	service = Executors.newFixedThreadPool(4);
+	CyclicBarrier c1 = new CyclicBarrier(2);
+	for(int i=0;i<4;i++)
+		service.submit(()->performTask(c1));
+} finally {
+	if(service!=null) service.shutdown();
+}
+```
+* This prints the following:
+```java
+Task 1
+Task 1
+Task 1
+Task 1
+Task 2
+Task 2
+Task 2
+Task 2
+```
 
+### 🟡 Applying the Fork/Join Framework
+* The Fork/Join framework requires us to perform three steps:
+1) Createa ForkJoinTask instance using `RecursiveAction`/`RecursiveTask``
+2) Create a `ForkJoinPool` instance
+3) Invoke the ForkJoinTask instance using the pool
+
+* We have two ForkJoinTask classes:
+```java
+abstract class RecursiveAction extends ForkJoinTask {
+	protected abstract void compute();
+}
+abstract class RecursiveTask<V> extends ForkJoinTask<V> {
+	protected abstract T compute();
+}
+```
+#### 🟢 RecursiveAction Example 🟢
+```java
+public class WeighAnimalAction extends RecursiveAction {
+	private int start;
+    private int end;
+    private Double[] weights;
+    // CONSTRUCTOR HERE
+	
+	protected void compute() {
+		if(end-start<=3){
+			System.out.println("BASE CASE FROM: "+start
+            +", TO: "+end);
+            for(int i=start;i<end;i++) {
+                weights[i] = (double)new Random().nextInt(100);
+                System.out.println("Animal "+i+" weighs "+weights[i]);
+            }
+		} else {
+			int middle = start+((end-start)/2);
+            System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+            invokeAll(new WeighAnimalAction(weights,start,middle),
+                      new WeighAnimalAction(weights,middle,end));
+		}
+	}
+}
+
+// MAIN METHOD:
+Double[weights] = new Double[10];
+ForkJoinTask<?> task = new WeighAnimalAction(weights,0,10);
+ForkJoinPool pool = new ForkJoinPool();
+pool.invoke(task);
+```
+* This prints the following:
+```
+[start=0,middle=5,end=10]
+[start=0,middle=2,end=5]
+BASE CASE FROM: 0, TO: 2
+[start=5,middle=7,end=10]
+BASE CASE FROM: 2, TO 5
+BASE CASE FROM: 5, TO 7
+BASE CASE FROM: 7, TO 10
+Animal 0 weighs 53.0
+Animal 1 weighs 75.0
+Animal 2 weighs 41.0
+Animal 5 weighs 56.0
+Animal 3 weighs 87.0
+Animal 7 weighs 35.0
+Animal 4 weighs 59.0
+Animal 8 weighs 68.0
+Animal 6 weighs 56.0
+Animal 9 weighs 9.0
+```
+
+#### 🟢 RecursiveTask Example 🟢
+```java
+public class WeighAnimalTask extends RecursiveTask<Double> {
+	private int start;
+    private int end;
+    private Double[] weights;
+    // CONSTRUCTOR HERE
+
+	protected Double compute() {
+		if (end-start<=3) {
+			System.out.println("BASE CASE FROM: "+start+", TO: "+end);
+			double sum = 0;
+			for (int i=start;i<end;i++) {
+				weights[i] = (double)new Random().nextInt(100);
+				System.out.println("Animal Weighed: "+i);
+				sum += weights[i];
+			}
+		} else {
+			int middle = start+((start-end)/2);
+			System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+			RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+			otherTask.fork();
+			return new WeighAnimalTask(weights,middle,end).compute()+otherTask.join();
+		}
+	}
+}
+
+// MAIN METHOD:
+Double[] weights = new Double[10];
+ForkJoinTask<Double> task = new WeighAnimalTask(weights,0,weights.length);
+ForkJoinPool pool = new ForkJoinPool();
+Double sum = pool.invoke(task);
+System.out.println("Sum: "+sum);
+```
+* This prints the following:
+```
+[start=0,middle=5,end=10]
+[start=5,middle=7,end=10]
+BASE CASE FROM: 7, TO: 10
+[start=0,middle=2,end=5]
+BASE CASE FROM: 5, TO: 7
+BASE CASE FROM: 2, TO: 5
+BASE CASE FROM: 0, TO: 2
+Animal: 7 weighed 0.0
+Animal: 8 weighed 40.0
+Animal: 9 weighed 29.0
+Animal: 2 weighed 69.0
+Animal: 3 weighed 83.0
+Animal: 5 weighed 71.0
+Animal: 0 weighed 55.0
+Animal: 1 weighed 45.0
+Animal: 6 weighed 49.0
+Animal: 4 weighed 87.0
+Sum: 528.0
+```
+* If the `.join()` method were to be called directly after fork, the application would generate single-threader performance:
+```java
+int middle = start+((start-end)/2);
+System.out.println("[start="+start+",middle="+middle+",end="+end+"]");
+RecursiveTask<Double> otherTask = new WeighAnimalTask(weights,start,middle);
+otherTask.fork().join(); // DO NOT DO!!!!
+return new WeighAnimalTask(weights,middle,end).compute()+otherTask;
+```
 <hr>
 
 ## 🟥 7.7 Identifyuing Threading Problems
