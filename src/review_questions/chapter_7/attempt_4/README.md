@@ -293,7 +293,7 @@ E. It compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* **C**
 <hr>
 
 ## Question 11
@@ -326,7 +326,7 @@ F. The code may produce a deadlock at runtime <br>
 ❓
 
 ### My answer:
-
+* **A,F**
 <hr>
 
 ## Question 12:
@@ -364,7 +364,7 @@ F. It compiles but hangs at runtime <br>
 ❓
 
 ### My answer:
-
+* Base case is never reached
 <hr>
 
 ## Question 13
