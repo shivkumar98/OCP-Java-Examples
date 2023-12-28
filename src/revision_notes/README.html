@@ -1,0 +1,668 @@
+<html>
+    <head>
+        <link href="../styles.css" rel="stylesheet"></link>
+    </head>
+    <body>
+        
+
+<h1 id="-chapter-6-exceptions-and-assertions">🧠 Chapter 6 - Exceptions and Assertions</h1>
+<h2 id="-6-1-reviewing-exceptions">🟥 6.1 Reviewing Exceptions</h2>
+<h3 id="-terminology">🟡 Terminology</h3>
+<ul>
+<li>All exceptions/errors extend <code>java.lang.Object</code></li>
+<li><code>RuntimeException</code> is a subclass of <code>Exception</code>, it is AKA unchecked exception and there is no requirement to be caught (even though you can).</li>
+<li>Checked exceptions are <code>Exception</code> classes which DO NOT extend <code>RuntimeException</code>.</li>
+<li><code>Error</code> classes are not <code>Exceptions</code> but a seperate subclass of <code>Throwable</code></li>
+</ul>
+<h3 id="-ocp-exceptions">🟡 OCP Exceptions</h3>
+<ul>
+<li>The pre-requiste exceptions from the OCA exam include:
+1) <code>NumberFormatException</code> - thrown by program when attempting to convert string to numeric type
+2) <code>IllegalArgumentException</code> - thrown by program
+3) <code>NullPointerException</code> - thrown by JVM
+4) <code>ArrayIndexOutOfBoundsException</code> - thrown by JVM
+5) <code>ArithmeticException</code> - thrown by JVM when trying to divide by zero
+6) <code>ClassCastException</code> - thrown by JVM when attempting to make cast an object to an invalid type</li>
+</ul>
+<p><br></p>
+<ul>
+<li>The <strong>OCP Checked Exceptions</strong> are:
+1) <code>java.text.ParseException</code> </li>
+<li>converting a number to string
+2) <code>java.io.IOException</code>/<code>java.io.FileNotFoundException</code>/<code>java.io.NotSerializableException</code></li>
+<li>All io exceptions can be assumed as checked
+3) <code>java.sql.SQLException</code></li>
+<li><p>All sql exception can be assumed as checked</p>
+</li>
+<li><p>The <strong>OCP Runtime Exceptions</strong> are:
+1) <code>java.lang.ArrayStoreException</code></p>
+</li>
+<li>When attempting to add incorrect type to an array
+2) <code>java.time.DateTimeException</code></li>
+<li>Recieved when an invalid format string for a date
+3) <code>java.util.MissingResourceException</code> - trying to access a resource or bundle that does not exist
+4) <code>java.lang.UnsupportedOperationException</code>
+5) <code>java.lang.IllegalStaceException</code></li>
+</ul>
+<h1 id="-chapter-7-concurrency">🧠 Chapter 7 - Concurrency</h1>
+<h2 id="-7-1-introducing-threads">🟥 7.1 Introducing Threads</h2>
+<h3 id="-runnable">🟡 Runnable</h3>
+<ul>
+<li>The runnable interface has a single method <code>void run()</code></li>
+<li><p>Examples include:</p>
+<pre><code class="lang-java">Runnable r = <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> counter++;
+Runnable r = <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> Sytem.out.<span class="hljs-built_in">print</span>(<span class="hljs-string">"hello"</span>);
+Runnable r = <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> { <span class="hljs-keyword">return</span>; };
+Runnable r = <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> { };
+</code></pre>
+</li>
+<li><p>The <code>Executor</code> interface has an <code>void execute(Runnable r)</code> method.</p>
+</li>
+<li>Attempting to use a Callable or assigning it to a variable results in a compilation error:<pre><code class="lang-java">Runnable <span class="hljs-function"><span class="hljs-title">r</span> = <span class="hljs-params">()</span> -&gt;</span> counter++;
+Callable&lt;Integer&gt; <span class="hljs-function"><span class="hljs-title">c</span> = <span class="hljs-params">()</span> -&gt;</span> counter++;
+service.execute(r);
+service.execute(c); <span class="hljs-regexp">// COMPILATION ERROR
+Future&lt;?&gt; f = service.execute(r); //</span> COMPILATION ERROR
+</code></pre>
+</li>
+</ul>
+<h3 id="-creating-threads">🟡 Creating Threads</h3>
+<ul>
+<li>You can execute a thread using the <code>java.lang.Thread</code> class</li>
+<li>You can execute a thread in 2 ways
+1) Instantiate the thread class with a Runnable in the constructor and call <code>run()</code>:<pre><code class="lang-java">Thread t = <span class="hljs-keyword">new</span> Thread<span class="hljs-function"><span class="hljs-params">(()-&gt;System.out.<span class="hljs-built_in">print</span>(<span class="hljs-string">"hello"</span>))</span>;
+<span class="hljs-title">t</span>.<span class="hljs-title">run</span><span class="hljs-params">()</span>; // <span class="hljs-title">prints</span> <span class="hljs-title">hello</span></span>
+</code></pre>
+2) Extend Thread class and call the <code>.start()</code> method:<pre><code class="lang-java">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PrintThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{
+  <span class="hljs-meta">@Override</span>
+  public void run() {
+      <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"running from run"</span>);
+  }
+  public static void main(<span class="hljs-type">String</span>[] args) {
+      <span class="hljs-type">PrintThread</span> pt = <span class="hljs-keyword">new</span> <span class="hljs-type">PrintThread</span>();
+      <span class="hljs-keyword">new</span> <span class="hljs-type">PrintThread</span>().start(); <span class="hljs-comment">// running from run</span>
+  }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="-polling-with-sleep">🟡 Polling With Sleep</h3>
+<ul>
+<li>We have access to the <code>Thread.sleep(long)</code> which makes the CPU idle<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) <span class="hljs-keyword">throws</span> InterruptedException {
+  System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"before sleep"</span>);
+  Thread.sleep(<span class="hljs-number">1000</span>);
+  System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"after sleep"</span>); <span class="hljs-comment">// prints after 1 second passes</span>
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+
+<h2 id="-7-2-creating-threads-with-executorservice">🟥 7.2 Creating Threads with ExecutorService</h2>
+<h3 id="-single-thread-executor">🟡 Single Thread Executor</h3>
+<ul>
+<li>We can use the Concurrency API to create a single thread to execute multiple tasks</li>
+<li><p>We call <code>Executors.newSingleThreadExecutor()</code> which gives us an instance of <code>ExecutorService</code>:</p>
+<pre><code class="lang-java">ExecutorService service = Executors.newSingleThreadExecutor();
+service.execute(<span class="hljs-function"><span class="hljs-params">()</span>-&gt;</span>System.out.println(<span class="hljs-string">"begin"</span>));
+service.execute(<span class="hljs-function"><span class="hljs-params">()</span>-&gt;</span> {
+  <span class="hljs-keyword">for</span>(int i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++) {
+      <span class="hljs-keyword">if</span> (i==<span class="hljs-number">1</span>) {
+          <span class="hljs-keyword">try</span> {
+              Thread.sleep(<span class="hljs-number">1000</span>);
+          } <span class="hljs-keyword">catch</span> (InterruptedException e) { 
+              <span class="hljs-regexp">//</span> handle
+          }
+      }
+      System.out.println(i);
+  }
+})
+service.execute(<span class="hljs-function"><span class="hljs-params">()</span>-&gt;</span>System.out.println(<span class="hljs-string">"end"</span>));
+</code></pre>
+</li>
+<li><p>This will ALWAYS print in a sequential order:</p>
+<pre><code class="lang-java">begin
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
+end
+</code></pre>
+</li>
+<li><p>If we used a <code>Executors.fixedThreadPool(10)</code> instead it will print the following:</p>
+<pre><code class="lang-java">begin
+end
+<span class="hljs-number">0</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">3</span>
+</code></pre>
+</li>
+<li>Now the ordering is no longer predictable!</li>
+</ul>
+<h3 id="-submitting-tasks">🟡 Submitting Tasks</h3>
+<ul>
+<li>The <code>ExecutorService</code> has the following methods:<pre><code class="lang-java">void execute(Runnable r)<span class="hljs-comment">;</span>
+Future&lt;?&gt; <span class="hljs-keyword">submit(Runnable </span>r)<span class="hljs-comment">;</span>
+Future&lt;T&gt; <span class="hljs-keyword">submit(Callable&lt;T&gt; </span>c)<span class="hljs-comment">;</span>
+List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? <span class="hljs-keyword">extends </span>Callable&lt;T&gt;&gt; c)<span class="hljs-comment">;</span>
+T invokeAny(Collection&lt;? <span class="hljs-keyword">extends </span>Callable&lt;T&gt;&gt; c)<span class="hljs-comment">;</span>
+</code></pre>
+</li>
+<li>Here are some examples of using these methods:<pre><code class="lang-java">service = Executors.newSingleThreadExecutor();
+Future&lt;Integer&gt; f1 = service.submit(c);
+<span class="hljs-comment">// Future&lt;Integer&gt; f2 = service.execute(r); // COMPILER ERROR</span>
+Future&lt;?&gt; f2 = service.submit(r);
+service.execute(r);
+System.<span class="hljs-keyword">out</span>.println(f1.<span class="hljs-built_in">get</span>()); <span class="hljs-comment">// 1</span>
+System.<span class="hljs-keyword">out</span>.println(f2.<span class="hljs-built_in">get</span>()); <span class="hljs-comment">// null</span>
+System.<span class="hljs-keyword">out</span>.println(counter); <span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">List</span>&lt;Callable&lt;Integer&gt;&gt; <span class="hljs-keyword">list</span> = Arrays.asList(c,c,c);
+<span class="hljs-keyword">List</span>&lt;Future&lt;Integer&gt;&gt; returnedList = service.invokeAll(<span class="hljs-keyword">list</span>);
+Integer f = service.invokeAny(<span class="hljs-keyword">list</span>);
+System.<span class="hljs-keyword">out</span>.println(f); <span class="hljs-comment">// 7</span>
+<span class="hljs-keyword">List</span>&lt;Integer&gt; <span class="hljs-keyword">l</span> = getTheValuesOfFutureList( returnedList);
+System.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">l</span>); <span class="hljs-comment">// [4,5,6]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-waiting-for-results">🟡 Waiting for Results</h3>
+<ul>
+<li>When we use the <code>submit()</code> method we return a future object. If we use the <code>get()</code> method, there is a chance that the program will halt!</li>
+<li>We can get around this by using an overloaded version of get()!</li>
+<li>We can determine whether the task which has been submitted is actually complete with the following methods:<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isDone</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isCancelled</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">cancel</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// attempts to cancel the task</span>
+<span class="hljs-function">V <span class="hljs-title">get</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// retrieves result of task, waiting endlessly if not yet available</span>
+<span class="hljs-function">V <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">long</span> millis, TimeUnit unit)</span></span>; <span class="hljs-comment">// retrieves result in alotted time, otherwise throws TimeoutException</span>
+</code></pre>
+</li>
+<li>E.g.:<pre><code class="lang-java">static int counter = <span class="hljs-number">0</span>;
+public static <span class="hljs-literal">void</span> main(String[] args) throws InterruptedException, ExecutionException {
+  ExecutorService service = <span class="hljs-literal">null</span>;
+  <span class="hljs-keyword">try</span> {
+      service = Executors.newSingleThreadExecutor();
+      Future&lt;?&gt; result = service.submit<span class="hljs-function"><span class="hljs-params">(() -&gt; {
+          <span class="hljs-keyword">for</span>(int i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">500</span>;i++) counter++;
+      })</span>;
+      <span class="hljs-title">result</span>.<span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-number">10</span>, TimeUnit.SECONDS)</span>;
+      <span class="hljs-title">System</span>.<span class="hljs-title">out</span>.<span class="hljs-title">println</span><span class="hljs-params">(<span class="hljs-string">"Reached"</span>)</span>;
+  } <span class="hljs-title">catch</span> <span class="hljs-params">(TimeOutException e)</span> {
+      <span class="hljs-title">System</span>.<span class="hljs-title">out</span>.<span class="hljs-title">println</span><span class="hljs-params">(<span class="hljs-string">"Not reached in time"</span>)</span>;
+  } <span class="hljs-title">finally</span> {
+      <span class="hljs-title">if</span><span class="hljs-params">(service!=<span class="hljs-literal">null</span>)</span> <span class="hljs-title">service</span>.<span class="hljs-title">shutdown</span><span class="hljs-params">()</span>;
+  }
+}</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-scheduling-tasks">🟡 Scheduling Tasks</h3>
+<ul>
+<li><p>We have a subinterface <code>ScheduledExecutorService</code> which has methods for running tasks on a schedule:</p>
+<pre><code class="lang-java">ExecutorService serviceUsingWrongReference = Executors.<span class="hljs-keyword">new</span><span class="hljs-type">SingleThreadScheduledExecutor</span>();
+<span class="hljs-comment">// serviceUsingWrongReference.schedule(); // COMPILER ERROR</span>
+ScheduledExecutorService scheduledService
+  = Executors.<span class="hljs-keyword">new</span><span class="hljs-type">SingleThreadScheduledExecutor</span>();
+</code></pre>
+</li>
+<li><p>We have the fdllowing methods for scheduling methods with a delay:</p>
+<pre><code class="lang-java">schedule(Callable&lt;V&gt; callable, <span class="hljs-keyword">long</span> <span class="hljs-built_in">delay</span>, TimeUnit unit);
+schedule(Runnable callable, <span class="hljs-keyword">long</span> <span class="hljs-built_in">delay</span>, TimeUnit unit);
+</code></pre>
+</li>
+<li><p>We can assign these two methods to Future objects:</p>
+<pre><code class="lang-java"><span class="hljs-type">Callable</span>&lt;<span class="hljs-type">Integer</span>&gt; <span class="hljs-built_in">c</span> = () -&gt; <span class="hljs-number">1</span>;
+<span class="hljs-type">Runnable</span> r = () -&gt; <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"hello"</span>);
+<span class="hljs-type">Future</span>&lt;<span class="hljs-type">Integer</span>&gt; f = scheduledService.schedule(<span class="hljs-built_in">c</span>, <span class="hljs-number">1</span>, <span class="hljs-type">TimeUnit</span>.<span class="hljs-type">SECONDS</span>);
+<span class="hljs-type">Future</span>&lt;?&gt; f2 = scheduledService.schedule(r, <span class="hljs-number">1</span>, <span class="hljs-type">TimeUnit</span>.<span class="hljs-type">SECONDS</span>);
+<span class="hljs-comment">// prints hello</span>
+<span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(f.<span class="hljs-keyword">get</span>()); <span class="hljs-comment">// 1</span>
+<span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(f2.<span class="hljs-keyword">get</span>()); <span class="hljs-comment">// null</span>
+</code></pre>
+</li>
+<li><p>There also two methods which schedule a runnable task on repeat:</p>
+<pre><code class="lang-java">scheduleAtFixedRate(Runnable r, <span class="hljs-keyword">long</span> initialDelay, <span class="hljs-keyword">long</span> period, TimeUnit unit);
+scheduledAtFixedDelay(Runnable r, <span class="hljs-keyword">long</span> initialDelay, <span class="hljs-keyword">long</span> <span class="hljs-built_in">delay</span>, TimeUnit unit);
+</code></pre>
+</li>
+<li><p>E.g.:
+```java
+Future&lt;?&gt; f3 = scheduledService.scheduleAtFixedRate(r, 1, 1, TimeUnit.SECONDS);
+// this will print hello exactly every second        </p>
+</li>
+</ul>
+<p>Future&lt;?&gt; f4 = scheduledService.scheduleWithFixedDelay(r, 0, 1, TimeUnit.SECONDS);
+// this will print hello exactly 1 second after the previous hello is printed</p>
+<pre><code>
+&lt;hr&gt;
+
+## 🟥 <span class="hljs-number">7.3</span> Synchronizing Data Access
+
+### 🟡 Atomic Classes
+* We have the following Atomic classes <span class="hljs-keyword">in</span> the Concurrency API:
+<span class="hljs-number">1</span>) `AtomicBoolean`
+<span class="hljs-number">2</span>) `AtomicInteger`
+<span class="hljs-number">3</span>) `AtomicLong`
+<span class="hljs-number">4</span>) `AtomicReference`
+<span class="hljs-number">5</span>) `AtomicIntegerArray`
+<span class="hljs-number">6</span>) `AtomicLongArray`
+<span class="hljs-number">7</span>) `AtomicReferenceArray`
+
+* Here are common methods for these classes:
+```java
+get();
+set();
+getAndSet(newValue); <span class="hljs-comment">// gets old value while setting new value</span>
+incrementAndGet(); <span class="hljs-comment">// increments and returns the incremented value</span>
+getAndIncrement(); <span class="hljs-comment">// gets old value and increments after</span>
+decrementAndGet(); <span class="hljs-comment">// decrements and returns decremented value</span>
+getAndDecrement(); <span class="hljs-comment">// gets old value and decrements after</span>
+</code></pre><ul>
+<li>Here is an example of using an Atomic class to ensure a counter is kept THREAD-SAFE and to prevent race conditions:<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SheepManager</span> {
+  AtomicInteger sheepCount = <span class="hljs-keyword">new</span> AtomicInteger(<span class="hljs-number">0</span>);
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">incrementAndReport</span>(<span class="hljs-params"></span>) </span>{
+      System.<span class="hljs-keyword">out</span>.print(sheepCount.incrementAndGet()+<span class="hljs-string">" "</span>);
+  }
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] argS</span>) </span>{
+      SheepManager manager = <span class="hljs-keyword">new</span> SheepManager();
+      ExecutorService service = <span class="hljs-literal">null</span>;
+      <span class="hljs-keyword">try</span> {
+          service = Executors.newFixedThreadPool(<span class="hljs-number">20</span>);
+          <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">10</span>;i++)
+              service.submit(()-&gt;manager.incrementAndReport()))
+      } <span class="hljs-keyword">finally</span> {
+          <span class="hljs-keyword">if</span>(service!=<span class="hljs-literal">null</span>) service.shutdown();
+      }
+  }
+}
+</code></pre>
+</li>
+<li>Here are samples of what would be printed:<pre><code class="lang-java"><span class="hljs-symbol">1 </span><span class="hljs-number">10</span> <span class="hljs-number">9</span> <span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">8</span> <span class="hljs-number">7</span> <span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span> 
+<span class="hljs-symbol">2 </span><span class="hljs-number">10</span> <span class="hljs-number">9</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-synchronized-methods">🟡 Synchronized Methods</h3>
+<ul>
+<li>We can synchronize access to methods using <code>synchronized</code> keyword. The following are equivalent:<pre><code class="lang-java"><span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-keyword">print</span>() {
+  System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">"hello"</span>);
+}
+<span class="hljs-keyword">void</span> incrementAndReport() {
+  <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>) {
+      System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">"hello"</span>);}
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+
+<h2 id="-7-4-using-concurrent-collections">🟥 7.4 Using Concurrent Collections</h2>
+<h3 id="-concurrent-classes">🟡 Concurrent Classes</h3>
+<ul>
+<li>We have the following Concurrent Collection Classes:<pre><code class="lang-java">ConcurrentHashMap <span class="hljs-comment">// ConcurrentMap</span>
+ConcurrentLinkedDeque <span class="hljs-comment">// Deque</span>
+ConcurrentLinkedQueue <span class="hljs-comment">// Queue</span>
+ConcurrentSkipListMap <span class="hljs-comment">// ConcurrentMap/SortedMap/NavigableMap</span>
+ConcurrentSkipListSet <span class="hljs-comment">// SortedSet/NavigableSet</span>
+CopyOnWriteArrayList <span class="hljs-comment">// List</span>
+CopyOnWriteArraySet <span class="hljs-comment">// Set</span>
+LinkedBlockingDeque <span class="hljs-comment">// BlockingQueue/BlockingDeque</span>
+LinkedBlockingQueue <span class="hljs-comment">// BlockkingQueue</span>
+</code></pre>
+<h3 id="-concurrentmodificationexception">🟡 ConcurrentModificationException</h3>
+</li>
+<li>Using Concurrent classes enables us to avoid <code>ConcurrentModificationException</code> when workking with for-loops:<pre><code class="lang-java">Map&lt;<span class="hljs-keyword">String</span>, Integer&gt; food = <span class="hljs-keyword">new</span> <span class="hljs-keyword">HashMap</span>&lt;&gt;();
+food.putAll(Map.of(<span class="hljs-string">"pizza"</span>, <span class="hljs-number">1</span>, <span class="hljs-string">"chicken"</span>, <span class="hljs-number">2</span>));
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">String</span> <span class="hljs-built_in">key</span>: food.keySet()) {
+  food.remove(<span class="hljs-built_in">key</span>); <span class="hljs-comment">// throws ConcurrentModificationException</span>
+}
+</code></pre>
+</li>
+<li>If we used <code>new ConcurrentHashMap&lt;&gt;()</code> instead, we would not have this problem!💡</li>
+</ul>
+<h3 id="-blocking-queues">🟡 Blocking Queues</h3>
+<ul>
+<li>The <code>LinkedlockingDeque</code> and <code>LinkedBlockingQueue</code> implement the <code>BlockingQueue</code> and <code>BlockingDeque</code> interfaces
+1) <code>BlockingQueue</code> waiting methods:
+```java
+boolean offer(E e, long timeout, TimeUnit unit); 
+// adds item to queue in alotted time if space is available</li>
+</ul>
+<p>E poll(long timeout, TimeUnit unit);
+// retrieves and removes an item from the queue in alotted time if available</p>
+<pre><code>* <span class="hljs-type">These</span> methods can throw an `<span class="hljs-type">InterruptedException</span>` <span class="hljs-keyword">as</span> they can <span class="hljs-keyword">be</span> interrupted before finishing:
+```java
+<span class="hljs-keyword">try</span> {
+    <span class="hljs-type">BlockingQueue</span>&lt;<span class="hljs-type">Integer</span>&gt; blockingQueue = <span class="hljs-function"><span class="hljs-keyword">new</span> <span class="hljs-title">LinkedBlockingQueue</span>&lt;&gt;();
+    <span class="hljs-title">blockingQueue</span>.<span class="hljs-title">offer</span>(<span class="hljs-number">39</span>);
+    <span class="hljs-title">blockingQueue</span>.<span class="hljs-title">offer</span>(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-type">TimeUnit</span>.<span class="hljs-type">SECONDS</span>);
+    <span class="hljs-title">System</span>.<span class="hljs-title">out</span>.<span class="hljs-title">println</span>(blockingQueue.poll(<span class="hljs-number">10</span>, <span class="hljs-type">TimeUnit</span>.<span class="hljs-type">SECONDS</span>));
+} <span class="hljs-title">catch</span> (<span class="hljs-type">InterruptedException</span> e) {
+    <span class="hljs-comment">// handle</span>
+}</span>
+</code></pre><p>2) <code>BlockingDeque</code> waiting methods:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">offerFirst</span><span class="hljs-params">(E e, <span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span></span>;
+<span class="hljs-comment">// adds item to front of queue</span>
+
+<span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">offerLast</span><span class="hljs-params">(E e, <span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span></span>;
+<span class="hljs-comment">// adds item to back of queue</span>
+
+<span class="hljs-function">E <span class="hljs-title">pollFirst</span><span class="hljs-params">(<span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span></span>; 
+<span class="hljs-comment">// retrieves and removes element at front of queue</span>
+
+<span class="hljs-function">E <span class="hljs-title">pollLast</span><span class="hljs-params">(<span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span></span>;
+<span class="hljs-comment">// retrieves and removes element at back of queue</span>
+</code></pre>
+<ul>
+<li>Again, <code>InterruptedException</code> must be caught and handled!</li>
+</ul>
+<h3 id="-skiplist-collections">🟡 SkipList Collections</h3>
+<ul>
+<li>The <code>ConcurrentSkipListMap</code> and <code>ConcurrentSkipListSet</code> are concurrent versions of <code>TreeMap</code> and <code>TreeSet</code></li>
+<li>These <h3 id="-copyonwrite-collections">🟡 CopyOnWrite Collections</h3>
+</li>
+<li>The <code>CopyOnWriteArrayList</code> and <code>CopyOnWriteSet</code> are concurrent versions of Lists and Sets.</li>
+<li>These classes let us add/remove elements in a for loop, the iterator takes a snapshot of the elements and loops over these elements during each iteration
+```java
+List<Integer> regularList = Arrays.asList(1,2,3);</li>
+</ul>
+<p>/<em> The following code throws exception:
+for(int i:l1) 
+    l1.add(i); // UnsupportedOperationException
+</em>/</p>
+<p>List<Integer> l2 = new CopyOnWriteArrayList&lt;&gt;(l1);
+for (int i:l2) {
+    System.out.print(i+ &quot; &quot;); // 1 2 3
+    l2.add(i);
+}
+System.out.println(l2); // [1,2,3,1,2,3]</p>
+<p>Set<Integer> s3 = new CopyOnWriteArraySet&lt;&gt;();
+s3.addAll(l2);
+for(int i:s3) {
+    System.out.print(i+ &quot; &quot;); // 1 2 3
+    s3.add(4);
+}
+System.out.println(&quot;\n&quot;+s3); // [1,2,3,4]</p>
+<pre><code>
+### 🟡 Obtaining Synchronized Collections
+* We can convert non-concurrent collections into synchronized versions using the following method<span class="hljs-variable">s:</span>
+```java
+synchronizedCollection(Collection<span class="hljs-symbol">&lt;T&gt;</span> <span class="hljs-keyword">c</span>)
+synchronizedList(List<span class="hljs-symbol">&lt;T&gt;</span> <span class="hljs-keyword">list</span>)
+synchronizedMap(Map&lt;Kk,V&gt; <span class="hljs-keyword">map</span>)
+synchronizedNavigableMap(NavigableMap&lt;K,V&gt; <span class="hljs-keyword">map</span>)
+synchronizedNavigableSet(NavigableSet<span class="hljs-symbol">&lt;T&gt;</span> <span class="hljs-keyword">set</span>)
+synchronziedSet(Set<span class="hljs-symbol">&lt;T&gt;</span> <span class="hljs-keyword">set</span>)
+synchronizedSortedMap(SortedMap&lt;K,V&gt; <span class="hljs-keyword">map</span>)
+synchronizedSortedSet(SortedSet<span class="hljs-symbol">&lt;T&gt;</span> <span class="hljs-keyword">set</span>)
+</code></pre><ul>
+<li>E.g.:<pre><code class="lang-java"><span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">Integer</span>&gt; <span class="hljs-built_in">list</span> = Collections.synchronizedList(
+  <span class="hljs-literal">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">42</span>)));
+</code></pre>
+</li>
+</ul>
+<hr>
+
+<h2 id="-7-5-working-with-parallel-streams">🟥 7.5 Working with Parallel Streams</h2>
+<h3 id="-creating-parallel-streams">🟡 Creating Parallel Streams</h3>
+<ul>
+<li>You can create a paralle stream by calling <code>.parallel()</code> on an existing stream or calling <code>.parallelStream()</code> on a collection:<pre><code class="lang-java">Stream&lt;Integer&gt; stream = Arrays.asList(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>).parallelStream();
+</code></pre>
+</li>
+</ul>
+<h3 id="-processing-tasks-in-parallel">🟡 Processing Tasks in Parallel</h3>
+<ul>
+<li><p>Using a parallel stream means that results CAN be unpredictable</p>
+<pre><code class="lang-java"><span class="hljs-selector-tag">Arrays</span><span class="hljs-selector-class">.asList</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>)
+  <span class="hljs-selector-class">.parallelStream</span>()
+  <span class="hljs-selector-class">.sorted</span>()
+  <span class="hljs-selector-class">.forEach</span>(System.<span class="hljs-attribute">out</span>::println);
+<span class="hljs-comment">// PRINTS: 4 1 6 5 2 3</span>
+</code></pre>
+</li>
+<li><p>If tasks can be done in parallel and independently, we will always know the result!❗</p>
+<pre><code class="lang-java"><span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; <span class="hljs-built_in">list</span> = Arrays.asList(<span class="hljs-string">"Jackal"</span>, <span class="hljs-string">"Monkey"</span>, <span class="hljs-string">"Tiger"</span>)
+  .parallelStream()
+  .<span class="hljs-built_in">map</span>(<span class="hljs-built_in">String</span><span class="hljs-type">::toUpperCase</span>)
+  .collect(Collectors.toList());
+System.out.println(<span class="hljs-built_in">list</span>); <span class="hljs-comment">// [JACKAL, MONKEY, TIGER]</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-processing-parallel-reductions">🟡 Processing Parallel Reductions</h3>
+<ul>
+<li><p>With parallel streams, behaviour can not be defined:</p>
+<pre><code class="lang-java">Arrays.asList(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>).stream().findAny(); <span class="hljs-comment">// will ALWAYS be 1</span>
+Arrays.asList(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>).parallelStream().findAny(); <span class="hljs-comment">// unable to predict the result</span>
+</code></pre>
+</li>
+<li><p>E.g.:
+```java
+int x = Arrays.asList(&quot;1234&quot;,&quot;56&quot;,&quot;789&quot;)
+  .parallelStream()
+  .reduce(0,
+  (n,str)-&gt; n + str.length(),
+  (str1,str2)-&gt; str1+str2);
+System.out.println(x); // 9</p>
+</li>
+</ul>
+<p>String str = Arrays.asList(&quot;abc&quot;,&quot;de&quot;,&quot;fgh&quot;)
+    .parallelStream()
+    .reduce(&quot;&quot;, (result,s)-&gt;result+s.toUpperCase(), (s1,s2)-&gt;s1+s2);
+System.out.println(str); // ABCDEFGH</p>
+<pre><code>
+### <span class="hljs-keyword">Using</span> `.collect()` Method
+<span class="hljs-comment">* A parallel stream can be reduced efficiently using the collect method, providing the following requirements are met:</span>
+<span class="hljs-number">1</span>) The stream is parallel
+<span class="hljs-number">2</span>) The collect() paramaeter has the `Collector.Characteristics.CONCURRENT` characteristic
+<span class="hljs-number">3</span>) The stream is unordered, <span class="hljs-keyword">OR</span> the collect() <span class="hljs-keyword">parameter</span> has <span class="hljs-comment">the</span> `<span class="hljs-comment">Collector.Characteristic.UNORDERED</span>`<span class="hljs-comment"> characteristic</span>
+
+<span class="hljs-comment">* The `Collectors.toSet()` method is an example of a collector which DOES NOT have the `CONCURRENT` charactteristic:</span>
+```java
+Stream&lt;String&gt; stream <span class="hljs-comment">= Stream.of(</span><span class="hljs-comment">"w"</span><span class="hljs-comment">,</span><span class="hljs-comment">"o"</span><span class="hljs-comment">,</span><span class="hljs-comment">"l"</span><span class="hljs-comment">,</span><span class="hljs-comment">"f"</span><span class="hljs-comment">)</span>
+        .parallel();
+<span class="hljs-keyword">System</span>.out.println(Collectors.toSet().characteristics());
+<span class="hljs-comment">// [UNORDERED, IDENTITY_FINISH]</span>
+
+<span class="hljs-keyword">Set</span>&lt;String&gt; <span class="hljs-keyword">set</span> <span class="hljs-comment">=</span>
+    stream.collect(Collectors.toSet());
+<span class="hljs-keyword">System</span>.out.println(<span class="hljs-keyword">set</span>); <span class="hljs-comment">// [f, w, l, o]</span>
+</code></pre><ul>
+<li><p>The Collectors class does have 2 collectors which are both <code>CONCURRENT</code> AND <code>UNORDERED</code>:
+1) <code>Collectors.toConcurrentMap()</code>
+2) <code>Collectors.groupingByConcurrent()</code></p>
+</li>
+<li><p>E.g.:</p>
+<pre><code class="lang-java"><span class="hljs-built_in">Stream</span>&lt;<span class="hljs-keyword">String</span>&gt; ohMy = <span class="hljs-built_in">Stream</span>.of(<span class="hljs-string">"lions"</span>,<span class="hljs-string">"tigers"</span>,<span class="hljs-string">"bears"</span>)
+  .parallel();
+ConcurrentMap&lt;Integer,<span class="hljs-keyword">String</span>&gt; <span class="hljs-built_in">map</span> = ohMy.collect(
+  Collectors.toConcurrentMap(s-&gt;s.length(),
+  k-&gt;k,
+  (s1,s2)-&gt;s1+<span class="hljs-string">","</span>+s2)
+);
+System.out.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">map</span>); <span class="hljs-comment">// {5=bears,lions, 6=tigers}</span>
+</code></pre>
+</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-built_in">Stream</span>&lt;<span class="hljs-keyword">String</span>&gt; parallelStream = <span class="hljs-built_in">Stream</span>.of(<span class="hljs-string">"lions"</span>, <span class="hljs-string">"tigers"</span>, <span class="hljs-string">"bears"</span>).parallel();
+ConcurrentMap&lt;Integer, List&lt;<span class="hljs-keyword">String</span>&gt;&gt; groupedMap = parallelStream
+    .collect(Collectors.groupingByConcurrent(str-&gt;str.length()));
+System.out.<span class="hljs-built_in">println</span>(groupedMap); <span class="hljs-comment">// {5=[lions, bears], 6=[tigers]}</span>
+</code></pre>
+<hr>
+
+<h2 id="-7-6-managing-concurrent-processes">🟥 7.6 Managing Concurrent Processes</h2>
+<h3 id="-creating-a-cyclicbarrier">🟡 Creating a CyclicBarrier</h3>
+<ul>
+<li>We can use the <code>CyclicBarrierLimit</code> class to create thresholds in a method to ensure that a type of task if not done until another is done:<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">performTask</span>(<span class="hljs-params">CyclicBarrier c1</span>) </span>{
+  <span class="hljs-keyword">try</span> {
+      System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Task 1"</span>);
+      c1.<span class="hljs-keyword">await</span>();
+      System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"Task 2"</span>);
+  }
+}
+<span class="hljs-comment">// MAIN METHOD:</span>
+ExecutorService service = <span class="hljs-literal">null</span>;
+<span class="hljs-keyword">try</span> {
+  service = Executors.newFixedThreadPool(<span class="hljs-number">4</span>);
+  CyclicBarrier c1 = <span class="hljs-keyword">new</span> CyclicBarrier(<span class="hljs-number">2</span>);
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">4</span>;i++)
+      service.submit(()-&gt;performTask(c1));
+} <span class="hljs-keyword">finally</span> {
+  <span class="hljs-keyword">if</span>(service!=<span class="hljs-literal">null</span>) service.shutdown();
+}
+</code></pre>
+</li>
+<li>This prints the following:<pre><code class="lang-java"><span class="hljs-keyword">Task</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">Task</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">Task</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">Task</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">Task</span> <span class="hljs-number">2</span>
+<span class="hljs-keyword">Task</span> <span class="hljs-number">2</span>
+<span class="hljs-keyword">Task</span> <span class="hljs-number">2</span>
+<span class="hljs-keyword">Task</span> <span class="hljs-number">2</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-applying-the-fork-join-framework">🟡 Applying the Fork/Join Framework</h3>
+<ul>
+<li><p>The Fork/Join framework requires us to perform three steps:
+1) Createa ForkJoinTask instance using <code>RecursiveAction</code>/<code>RecursiveTask``
+2) Create a</code>ForkJoinPool` instance
+3) Invoke the ForkJoinTask instance using the pool</p>
+</li>
+<li><p>We have two ForkJoinTask classes:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecursiveAction</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ForkJoinTask</span> </span>{
+  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> void compute();
+}
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecursiveTask&lt;V&gt;</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ForkJoinTask&lt;V&gt;</span> </span>{
+  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-type">T</span> compute();
+}
+</code></pre>
+<h4 id="-recursiveaction-example-">🟢 RecursiveAction Example 🟢</h4>
+<p>```java
+public class WeighAnimalAction extends RecursiveAction {
+  private int start;
+  private int end;
+  private Double[] weights;
+  // CONSTRUCTOR HERE</p>
+<p>  protected void compute() {</p>
+<pre><code>  <span class="hljs-built_in">if</span>(<span class="hljs-built_in">end</span>-start&lt;=<span class="hljs-number">3</span>){
+      System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"BASE CASE FROM: "</span>+start
+      +<span class="hljs-string">", TO: "</span>+<span class="hljs-built_in">end</span>);
+      <span class="hljs-built_in">for</span>(<span class="hljs-keyword">int</span> i=start;i&lt;<span class="hljs-built_in">end</span>;i++) {
+          weights[i] = (<span class="hljs-keyword">double</span>)<span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">100</span>);
+          System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"Animal "</span>+i+<span class="hljs-string">" weighs "</span>+weights[i]);
+      }
+  } <span class="hljs-built_in">else</span> {
+      <span class="hljs-keyword">int</span> middle = start+((<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>);
+      System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"[start="</span>+start+<span class="hljs-string">",middle="</span>+middle+<span class="hljs-string">",end="</span>+<span class="hljs-built_in">end</span>+<span class="hljs-string">"]"</span>);
+      invokeAll(<span class="hljs-keyword">new</span> WeighAnimalAction(weights,start,middle),
+                <span class="hljs-keyword">new</span> WeighAnimalAction(weights,middle,<span class="hljs-built_in">end</span>));
+  }
+</code></pre><p>  }
+}</p>
+</li>
+</ul>
+<p>// MAIN METHOD:
+Double[weights] = new Double[10];
+ForkJoinTask&lt;?&gt; task = new WeighAnimalAction(weights,0,10);
+ForkJoinPool pool = new ForkJoinPool();
+pool.invoke(task);</p>
+<pre><code><span class="hljs-comment">* This prints the following:</span>
+</code></pre><p>[start=0,middle=5,end=10]
+[start=0,middle=2,end=5]
+BASE CASE FROM: 0, TO: 2
+[start=5,middle=7,end=10]
+BASE CASE FROM: 2, TO 5
+BASE CASE FROM: 5, TO 7
+BASE CASE FROM: 7, TO 10
+Animal 0 weighs 53.0
+Animal 1 weighs 75.0
+Animal 2 weighs 41.0
+Animal 5 weighs 56.0
+Animal 3 weighs 87.0
+Animal 7 weighs 35.0
+Animal 4 weighs 59.0
+Animal 8 weighs 68.0
+Animal 6 weighs 56.0
+Animal 9 weighs 9.0</p>
+<pre><code>
+#### 🟢 RecursiveTask Example 🟢
+```java
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> WeighAnimalTask extends RecursiveTask&lt;Double&gt; {
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> start;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>;
+    <span class="hljs-keyword">private</span> Double[] weights;
+    <span class="hljs-comment">// CONSTRUCTOR HERE</span>
+
+    <span class="hljs-keyword">protected</span> Double compute() {
+        <span class="hljs-built_in">if</span> (<span class="hljs-built_in">end</span>-start&lt;=<span class="hljs-number">3</span>) {
+            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"BASE CASE FROM: "</span>+start+<span class="hljs-string">", TO: "</span>+<span class="hljs-built_in">end</span>);
+            <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
+            <span class="hljs-built_in">for</span> (<span class="hljs-keyword">int</span> i=start;i&lt;<span class="hljs-built_in">end</span>;i++) {
+                weights[i] = (<span class="hljs-keyword">double</span>)<span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">100</span>);
+                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"Animal Weighed: "</span>+i);
+                sum += weights[i];
+            }
+        } <span class="hljs-built_in">else</span> {
+            <span class="hljs-keyword">int</span> middle = start+((start-<span class="hljs-built_in">end</span>)/<span class="hljs-number">2</span>);
+            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"[start="</span>+start+<span class="hljs-string">",middle="</span>+middle+<span class="hljs-string">",end="</span>+<span class="hljs-built_in">end</span>+<span class="hljs-string">"]"</span>);
+            RecursiveTask&lt;Double&gt; otherTask = <span class="hljs-keyword">new</span> WeighAnimalTask(weights,start,middle);
+            otherTask.fork();
+            <span class="hljs-built_in">return</span> <span class="hljs-keyword">new</span> WeighAnimalTask(weights,middle,<span class="hljs-built_in">end</span>).compute()+otherTask.join();
+        }
+    }
+}
+
+<span class="hljs-comment">// MAIN METHOD:</span>
+Double[] weights = <span class="hljs-keyword">new</span> Double[<span class="hljs-number">10</span>];
+ForkJoinTask&lt;Double&gt; task = <span class="hljs-keyword">new</span> WeighAnimalTask(weights,<span class="hljs-number">0</span>,weights.length);
+ForkJoinPool pool = <span class="hljs-keyword">new</span> ForkJoinPool();
+Double sum = pool.invoke(task);
+System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"Sum: "</span>+sum);
+</code></pre><ul>
+<li>This prints the following:<pre><code>[start=<span class="hljs-number">0</span>,middle=<span class="hljs-number">5</span>,end=<span class="hljs-number">10</span>]
+[start=<span class="hljs-number">5</span>,middle=<span class="hljs-number">7</span>,end=<span class="hljs-number">10</span>]
+BASE CASE <span class="hljs-string">FROM:</span> <span class="hljs-number">7</span>, <span class="hljs-string">TO:</span> <span class="hljs-number">10</span>
+[start=<span class="hljs-number">0</span>,middle=<span class="hljs-number">2</span>,end=<span class="hljs-number">5</span>]
+BASE CASE <span class="hljs-string">FROM:</span> <span class="hljs-number">5</span>, <span class="hljs-string">TO:</span> <span class="hljs-number">7</span>
+BASE CASE <span class="hljs-string">FROM:</span> <span class="hljs-number">2</span>, <span class="hljs-string">TO:</span> <span class="hljs-number">5</span>
+BASE CASE <span class="hljs-string">FROM:</span> <span class="hljs-number">0</span>, <span class="hljs-string">TO:</span> <span class="hljs-number">2</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">7</span> weighed <span class="hljs-number">0.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">8</span> weighed <span class="hljs-number">40.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">9</span> weighed <span class="hljs-number">29.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">2</span> weighed <span class="hljs-number">69.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">3</span> weighed <span class="hljs-number">83.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">5</span> weighed <span class="hljs-number">71.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">0</span> weighed <span class="hljs-number">55.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">1</span> weighed <span class="hljs-number">45.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">6</span> weighed <span class="hljs-number">49.0</span>
+<span class="hljs-string">Animal:</span> <span class="hljs-number">4</span> weighed <span class="hljs-number">87.0</span>
+<span class="hljs-string">Sum:</span> <span class="hljs-number">528.0</span>
+</code></pre></li>
+<li>If the <code>.join()</code> method were to be called directly after fork, the application would generate single-threader performance:<pre><code class="lang-java">int middle = start+((start-<span class="hljs-keyword">end</span>)/<span class="hljs-number">2</span>);
+System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"[start="</span>+start+<span class="hljs-string">",middle="</span>+middle+<span class="hljs-string">",end="</span>+<span class="hljs-keyword">end</span>+<span class="hljs-string">"]"</span>);
+RecursiveTask&lt;Double&gt; otherTask = <span class="hljs-keyword">new</span> WeighAnimalTask(weights,start,middle);
+otherTask.fork().join(); // <span class="hljs-keyword">DO</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">DO</span>!!!!
+<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> WeighAnimalTask(weights,middle,<span class="hljs-keyword">end</span>).compute()+otherTask;
+</code></pre>
+<hr>
+
+</li>
+</ul>
+<h2 id="-7-7-identifying-threading-problems">🟥 7.7 Identifying Threading Problems</h2>
+<ul>
+<li>Liveliness is the property of an application not encountering unexpected delays</li>
+<li>Deadlock is when a resource is blocked from being used from a thread</li>
+<li>Starvation occurs when a thread is perpetually denied access to a shared resouce as a result of other threads constantly taking the resource</li>
+<li>Livelock occurs when two or more threads are blocked forever but appear active. This is often the result of two threads trying to attempt to resolve a deadlock</li>
+<li>Race conditions are when two or more threads try to complete a related task at the same time. It is the undesirablee result which occurs when two tasks which should be done sequentially are done at the same time</li>
+</ul>
+
+
+    </body>
+</html>
+
