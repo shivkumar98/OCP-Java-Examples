@@ -1,6 +1,43 @@
 <link href="../styles.css" rel="stylesheet"></link>
 
-# 🧠 Chapter 7 Revision Notes
+
+# 🧠 Chapter 6 - Exceptions and Assertions
+## 🟥 7.1 Reviewing Exceptions
+### 🟡 Terminology
+* All exceptions/errors extend `java.lang.Object`
+* `RuntimeException` is a subclass of `Exception`, it is AKA unchecked exception and there is no requirement to be caught (even though you can).
+* Checked exceptions are `Exception` classes which DO NOT extend `RuntimeException`.
+* `Error` classes are not `Exceptions` but a seperate subclass of `Throwable`
+
+### 🟡 OCP Exceptions
+* The pre-requiste exceptions from the OCA exam include:
+1) `NumberFormatException` - thrown by program when attempting to convert string to numeric type
+2) `IllegalArgumentException` - thrown by program
+3) `NullPointerException` - thrown by JVM
+4) `ArrayIndexOutOfBoundsException` - thrown by JVM
+5) `ArithmeticException` - thrown by JVM when trying to divide by zero
+6) `ClassCastException` - thrown by JVM when attempting to make cast an object to an invalid type
+
+<br>
+
+* The **OCP Checked Exceptions** are:
+1) `java.text.ParseException` 
+- converting a number to string
+2) `java.io.IOException`/`java.io.FileNotFoundException`/`java.io.NotSerializableException`
+- All io exceptions can be assumed as checked
+3) `java.sql.SQLException`
+- All sql exception can be assumed as checked
+
+* The **OCP Runtime Exceptions** are:
+1) `java.lang.ArrayStoreException`
+- When attempting to add incorrect type to an array
+2) `java.time.DateTimeException`
+- Recieved when an invalid format string for a date
+3) `java.util.MissingResourceException` - trying to access a resource or bundle that does not exist
+4) `java.lang.UnsupportedOperationException`
+5) `java.lang.IllegalStaceException`
+
+# 🧠 Chapter 7 - Concurrency
 
 ## 🟥 7.1 Introducing Threads
 
