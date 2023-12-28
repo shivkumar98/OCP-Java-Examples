@@ -79,6 +79,88 @@ try {
 <hr>
 
 ## 🟥 6.4 Using Try-With-Resources
+* You can use classes which implement `Closeable` OR `AutoCloseable` in try-with-resources clauses
+* The `AutoCloseable` interface has a method: `void close() throws Exception;`
+* It does not require the implemention to throw any exception at all:
+```java
+public class Turkey implements AutoCloseable {
+	@Override
+	public void close() {
+		System.out.println("closed");
+	}
+	public static void main(String[] args) {
+		try(Turkey t = new Turkey()) {
+			System.out.println("opening turkey");
+		}
+	}
+	// PRINTS:
+	// opening turkey
+	// closed
+}
+```
+
+<br>
+
+* If the `close()` method DOES throw a checked exception then it must be declared or caught!
+```java
+public class Turkey implements AutoCloseable {
+
+	@Override
+	public void close() throws Exception {
+		throw new Exception();
+	}
+	public static void main(String[] args) {
+		try(Turkey t = new Turkey()) { // COMPILER ERROR
+			System.out.println("opening turkey");
+		}
+	}
+}
+```
+
+<br>
+
+* If the try clause itself throws an exception, it will be the one which is caught and the exceptions from `close()` will be SUPRESSED💡
+```java
+public static void main(String[] args) {
+	try (Turkey t = new Turkey()) {
+		throw new RuntimeException("inside try");
+	} catch (Exception e) {
+		System.out.println(e.getMessage()); // inside try 
+		System.out.println(e.getSuppressed().length); // 1
+	}
+}
+```
+
+<br>
+
+* In terms of ordering, the code is ran in the following order:
+1) The code in try block
+2) The close() methods of the resources in reverse order of instantiation
+3) The code in catch block
+4) The code in finally block 
+
+```java
+class Door implements AutoCloseable {
+	public void close() {
+		System.out.println("D");}}
+class Window implements Closeable {
+	public void close() {
+		System.out.println("W"); 
+	 	throw new RuntimeException();}}
+public class AutocloseableFlow {
+	public static void main(String[] args) {
+		try (Door d = new Door(); Window w = new Window()) {
+			System.out.print("T");
+		} catch (Exception e) {
+			System.out.print("E");
+		} finally {
+			System.out.print("F");
+		} 
+	} 
+	// PRINTS: TWDEF
+}
+```
+
 
 <hr>
 
