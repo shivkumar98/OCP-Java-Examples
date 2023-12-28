@@ -385,7 +385,9 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* The code DOES compile
+* However you cannot reassign e to a new exception!!!
+* **A**
 <hr>
 
 ## Question 14:
@@ -410,7 +412,8 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* The code will not compile as SniffleException IS a SneezeException
+* **F**
 <hr>
 
 ## Question 15
@@ -432,7 +435,13 @@ E. `Five` <br>
 E. `Six` <br>
 
 ### My answer:
-
+* A - false
+* B - true
+* C - false
+* D - false
+* E - true
+* F - false
+* **B,E**
 <hr>
 
 ## Question 16
