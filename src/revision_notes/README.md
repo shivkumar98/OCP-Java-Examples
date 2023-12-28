@@ -161,7 +161,6 @@ public class AutocloseableFlow {
 }
 ```
 
-
 <hr>
 
 ## 🟥 6.5 Rethrowing Exceptions
