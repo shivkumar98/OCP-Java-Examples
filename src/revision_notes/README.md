@@ -52,7 +52,30 @@ public class CanNotSwimException extends Exception {
 <hr>
 
 ## 🟥 6.3 Using Multi-catch
-
+* We can use multi-catch syntax to reduce code duplication when catching multiple exceptions@
+```java
+try {
+	Path path = Paths.get("dophinsBorn.txt"); // throws IOEXception
+	LocalDate date = LocalDate.parse("text"); // throws DateTimeParseException
+} catch (DateTimeParseException | IOException e) {
+	e.printStackTrace();
+	throw new RuntimeException(e);
+}
+```
+* The caught exception is EFFECTIVELY FINAL (i.e. it can not be instantiated or reassigned)⚠️⚠️⚠️
+```java
+try {
+    throw new IOException();
+} catch (IOException | RuntimeException e) {
+    e = new RuntimeException(); // COMPILER ERROR
+}
+```
+* A compiler error is generated if any of the exception types are UNREACHABLE, i.e. it can only catch checked exceptions which are declared and you can not have redudancies!⚠️⚠️⚠️
+```java
+try {
+    throw new IOException();
+} catch (FileNotFoundException | IOException e) { } // COMPILER ERROR
+```
 <hr>
 
 ## 🟥 6.4 Using Try-With-Resources
