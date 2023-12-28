@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 28/12/2023 <br>
-Score: 9/12 (75%) 
+Score: 12/15 (80%) 
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -21,9 +21,9 @@ Score: 9/12 (75%)
 | 10         |  ❌     |
 | 11         |  ❌     |
 | 12         |  ✅     |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 13         |  ✅    |
+| 14         |  ✅    |
+| 15         |  ✅    |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -419,7 +419,7 @@ F. None of the above; the code does not compile. <br>
 ### My answer:
 * The code DOES compile
 * However you cannot reassign e to a new exception!!!
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -445,7 +445,7 @@ F. None of the above; the code does not compile. <br>
 
 ### My answer:
 * The code will not compile as SniffleException IS a SneezeException
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## Question 15
@@ -473,7 +473,7 @@ E. `Six` <br>
 * D - false
 * E - true
 * F - false
-* **B,E**
+* **B,E**✅✅✅✅✅
 <hr>
 
 ## Question 16
