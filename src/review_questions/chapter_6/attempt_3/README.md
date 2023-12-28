@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 28/12/2023 <br>
-Score: 12/15 (80%) 
+Score: 12/18 (67%) 
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -15,18 +15,18 @@ Score: 12/15 (80%)
 | 4          |  ✅     |
 | 5          |  ✅     |
 | 6          |  ✅     |
-| 7          |  ✅    |
-| 8          |  ✅    |
-| 9          |  ✅    |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ✅     |
 | 10         |  ❌     |
 | 11         |  ❌     |
 | 12         |  ✅     |
-| 13         |  ✅    |
-| 14         |  ✅    |
-| 15         |  ✅    |
-| 16         |       |
-| 17         |       |
-| 18         |       |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ❌     |
+| 17         |  ❌     |
+| 18         |  ❌     |
 | 19         |       |
 | 20         |       |
 
@@ -504,7 +504,11 @@ F. The code does not compile <br>
 
 ### My answer:
 * Im kinda guessing here
-* **F**
+* **F**❌❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **C**
+* The exception which is caught is `rain` and the 2 `snow` exceptions are printed!!!
 <hr>
 
 ## Question 17
@@ -517,7 +521,12 @@ D. RuntimeException <br>
 E. Serializable <br>
 
 ### My answer:
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,B**
+* Closeable extends AutoClosable!!!
+* So both Closeable and Autocloseable can be used with try-with-resources
 <hr>
 
 ## Question 18
@@ -538,7 +547,11 @@ F. IOException, Closeable <br>
 * D - false as above
 * E - true
 * F - false
-* **A,E**
+* **A,E**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **B**
+* The `Closeable` interface has a `close()` method which does not throw a checked exception, hence implementations can not throw exceptions neither!!!
 <hr>
 
 ## Question 19
