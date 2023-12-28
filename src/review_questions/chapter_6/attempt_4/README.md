@@ -350,7 +350,7 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* **A**
 <hr>
 
 ## Question 14:
@@ -375,7 +375,7 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* **F**
 <hr>
 
 ## Question 15
@@ -397,7 +397,7 @@ E. `Five` <br>
 E. `Six` <br>
 
 ### My answer:
-
+* **B,E**
 <hr>
 
 ## Question 16
