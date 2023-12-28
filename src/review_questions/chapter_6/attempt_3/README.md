@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 28/12/2023 <br>
-Score: 5/6
+Score: 9/12 (75%) 
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -18,9 +18,9 @@ Score: 5/6
 | 7          |  ✅    |
 | 8          |  ✅    |
 | 9          |  ✅    |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 10         |  ❌     |
+| 11         |  ❌     |
+| 12         |  ✅     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -331,7 +331,11 @@ E. Line 7 is an appropiate use of an assertion <br>
 
 ### My answer:
 * The code will not compile because assert is a keyword
-* **A**
+* **A**❌❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,E**
+* I didn't read all the options properly `:(`
 <hr>
 
 ## Question 11
@@ -350,7 +354,11 @@ F. `SQLException` <br>
 * D - false, checked exception
 * E - true
 * F - false, checked exception
-* **B,E**
+* **B,E**❌❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **B,D,E**
+* MissingResourceException IS a runtime exception!!!
 <hr>
 
 ## Question 12:
@@ -384,7 +392,7 @@ F. None of the above; the code does not compile. <br>
 * D - true
 * E - true
 * need to double check this!
-* **A,D,E**
+* **A,D,E**✅✅✅✅
 <hr>
 
 ## Question 13
