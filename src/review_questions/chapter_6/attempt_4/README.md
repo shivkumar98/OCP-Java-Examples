@@ -427,7 +427,8 @@ F. `snow 2` <br>
 F. The code does not compile <br>
 
 ### My answer:
-
+* The rain exception is caught and 2 exceptions are supressed
+* **C**
 <hr>
 
 ## Question 17
@@ -440,7 +441,7 @@ D. RuntimeException <br>
 E. Serializable <br>
 
 ### My answer:
-
+* **A,B**
 <hr>
 
 ## Question 18
@@ -454,7 +455,15 @@ E. IOException, AutoCloseable <br>
 F. IOException, Closeable <br>
 
 ### My answer:
-
+* The AutoCloseAble `close()` method throws an Exception
+* The Closeable `close()` throws IOException
+* A - false
+* B - true
+* C - false
+* D - false
+* E - false
+* F - false
+* **B**
 <hr>
 
 ## Question 19
