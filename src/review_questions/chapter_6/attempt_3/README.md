@@ -240,7 +240,11 @@ D. The code compiles and runs successfully, but there is not output <br>
 E. The code does not compile <br>
 
 ### My answer:
-
+* While the args length is indeed less than or equal to 3, the assertions have not been enabled!
+* The assert false is not triggered
+* An ArrayIndexOutOfBoundsException is thrown
+* The code does compile but an exception is thrown before anything can be printed
+* **C,D**
 <hr>
 
 ## Question 8:
@@ -256,11 +260,14 @@ public class On {
 A. `java -da On` <br>
 B. `java -ea On` <br>
 C. `java -da -ea:On On` <br>
-D. `java -ea -da:On on` <br>
+D. `java -ea -da:On On` <br>
 E. The code does not compile <br>
 
 ### My answer:
-
+* A - false, this disables assertion
+* B - true
+* C - true
+* D - false, assertions h
 <hr>
 
 ## Question 9
@@ -273,7 +280,12 @@ D. `assert(n < 0): "OhNo";` <br>
 E. `assert(n < 0, "OhNo");` <br>
 
 ### My answer:
-
+* A - true
+* B - false, incorrect syntax
+* C - false, incorrect syntax
+* D - true
+* E - false, incorrect syntax
+* **A,D**
 <hr>
 
 ## Question 10
