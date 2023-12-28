@@ -110,7 +110,7 @@ F. `IOException e | RuntimeException e` <br>
 
 A. A traditional `try` statement without a catch block requires a finally block <br>
 B. A traditional `try` statement without a finally block requires a catch block <br>
-C. A traditional `try` statement with only one state with only one statement can omit {} <br>
+C. A traditional `try` statement with only one statement can omit {} <br>
 D. A try-with-resources statement without a catch block requires a finally block <br>
 E. A try-with-resources statement without a finally block requires a catch block <br>
 F. A try-with-resources statement with only one statement can omit the {}

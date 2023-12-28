@@ -120,13 +120,19 @@ F. `IOException e | RuntimeException e` <br>
 
 A. A traditional `try` statement without a catch block requires a finally block <br>
 B. A traditional `try` statement without a finally block requires a catch block <br>
-C. A traditional `try` statement with only one state with only one statement can omit {} <br>
+C. A traditional `try` statement with only one statement can omit {} <br>
 D. A try-with-resources statement without a catch block requires a finally block <br>
 E. A try-with-resources statement without a finally block requires a catch block <br>
 F. A try-with-resources statement with only one statement can omit the {}
 
 ### My answer:
-
+* A - true
+* B - true
+* C - false, the curly braces are required
+* D - false, it requires neither catch or finally
+* E - false as above
+* F - false, curly braces are required
+* **A,B**
 <hr>
 
 
@@ -166,7 +172,11 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* The close methods are called in reverse order
+* It first prints `TWD` first
+* It then prints `EF`
+* Not too confident about this one!!!
+* **C**
 <hr>
 
 ## Question 6
@@ -190,7 +200,7 @@ public class AutocloseableFlow {
             Door d = new Door(); Window w = new Window()
         }
         {
-            System.out.print("T");
+           System.out.print("T");
         } catch (Exception e) {
             System.out.print("E");
         } finally {
@@ -208,7 +218,8 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* The syntax is incorrect!
+* **G**
 <hr>
 
 ## Question 7
