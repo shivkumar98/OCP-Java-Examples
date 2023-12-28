@@ -4,17 +4,17 @@
 
 ## Results:
 
-Date: 28/12/2023
-Score: 
+Date: 28/12/2023 <br>
+Score: 5/6
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅     |
 | 2          |  ❌     |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
+| 3          |  ✅     |
+| 4          |  ✅     |
+| 5          |  ✅     |
+| 6          |  ✅     |
 | 7          |       |
 | 8          |       |
 | 9          |       |
@@ -152,7 +152,7 @@ F. A try-with-resources statement with only one statement can omit the {}
 * D - false, it requires neither catch or finally
 * E - false as above
 * F - false, curly braces are required
-* **A,B**
+* **A,B**✅✅✅✅✅
 <hr>
 
 
@@ -196,7 +196,10 @@ G. The code does not compile <br>
 * It first prints `TWD` first
 * It then prints `EF`
 * Not too confident about this one!!!
-* **C**
+* **C**✅✅✅✅✅
+* After the window is closed so w is printed, it throws an exception
+* But the door still needs to be closed so D is printed
+* The exceptiuon is then caught so E is printed
 <hr>
 
 ## Question 6
@@ -239,7 +242,7 @@ G. The code does not compile <br>
 
 ### My answer:
 * The syntax is incorrect!
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## Question 7
