@@ -165,7 +165,15 @@ public class AutocloseableFlow {
 <hr>
 
 ## 🟥 6.5 Rethrowing Exceptions
-
+* It is a common pattern to log an exception, and rethrowing the same exception:
+```java
+try {
+	parseData();
+} catch (IOException | DateTimeParseException e) {
+	System.err.println(e);
+	throw e;
+}
+```
 <hr>
 
 ## 🟥 6.6 Working With Assertions
