@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 28/12/2023 <br>
-Score: 12/18 (67%) 
+Score: 13/20 (65%) 
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -27,8 +27,8 @@ Score: 12/18 (67%)
 | 16         |  ❌     |
 | 17         |  ❌     |
 | 18         |  ❌     |
-| 19         |       |
-| 20         |       |
+| 19         |  ❌     |
+| 20         |  ✅     |
 
 
 <hr>
@@ -580,7 +580,13 @@ E. `SQLException | RuntimeException` <br>
 * C - true
 * D - true
 * E - true
-* **A,C,D,E**
+* **A,C,D,E**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **D**
+* I misread the question and still got it wrong
+* Since the method declares a checked exception is thrown, we are not required to catch it at all!
+* D can not be put in the blank because the exception is not declared anywhere
 <hr>
 
 ## Question 20
@@ -598,5 +604,5 @@ E. None of the above <br>
 * C - false
 * D - false
 * E - true
-* **E**
+* **E**✅✅✅✅✅
 <hr>
