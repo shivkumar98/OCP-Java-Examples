@@ -9,8 +9,8 @@ Score:
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
+| 1          |  ✅     |
+| 2          |  ❌     |
 | 3          |       |
 | 4          |       |
 | 5          |       |
@@ -53,7 +53,7 @@ F. None of the above. SQLException is a runtime exception and cannot be thrown <
 ### My answer:
 * Line 5 needs `throws`
 * Line 6 needs `throw`
-* **C**
+* **C**✅✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -83,7 +83,27 @@ F. The code already compiles as is <br>
 ### My answer:
 * C and D are false, the syntax is acceptable
 * B - false, not necessary
-* **F**
+* **F**❌❌❌❌❌ 
+<br>
+
+* CORRECT ANSWER: **B,C**
+* Option D is also false as the exception would remain unhandled!
+* The only way the code would compile is if we had either:
+```java
+public static void main(String[] args) throws Exception {
+    try (StuckTurkeyCage t = new StuckTurkeyCage()) {
+        // anything
+    }
+}
+```
+
+* OR we caught the exception in the try-with-resources block:
+```java
+try (StuckTurkeyCage t = new StuckTurkeyCage()) {
+    System.out.println("put turkeys in");
+} catch (Exception e) {}
+```
+
 <hr>
 
 ## Question 3
@@ -108,11 +128,11 @@ F. `IOException e | RuntimeException e` <br>
 ### My answer:
 * A - FileNotFoundException IS a IOExcpetion, so false will not compile
 * B - false, incorrect syntax
-* C - true
+* C - false, IOException still needs to be caught
 * D - false, incorrect syntax
 * E - true
 * F - false, incorrect syntax
-* **C,E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 4:
