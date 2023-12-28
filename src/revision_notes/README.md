@@ -37,6 +37,45 @@
 4) `java.lang.UnsupportedOperationException`
 5) `java.lang.IllegalStaceException`
 
+<hr>
+
+## 🟥 6.2 Creating Custom Exceptions
+* You can create custom exceptions by extending `Exception` or `RuntimeException`
+* Here are the 3 most common constructors for Exceptions:
+```java
+public class CanNotSwimException extends Exception {
+	public class CanNotSwimException() { super(); }
+	public class CanNotSwimException(Exception e) { super(e); }
+	public class CanNotSwimException(String message) { super(message); }
+}
+```
+<hr>
+
+## 🟥 6.3 Using Multi-catch
+
+<hr>
+
+## 🟥 6.4 Using Try-With-Resources
+
+<hr>
+
+## 🟥 6.5 Rethrowing Exceptions
+
+<hr>
+
+## 🟥 6.6 Working With Assertions
+
+
+
+
+
+
+
+
+
+
+<br><hr>
+
 # 🧠 Chapter 7 - Concurrency
 
 ## 🟥 7.1 Introducing Threads
