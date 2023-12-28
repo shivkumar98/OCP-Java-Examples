@@ -5,30 +5,30 @@
 ## Results:
 
 Date: 28/12/2023
-Score: 
+Score: 20/20 (100)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 1          |  ✅    |
+| 2          |  ✅    |
+| 3          |  ✅    |
+| 4          |  ✅    |
+| 5          |  ✅    |
+| 6          |  ✅    |
+| 7          |  ✅    |
+| 8          |  ✅    |
+| 9          |  ✅    |
+| 10         |  ✅    |
+| 11         |  ✅    |
+| 12         |  ✅    |
+| 13         |  ✅    |
+| 14         |  ✅    |
+| 15         |  ✅    |
+| 16         |  ✅    |
+| 17         |  ✅    |
+| 18         |  ✅    |
+| 19         |  ✅    |
+| 20         |  ✅    |
 
 
 <hr>
@@ -51,7 +51,7 @@ F. None of the above. SQLException is a runtime exception and cannot be thrown <
 ❓
 
 ### My answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -79,7 +79,7 @@ F. The code already compiles as is <br>
 ❓
 
 ### My answer:
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -102,13 +102,13 @@ F. `IOException e | RuntimeException e` <br>
 ❓
 
 ### My answer:
-* A - true
+* A - false
 * B - false
 * C - false
 * D - false
 * E - true
 * F - false
-* **A,E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 4:
@@ -128,7 +128,7 @@ F. A try-with-resources statement with only one statement can omit the {}
 * D - false
 * E - false
 * F - false
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 
@@ -168,7 +168,7 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 6
@@ -210,7 +210,7 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -231,7 +231,7 @@ D. The code compiles and runs successfully, but there is not output <br>
 E. The code does not compile <br>
 
 ### My answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -251,7 +251,7 @@ D. `java -ea -da:On on` <br>
 E. The code does not compile <br>
 
 ### My answer:
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 9
@@ -285,7 +285,7 @@ D. Line 6 is an appropiate use of an assertion <br>
 E. Line 7 is an appropiate use of an assertion <br>
 
 ### My answer:
-* **A,E**
+* **A,E**✅✅✅✅
 <hr>
 
 ## Question 11
@@ -298,7 +298,7 @@ E. `DateTimeParseException` <br>
 F. `SQLException` <br>
 
 ### My answer:
-* **B,D,E**
+* **B,D,E**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -325,7 +325,7 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-* **A,D,E**
+* **A,D,E**✅✅✅✅
 <hr>
 
 ## Question 13
@@ -350,7 +350,7 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -375,7 +375,7 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## Question 15
@@ -397,7 +397,7 @@ E. `Five` <br>
 E. `Six` <br>
 
 ### My answer:
-* **B,E**
+* **B,E**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -428,7 +428,7 @@ F. The code does not compile <br>
 
 ### My answer:
 * The rain exception is caught and 2 exceptions are supressed
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 17
@@ -441,7 +441,7 @@ D. RuntimeException <br>
 E. Serializable <br>
 
 ### My answer:
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 ## Question 18
@@ -463,7 +463,7 @@ F. IOException, Closeable <br>
 * D - false
 * E - false
 * F - false
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -491,7 +491,7 @@ E. `SQLException | RuntimeException` <br>
 * C - false
 * D - true, IOException is not throw anywhere
 * E - false
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -504,5 +504,5 @@ D. The `toString()` method must be coded <br>
 E. None of the above <br>
 
 ### My answer:
-
+* **E**✅✅✅✅
 <hr>
