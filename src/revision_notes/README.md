@@ -2,7 +2,7 @@
 
 
 # 🧠 Chapter 6 - Exceptions and Assertions
-## 🟥 7.1 Reviewing Exceptions
+## 🟥 6.1 Reviewing Exceptions
 ### 🟡 Terminology
 * All exceptions/errors extend `java.lang.Object`
 * `RuntimeException` is a subclass of `Exception`, it is AKA unchecked exception and there is no requirement to be caught (even though you can).
