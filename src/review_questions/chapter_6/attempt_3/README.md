@@ -15,9 +15,9 @@ Score: 5/6
 | 4          |  ✅     |
 | 5          |  ✅     |
 | 6          |  ✅     |
-| 7          |       |
-| 8          |       |
-| 9          |       |
+| 7          |  ✅    |
+| 8          |  ✅    |
+| 9          |  ✅    |
 | 10         |       |
 | 11         |       |
 | 12         |       |
@@ -267,7 +267,7 @@ E. The code does not compile <br>
 * The assert false is not triggered
 * An ArrayIndexOutOfBoundsException is thrown
 * The code does compile but an exception is thrown before anything can be printed
-* **C,D**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -291,6 +291,7 @@ E. The code does not compile <br>
 * B - true
 * C - true
 * D - false, assertions h
+* **B,C** ✅✅✅✅
 <hr>
 
 ## Question 9
@@ -308,7 +309,7 @@ E. `assert(n < 0, "OhNo");` <br>
 * C - false, incorrect syntax
 * D - true
 * E - false, incorrect syntax
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 10
