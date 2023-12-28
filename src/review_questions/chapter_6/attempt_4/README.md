@@ -486,7 +486,12 @@ D. `SQLException | IOException` <br>
 E. `SQLException | RuntimeException` <br>
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - true, IOException is not throw anywhere
+* E - false
+* **D**
 <hr>
 
 ## Question 20
