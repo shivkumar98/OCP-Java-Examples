@@ -231,7 +231,7 @@ D. The code compiles and runs successfully, but there is not output <br>
 E. The code does not compile <br>
 
 ### My answer:
-
+* **C**
 <hr>
 
 ## Question 8:
@@ -251,7 +251,7 @@ D. `java -ea -da:On on` <br>
 E. The code does not compile <br>
 
 ### My answer:
-
+* **B,C**
 <hr>
 
 ## Question 9
@@ -264,7 +264,7 @@ D. `assert(n < 0): "OhNo";` <br>
 E. `assert(n < 0, "OhNo");` <br>
 
 ### My answer:
-
+* **A,D**
 <hr>
 
 ## Question 10
