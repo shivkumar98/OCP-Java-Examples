@@ -529,7 +529,13 @@ D. `SQLException | IOException` <br>
 E. `SQLException | RuntimeException` <br>
 
 ### My answer:
-
+* The checked exception must be caught!
+* A - true
+* B - false
+* C - true
+* D - true
+* E - true
+* **A,C,D,E**
 <hr>
 
 ## Question 20
@@ -542,5 +548,10 @@ D. The `toString()` method must be coded <br>
 E. None of the above <br>
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - false
+* E - true
+* **E**
 <hr>
