@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 27/12/23
-Score: 20/22
+Score: 20/22 (91%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
