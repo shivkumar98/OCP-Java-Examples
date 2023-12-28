@@ -285,7 +285,7 @@ D. Line 6 is an appropiate use of an assertion <br>
 E. Line 7 is an appropiate use of an assertion <br>
 
 ### My answer:
-
+* **A,E**
 <hr>
 
 ## Question 11
@@ -298,7 +298,7 @@ E. `DateTimeParseException` <br>
 F. `SQLException` <br>
 
 ### My answer:
-
+* **B,D,E**
 <hr>
 
 ## Question 12:
@@ -325,7 +325,7 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* **A,D,E**
 <hr>
 
 ## Question 13
