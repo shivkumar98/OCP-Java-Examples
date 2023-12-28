@@ -306,7 +306,8 @@ D. Line 6 is an appropiate use of an assertion <br>
 E. Line 7 is an appropiate use of an assertion <br>
 
 ### My answer:
-
+* The code will not compile because assert is a keyword
+* **A**
 <hr>
 
 ## Question 11
@@ -319,7 +320,13 @@ E. `DateTimeParseException` <br>
 F. `SQLException` <br>
 
 ### My answer:
-
+* A - false, RuntimeExceptions extend this class
+* B - true
+* C - false, this is a checked exception
+* D - false, checked exception
+* E - true
+* F - false, checked exception
+* **B,E**
 <hr>
 
 ## Question 12:
@@ -346,7 +353,14 @@ E. `e = new SniffleException();` <br>
 F. None of the above; the code does not compile. <br>
 
 ### My answer:
-
+* The type of e can not change
+* A - true
+* B - false, you cannot write `SneezeException e = new Exception()`
+* C - false, SneezeException is not a runtime exception!
+* D - true
+* E - true
+* need to double check this!
+* **A,D,E**
 <hr>
 
 ## Question 13
