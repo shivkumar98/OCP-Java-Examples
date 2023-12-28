@@ -177,14 +177,10 @@ try {
 <hr>
 
 ## 🟥 6.6 Working With Assertions
-
-
-
-
-
-
-
-
+* By default, failing assertions will not cause any changes in program flow
+* They need to be enabled using `-ea` or `-enableassertions` options when compiling the java class
+* We can enable assertions for specifc classes by following the option with `:className`
+* You can mix these options together. E.g. the following will disable assertions except for specified class: `java -da -ea:ClassName ClassName`
 
 
 <br><hr>
