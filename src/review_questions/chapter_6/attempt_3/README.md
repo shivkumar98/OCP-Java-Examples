@@ -471,7 +471,8 @@ F. `snow 2` <br>
 F. The code does not compile <br>
 
 ### My answer:
-
+* Im kinda guessing here
+* **F**
 <hr>
 
 ## Question 17
@@ -484,7 +485,7 @@ D. RuntimeException <br>
 E. Serializable <br>
 
 ### My answer:
-
+* **A**
 <hr>
 
 ## Question 18
@@ -498,7 +499,14 @@ E. IOException, AutoCloseable <br>
 F. IOException, Closeable <br>
 
 ### My answer:
-
+* A class which implements AutoCloseable, the close() method is not allowed to throw a checked exception
+* A - true
+* B - false
+* C - false, runtime exceptions can be thrown by any method
+* D - false as above
+* E - true
+* F - false
+* **A,E**
 <hr>
 
 ## Question 19
