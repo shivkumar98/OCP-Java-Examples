@@ -122,7 +122,13 @@ E. A try-with-resources statement without a finally block requires a catch block
 F. A try-with-resources statement with only one statement can omit the {}
 
 ### My answer:
-
+* A - true
+* B - true
+* C - false
+* D - false
+* E - false
+* F - false
+* **A,B**
 <hr>
 
 
@@ -162,7 +168,7 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* **C**
 <hr>
 
 ## Question 6
@@ -204,7 +210,7 @@ G. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* **G**
 <hr>
 
 ## Question 7
