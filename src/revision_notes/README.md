@@ -826,3 +826,44 @@ return new WeighAnimalTask(weights,middle,end).compute()+otherTask;
 * Starvation occurs when a thread is perpetually denied access to a shared resouce as a result of other threads constantly taking the resource
 * Livelock occurs when two or more threads are blocked forever but appear active. This is often the result of two threads trying to attempt to resolve a deadlock
 * Race conditions are when two or more threads try to complete a related task at the same time. It is the undesirablee result which occurs when two tasks which should be done sequentially are done at the same time
+
+<br><hr>
+
+# 🧠 Chapter 8 - IO
+
+## 🟥 8.1 Files and Directories
+* You can instantiate a file using either a String representing the location or using another File instance which is the parent directory
+```java
+File parent = new File("/home/smith");
+File child = new File(parent, "data/zoo.txt");
+```
+
+* We have methods to make directories, confirm existence, delete, rename and list files.
+* We do NOT have methods to MOVE/COPY
+
+* Here are the **methods available to File class**:
+```java
+boolean exists();
+String getName(); // gets the name of file or directory. E.g. zoo.txt
+boolean isDirectory();
+boolean isFile();
+boolean delete(); // deletes file OR directory if empty
+boolean renameTo(File file);
+boolean mkdir(File directoryFile); // makes directory file denoted by file
+boolean mkdirs(File file); // makes directory AND file even for dirs which don't exist
+String getParent(); // returns absolute filepath of parent directory
+File[] listFiles(); // returns a File[] denoting files in directory
+long lastModified(); // returns no. of ms since the epoch the file was last modified
+```
+
+<hr>
+
+## 🟥 8.2 Streams
+
+<hr>
+
+## 🟥 8.3 Working With Streams
+
+<hr>
+
+## 🟥 8.4 Interacting With Users
