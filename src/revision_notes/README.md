@@ -859,7 +859,47 @@ long lastModified(); // returns no. of ms since the epoch the file was last modi
 <hr>
 
 ## 🟥 8.2 Streams
+### 🟡 Input/Output Stream Vs Reader/Writer
+* There **four abstract classes** in java.io:
+1) `Reader`
+2) `Writer`
+3) `InputStream`
+4) `OutputStream`
 
+* These classes can be divided into two types
+1) Classes which have `InputStream`/`OutputStream` in their name
+- Used for reading/writing **BINARY DATA**
+2) Classes which have `Reader`/`Writer` in their name
+- Used for reading/writing **CHARACTER/STRING DATA**
+
+### 🟡 Low-Level Streams
+* LOW LEVEL streams connect directly to source of data
+
+| Class 			| Description 								|
+| ----------------- | ----------------------------------------- |
+| FileInputStream   | This is an `InputStream` and reads binary data from file				|
+| FileOutputStream  | This is an `OutputStream` and writes binary data to file				|
+| FileReader        | This is a `Reader` and reads character data from file		    |
+| FileWriter		| This is a `Writer` and writes character data from file 			|
+
+* HIGH LEVEL streams are used to wrap another stream
+  
+| Class 			| Description 								|
+| ----------------- | ----------------------------------------- |
+| BufferedReader |  This is a `Reader` and takes in a low level `FileReader` |
+| BufferedWriter | This is a `Writer` and takes in a low level stream `FileWriter` |
+| ObjectInputStream | This deserializer is an `InputStream` and takes either `FileInputStream` OR `BufferedReader` |
+| ObjectOutputStream | This serializer is an `OutputStream` and takes either `FileOutputStream` OR `BufferedWriter` |
+| InputStreamReader | This is a `Reader` which takes an `InputStream` (e.g. FileInputStream, ObjectInputStream) |
+| OutputStreamWriter | This is a `Writer` which takes an `OutputStream` (e.g. FileOutputStream) |
+| PrintStream  | This is a `OutputStream` which gives useful methods for writing and formatting data  |
+| PrintWriter | This is a `Writer` which gives useful methods for writing and formatting data  |
+
+
+### 🟡 Common Stream Operations
+* Streams should be closed via `close()` method to prevent resouce leaks and the program deadlocking. You can also use the try-with-resources syntax to do this automatically💡
+* You should use the `flush()` method to ensure all data is written to disk when writing data with `OutputStream`
+* Only some streams support marking and resetting. Check that it is supported using `boolean markSupported()` otherwise you can encounter an UnsupportedOperationException⚠️
 <hr>
 
 ## 🟥 8.3 Working With Streams
