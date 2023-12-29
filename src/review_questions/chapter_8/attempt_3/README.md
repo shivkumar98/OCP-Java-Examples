@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 29/12/23 <br>
-Score: 6/8
+Score: 9/12
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -17,10 +17,10 @@ Score: 6/8
 | 6          |  ✅     |
 | 7          |  ✅     |
 | 8          |  ✅     |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 9          |  ✅     |
+| 10         |  ❌     |
+| 11         |  ✅     |
+| 12         |  ✅     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -243,9 +243,10 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 * D - false
 * E - false
 * F - false
-* **A**
+* **A**✅✅✅✅
 <br>
 
+* The class must have instance members which are serializable or marked transient!
 <hr>
 
 ## 🟨 Question 10 🟨
@@ -275,9 +276,11 @@ F. It compiles but may throw an exception at runtime <br>
 * D - false
 * E - false
 * F - false
-* **C**
+* **C**❌❌❌❌
+* CORRECT ANSWER: **C,F**
 <br>
 
+* Most in the File class are CAPABLE of throwing exceptions, e.g. a file could be deleted by another program before calling `.delete()`
 <hr>
 
 ## 🟨 Question 11 🟨
@@ -293,7 +296,7 @@ G. `mkdir()` <br>
 ❓
 
 ### My answer:
-* **C,E,G**
+* **C,E,G**✅✅✅✅
 <br>
 
 <hr>
@@ -309,7 +312,7 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-* **B,C**
+* **B,C**✅✅✅✅
 <br>
 
 <hr>
