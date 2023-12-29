@@ -1,10 +1,10 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 8: Review Questions - Attempt #
+# Chapter 8: Review Questions - Attempt 3
 
 ## Results:
 
-Date:
+Date: 29/12/23 <br>
 Score: 
 ✅  ❌ 
 | Question # | Correct |
@@ -51,7 +51,14 @@ F. `BufferedReader` <br>
 ❓
 
 ### My answer:
-
+* `is` is a BufferedInputStream, it can accept low level InputStream classes
+* A - true, rewrapping is fine
+* B - false, can not wrap high level with low level
+* C - false, incompatible
+* D - true
+* E - false, incompatible
+* F - false, you cant instantiate an abstract class
+* **A,D**
 <br>
 
 <hr>
@@ -68,7 +75,8 @@ F. So that the value can be removed from memory immediately after use <br>
 ❓
 
 ### My answer:
-
+* B - false, it is not more!
+* **E,F**
 <br>
 
 <hr>
@@ -85,7 +93,12 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - true
+* D - true
+* E - false
+* **C,D**
 <br>
 
 <hr>
@@ -107,7 +120,13 @@ F. None of the above <br>
 ❓
 
 ### My answer:
-
+* A - false
+* B - true
+* C - true
+* D - true
+* E - false
+* F - false
+* **B,C,D**
 <br>
 
 <hr>
@@ -133,7 +152,14 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* The console can be null
+* A - false
+* B - true
+* C - false
+* D - true
+* E - true
+* F - false
+* **B,D,E**
 <br>
 
 <hr>
@@ -148,7 +174,11 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - true
 <br>
 
 <hr>
@@ -164,7 +194,7 @@ E. Top <br>
 ❓
 
 ### My answer:
-
+* **D**
 <br>
 
 <hr>
@@ -180,7 +210,12 @@ E. The parent of the path pointed to by a File object must exist <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false, could be a file
+* C - false
+* D - false
+* E - false
+* **A**
 <br>
 
 <hr>
@@ -196,7 +231,13 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* F - false
+* **A**
 <br>
 
 <hr>
@@ -221,7 +262,14 @@ F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* This will not delete a directory
+* A - false
+* B - false
+* C - true
+* D - false
+* E - false
+* F - false
+* **C**
 <br>
 
 <hr>
@@ -239,7 +287,7 @@ G. `mkdir()` <br>
 ❓
 
 ### My answer:
-
+* **C,E,G**
 <br>
 
 <hr>
@@ -255,7 +303,7 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-
+* **B,C**
 <br>
 
 <hr>
@@ -272,7 +320,7 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-
+* **A,C,E**
 <br>
 
 <hr>
@@ -289,7 +337,7 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-
+* **E**
 <br>
 
 <hr>
@@ -313,7 +361,7 @@ E. The code does not compile for another reason <br>
 ❓
 
 ### My answer:
-
+* **A**
 <br>
 
 <hr>
@@ -330,7 +378,13 @@ F. Classes that store most of their data in static fields would not be easily se
 ❓
 
 ### My answer:
-
+* A - true, abstract classes for example
+* B - false
+* C - false
+* D - true
+* E - true
+* F - true
+* **A,D,E,F**
 <br>
 
 <hr>
@@ -348,7 +402,7 @@ G. `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-
+* **A,G**
 <br>
 
 <hr>
@@ -371,7 +425,7 @@ F. `out` <br>
 ❓
 
 ### My answer:
-
+* **A,C,E**
 <br>
 
 <hr>
@@ -389,7 +443,7 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-
+* **B,C,D**
 <br>
 
 <hr>
@@ -406,7 +460,7 @@ F. Multi-threading support <br>
 ❓
 
 ### My answer:
-
+* **A,C,**
 <br>
 
 <hr>
@@ -439,13 +493,13 @@ G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* **A,C**
 <br>
 
 <hr>
 
 ## 🟨 Question 22 🟨
-❓ What is the value of `name` after an instance of Eaglle is serialized and deserialized? ❓
+❓ What is the value of `name` after an instance of Eagle is serialized and deserialized? ❓
 
 ```java
 public class Bird implements Serializable {
@@ -475,7 +529,7 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-
+* **E**
 <br>
 
 <hr>
@@ -507,7 +561,7 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
-
+* **H**
 <br>
 
 <hr>
