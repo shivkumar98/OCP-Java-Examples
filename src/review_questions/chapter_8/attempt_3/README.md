@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 29/12/23 <br>
-Score: 12/16
+Score: 12/18 (67%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -25,8 +25,8 @@ Score: 12/16
 | 14         |  ✅     |
 | 15         |  ✅     |
 | 16         |  ❌     |
-| 17         |       |
-| 18         |       |
+| 17         |  ❌     |
+| 18         |  ❌     |
 | 19         |       |
 | 20         |       |
 | 21         |       |
@@ -397,7 +397,7 @@ F. Classes that store most of their data in static fields would not be easily se
 <br>
 
 * CORRECT ANSWER: **D,F**
-* The compiler will NOT complain if certain classes are marked
+* The compiler will NOT complain if certain classes are marked7/35
 * In fact abstract, concrete, final classes can be marked serializable so A and E is false
 <hr>
 
@@ -414,9 +414,11 @@ G. `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-* **A,G**
+* **A,G**❌❌❌❌
 <br>
 
+* CORRECT ANSWER: **A,B,D,G**
+* PrintStream and PrintWriter are HIGH LEVEL classes for low level OutputStream and Writer classes
 <hr>
 
 ## 🟨 Question 18 🟨
@@ -437,9 +439,12 @@ F. `out` <br>
 ❓
 
 ### My answer:
-* **A,C,E**
+* **A,C,E**❌❌❌❌
 <br>
 
+* CORRECT ANSWER: **B,D,E**
+* The only methods available to the console directly is printf and format!!!
+* The console.writer() has methods like `print()`/`println()` as well as printf and format
 <hr>
 
 ## 🟨 Question 19 🟨
