@@ -47,7 +47,7 @@ I created this repo to go through the examples from the official study guide for
 - [✅ Review Questions](/src/review_questions/chapter_3/)
 - [📝Revision Notes](/src/chapter_3/revision_notes/)
 
-## Chapter 4: Functional Interfaces
+## Chapter 4: Functional Programming
 - [📜 Table of Contents📜 ](/src/chapter_4/)
 - [🧠 4.1 Using Variables in Lambdas](/src/chapter_4/c_4_1_using_variables_in_lambdas/)
 - [🧠 4.2 Working with Build-in Functional Interfaces](/src/chapter_4/c_4_2_workingWithBuiltInFunctionalInterfaces/)
