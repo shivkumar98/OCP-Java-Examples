@@ -5,18 +5,18 @@
 ## Results:
 
 Date: 29/12/23 <br>
-Score: 
+Score: 6/8
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅     |
 | 2          |  ❌     |
 | 3          |  ✅     |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
+| 4          |  ❌     |
+| 5          |  ✅     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ✅     |
 | 9          |       |
 | 10         |       |
 | 11         |       |
@@ -164,7 +164,7 @@ F. The code does not compile <br>
 * D - true
 * E - true
 * F - false
-* **B,D,E**
+* **B,D,E**✅✅✅✅
 <br>
 
 <hr>
@@ -184,6 +184,7 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 * C - false
 * D - false
 * E - true
+* **A,E**✅✅✅✅✅
 <br>
 
 <hr>
@@ -199,7 +200,7 @@ E. Top <br>
 ❓
 
 ### My answer:
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -220,7 +221,7 @@ E. The parent of the path pointed to by a File object must exist <br>
 * C - false
 * D - false
 * E - false
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
