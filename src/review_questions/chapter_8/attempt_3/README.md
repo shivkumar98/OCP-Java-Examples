@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 29/12/23 <br>
-Score: 12/18 (67%)
+Score: 17/23 (74%)
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -27,10 +27,11 @@ Score: 12/18 (67%)
 | 16         |  ❌     |
 | 17         |  ❌     |
 | 18         |  ❌     |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
+| 19         |  ✅     |
+| 20         |  ✅     |
+| 21         |  ✅     |
+| 22         |  ✅     |
+| 23         |  ✅     |
 
 <hr>
 
@@ -460,7 +461,7 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-* **B,C,D**
+* **B,C,D**✅✅✅✅
 <br>
 
 <hr>
@@ -477,7 +478,7 @@ F. Multi-threading support <br>
 ❓
 
 ### My answer:
-* **A,C,**
+* **A,C**✅✅✅✅
 <br>
 
 <hr>
@@ -510,7 +511,7 @@ G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-* **A,C**
+* **A,C**✅✅✅✅
 <br>
 
 <hr>
@@ -546,7 +547,7 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -578,7 +579,7 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
-* **H**
+* **H**✅✅✅✅
 <br>
 
 <hr>
