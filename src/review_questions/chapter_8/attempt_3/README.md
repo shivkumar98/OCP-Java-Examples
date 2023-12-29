@@ -9,9 +9,9 @@ Score:
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
+| 1          |  ✅     |
+| 2          |  ❌     |
+| 3          |  ✅     |
 | 4          |       |
 | 5          |       |
 | 6          |       |
@@ -58,7 +58,7 @@ F. `BufferedReader` <br>
 * D - true
 * E - false, incompatible
 * F - false, you cant instantiate an abstract class
-* **A,D**
+* **A,D**✅✅✅✅
 <br>
 
 <hr>
@@ -76,9 +76,11 @@ F. So that the value can be removed from memory immediately after use <br>
 
 ### My answer:
 * B - false, it is not more!
-* **E,F**
+* **E,F**❌❌❌❌❌
 <br>
 
+* CORRECT ANSWER: **B,E,F**
+* The value of the captured password is secured as it does not enter the String pool
 <hr>
 
 
@@ -98,7 +100,7 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 * C - true
 * D - true
 * E - false
-* **C,D**
+* **C,D**✅✅✅✅
 <br>
 
 <hr>
@@ -126,9 +128,12 @@ F. None of the above <br>
 * D - true
 * E - false
 * F - false
-* **B,C,D**
+* **B,C,D**❌❌❌❌
 <br>
 
+* CORRECT ANSWER: C
+* `read()` method does not exist to the console
+* `readPassword()` returns `char[]`
 <hr>
 
 ## 🟨 Question 5 🟨
