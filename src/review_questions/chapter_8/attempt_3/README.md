@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 29/12/23 <br>
-Score: 9/12
+Score: 12/16
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
@@ -21,10 +21,10 @@ Score: 9/12
 | 10         |  ❌     |
 | 11         |  ✅     |
 | 12         |  ✅     |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ❌     |
 | 17         |       |
 | 18         |       |
 | 19         |       |
@@ -329,7 +329,7 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-* **A,C,E**
+* **A,C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -346,7 +346,7 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -370,7 +370,7 @@ E. The code does not compile for another reason <br>
 ❓
 
 ### My answer:
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -393,9 +393,12 @@ F. Classes that store most of their data in static fields would not be easily se
 * D - true
 * E - true
 * F - true
-* **A,D,E,F**
+* **A,D,E,F**❌❌❌❌
 <br>
 
+* CORRECT ANSWER: **D,F**
+* The compiler will NOT complain if certain classes are marked
+* In fact abstract, concrete, final classes can be marked serializable so A and E is false
 <hr>
 
 ## 🟨 Question 17 🟨
