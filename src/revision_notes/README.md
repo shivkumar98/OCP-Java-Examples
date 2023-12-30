@@ -861,10 +861,10 @@ long lastModified(); // returns no. of ms since the epoch the file was last modi
 ## 🟥 8.2 Streams
 ### 🟡 Input/Output Stream Vs Reader/Writer
 * There **four abstract classes** in java.io:
-1) `Reader`
-2) `Writer`
-3) `InputStream`
-4) `OutputStream`
+1) `Reader` 📖
+2) `Writer` ✍️
+3) `InputStream` 👉0️⃣
+4) `OutputStream` 1️⃣👉
 
 * These classes can be divided into two types
 1) Classes which have `InputStream`/`OutputStream` in their name
@@ -882,19 +882,20 @@ long lastModified(); // returns no. of ms since the epoch the file was last modi
 | FileReader        | This is a `Reader` and reads character data from file		    |
 | FileWriter		| This is a `Writer` and writes character data from file 			|
 
-* HIGH LEVEL streams are used to wrap another stream
+* HIGH LEVEL streams are used to wrap another stream (the final 2 are not in the exam)
   
 | Class 			| Description 								|
 | ----------------- | ----------------------------------------- |
 | BufferedReader |  This is a `Reader` and takes in a low level `FileReader` |
 | BufferedWriter | This is a `Writer` and takes in a low level stream `FileWriter` |
-| ObjectInputStream | This deserializer is an `InputStream` and takes either `FileInputStream` OR `BufferedReader` |
-| ObjectOutputStream | This serializer is an `OutputStream` and takes either `FileOutputStream` OR `BufferedWriter` |
-| InputStreamReader | This is a `Reader` which takes an `InputStream` (e.g. FileInputStream, ObjectInputStream) |
-| OutputStreamWriter | This is a `Writer` which takes an `OutputStream` (e.g. FileOutputStream) |
+| BufferedInputStream | This is a `InputStream` which takes a low level `FileInputStream` |
+| BufferedOutputStream |  This is a `OutputStream` which takes a low level `FileOutputStream` |
+| ObjectInputStream | This deserializer is an `InputStream` and takes either `FileInputStream` OR `BufferedInputStream` |
+| ObjectOutputStream | This serializer is an `OutputStream` and takes either `FileOutputStream` OR `BufferedOutputStream` |
 | PrintStream  | This is a `OutputStream` which gives useful methods for writing and formatting data  |
 | PrintWriter | This is a `Writer` which gives useful methods for writing and formatting data  |
-
+| InputStreamReader | This is a `Reader` which takes an `InputStream` (e.g. FileInputStream, ObjectInputStream) |
+| OutputStreamWriter | This is a `Writer` which takes an `OutputStream` (e.g. FileOutputStream) |
 
 ### 🟡 Common Stream Operations
 * Streams should be closed via `close()` method to prevent resouce leaks and the program deadlocking. You can also use the try-with-resources syntax to do this automatically💡
@@ -904,6 +905,92 @@ long lastModified(); // returns no. of ms since the epoch the file was last modi
 
 ## 🟥 8.3 Working With Streams
 
+### 🟡 FileInputStream and FileOutputStream Classes
+* These are LOW LEVEL `InputStream`/`OutputStream` classes which read/write binary data to files
+```java
+try (InputStream fileInputStream = new FileInputStream(new File("data.txt")) {
+	int b;
+	while((b=fileInputStream()) != -1) {
+		System.out.print((char)b);
+	}
+}
+```
+
+#### 🟢 BufferedInputStream and BufferedOutputStream Classes
+* This are HIGH LEVEL InputStream/OutputStream classes which take in low level FileInputStream/FileOutputStream classes!
+```java
+BufferedInputStream bufferedInputStream
+	= new BufferedInputStream(
+		new FileInputStream(
+			new File(alphabetFile)));
+int b;
+while ((b=bufferedInputStream.read()) != -1) {
+	System.out.println((char)b);
+}
+```
+
+### 🟡 FileReader and FileWriter Classes
+* These classes offer AUTOMATIC CHARACTER ENCODING💡
+* These are LOW LEVEL `Reader`/`Writer` classes which read and write String data
+* We have a `int read()` method for the reader ,and a `void write(String)` method for the writer
+```java
+FileReader fileReader = new FileReader(alphabetFile);
+int b;
+while((b=fileReader.read()) != -1) {
+	System.out.println((char)b);
+}
+```
+
+#### 🟢 BufferedReader and BufferedWriter
+* These classes are HIGH LEVEL wrappers, there is also a `ReadLine()` method which is useful!
+```java
+try (BufferedWriter writer = new BufferedWriter(new FileWriter(alphabetFile));
+	 BufferedReader reader = new BufferedReader(new FileReader(alphabetFile));) {
+	writer.write("abcd\nefghi");
+	String line;
+	while((line=reader.readLine())!=null) {
+		System.out.println(line);
+	}
+}
+```
+
+### 🟡 ObjectInputStream and ObjectOutputStream Classes
+* These classes allow for SERIALIZATION and DESERIALIZATION of Java objects:
+* The ObjectInputStream takes in an InputStream in the form of a FileInputStream or BufferedInputStream
+```java
+ObjectOutputStream writer = new ObjectOutputStream(
+	new FileOutputStream(outputFile));
+writer.writeObject("hello world");
+
+ObjectInputStream reader = new ObjectInputStream(
+	new FleInputStream(outputFile));
+// reader.read(); // returns -1
+reader.readObject(); // hello world is returned
+```
+
+#### 🟢 Serializable Interface
+* Any abstract, concrete or final class can be marked as serializable
+* Attempting to serialize a non-serializable instance will not cause compilation errors but WILL THROW NotSerializableException:
+```java
+objectOutputStream.writeObject(new NotSerializable()); // THROWS NotSerializableException
+```
+
+#### 🟢 How Objects are Created When Deserializing
+* Static and `transient` variables are ignored during serialization/deserialization
+  * Transient variables will be the default value java gives to the instance type (e.g. null for Strings)
+  * Static variables will have the value of the last value it was assigned to in the program
+* When an object is deserialized, the constructor of the class is NOT called
+  * java will call the first no-argument constructor for the first nonserializable parent class
+
+
+### 🟡 PrintStream and PrintWriter Classes
+* These classes offer nice methods like `format(String, args)` and `printf(String, args)` which are functionally the same
+* PrintStream is an `OutputStream`
+* PrintWriter is a `Writer`
 <hr>
 
 ## 🟥 8.4 Interacting With Users
+
+### 🟡 Old Way: Using Buffered Reader
+
+### 🟡 New Way: Using Console
