@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 31/12/2023 <br>
-Score: 22/23 <br>
+Score: 22/23 (97%) <br>
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
