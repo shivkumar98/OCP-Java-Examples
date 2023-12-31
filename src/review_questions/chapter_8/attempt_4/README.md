@@ -140,7 +140,9 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* console could be null
+* readLine can throw IOException
+* **B,D,E**
 <br>
 
 <hr>
@@ -155,7 +157,12 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - true
+* **A,E**
 <br>
 
 <hr>
@@ -171,7 +178,7 @@ E. Top <br>
 ❓
 
 ### My answer:
-
+* **D**
 <br>
 
 <hr>
@@ -182,12 +189,12 @@ E. Top <br>
 A. `/home/parrot` is an absolute path <br>
 B. `/home/parrot` is a directory <br>
 C. `/home/parrot` is a relative path <br>
-D. The path pointed to froma `File` object must exist <br>
+D. The path pointed to from a `File` object must exist <br>
 E. The parent of the path pointed to by a File object must exist <br>
 ❓
 
 ### My answer:
-
+* **A,D**
 <br>
 
 <hr>
