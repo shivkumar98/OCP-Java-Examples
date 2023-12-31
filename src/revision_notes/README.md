@@ -992,5 +992,37 @@ objectOutputStream.writeObject(new NotSerializable()); // THROWS NotSerializable
 ## 🟥 8.4 Interacting With Users
 
 ### 🟡 Old Way: Using Buffered Reader
+* System.out returns a `PrintStream`
+* System.in returns an `InputStream`.
+* We use `InputStreamReader` to capture input from the user:
+```java
+Reader reader = InputStreamReader(System.in);
+System.out.println("Enter a character");
+		int input = reader.read();
+		System.out.println("You entered: "+(char)input);
+```
+
+* BufferedReader enables us to read String terminated by enter key by the user
+```java
+BufferedReader bufferedReader = 
+	new BufferedReader(new InputStreamReader(System.in));
+System.out.println("Please enter a string:");
+String input = bufferedReader.readLine();
+System.out.printf("You entered: %s", input);
+```
 
 ### 🟡 New Way: Using Console
+* The `Console` is a singleton which is accessible using `Sytem.console()`
+* There is a risk the console can be null⚠️
+* The console has the `format()`/`printf()` that PrintStream also has
+* The console has the following methods:
+  * `String readLine()`
+  * `char[] readPassword()` - a secure way of reading password without invoking String pool!
+  * `PrintWriter writer()` - gives a writer instance for methods like `print()`
+* Example program:
+```java
+Console console = System.console();
+console.printf("Hi, %s! Please enter some text:", "shiv");
+String input = console.readLine();
+console.writer().println("You typed: "+input);
+```
