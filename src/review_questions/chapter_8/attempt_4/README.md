@@ -479,7 +479,7 @@ G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* **A,C**
 <br>
 
 <hr>
@@ -515,7 +515,7 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-
+* **E**
 <br>
 
 <hr>
@@ -547,7 +547,7 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
-
+* **H**
 <br>
 
 <hr>
