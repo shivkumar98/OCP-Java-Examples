@@ -292,7 +292,7 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-
+* **A,C,E**
 <br>
 
 <hr>
@@ -309,7 +309,7 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-
+* **E**
 <br>
 
 <hr>
@@ -333,7 +333,8 @@ E. The code does not compile for another reason <br>
 ❓
 
 ### My answer:
-
+* A - true
+* **A**
 <br>
 
 <hr>
@@ -350,7 +351,13 @@ F. Classes that store most of their data in static fields would not be easily se
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - tue
+* E - false, abstract classes and final classes can be marked
+* F - true
+* **D,E**
 <br>
 
 <hr>
