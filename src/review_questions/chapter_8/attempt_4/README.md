@@ -4,33 +4,34 @@
 
 ## Results:
 
-Date: <br>
-Score: <br>
+Date: 31/12/2023 <br>
+Score: 22/23 <br>
 ✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
+| 1          |  ✅     |
+| 2          |  ✅     |
+| 3          |  ✅     |
+| 4          |  ❌     |
+| 5          |  ✅     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ✅     |
+| 10         |  ✅     |
+| 11         |  ✅     |
+| 12         |  ✅     |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ✅     |
+| 17         |  ✅     |
+| 18         |  ✅     |
+| 19         |  ✅     |
+| 20         |  ✅     |
+| 21         |  ✅     |
+| 22         |  ✅     |
+| 23         |  ✅     |
 
 <hr>
 
@@ -57,7 +58,7 @@ F. `BufferedReader` <br>
 * D - true
 * E - false, incompatible
 * F - false, incompatible
-* ***A,D**
+* ***A,D**✅✅✅✅
 <br>
 
 <hr>
@@ -74,7 +75,7 @@ F. So that the value can be removed from memory immediately after use <br>
 ❓
 
 ### My answer:
-* **B,E,F**
+* **B,E,F**✅✅✅✅
 <br>
 
 <hr>
@@ -91,7 +92,7 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 ❓
 
 ### My answer:
-* **C,D**
+* **C,D**✅✅✅✅
 <br>
 
 <hr>
@@ -114,9 +115,11 @@ F. None of the above <br>
 
 ### My answer:
 * console has a readLine method and readPassword method
-* **C,D**
+* **C,D** ❌❌❌❌
 <br>
 
+* CORRECT ANSWER: **C**
+* The readPassword() does not return a string!
 <hr>
 
 ## 🟨 Question 5 🟨
@@ -142,7 +145,7 @@ F. The code does not compile <br>
 ### My answer:
 * console could be null
 * readLine can throw IOException
-* **B,D,E**
+* **B,D,E**✅✅✅✅
 <br>
 
 <hr>
@@ -162,7 +165,7 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 * C - false
 * D - false
 * E - true
-* **A,E**
+* **A,E**✅✅✅✅
 <br>
 
 <hr>
@@ -178,7 +181,7 @@ E. Top <br>
 ❓
 
 ### My answer:
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -194,7 +197,7 @@ E. The parent of the path pointed to by a File object must exist <br>
 ❓
 
 ### My answer:
-* **A,D**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -216,7 +219,7 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 * D - false
 * E - false
 * F - false
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -241,7 +244,7 @@ F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-* **C,F**
+* **C,F**✅✅✅✅
 <br>
 
 <hr>
@@ -259,7 +262,7 @@ G. `mkdir()` <br>
 ❓
 
 ### My answer:
-* **C,E,G**
+* **C,E,G**✅✅✅✅
 <br>
 
 <hr>
@@ -275,7 +278,7 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-* **B,C**
+* **B,C**✅✅✅✅
 <br>
 
 <hr>
@@ -292,7 +295,7 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-* **A,C,E**
+* **A,C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -309,7 +312,7 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -334,7 +337,7 @@ E. The code does not compile for another reason <br>
 
 ### My answer:
 * A - true
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -357,7 +360,7 @@ F. Classes that store most of their data in static fields would not be easily se
 * D - tue
 * E - false, abstract classes and final classes can be marked
 * F - true
-* **D,E**
+* **D,F**✅✅✅✅
 <br>
 
 <hr>
@@ -382,7 +385,7 @@ G. `ObjectOutputStream` <br>
 * E - false, this is an interface
 * F - false
 * G - true
-* **A,B,D,G**
+* **A,B,D,G**✅✅✅✅
 <br>
 
 <hr>
@@ -411,7 +414,7 @@ F. `out` <br>
 * D - true
 * E - true
 * F - false
-* **B,D,E**
+* **B,D,E**✅✅✅✅
 <br>
 
 <hr>
@@ -429,7 +432,7 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-* **B,C,D**
+* **B,C,D**✅✅✅✅
 <br>
 
 <hr>
@@ -446,7 +449,7 @@ F. Multi-threading support <br>
 ❓
 
 ### My answer:
-* **A,C**
+* **A,C**✅✅✅✅
 <br>
 
 <hr>
@@ -479,7 +482,7 @@ G. The code compiles but throws an exception at runtime <br>
 ❓
 
 ### My answer:
-* **A,C**
+* **A,C**✅✅✅✅
 <br>
 
 <hr>
@@ -515,7 +518,7 @@ H. The value may not be known until runtime <br>
 ❓
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -547,7 +550,7 @@ H. The result cannot be determined with the information given <br>
 ❓
 
 ### My answer:
-* **H**
+* **H**✅✅✅✅
 <br>
 
 <hr>
