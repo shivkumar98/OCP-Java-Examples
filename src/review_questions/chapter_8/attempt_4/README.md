@@ -375,7 +375,14 @@ G. `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - true
+* C - false, this is low level
+* D - true
+* E - false, this is an interface
+* F - false
+* G - true
+* **A,B,D,G**
 <br>
 
 <hr>
@@ -398,7 +405,13 @@ F. `out` <br>
 ❓
 
 ### My answer:
-
+* A - false
+* B - true
+* C - false
+* D - true
+* E - true
+* F - false
+* **B,D,E**
 <br>
 
 <hr>
@@ -416,7 +429,7 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-
+* **B,C,D**
 <br>
 
 <hr>
@@ -433,7 +446,7 @@ F. Multi-threading support <br>
 ❓
 
 ### My answer:
-
+* **A,C**
 <br>
 
 <hr>
