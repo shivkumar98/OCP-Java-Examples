@@ -1,5 +1,26 @@
 <link href="../styles.css" rel="stylesheet"></link>
 
+# Table of Contents
+- [🧠 Chapter 6 - Exceptions and Assertions](#---chapter-6---exceptions-and-assertions)
+  * [🟥 6.1 Reviewing Exceptions](#---61-reviewing-exceptions)
+  * [🟥 6.2 Creating Custom Exceptions](#---62-creating-custom-exceptions)
+  * [🟥 6.3 Using Multi-catch](#---63-using-multi-catch)
+  * [🟥 6.4 Using Try-With-Resources](#---64-using-try-with-resources)
+  * [🟥 6.5 Rethrowing Exceptions](#---65-rethrowing-exceptions)
+  * [🟥 6.6 Working With Assertions](#---66-working-with-assertions)
+- [🧠 Chapter 7 - Concurrency](#---chapter-7---concurrency)
+  * [🟥 7.1 Introducing Threads](#---71-introducing-threads)
+  * [🟥 7.2 Creating Threads with ExecutorService](#---72-creating-threads-with-executorservice)
+  * [🟥 7.3 Synchronizing Data Access](#---73-synchronizing-data-access)
+  * [🟥 7.4 Using Concurrent Collections](#---74-using-concurrent-collections)
+  * [🟥 7.5 Working with Parallel Streams](#---75-working-with-parallel-streams)
+  * [🟥 7.6 Managing Concurrent Processes](#---76-managing-concurrent-processes)
+ 
+- [🧠 Chapter 8 - IO](#---chapter-8---io)
+  * [🟥 8.1 Files and Directories](#---81-files-and-directories)
+  * [🟥 8.2 Streams](#---82-streams)
+  * [🟥 8.3 Working With Streams](#---83-working-with-streams)
+  * [🟥 8.4 Interacting With Users](#---84-interacting-with-users)
 
 # 🧠 Chapter 6 - Exceptions and Assertions
 ## 🟥 6.1 Reviewing Exceptions
