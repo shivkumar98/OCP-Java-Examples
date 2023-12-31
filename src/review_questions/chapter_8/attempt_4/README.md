@@ -210,7 +210,13 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* F - false
+* **A**
 <br>
 
 <hr>
@@ -235,7 +241,7 @@ F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* **C,F**
 <br>
 
 <hr>
@@ -253,7 +259,7 @@ G. `mkdir()` <br>
 ❓
 
 ### My answer:
-
+* **C,E,G**
 <br>
 
 <hr>
@@ -269,7 +275,7 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-
+* **B,C**
 <br>
 
 <hr>
