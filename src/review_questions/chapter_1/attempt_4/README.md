@@ -553,7 +553,8 @@ public class Outer {
     G. The code compiles successfully 🎃
 
 ### My Answer:
-
+* There needs to be seperation between the enums and the fields of the class
+* **B**
 <hr>
 
 ## Question 18
@@ -586,7 +587,8 @@ public class Swimmer {
     G. The code does not compile
 
 ### My Answer:
-
+* The code does not compile as not all the enums implement the abstract class
+* **G**
 <hr>
 
 ## Question 19
@@ -610,7 +612,13 @@ public class LearnToWalk {
     F. `public void toddle(boolean fall)` 🎃
 
 ### My Answer:
-
+* A - true
+* B - false typo
+* C - true
+* D - false
+* E - false, an implementation cannot throw checked exception
+* F - false
+* **A,C**
 <hr>
 
 ## Question 20
