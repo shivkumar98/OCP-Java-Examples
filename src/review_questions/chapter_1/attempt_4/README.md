@@ -64,7 +64,7 @@ public class Employee {
 ### My Answer:
 * While equals method has not override the correct method in the Object class, it still works fine
 * It will print success since the ids are equivalent
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 2
@@ -99,7 +99,7 @@ public class Book {
 ### My Answer:
 * A - true
 * B - false, it does compile
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -123,7 +123,7 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
 ### My Answer:
 * s2 is a completely different string so it will not print the first sysout
 * s1 and s2 are equal in content
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 4
@@ -154,7 +154,10 @@ public class BaseballTeam {
 ### My Answer:
 * The code does compile
 * C - true
-* **C**
+* **C**✅✅✅✅
+
+* The equals method can be anything the business demands!
+* It is the hashcode which needs to comply!!!!
 <hr>
 
 
@@ -647,5 +650,6 @@ public class FourLegged {
     F. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* Both instances are babyRhinos
+* **A**
 <hr>
