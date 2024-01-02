@@ -404,8 +404,12 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* **F**❌❌❌❌
-
+* The code DOES compile there are no invalid uses of instanceof
+* The `c` chipmunk IS an instance of Mammal
+* `c` is also an instance of Furry
+* null is not an instance of Chipmunk
+* The output is 3
+* **B**
 <hr>
 
 ## Question 14

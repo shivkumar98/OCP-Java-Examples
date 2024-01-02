@@ -432,7 +432,9 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* **F**❌❌❌❌
+* `c` is an instance of Mammal and Furry
+* The output is 3
+* **B**
 
 <hr>
 
@@ -465,7 +467,9 @@ public class IsItFurry {
     F. r instanceof Chipmunk does not compile 🎃
 
 ### My Answer:
-
+* The code will not compile
+* F is true
+* **F**
 <hr>
 
 ## Question 15
@@ -480,7 +484,13 @@ public class IsItFurry {
     F. If equals() is passed the wrong type, the method should return true 🎃
 
 ### My Answer:
-
+* A - false
+* B - false
+* C - true
+* D - false
+* E - false
+* F - false
+* **C**
 <hr>
 
 ## Question 16
@@ -505,7 +515,13 @@ public class Outer {
     F. Outer.Inner in = Outer.new Inner(); 🎃
 
 ### My Answer:
-
+* A - false, you cannot instantiate inner directly
+* B - false as above
+* C - false wrong syntax
+* D - false wrong syntax
+* E - true
+* F - false, wrong syntax
+* **E**
 <hr>
 
 ## Question 17
