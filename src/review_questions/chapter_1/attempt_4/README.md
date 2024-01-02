@@ -432,7 +432,7 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* **F**❌❌❌❌
+
 
 <hr>
 
