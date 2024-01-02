@@ -272,7 +272,7 @@ public class IceCream {
 13:         return x;
 14:     }
 15:     public static void main(String[] args) {
-16:         new Outer.getX();
+16:         new Outer().getX();
 17:     }}
 ```
     A. x is 10 🎃

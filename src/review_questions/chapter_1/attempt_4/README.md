@@ -287,7 +287,7 @@ public class IceCream {
 13:         return x;
 14:     }
 15:     public static void main(String[] args) {
-16:         new Outer.getX();
+16:         new Outer().getX();
 17:     }}
 ```
     A. x is 10 🎃
@@ -298,6 +298,10 @@ public class IceCream {
     F. An exception is thrown🎃
 
 ### My Answer:
+* Since the `x` in the inner class is referenced using `Outer.this.x` it gets assigened to the Outer class's value
+* So prints `x is 24`
+* **B**
+
 
 ## Question 10
 
@@ -319,7 +323,9 @@ public class IceCream {
     E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
-
+* No compiler error
+* Two bytecode is `Book.class` and `Book$BookReader.class`
+* **C**
 <hr>
 
 ## Question 11
@@ -347,7 +353,13 @@ public class FootballGame {
     G. static import my.sports.Football;
 
 ### My Answer:
-
+* It needs to statically import the `TEAM_SIZE` variable
+* A - false
+* B - false, this would not even compile
+* C - false, as above
+* D - true
+* E,G - false, wrong syntax
+* **D**
 <hr>
 
 ## Question 12
@@ -386,7 +398,8 @@ public class Browsers {
     E. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* Does not compile. The firefox instance is not related to the IE class
+* **D**
 <hr>
 
 ## Question 13
