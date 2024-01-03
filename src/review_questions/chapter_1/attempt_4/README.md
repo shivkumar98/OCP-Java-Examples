@@ -14,11 +14,11 @@ Score: /20
 | 5          |          |
 | 6          |          |
 | 7          |          |
-| 8          |          |
+| 8          |  ❌        |
 | 9          |          |
 | 10         |          |
 | 11         |          |
-| 12         |          |
+| 12         |  ❌        |
 | 13         |          |
 | 14         |          |
 | 15         |          |
@@ -306,7 +306,7 @@ public class IceCream {
 ### My Answer:
 * Since the `x` in the inner class is referenced using `Outer.this.x` it gets assigened to the Outer class's value
 * So prints `x is 24`
-* **B**
+* **B**✅✅✅✅
 
 
 ## Question 10
@@ -331,7 +331,7 @@ public class IceCream {
 ### My Answer:
 * No compiler error
 * Two bytecode is `Book.class` and `Book$BookReader.class`
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 11
@@ -365,7 +365,7 @@ public class FootballGame {
 * C - false, as above
 * D - true
 * E,G - false, wrong syntax
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 12
@@ -405,7 +405,11 @@ public class Browsers {
 
 ### My Answer:
 * Does not compile. The firefox instance is not related to the IE class
-* **D**
+* **D**❌❌❌❌
+
+* CORRECT ANSWER: **E**
+* A runtime exception is thrown
+* It does actually compile but the casting throws exception at runtime
 <hr>
 
 ## Question 13
