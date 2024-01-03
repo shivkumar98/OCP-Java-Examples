@@ -175,7 +175,7 @@ public class BaseballTeam {
 * B - false
 * C - false, it is not required that two instances with the same hash are different!
 * D - true
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 6
@@ -202,7 +202,7 @@ public class FlavorsEnum {
 
 ### My Answer:
 * An enum does not require a semi-colon
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -236,7 +236,7 @@ public class IceCream {
 
 ### My Answer:
 * The case statements are wrong, so will not compile
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 8
@@ -267,7 +267,10 @@ public class IceCream {
 
 ### My Answer:
 * I think the output is 5
-* **A**
+* **A**❌❌❌❌
+* CORRECT ANSWER: **C**
+
+* Inner classes can NOT have static variables!!!
 <hr>
 
 ## Question 9
