@@ -3,25 +3,26 @@
 ## Results:
 
 Date: 02/01/2023 <br>
-Score: /20
+Score: 12/16
+
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |          |
-| 2          |          |
-| 3          |          |
-| 4          |          |
-| 5          |          |
-| 6          |          |
-| 7          |          |
+| 1          |  ✅        |
+| 2          |  ✅        |
+| 3          |  ✅        |
+| 4          |  ✅        |
+| 5          |  ✅        |
+| 6          |  ✅        |
+| 7          |  ✅        |
 | 8          |  ❌        |
-| 9          |          |
-| 10         |          |
-| 11         |          |
+| 9          |  ✅        |
+| 10         |  ✅        |
+| 11         |  ✅        |
 | 12         |  ❌        |
-| 13         |          |
-| 14         |          |
-| 15         |          |
+| 13         |  ✅        |
+| 14         |  ❌        |
+| 15         |  ❌        |
 | 16         |          |
 | 17         |          |
 | 18         |          |
@@ -444,7 +445,7 @@ public class IsItFurry {
 ### My Answer:
 * `c` is an instance of Mammal and Furry
 * The output is 3
-* **B**
+* **B**✅✅✅✅
 
 <hr>
 
@@ -479,7 +480,13 @@ public class IsItFurry {
 ### My Answer:
 * The code will not compile
 * F is true
-* **F**
+* **F**❌❌❌❌
+
+* CORRECT ANSWER: **E**
+* `newArrayList<Chipmunk> instance of Chipmunk` will not compile
+* ArrayList is a concrete class, the compiler knows that this will never be compatible!!!
+
+* If it were to be referenced via an interface (like with `r`) then it will compile fine!!!!
 <hr>
 
 ## Question 15
@@ -495,12 +502,15 @@ public class IsItFurry {
 
 ### My Answer:
 * A - false
-* B - false
-* C - true
+* B - true
+* C - false
 * D - false
 * E - false
 * F - false
-* **C**
+* **B**❌❌❌❌
+
+* CORRECT ANSWER: **B,E**
+* null AND INCORRECT types should return false
 <hr>
 
 ## Question 16
@@ -531,7 +541,7 @@ public class Outer {
 * D - false wrong syntax
 * E - true
 * F - false, wrong syntax
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 17
