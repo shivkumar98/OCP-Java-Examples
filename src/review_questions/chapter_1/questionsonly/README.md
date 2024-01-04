@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 
-Score: /20
+Score: /21
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -27,6 +27,7 @@ Score: /20
 | 18         |          |
 | 19         |          |
 | 20         |          |
+| 21         |          |
 
 ## Question 1
 
@@ -621,3 +622,7 @@ C. `@Override public int hashCode() { return 42; }` <br>
 D. `@Override public long hashCode() { return 42; }` <br>
 E. `@Override public void play() { }` <br>
 F. `@Override void play() { }` <br>
+
+### My Answer:
+
+<hr>

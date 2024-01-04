@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 02/01/2023 <br>
-Score: 12/16
+Score: 15/21 (71%)
 
 
 | Question # | Correct  |
@@ -23,11 +23,12 @@ Score: 12/16
 | 13         |  ✅        |
 | 14         |  ❌        |
 | 15         |  ❌        |
-| 16         |          |
-| 17         |          |
-| 18         |          |
-| 19         |          |
-| 20         |          |
+| 16         |  ✅        |
+| 17         |  ❌        |
+| 18         |  ✅        |
+| 19         |  ✅        |
+| 20         |  ❌        |
+| 21         |  ✅        |
 
 ## Question 1
 
@@ -574,7 +575,13 @@ public class Outer {
 
 ### My Answer:
 * There needs to be seperation between the enums and the fields of the class
-* **B**
+* **B**❌❌❌❌
+
+* CORRECT ANSWER: **B,C**
+* Both lines 3 and 5 do NOT compile
+* A semi-colon is needed after the enum values
+* The constructor can NOT have a `public` modifier, it can either have no modifier or be private only
+
 <hr>
 
 ## Question 18
@@ -608,7 +615,7 @@ public class Swimmer {
 
 ### My Answer:
 * The code does not compile as not all the enums implement the abstract class
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -638,7 +645,7 @@ public class LearnToWalk {
 * D - false
 * E - false, an implementation cannot throw checked exception
 * F - false
-* **A,C**
+* **A,C**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -668,5 +675,41 @@ public class FourLegged {
 
 ### My Answer:
 * Both instances are babyRhinos
-* **A**
+* **A**❌❌❌❌❌
+* CORRECT ANSWER: C
+* We get `walk,toddle,` printed
+* Instance variables DO NOT get overrided by subclass
+* As we are referencing the `FoureLegged` for the first object, we get `walk,` printed
+* As we are referencing `BabyRhino` for the second object, we get `,toddle`
+
 <hr>
+
+
+## Question 21
+
+❓Which of the following could be inserted to fill in the blank (Choose all that apply)❓
+
+```java
+public interface Otter {
+    default void play() { }
+}
+class RiverOtter implements Otter {
+    ____________________________
+}
+```
+
+A. `@Override public boolean equals(Object o) { return false; }` <br>
+B. `@Override public boolean equals(Otter o) { return false; }` <br>
+C. `@Override public int hashCode() { return 42; }` <br>
+D. `@Override public long hashCode() { return 42; }` <br>
+E. `@Override public void play() { }` <br>
+F. `@Override void play() { }` <br>
+
+### My Answer:
+* A - true, it correctly overrides the `equals(Object)` method in the Object class
+* B - false
+* C - true
+* D - false hashCode returns int
+* E - true
+* F - false, it restricts visibility
+* **A,C,E**✅✅✅✅
