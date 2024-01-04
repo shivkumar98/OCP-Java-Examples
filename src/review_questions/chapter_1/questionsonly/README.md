@@ -601,3 +601,23 @@ public class FourLegged {
 ### My Answer:
 
 <hr>
+
+## Question 21
+
+❓Which of the following could be inserted to fill in the blank (Choose all that apply)❓
+
+```java
+public interface Otter {
+    default void play() { }
+}
+class RiverOtter implements Otter {
+    ____________________________
+}
+```
+
+A. `@Override public boolean equals(Object o) { return false; }` <br>
+B. `@Override public boolean equals(Otter o) { return false; }` <br>
+C. `@Override public int hashCode() { return 42; }` <br>
+D. `@Override public long hashCode() { return 42; }` <br>
+E. `@Override public void play() { }` <br>
+F. `@Override void play() { }` <br>
