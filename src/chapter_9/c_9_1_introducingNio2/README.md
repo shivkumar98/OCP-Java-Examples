@@ -16,6 +16,7 @@
 * NIO.2 API was introduced in Java 7 as a replacement for `java.io.File`
 * The OCP exam will only cover NIO.2 and NOT the first NIO API
 
+
 <hr>
 
 ## 🟥 9.1.1 Introducing Path
