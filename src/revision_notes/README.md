@@ -49,11 +49,14 @@
 	System.out.println(list instanceof Set); // false
 	```
 
+<hr>
 
-
-
-
-
+## 🟥 1.3 Coding equals() and hashCode
+* The `.equals()` method can be overidden using any business logic the application requires
+* The `hashCode()` method must satisfy the following requirements:
+1. If two objects return true when calling `.equals()`, then the hashCode() NEEDS to return the same value
+2. It is NOT required that if `.equals()` returns false that the hashCode() returns the same value
+3. The value of `hashCode()` does not change within the same program. I.e. the hashing should not rely on things which will vary
 
 
 
