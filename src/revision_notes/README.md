@@ -43,6 +43,19 @@
 	List l = new ArrayList();
 	boolean y = l instanceof Hippo;
 	```
+* Java only checks if an object is an instance of an INTERFACE at runtime!
+	```java
+	List<String> list = new ArrayList<>(); // compiles!
+	System.out.println(list instanceof Set); // false
+	```
+
+
+
+
+
+
+
+
 
 <br><hr>
 
