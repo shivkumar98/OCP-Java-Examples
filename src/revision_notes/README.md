@@ -22,6 +22,30 @@
   * [🟥 8.3 Working With Streams](#---83-working-with-streams)
   * [🟥 8.4 Interacting With Users](#---84-interacting-with-users)
 
+# 🧠Chapter 1 - Advanced Class Design
+## 🟥 1.1 Reviewing OCA Concepts
+### 🟡 Access Modifiers
+* Protected variables can be accessed in same package AND of subclass in ANY package
+* Package-private variables can only be accessed in same package
+
+<hr>
+
+## 🟥 1.2 Using instanceof
+* `A instanceof B` is true if A is a subclass, implementation or instance of B
+* `null instanceof X` is ALWAYS false
+* If the REFERENCE of left side is a concrete class, then a compiler error will occur if the types are not compatible!
+	```java
+	Elephant e = new Elephant
+	boolean x = e instanceof Hippo; // COMPILER ERROR
+	```
+* If the reference is an INTERFACE, then there will be no compilation issues!
+	```java
+	List l = new ArrayList();
+	boolean y = l instanceof Hippo;
+	```
+
+<br><hr>
+
 # 🧠 Chapter 6 - Exceptions and Assertions
 ## 🟥 6.1 Reviewing Exceptions
 ### 🟡 Terminology
@@ -39,17 +63,15 @@
 5) `ArithmeticException` - thrown by JVM when trying to divide by zero
 6) `ClassCastException` - thrown by JVM when attempting to make cast an object to an invalid type
 
-<br>
-
-* The **OCP Checked Exceptions** are:
+#### **OCP Checked Exceptions**:
 1) `java.text.ParseException` 
 - converting a number to string
-2) `java.io.IOException`/`java.io.FileNotFoundException`/`java.io.NotSerializableException`
+1) `java.io.IOException`/`java.io.FileNotFoundException`/`java.io.NotSerializableException`
 - All io exceptions can be assumed as checked
-3) `java.sql.SQLException`
+1) `java.sql.SQLException`
 - All sql exception can be assumed as checked
 
-* The **OCP Runtime Exceptions** are:
+#### **OCP Runtime Exceptions**:
 1) `java.lang.ArrayStoreException`
 - When attempting to add incorrect type to an array
 2) `java.time.DateTimeException`
