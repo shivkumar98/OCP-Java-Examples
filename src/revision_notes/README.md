@@ -58,7 +58,37 @@
 2. It is NOT required that if `.equals()` returns false that the hashCode() returns the same value
 3. The value of `hashCode()` does not change within the same program. I.e. the hashing should not rely on things which will vary
 
+<hr>
 
+## 🟥 1.4 Working with Enums
+* We can create a simple enum:
+```java
+public enum Seasons {
+	SUMMER, WINTER, AUTUMN, SPRING
+}
+```
+* We can add a variable to each enum:
+```java
+public enum Animals {
+	DOG(true), FISH(false);
+	public boolean hasHair;
+	Animals(boolean hasHair) { this.hasHair = hasHair; }
+}
+```
+* The only modifier which can be applied to the constructor is `private`
+
+<br>
+
+* You can also have an abstract class which will require all enums to implement
+```java
+enum SeasonsAbstract {
+	WINTER {
+		public void printHours() {}
+	};
+	abstract void printHours(); // can only use public/protected modifier
+	// abstract keyword is REQUIRED unless a default implementation is provided
+}
+```
 
 <br><hr>
 
