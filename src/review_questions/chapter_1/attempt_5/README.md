@@ -338,7 +338,7 @@ public class FootballGame {
     G. static import my.sports.Football;
 
 ### My Answer:
-
+* **D**
 <hr>
 
 ## 🟧 Question 12
@@ -377,7 +377,7 @@ public class Browsers {
     E. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* **E**
 <hr>
 
 ## 🟧 Question 13
@@ -410,11 +410,8 @@ public class IsItFurry {
     F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-* The code DOES compile there are no invalid uses of instanceof
-* The `c` chipmunk IS an instance of Mammal
-* `c` is also an instance of Furry
-* null is not an instance of Chipmunk
-* The output is 3
+* c is an instance of Mammal and Furry
+* I do THINK `null instanceof Chipmunk` does compile
 * **B**
 <hr>
 
@@ -447,7 +444,9 @@ public class IsItFurry {
     F. r instanceof Chipmunk does not compile 🎃
 
 ### My Answer:
-
+* `l instanceof Chipmunk` does not compile!
+* `r instanceof Chipmunk` DOES compile
+* **E**
 <hr>
 
 ## 🟧 Question 15
@@ -462,7 +461,13 @@ public class IsItFurry {
     F. If equals() is passed the wrong type, the method should return true 🎃
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - false
+* D - false
+* E - true
+* F - false
+* **B,E**
 <hr>
 
 ## 🟧 Question 16
@@ -487,7 +492,14 @@ public class Outer {
     F. Outer.Inner in = Outer.new Inner(); 🎃
 
 ### My Answer:
-
+* You can not instantiate Inner class directly
+* A - false
+* B - false
+* C - false
+* D - false
+* E - true
+* F - false
+* **E**
 <hr>
 
 ## 🟧 Question 17
@@ -519,7 +531,9 @@ public class Outer {
     G. The code compiles successfully 🎃
 
 ### My Answer:
-
+* Line 3 does not compile
+* Constructor can not be public, so line 5 does not compile
+* **B,C**
 <hr>
 
 ## 🟧 Question 18
@@ -552,7 +566,8 @@ public class Swimmer {
     G. The code does not compile
 
 ### My Answer:
-
+* The code does not compile as not all of the enums implement the abstract method
+* **G**
 <hr>
 
 ## 🟧 Question 19
@@ -576,7 +591,10 @@ public class LearnToWalk {
     F. `public void toddle(boolean fall)` 🎃
 
 ### My Answer:
-
+* A - true
+* C - true
+* E - false, the parent class does not throw a checked exception!
+* **A,C**
 <hr>
 
 ## 🟧 Question 20
@@ -605,7 +623,9 @@ public class FourLegged {
     F. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* f is FourLegged, so f.walkk is "walk"
+* b is BabyRhino, so b.walkk is "toddle"
+* **C**
 <hr>
 
 ## 🟧 Question 21
@@ -629,5 +649,11 @@ E. `@Override public void play() { }` <br>
 F. `@Override void play() { }` <br>
 
 ### My Answer:
-
+* A - true
+* B - false
+* C - true
+* D - false
+* E - true
+* F - true
+* **A,C,E,F**
 <hr>
