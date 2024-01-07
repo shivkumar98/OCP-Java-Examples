@@ -3,31 +3,31 @@
 ## Results:
 
 Date: 07/01/2024
-Score: /21
+Score: 19/21 (90%)
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |          |
-| 2          |          |
-| 3          |          |
-| 4          |          |
-| 5          |          |
-| 6          |          |
-| 7          |          |
-| 8          |          |
-| 9          |    ❌      |
-| 10         |          |
-| 11         |          |
-| 12         |          |
-| 13         |          |
-| 14         |          |
-| 15         |          |
-| 16         |          |
-| 17         |          |
-| 18         |          |
-| 19         |          |
-| 20         |          |
-| 21         |          |
+| 1          |   ✅       |
+| 2          |   ✅       |
+| 3          |   ✅       |
+| 4          |   ✅       |
+| 5          |   ✅       |
+| 6          |   ✅       |
+| 7          |   ✅       |
+| 8          |   ✅       |
+| 9          |   ❌       |
+| 10         |   ✅       |
+| 11         |   ✅       |
+| 12         |   ✅       |
+| 13         |   ✅       |
+| 14         |   ✅       |
+| 15         |   ✅       |
+| 16         |   ✅       |
+| 17         |   ✅       |
+| 18         |   ✅       |
+| 19         |   ✅       |
+| 20         |   ✅       |
+| 21         |   ❌       |
 
 ## 🟧 Question 1
 
@@ -341,7 +341,7 @@ public class FootballGame {
     G. static import my.sports.Football;
 
 ### My Answer:
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 12
@@ -380,7 +380,7 @@ public class Browsers {
     E. A runtime exception is thrown 🎃
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 13
@@ -415,7 +415,7 @@ public class IsItFurry {
 ### My Answer:
 * c is an instance of Mammal and Furry
 * I do THINK `null instanceof Chipmunk` does compile
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 14
@@ -449,7 +449,7 @@ public class IsItFurry {
 ### My Answer:
 * `l instanceof Chipmunk` does not compile!
 * `r instanceof Chipmunk` DOES compile
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 15
@@ -470,7 +470,7 @@ public class IsItFurry {
 * D - false
 * E - true
 * F - false
-* **B,E**
+* **B,E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 16
@@ -502,7 +502,7 @@ public class Outer {
 * D - false
 * E - true
 * F - false
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 17
@@ -536,7 +536,7 @@ public class Outer {
 ### My Answer:
 * Line 3 does not compile
 * Constructor can not be public, so line 5 does not compile
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 18
@@ -570,7 +570,7 @@ public class Swimmer {
 
 ### My Answer:
 * The code does not compile as not all of the enums implement the abstract method
-* **G**
+* **G**✅✅✅✅
 <hr>
 
 ## 🟧 Question 19
@@ -597,7 +597,7 @@ public class LearnToWalk {
 * A - true
 * C - true
 * E - false, the parent class does not throw a checked exception!
-* **A,C**
+* **A,C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 20
@@ -628,7 +628,7 @@ public class FourLegged {
 ### My Answer:
 * f is FourLegged, so f.walkk is "walk"
 * b is BabyRhino, so b.walkk is "toddle"
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 21
@@ -658,5 +658,9 @@ F. `@Override void play() { }` <br>
 * D - false
 * E - true
 * F - true
-* **A,C,E,F**
+* **A,C,E,F**❌❌❌❌
+
+* CORRECT ANSWER: **A,C,E**
+* F is incorrect as it restricts visibilty
+* By default interface methods are public
 <hr>
