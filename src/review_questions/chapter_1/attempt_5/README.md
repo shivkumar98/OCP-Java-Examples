@@ -1,8 +1,8 @@
-# Chapter 1 - Review Questions Attempt #
+# Chapter 1 - Review Questions Attempt 5
 
 ## Results:
 
-Date: 
+Date: 07/01/2024
 Score: /21
 
 | Question # | Correct  |
@@ -63,7 +63,7 @@ public class Employee {
     F. A runtime exception is thrown🎃
 
 ### My Answer:
-
+* **A**
 <hr>
 
 ## 🟧 Question 2
@@ -96,7 +96,7 @@ public class Book {
     F. The code does not compile for another reason🎃
 
 ### My Answer:
-
+* **A**
 <hr>
 
 ## 🟧 Question 3
@@ -118,7 +118,7 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
     F. The code throws a runtime exception🎃
 
 ### My Answer:
-
+* **C**
 <hr>
 
 ## 🟧 Question 4
@@ -147,7 +147,7 @@ public class BaseballTeam {
     D. The class compiles but has proper equals() and hashCode() methods🎃
 
 ### My Answer:
-
+* **C**
 <hr>
 
 
@@ -161,7 +161,7 @@ public class BaseballTeam {
     D. if a.equals(b) is false, a.hashCode() == b.hashCode() can sometimes be true🎃
  
 ### My Answer:
-
+* **A,D**
 <hr>
 
 ## 🟧 Question 6
