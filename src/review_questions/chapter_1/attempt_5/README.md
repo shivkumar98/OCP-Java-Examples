@@ -15,7 +15,7 @@ Score: /21
 | 6          |          |
 | 7          |          |
 | 8          |          |
-| 9          |          |
+| 9          |    ❌      |
 | 10         |          |
 | 11         |          |
 | 12         |          |
@@ -63,7 +63,7 @@ public class Employee {
     F. A runtime exception is thrown🎃
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅ 
 <hr>
 
 ## 🟧 Question 2
@@ -96,7 +96,7 @@ public class Book {
     F. The code does not compile for another reason🎃
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## 🟧 Question 3
@@ -118,7 +118,7 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
     F. The code throws a runtime exception🎃
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 4
@@ -147,7 +147,7 @@ public class BaseballTeam {
     D. The class compiles but has proper equals() and hashCode() methods🎃
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 
@@ -161,7 +161,7 @@ public class BaseballTeam {
     D. if a.equals(b) is false, a.hashCode() == b.hashCode() can sometimes be true🎃
  
 ### My Answer:
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 6
@@ -187,7 +187,7 @@ public class FlavorsEnum {
     F. The code does not compile for a different reason 🎃
 
 ### My Answer:
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 7
@@ -220,7 +220,7 @@ public class IceCream {
     F. An exception is thrown 🎃
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 8
@@ -251,7 +251,7 @@ public class IceCream {
 
 ### My Answer:
 * Nested class can not have a static variable
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 9
@@ -286,8 +286,11 @@ public class IceCream {
 
 ### My Answer:
 * You can no instantiate Inner directly!
-* **E**
+* **E**❌❌❌❌❌
 
+* CORRECT ANSWER: **B**
+* `Inner` is a LOCAL inner class
+* It CAN be instantiated directly
 <hr>
 
 ## 🟧 Question 10
@@ -310,7 +313,7 @@ public class IceCream {
     E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 11
