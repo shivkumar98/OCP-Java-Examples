@@ -187,7 +187,7 @@ public class FlavorsEnum {
     F. The code does not compile for a different reason 🎃
 
 ### My Answer:
-
+* **B**
 <hr>
 
 ## 🟧 Question 7
@@ -220,7 +220,7 @@ public class IceCream {
     F. An exception is thrown 🎃
 
 ### My Answer:
-
+* **E**
 <hr>
 
 ## 🟧 Question 8
@@ -250,7 +250,8 @@ public class IceCream {
     F. An exception is thrown. 🎃
 
 ### My Answer:
-
+* Nested class can not have a static variable
+* **C**
 <hr>
 
 ## 🟧 Question 9
@@ -284,6 +285,10 @@ public class IceCream {
     F. An exception is thrown🎃
 
 ### My Answer:
+* You can no instantiate Inner directly!
+* **E**
+
+<hr>
 
 ## 🟧 Question 10
 
@@ -305,7 +310,7 @@ public class IceCream {
     E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
-
+* **C**
 <hr>
 
 ## 🟧 Question 11
