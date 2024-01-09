@@ -51,9 +51,43 @@
     - Move file
 * **DESCRIPTION:**
     - This ensures that any process using existing file, will see a complete record
-    - May throw an exception if file system does not support it
+    - May throw a `AtomicMoveNotSupportedException` if file system does not support it
+
+<hr>
 
 ## 🟥 9.2.2 Using Path Objects
+* We have already seen two methods in the `Path` interface: `toFile()` and `toUri()`
+* Alot of methods return a Path object, and thus methods can be chained:
+    ```java
+    Paths.get("/zoo/../home").getParent().normalize().toAbsolutePath();
+    ```
+
+### ⭐ Viewing the Path with toString(), getNameCount() and getName() ⭐
+* The Path interface has the above methods to obtain basic information about the path representative
+```java
+Path path = Paths.get("/land/hippo/harry.happy");
+System.out.println("The Path Name is: "+path); // /land/hippo/harry.happy
+for(int i=0;i<path.getNameCount();i++) {
+    System.out.println(path.getName(i));
+    /*  Prints the following:
+    land
+    hippo
+    harry.happy
+    */
+}
+```
+
+### ⭐ Accessing Path Components with getFileName(), getParent() and getRoot() ⭐
+
+### ⭐ Checking Path Type with isAbsolute() and toAbsolutePath() ⭐
+
+### ⭐ Checking Path Type with isAbsolute() and toAbsolutePath() ⭐
+
+
+
+
+
+<hr>
 
 ## 🟥 9.2.3 Interact with Files
 
