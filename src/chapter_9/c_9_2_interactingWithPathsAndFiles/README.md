@@ -78,6 +78,45 @@ for(int i=0;i<path.getNameCount();i++) {
 ```
 
 ### ⭐ Accessing Path Components with getFileName(), getParent() and getRoot() ⭐
+* The Path interface also includes method for retrieving specific subelements of a Path object
+* `getFileName` returns a Path instance representing the filename
+* `getParent()` returns a Path instance representing the parent path.
+    - Will return null if there is no parent⚠️
+    - It will not traverse beyond the file system if a relative path is provided
+* `getRoot()` returns the root element for the path
+    - Will return null if relative path is provided
+
+```java
+public class PathFilePathTest {
+    public static void printPathInformation(Path path) {
+        System.out.println("Filename is: "+path.getFileName());
+        System.out.println("Root is: "+path.getRoot());
+        Path currentParent = path;
+        while((currentPath = currentPath.getParent()) != null) {
+            System.out.println("\tCurrent parent is: "+currentParent());
+        }
+    }
+
+    public static void main(String[] args) {
+        printPathInformation(Paths.get("/zoo/armadillo/shells.txt"));
+        /* This will print
+        Filename is: shells.txt
+        Root is: /
+            Current parent is: /zoo/armadillo
+            Current parent is: /zoo
+            Current parent is: /
+        */
+
+        printPathInformation(Paths.get("armadillo/shells.txt"));
+        /* This will print
+        Filename is: shells.txt
+        Root is: null
+            Current parent is: armadillo/
+        
+        */
+    }
+}
+```
 
 ### ⭐ Checking Path Type with isAbsolute() and toAbsolutePath() ⭐
 
