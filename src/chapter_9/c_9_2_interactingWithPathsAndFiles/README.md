@@ -62,7 +62,7 @@
     Paths.get("/zoo/../home").getParent().normalize().toAbsolutePath();
     ```
 
-### ⭐ Viewing the Path with toString(), getNameCount() and getName() ⭐
+### ⭐ Viewing the Path with `toString()`, `getNameCount()` and `getName()` ⭐
 * The Path interface has the above methods to obtain basic information about the path representative
 ```java
 Path path = Paths.get("/land/hippo/harry.happy");
@@ -77,7 +77,7 @@ for(int i=0;i<path.getNameCount();i++) {
 }
 ```
 
-### ⭐ Accessing Path Components with getFileName(), getParent() and getRoot() ⭐
+### ⭐ Accessing Path Components with `getFileName()`, `getParent()` and `getRoot()` ⭐
 * The Path interface also includes method for retrieving specific subelements of a Path object
 * `getFileName` returns a Path instance representing the filename
 * `getParent()` returns a Path instance representing the parent path.
@@ -118,11 +118,35 @@ public class PathFilePathTest {
 }
 ```
 
-### ⭐ Checking Path Type with isAbsolute() and toAbsolutePath() ⭐
+### ⭐ Checking Path Type with `isAbsolute()` and `toAbsolutePath()` ⭐
+* `isAbsolute()` returns true if the path the object references is relative (this is file system dependent)
+* `toAbsolutePath()` converts a relative Path object to an absolute Path object by joining it to the current working directory
+    - If the path is already absolute, it will just return an equivalent copy
 
-### ⭐ Checking Path Type with isAbsolute() and toAbsolutePath() ⭐
+```java
+Path p1 = Paths.get("C:\\birds\\egret.txt");
+System.out.println(p1.isAbsolute()); // true
+System.out.println(p1.toAbsolute()); // c:/birds/egret.txt
+
+Path p2 = Paths.get("birds/condor.txt");
+System.out.println(p1.isAbsolute()); // false
+System.out.println(p1.toAbsolute()); // /home/birds/condor.txt
+```
 
 
+### ⭐ Creating a New Path with `subpath()` ⭐
+
+
+### ⭐ Deriving a Path with `relativize()` ⭐
+
+
+### ⭐ Joining Path Objects with `resolve()` ⭐
+
+
+### ⭐ Cleaning up a Path with `normalize()` ⭐
+
+
+### ⭐ Checking File Existence with `toRealPath()` ⭐
 
 
 
