@@ -302,11 +302,11 @@ F. Add synchronized to `getCheetahManager()` <br>
 10: }
 ```
 
-    A. The code compiles without issue 🎃
-    B. The code will not compile because of line 5 🎃
-    C. The code will not compile because of line 6 🎃
-    D. The code will not compile because of line 8 🎃
-    E. The code will not compile because of line 9 🎃
+A. The code compiles without issue <br>
+B. The code will not compile because of line 5 <br>
+C. The code will not compile because of line 6 <br>
+D. The code will not compile because of line 8 <br>
+E. The code will not compile because of line 9 <br>
 
 ### My Answer:
 * CanWalk has a default method
@@ -332,15 +332,21 @@ public class MySecret implements Secret {
 }
 ```
 
-    A. `caller((e) -> "Poof");` 🎃
-    B. `caller((e) -> {"Poof"});` 🎃
-    C. `caller((e) -> { String e = ""; "Poof"; });` 🎃
-    D. `caller((e) -> { String e = ""; return "Poof"; });` 🎃
-    E. `caller((e) -> { String e = ""; return "Poof" });` 🎃
-    F. `caller((e) -> { String f = ""; return "Poof"; });`
+A. `caller((e) -> "Poof");`  <br>
+B. `caller((e) -> {"Poof"});`  <br>
+C. `caller((e) -> { String e = ""; "Poof"; });`  <br>
+D. `caller((e) -> { String e = ""; return "Poof"; });`  <br>
+E. `caller((e) -> { String e = ""; return "Poof" });`  <br>
+F. `caller((e) -> { String f = ""; return "Poof"; });` <br>
 
 ### My Answer:
-
+* A - true
+* B - false, invalid syntax
+* C - false, invalid synatx
+* D - false, invalid syntax
+* E - false, invalid syntax
+* F - true
+* **A,F**
 <hr>
 
 ## 🟧 Question 12
@@ -363,30 +369,43 @@ public class Climber {
 }
 ```
 
-    A. `ok` 🎃
-    B. `too high` 🎃
-    C. Compiler error on line x1 🎃
-    D. Compiler error on line x2 🎃
-    E. Compiler error on a different line 🎃
-    F. A runtime exception is thrown.
+A. `ok` <br>
+B. `too high` <br>
+C. Compiler error on line x1 <br>
+D. Compiler error on line x2 <br>
+E. Compiler error on a different line <br>
+F. A runtime exception is thrown. <br>
 
 ### My Answer:
-
+* `Climb` is a functional interface so it can be implemented using lambda
+* The `check()` method takes an interface and an int
+* It calls the isTooHigh() method using the height, and a fixed limit of 10
+* If its true it prints `too high`
+* The main method calls check but the first parameter does not return a boolean
+* Therefore its a syntax error on line x1
+* **C**
 <hr>
 
 ## 🟧 Question 13
 
 ❓ Which of the following are properties of classes that define immutable objects? (Choose all tha apply)❓
 
-    A. They don't define any getter methods 🎃
-    B. All of the instance variables marked private and final 🎃
-    C. They don't define any setter methods 🎃
-    D. They mark all instance variables static 🎃
-    E. They prevent methods from being overridden 🎃
-    F. All getter methods are marked synchronized 🎃
+A. They don't define any getter methods  <br>
+B. All of the instance variables marked private and final  <br>
+C. They don't define any setter methods  <br>
+D. They mark all instance variables static  <br>
+E. They prevent methods from being overridden  <br>
+F. All getter methods are marked synchronized  <br>
 
 ### My Answer:
-
+* Immutable objects can be instantiated but not modified
+* A - false
+* B - true
+* C - false, they define the setters but make them private
+* D - false
+* E - true, I THINK
+* F - false, not necessary
+* **B,E**
 <hr>
 
 ## 🟧 Question 14
@@ -403,30 +422,39 @@ public class Frog implements CanHop {
 public class BrazillianHornedFrog extends Frog {}
 public class TurtleFrog extends Frog {}
 ```
-
-    A. Frog 🎃
-    B. TurtleFrog 🎃
-    C. BrazillianHornedFrog 🎃
-    D. CanHop 🎃
-    E. Object 🎃
-    F. Long 🎃
+A. Frog <br>
+B. TurtleFrog <br>
+C. BrazillianHornedFrog <br>
+D. CanHop <br>
+E. Object <br>
+F. Long <br>
 
 ### My Answer:
-
+* The TurtleFrog instance can be referenced as:
+  - TurtleFrog
+  - Frog
+  - CanHop
+  - Object
+* **A,B,D,E**
 <hr>
 
 ## 🟧 Question 15
 
 ❓ Which of the following statements about polymorphism are true? (choose all that apply) ❓
 
-    A. A reference to an object may be cast to a subclass of the object without an explicit cast.  🎃
-    B. If a method takes a class that is the superclass of three different object references, then any of those object may be passed as a parameter to the method 🎃
-    C. A reference to an object may be cast to a superclass of the object without an explicit cast. 🎃
-    D. All cast exceptions can be detected at compile time 🎃
-    E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime 🎃
+A. A reference to an object may be cast to a subclass of the object without an explicit cast.  <br>
+B. If a method takes a class that is the superclass of three different object references, then any of those object may be passed as a parameter to the method <br>
+C. A reference to an object may be cast to a superclass of the object without an explicit cast. <br>
+D. All cast exceptions can be detected at compile time <br>
+E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime <br>
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* **B,C**
 <hr>
 
 ## 🟧 Question 16
