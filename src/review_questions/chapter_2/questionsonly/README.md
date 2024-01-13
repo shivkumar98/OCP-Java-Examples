@@ -32,13 +32,15 @@ Score:
 
 ❓Which of the following statements about design principles and design patterns are true (choose all which apply)❓
 
-    A.  A design principle is focused on solving a specific commonly occuring problem🎃
-    B.  Design principles and design patterns are the same thing🎃
-    C.  Design principles are often applied throught an application, whereas design patterns are applied to solve specific problems🎃
-    D.  Design patterns can only be applied to static classes🎃
-    E. Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read 🎃
+A.  A design principle is focused on solving a specific commonly occuring problem <br>
+B.  Design principles and design patterns are the same thing <br>
+C.  Design principles are often applied throught an application, whereas design patterns are applied to solve specific problems <br>
+D.  Design patterns can only be applied to static classes <br>
+E.  Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read  <br>
 
 ### My Answer:
+
+<br>
 
 <hr>
 
@@ -59,16 +61,19 @@ Score:
 10: }
 ```
 
-    A.  It compiles and runs without issue🎃
-    B.  The code will not compile because of line 2🎃
-    C.  The code will not compile because of line 4🎃
-    D.  The code will not compile because of line 5🎃
-    E.  The code will not compile because of line 8🎃
-    F. It compiles but throws exception at runtime🎃
+A.  It compiles and runs without issue <br>
+B.  The code will not compile because of line 2 <br>
+C.  The code will not compile because of line 4 <br>
+D.  The code will not compile because of line 5 <br>
+E.  The code will not compile because of line 8 <br>
+F.  It compiles but throws exception at runtime <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 3
 
@@ -87,46 +92,55 @@ public interface ArcticMountainClimb extends MountainClimb {
 public interface MountainClimb extends Climb {}
 ```
 
-    A.  `Climb`🎃
-    B.  `Swim`🎃
-    C.  `ArcticMountainClimb`🎃
-    D.  `MountainClimb`🎃
-    E.  None of these are valid functional interfaces🎃
+A.  `Climb` <br>
+B.  `Swim` <br>
+C.  `ArcticMountainClimb` <br>
+D.  `MountainClimb` <br>
+E.  None of these are valid functional interfaces <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 4
 
 ❓Which of the following are valid lambda expressions (choose all that apply)❓
 
-    A.  `() -> ""`🎃
-    B.  `x,y -> x+y`🎃
-    C.  `(Coyote y) -> return 0;🎃
-    D.  `(Camel c) -> {return; }🎃
-    E.  `Wolf w -> 39`🎃
-    F.  `() ->`🎃
-    G.  `(Animal z, m)-> a`🎃
+A.  `() -> ""` <br>
+B.  `x,y -> x+y` <br>
+C.  `(Coyote y) -> return 0; <br>
+D.  `(Camel c) -> {return; } <br>
+E.  `Wolf w -> 39` <br>
+F.  `() ->` <br>
+G.  `(Animal z, m)-> a` <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 5
 
 ❓What are some of the properties of the singleton pattern (choose all that apply)❓
 
-    A. Singleton object can be replaced with encapsulated setter method 🎃
-    B. Requires contructor of singleton class to be private 🎃
-    C. Singleton object must be named `instance` 🎃
-    D. Single object may be private or protected 🎃
-    E. Ensure that there is only one instance of an object in memory 🎃
-    F. Required a `public static` method to retrieve the instance of the singleton
+A. Singleton object can be replaced with encapsulated setter method <br>
+B. Requires contructor of singleton class to be private <br>
+C. Singleton object must be named `instance` <br>
+D. Single object may be private or protected <br>
+E. Ensure that there is only one instance of an object in memory <br>
+F. Required a `public static` method to retrieve the instance of the singleton
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 6
 
@@ -139,10 +153,10 @@ public class Panda {
     public static void main(String[] args) {
         Panda p1 = new Panda();
         p1.age = 1;
-        check(p1, p-> p.age < 5); // h1
+        check(p1, p -> p.age < 5); // h1
     }
     private static void check(Panda panda, Predicate<Panda> pred) { // h2
-        String result = pred.test(panda) ? "match" : "not match";
+        String result = pred.test(panda) ? "match" : "not match"; // h3
         System.out.println(result);
     }
 }
@@ -157,7 +171,10 @@ public class Panda {
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 7
 
@@ -177,31 +194,36 @@ public class Seal {
 }
 ```
 
-    A.  None; the immutable object pattern is properly implemented.🎃
-    B.  Have Seal implement the Immutable interface🎃
-    C.  Mark `name` final and private🎃
-    D.  Add setters for `name` and `List<Seal> friends` 🎃
-    E. Replace the getFriends() method with methods that do not give the caller direct access to the `List<Seal> friends` 🎃
-    F. Change type of `List<Seal>` to `List<Object>` 🎃
-    G. Make a copy of the `List<Seal> friends` in the constructor 🎃
-    H. Make the `Seal` class final 🎃
+A. None; the immutable object pattern is properly implemented. <br>
+B. Have Seal implement the Immutable interface <br>
+C. Mark `name` final and private <br>
+D. Add setters for `name` and `List<Seal> friends`  <br>
+E. Replace the getFriends() method with methods that do not give the caller direct access to the `List<Seal> friends`  <br>
+F. Change type of `List<Seal>` to `List<Object>`  <br>
+G. Make a copy of the `List<Seal> friends` in the constructor  <br>
+H. Make the `Seal` class final  <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 8
 
 ❓Which of the following are true of interfaces (choose all that apply)❓
 
-    A. They can extend other classes 🎃
-    B. They can not be extended 🎃
-    C. They enable classes to have multiple inheritance 🎃
-    D. They can only contain abstract methods 🎃
-    E. They can be declared final 🎃
-    F. All members of an interface are public 🎃
+A. They can extend other classes <br>
+B. They can not be extended <br>
+C. They enable classes to have multiple inheritance <br>
+D. They can only contain abstract methods <br>
+E. They can be declared final <br>
+F. All members of an interface are public <br>
 
 ### My Answer:
+
+<br>
 
 <hr>
 
@@ -222,16 +244,19 @@ public class CheetahManager {
 }
 ```
 
-    A.  None; the singleton pattern is properly implemented S🎃
-    B.  Rename `cheetahManager` to instance 🎃
-    C.  Rename `getCheetahManager()` to `getInstance()` 🎃
-    D.  Change the access modifier of `cheetahManager` from public to private 🎃
-    E. Mark `cheetahManager` final 🎃
-    F. Add synchronized to `getCheetahManager()` 🎃
+A. None; the singleton pattern is properly implemented <br>
+B. Rename `cheetahManager` to instance <br>
+C. Rename `getCheetahManager()` to `getInstance()` <br>
+D. Change the access modifier of `cheetahManager` from public to private <br>
+E. Mark `cheetahManager` final <br>
+F. Add synchronized to `getCheetahManager()` <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 10
 
@@ -250,15 +275,18 @@ public class CheetahManager {
 10: }
 ```
 
-    A. The code compiles without issue 🎃
-    B. The code will not compile because of line 5 🎃
-    C. The code will not compile because of line 6 🎃
-    D. The code will not compile because of line 8 🎃
-    E. The code will not compile because of line 9 🎃
+A. The code compiles without issue <br>
+B. The code will not compile because of line 5 <br>
+C. The code will not compile because of line 6 <br>
+D. The code will not compile because of line 8 <br>
+E. The code will not compile because of line 9 <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 11
 
@@ -275,16 +303,19 @@ public class MySecret implements Secret {
 }
 ```
 
-    A. `caller((e) -> "Poof");` 🎃
-    B. `caller((e) -> {"Poof"});` 🎃
-    C. `caller((e) -> { String e = ""; "Poof"; });` 🎃
-    D. `caller((e) -> { String e = ""; return "Poof"; });` 🎃
-    E. `caller((e) -> { String e = ""; return "Poof" });` 🎃
-    F. `caller((e) -> { String f = ""; return "Poof"; });`
+A. `caller((e) -> "Poof");`  <br>
+B. `caller((e) -> {"Poof"});`  <br>
+C. `caller((e) -> { String e = ""; "Poof"; });`  <br>
+D. `caller((e) -> { String e = ""; return "Poof"; });`  <br>
+E. `caller((e) -> { String e = ""; return "Poof" });`  <br>
+F. `caller((e) -> { String f = ""; return "Poof"; });` <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 12
 
@@ -306,31 +337,37 @@ public class Climber {
 }
 ```
 
-    A. `ok` 🎃
-    B. `too high` 🎃
-    C. Compiler error on line x1 🎃
-    D. Compiler error on line x2 🎃
-    E. Compiler error on a different line 🎃
-    F. A runtime exception is thrown.
+A. `ok` <br>
+B. `too high` <br>
+C. Compiler error on line x1 <br>
+D. Compiler error on line x2 <br>
+E. Compiler error on a different line <br>
+F. A runtime exception is thrown. <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 13
 
 ❓ Which of the following are properties of classes that define immutable objects? (Choose all tha apply)❓
 
-    A. They don't define any getter methods 🎃
-    B. All of the instance variables marked private and final 🎃
-    C. They don't define any setter methods 🎃
-    D. They mark all instance variables static 🎃
-    E. They prevent methods from being overridden 🎃
-    F. All getter methods are marked synchronized 🎃
+A. They don't define any getter methods  <br>
+B. All of the instance variables marked private and final  <br>
+C. They don't define any setter methods  <br>
+D. They mark all instance variables static  <br>
+E. They prevent methods from being overridden  <br>
+F. All getter methods are marked synchronized  <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 14
 
@@ -346,15 +383,16 @@ public class Frog implements CanHop {
 public class BrazillianHornedFrog extends Frog {}
 public class TurtleFrog extends Frog {}
 ```
-
-    A. Frog 🎃
-    B. TurtleFrog 🎃
-    C. BrazillianHornedFrog 🎃
-    D. CanHop 🎃
-    E. Object 🎃
-    F. Long 🎃
+A. Frog <br>
+B. TurtleFrog <br>
+C. BrazillianHornedFrog <br>
+D. CanHop <br>
+E. Object <br>
+F. Long <br>
 
 ### My Answer:
+
+<br>
 
 <hr>
 
@@ -362,13 +400,15 @@ public class TurtleFrog extends Frog {}
 
 ❓ Which of the following statements about polymorphism are true? (choose all that apply) ❓
 
-    A. A reference to an object may be cast to a subclass of the object without an explicit cast.  🎃
-    B. If a method takes a class that is the superclass of three different object references, then any of those object may be passed as a parameter to the method 🎃
-    C. A reference to an object may be cast to a superclass of the object without an explicit cast. 🎃
-    D. All cast exceptions can be detected at compile time 🎃
-    E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime 🎃
+A. A reference to an object may be cast to a subclass of the object without an explicit cast.  <br>
+B. If a method takes a class that is the superclass of three different object references, then any of those object may be passed as a parameter to the method <br>
+C. A reference to an object may be cast to a superclass of the object without an explicit cast. <br>
+D. All cast exceptions can be detected at compile time <br>
+E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime <br>
 
 ### My Answer:
+
+<br>
 
 <hr>
 
@@ -386,59 +426,70 @@ public class TurtleFrog extends Frog {}
 7: }
 ```
 
-    A. It compiles and runs without issue 🎃
-    B. The code will not compile because of line 2 🎃
-    C. The code will not compile because of line 3 🎃
-    D. The code will not compile because of line 4 🎃
-    E. The code will not compile because of line 2 and 3 🎃
-    F. The code will not compile because of line 3 and 4 🎃
+A. It compiles and runs without issue <br>
+B. The code will not compile because of line 2 <br>
+C. The code will not compile because of line 3 <br>
+D. The code will not compile because of line 4 <br>
+E. The code will not compile because of line 2 and 3 <br>
+F. The code will not compile because of line 3 and 4 <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 17
 
 ❓Which of the following are properties of classes that are properly encapsulated as a JavaBean (Choose all that apply)❓
 
-    A. All instance variable are marked final 🎃
-    B. boolean instance variables are accessed with `is` or `get` 🎃
-    C. All instance variables are marked private 🎃
-    D. They implement the `JavaBean` interface 🎃
-    E. Variables are created using lazy instantiation 🎃
-    F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case 🎃
+A. All instance variable are marked final <br>
+B. boolean instance variables are accessed with `is` or `get` <br>
+C. All instance variables are marked private <br>
+D. They implement the `JavaBean` interface <br>
+E. Variables are created using lazy instantiation <br>
+F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 18
 
 ❓Which of the following statements about inheritance and object composition are correct? (Choose all that apply)❓
 
-    A. Inheritance supports access to protected variables  🎃
-    B. Object composition tends to promote greater code reuse than inheritance 🎃
-    C. Inheritance relies on the has-a principle 🎃
-    D. Object composition supports method overriding at runtime 🎃
-    E. Object composition requires a class variable to be public or accessible from a public method to be used by a class in a different package 🎃
-    F. Object composition is always preferred to inheritance.
+A. Inheritance supports access to protected variables <br>
+B. Object composition tends to promote greater code reuse than inheritance <br>
+C. Inheritance relies on the has-a principle <br>
+D. Object composition supports method overriding at runtime <br>
+E. Object composition requires a class variable to be public or accessible from a public method to be used by a class in a different package <br>
+F. Object composition is always preferred to inheritance. <br>
 
 ### My Answer:
 
+<br>
+
 <hr>
+
 
 ## 🟧 Question 19
 
 ❓Which three scenarios would best benefit from using the singleton pattern (Choose all three)❓
 
-    A. Create read-only objects that are thread-safe 🎃
-    B. Manage a reusable cache of objects 🎃
-    C. Ensure that all objects are lazily instantiated 🎃
-    D. Manage write access to a log file 🎃
-    E. Provide central access to application configuration data 🎃
-    F. Allow multiple instances of a static object to be managed in memory
+A. Create read-only objects that are thread-safe <br>
+B. Manage a reusable cache of objects <br>
+C. Ensure that all objects are lazily instantiated <br>
+D. Manage write access to a log file <br>
+E. Provide central access to application configuration data <br>
+F. Allow multiple instances of a static object to be managed in memory <br>
 
 ### My Answer:
+
+<br>
 
 <hr>
 
@@ -457,9 +508,16 @@ public class TurtleFrog extends Frog {}
 8: }
 ```
 
-    A. It compiles without issue 🎃
-    B. The code will not compile because of line 2 🎃
-    C. The code will not compile because of line 4 🎃
-    D. The code will not compile because of line 5 🎃
-    E. The code will not compile because of line 2 and 5 🎃
-    F. The code will not compile because of class Falcon does not implement the interface methods🎃
+A. It compiles without issue <br>
+B. The code will not compile because of line 2 <br>
+C. The code will not compile because of line 4 <br>
+D. The code will not compile because of line 5 <br>
+E. The code will not compile because of line 2 and 5 <br>
+F. The code will not compile because of class Falcon does not implement the interface methods <br>
+
+### My Answer:
+
+<br>
+
+<hr>
+
