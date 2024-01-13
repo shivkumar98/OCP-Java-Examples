@@ -173,19 +173,21 @@ if (File.exists(p1) && File.exists(p2)) {
 * If both paths are relative, then the relativize method will treat them ass if they are in the same current working directory
 
 ### ⭐ Joining Path Objects with `resolve()` ⭐
-
+* Did not understand this section
 
 ### ⭐ Cleaning up a Path with `normalize()` ⭐
-
+* This relies on previous path
 
 ### ⭐ Checking File Existence with `toRealPath()` ⭐
-
+* The `.toRealPath()` returns a reference to a real path within the file system provided it exists in the file system.
+* If the file cannot be located, then the method will throw a `IOException` at runtime
+* 
 
 
 <hr>
 
-## 🟥 9.2.3 Interact with Files
-
+## 🟥 9.2.3 Interacting with Files
+* I did not fully understand the previous example
 
 
 ### ⭐ H3 ⭐

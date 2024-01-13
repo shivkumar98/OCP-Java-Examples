@@ -16,7 +16,7 @@ public class UsingRelativize {
 		System.out.println(p1.relativize(p1));
 	}
 	String localDir = System.getProperty("user.dir");
-	Path p3 = Paths.get("pom.xml");
+	Path p3 = Paths.get("chapter_1");
 	System.out.println(Files.exists(p3));
  }
  
