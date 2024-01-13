@@ -1,4 +1,4 @@
-# Chapter 2 - Review Questions Attemp #
+# Chapter 2 - Review Questions Attemp 4
 
 ## Results:
 
@@ -32,14 +32,19 @@ Score:
 
 ❓Which of the following statements about design principles and design patterns are true (choose all which apply)❓
 
-    A.  A design principle is focused on solving a specific commonly occuring problem🎃
-    B.  Design principles and design patterns are the same thing🎃
-    C.  Design principles are often applied throught an application, whereas design patterns are applied to solve specific problems🎃
-    D.  Design patterns can only be applied to static classes🎃
-    E. Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read 🎃
+A.  A design principle is focused on solving a specific commonly occuring problem <br>
+B.  Design principles and design patterns are the same thing <br>
+C.  Design principles are often applied throught an application, whereas design patterns are applied to solve specific problems <br>
+D.  Design patterns can only be applied to static classes <br>
+E.  Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read  <br>
 
 ### My Answer:
-
+* A - true
+* B - false
+* C - true
+* D - false
+* E - true
+* **A,C,E**
 <hr>
 
 ## 🟧 Question 2
@@ -59,15 +64,19 @@ Score:
 10: }
 ```
 
-    A.  It compiles and runs without issue🎃
-    B.  The code will not compile because of line 2🎃
-    C.  The code will not compile because of line 4🎃
-    D.  The code will not compile because of line 5🎃
-    E.  The code will not compile because of line 8🎃
-    F. It compiles but throws exception at runtime🎃
+A.  It compiles and runs without issue <br>
+B.  The code will not compile because of line 2 <br>
+C.  The code will not compile because of line 4 <br>
+D.  The code will not compile because of line 5 <br>
+E.  The code will not compile because of line 8 <br>
+F.  It compiles but throws exception at runtime <br>
 
 ### My Answer:
-
+* Line 2 is fine
+* Line 4 is fine
+* Line 5 is fine, as abstract classes are not required to implement interfaces
+* Line 8 does not compile as the class does no implement the `climb()` method
+* **E**
 <hr>
 
 ## 🟧 Question 3
@@ -87,45 +96,64 @@ public interface ArcticMountainClimb extends MountainClimb {
 public interface MountainClimb extends Climb {}
 ```
 
-    A.  `Climb`🎃
-    B.  `Swim`🎃
-    C.  `ArcticMountainClimb`🎃
-    D.  `MountainClimb`🎃
-    E.  None of these are valid functional interfaces🎃
+A.  `Climb` <br>
+B.  `Swim` <br>
+C.  `ArcticMountainClimb` <br>
+D.  `MountainClimb` <br>
+E.  None of these are valid functional interfaces <br>
 
 ### My Answer:
-
+* Climb has a `climb()` method
+* Swim has a `swim()` method
+* MountainClimb has a climb() method
+* ArticMountainClimb does not compile
+* Does a functional interface have to have a public method?
+* **A,B,D**
 <hr>
 
 ## 🟧 Question 4
 
 ❓Which of the following are valid lambda expressions (choose all that apply)❓
 
-    A.  `() -> ""`🎃
-    B.  `x,y -> x+y`🎃
-    C.  `(Coyote y) -> return 0;🎃
-    D.  `(Camel c) -> {return; }🎃
-    E.  `Wolf w -> 39`🎃
-    F.  `() ->`🎃
-    G.  `(Animal z, m)-> a`🎃
+A.  `() -> ""` <br>
+B.  `x,y -> x+y` <br>
+C.  `(Coyote y) -> return 0; <br>
+D.  `(Camel c) -> {return; } <br>
+E.  `Wolf w -> 39` <br>
+F.  `() ->` <br>
+G.  `(Animal z, m)-> a` <br>
 
 ### My Answer:
-
+* A - valid
+* B - valld
+* C - invalid, needs to have curly brackets
+* D - valid
+* E - invlaid, if type is provided, it must be in round brackets
+* F - invalid, I think
+* G - invalid, m type must be specified
+* **A,B,D**
 <hr>
 
 ## 🟧 Question 5
 
 ❓What are some of the properties of the singleton pattern (choose all that apply)❓
 
-    A. Singleton object can be replaced with encapsulated setter method 🎃
-    B. Requires contructor of singleton class to be private 🎃
-    C. Singleton object must be named `instance` 🎃
-    D. Single object may be private or protected 🎃
-    E. Ensure that there is only one instance of an object in memory 🎃
-    F. Required a `public static` method to retrieve the instance of the singleton
+A. Singleton object can be replaced with encapsulated setter method <br>
+B. Requires contructor of singleton class to be private <br>
+C. Singleton object must be named `instance` <br>
+D. Single object may be private or protected <br>
+E. Ensure that there is only one instance of an object in memory <br>
+F. Required a `public static` method to retrieve the instance of the singleton
 
 ### My Answer:
-
+* A singleton ensures that only one, at mnost, instance of an object is in the application
+* A - false
+* B - true
+* C - false, that is only not required
+* D - false, it must be private
+* E - true
+* F - true, I think
+* **B,E,F**
 <hr>
 
 ## 🟧 Question 6
@@ -139,7 +167,7 @@ public class Panda {
     public static void main(String[] args) {
         Panda p1 = new Panda();
         p1.age = 1;
-        check(p1, p-> p.age < 5); // h1
+        check(p1, p -> p.age < 5); // h1
     }
     private static void check(Panda panda, Predicate<Panda> pred) { // h2
         String result = pred.test(panda) ? "match" : "not match";
