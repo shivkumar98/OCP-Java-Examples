@@ -471,60 +471,86 @@ E. By defining public instance method in the superclass, you guarantee that the 
 7: }
 ```
 
-    A. It compiles and runs without issue 🎃
-    B. The code will not compile because of line 2 🎃
-    C. The code will not compile because of line 3 🎃
-    D. The code will not compile because of line 4 🎃
-    E. The code will not compile because of line 2 and 3 🎃
-    F. The code will not compile because of line 3 and 4 🎃
+A. It compiles and runs without issue <br>
+B. The code will not compile because of line 2 <br>
+C. The code will not compile because of line 3 <br>
+D. The code will not compile because of line 4 <br>
+E. The code will not compile because of line 2 and 3 <br>
+F. The code will not compile because of line 3 and 4 <br>
 
 ### My Answer:
-
+* The static method must have an implementation!
+* The `chew()` method must be declared as default
+* A - false
+* B - false
+* C - true
+* D - true
+* E - false
+* F - true
+* **F**
 <hr>
 
 ## 🟧 Question 17
 
 ❓Which of the following are properties of classes that are properly encapsulated as a JavaBean (Choose all that apply)❓
 
-    A. All instance variable are marked final 🎃
-    B. boolean instance variables are accessed with `is` or `get` 🎃
-    C. All instance variables are marked private 🎃
-    D. They implement the `JavaBean` interface 🎃
-    E. Variables are created using lazy instantiation 🎃
-    F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case 🎃
+A. All instance variable are marked final <br>
+B. boolean instance variables are accessed with `is` or `get` <br>
+C. All instance variables are marked private <br>
+D. They implement the `JavaBean` interface <br>
+E. Variables are created using lazy instantiation <br>
+F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case <br>
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* F - true
+* **B,C,F**
 <hr>
 
 ## 🟧 Question 18
 
 ❓Which of the following statements about inheritance and object composition are correct? (Choose all that apply)❓
 
-    A. Inheritance supports access to protected variables  🎃
-    B. Object composition tends to promote greater code reuse than inheritance 🎃
-    C. Inheritance relies on the has-a principle 🎃
-    D. Object composition supports method overriding at runtime 🎃
-    E. Object composition requires a class variable to be public or accessible from a public method to be used by a class in a different package 🎃
-    F. Object composition is always preferred to inheritance.
+A. Inheritance supports access to protected variables <br>
+B. Object composition tends to promote greater code reuse than inheritance <br>
+C. Inheritance relies on the has-a principle <br>
+D. Object composition supports method overriding at runtime <br>
+E. Object composition requires a class variable to be public or accessible from a public method to be used by a class in a different package <br>
+F. Object composition is always preferred to inheritance. <br>
 
 ### My Answer:
-
+* A - true
+* B - true
+* C - false
+* D - true
+* E - true
+* F - false
+* **A,B,D,E**
 <hr>
 
 ## 🟧 Question 19
 
 ❓Which three scenarios would best benefit from using the singleton pattern (Choose all three)❓
 
-    A. Create read-only objects that are thread-safe 🎃
-    B. Manage a reusable cache of objects 🎃
-    C. Ensure that all objects are lazily instantiated 🎃
-    D. Manage write access to a log file 🎃
-    E. Provide central access to application configuration data 🎃
-    F. Allow multiple instances of a static object to be managed in memory
+A. Create read-only objects that are thread-safe <br>
+B. Manage a reusable cache of objects <br>
+C. Ensure that all objects are lazily instantiated <br>
+D. Manage write access to a log file <br>
+E. Provide central access to application configuration data <br>
+F. Allow multiple instances of a static object to be managed in memory <br>
 
 ### My Answer:
-
+* A - false, this is immutability
+* B - true
+* C - false, maybe
+* D - true
+* E - true
+* F - true
+* **D,E,F**
 <hr>
 
 ## 🟧 Question 20
@@ -542,9 +568,15 @@ E. By defining public instance method in the superclass, you guarantee that the 
 8: }
 ```
 
-    A. It compiles without issue 🎃
-    B. The code will not compile because of line 2 🎃
-    C. The code will not compile because of line 4 🎃
-    D. The code will not compile because of line 5 🎃
-    E. The code will not compile because of line 2 and 5 🎃
-    F. The code will not compile because of class Falcon does not implement the interface methods🎃
+A. It compiles without issue <br>
+B. The code will not compile because of line 2 <br>
+C. The code will not compile because of line 4 <br>
+D. The code will not compile because of line 5 <br>
+E. The code will not compile because of line 2 and 5 <br>
+F. The code will not compile because of class Falcon does not implement the interface methods <br>
+
+### My Answer:
+* `CanFly` has a `fly()` method
+* The code does compile!
+* **A**
+<hr>
