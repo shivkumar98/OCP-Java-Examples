@@ -2,31 +2,31 @@
 
 ## Results:
 
-Date: 
-Score: 
+Date: 14/01/24 <br>
+Score: 13/20 (65%) <br>
 
 | Question # | Correct  |
 | ---------- | -------  |
 | 1          | ✅      |
-| 2          | ❌      |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 2          | ✅      |
+| 3          | ❌      |
+| 4          | ❌      |
+| 5          | ✅      |
+| 6          | ✅      |
+| 7          | ❌      |
+| 8          | ❌      |
+| 9          | ✅      |
+| 10         | ❌      |
+| 11         | ✅      |
+| 12         | ✅      |
+| 13         | ❌      |
+| 14         | ✅      |
+| 15         | ✅      |
+| 16         | ✅      |
+| 17         | ✅      |
+| 18         | ❌      |
+| 19         | ✅      |
+| 20         | ✅      |
 
 ## 🟧 Question 1
 
@@ -39,12 +39,12 @@ D.  Design patterns can only be applied to static classes <br>
 E.  Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read  <br>
 
 ### My Answer:
-* A - true
+* A - false
 * B - false
 * C - true
 * D - false
 * E - true
-* **A,C,E**
+* **C,E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 2
@@ -76,7 +76,7 @@ F.  It compiles but throws exception at runtime <br>
 * Line 4 is fine
 * Line 5 is fine, as abstract classes are not required to implement interfaces
 * Line 8 does not compile as the class does no implement the `climb()` method
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 3
@@ -108,7 +108,11 @@ E.  None of these are valid functional interfaces <br>
 * MountainClimb has a climb() method
 * ArticMountainClimb does not compile
 * Does a functional interface have to have a public method?
-* **A,B,D**
+* **A,B,D**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,D**
+* An abstract class can not be a functional interface!!!
 <hr>
 
 ## 🟧 Question 4
@@ -125,13 +129,20 @@ G.  `(Animal z, m)-> a` <br>
 
 ### My Answer:
 * A - valid
-* B - valld
+* B - valid
 * C - invalid, needs to have curly brackets
-* D - valid
+* D - valid, need to double check
 * E - invlaid, if type is provided, it must be in round brackets
 * F - invalid, I think
 * G - invalid, m type must be specified
-* **A,B,D**
+* **A,B,D**❌❌❌❌
+
+<br>
+
+* CORRECT ANSWER: **A,D**
+* If you have multiple parameters, they MUST be in brackets
+* I correctly said you can NOT have `()->`
+* I correcly said you can have a return on the right side: `(Camcel c) -> {return;}`
 <hr>
 
 ## 🟧 Question 5
@@ -148,12 +159,16 @@ F. Required a `public static` method to retrieve the instance of the singleton
 ### My Answer:
 * A singleton ensures that only one, at mnost, instance of an object is in the application
 * A - false
-* B - true
+* B - true, i think so
 * C - false, that is only not required
 * D - false, it must be private
 * E - true
 * F - true, I think
-* **B,E,F**
+* **B,E,F**✅✅✅✅
+
+* Singleton requires:
+  * constructor to be private
+  * instance is accessed via a public static method
 <hr>
 
 ## 🟧 Question 6
@@ -185,7 +200,7 @@ public class Panda {
 
 ### My Answer:
 * It will print out match
-* **A**
+* **A**✅✅✅
 <hr>
 
 ## 🟧 Question 7
@@ -219,14 +234,18 @@ H. Make the `Seal` class final  <br>
 * In order for the class to be immutable, the fields must be private and not have setters
 * A - false, name is not private
 * B - false, this does not exist
-* C - false
+* C - true, this is true
 * D - false
 * E - true
 * F - false
 * G - false
-* H - true, don't knoww why tho
-* **E,H**
+* H - true, don't know why tho
+* **C,E,H**❌❌❌❌
+<br>
 
+* CORRECT ANSWER: **C,E,G,H**
+* G is correct, because you do not want the caller of the constructor to pass in a reference of a list which they can modify
+* H is correct as it want to prevent classes from being overidden
 <hr>
 
 ## 🟧 Question 8
@@ -247,7 +266,10 @@ F. All members of an interface are public <br>
 * D - false, they can have defaullt methods too
 * E - true
 * F - implicitly true
-* **C,E**
+* **C,E,F**❌❌❌❌
+
+* CORRECT ANSWWER: **C,F**
+* Interfaces cannot be called final because they are implicitly abstract and finall cannot be used on abstract classesa
 <hr>
 
 ## 🟧 Question 9
@@ -282,7 +304,7 @@ F. Add synchronized to `getCheetahManager()` <br>
 * D - true
 * E - false, not required
 * F - true, necessary for multithreaded environment
-* **D, F**
+* **D,F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 10
@@ -314,7 +336,11 @@ E. The code will not compile because of line 9 <br>
 * CanSprint is an interface which has a sprint method
 * Interfaces CAN extend multiple interfaces!
 * A - true
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **D**
+* While multiple interface implementation IS allowed, this does not apply when there are defauult methods with the same name!
 <hr>
 
 ## 🟧 Question 11
@@ -346,7 +372,7 @@ F. `caller((e) -> { String f = ""; return "Poof"; });` <br>
 * D - false, invalid syntax
 * E - false, invalid syntax
 * F - true
-* **A,F**
+* **A,F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 12
@@ -383,7 +409,8 @@ F. A runtime exception is thrown. <br>
 * If its true it prints `too high`
 * The main method calls check but the first parameter does not return a boolean
 * Therefore its a syntax error on line x1
-* **C**
+* **C**✅✅✅✅
+* The expression `(h,l) -> h.toString()` attempts to use h as an object, but the interface's method's first parameter is an int!
 <hr>
 
 ## 🟧 Question 13
@@ -405,7 +432,24 @@ F. All getter methods are marked synchronized  <br>
 * D - false
 * E - true, I THINK
 * F - false, not necessary
-* **B,E**
+* **B,E**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **B,C,E**
+* An Immutable class is marked final and its fields are private and final
+* I incorrectly assumed you could have private setters
+* But if the instance variables are final they can not be modified:
+    ```java
+    final class ImmutableClass {
+        private final String name;
+        public ImmutableClass(String name) {
+            this.name = name;
+        }
+        private void setName(String name) {
+            this.name = name; // COMPILER ERROR
+        }
+    }
+    ```
 <hr>
 
 ## 🟧 Question 14
@@ -435,7 +479,7 @@ F. Long <br>
   - Frog
   - CanHop
   - Object
-* **A,B,D,E**
+* **A,B,D,E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 15
@@ -454,7 +498,7 @@ E. By defining public instance method in the superclass, you guarantee that the 
 * C - true
 * D - false
 * E - false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 16
@@ -487,7 +531,7 @@ F. The code will not compile because of line 3 and 4 <br>
 * D - true
 * E - false
 * F - true
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 17
@@ -508,7 +552,7 @@ F. The first letter of the any getter/setter, after the `get`, `set`, or `is` pr
 * D - false
 * E - false
 * F - true
-* **B,C,F**
+* **B,C,F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 18
@@ -529,7 +573,11 @@ F. Object composition is always preferred to inheritance. <br>
 * D - true
 * E - true
 * F - false
-* **A,B,D,E**
+* **A,B,D,E**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **A,B,E**
+* Object composition isn't about method overriding, method overriding is related to polmorphism
 <hr>
 
 ## 🟧 Question 19
@@ -549,8 +597,12 @@ F. Allow multiple instances of a static object to be managed in memory <br>
 * C - false, maybe
 * D - true
 * E - true
-* F - true
-* **D,E,F**
+* F - false
+* **B,D,E**✅✅✅✅
+* I correctly said that Singleton can be applied to:
+  * Manageing a resuable cache of object
+  * Manage write access to log file
+  * Having a centralised access to an applications configuration data
 <hr>
 
 ## 🟧 Question 20
@@ -578,5 +630,5 @@ F. The code will not compile because of class Falcon does not implement the inte
 ### My Answer:
 * `CanFly` has a `fly()` method
 * The code does compile!
-* **A**
+* **A**✅✅✅✅
 <hr>
