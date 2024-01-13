@@ -170,7 +170,7 @@ public class Panda {
         check(p1, p -> p.age < 5); // h1
     }
     private static void check(Panda panda, Predicate<Panda> pred) { // h2
-        String result = pred.test(panda) ? "match" : "not match";
+        String result = pred.test(panda) ? "match" : "not match"; // h3
         System.out.println(result);
     }
 }
@@ -184,7 +184,8 @@ public class Panda {
     F.  `A runtime exception is thrown`🎃
 
 ### My Answer:
-
+* It will print out match
+* **A**
 <hr>
 
 ## 🟧 Question 7
@@ -205,16 +206,26 @@ public class Seal {
 }
 ```
 
-    A.  None; the immutable object pattern is properly implemented.🎃
-    B.  Have Seal implement the Immutable interface🎃
-    C.  Mark `name` final and private🎃
-    D.  Add setters for `name` and `List<Seal> friends` 🎃
-    E. Replace the getFriends() method with methods that do not give the caller direct access to the `List<Seal> friends` 🎃
-    F. Change type of `List<Seal>` to `List<Object>` 🎃
-    G. Make a copy of the `List<Seal> friends` in the constructor 🎃
-    H. Make the `Seal` class final 🎃
+A. None; the immutable object pattern is properly implemented. <br>
+B. Have Seal implement the Immutable interface <br>
+C. Mark `name` final and private <br>
+D. Add setters for `name` and `List<Seal> friends`  <br>
+E. Replace the getFriends() method with methods that do not give the caller direct access to the `List<Seal> friends`  <br>
+F. Change type of `List<Seal>` to `List<Object>`  <br>
+G. Make a copy of the `List<Seal> friends` in the constructor  <br>
+H. Make the `Seal` class final  <br>
 
 ### My Answer:
+* In order for the class to be immutable, the fields must be private and not have setters
+* A - false, name is not private
+* B - false, this does not exist
+* C - false
+* D - false
+* E - true
+* F - false
+* G - false
+* H - true, don't knoww why tho
+* **E,H**
 
 <hr>
 
@@ -222,15 +233,21 @@ public class Seal {
 
 ❓Which of the following are true of interfaces (choose all that apply)❓
 
-    A. They can extend other classes 🎃
-    B. They can not be extended 🎃
-    C. They enable classes to have multiple inheritance 🎃
-    D. They can only contain abstract methods 🎃
-    E. They can be declared final 🎃
-    F. All members of an interface are public 🎃
+A. They can extend other classes <br>
+B. They can not be extended <br>
+C. They enable classes to have multiple inheritance <br>
+D. They can only contain abstract methods <br>
+E. They can be declared final <br>
+F. All members of an interface are public <br>
 
 ### My Answer:
-
+* A - false, they can only extend abstract classes or interfaces (first part I'm not sure of)
+* B - false, they can be extended by interfaces
+* C - true
+* D - false, they can have defaullt methods too
+* E - true
+* F - implicitly true
+* **C,E**
 <hr>
 
 ## 🟧 Question 9
@@ -250,15 +267,22 @@ public class CheetahManager {
 }
 ```
 
-    A.  None; the singleton pattern is properly implemented S🎃
-    B.  Rename `cheetahManager` to instance 🎃
-    C.  Rename `getCheetahManager()` to `getInstance()` 🎃
-    D.  Change the access modifier of `cheetahManager` from public to private 🎃
-    E. Mark `cheetahManager` final 🎃
-    F. Add synchronized to `getCheetahManager()` 🎃
+A. None; the singleton pattern is properly implemented <br>
+B. Rename `cheetahManager` to instance <br>
+C. Rename `getCheetahManager()` to `getInstance()` <br>
+D. Change the access modifier of `cheetahManager` from public to private <br>
+E. Mark `cheetahManager` final <br>
+F. Add synchronized to `getCheetahManager()` <br>
 
 ### My Answer:
-
+* The cheetahManager instance must be private
+* A - false
+* B - false, not required
+* C - false
+* D - true
+* E - false, not required
+* F - true, necessary for multithreaded environment
+* **D, F**
 <hr>
 
 ## 🟧 Question 10
@@ -285,7 +309,12 @@ public class CheetahManager {
     E. The code will not compile because of line 9 🎃
 
 ### My Answer:
-
+* CanWalk has a default method
+* CanRun has an abstract method `run()` which must be implemented
+* CanSprint is an interface which has a sprint method
+* Interfaces CAN extend multiple interfaces!
+* A - true
+* **A**
 <hr>
 
 ## 🟧 Question 11
