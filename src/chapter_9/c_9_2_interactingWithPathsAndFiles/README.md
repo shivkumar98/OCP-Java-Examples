@@ -154,8 +154,23 @@ System.out.println(path.subpath(1,1)); // THROWS RUNTIME EXC
 System.out.println(path.subpath(1,4)); // THROWS RUNTIME EXC
 ```
 
-### ⭐ Deriving a Path with `relativize()` ⭐
+### ⭐ Using Path Symbols ⭐
+* `.` can be used as a reference to the current directory
+* `..` can be used as a reference to the parent directory
 
+### ⭐ Deriving a Path with `relativize()` ⭐
+* We can use `.relativize()` to obtain a relative path from one path to another
+```java
+Path p1 = Paths.get("C:\\Users\\Shiv\\.m2\\repository");
+Path p2 = Paths.get("C:\\Users\\Shiv\\.m2\\repository\\commons-beanutils\\commons-beanutils\\1.6");
+if (File.exists(p1) && File.exists(p2)) {
+    System.out.println(p1.relativize(p2)); 
+    // commons-beanutils\commons-beanutils\1.6
+    System.out.pritnln(p2.relativize(p1));
+    // ../../..
+}
+```
+* If both paths are relative, then the relativize method will treat them ass if they are in the same current working directory
 
 ### ⭐ Joining Path Objects with `resolve()` ⭐
 
