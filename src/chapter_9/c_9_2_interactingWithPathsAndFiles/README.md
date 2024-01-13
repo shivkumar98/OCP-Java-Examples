@@ -135,7 +135,24 @@ System.out.println(p1.toAbsolute()); // /home/birds/condor.txt
 
 
 ### ⭐ Creating a New Path with `subpath()` ⭐
-
+* The `subpath(int, int)` method returns a relative subpath of the Path object, the first parameter is the starting index (inclusive) and the second parameter is the ending index (exclusive)
+```java
+Path path = Paths.get("/mammal/carnivore/racoon.image");
+System.out.println("Path: "+path);
+// Path: /mammal/carnivore/racoon.image
+System.out.println("Subpath from 0 to 3 is: "+path.subpath(0,3));
+// Subpath: mammal/carnivore/racoon.image
+System.out.println("Subpath from 1 to 3 is: "+path.subpath(1,3));
+// Subpath: carnivore/racoon.image
+System.out.println("Subpath from 1 to 2 is: "+path.subpath(1,2));
+// Subpath: racoon.image
+```
+* We can see the ending index is capped at 3 for three elements
+* The following with throw RuntimeException:
+```java
+System.out.println(path.subpath(1,1)); // THROWS RUNTIME EXC
+System.out.println(path.subpath(1,4)); // THROWS RUNTIME EXC
+```
 
 ### ⭐ Deriving a Path with `relativize()` ⭐
 
