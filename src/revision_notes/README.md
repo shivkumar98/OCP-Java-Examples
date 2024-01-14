@@ -190,18 +190,64 @@
   - Variables which are `public static final`✅
 * You CAN extend multiple interfaces💡
 * However, if you have ⚠️default methods⚠️ with the same name you will encounter the diamond problem so the compiler prevents that:
-```java
-interface InterfaceA {
-	default void sameNameMethod() {} }
-interface InterfaceB {
-	default void sameNameMethod() {} }
-interface InterfaceC extends InterfaceA, InterfaceB {}
-//        ^^^^^^^^^^ compiler error
-```
- 
+	```java
+	interface InterfaceA {
+		default void sameNameMethod() {} }
+	interface InterfaceB {
+		default void sameNameMethod() {} }
+	interface InterfaceC extends InterfaceA, InterfaceB {}
+	//        ^^^^^^^^^^ compiler error
+	```
+<br>
+
+
 ## 🟥 2.2 Functional Interfaces
 
+### ⭐ Functional Interface ⭐
+
+* A **FUNCTIONAL INTERFACE** is an interface with a single abstract method
+  * All functional interfaces can be implemented with a lambda
+  * We can use `@FunctionalInterface` to ensure that an interface is a valid functional interface
+  * Abstract classes with a single method can NOT be functional interfaces
+	```java
+	@FunctionalInterface
+	/*^^^^^^^^^^^^^^^^^ compiler error */
+	abstract class AbstractClass { }
+	```
+
+### ⭐ Lambda Expressions ⭐
+
+* Functional Interfaces can be implemented as lambdas💡
+* There are rules for syntax of lambdas:
+  1. If there are multiple parameters, they must be in round brackets
+  2. The types of the parameters are optional, if provided then they must be in round brackets
+  3. If one of the parameter types are specified, then all parameters must have type specified
+  4. If you want to use `return`, then you must use braces will regular java syntax
+  * Here are some examples:
+	```java
+	@FunctionalInterface
+	public interface VoidInterface {}
+	
+	// MAIN METHOD
+	VoidInterface v1 = () -> ;
+	/*                    ^^ COMPILER ERROR */
+	VoidInterface v2 = () -> {};
+	VoidInterface v3 = () -> {return;} ;
+	```
+
+
+### ⭐ Predicate Interface ⭐
+* The `Predicate` Interface is a functional interface defined as:
+```java
+public interface T Predicate<T> {
+	void test(T t);
+}
+```
+* You can use this interface in a method and call the `test(T t)` method which return true/false
+* This method parameter can then be passed as a lambda
+
 ## 🟥 2.3 Polymorphism
+
 
 ## 🟥 2.4 Design Principles 
 
@@ -326,8 +372,9 @@ public class Turkey implements AutoCloseable {
 	// closed
 }
 ```
-
 <br>
+
+
 
 * If the `close()` method DOES throw a checked exception then it must be declared or caught!
 ```java
@@ -358,8 +405,9 @@ public static void main(String[] args) {
 	}
 }
 ```
-
 <br>
+
+
 
 * In terms of ordering, the code is ran in the following order:
 1) The code in try block
@@ -410,7 +458,7 @@ try {
 * You can mix these options together. E.g. the following will disable assertions except for specified class: `java -da -ea:ClassName ClassName`
 
 
-<br><hr>
+-----------------------------------------------------------
 
 # 🧠 Chapter 7 - Concurrency
 
@@ -1055,7 +1103,7 @@ return new WeighAnimalTask(weights,middle,end).compute()+otherTask;
 * Livelock occurs when two or more threads are blocked forever but appear active. This is often the result of two threads trying to attempt to resolve a deadlock
 * Race conditions are when two or more threads try to complete a related task at the same time. It is the undesirablee result which occurs when two tasks which should be done sequentially are done at the same time
 
-<br><hr>
+--------------------------------------------------
 
 # 🧠 Chapter 8 - IO
 
