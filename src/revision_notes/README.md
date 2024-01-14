@@ -219,15 +219,15 @@
 
 * Functional Interfaces can be implemented as lambdas💡
 * There are rules for syntax of lambdas:
-  1. If there are multiple parameters, they must be in round brackets
-  2. The types of the parameters are optional, if provided then they must be in round brackets
-  3. If one of the parameter types are specified, then all parameters must have type specified
-  4. If you want to use `return`, then you must use braces will regular java syntax
-  * Here are some examples:
+  1. If there are multiple parameters, they must be in round brackets✅
+  2. The types of the parameters are optional, if provided then they must be in round brackets✅
+  3. If one of the parameter types are specified, then all parameters must have type specified✅
+  4. If you want to use `return`, then you must use braces will regular java syntax✅
+* Here are some examples:
 	```java
 	@FunctionalInterface
 	public interface VoidInterface {}
-	
+
 	// MAIN METHOD
 	VoidInterface v1 = () -> ;
 	/*                    ^^ COMPILER ERROR */
@@ -256,9 +256,23 @@ public interface T Predicate<T> {
 ### ⭐ Casting Object References ⭐
 * The compiler will prevent casts to unrelated types but casting to unrelated types can still occur at runtime
 * You can implicitly cast an object to it superclass
+<br>
 
 
 ## 🟥 2.4 Design Principles 
+* A **DESIGN PRINCIPLE** is an established idea or practice which is applied throughout an application. It leads to code which is easier to maintain and reuse
+* Encapsulation, Inheritance and Composition are all design principles💡
+
+### ⭐ Applying `Has-a` Relationship ⭐
+* This is also known as the object-composition test
+
+### ⭐ Composing Objects ⭐
+* Object Composition is constructing a class using references to other classes to reuse their functionality
+* It can be use to simulate polmorphic behaviour which can not be achieve multiple inheritance
+<br>
+
+
+
 
 ## 🟥 2.5 Design Patterns
 
