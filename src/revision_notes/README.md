@@ -1,30 +1,9 @@
 <link href="../styles.css" rel="stylesheet"></link>
 
-# Table of Contents
-- [🧠 Chapter 6 - Exceptions and Assertions](#---chapter-6---exceptions-and-assertions)
-  * [🟥 6.1 Reviewing Exceptions](#---61-reviewing-exceptions)
-  * [🟥 6.2 Creating Custom Exceptions](#---62-creating-custom-exceptions)
-  * [🟥 6.3 Using Multi-catch](#---63-using-multi-catch)
-  * [🟥 6.4 Using Try-With-Resources](#---64-using-try-with-resources)
-  * [🟥 6.5 Rethrowing Exceptions](#---65-rethrowing-exceptions)
-  * [🟥 6.6 Working With Assertions](#---66-working-with-assertions)
-- [🧠 Chapter 7 - Concurrency](#---chapter-7---concurrency)
-  * [🟥 7.1 Introducing Threads](#---71-introducing-threads)
-  * [🟥 7.2 Creating Threads with ExecutorService](#---72-creating-threads-with-executorservice)
-  * [🟥 7.3 Synchronizing Data Access](#---73-synchronizing-data-access)
-  * [🟥 7.4 Using Concurrent Collections](#---74-using-concurrent-collections)
-  * [🟥 7.5 Working with Parallel Streams](#---75-working-with-parallel-streams)
-  * [🟥 7.6 Managing Concurrent Processes](#---76-managing-concurrent-processes)
- 
-- [🧠 Chapter 8 - IO](#---chapter-8---io)
-  * [🟥 8.1 Files and Directories](#---81-files-and-directories)
-  * [🟥 8.2 Streams](#---82-streams)
-  * [🟥 8.3 Working With Streams](#---83-working-with-streams)
-  * [🟥 8.4 Interacting With Users](#---84-interacting-with-users)
+# Revision Notes ✍️
 
-<hr>
+# 🧠 Chapter 1 - Advanced Class Design
 
-# 🧠Chapter 1 - Advanced Class Design
 ## 🟥 1.1 Reviewing OCA Concepts
 * Protected variables can be accessed in same package AND of subclass in ANY package
 * Package-private variables can only be accessed in same package
@@ -199,7 +178,58 @@
 	}
 	```
 
-<br><hr>
+---------------------------------------------------------------
+
+# 🧠 Chapter 2 Design Patterns and Principles
+
+## 🟥 2.1 Interfaces
+* Interfaces are classes which implicitly `abstract` and contain:
+  - Methods which are implicitly `public abstract`✅
+  - `public static` methods which have implementations✅
+  - `public default` methods which have implementations✅
+  - Variables which are `public static final`✅
+* You CAN extend multiple interfaces💡
+* However, if you have ⚠️default methods⚠️ with the same name you will encounter the diamond problem so the compiler prevents that:
+```java
+interface InterfaceA {
+	default void sameNameMethod() {} }
+interface InterfaceB {
+	default void sameNameMethod() {} }
+interface InterfaceC extends InterfaceA, InterfaceB {}
+//        ^^^^^^^^^^ compiler error
+```
+ 
+## 🟥 2.2 Functional Interfaces
+
+## 🟥 2.3 Polymorphism
+
+## 🟥 2.4 Design Principles 
+
+## 🟥 2.5 Design Patterns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------
 
 # 🧠 Chapter 6 - Exceptions and Assertions
 ## 🟥 6.1 Reviewing Exceptions
