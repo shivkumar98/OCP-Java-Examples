@@ -1,6 +1,6 @@
 # Chapter Review Question Scores
 
-## Chapter 1: Advanced Class Design
+## Chapter 1: Advanced Class Design 🧑‍🎨
 
 | Date       | Attempt  | Score  |  %   |  Questions Wrong |
 | -------    | -----    | ------ | ---- | ---------------- |
@@ -10,20 +10,20 @@
 | 04/01/2024 | [Attempt 4](/src/review_questions/chapter_1/attempt_4/) | 15 / 21 | 71% | 8, 12, 14,, 15, 17, 20 |
 | 07/01/2024 | [Attempt 5](/src/review_questions/chapter_1/attempt_5/) | 19 / 21 | 90% | 9, 21 |
 
-<br>
+<hr>
 
-## Chapter 2: Design Patterns and Principles
+## Chapter 2: Design Patterns and Principles 🌀
 
 | Date       | Attempt  | Score  |  %   |  Questions Wrong |
 | -------    | -----    | ------ | ---- | ---------------- |
-| 29/09/2022 | [Attempt 1](/src/review_questions/chapter_2/attempt_1/)  | 11 / 20 | 55%  | 2, 4, 7-9, 13, 17-19 |
+| 29/09/2022 | [Attempt 1](/src/review_questions/chapter_2/attempt_1/)  | 11 / 20 | 55%  | 2, 4, 7, 8, 9, 13, 17, 18, 19 |
 | 13/08/2023 | [Attempt 2](/src/review_questions/chapter_2/attempt_2/)  | 19 / 20 | 95%  | 4 |
-| 29/09/2023 | [Attempt 3](/src/review_questions/chapter_2/attempt_2/)  | 13 / 20 | 65%  | 1,3,4,7,8,9,13 |
+| 29/09/2023 | [Attempt 3](/src/review_questions/chapter_2/attempt_3/)  | 13 / 20 | 65%  | 1, 3, 4, 7, 8, 9, 13 |
+| 14/01/2024 | [Attempt 4](/src/review_questions/chapter_2/attempt_4/)  | 13 / 20 | 65%  | 3, 4, 7, 8, 10, 13, 18 |
 
-<br>
+<hr>
 
-
-## Chapter 3: Generics and Collections
+## Chapter 3: Generics and Collections 📚
 
 | Date       | Attempt  | Score  |  %   |  Questions Wrong |
 | -------    | -----    | ------ | ---- | ---------------- |
@@ -33,10 +33,9 @@
 | 05/08/2023 | [Attempt 4](/src/review_questions/chapter_3/attempt_4/) | 21/25 | 84% | 2, 8, 18, 25 |
 | 26/09/2023 | [Attempt 5](/src/review_questions/chapter_3/attempt_5/) | 22/25 | 88% | 9, 13, 18 |
 
-<br>
+<hr>
 
-
-## Chapter 4: Functional Programming
+## Chapter 4: Functional Programming 🧮
 
 | Date       | Attempt  | Score  |  %   |  Questions Wrong |
 | -------    | -----    | ------ | ---- | ---------------- |
@@ -45,9 +44,9 @@
 | 15/07/2023 | [Attempt 3](/src/review_questions/chapter_4/attempt_3/)  | 16 /20 | 80% | 5,8,10,11 |
 | 26/09/2023 | [Attempt 4](/src/review_questions/chapter_4/attempt_3/)  | 8 / 20  | 40% | 2,3,5,6,7,8,10,11,12,13,14,18 |
 
-<br>
+<hr>
 
-##  Chapter 5: Dates, Strings, and Localization
+##  Chapter 5: Dates, Strings, and Localization 🕒
 
 | Date       | Attempt  | Score  |  %   |  Questions Wrong |
 | -------    | -----    | ------ | ---- | ---------------- |
@@ -55,9 +54,9 @@
 | 19/09/2023 | [Attempt 2](/src/review_questions/chapter_5/attempt_2/)       |  19 / 20  | 95% | 5 |
 | 27/09/2023 | [Attempt 3](/src/review_questions/chapter_5/attempt_3/)       |  19 / 20  | 95% | 5 |
 
-<br>
+<hr>
 
-##  Chapter 6: Exceptions and Asserions
+##  Chapter 6: Exceptions and Asserions ⚠️
 
 | Date   | Attempt | Score | % | Questions Wrong |
 | ------ |-------- |------ | - | --------------  |
@@ -66,9 +65,9 @@
 | 28/12/2023 | [No. 3](/src/review_questions/chapter_6/attempt_3/)  | 13 / 20 | 65%   | 2,10,11,16,17,18,19 |
 | 28/12/2023 | [No. 4](/src/review_questions/chapter_6/attempt_4/)  | 20 / 20 | 100%  | NONE |
 
-<br>
+<hr>
 
-##  Chapter 7: - Concurrency
+##  Chapter 7: Concurrency 🧵
 
 | Date | Attempt | Score | % | Questions Wrong |
 | -----|---------|-------|---|--------------|
@@ -77,10 +76,9 @@
 | 25/12/2023  | [No. 3](/src/review_questions/chapter_7/attempt_3/) | 14 / 22 | 64% | 3,9,11,13,14,15,21,22                       |
 | 27/12/2023  | [No. 4](/src/review_questions/chapter_7/attempt_4/) | 20 / 22 | 91% | 3,21                                        |
 
-<br>
+<hr>
 
-
-## Chapter 8: IO
+## Chapter 8: IO 🖨️
 
 | Date | Attempt| Score | % | Questions Wrong |
 | ---- |  ----- |------ | - | --------------- |
