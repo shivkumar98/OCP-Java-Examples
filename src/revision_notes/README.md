@@ -2,13 +2,11 @@
 
 # Revision Notes ✍️
 
-# 🧠 Chapter 1 - Advanced Class Design
-
+# 🧑‍🎨 Chapter 1 - Advanced Class Design 🧑‍🎨
 ## 🟥 1.1 Reviewing OCA Concepts
 * Protected variables can be accessed in same package AND of subclass in ANY package
 * Package-private variables can only be accessed in same package
-
-<hr>
+<br>
 
 ## 🟥 1.2 Using instanceof
 * `A instanceof B` is true if A is a subclass, implementation or instance of B
@@ -28,8 +26,7 @@
 	List<String> list = new ArrayList<>(); // compiles!
 	System.out.println(list instanceof Set); // false
 	```
-
-<hr>
+<br>
 
 ## 🟥 1.3 Coding equals() and hashCode
 * The `.equals()` method can be overidden using any business logic the application requires
@@ -38,8 +35,7 @@
       1. If two objects return true when calling `.equals()`, then the hashCode() NEEDS to return the same value
       2. It is NOT required that if `.equals()` returns false that the hashCode() returns the same value
       3. The value of `hashCode()` does not change within the same program. I.e. the hashing should not rely on things which will vary
-
-<hr>
+<br>
 
 ## 🟥 1.4 Working with Enums
 * We can create a simple enum:
@@ -68,9 +64,7 @@
 		// abstract keyword is REQUIRED unless a default implementation is provided
 	}
 	```
-
-
-<hr>
+<br>
 
 ## 🟥 1.5 Creating Nested Classes
 ### 🟡 Member Inner Classes
@@ -109,9 +103,6 @@
 		}
 	}
 	```
-<br>
-
-
 ### 🟡 Local Inner Classes
 * These are classes defined within methods
 * Can NOT have an access modifier specified❌
@@ -147,9 +138,6 @@
 		}
 	}
 	```
-<br>
-
-
 ### 🟡 Anonymous Inner Class
 * These are implementations/extensions of existing classes
 	```java
@@ -160,9 +148,6 @@
 		}
 	}
 	```
-<br>
-
-
 ### 🟡 Static Nested Classes
 * This is the ONLY nested class which can have static variables
 * You can use any visibility modifier
@@ -180,7 +165,7 @@
 
 ---------------------------------------------------------------
 
-# 🧠 Chapter 2 Design Patterns and Principles
+# 🌀 Chapter 2 Design Patterns and Principles 🌀
 
 ## 🟥 2.1 Interfaces
 * Interfaces are classes which implicitly `abstract` and contain:
@@ -202,9 +187,7 @@
 
 
 ## 🟥 2.2 Functional Interfaces
-
 ### ⭐ Functional Interface ⭐
-
 * A **FUNCTIONAL INTERFACE** is an interface with a single abstract method
   * All functional interfaces can be implemented with a lambda
   * We can use `@FunctionalInterface` to ensure that an interface is a valid functional interface
@@ -214,9 +197,7 @@
 	/*^^^^^^^^^^^^^^^^^ compiler error */
 	abstract class AbstractClass { }
 	```
-
 ### ⭐ Lambda Expressions ⭐
-
 * Functional Interfaces can be implemented as lambdas💡
 * There are rules for syntax of lambdas:
   1. If there are multiple parameters, they must be in round brackets✅
@@ -234,8 +215,6 @@
 	VoidInterface v2 = () -> {};
 	VoidInterface v3 = () -> {return;} ;
 	```
-
-
 ### ⭐ Predicate Interface ⭐
 * The `Predicate` Interface is a functional interface defined as:
 ```java
@@ -248,11 +227,9 @@ public interface T Predicate<T> {
 <br>
 
 
-
 ## 🟥 2.3 Polymorphism
 * Polymorpism is the property of a single interface being able to support multiple underlying forms
 * It enables subtypes of a class to be passed into a method
-
 ### ⭐ Casting Object References ⭐
 * The compiler will prevent casts to unrelated types but casting to unrelated types can still occur at runtime
 * You can implicitly cast an object to it superclass
@@ -262,40 +239,21 @@ public interface T Predicate<T> {
 ## 🟥 2.4 Design Principles 
 * A **DESIGN PRINCIPLE** is an established idea or practice which is applied throughout an application. It leads to code which is easier to maintain and reuse
 * Encapsulation, Inheritance and Composition are all design principles💡
-
 ### ⭐ Applying `Has-a` Relationship ⭐
 * This is also known as the object-composition test
-
 ### ⭐ Composing Objects ⭐
 * Object Composition is constructing a class using references to other classes to reuse their functionality
 * It can be use to simulate polmorphic behaviour which can not be achieve multiple inheritance
 <br>
 
 
-
-
 ## 🟥 2.5 Design Patterns
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* A design pattern is an established solution to a commonly occuring development problem. E.g. the MVC model for web applications
+* We shall look at **CREATIONAL PATTERNS** which manage creation of objects
+### ⭐ Singleton Pattern ⭐
+### ⭐ Immutability Pattern ⭐
+### ⭐ Builder Pattern ⭐
+### ⭐ Factory Pattern ⭐
 
 
 --------------------------------------------------------------
