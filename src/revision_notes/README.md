@@ -245,8 +245,17 @@ public interface T Predicate<T> {
 ```
 * You can use this interface in a method and call the `test(T t)` method which return true/false
 * This method parameter can then be passed as a lambda
+<br>
+
+
 
 ## 🟥 2.3 Polymorphism
+* Polymorpism is the property of a single interface being able to support multiple underlying forms
+* It enables subtypes of a class to be passed into a method
+
+### ⭐ Casting Object References ⭐
+* The compiler will prevent casts to unrelated types but casting to unrelated types can still occur at runtime
+* You can implicitly cast an object to it superclass
 
 
 ## 🟥 2.4 Design Principles 
