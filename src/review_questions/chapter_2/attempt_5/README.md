@@ -411,7 +411,14 @@ E. They prevent methods from being overridden  <br>
 F. All getter methods are marked synchronized  <br>
 
 ### My Answer:
-
+* Immutable classes have private final fields, and is marked final itself
+* A - true, as fields are final
+* B - true
+* C - true
+* D - false
+* E - true
+* F - false
+* **A,B,C,E**
 <br>
 
 <hr>
@@ -439,7 +446,8 @@ E. Object <br>
 F. Long <br>
 
 ### My Answer:
-
+* Can have Object, TurtleFrog, Frog, CanHop
+* **A,B,D,E**
 <br>
 
 <hr>
@@ -455,7 +463,12 @@ D. All cast exceptions can be detected at compile time <br>
 E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime <br>
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* **B,C**
 <br>
 
 <hr>
