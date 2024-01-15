@@ -251,6 +251,64 @@ public interface T Predicate<T> {
 * A design pattern is an established solution to a commonly occuring development problem. E.g. the MVC model for web applications
 * We shall look at **CREATIONAL PATTERNS** which manage creation of objects
 ### ⭐ Singleton Pattern ⭐
+* The Singleton pattern let's us create an object in memory only once in the application
+* A singleton requires the following:
+	1. A `private static final` instance
+	2. A `public static getInstance()` method
+	3. A `private` constructor
+	4. Methods which modify fields must be `synchronized`
+* E.g.
+```java
+public class Singleton {
+	private int field;
+	private Singleton() {}
+	private static Singleton instance = new Singleton();
+	public static Singleton getInstance() {
+		return instance;
+	}
+	public synchronized void setField(int field) {
+		this.field = field;
+	}
+}
+```
+* We can also employ lazy instantiation to singletons too:
+```java
+public class LazySingleton {
+	private static LazySingleton instance;
+	private LazySingleton() {}
+	public static LazySingleton getInstance() {
+		if (instance == null) {
+			instance = new LazySingleton(); // NOT THREAD SAFE
+		}
+		return instance;
+	}
+}
+```
+* Lazy instantiation prevents us from making the instance `final`
+```java
+public class LazySingleton {
+	private static final LazySingleton instance; // COMPILER ERROR
+	private LazySingleton() {}
+	public static LazySingleton getInstance() {
+		if (instance==null)
+			instance = new LazySingleton();
+		//  ^^^^^^^^ COMPILER ERROR
+		return instance;
+	}
+}
+```
+* We can circumvent this compiler limitation, by makking the `getInstance()` method synchronized:
+```java
+class LazySingleton {
+	private static LazySingleton instance;
+	private LazySingleton() {}
+	public static synchronized LazySingleton getInstance() {
+		if (instance==null)
+			instance = new LazySingleton();
+		return instance;
+	}
+}
+```
 ### ⭐ Immutability Pattern ⭐
 ### ⭐ Builder Pattern ⭐
 ### ⭐ Factory Pattern ⭐
