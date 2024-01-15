@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 15/01/2024 <br>
-Score: /20 <br>
+Score: 17/20 (85) <br>
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -11,22 +11,22 @@ Score: /20 <br>
 | 2          | ✅      |
 | 3          | ✅      |
 | 4          | ❌      |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 5          | ✅      |
+| 6          | ✅      |
+| 7          | ✅      |
+| 8          | ❌      |
+| 9          | ✅      |
+| 10         | ✅      |
+| 11         | ✅      |
+| 12         | ✅      |
+| 13         | ❌      |
+| 14         | ✅      |
+| 15         | ✅      |
+| 16         | ✅     |
+| 17         | ✅     |
+| 18         | ✅     |
+| 19         | ✅     |
+| 20         | ✅     |
 
 ## 🟧 Question 1
 
@@ -195,7 +195,7 @@ public class Panda {
 
 ### My Answer:
 * This code compiles, and prints `match`
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -238,7 +238,7 @@ H. Make the `Seal` class final  <br>
 * F - false
 * G - true, although I incorrectly assumed this was false to begin with
 * H - true
-* **C,E,G,H**
+* **C,E,G,H**✅✅✅✅
 <br>
 
 <hr>
@@ -262,9 +262,11 @@ F. All members of an interface are public <br>
 * D - false
 * E - false, this will prevent implementation
 * F - true
-* **A,C,F**
+* **A,C,F**❌❌❌❌
+* CORRECT ANSWER: **C,F**
 <br>
 
+* While interfaces can extend interfaces, they can not extend regular classes!!!
 <hr>
 
 ## 🟧 Question 9
@@ -300,7 +302,7 @@ F. Add synchronized to `getCheetahManager()` <br>
 * D - true
 * E - false, not necessary
 * F - true
-* **D,F**
+* **D,F**✅✅✅✅
 <br>
 
 <hr>
@@ -331,7 +333,7 @@ E. The code will not compile because of line 9 <br>
 
 ### My Answer:
 * The interface can not extend two interfaces with a default method of same signature
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -360,7 +362,7 @@ E. `caller((e) -> { String e = ""; return "Poof" });`  <br>
 F. `caller((e) -> { String f = ""; return "Poof"; });` <br>
 
 ### My Answer:
-* **A,F**
+* **A,F**✅✅✅✅
 <br>
 
 <hr>
@@ -394,7 +396,7 @@ E. Compiler error on a different line <br>
 F. A runtime exception is thrown. <br>
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 
 <br>
 
@@ -414,15 +416,18 @@ F. All getter methods are marked synchronized  <br>
 
 ### My Answer:
 * Immutable classes have private final fields, and is marked final itself
-* A - true, as fields are final
+* A - false, not necessary
 * B - true
 * C - true
 * D - false
-* E - true
+* E - false
 * F - false
-* **A,B,C,E**
+* **B,C**❌❌❌❌
+
+* CORRECT ANSWER: **B,C,E**
 <br>
 
+* Preventing subclasses from overriding method is essential to preserving immutability
 <hr>
 
 
@@ -449,7 +454,7 @@ F. Long <br>
 
 ### My Answer:
 * Can have Object, TurtleFrog, Frog, CanHop
-* **A,B,D,E**
+* **A,B,D,E**✅✅✅✅
 <br>
 
 <hr>
@@ -470,7 +475,7 @@ E. By defining public instance method in the superclass, you guarantee that the 
 * C - true
 * D - false
 * E - false
-* **B,C**
+* **B,C**✅✅✅✅
 <br>
 
 <hr>
@@ -497,7 +502,7 @@ E. The code will not compile because of line 2 and 3 <br>
 F. The code will not compile because of line 3 and 4 <br>
 
 ### My Answer:
-* **F**
+* **F**✅✅✅✅
 <br>
 
 <hr>
@@ -515,7 +520,7 @@ E. Variables are created using lazy instantiation <br>
 F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case <br>
 
 ### My Answer:
-* **B,C,F**
+* **B,C,F**✅✅✅✅
 <br>
 
 <hr>
@@ -539,7 +544,7 @@ F. Object composition is always preferred to inheritance. <br>
 * D - false, this is inheritance
 * E - true
 * F - false
-* **A,B,E**
+* **A,B,E**✅✅✅✅
 <br>
 
 <hr>
@@ -557,7 +562,7 @@ E. Provide central access to application configuration data <br>
 F. Allow multiple instances of a static object to be managed in memory <br>
 
 ### My Answer:
-* **B,D,E**
+* **B,D,E**✅✅✅✅
 <br>
 
 <hr>
@@ -585,7 +590,7 @@ E. The code will not compile because of line 2 and 5 <br>
 F. The code will not compile because of class Falcon does not implement the interface methods <br>
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
