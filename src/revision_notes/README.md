@@ -356,7 +356,36 @@ public List getList() {
 ```
 
 ### ⭐ Builder Pattern ⭐
+* The Builder Pattern enables us to construct objects without having to specify all fields in a large constructor
+* Also it enables us to add fields without having to force users of the constructor to update their code!
+* A class which adopts the builder pattern has:
+1. Setter methods to set the fields
+2. A `build()` method which calls the constructor
 
+* Example:
+```java
+class Animal {
+	private int age;
+	private String species;
+	// constructor
+}
+public class AnimalBuilder {
+	private int age;
+	private String species;
+	public AnimalBuilder setAge(int age) {
+		this.age = age;
+		return this;
+	}
+	public AnimalBuilder setSpecies(String species) {
+		this.species = species;
+		return this;
+	}
+	public Animal build() {
+		return new Animal(age, species);
+	}
+	
+}
+```
 ### ⭐ Factory Pattern ⭐
 
 
