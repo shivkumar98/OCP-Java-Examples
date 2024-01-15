@@ -95,8 +95,21 @@ try {
 ```
 
 ## 🟥 9.3.2 Improving Access with Views
-
+* NIO.2 API allows you to retrieve all file metadata in a single call by allowing you to construct views for various file systems.
+* A view is a group of related attributes for a specific file system.
+* Views can also improve performance as there are less calls to the OS.
 ### ⭐ Understanding Views ⭐
+* To request a view, you need to provide both a path of a file (or directory) and a class object.
+* `Files.readAttributes()` returns a read-only view of the file attributes
+* `Files.getFileAttributeView()` returns a direct view for modifying file information
+* Both of these throw a IOEXception (e.g. for when trying read windows-based attributes within a Linux file system)
+* Here are the attributes and view classes:
+
+| Attribute Class | View Class | Description |
+| --------------- | ---------- | ----------- |
+| BasicFileAttributes | BasicFileAttributeView | Basic set of attributes supported by all file systems |
+| DosFileAtttributes | DosFileAttributeView | Attributes supported by DOS/Windows-based systems |
+| PosixFileAttributes | PosixFileAttributeView | Attributes supported by POSIX systems likek UNIX, Linux, Mac, and so on |
 
 ### ⭐ Reading Attributes ⭐
 
