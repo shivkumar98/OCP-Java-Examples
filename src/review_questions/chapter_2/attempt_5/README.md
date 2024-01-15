@@ -2,15 +2,15 @@
 
 ## Results:
 
-Date:  <br>
-Score:  <br>
+Date: 15/01/2024 <br>
+Score: /20 <br>
 
 | Question # | Correct  |
 | ---------- | -------  |
 | 1          | ✅      |
-| 2          | ❌      |
-| 3          |       |
-| 4          |       |
+| 2          | ✅      |
+| 3          | ✅      |
+| 4          | ❌      |
 | 5          |       |
 | 6          |       |
 | 7          |       |
@@ -44,7 +44,7 @@ E.  Design principles and design patterns tend to produce code that is easier to
 * C - true
 * D - false
 * E - true
-* **C,E**
+* **C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -76,7 +76,7 @@ F.  It compiles but throws exception at runtime <br>
 ### My Answer:
 * Chipmunk has climb and chew as abstract methods
 * Therefore line 8 will not compile
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -108,7 +108,7 @@ E.  None of these are valid functional interfaces <br>
 ### My Answer:
 * Climb, and MountainClimb are functional interfaces
 * Swim is an abstract class!
-* **A,D**
+* **A,D**✅✅✅✅
 <br>
 
 <hr>
@@ -133,9 +133,11 @@ G.  `(Animal z, m)-> a` <br>
 * D - valid
 * E - invalid, needs round brackets
 * F - invalid, m must have a type
-* **A,C,D**
+* **A,C,D**❌❌❌❌
+* CORRECT ANSWER: **A,D**
 <br>
 
+* C needs curly braces!
 <hr>
 
 
@@ -158,7 +160,7 @@ F. Required a `public static` method to retrieve the instance of the singleton
 * D - false, must be private
 * E - true
 * F - true
-* **B,E,F**
+* **B,E,F**✅✅✅✅
 <br>
 
 <hr>
