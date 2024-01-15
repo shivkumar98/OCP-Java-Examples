@@ -192,7 +192,8 @@ public class Panda {
     F.  `A runtime exception is thrown`🎃
 
 ### My Answer:
-
+* This code compiles, and prints `match`
+* **A**
 <br>
 
 <hr>
@@ -226,7 +227,16 @@ G. Make a copy of the `List<Seal> friends` in the constructor  <br>
 H. Make the `Seal` class final  <br>
 
 ### My Answer:
-
+* An immutable class is marked final, has private final variables, a public constructor, and no setters
+* A - false, the getFriends() returns a direct reference of a mutable object
+* B - false, does not exist
+* C - true
+* D - false
+* E - true
+* F - false
+* G - true, although I incorrectly assumed this was false to begin with
+* H - true
+* **C,E,G,H**
 <br>
 
 <hr>
@@ -244,7 +254,13 @@ E. They can be declared final <br>
 F. All members of an interface are public <br>
 
 ### My Answer:
-
+* A - true, they can extend interfaces
+* B - false
+* C - true
+* D - false
+* E - false, this will prevent implementation
+* F - true
+* **A,C,F**
 <br>
 
 <hr>
@@ -274,7 +290,15 @@ E. Mark `cheetahManager` final <br>
 F. Add synchronized to `getCheetahManager()` <br>
 
 ### My Answer:
-
+* The instance must be private
+* The get method must be synchronized
+* A - false
+* B - false
+* C - false
+* D - true
+* E - false, not necessary
+* F - true
+* **D,F**
 <br>
 
 <hr>
@@ -304,7 +328,8 @@ D. The code will not compile because of line 8 <br>
 E. The code will not compile because of line 9 <br>
 
 ### My Answer:
-
+* The interface can not extend two interfaces with a default method of same signature
+* **D**
 <br>
 
 <hr>
@@ -333,7 +358,7 @@ E. `caller((e) -> { String e = ""; return "Poof" });`  <br>
 F. `caller((e) -> { String f = ""; return "Poof"; });` <br>
 
 ### My Answer:
-
+* **A,F**
 <br>
 
 <hr>
@@ -367,6 +392,7 @@ E. Compiler error on a different line <br>
 F. A runtime exception is thrown. <br>
 
 ### My Answer:
+* **C**
 
 <br>
 
