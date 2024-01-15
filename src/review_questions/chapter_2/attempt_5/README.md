@@ -495,7 +495,7 @@ E. The code will not compile because of line 2 and 3 <br>
 F. The code will not compile because of line 3 and 4 <br>
 
 ### My Answer:
-
+* **F**
 <br>
 
 <hr>
@@ -513,7 +513,7 @@ E. Variables are created using lazy instantiation <br>
 F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case <br>
 
 ### My Answer:
-
+* **B,C,F**
 <br>
 
 <hr>
@@ -531,7 +531,13 @@ E. Object composition requires a class variable to be public or accessible from 
 F. Object composition is always preferred to inheritance. <br>
 
 ### My Answer:
-
+* A - true
+* B - true
+* C - false
+* D - false, this is inheritance
+* E - true
+* F - false
+* **A,B,E**
 <br>
 
 <hr>
@@ -549,7 +555,7 @@ E. Provide central access to application configuration data <br>
 F. Allow multiple instances of a static object to be managed in memory <br>
 
 ### My Answer:
-
+* **B,D,E**
 <br>
 
 <hr>
@@ -577,7 +583,7 @@ E. The code will not compile because of line 2 and 5 <br>
 F. The code will not compile because of class Falcon does not implement the interface methods <br>
 
 ### My Answer:
-
+* **A**
 <br>
 
 <hr>
