@@ -299,7 +299,7 @@ public class LazySingleton {
 ```
 * We can circumvent this compiler limitation, by makking the `getInstance()` method synchronized:
 ```java
-class LazySingleton {
+public class LazySingleton {
 	private static LazySingleton instance;
 	private LazySingleton() {}
 	public static synchronized LazySingleton getInstance() {
@@ -309,8 +309,54 @@ class LazySingleton {
 	}
 }
 ```
+
 ### ⭐ Immutability Pattern ⭐
+* An immutability strategy can be implemented by having:
+1. A public constructor for setting all the fields
+2. Mark all instance variables as `private final`
+3. Define no setters (impossible due to `final` modifier)
+4. Do no allow referenced objects to be modified or accessed directly
+5. Make class final to prevent method overriding
+* Here is an example:
+```java
+public final class ImmutableClass {
+	private final int field;
+	public ImmutableClass(int field) {
+		this.field = field;
+	}
+}
+```
+* We need to be sure not to expose mutable objects directly:
+```java
+final class BadImmutableClass {
+	private final List<String> list;
+	public BadImmutableClass(List<String> list) {
+		this.list = new ArrayList<>(list);
+	}
+	public List getList() { // makes class immutable
+		return list;
+	}
+	@Override
+	public String toString() {
+		return "BadImmutableClass [list=" + list + "]";
+	}
+	public static void main(String[] args) {
+		BadImmutableClass immutable = new BadImmutableClass(Arrays.asList("hello"));
+		immutable.getList().remove(0);
+		System.out.println(immutable.toString());
+		// BadImmutableClass [list=[]]
+	}
+}	
+```
+* We can fix this problem by returning a new reference of the list:
+```java
+public List getList() {
+	return new ArrayList<>(list); // makes it immutable again!
+}
+```
+
 ### ⭐ Builder Pattern ⭐
+
 ### ⭐ Factory Pattern ⭐
 
 
