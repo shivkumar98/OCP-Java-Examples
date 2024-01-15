@@ -20,6 +20,7 @@
 | 13/08/2023 | [No. 2](/src/review_questions/chapter_2/attempt_2/)  | 19 / 20 | 95%  | 4 |
 | 29/09/2023 | [No. 3](/src/review_questions/chapter_2/attempt_3/)  | 13 / 20 | 65%  | 1,3,4,7,8,9,13 |
 | 14/01/2024 | [No. 4](/src/review_questions/chapter_2/attempt_4/)  | 13 / 20 | 65%  | 3,4,7,8,10,13,18 |
+| 14/01/2024 | [No. 5](/src/review_questions/chapter_2/attempt_5/)  | 17 / 20 | 85%  | 4,8,13 |
 
 <hr>
 
