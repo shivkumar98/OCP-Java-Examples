@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 15/01/2024 <br>
-Score: /20 <br>
+Score: 8/10 <br>
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -11,12 +11,12 @@ Score: /20 <br>
 | 2          | ✅      |
 | 3          | ✅      |
 | 4          | ❌      |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
+| 5          | ✅      |
+| 6          | ✅      |
+| 7          | ✅      |
+| 8          | ❌      |
+| 9          | ✅      |
+| 10         | ✅      |
 | 11         |       |
 | 12         |       |
 | 13         |       |
@@ -195,7 +195,7 @@ public class Panda {
 
 ### My Answer:
 * This code compiles, and prints `match`
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -238,7 +238,7 @@ H. Make the `Seal` class final  <br>
 * F - false
 * G - true, although I incorrectly assumed this was false to begin with
 * H - true
-* **C,E,G,H**
+* **C,E,G,H**✅✅✅✅
 <br>
 
 <hr>
@@ -262,9 +262,11 @@ F. All members of an interface are public <br>
 * D - false
 * E - false, this will prevent implementation
 * F - true
-* **A,C,F**
+* **A,C,F**❌❌❌❌
+* CORRECT ANSWER: **C,F**
 <br>
 
+* While interfaces can extend interfaces, they can not extend regular classes!!!
 <hr>
 
 ## 🟧 Question 9
@@ -300,7 +302,7 @@ F. Add synchronized to `getCheetahManager()` <br>
 * D - true
 * E - false, not necessary
 * F - true
-* **D,F**
+* **D,F**✅✅✅✅
 <br>
 
 <hr>
@@ -331,7 +333,7 @@ E. The code will not compile because of line 9 <br>
 
 ### My Answer:
 * The interface can not extend two interfaces with a default method of same signature
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
