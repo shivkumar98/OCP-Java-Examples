@@ -309,7 +309,6 @@ public class LazySingleton {
 	}
 }
 ```
-
 ### ⭐ Immutability Pattern ⭐
 * An immutability strategy can be implemented by having:
 1. A public constructor for setting all the fields
@@ -354,7 +353,6 @@ public List getList() {
 	return new ArrayList<>(list); // makes it immutable again!
 }
 ```
-
 ### ⭐ Builder Pattern ⭐
 * The Builder Pattern enables us to construct objects without having to specify all fields in a large constructor
 * Also it enables us to add fields without having to force users of the constructor to update their code!
