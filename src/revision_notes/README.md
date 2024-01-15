@@ -387,7 +387,33 @@ public class AnimalBuilder {
 }
 ```
 ### ⭐ Factory Pattern ⭐
-
+* Suppose we need a specific instance, but we only have the information at runtime.
+* The factory method let's us return a specific instance using polymorphism
+```java
+public abstract class Food {
+	private int quantity;
+	public Food(int quantity) { this.quantity = quantity; }
+}
+class Hay extends Food {
+	public Hay(int quantity) { super(quantity); }
+}
+class Pellets extends Food {
+	public Pellets(int quantity) { super(quantity); }
+}
+class Fish extends Food {
+	public Fish(int quantity) { super(quantity); }
+}
+class FoodFactory {
+	public static Food gettFood(String animal) {
+		switch(animal) {
+			case "zebra": return new Hay(1000);
+			case "rabbit": return new Pellets(5);
+			case "goat": return new Pellets(30);
+			case "polar bear": return new Fish(10);
+		}
+	}
+}
+```
 
 --------------------------------------------------------------
 
