@@ -29,15 +29,70 @@ Files.isSymbolicLinkk(Paths.get("/canine/coyote"))
 ```
 
 ### ⭐ Checking File Visibility with isHidden() ⭐
+* The `Files` class has a `.isHidden(Path)` method which determines whether a file or directory which exists
+* This method throws IOException if there is an IO error when reading this method
+```java
+try {
+    System.out.println(Files.isHidden(Paths.get("/walrus.txt")));
+} catch (IOException e) {
+    // handle exception
+}
+```
 
 ### ⭐ Testing File Accessibility with isReadable() and isExecutable() ⭐
+* `isReadable(Path)` is used to determine if the contents of a file can be read
+* `isExecutable(Path)` is used to determine whether a file can be executed
+* These methods do not throw exceptions if the file does not exist
 
 ### ⭐ Reading File Length with size() ⭐
-
+* The `Files.size(Path)` returns the size of a file in bytes.
+* The value may differ from the actual size the file takes up in storage.
+* The `size()` method throws a IOException if the file does not exist or the information can not be read
 ### ⭐ Managing File Modifications wwith getLastModifiedTime() and setLastModifiedTime() ⭐
-
+* `Files.getLastModifiedTime(Path)` returns a `FileTime` object to accomplish this - this class stores date/time information of when the file was accessed, created, or modified.
+* We can set the last modified date/time information using `Files.setLastModified(Path,FileTime)`
+* Both of these methods throw IOException
+```java
+try {
+    final Path path = Paths.get("/rabbit/food.jpg");
+    System.out.println(Files.getLastModifiedTime(path).toMillis());
+    File.setLastModifiedTime(path,
+        FileTime.fromMillis(System.getCurrentMillis()));
+    System.out.println(Files.getLastModifiedTime(path).toMillis());
+} catch (IOException e) {
+    // handle IOException
+}
+```
 ### ⭐ Managing Ownership with getOwner() and setOwner() ⭐
-
+* `Files.getOwner(Path)` returns a `UserPrincipal` instance
+* We also have a set method: `Files.setOwner(Path, UserPrincipal)`
+* Both of these methods throw IOException
+* We can obtain the owner of a file using `UserPrincipalLookupService`. You need to obtain an instance of `FileSystem` to use this service
+```java
+UserPrincipal owner = FileSystems.getDefault()
+    .getUserPrincipalLLookupService()
+    .lookupPrincipalByName("shiv");
+UserPrincipal owner = FileSystems.getFileSystem()
+    .getUserPrincipalLLookupService()
+    .lookupPrincipalByName("shiv");
+```
+* Here are examples of using `getOwner()` and `setOwner()`:
+```java
+try {
+    // Read owner
+    Path path = Paths.get("/chicken/feathers.txt");
+    System.out.println(Files.getOwner(path).getName());
+    // Change owner of the file
+    UserPrincipal owner = paths.getFileSystem()
+        .getUserPrincipalLookupService()
+        .lookupPrincipalByName("Shiv");
+    Files.setOwner(path, owner);
+    // Output the updated owner information
+    System.out.println(Files.getOwner(path).getName());
+} catch (IOException e) {
+    // Handle file IOException
+}
+```
 
 ## 🟥 9.3.2 Improving Access with Views
 
