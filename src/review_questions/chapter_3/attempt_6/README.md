@@ -191,27 +191,29 @@ F. Compiler error on line 7 🎃
 ## Question 7:
 ❓ Which of the following statements are true for the following code: ❓ 
 ```java
-Set<Number> numbers = new HashSet<>();  // LINE 3
-numbers.add(new Integer(86));
-numbers.add(75);
-numbers.add(new Integer(86));
-numbers.add(null);
-numbers.add(309L);
-Iterator iter = numbers.iterator();     // LINE 9
-while (iter.hasNext())
-    System.out.print(iter.next());   
+3:  Set<Number> numbers = new HashSet<>(); 
+4:  numbers.add(new Integer(86));
+5:  numbers.add(75);
+6:  numbers.add(new Integer(86));
+7:  numbers.add(null);
+8:  numbers.add(309L);
+9:  Iterator iter = numbers.iterator(); 
+10: while (iter.hasNext())
+11:     System.out.print(iter.next());   
 ```
 
-A. The code compiles successfully 🎃
-B. Output is `8675null309` 🎃
-C. Output is `56758null309` 🎃
-D. The output is intermediate 🎃
-E. There's a compiler error on line 3 🎃
-F. Compiler error on line 9 🎃
-G. An exception is thrown 🎃
+A. The code compiles successfully <br>
+B. Output is `8675null309` <br>
+C. Output is `56758null309` <br>
+D. The output is intermediate <br>
+E. There's a compiler error on line 3 <br>
+F. Compiler error on line 9 <br>
+G. An exception is thrown <br>
 
 ### My Answer:
-
+* A hashset has no determinable order
+* The code will indeed compile
+* **D**
 <hr>
 
 ## Question 8:
@@ -224,15 +226,19 @@ tree.add("ONE");
 System.out.println(tree.ceiling("On"));
 ```
 
-A. `On` 🎃
-B. `one` 🎃
-C. `One` 🎃
-D. `ONE` 🎃
-E. The code does not compile 🎃
-F. An exception is thrown 🎃
+A. `On` <br>
+B. `one` <br>
+C. `One` <br>
+D. `ONE` <br>
+E. The code does not compile <br>
+F. An exception is thrown <br>
 
 ### My Answer:
-
+* I honestly don't remember
+* But `tree= [ONE One one]`
+* `tree.ceiling("On")` returns the highest element less than On
+* `ONE` is printed
+* **D**
 <hr>
 
 ## Question 9:
@@ -259,7 +265,11 @@ map.add('x', new Double(123.4));
 E. None of the above 🎃
 
 ### My Answer:
-
+* A - true, I think
+* B - true
+* C - true
+* D - false, I thinkk
+* **A,B,C**
 <hr>
 
 ## Question 10:
