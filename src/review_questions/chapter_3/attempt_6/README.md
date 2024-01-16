@@ -1,4 +1,4 @@
-# Chapter 3: Review Questions - Review Questions Attemp 6
+# Chapter 3: Review Questions - Review Questions Attempt 6
 
 ## Results:
 
@@ -37,7 +37,7 @@ Score:
 
 ❓ Suppose you have a collection of products for sale in a database and you need to display those products. The products are not unique.
 
-Which of the following collections classes in the `java.util` package best suit your need in this scenario? ❓🎃
+Which of the following collections classes in the `java.util` package best suit your need in this scenario? ❓
 
 A. Arrays <br>
 B. ArrayList <br>
@@ -97,26 +97,29 @@ E. Compiler error on line 7 <br>
 ## Question 4:
 ❓ What is the result of the following? ❓ 
 ```java
-    ArrayDeque<String> greetings = new ArrayDeque<String>();
-    greetings.push("hello");
-    greetings.push("hi");
-    greetings.push("ola");
-    greetings.pop();
-    greetings.peek();
-    while(greetings.peek() != null)
-        System.out.println(greetings.pop);
+3:    ArrayDeque<String> greetings = new ArrayDeque<String>();
+4:    greetings.push("hello");
+5:    greetings.push("hi");
+6:    greetings.push("ola");
+7:    greetings.pop();
+8:    greetings.peek();
+9:    while(greetings.peek() != null)
+10:       System.out.println(greetings.pop());
 ```
 
-    A. `hello` 🎃
-    B. `hellohi` 🎃
-    C. `hellohiola` 🎃
-    D. `hi` 🎃
-    E. `hihello` 🎃
-    F. The code does not compile 🎃
-    G. An exception is thrown 🎃
+A. `hello` <br>
+B. `hellohi` <br>
+C. `hellohiola` <br>
+D. `hi` <br>
+E. `hihello` <br>
+F. The code does not compile <br>
+G. An exception is thrown <br>
 
 ### My Answer:
-
+* `greetings = [ola, hi, hello]`
+* `greetings = [hi, hello]`
+* Will print hi hello
+* **E**
 <hr>
 
 ## Question 5:
@@ -146,19 +149,29 @@ F. 🎃
 ```java
 Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 ```
+### My Answer:
+* A - does not compile, RHS is not the same as LHS
+* B - does compile as Exception is a super class of ClassCastException
+* C - does compile I THINK, vector is an implementation of List
+* D - does not compile, HashSet is not a List implementation
+* E - does not compile, can not specify wild card on RHS
+* F - does compile, Integer does extend Number
+* **B,C,F**
+<hr>
+
 ## Question 6:
 
 ❓ What is the result of the following code: ❓ 
 ```java
-    public class Hello<T> {
-        T t;
-        public Hello(T t) { this. t = t };
-        public String toString() { return t.toString() };   // LINE 4
-        public static void main(String[] args){
-            System.out.println(new Hello<String>("hi"));    // LINE 6
-            System.out.println(new Hello("there"));         // LINE 7
-        }
-    }
+1:  public class Hello<T> {
+2:      T t;
+3:      public Hello(T t) { this. t = t };
+4:      public String toString() { return t.toString() };   
+5:      public static void main(String[] args){
+6:          System.out.print(new Hello<String>("hi"));    
+7:          System.out.print(new Hello("there"));         
+8:      }
+9:  }
 ```
 
 A. `hi` 🎃
@@ -166,10 +179,13 @@ B. `hi` followed by a runtime exception 🎃
 C. `hithere` 🎃
 D. Compiler error on line 4 🎃
 E. Compiler error on line 6 🎃
-F. Compiler error on line 🎃
+F. Compiler error on line 7 🎃
 
 ### My Answer:
-
+* Line 6 and 7 defintitely compile
+* Not too sure of line 4 but then again all objects have a .toString method
+* Will print `hithere`
+* **C**
 <hr>
 
 ## Question 7:

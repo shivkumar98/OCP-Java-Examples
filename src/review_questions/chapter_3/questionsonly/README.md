@@ -1,4 +1,4 @@
-# Chapter 3 - Review Questions Attemp #
+# Chapter 3 - Review Questions Attempt #
 
 ## Results:
 
@@ -98,7 +98,7 @@ Which of the following collections classes in the `java.util` package best suit 
     greetings.pop();
     greetings.peek();
     while(greetings.peek() != null)
-        System.out.println(greetings.pop);
+        System.out.println(greetings.pop());
 ```
 
     A. `hello` 🎃
@@ -140,6 +140,11 @@ F. 🎃
 ```java
 Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 ```
+
+### My Answer:
+
+<hr>
+
 ## Question 6:
 
 ❓ What is the result of the following code: ❓ 
