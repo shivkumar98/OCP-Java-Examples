@@ -125,30 +125,13 @@ G. An exception is thrown <br>
 ## Question 5:
 ❓ Which of the statements compile? (Choose all that apply) ❓ 
 
-A. 🎃
-```java
-HashSet<Number> hs = new HashSet<Integer>();
-```
-B. 🎃
-```java
-HashSet<? super ClassCastException> set = new HashSet<Exception>()
-```
-C. 🎃
-```java
-List<String> list = new Vector<String>();
-```
-D. 🎃
-```java
-List<Object> values = new HashSet<Object>();
-```
-E. 🎃
-```java
-List<Object> objects = new ArrayList<? extends Object>();
-```
-F. 🎃
-```java
-Map<String, ? extends Number> hm = new HashMap<String, Integer>();
-```
+A. `HashSet<Number> hs = new HashSet<Integer>();`
+B. `HashSet<? super ClassCastException> set = new HashSet<Exception>()`
+C. `List<String> list = new Vector<String>();`
+D. `List<Object> values = new HashSet<Object>();`
+E. `List<Object> objects = new ArrayList<? extends Object>();`
+F. `Map<String, ? extends Number> hm = new HashMap<String, Integer>();`
+
 ### My Answer:
 * A - does not compile, RHS is not the same as LHS
 * B - does compile as Exception is a super class of ClassCastException
@@ -174,12 +157,12 @@ Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 9:  }
 ```
 
-A. `hi` 🎃
-B. `hi` followed by a runtime exception 🎃
-C. `hithere` 🎃
-D. Compiler error on line 4 🎃
-E. Compiler error on line 6 🎃
-F. Compiler error on line 7 🎃
+A. `hi` <br>
+B. `hi` followed by a runtime exception <br>
+C. `hithere` <br>
+D. Compiler error on line 4 <br>
+E. Compiler error on line 6 <br>
+F. Compiler error on line 7 <br>
 
 ### My Answer:
 * Line 6 and 7 defintitely compile
@@ -246,22 +229,10 @@ F. An exception is thrown <br>
 ```java
 Map<String, Double> map = new HashMap<>();
 ```
-A. 🎃
-```java
-map.add("pi", 3.14159);
-```
-B. 🎃
-```java
-map.add("e", 2L);
-```
-C. 🎃
-```java
-map.add("log(1)", new Double(0.0));
-```
-D. 🎃
-```java
-map.add('x', new Double(123.4));
-```
+A. `map.add("pi", 3.14159);`
+B. `map.add("e", 2L);`
+C. `map.add("log(1)", new Double(0.0));`
+D. `map.add('x', new Double(123.4));`
 E. None of the above 🎃
 
 ### My Answer:
@@ -284,40 +255,48 @@ public class MyComparator implements Comparator<String> {
 
     public void static main(String[] args){
         String[] values = { "123", "Abb", "aab" };
-        Arrays.sort(values, new MyComarator());
+        Arrays.sort(values, new MyComparator());
         for (String s:values)
             System.out.print(s + " ");
     }
 }
 ```
-A. `Abb aab 123` 🎃
-B. `aab Abb 123` 🎃
-C. `123 Abb aab` 🎃
-D. `123 aab Abb` 🎃
-E. The code does not compile 🎃
-F. A runtime exception is thrown 🎃
+
+A. `Abb aab 123` <br>
+B. `aab Abb 123` <br>
+C. `123 Abb aab` <br>
+D. `123 aab Abb` <br>
+E. The code does not compile <br>
+F. A runtime exception is thrown <br>
 
 ### My Answer:
-
+* The Comparator sorts in reverse alphabetical order, ignoring case
+* values will be the reverse of `[123, aab, Abb]`
+* So it will print `Abb aab 123`
+* **A**
 <hr>
 
 ## Question 11:
 ❓ What is the result of the following: ❓ 
 ```java
-    Map<Integer, Integer> map = new HashMap<>(10);  // LINE 3
-    for (int i = 1; i <=10; i++) {                  
-        map.put(i, i*i);                            // LINE 5
-    }                           
-    System.out.println(map.get(4));                 // LINE 7
+3:    Map<Integer, Integer> map = new HashMap<>(10);  
+4:    for (int i = 1; i <=10; i++) {                 
+5:        map.put(i, i*i);                            
+6:    }                           
+7:    System.out.println(map.get(4));                 
 ```
-A. `16` 🎃
-B. `25` 🎃
-C. Compiler error on line 3 🎃
-D. Compiler error on line 5 🎃
-E. Compiler error on line 7 🎃
-F. A runtime exception is thrown 🎃
-### My Answer:
 
+A. `16` <br>
+B. `25` <br>
+C. Compiler error on line 3 <br>
+D. Compiler error on line 5 <br>
+E. Compiler error on line 7 <br>
+F. A runtime exception is thrown <br>
+
+### My Answer:
+* Map = {1:1, 2:4, 3:9, 4:16, 5:25}
+* I think map has a `get(Object)` method, so map.get(4) = 16
+* **A**
 <hr>
 
 ## Question 12:
@@ -332,28 +311,20 @@ F. A runtime exception is thrown 🎃
         }
     }
 ```
-A. 🎃
-```java
-Helper.printException(new FileNotFoundException("A"))
-```
-B. 🎃
-```java
-Helper.printException(new Exception("B"))
-```
-C. 🎃
-```java
-Helper.<Throwable>printException(new Exception("C"))
-```
-D. 🎃
-```java
-Helper.<NullPointerException>printException(new NullPointerException("D"))
-```
-E. 🎃
-```java
-Helper.printException(new Throwable("E"))
-```
-### My Answer:
+A. `Helper.printException(new FileNotFoundException("A"))`
+B. `Helper.printException(new Exception("B"))`
+C. `Helper.<Throwable>printException(new Exception("C"))`
+D. `Helper.<NullPointerException>printException(new NullPointerException("D"))`
+E. `Helper.printException(new Throwable("E"))`
 
+### My Answer:
+* The printException method accepts anything that extends Exception, or is Exception
+* A - valid
+* B - valid
+* C - invalid, the generic does not match!
+* D - vaid
+* E - invalid, Throwable is a parent classa
+* **A,B,D**
 <hr>
 
 ## Question 13:
@@ -373,27 +344,12 @@ public class WildCard {
 }
 ```
 
-A. 🎃
-```java
-ArrayDeque<?> list = new ArrayDeque<String>();
-```
-B. 🎃
-```java
-ArrayList<? super Date> list = new ArrayList
-```
-C. 🎃
-```java
-List<?> list = new LinkedList<java.io.IOException>();
-```
-D. 🎃
-```java
-List<Exception> list = new LinkedList<java.io.IOException>();
-```
-E. 🎃
-```java
-Vector<? extends Number> list = new Vector<Integer>();
-```
-F. None of the above 🎃
+A. `ArrayDeque<?> list = new ArrayDeque<String>();` <br>
+B. `ArrayList<? super Date> list = new ArrayList` <br>
+C. `List<?> list = new LinkedList<java.io.IOException>();` <br>
+D. `List<Exception> list = new LinkedList<java.io.IOException>();` <br>
+E. `Vector<? extends Number> list = new Vector<Integer>();` <br>
+F. None of the above <br>
 
 ### My Answer:
 
