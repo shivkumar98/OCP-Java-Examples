@@ -7,9 +7,9 @@ Score:
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          | ✅      |
-| 2          | ❌      |
-| 3          |       |
+| 1          | ❌      |
+| 2          |       |
+| 3          | ❌      |
 | 4          |       |
 | 5          |       |
 | 6          |       |
@@ -48,7 +48,11 @@ E. LinkedList <br>
 ### My Answer:
 * The products have duplicates, so we need an ArrayList or Array
 * Arrays is the only one in java.util
-* **A**
+* **A**❌❌❌❌
+* CORRECT ANSWER: **B**
+<br>
+
+* Array is in `java.lang` all the collection classes are in java.util!!!!
 <hr>
 
 ## Question 2:
@@ -68,7 +72,7 @@ F. Vector <br>
 ### My Answer:
 * We need a Map, but it also needs to be sorted so its TreeMap
 * I THINK MAP is a util class
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 3:
@@ -91,7 +95,12 @@ E. Compiler error on line 7 <br>
 ### My Answer:
 * The list does not specify a generic so lines 4-6 are fine
 * Line 7 will compile
-* **C**
+* **C**❌❌❌❌
+* CORRECT ANSWER: **E**
+<br>
+
+* This sample attempts to mix legacy collections code with newer enhanced for loops
+* Line 7 will not compile! If it were to loop through `Object` instead, the code would function fine!
 <hr>
 
 ## Question 4:
