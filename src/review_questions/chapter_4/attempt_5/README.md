@@ -98,12 +98,12 @@ boolean b1 = stream.noneMatch(predicate);
 boolean b2 = stream.anyMatch(predicate);
 System.out.println(b1 + " "+ b2);
 ```
-A. `false true`
-B. `false false`
-C. `java.util.stream.ReferencePipeline$3@4517d9a3`
-D. The code does not compile
-E. An exception is thrown
-F. The code hangs
+A. `false true` <br>
+B. `false false` <br>
+C. `java.util.stream.ReferencePipeline$3@4517d9a3` <br>
+D. The code does not compile <br>
+E. An exception is thrown <br>
+F. The code hangs <br>
 ❓
 
 ### My Answer:
@@ -117,18 +117,20 @@ F. The code hangs
 
 ❓Which are true statements about terminal operations in a stream?
 
-A. At most one terminal operation can exist in a stream pipeline
-
-B. Terminal operations are a required part of the stream pipeline in order to get a result
-
-C. Terminal operations must have `Stream` as the return type.
-
-D. The referenced `Stream` may be used after the calling a terminal operation
-
-E. The `peek()` method is an example of a terminal operation
+A. At most one terminal operation can exist in a stream pipeline <br>
+B. Terminal operations are a required part of the stream pipeline in order to get a result <br>
+C. Terminal operations must have `Stream` as the return type. <br>
+D. The referenced `Stream` may be used after the calling a terminal operation <br>
+E. The `peek()` method is an example of a terminal operation <br>
 ❓
 
 ### My Answer:
+* A - false, you can have multiple operations likke filter and map
+* B - true
+* C - false, they can return any type
+* D - false
+* E - false
+* **B**
 
 <hr>
 
@@ -136,20 +138,22 @@ E. The `peek()` method is an example of a terminal operation
 
 ❓ Which terminal operations on the `Stream` class are reductions?❓
 
-A. collect()
-
-B. count()
-
-C. findFirst()
-
-D. map()
-
-E. peek()
-
-F. sum()
+A. collect() <br>
+B. count() <br>
+C. findFirst() <br>
+D. map() <br>
+E. peek() <br>
+F. sum() <br>
 
 ### My Answer:
-
+* Reduces account for all elements, and return a single element
+* A - true, i THINK
+* B - true
+* C - false
+* D - false, not a single result
+* E - false
+* F - true
+* **B,F**
 <hr>
 
 ## Question 6:
@@ -162,22 +166,22 @@ boolean match = s._______(String::isEmpty);
 System.out.println(match);
 ```
 
-A. `allMatch`
-
-B. `anyMatch`
-
-C. `findAny`
-
-D. `findFirst`
-
-E. `noneMatch`
-
-F. None of the above
+A. `allMatch` <br>
+B. `anyMatch` <br>
+C. `findAny` <br>
+D. `findFirst` <br>
+E. `noneMatch` <br>
+F. None of the above <br>
 
 ### My Answer:
-
+* A - true
+* B - false, the code will hang
+* C - false, the code will hang
+* D - false, code will hang
+* E - false, code will hang
+* F - false
+* **A**
 <hr>
-
 
 
 ## Question 7
