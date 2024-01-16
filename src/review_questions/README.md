@@ -33,7 +33,7 @@
 | 22/07/2023 | [No. 3](/src/review_questions/chapter_3/attempt_3/) | 13 / 25 | 52% | 2,6,8,10,11,12,13,18,19,20,22,24 |
 | 05/08/2023 | [No. 4](/src/review_questions/chapter_3/attempt_4/) | 21 / 25 | 84% | 2,8,18,25 |
 | 26/09/2023 | [No. 5](/src/review_questions/chapter_3/attempt_5/) | 22 / 25 | 88% | 9,13,18 |
-
+| 26/09/2023 | [No. 6](/src/review_questions/chapter_3/attempt_6/) | 21 / 25 | 84% | 1,3,8,9 |
 <hr>
 
 ## Chapter 4: Functional Programming 🧮
