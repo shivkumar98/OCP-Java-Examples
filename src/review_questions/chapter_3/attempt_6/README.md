@@ -2,23 +2,23 @@
 
 ## Results:
 
-Date: 
-Score: 
+Date: 16/01/2024 <br>
+Score: 8/12 <br>
 
 | Question # | Correct  |
 | ---------- | -------  |
 | 1          | ❌      |
-| 2          |       |
+| 2          | ✅      |
 | 3          | ❌      |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 4          | ✅      |
+| 5          | ✅      |
+| 6          | ✅      |
+| 7          | ✅      |
+| 8          | ❌      |
+| 9          | ❌      |
+| 10         | ✅      |
+| 11         | ✅      |
+| 12         | ✅      |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -205,7 +205,7 @@ G. An exception is thrown <br>
 ### My Answer:
 * A hashset has no determinable order
 * The code will indeed compile
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -230,7 +230,13 @@ F. An exception is thrown <br>
 * But `tree= [ONE One one]`
 * `tree.ceiling("On")` returns the highest element less than On
 * `ONE` is printed
-* **D**
+* **D**❌❌❌❌
+* CORRECT ANSWER: E
+<br>
+
+* The celing function will return the smallest element greater than "On"
+* "On" wwould be between ONE and One
+* So the smallest element greater is One
 <hr>
 
 ## Question 9:
@@ -249,7 +255,13 @@ E. None of the above 🎃
 * B - true
 * C - true
 * D - false, I thinkk
-* **A,B,C**
+* **A,B,C**❌❌❌❌
+* CORRECT ANSWER: **E**
+<br>
+
+* Map does not have an add method
+* If the answers used put, the answer would be A,C
+* You can't add a Long into a Double!
 <hr>
 
 ## Question 10:
@@ -282,7 +294,7 @@ F. A runtime exception is thrown <br>
 * The Comparator sorts in reverse alphabetical order, ignoring case
 * values will be the reverse of `[123, aab, Abb]`
 * So it will print `Abb aab 123`
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 11:
@@ -305,7 +317,7 @@ F. A runtime exception is thrown <br>
 ### My Answer:
 * Map = {1:1, 2:4, 3:9, 4:16, 5:25}
 * I think map has a `get(Object)` method, so map.get(4) = 16
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -333,7 +345,7 @@ E. `Helper.printException(new Throwable("E"))`
 * C - invalid, the generic does not match!
 * D - vaid
 * E - invalid, Throwable is a parent classa
-* **A,B,D**
+* **A,B,D**✅✅✅✅
 <hr>
 
 ## Question 13:
