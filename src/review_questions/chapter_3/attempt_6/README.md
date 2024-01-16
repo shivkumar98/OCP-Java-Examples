@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 16/01/2024 <br>
-Score: 11/15 <br>
+Score: 21/25 (84%) <br>
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -22,16 +22,16 @@ Score: 11/15 <br>
 | 13         | ✅      |
 | 14         | ✅      |
 | 15         | ✅      |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
-| 23         |       |
-| 24         |       |
-| 25         |       |
+| 16         | ✅      |
+| 17         | ✅      |
+| 18         | ✅      |
+| 19         | ✅      |
+| 20         | ✅      |
+| 21         | ✅      |
+| 22         | ✅      |
+| 23         | ✅      |
+| 24         | ✅      |
+| 25         | ✅      |
 
 ## Question 1
 
@@ -471,7 +471,7 @@ F. `compare()` takes two method parameters <br>
 * D - true
 * E - false
 * F - true
-* **B,D,F**
+* **B,D,F**✅✅✅✅
 <hr>
 
 ## Question 17:
@@ -497,7 +497,7 @@ F. Fill Line 3 with `<?>` <br>
 ### My Answer:
 * The class needs to declare a generic type `<T>`
 * Line 3 needs to take `<>`
-* **B,D**
+* **B,D**✅✅✅✅
 <hr>
 
 ## Question 18:
@@ -528,7 +528,7 @@ F. `C c1 = new C();` <br>
 * D - invalid
 * E - invalid
 * F - invalid
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 ##  Question 19:
@@ -553,7 +553,7 @@ F. A runtime exception is thrown <br>
 * If we have List, then it will be `[10, 12] -> [10]`
 * If we have Queue, then it will be `[10, 12]`
 * I think anyway
-* **A,D**
+* **A,D**✅✅✅✅
 <hr>
 
 ##  Question 20:
@@ -575,7 +575,7 @@ F. A runtime exception is thrown <br>
 
 ### My Answer:
 * Maps do not have a `.contains()` method
-* **E**
+* **E**✅✅✅✅
 
 ##  Question 21:
 
@@ -596,7 +596,7 @@ E. On line 7, fill blank with `hasNext()` <br>
 F. On line 7, fill blank with `next()` <br>
 
 ### My Answer:
-* **A,F**
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 22:
@@ -621,7 +621,7 @@ F. No change required the code already compiles <br>
 * D - false
 * E - false
 * F - false
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## Question 23:
@@ -637,7 +637,7 @@ E. removeIf() method on a Collection <br>
 ### My Answer:
 * A comparator makes sense to implement as Lambda
 * removeIf also makes sense
-* **B,E**
+* **B,E**✅✅✅✅
 <hr>
 
 ## Question 24:
@@ -664,6 +664,7 @@ F. `System.out::println` <br>
 * D - false
 * E - false, does not compile
 * F - true
+* **F**✅✅✅✅
 <hr>
 
 ## Question 25:
@@ -694,5 +695,5 @@ H. An exception is thrown <br>
 * `map = {1=10, 2=20, 3=null}`
 * map.merge(1, 3, (a,b)->a+b) => 1=13
 * map.merge(3,3, ...) => 3=3
-* **F**
+* **F**✅✅✅✅
 <hr>
