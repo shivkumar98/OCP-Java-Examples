@@ -369,7 +369,6 @@ import java.util.*;
 public class Sorted implements Comparable<Sorted>, Comparator<Sorted> {
     private int num;
     private String text;
-
     Sorted(int n, String t) {
         this.num = n;
         this.text = t;
@@ -385,17 +384,16 @@ public class Sorted implements Comparable<Sorted>, Comparator<Sorted> {
         TreeSet<Sorted> t2 = new TreeSet<>(s1);
         t2.add(s1); t2.add(s2);
         System.out.println(t1 + " " + t2);
-
     }
 }
 ```
 
-A. `[55, 88] [55, 88]` 🎃
-B. `[55, 88] [88, 55]` 🎃
-C. `[88, 55] [55, 88]` 🎃
-D. `[88, 55] [88, 55]` 🎃
-E. The code does not compile 🎃
-F. A runtime exception is thrown 🎃
+A. `[55, 88] [55, 88]` <br>
+B. `[55, 88] [88, 55]` <br>
+C. `[88, 55] [55, 88]` <br>
+D. `[88, 55] [88, 55]` <br>
+E. The code does not compile <br>
+F. A runtime exception is thrown <br>
 
 ### My Answer:
 * Sorted is a Comparator and Comparable
@@ -418,12 +416,12 @@ Collections.sort(list, c);
 System.out.println(Collections.binarySearch(list, 1))
 ```
 
-A. `0` 🎃
-B. `1` 🎃
-C. `2` 🎃
-D. The result is undefined 🎃
-E. The code does not compile 🎃
-F. A runtime exception is thrown 🎃
+A. `0` <br>
+B. `1` <br>
+C. `2` <br>
+D. The result is undefined <br>
+E. The code does not compile <br>
+F. A runtime exception is thrown <br>
 
 ### My Answer:
 * The list is sorted in reverse ascending order
@@ -434,15 +432,25 @@ F. A runtime exception is thrown 🎃
 ## Question 16:
 
 ❓ Which of the following statements are true? ❓ 
-A. Comparable is in the java.util package 🎃
-B. Comparator is in the java.util package 🎃
-C. `compare()` is in the Comparable interface 🎃
-D. `compare()` is in the Comparator interface 🎃
-E. `compare()` takes one method parameter 🎃
-F. `compare()` takes two method parameters 🎃
+
+A. Comparable is in the java.util package <br>
+B. Comparator is in the java.util package <br>
+C. `compare()` is in the Comparable interface <br>
+D. `compare()` is in the Comparator interface <br>
+E. `compare()` takes one method parameter <br>
+F. `compare()` takes two method parameters <br>
 
 ### My Answer:
-
+* Comparable is in java.lang
+* compare() is in Comparator and takes 2 parameters
+* compareTo() is in Comparable and takes a single parameter
+* A - false
+* B - true
+* C - false
+* D - true
+* E - false
+* F - true
+* **B,D,F**
 <hr>
 
 ## Question 17:
@@ -450,36 +458,38 @@ F. `compare()` takes two method parameters 🎃
 ❓ Which two options can fill in the blanks so the code compiles ❓
 
 ```java
-public class Generic_____ {                     // LINE 1
-    public static void main(String[] args){
-        Generic<String> g = new Generic_____();  // LINE 3
-        Generic<Object> g2 = new Generic();
-    }
-}
+1: public class Generic_____ {                     
+2:     public static void main(String[] args){
+3:         Generic<String> g = new Generic_____(); 
+4:         Generic<Object> g2 = new Generic();
+5:     }
+6: }
 ```
 
-A. Fill Line 1 with `<>` 🎃
-B. Fill Line 1 with `<T>` 🎃
-C. Fill Line 1 with `<?>` 🎃
-D. Fill Line 3 with `<>` 🎃
-E. Fill Line 3 with `<T>` 🎃
-F. Fill Line 3 with `<?>` 🎃
+A. Fill Line 1 with `<>` <br>
+B. Fill Line 1 with `<T>` <br>
+C. Fill Line 1 with `<?>` <br>
+D. Fill Line 3 with `<>` <br>
+E. Fill Line 3 with `<T>` <br>
+F. Fill Line 3 with `<?>` <br>
 
 ### My Answer:
-
+* The class needs to declare a generic type `<T>`
+* Line 3 needs to take `<>`
+* **B,D**
 <hr>
 
 ## Question 18:
 
 ❓ Which of the following line can be inserted to make code compile? ❓
 ```java
-    class A {}
-    class B extends A {}
-    class C extends C {}
+class A {}
+class B extends A {}
+class C extends C {}
 
-    class D<C> {
-        // INSERT CODE HERE
-    }
+class D<C> {
+    // INSERT CODE HERE
+}
 ```
 
 A. `A a1 = new A();` 🎃
@@ -490,7 +500,14 @@ E. `C c2 = new B();` 🎃
 F. `C c1 = new C();` 🎃
 
 ### My Answer:
-
+* Class D declares C as a generic type
+* A - valid
+* B - valid
+* C - invalid
+* D - invalid
+* E - invalid
+* F - invalid
+* **A,B**
 <hr>
 
 ##  Question 19:
