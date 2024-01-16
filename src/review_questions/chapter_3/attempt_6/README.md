@@ -1,4 +1,4 @@
-# Chapter 3 - Review Questions Attemp #
+# Chapter 3: Review Questions - Review Questions Attemp 6
 
 ## Results:
 
@@ -33,59 +33,65 @@ Score:
 | 24         |       |
 | 25         |       |
 
-
 ## Question 1
 
 ❓ Suppose you have a collection of products for sale in a database and you need to display those products. The products are not unique.
 
 Which of the following collections classes in the `java.util` package best suit your need in this scenario? ❓🎃
 
-    A. Arrays 🎃
-    B. ArrayList 🎃
-    C. HashMap 🎃
-    D. HashSet 🎃
-    E. LinkedList 🎃
+A. Arrays <br>
+B. ArrayList <br>
+C. HashMap <br>
+D. HashSet <br>
+E. LinkedList <br>
 
 ### My Answer:
-
+* The products have duplicates, so we need an ArrayList or Array
+* Arrays is the only one in java.util
+* **A**
 <hr>
 
 ## Question 2:
 
 ❓Suppose that you need to work with a collection of elements that need to be sorted in their natural order, and each element has a unique string associated with its value.
+<br>
 
 Which of the following collections classes in the `java.util` package best suit your need in this scenario? ❓ 
 
-    A. ArrayList 🎃
-    B. HashMap 🎃
-    C. HashSet 🎃
-    D. TreeMap 🎃
-    E. TreeSet 🎃
-    F. Vector 🎃
+A. ArrayList <br>
+B. HashMap <br>
+C. HashSet <br>
+D. TreeMap <br>
+E. TreeSet <br>
+F. Vector <br>
 
 ### My Answer:
-
+* We need a Map, but it also needs to be sorted so its TreeMap
+* I THINK MAP is a util class
+* **D**
 <hr>
 
 ## Question 3:
 ❓ What is the result of the following statements? ❓ 
 ```java
-    List list = new ArrayList();
-    list.add("one");
-    list.add("two");
-    list.add(7);            // LINE 6
-    for (String s: list)    // LINE 7
-    System.out.println(s);
+3:   List list = new ArrayList();
+4:   list.add("one");
+5:   list.add("two");
+6:   list.add(7);        
+7:   for (String s: list)
+8:   System.out.println(s);
 ```
 
-    A. `onetwo` 🎃
-    B. `oneTwo7` 🎃
-    C. `onetwo` followed by an exception 🎃
-    D. Compiler error on line 6 🎃
-    E. Compiler error on line 7 🎃
+A. `onetwo` <br>
+B. `oneTwo7` <br>
+C. `onetwo` followed by an exception <br>
+D. Compiler error on line 6 <br>
+E. Compiler error on line 7 <br>
 
 ### My Answer:
-
+* The list does not specify a generic so lines 4-6 are fine
+* Line 7 will compile
+* **C**
 <hr>
 
 ## Question 4:
