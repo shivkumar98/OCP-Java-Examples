@@ -492,12 +492,12 @@ class D<C> {
 }
 ```
 
-A. `A a1 = new A();` 🎃
-B. `A a2 = new B();` 🎃
-C. `A a3 = new C();` 🎃
-D. `C c1 = new A();` 🎃
-E. `C c2 = new B();` 🎃
-F. `C c1 = new C();` 🎃
+A. `A a1 = new A();` <br>
+B. `A a2 = new B();` <br>
+C. `A a3 = new C();` <br>
+D. `C c1 = new A();` <br>
+E. `C c2 = new B();` <br>
+F. `C c1 = new C();` <br>
 
 ### My Answer:
 * Class D declares C as a generic type
@@ -514,58 +514,68 @@ F. `C c1 = new C();` 🎃
 
 ❓ Which options are true of the following code? ❓
 ```java
-    _______<Integer> q = new LinkedList<>();
-    q.add(10);
-    q.add(12);
-    q.remove(1);
-    System.out.println(q);
+3:  _______<Integer> q = new LinkedList<>();
+4:  q.add(10);
+5:  q.add(12);
+6:  q.remove(1);
+7:  System.out.println(q);
 ```
-A. If we fill in the blank with `List`, the output is `[10]` 🎃
-B. If we fill in the blank with `List`, the output is `[10, 12]` 🎃
-C. If we fill in the blank with `Queue`, the output is `[10]` 🎃
-D. If we fill in the blank with `Queue`, the output is `[10, 12]` 🎃
-E. The code does not compile in either scenario 🎃
-F. A runtime exception is thrown 🎃
+
+A. If we fill in the blank with `List`, the output is `[10]` <br>
+B. If we fill in the blank with `List`, the output is `[10, 12]` <br>
+C. If we fill in the blank with `Queue`, the output is `[10]` <br>
+D. If we fill in the blank with `Queue`, the output is `[10, 12]` <br>
+E. The code does not compile in either scenario <br>
+F. A runtime exception is thrown <br>
 
 ### My Answer:
-
+* If we have List, then it will be `[10, 12] -> [10]`
+* If we have Queue, then it will be `[10, 12]`
+* I think anyway
+* **A,D**
 <hr>
 
 ##  Question 20:
 
 ❓ What is the result of the following code? ❓
 ```java
-    Map m = new HashMap();                  // LINE 4
-    m.put(123, "456");                      // LINE 5
-    m.put("abc", "def");                    
-    System.out.println(m.contains("123"));  // LINE 7
+4:  Map m = new HashMap();                  
+5:  m.put(123, "456");                      
+6:  m.put("abc", "def");                   
+7:  System.out.println(m.contains("123"));  
 ```
-A. `false` 🎃
-B. `true` 🎃
-C. Compiler error on line 4 🎃
-D. Compiler error on line 5 🎃
-E. Compiler error on line 7 🎃
-F. A runtime exception is thrown 🎃
+
+A. `false` <br>
+B. `true` <br>
+C. Compiler error on line 4 <br>
+D. Compiler error on line 5 <br>
+E. Compiler error on line 7 <br>
+F. A runtime exception is thrown <br>
+
+### My Answer:
+* Maps do not have a `.contains()` method
+* **E**
 
 ##  Question 21:
 
-❓ Fill in the blanks to make this code compile and print `123`❓
+❓ Fill in the blanks to make this code compile and print `123` (Choose all that apply) ❓
 
 ```java
-    List<String> list = Arrays.asList("1", "2", "3");
-    Iterator iter = list.iterator();
-    while (iter.______())
-        System.out.println(iter._____());
+4:    List<String> list = Arrays.asList("1", "2", "3");
+5:    Iterator iter = list.iterator();
+6:    while (iter.______())
+7:        System.out.println(iter._____());
 ```
-A. On line 6, fill blank with `hasNext()` 🎃
-B. On line 6, fill blank with `isNext()` 🎃
-C. On line 6, fill blank with `next()` 🎃
-D. On line 7, fill blank with `getNext()` 🎃
-E. On line 7, fill blank with `hasNext()` 🎃
-F. On line 7, fill blank with `next()` 🎃
+
+A. On line 6, fill blank with `hasNext()` <br>
+B. On line 6, fill blank with `isNext()` <br>
+C. On line 6, fill blank with `next()` <br>
+D. On line 7, fill blank with `getNext()` <br>
+E. On line 7, fill blank with `hasNext()` <br>
+F. On line 7, fill blank with `next()` <br>
 
 ### My Answer:
-
+* **A,F**
 <hr>
 
 ## Question 22:
