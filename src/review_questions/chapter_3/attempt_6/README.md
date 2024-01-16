@@ -3,7 +3,7 @@
 ## Results:
 
 Date: 16/01/2024 <br>
-Score: 8/12 <br>
+Score: 11/15 <br>
 
 | Question # | Correct  |
 | ---------- | -------  |
@@ -19,9 +19,9 @@ Score: 8/12 <br>
 | 10         | ✅      |
 | 11         | ✅      |
 | 12         | ✅      |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 13         | ✅      |
+| 14         | ✅      |
+| 15         | ✅      |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -367,7 +367,7 @@ public class WildCard {
 
 A. `ArrayDeque<?> list = new ArrayDeque<String>();` <br>
 B. `ArrayList<? super Date> list = new ArrayList<Date>()` <br>
-C. `List<?> list = new LinkedList<java.io.IOException>();` <br>
+C. `List<?> list = new ArrayList<?>();` <br>
 D. `List<Exception> list = new LinkedList<java.io.IOException>();` <br>
 E. `Vector<? extends Number> list = new Vector<Integer>();` <br>
 F. None of the above <br>
@@ -376,11 +376,11 @@ F. None of the above <br>
 * The `showSize()` metho accepts a List of any generic type
 * A - false, this is not a list
 * B - true, I THINK. It may not compile as the reference is ArrayList
-* C - true
+* C - false
 * D - false, not valid declaration
 * E - true 
 * F - false
-* **B,C,E**
+* **B,E**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -425,7 +425,7 @@ F. A runtime exception is thrown <br>
 * compare(s1,s2) = s1.num = s2.num = 88 - 55 > 0 => s2(55) < s1(88)
 * t1 will print as s1, s2 => [88, 55] 
 * t2 will print as s2, s1 => [55, 88]
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 15:
@@ -447,7 +447,7 @@ F. A runtime exception is thrown <br>
 ### My Answer:
 * The list is sorted in reverse ascending order
 * Binary search requires collection to be sorted
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## Question 16:

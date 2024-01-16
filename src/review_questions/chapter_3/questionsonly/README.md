@@ -331,7 +331,7 @@ public class WildCard {
 
 A. `ArrayDeque<?> list = new ArrayDeque<String>();` <br>
 B. `ArrayList<? super Date> list = new ArrayList<Date>()` <br>
-C. `List<?> list = new LinkedList<java.io.IOException>();` <br>
+C. `List<?> list = new ArrayList<?>();` <br>
 D. `List<Exception> list = new LinkedList<java.io.IOException>();` <br>
 E. `Vector<? extends Number> list = new Vector<Integer>();` <br>
 F. None of the above <br>
