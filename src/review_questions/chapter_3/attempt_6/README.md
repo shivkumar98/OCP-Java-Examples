@@ -345,14 +345,21 @@ public class WildCard {
 ```
 
 A. `ArrayDeque<?> list = new ArrayDeque<String>();` <br>
-B. `ArrayList<? super Date> list = new ArrayList` <br>
+B. `ArrayList<? super Date> list = new ArrayList<Date>()` <br>
 C. `List<?> list = new LinkedList<java.io.IOException>();` <br>
 D. `List<Exception> list = new LinkedList<java.io.IOException>();` <br>
 E. `Vector<? extends Number> list = new Vector<Integer>();` <br>
 F. None of the above <br>
 
 ### My Answer:
-
+* The `showSize()` metho accepts a List of any generic type
+* A - false, this is not a list
+* B - true, I THINK. It may not compile as the reference is ArrayList
+* C - true
+* D - false, not valid declaration
+* E - true 
+* F - false
+* **B,C,E**
 <hr>
 
 ## Question 14:
@@ -391,16 +398,20 @@ E. The code does not compile 🎃
 F. A runtime exception is thrown 🎃
 
 ### My Answer:
+* Sorted is a Comparator and Comparable
+* Comparator has a compare() method
+* t1 contains (s1, s2) and is sorted by its NATURAL sorting (i.e. using the compareTo() method)
+* t2 contains (s1,s2) and is sorted using Comparator
 
 <hr>
 
 ## Question 15:
 ❓ What is the result of the following code? ❓ 
 ```java
-    Comparatator<Integer> c = (o1, o2) -> o2-o1;
-    List<Integer> list = Arrays.asList(5, 4, 7, 1);
-    Collections.sort(list, c);
-    System.out.println(Collections.binarySearch(list, 1))
+Comparatator<Integer> c = (o1, o2) -> o2-o1;
+List<Integer> list = Arrays.asList(5, 4, 7, 1);
+Collections.sort(list, c);
+System.out.println(Collections.binarySearch(list, 1))
 ```
 
 A. `0` 🎃
