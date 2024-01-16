@@ -128,7 +128,7 @@ G. An exception is thrown <br>
 * `greetings = [ola, hi, hello]`
 * `greetings = [hi, hello]`
 * Will print hi hello
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## Question 5:
@@ -148,7 +148,7 @@ F. `Map<String, ? extends Number> hm = new HashMap<String, Integer>();`
 * D - does not compile, HashSet is not a List implementation
 * E - does not compile, can not specify wild card on RHS
 * F - does compile, Integer does extend Number
-* **B,C,F**
+* **B,C,F**✅✅✅✅
 <hr>
 
 ## Question 6:
@@ -177,7 +177,7 @@ F. Compiler error on line 7 <br>
 * Line 6 and 7 defintitely compile
 * Not too sure of line 4 but then again all objects have a .toString method
 * Will print `hithere`
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## Question 7:
