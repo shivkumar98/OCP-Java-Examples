@@ -20,7 +20,7 @@
 | 13/08/2023 | [No. 2](/src/review_questions/chapter_2/attempt_2/)  | 19 / 20 | 95%  | 4 |
 | 29/09/2023 | [No. 3](/src/review_questions/chapter_2/attempt_3/)  | 13 / 20 | 65%  | 1,3,4,7,8,9,13 |
 | 14/01/2024 | [No. 4](/src/review_questions/chapter_2/attempt_4/)  | 13 / 20 | 65%  | 3,4,7,8,10,13,18 |
-| 14/01/2024 | [No. 5](/src/review_questions/chapter_2/attempt_5/)  | 17 / 20 | 85%  | 4,8,13 |
+| 15/01/2024 | [No. 5](/src/review_questions/chapter_2/attempt_5/)  | 17 / 20 | 85%  | 4,8,13 |
 
 <hr>
 
@@ -33,7 +33,7 @@
 | 22/07/2023 | [No. 3](/src/review_questions/chapter_3/attempt_3/) | 13 / 25 | 52% | 2,6,8,10,11,12,13,18,19,20,22,24 |
 | 05/08/2023 | [No. 4](/src/review_questions/chapter_3/attempt_4/) | 21 / 25 | 84% | 2,8,18,25 |
 | 26/09/2023 | [No. 5](/src/review_questions/chapter_3/attempt_5/) | 22 / 25 | 88% | 9,13,18 |
-| 26/09/2023 | [No. 6](/src/review_questions/chapter_3/attempt_6/) | 21 / 25 | 84% | 1,3,8,9 |
+| 16/01/2024 | [No. 6](/src/review_questions/chapter_3/attempt_6/) | 21 / 25 | 84% | 1,3,8,9 |
 <hr>
 
 ## Chapter 4: Functional Programming 🧮
