@@ -172,7 +172,7 @@ F. Compiler error on line 7 <br>
 <hr>
 
 ## Question 7:
-❓ Which of the following statements are true for the following code: ❓ 
+❓ Which of the following statements are true for the following code (Select 2) ❓ 
 ```java
 3:  Set<Number> numbers = new HashSet<>(); 
 4:  numbers.add(new Integer(86));
@@ -196,7 +196,7 @@ G. An exception is thrown <br>
 ### My Answer:
 * A hashset has no determinable order
 * The code will indeed compile
-* **D**
+* **A,D**
 <hr>
 
 ## Question 8:
