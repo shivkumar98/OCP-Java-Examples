@@ -1,11 +1,11 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 4: Review Questions - Attempt #
+# Chapter 4: Review Questions - Attempt 5
 
 ## Results:
 
-Date: 26/09/2023
-Score: /20
+Date:  <br>
+Score: /20 <br>
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -41,15 +41,20 @@ Stream<String> stream = Stream.iterate("", (s)->s+"1"));
 System.out.println(stream.limit(2).map(x->x+"2"));
 ```
 
-A. 12112
-B. 212
-C. 212112
-D. java.util.stream.ReferencePipeline$3@4517d9a3
-E. The code does not compile
-F. An exception is thrown
-G. The code hangs
+A. 12112 <br>
+B. 212 <br>
+C. 212112 <br>
+D. java.util.stream.ReferencePipeline$3@4517d9a3 <br>
+E. The code does not compile <br>
+F. An exception is thrown <br>
+G. The code hangs <br>
 
 ### My Answer:
+* `stream = ["", "1", "11", "111", ...]`
+* stream.limit(2) = ["", "1"]
+* map => ["2", "12"]
+* It will print a stream pipeline
+* **D**
 
 <hr>
 
@@ -65,21 +70,21 @@ boolean b1 = stream1.anyMatch(predicate);
 boolean b2 = stream2.allMatch(predicate);
 System.out.println(b1 + " "+ b2);
 ```
-A. `true` `false`
 
-B. `true` `true`
-
-C. `java.util.stream.ReferencePipeline$3@4517d9a3`
-
-D. The code does not compile
-
-E. An exception is thrown
-
-F. The code hands
+A. `true` `false` <br>
+B. `true` `true` <br>
+C. `java.util.stream.ReferencePipeline$3@4517d9a3` <br>
+D. The code does not compile <br>
+E. An exception is thrown <br>
+F. The code hangs <br>
 ❓
 
 ### My Answer:
-
+* `stream1` = ["growl!", "growl!", ...]
+* `stream2` = ["growl!", "growl!", ...]
+* b1 checks if any of the elements match the pred, this will be true
+* b2 checks if all match the pred, this will cause the code to hang I THINK
+* **F**
 <hr>
 
 
@@ -98,11 +103,14 @@ B. `false false`
 C. `java.util.stream.ReferencePipeline$3@4517d9a3`
 D. The code does not compile
 E. An exception is thrown
-F. The code hands
+F. The code hangs
 ❓
 
 ### My Answer:
-
+* stream = [-, --, ----, ...]
+* b1 checks if none of the stream elements have a length > 3. This will be false
+* b2 checks if there are any elements which match which is true
+* **B**
 <hr>
 
 ## Question 4:
