@@ -284,31 +284,35 @@ public class MyComparator implements Comparator<String> {
 
     public void static main(String[] args){
         String[] values = { "123", "Abb", "aab" };
-        Arrays.sort(values, new MyComarator());
+        Arrays.sort(values, new MyComparator());
         for (String s:values)
             System.out.print(s + " ");
     }
 }
 ```
-A. `Abb aab 123` 🎃
-B. `aab Abb 123` 🎃
-C. `123 Abb aab` 🎃
-D. `123 aab Abb` 🎃
-E. The code does not compile 🎃
-F. A runtime exception is thrown 🎃
+
+A. `Abb aab 123` <br>
+B. `aab Abb 123` <br>
+C. `123 Abb aab` <br>
+D. `123 aab Abb` <br>
+E. The code does not compile <br>
+F. A runtime exception is thrown <br>
 
 ### My Answer:
-
+* The Comparator sorts in reverse alphabetical order, ignoring case
+* values will be the reverse of `[123, aab, Abb]`
+* So it will print `Abb aab 123`
+* **A**
 <hr>
 
 ## Question 11:
 ❓ What is the result of the following: ❓ 
 ```java
-    Map<Integer, Integer> map = new HashMap<>(10);  // LINE 3
-    for (int i = 1; i <=10; i++) {                  
-        map.put(i, i*i);                            // LINE 5
-    }                           
-    System.out.println(map.get(4));                 // LINE 7
+3:    Map<Integer, Integer> map = new HashMap<>(10);  
+4:    for (int i = 1; i <=10; i++) {                 
+5:        map.put(i, i*i);                            
+6:    }                           
+7:    System.out.println(map.get(4));                 
 ```
 A. `16` 🎃
 B. `25` 🎃
@@ -317,7 +321,9 @@ D. Compiler error on line 5 🎃
 E. Compiler error on line 7 🎃
 F. A runtime exception is thrown 🎃
 ### My Answer:
-
+* Map = {1:1, 2:4, 3:9, 4:16, 5:25}
+* I think map has a `get(Object)` method, so map.get(4) = 16
+* **A**
 <hr>
 
 ## Question 12:
@@ -353,7 +359,12 @@ E. 🎃
 Helper.printException(new Throwable("E"))
 ```
 ### My Answer:
-
+* The printException method accepts anything that extends Exception, or is Exception
+* A - valid
+* B - valid
+* C - invalid, the generic does not match!
+* D - vaid
+* E - invalid, Throwable is a parent class
 <hr>
 
 ## Question 13:
