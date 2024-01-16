@@ -244,11 +244,11 @@ F. An exception is thrown <br>
 ```java
 Map<String, Double> map = new HashMap<>();
 ```
-A. `map.add("pi", 3.14159);`
-B. `map.add("e", 2L);`
-C. `map.add("log(1)", new Double(0.0));`
-D. `map.add('x', new Double(123.4));`
-E. None of the above 🎃
+A. `map.add("pi", 3.14159);` <br>
+B. `map.add("e", 2L);` <br>
+C. `map.add("log(1)", new Double(0.0));` <br>
+D. `map.add('x', new Double(123.4));` <br>
+E. None of the above 🎃 <br>
 
 ### My Answer:
 * A - true, I think
