@@ -582,71 +582,67 @@ F. On line 7, fill blank with `next()` <br>
 
 ❓ What code change is needed to make the method compile? ❓
 ```java
-    public static T identity(T t){
-        return t;
-    }
+public static T identity(T t){
+    return t;
+}
 ```
-A. Add `<T>` after the public keyword 🎃
-B. Add `<T>` after the static keyword 🎃
-C. Add `<T>` after T 🎃
-D. Add `<?>` after the public keyword 🎃
-E. Add `<?>` after the static keyword 🎃
-F. No change required the code already compiles 🎃
+A. Add `<T>` after the public keyword <br>
+B. Add `<T>` after the static keyword <br>
+C. Add `<T>` after T <br>
+D. Add `<?>` after the public keyword <br>
+E. Add `<?>` after the static keyword <br>
+F. No change required the code already compiles <br>
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - false
+* D - false
+* E - false
+* F - false
+* **B**
 <hr>
 
 ## Question 23:
 
 ❓ Which of the answer make sense to implement with lambda (choose all which apply) ❓
-A. Comparable interface 🎃
-B. Comparator interface 🎃
-C. remove() method on Collection 🎃
-D. removeAll() method on a Collection 🎃
-E. removeIf() method on a Collection 🎃
+
+A. Comparable interface <br>
+B. Comparator interface <br>
+C. remove() method on Collection <br>
+D. removeAll() method on a Collection <br>
+E. removeIf() method on a Collection <br>
 
 ### My Answer:
-
+* A comparator makes sense to implement as Lambda
+* removeIf also makes sense
+* **B,E**
 <hr>
 
 ## Question 24:
-❓ Which of the following compiles and prints out the entire set?❓
+❓ Which of the following compiles and prints out the entire set? (Choose all that apply)❓
 ```java
-    Set<String> s = new HashSet<>();
+Set<String> s = new HashSet<>();
 s.add("lion");
 s.add("tiger");
 s.add("bear");
 s.forEach(________);
 ```
 
-A. 🎃
-```java
-() -> System.out.println(s)
-```
-B. 🎃
-```java
-s -> System.out.println(s)
-```
-C. 🎃
-```java
-(s) -> System.out.println(s)
-```
-D. 🎃
-```java
-System.out.println(s)
-```
-E. 🎃
-```java
-System::out::println
-```
-F. 🎃
-```java
-System.out::println
-```
+A. `() -> System.out.println(s)` <br>
+B. `s -> System.out.println(s)` <br>
+C. `(s) -> System.out.println(s)` <br>
+D. `System.out.println(s)` <br>
+E. `System::out::println` <br>
+F. `System.out::println` <br>
 
 ### My Answer:
-
+* A - false, this will print s
+* B - false, can not use s as parameter
+* C - false
+* D - false
+* E - false, does not compile
+* F - true
 <hr>
 
 ## Question 25:
@@ -663,16 +659,19 @@ map.merge(3, 3 (a,b) -> a + b);
 System.out.println(map);
 ```
 
-A. {1=10, 2=20} 🎃
-B. {1=10, 2=20, 3=null} 🎃
-C. {1=10, 2=20, 3=3} 🎃
-D. {1=13, 2=20} 🎃
-E. {1=13, 2=20, 3=null} 🎃
-F. {1=13, 2=20, 3=3} 🎃
-G. The code does not compile 🎃
-H. An exception is thrown 🎃
+A. {1=10, 2=20} <br>
+B. {1=10, 2=20, 3=null} <br>
+C. {1=10, 2=20, 3=3} <br>
+D. {1=13, 2=20} <br>
+E. {1=13, 2=20, 3=null} <br>
+F. {1=13, 2=20, 3=3} <br>
+G. The code does not compile <br>
+H. An exception is thrown <br>
 
 
 ### My Answer:
-
+* `map = {1=10, 2=20, 3=null}`
+* map.merge(1, 3, (a,b)->a+b) => 1=13
+* map.merge(3,3, ...) => 3=3
+* **F**
 <hr>
