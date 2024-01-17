@@ -33,7 +33,7 @@ Score: /20 <br>
 
 <hr>
 
-## Question 1
+## 🟧 Question 1
 
 ❓ What is the output of the following?
 ```java
@@ -58,7 +58,7 @@ G. The code hangs <br>
 
 <hr>
 
-## Question 2:
+## 🟧 Question 2:
 
 ❓ What is the output of:
 
@@ -88,7 +88,7 @@ F. The code hangs <br>
 <hr>
 
 
-## Question 3
+## 🟧 Question 3
 
 ❓What is the output of the following:
 ```java
@@ -113,7 +113,7 @@ F. The code hangs <br>
 * **B**
 <hr>
 
-## Question 4:
+## 🟧 Question 4:
 
 ❓Which are true statements about terminal operations in a stream?
 
@@ -134,7 +134,7 @@ E. The `peek()` method is an example of a terminal operation <br>
 
 <hr>
 
-## Question 5
+## 🟧 Question 5
 
 ❓ Which terminal operations on the `Stream` class are reductions?❓
 
@@ -156,7 +156,7 @@ F. sum() <br>
 * **B,F**
 <hr>
 
-## Question 6:
+## 🟧 Question 6:
 
 ❓Which of the following can fill in the blank so that the code prints out `false`❓
 
@@ -184,7 +184,7 @@ F. None of the above <br>
 <hr>
 
 
-## Question 7
+## 🟧 Question 7
 
 ❓We have a method that returns a sorted list without changing the original. Which of the following can replace the method implementation to do the same with streams?
 
@@ -239,7 +239,7 @@ return list.stream()
 <hr>
 
 
-## Question 8:
+## 🟧 Question 8:
 
 ❓Which of the following are true given the declaration `IntStream is = IntStream.empty()` (Choose all that apply)❓
 
@@ -258,7 +258,7 @@ F. `is.sum()` returns the type `OptionalInt` <br>
 <hr>
 
 
-## Question 9
+## 🟧 Question 9
 
 ❓Which of the following can we add line 5 for the code to run without error and not produce any output? (Choose all that apply)❓
 
@@ -286,63 +286,67 @@ F. None of these; line 5 throws an exception <br>
 <hr>
 
 
-## Question 10
+## 🟧 Question 10
 
 ❓ Select from the following statements and indicate the order in which they would appear to output 10 lines:❓
 
 ```java
-  Stream.generate(()-> "");
-L:    .filter(x -> x.length() > 1)  
-M:    .forEach(System.out::println)
-N:    .limit(10)                    
-O:    .peek(System.out::println)
+Stream.generate(()-> "");
+L:  .filter(x -> x.length() > 1)  
+M:  .forEach(System.out::println)
+N:  .limit(10)                    
+O:  .peek(System.out::println)
 ;
 ```
 
-A. L, N
-
-B. L, N, O
-
-C. L, N, M
-
-D. L, N, M, O
-
-E. L, O, M
-
-F. N. M
-
-G. N, O
+A. `L, N` <br>
+B. `L, N, O` <br>
+C. `L, N, M` <br>
+D. `L, N, M, O` <br>
+E. `L, O, M` <br>
+F. `N, M` <br>
+G. `N, O` <br>
 
 ### My Answer:
-
+* stream = ["", "", "", ""]
+* The filter will remove everything
+* The forEach will print all elements
+* The peek will peek at the last element of the stream
+* A - this will not output anything, FALSE
+* B - this will not output anything, FALSE
+* C - The filter will remove everything, FALSE
+* D - this will filter everything, FALSE
+* E - false as above
+* F - valid
+* G - false, will only output once
+* **F**
 <hr>
 
+## 🟧 Question 11
 
-## Question 11
-
-❓What changes need to be made for this code to print "12345" (choose all that apply)❓
+❓What changes need to be made for this code to print the string `12345` (choose all that apply)❓
 ```java
-Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining);
+Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
 ```
 
-A. Change `Collectors.joining()` to `Collectors.joining("")`
-
-B. Change `map(x -> x)` to `map(x -> "" + x)`
-
-C. change `x -> x++` to `x -> ++x`
-
-D. Add `forEach(System.out::print)` after the call to `collect()`
-
-E. Wrap the entire line in a `System.out.print` statement
-
-F. None of the above. The code already prints "12345"
+A. Change `Collectors.joining()` to `Collectors.joining("")` <br>
+B. Change `map(x -> x)` to `map(x -> "" + x)` <br>
+C. change `x -> x++` to `x -> ++x` <br>
+D. Add `forEach(System.out::print)` after the call to `collect()` <br>
+E. Wrap the entire line in a `System.out.print` statement <br>
+F. None of the above. The code already prints "12345" <br>
 
 ### My Answer:
-
+* `stream = [1, 1, 1, 1 , 1]`
+* We need the iterator to pre-increment
+* We need to create a string, so we can change the map to convert to string
+* The joining() method needs a value
+* The collect() method will reduce the stream, so forEach would not work - You need to wrap it entirely in System.out.print
+* **A,B,C,E**
 <hr>
 
 
-## Question 12:
+## 🟧 Question 12:
 
 ❓What functional interfaces complete the following code? (Choose all that apply)❓
 
@@ -352,28 +356,31 @@ F. None of the above. The code already prints "12345"
 8: ______ z = a -> a+a;
 ```
 
-A. `BiConsumer<String, String>`
-
-B. `BiFunction<String, String>`
-
-C. `BinaryConsumer<String, String>`
-
-D. `BiFunction<String, String>`
-
-E. `Consumer<String>`
-
-F. `Supplier<String>`
-
-G. `UnaryOperator<String>`
-
-H. `UnaryOperator<String, String>` 
+A. `BiConsumer<String, String>` <br>
+B. `BiFunction<String, String>` <br>
+C. `BinaryConsumer<String, String>` <br>
+D. `BinaryFunction<String, String>` <br>
+E. `Consumer<String>` <br>
+F. `Supplier<String>` <br>
+G. `UnaryOperator<String>` <br>
+H. `UnaryOperator<String, String>`  <br>
 
 ### My Answer:
-
+* x can be a consumer
+* z can be a function, or a BinaryOperator
+* A - can be appliued to y
+* B - can not be applied, I THINK
+* C - false, does not exist
+* D - false, does not exist
+* E - true, can be applied to x
+* F - true can be applied to x
+* G - true can be applied to z
+* H - false, does not exist
+* **A,B,E,F,G**
 <hr>
 
 
-## Question 13
+## 🟧 Question 13
 
 ❓Which of the following is true❓
 
@@ -403,7 +410,7 @@ G. The code throws an exception
 
 <hr>
 
-## Question 14:
+## 🟧 Question 14: 
 
 ❓Which of the following is true❓
 
@@ -433,8 +440,7 @@ G. The code compiles and prints 1.
 
 <hr>
 
-
-## Question 15
+## 🟧 Question 15 
 
 ❓The `partitioningBy()` collector creates a `Map<Boolean, List<String>>` when passed to `collect()` by default. When specific parameters are passed to `partioningBy()`, which return types can be created? (Choose all that apply)❓
 
@@ -454,8 +460,7 @@ F. None of the above
 
 <hr>
 
-
-## Question 16
+## 🟧 Question 16 
 
 ❓What is the output of the following❓
 
@@ -484,8 +489,7 @@ F. An exception is thrown
 
 <hr>
 
-
-## Question 17
+## 🟧 Question 17
 
 ❓Which of the following is equivalent to this code❓
 
@@ -509,8 +513,7 @@ F. None of these above
 
 <hr>
 
-
-## Question 18
+## 🟧 Question 18
 
 ❓What is the result of the following❓
 
@@ -536,8 +539,7 @@ G. An exception is thrown
 ### My Answer:
 
 <hr>
-
-## Question 19
+## 🟧 Question 19
 
 ❓Which of the following return primitives❓
 
@@ -552,8 +554,7 @@ D. `FloatSupplier`
 E. `IntSupplier`
 
 F. `StringSupplier`
-
-## Question 20
+## 🟧 Question 20
 
 ❓What is the simplest way of rewriting this code❓
 
