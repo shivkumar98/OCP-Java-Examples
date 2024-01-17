@@ -195,6 +195,7 @@ private static List<String> sort(List<String> list) {
     return copy;
 }
 ```
+
 A. 
 ```java
 return list.stream()
@@ -205,12 +206,6 @@ B.
 ```java
 return list.stream()
     .compare((a,b)->b.compareTo(a))
-    .sort();
-```
-C. 
-```java
-return list.stream()
-    .compareTo((a,b)->b.compareTo(a))
     .collect(Collectors.toList());
 ```
 D. 
@@ -233,7 +228,14 @@ return list.stream()
 ```
 
 ### My Answer:
-
+* I would write `list.stream().compare((a,b)->b.compareTo(a)).collect(Collectors.toList())`
+* A - valid
+* B - false, this would return a stream I THINK
+* C - invalid, I don't think `compareTo` is an operation
+* D - invalid
+* E - false, sorted is not an operation I THINK
+* F - invalid as above
+* **A**
 <hr>
 
 
@@ -241,47 +243,48 @@ return list.stream()
 
 ❓Which of the following are true given the declaration `IntStream is = IntStream.empty()` (Choose all that apply)❓
 
-A. `is.average()` returns the type `int`
-
-B. `is.average()` returns the type `OptionalInt`
-
-C. `is.findAny()` returns the type `int`
-
-D. `is.findAny()` returns the type `OptionalInt`
-
-E. `is.sum()` returns the type `int`
-
-F. `is.sum()` returns the type `OptionalInt`
+A. `is.average()` returns the type `int` <br>
+B. `is.average()` returns the type `OptionalInt` <br>
+C. `is.findAny()` returns the type `int` <br>
+D. `is.findAny()` returns the type `OptionalInt` <br>
+E. `is.sum()` returns the type `int` <br>
+F. `is.sum()` returns the type `OptionalInt` <br>
 
 ### My Answer:
-
+* `is.average()` will return an OptionalDouble
+* `is.findAny()` will return OptionalInt
+* `is.sum()` will return int
+* **D,E**
 <hr>
 
 
 ## Question 9
 
-❓Which of the following can we add line 5 for the code to run without error and non produce any output? (Choose all that apply)❓
+❓Which of the following can we add line 5 for the code to run without error and not produce any output? (Choose all that apply)❓
 
 ```java
-LongStream ls = LongStream.of(1,2,3);                           // LINE 4
-OptionaolLong opt = ls.map(n->n*10).filter(n->n5).findFirst();  // LINE 5
+4:  LongStream ls = LongStream.of(1,2,3);                           
+5:  OptionalLong opt = ls.map(n -> n * 10).filter(n -> n < 5).findFirst();  
 ```
 
-A. `if (opt.isPresent()) System.out.println(opt.get());`
-
-B. `if (opt.isPresent()) System.out.println(opt.getAsLong());`
-
-C. `opt.ifPresent(System.out.println);`
-
-D. `opt.ifPresent(System.out::println)`
-
-E. None of these; the code does not compile
-
-F. None of these; line 5 throws an exception 
+A. `if (opt.isPresent()) System.out.println(opt.get());` <br>
+B. `if (opt.isPresent()) System.out.println(opt.getAsLong());` <br>
+C. `opt.ifPresent(System.out.println);` <br>
+D. `opt.ifPresent(System.out::println)` <br>
+E. None of these; the code does not compile <br>
+F. None of these; line 5 throws an exception <br>
 
 ### My Answer:
-
+* `ls` is mapped to `[10,20,30]` => [] 
+* A - false, the opt has a `getAsLong()` method
+* B - true
+* C - false, invalid syntax
+* D - valid
+* E - false
+* F - false
+* **B,D**
 <hr>
+
 
 ## Question 10
 
