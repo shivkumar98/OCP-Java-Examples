@@ -536,17 +536,19 @@ then it would be 2.4
 
 ❓Which of the following return primitives❓
 
-A. `BooleanSupplier`
+* A. `BooleanSupplier`
+* B. `CharSupplier`
+* C. `DoubleSupplier`
+* D. `FloatSupplier`
+* E. `IntSupplier`
+* F. `StringSupplier`
 
-B. `CharSupplier`
+### My Answer:
+* Boolean, Int, and Float are the suppliers
+* **A,D,E**
 
-C. `DoubleSupplier`
+<hr>
 
-D. `FloatSupplier`
-
-E. `IntSupplier`
-
-F. `StringSupplier`
 ## 🟧 Question 20
 
 ❓What is the simplest way of rewriting this code❓
@@ -557,28 +559,31 @@ List<Integer> l = IntStream.range(1,6)
 l.forEach(System.out::println);
 ```
 
-A. 
+* A. 
 ```java
 IntStream.range(1,6);
 ```
-
-B. 
+* B. 
 ```java
 IntStream.range(1,6)
     .forEach(System.out::println);`
 ```
-
-C. 
+* C. 
 ```java
 IntStream.range(1,6)
     .mapToObj(i->i)
     .forEach(System.out::println);
 ```
-
-D. None of the above is equivalent
-
-E. The provided code does not compile
+* D. None of the above is equivalent
+* E. The provided code does not compile
 
 ### My Answer:
-
+* l = `[1,2,3,4,5,6]`
+* A - does not print
+* B - valid
+* C - valid
+* D - false
+* E - false, code does compile
+* B seems simplest
+* **B**
 <hr>
