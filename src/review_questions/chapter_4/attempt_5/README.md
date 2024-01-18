@@ -464,22 +464,24 @@ Map<Boolean, List<String>> p = s.collect(
     Collectors.partitionBy(b -> b.startsWith("c")));
 Map<Boolean, List<String>> g = s.collect(
     Collectors.groupBy(b -> b.startsWith("c")));
+System.out.println(p + " " + g);
 ```
 
-A. `{} {}`
-
-B. `{} {false=[], true=[]}`
-
-C. `{false=[], true=[]} {}`
-
-D. `{false=[], true=[]} {false=[], true=[]}`
-
-E. The code does not compile
-
-F. An exception is thrown
+* A. `{} {}`
+* B. `{} {false=[], true=[]}`
+* C. `{false=[], true=[]} {}`
+* D. `{false=[], true=[]} {false=[], true=[]}`
+* E. The code does not compile
+* F. An exception is thrown
 
 ### My Answer:
-
+* s and s2 are empty streams
+* The remaining code does compile
+* The partitionBy Method will also create a map with true and false as keys
+* The gorupBy method will create keys as needed
+* So p will print `{false=[], true=[]}`
+* g will be empty
+* **C**
 <hr>
 
 ## 🟧 Question 17
@@ -490,20 +492,19 @@ F. An exception is thrown
 UnaryOperator<Integer> u = x -> x * x;
 ```
 
-A. `BiFunction<Integer> f = x -> x*x;`
-
-B. `BiFunction<Integer, Integer> f = x -> x*x;`
-
-C. `BinaryOperator<Interger, Integer> f = x -> x*x;`
-
-D. `Function<Integer> f = x -> x*x;`
-
-E. `Function<Integer, Integer> f = x -> x*x;`
-
-F. None of these above
+* A. `BiFunction<Integer> f = x -> x*x;`
+* B. `BiFunction<Integer, Integer> f = x -> x*x;`
+* C. `BinaryOperator<Interger, Integer> f = x -> x*x;`
+* D. `Function<Integer> f = x -> x*x;`
+* E. `Function<Integer, Integer> f = x -> x*x;`
+* F. None of these above
 
 ### My Answer:
-
+* E is valid
+* A and B are wrong as BiFunction has 3 generics I THINK
+* C is invalid as it needs two parameters
+* D invalid
+* **E**
 <hr>
 
 ## 🟧 Question 18
@@ -515,23 +516,22 @@ DoubleStream s = DoubleStream.of(1.2, 2.4);
 s.peek(System.out.::println).filter(x -> x > 2).count();
 ```
 
-A. 1
-
-B. 2
-
-C. 2.4
-
-D. 1.2 and 2.4
-
-E. There is no output
-
-F. The code does not compile
-
-G. An exception is thrown
+* A. 1
+* B. 2
+* C. 2.4
+* D. 1.2 and 2.4
+* E. There is no output
+* F. The code does not compile
+* G. An exception is thrown
 
 ### My Answer:
-
+* This question is super confusing
+* The result of the second line is 1
+* But the answers seem to ask what the output is,
+then it would be 2.4
+* **C**
 <hr>
+
 ## 🟧 Question 19
 
 ❓Which of the following return primitives❓
