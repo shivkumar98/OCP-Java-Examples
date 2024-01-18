@@ -392,22 +392,16 @@ Stream.of(l1, l2, l3).map(x -> x+1)
     .flatMap(x -> x.stream()).forEach(System.out::println);
 ```
 
-A. The code compiles and prints `123456`
-
-B. The code compiles and prints `234567`
-
-C. The code compiles but does not print anything
-
-D. The code compiles but prints stream references
-
-E.  The code runs infinitely
-
-F. The code does not compile
-
-G. The code throws an exception
+A. The code compiles and prints `123456` <br>
+B. The code compiles and prints `234567` <br>
+C. The code compiles but does not print anything <br>
+D. The code compiles but prints stream references <br>
+E.  The code runs infinitely <br>
+F. The code does not compile <br>
+G. The code throws an exception <br>
 
 ### My Answer:
-
+* `l1=[1,2,3]`
 <hr>
 
 ## 🟧 Question 14: 
@@ -422,42 +416,41 @@ G. The code throws an exception
 8: s2.forEach(System.out::print);
 ```
 
-A. Line 4 does not compile
-
-B. Line 5 does not compile
-
-C. Line 6 does not compile
-
-D. Line 7 does not compile
-
-E. Line 8 does not compile
-
-F. The code throws an exception
-
-G. The code compiles and prints 1.
+A. Line 4 does not compile <br>
+B. Line 5 does not compile <br>
+C. Line 6 does not compile <br>
+D. Line 7 does not compile <br>
+E. Line 8 does not compile <br>
+F. The code throws an exception <br>
+G. The code compiles and prints 1. <br>
 
 ### My Answer:
-
+* Line 4 and 5 do compile
+* Line 6 im not too sure of
+* Line 7 definitely does not compile
+* Line 8 should be fine
+* **C,D**
 <hr>
 
 ## 🟧 Question 15 
 
 ❓The `partitioningBy()` collector creates a `Map<Boolean, List<String>>` when passed to `collect()` by default. When specific parameters are passed to `partioningBy()`, which return types can be created? (Choose all that apply)❓
 
-A. `Map<boolean, List<String>>`
-
-B. `Map<Boolean, Map<String>>`
-
-C. `Map<Long, TreeSet<String>>`
-
-D. `Map<Boolean, List<String>>`
-
-E. `Map<Boolean, Set<String>>`
-
-F. None of the above
+A. `Map<boolean, List<String>>` <br>
+B. `Map<Boolean, Map<String>>` <br>
+C. `Map<Long, TreeSet<String>>` <br>
+D. `Map<Boolean, List<String>>` <br>
+E. `Map<Boolean, Set<String>>` <br>
+F. None of the above <br>
 
 ### My Answer:
-
+* The `partitioningBy()` method returns a Map where the key is Boolean
+* So A and C are wrong!
+* I believe you can create a List and Set only
+* B - false
+* D - valid
+* E - valid
+* **D,E**
 <hr>
 
 ## 🟧 Question 16 
