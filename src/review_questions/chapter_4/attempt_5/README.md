@@ -5,7 +5,7 @@
 ## Results:
 
 Date:  <br>
-Score: 3/5 <br>
+Score: 7/10 <br>
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -14,11 +14,11 @@ Score: 3/5 <br>
 | 3          |  ❌       |
 | 4          |  ✅       |
 | 5          |  ❌       |
-| 6          |         |
-| 7          |         |
-| 8          |         |
-| 9          |         |
-| 10         |         |
+| 6          |  ✅       |
+| 7          |  ❌       |
+| 8          |  ✅       |
+| 9          |  ✅       |
+| 10         |  ✅       |
 | 11         |         |
 | 12         |         |
 | 13         |         |
@@ -190,7 +190,7 @@ F. None of the above <br>
 * D - false, code will hang
 * E - false, code will hang
 * F - false
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 
@@ -201,7 +201,7 @@ F. None of the above <br>
 ```java
 private static List<String> sort(List<String> list) {
     List<String> copy = new ArrayList<>(list);
-    Collectors.sort(copy, (a,b)->b.compareTo(a));
+    Collections.sort(copy, (a,b)->b.compareTo(a));
     return copy;
 }
 ```
@@ -216,7 +216,8 @@ B.
 ```java
 return list.stream()
     .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
+    .collect(Collectors.toList())
+    .sort();
 ```
 D. 
 ```java
@@ -240,12 +241,21 @@ return list.stream()
 ### My Answer:
 * I would write `list.stream().compare((a,b)->b.compareTo(a)).collect(Collectors.toList())`
 * A - valid
-* B - false, this would return a stream I THINK
+* B - false, this would sort the stream
 * C - invalid, I don't think `compareTo` is an operation
 * D - invalid
 * E - false, sorted is not an operation I THINK
 * F - invalid as above
-* **A**
+* **A**❌❌❌❌
+* CORRECT ANSWER: **F**
+<br>
+
+* The only one which will compile is:
+```java
+return list.stream()
+    .sorted((a,b)->b.compareTo(a))
+    .collect(Collectors.toList());
+```
 <hr>
 
 
@@ -264,7 +274,7 @@ F. `is.sum()` returns the type `OptionalInt` <br>
 * `is.average()` will return an OptionalDouble
 * `is.findAny()` will return OptionalInt
 * `is.sum()` will return int
-* **D,E**
+* **D,E**✅✅✅✅
 <hr>
 
 
@@ -292,7 +302,7 @@ F. None of these; line 5 throws an exception <br>
 * D - valid
 * E - false
 * F - false
-* **B,D**
+* **B,D**✅✅✅✅
 <hr>
 
 
@@ -329,7 +339,7 @@ G. `N, O` <br>
 * E - false as above
 * F - valid
 * G - false, will only output once
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 11

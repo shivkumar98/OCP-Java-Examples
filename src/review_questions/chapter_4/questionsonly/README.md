@@ -160,7 +160,7 @@ System.out.println(match);
 ```java
 private static List<String> sort(List<String> list) {
     List<String> copy = new ArrayList<>(list);
-    Collectors.sort(copy, (a,b)->b.compareTo(a));
+    Collections.sort(copy, (a,b)->b.compareTo(a));
     return copy;
 }
 ```
