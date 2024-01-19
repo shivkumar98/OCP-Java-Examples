@@ -5,15 +5,15 @@
 ## Results:
 
 Date:  <br>
-Score: /20 <br>
+Score: 3/5 <br>
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |         |
-| 2          |         |
-| 3          |         |
-| 4          |         |
-| 5          |         |
+| 1          |  ✅       |
+| 2          |  ✅       |
+| 3          |  ❌       |
+| 4          |  ✅       |
+| 5          |  ❌       |
 | 6          |         |
 | 7          |         |
 | 8          |         |
@@ -54,7 +54,7 @@ G. The code hangs <br>
 * stream.limit(2) = ["", "1"]
 * map => ["2", "12"]
 * It will print a stream pipeline
-* **D**
+* **D**✅✅✅✅
 
 <hr>
 
@@ -84,7 +84,7 @@ F. The code hangs <br>
 * `stream2` = ["growl!", "growl!", ...]
 * b1 checks if any of the elements match the pred, this will be true
 * b2 checks if all match the pred, this will cause the code to hang I THINK
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 
@@ -110,7 +110,11 @@ F. The code hangs <br>
 * stream = [-, --, ----, ...]
 * b1 checks if none of the stream elements have a length > 3. This will be false
 * b2 checks if there are any elements which match which is true
-* **B**
+* **B**❌❌❌❌
+* CORRECT ANSWER: **E**
+<br>
+
+* An exception is thrown as we attempt to operate on the same stream twice
 <hr>
 
 ## 🟧 Question 4:
@@ -125,12 +129,12 @@ E. The `peek()` method is an example of a terminal operation <br>
 ❓
 
 ### My Answer:
-* A - false, you can have multiple operations likke filter and map
+* A - true, while you can have multiple operations, only one terminal operation is allowed
 * B - true
 * C - false, they can return any type
 * D - false
 * E - false
-* **B**
+* **A,B**✅✅✅✅
 
 <hr>
 
@@ -147,13 +151,19 @@ F. sum() <br>
 
 ### My Answer:
 * Reduces account for all elements, and return a single element
-* A - true, i THINK
+* A - false, this isn't returning a single result
 * B - true
-* C - false
+* C - false, doesn't go over whole stream
 * D - false, not a single result
 * E - false
 * F - true
-* **B,F**
+* **B,F**❌❌❌❌
+* CORRECT ANSWER: **A,B**
+<br>
+
+* Collect and count ARE reductions available in the Stream class
+* `sum()` is a reduction but ONLY in `IntStream`
+* `collect()` is a MUTABLE reduction!!!
 <hr>
 
 ## 🟧 Question 6:
