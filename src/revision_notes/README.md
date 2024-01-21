@@ -495,7 +495,13 @@ System.out.println(b2.apply("hello ", "world")); // hello world
 ```
 
 ## 🟥 4.2 Optional
-
+* The `Optional` class is used to wrap a value which may not exist
+* The Optional class has the following methods:
+	- `E get()` - throws exception if empty
+	- `boolean ifPresent(Consumer)` - calls consumer if empty
+	- `boolean isPresent()`
+	- `E orElse(E other)` - returns other if empty
+	- `E orElseThrow(Supplier)` - throws exception using supplier if empty
 ## 🟥 4.3 Streams
 
 ## 🟥 4.4 Primitives
