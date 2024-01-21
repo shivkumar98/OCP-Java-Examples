@@ -4,8 +4,8 @@
 
 ## Results:
 
-Date:  <br>
-Score: 9/15 <br>
+Date: 21/01/2024 <br>
+Score: 12/20 (60%) <br>
 
 | Question # | Correct |
 | ---------- | ------- |
