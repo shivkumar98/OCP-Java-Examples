@@ -165,7 +165,7 @@
 
 ---------------------------------------------------------------
 
-# 🌀 Chapter 2 Design Patterns and Principles 🌀
+# 🌀 Chapter 2 - Design Patterns and Principles 🌀
 
 ## 🟥 2.1 Interfaces
 * Interfaces are classes which implicitly `abstract` and contain:
@@ -416,7 +416,7 @@ class FoodFactory {
 --------------------------------------------------------------
 
 
-# 🧮 Chapter 4 Functional Programming 🧮
+# 🧮 Chapter 4 - Functional Programming 🧮
 
 ## 🟥 4.1 Built-In Functional Interfaces
 * All Java 8 functional interfaces are in the `java.util.function` package.
@@ -502,14 +502,81 @@ System.out.println(b2.apply("hello ", "world")); // hello world
 	- `boolean isPresent()`
 	- `E orElse(E other)` - returns other if empty
 	- `E orElseThrow(Supplier)` - throws exception using supplier if empty
+
 ## 🟥 4.3 Streams
+### ⭐ Creating Streams
+* We can create finite streams by specifying elements, or converting an existing collection to a stream
+```java
+Stream<String> emptyStream = Stream.empty();
+Stream<Integer> numStream = Stream.of(1,2,3);
+Stream<String> letterStream = Arrays.asList("a","b","c").stream();
+```
+* We can create **infinite streams** using `.generate()` and `.iterate()`
+```java
+Stream<Double> randoms = Stream.generate(()->Math.random());
+Stream<Integer> sequence = Stream.iterate(1, i->i+2);
+```
 
-## 🟥 4.4 Primitives
+### ⭐ Terminal Operations
+* Streams are lazily evaluated, so intermediary operations like `peek()` do not run unless there is a terminal operation
+* Here are the terminal operations:
+1. `count()`
+```java
+long count();
+```
+* This method hangs for infinite streams
+
+2) `min()`/`max()`
+```java
+Optional<T> min(Comparator);
+Optional<T> max(Comparator);
+```
+* In order to use `min`/`max`, you need to supply the Comparator!
+```java
+Stream<String> letters = Stream.of("b","c","a","d");
+Optional<String> opt = letters.min((a,b)->a.compareTo(b));
+System.out.println(opt.get()); // a
+```
+
+3) `findAny()`/`findFirst()`
+```java
+Optional<T> findAny();
+Optional<T> findFirst();
+```
+
+```java
+Stream<String> infiniteLetters = Stream.generate(()->"hello");
+System.out.println(infiniteLetters.findAny().get()); // hello
+```
+
+4) `allMatch()`/`anyMatch()`/`noneMatch()`
+* All 3 of these methods 
+```java
+boolean allMatch(Predicate);
+boolean anyMatch(Predicate);
+boolean noneMatch(Predicate);
+```
+
+1) `collect()`
+```java
+R collect(Collector);
+```
+
+2) `forEach()` 
+* While `forEach()` is not a reduction, it IS a terminal operation!!!
+
+1) `reduce()`
+
+### ⭐ Intermediate Operations
+
+### ⭐ Printing a Stream
+
+## 🟥 4.4 Primitive Streams
 
 
 
 
-# 🧠 Chapter 6 - Exceptions and Assertions
+# ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
 ## 🟥 6.1 Reviewing Exceptions
 ### 🟡 Terminology
 * All exceptions/errors extend `java.lang.Object`
@@ -692,7 +759,7 @@ try {
 
 -----------------------------------------------------------
 
-# 🧠 Chapter 7 - Concurrency
+# 🧵 Chapter 7 - Concurrency 🧵
 
 ## 🟥 7.1 Introducing Threads
 
@@ -1337,7 +1404,7 @@ return new WeighAnimalTask(weights,middle,end).compute()+otherTask;
 
 --------------------------------------------------
 
-# 🧠 Chapter 8 - IO
+# 🖨️ Chapter 8 - IO 🖨️
 
 ## 🟥 8.1 Files and Directories
 * You can instantiate a file using either a String representing the location or using another File instance which is the parent directory
