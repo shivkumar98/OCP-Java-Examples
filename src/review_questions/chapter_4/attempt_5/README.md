@@ -24,11 +24,11 @@ Score: 9/15 <br>
 | 13         |  ✅       |
 | 14         |  ❌       |
 | 15         |  ✅       |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 16         |  ✅       |
+| 17         |  ✅       |
+| 18         |  ❌       |
+| 19         |  ❌       |
+| 20         |  ✅       |
 
 
 <hr>
@@ -520,7 +520,7 @@ System.out.println(p + " " + g);
 * The gorupBy method will create keys as needed
 * So p will print `{false=[], true=[]}`
 * g will be empty
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 17
@@ -543,7 +543,7 @@ UnaryOperator<Integer> u = x -> x * x;
 * A and B are wrong as BiFunction has 3 generics I THINK
 * C is invalid as it needs two parameters
 * D invalid
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 18
@@ -568,7 +568,14 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 * The result of the second line is 1
 * But the answers seem to ask what the output is,
 then it would be 2.4
-* **C**
+* **C**❌❌❌❌
+* CORRECT ANSWER: **D**
+<br>
+
+* Intermediary operations like peek() only run if there is a terminal operation
+* `count()` is a terminal operation so `.peek()` runs.
+* Therefore `1.2 2.4` is printed
+* The result of the stream is not stored in a variable so D is the right answer
 <hr>
 
 ## 🟧 Question 19
@@ -584,7 +591,9 @@ then it would be 2.4
 
 ### My Answer:
 * Boolean, Int, and Float are the suppliers
-* **A,D,E**
+* **A,D,E**❌❌❌❌
+* CORRECT ANSWER: **A,D,E**
+* The primitve streams are `IntStream`, `DoubleStream` and `BooleanStream`
 
 <hr>
 
@@ -624,5 +633,5 @@ IntStream.range(1,6)
 * D - false
 * E - false, code does compile
 * B seems simplest
-* **B**
+* **B**✅✅✅✅
 <hr>

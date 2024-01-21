@@ -8,7 +8,7 @@ public class Q14 {
 	public static void main(String[] args) {
 		Stream<Integer> s = Stream.of(1);
 		IntStream is = s.mapToInt(x->x);
-		DoubleStream ds = is.mapToInt(x->x);
+		DoubleStream ds = is.mapToInt(x->x); // COMPILER ERROR
 		ds.forEach(i->System.out.println("ds: "+i));
 		
 	}
