@@ -616,6 +616,7 @@ int product = numbers.reduce((a,b)->a*b);
 R collect(Collector)
 R collect(Supplier, BiConsumer, BiConsumer)
 ```
+
 * Here is an example of the first one:
 ```java
 Stream<String> strings = Stream.of("I","hate","java","8");
@@ -627,6 +628,7 @@ Map<Integer, String> map =
 	);
 // RESULT: {1=i8, 4=hatejava}
 ```
+
 * Here is an example of the 3 argument one:
 ```java
 Stream<String> stream = Stream.of("w","o","l","f");
@@ -639,6 +641,16 @@ TreeSet<String> set = stream.collect(
 ```
 
 ### ⭐ Intermediate Operations
+* In order for intermiate operations to be ran, one of the above terminal operations MUST be present!⚠️
+* Here are the intermediate operations I need to be aware of:
+	- `filter(Predicate)`
+	- `distrinct()`
+	- `limit(int)`
+	- `skip(int)`
+	- `map(Function)`
+	- `flatMap(Function)`
+	- `sorted()`/`sorted(Comparator)`
+	- `peek(Consumer)`
 
 ### ⭐ Printing a Stream
 
