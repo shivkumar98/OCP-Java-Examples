@@ -337,10 +337,11 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 ```java
 4: Stream<Integer> s = Stream.of(1);
 5: IntStream is = s.mapToInt(x -> x);
-6: DoubleStream ds = s.mapToInt(x -> x);
+6: DoubleStream ds = is.mapToDouble(x -> x);
 7: Stream<Iteger> s2 = ds.mapToInt(x -> x);
 8: s2.forEach(System.out::print);
 ```
+(The book has a typo!!!)
 
 * A. Line 4 does not compile <br>
 * B. Line 5 does not compile <br>

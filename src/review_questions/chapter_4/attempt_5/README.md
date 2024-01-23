@@ -4,8 +4,8 @@
 
 ## Results:
 
-Date:  <br>
-Score: 3/5 <br>
+Date: 21/01/2024 <br>
+Score: 12/20 (60%) <br>
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -14,21 +14,21 @@ Score: 3/5 <br>
 | 3          |  ❌       |
 | 4          |  ✅       |
 | 5          |  ❌       |
-| 6          |         |
+| 6          |  ✅       |
 | 7          |  ❌       |
-| 8          |         |
-| 9          |         |
-| 10         |         |
-| 11         |         |
-| 12         |         |
-| 13         |         |
-| 14         |         |
-| 15         |         |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 8          |  ✅       |
+| 9          |  ✅       |
+| 10         |  ✅       |
+| 11         |  ❌       |
+| 12         |  ❌       |
+| 13         |  ✅       |
+| 14         |  ❌       |
+| 15         |  ✅       |
+| 16         |  ✅       |
+| 17         |  ✅       |
+| 18         |  ❌       |
+| 19         |  ❌       |
+| 20         |  ✅       |
 
 
 <hr>
@@ -252,7 +252,9 @@ return list.stream()
 
 * The only one which will compile is:
 ```java
-
+return list.stream()
+    .sorted((a,b)->b.compareTo(a))
+    .collect(Collectors.toList());
 ```
 <hr>
 
@@ -272,7 +274,7 @@ F. `is.sum()` returns the type `OptionalInt` <br>
 * `is.average()` will return an OptionalDouble
 * `is.findAny()` will return OptionalInt
 * `is.sum()` will return int
-* **D,E**
+* **D,E**✅✅✅✅
 <hr>
 
 
@@ -300,7 +302,7 @@ F. None of these; line 5 throws an exception <br>
 * D - valid
 * E - false
 * F - false
-* **B,D**
+* **B,D**✅✅✅✅
 <hr>
 
 
@@ -337,7 +339,7 @@ G. `N, O` <br>
 * E - false as above
 * F - valid
 * G - false, will only output once
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 11
@@ -360,7 +362,11 @@ F. None of the above. The code already prints "12345" <br>
 * We need to create a string, so we can change the map to convert to string
 * The joining() method needs a value
 * The collect() method will reduce the stream, so forEach would not work - You need to wrap it entirely in System.out.print
-* **A,B,C,E**
+* **A,B,C,E**❌❌❌❌
+* CORRECT ANSWER: **B,C,E**
+<br>
+
+* It is not necessary to pass an argument to `Collectors.joining()` - although if you did, the result would be the same!
 <hr>
 
 
@@ -386,7 +392,7 @@ H. `UnaryOperator<String, String>`  <br>
 ### My Answer:
 * x can be a consumer
 * z can be a function, or a BinaryOperator
-* A - can be appliued to y
+* A - can be applied to y
 * B - can not be applied, I THINK
 * C - false, does not exist
 * D - false, does not exist
@@ -394,7 +400,11 @@ H. `UnaryOperator<String, String>`  <br>
 * F - true can be applied to x
 * G - true can be applied to z
 * H - false, does not exist
-* **A,B,E,F,G**
+* **A,E,F,G**❌❌❌❌
+* CORRECT ANSWER: **A,F,G**
+<br>
+
+* The Consumer can be applied to x but a consumer has a void return type. The correct option for x is `Supplier<String>`
 <hr>
 
 
@@ -414,12 +424,18 @@ A. The code compiles and prints `123456` <br>
 B. The code compiles and prints `234567` <br>
 C. The code compiles but does not print anything <br>
 D. The code compiles but prints stream references <br>
-E.  The code runs infinitely <br>
+E. The code runs infinitely <br>
 F. The code does not compile <br>
 G. The code throws an exception <br>
 
 ### My Answer:
 * `l1=[1,2,3]`
+* `l2=[4,5,6]`
+* `l3=[]`
+* `[[1,2,3],[4,5,6],[]]`.map(x, x+1)
+* The code does not compile as you can not add an int to a List 
+* **F**✅✅✅✅
+* if the flat map and map were reversed, then it would print `234567`
 <hr>
 
 ## 🟧 Question 14: 
@@ -429,10 +445,11 @@ G. The code throws an exception <br>
 ```java
 4: Stream<Integer> s = Stream.of(1);
 5: IntStream is = s.mapToInt(x -> x);
-6: DoubleStream ds = s.mapToInt(x -> x);
+6: DoubleStream ds = is.mapToDouble(x -> x);
 7: Stream<Iteger> s2 = ds.mapToInt(x -> x);
 8: s2.forEach(System.out::print);
 ```
+(The book has a typo!!!)
 
 A. Line 4 does not compile <br>
 B. Line 5 does not compile <br>
@@ -447,7 +464,11 @@ G. The code compiles and prints 1. <br>
 * Line 6 im not too sure of
 * Line 7 definitely does not compile
 * Line 8 should be fine
-* **C,D**
+* **C,D**❌❌❌❌
+* CORRECT ANSWER: **D**
+<br>
+
+* Line 7 does not compile as you attempt to convert a double to int. This needs a lamda to do the casting
 <hr>
 
 ## 🟧 Question 15 
@@ -468,7 +489,7 @@ F. None of the above <br>
 * B - false
 * D - valid
 * E - valid
-* **D,E**
+* **D,E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 16 
@@ -499,7 +520,7 @@ System.out.println(p + " " + g);
 * The gorupBy method will create keys as needed
 * So p will print `{false=[], true=[]}`
 * g will be empty
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 17
@@ -522,7 +543,7 @@ UnaryOperator<Integer> u = x -> x * x;
 * A and B are wrong as BiFunction has 3 generics I THINK
 * C is invalid as it needs two parameters
 * D invalid
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 18
@@ -547,7 +568,14 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 * The result of the second line is 1
 * But the answers seem to ask what the output is,
 then it would be 2.4
-* **C**
+* **C**❌❌❌❌
+* CORRECT ANSWER: **D**
+<br>
+
+* Intermediary operations like peek() only run if there is a terminal operation
+* `count()` is a terminal operation so `.peek()` runs.
+* Therefore `1.2 2.4` is printed
+* The result of the stream is not stored in a variable so D is the right answer
 <hr>
 
 ## 🟧 Question 19
@@ -563,7 +591,9 @@ then it would be 2.4
 
 ### My Answer:
 * Boolean, Int, and Float are the suppliers
-* **A,D,E**
+* **A,D,E**❌❌❌❌
+* CORRECT ANSWER: **A,D,E**
+* The primitve streams are `IntStream`, `DoubleStream` and `BooleanStream`
 
 <hr>
 
@@ -603,5 +633,5 @@ IntStream.range(1,6)
 * D - false
 * E - false, code does compile
 * B seems simplest
-* **B**
+* **B**✅✅✅✅
 <hr>

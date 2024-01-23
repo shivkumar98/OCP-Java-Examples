@@ -165,7 +165,7 @@
 
 ---------------------------------------------------------------
 
-# 🌀 Chapter 2 Design Patterns and Principles 🌀
+# 🌀 Chapter 2 - Design Patterns and Principles 🌀
 
 ## 🟥 2.1 Interfaces
 * Interfaces are classes which implicitly `abstract` and contain:
@@ -415,7 +415,168 @@ class FoodFactory {
 
 --------------------------------------------------------------
 
-# 🧠 Chapter 6 - Exceptions and Assertions
+
+# 🧮 Chapter 4 - Functional Programming 🧮
+
+## 🟥 4.1 Built-In Functional Interfaces
+* All Java 8 functional interfaces are in the `java.util.function` package.
+* These interface use `T`,`U` as parameters, and `R` as return type
+* Here are the functional interfaces I need to be aware of:
+### ⭐ 1. `T Supplier<T>`
+* This interface is used to supply data. E.g.:
+```java
+Supplier<String> s1 = () -> "hello";
+Supplier<LocalDate> s2 = LocalDate::now;
+LocalDate d1 = s2.get();
+```
+
+### ⭐ 2. `void Consumer<T>` and `void BiConsumer<T, U>`
+* Consumers consume data and return nothing
+* The `BiConsumer<T,U>` accepts two parameters
+```java
+class NumberClass {
+	static void print(int i) {
+		System.out.println("num: "+i);
+	}
+	static void multiply(int i, int j) {
+		System.out.println("product: "+i*j);
+	}
+}
+public class UsingConsumers {
+	public static void main(String[] args) {
+		Consumer<Integer> c1 = i -> NumberClass.print(i);
+		c1.accept(2); // num: 2
+		BiConsumer<Integer, Integer> c2 = NumberClass::multiply;
+		c2.accept(3, 4); // product: 12
+	}
+}
+```
+
+### ⭐ 3. `boolean Predicate<T>` and `boolean BiPredicate<T, U>`
+* Predicates test for a condition on data
+```java
+Predicate<String> stringIsEmpty = String::isEmpty;
+BiPredicate<String> stringIsOfLength = (string, length) -> string.length()==length;
+```
+
+* These functional interfaces also contain default methods: `negate()` and `and()`
+```java
+Predicate<String> containsVowel 
+	= t -> t.matches(".*[aeiou].*");
+Predicate<String> containsConstant
+	= t -> t.matches(".*[bcdfghjklmnpqrstvwxyz].*");
+Predicate<String> containsVowelsOnly
+	= containsVowel.and(containsConstant.negate());
+Predicate<String> containsNeitherVowelsOnConstants
+			= containsVowel.negate().and(containsConstant.negate());
+		
+System.out.println(containsVowelsOnly.test("ae")); // true
+System.out.println(containsVowelsOnly.test("abs")); // false
+System.out.println(containsNeitherVowelsOnConstants.test("!")); // true
+System.out.println(containsNeitherVowelsOnConstants.test("h!")); // false
+```
+
+### ⭐ 4. `R Function<T,R>` and `R BiFunction<T, U, R>`
+* Function and BiFunction are like mathematical functions, they can transform one type to another
+```java
+Function<String, Integer> f1 = String::length;
+System.out.println(f1.apply("hello")); // 5
+Function<String, Character> f2 = str->str.charAt(0);
+System.out.println(f2.apply("hello")); // h
+```
+### ⭐ 5. `T UnaryOperator<T>` and `T BinaryOperator<T>`
+* UnaryOperator and BinaryOperators only accept and return one type! `T`
+```java
+UnaryOperator<String> b1 = str->str+" world";
+System.out.println(b1.apply("hello")); // hello world
+
+BinaryOperator<String> b2 = String::concat;
+System.out.println(b2.apply("hello ", "world")); // hello world 
+```
+
+## 🟥 4.2 Optional
+* The `Optional` class is used to wrap a value which may not exist
+* The Optional class has the following methods:
+	- `E get()` - throws exception if empty
+	- `boolean ifPresent(Consumer)` - calls consumer if empty
+	- `boolean isPresent()`
+	- `E orElse(E other)` - returns other if empty
+	- `E orElseThrow(Supplier)` - throws exception using supplier if empty
+
+## 🟥 4.3 Streams
+### ⭐ Creating Streams
+* We can create finite streams by specifying elements, or converting an existing collection to a stream
+```java
+Stream<String> emptyStream = Stream.empty();
+Stream<Integer> numStream = Stream.of(1,2,3);
+Stream<String> letterStream = Arrays.asList("a","b","c").stream();
+```
+* We can create **infinite streams** using `.generate()` and `.iterate()`
+```java
+Stream<Double> randoms = Stream.generate(()->Math.random());
+Stream<Integer> sequence = Stream.iterate(1, i->i+2);
+```
+
+### ⭐ Terminal Operations
+* Streams are lazily evaluated, so intermediary operations like `peek()` do not run unless there is a terminal operation
+* Here are the terminal operations:
+1. `count()`
+```java
+long count();
+```
+* This method hangs for infinite streams
+
+2) `min()`/`max()`
+```java
+Optional<T> min(Comparator);
+Optional<T> max(Comparator);
+```
+* In order to use `min`/`max`, you need to supply the Comparator!
+```java
+Stream<String> letters = Stream.of("b","c","a","d");
+Optional<String> opt = letters.min((a,b)->a.compareTo(b));
+System.out.println(opt.get()); // a
+```
+
+3) `findAny()`/`findFirst()`
+```java
+Optional<T> findAny();
+Optional<T> findFirst();
+```
+
+```java
+Stream<String> infiniteLetters = Stream.generate(()->"hello");
+System.out.println(infiniteLetters.findAny().get()); // hello
+```
+
+4) `allMatch()`/`anyMatch()`/`noneMatch()`
+* All 3 of these methods 
+```java
+boolean allMatch(Predicate);
+boolean anyMatch(Predicate);
+boolean noneMatch(Predicate);
+```
+
+1) `collect()`
+```java
+R collect(Collector);
+```
+
+2) `forEach()` 
+* While `forEach()` is not a reduction, it IS a terminal operation!!!
+
+1) `reduce()`
+
+### ⭐ Intermediate Operations
+
+### ⭐ Printing a Stream
+
+## 🟥 4.4 Primitive Streams
+
+
+
+
+# ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
 ## 🟥 6.1 Reviewing Exceptions
 ### 🟡 Terminology
 * All exceptions/errors extend `java.lang.Object`
@@ -598,7 +759,7 @@ try {
 
 -----------------------------------------------------------
 
-# 🧠 Chapter 7 - Concurrency
+# 🧵 Chapter 7 - Concurrency 🧵
 
 ## 🟥 7.1 Introducing Threads
 
@@ -1243,7 +1404,7 @@ return new WeighAnimalTask(weights,middle,end).compute()+otherTask;
 
 --------------------------------------------------
 
-# 🧠 Chapter 8 - IO
+# 🖨️ Chapter 8 - IO 🖨️
 
 ## 🟥 8.1 Files and Directories
 * You can instantiate a file using either a String representing the location or using another File instance which is the parent directory
