@@ -651,7 +651,38 @@ TreeSet<String> set = stream.collect(
 	- `flatMap(Function)`
 	- `sorted()`/`sorted(Comparator)`
 	- `peek(Consumer)`
->>>>>>> Stashed changes
+
+* Here is an example of using peak and sort:
+```java
+Stream<String> stream = Stream.of("z","w","y","x");
+stream
+	.peek(t -> System.out.println("peek: "+t))
+	.sorted()
+	.peek(t -> System.out.println("peek: "+t))
+	.forEach(s->{;});
+/* this prints the following:
+peek: z
+peek: w
+peek: y
+peek: x
+after sort: w
+after sort: x
+after sort: y
+after sort: z
+```
+
+* Here is an example of using `sorted()` with a custom comparator:
+```java
+Stream<String> nums = Stream.of("y","x","zzzz","www");
+nums.sorted((a,b)->Integer.compare(a.length(), b.length()))
+	.peek(t->System.out.println("peek: "+t))
+	.forEach(s->{;});
+/* prints the following:>
+peek: y
+peek: xx
+peek: www
+peek: zzzz
+```
 
 ### ⭐ Printing a Stream
 
