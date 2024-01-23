@@ -619,8 +619,24 @@ R collect(Supplier, BiConsumer, BiConsumer)
 * Here is an example of the first one:
 ```java
 Stream<String> strings = Stream.of("I","hate","java","8");
+Map<Integer, String> map =
+	strings.collect(
+		Collectors.toMap(str->str.length(), 
+			str->str,
+			(str1,str2)->str1+str2)
+	);
+// RESULT: {1=i8, 4=hatejava}
 ```
-
+* Here is an example of the 3 argument one:
+```java
+Stream<String> stream = Stream.of("w","o","l","f");
+TreeSet<String> set = stream.collect(
+	()->new TreeSet<>(),
+	(t,u)->t.add(u),
+	(t,u)->t.addAll(u)
+)
+// RESULT: [f, l, o, w]
+```
 
 
 ### ⭐ Intermediate Operations
