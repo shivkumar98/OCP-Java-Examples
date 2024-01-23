@@ -520,13 +520,15 @@ Stream<Integer> sequence = Stream.iterate(1, i->i+2);
 ### ⭐ Terminal Operations
 * Streams are lazily evaluated, so intermediary operations like `peek()` do not run unless there is a terminal operation
 * Here are the terminal operations:
-1. `count()`
+1. 📟 `count()`📟
+* This IS a reduction❗
 ```java
 long count();
 ```
 * This method hangs for infinite streams
 
-2) `min()`/`max()`
+2) 📟 `min()`/`max()`📟
+* This IS a reduction⚠️
 ```java
 Optional<T> min(Comparator);
 Optional<T> max(Comparator);
@@ -538,7 +540,8 @@ Optional<String> opt = letters.min((a,b)->a.compareTo(b));
 System.out.println(opt.get()); // a
 ```
 
-3) `findAny()`/`findFirst()`
+3) 📟 `findAny()`/`findFirst()` 📟
+* This is NOT a reduction❗
 ```java
 Optional<T> findAny();
 Optional<T> findFirst();
@@ -549,7 +552,8 @@ Stream<String> infiniteLetters = Stream.generate(()->"hello");
 System.out.println(infiniteLetters.findAny().get()); // hello
 ```
 
-4) `allMatch()`/`anyMatch()`/`noneMatch()`
+4) 📟 `allMatch()`/`anyMatch()`/`noneMatch()` 📟
+* These methods ARE reductions❗
 * All 3 of these methods 
 ```java
 boolean allMatch(Predicate);
@@ -557,15 +561,52 @@ boolean anyMatch(Predicate);
 boolean noneMatch(Predicate);
 ```
 
-1) `collect()`
+5) 📟 `forEach()` 📟
+```java
+void forEach(Consumer)
+```
+* While `forEach()` is not a reduction, it IS a terminal operation!!!
+* It is not a reduction as it does not return anything⚠️
+* This is the only way to loop through a stream!
+```java
+public class UsingForEach {
+	static String printOddOrEven() {
+		System.out.println(i+" is "+(i%2==0?"even":"odd"));
+		return (i%2==0?"even":"odd");
+	}
+	public static void main(String[] args) {
+		System.out.println(i+" is "+(i%2==0?"even":"odd"));
+		return i%2==0 ? "even" : "odd";
+	}
+
+}
+```
+
+6) 📟 `reduce()` 📟
+* This is clearly a reduction!
+* Here is an example of calculating the sum of number of characters of a String stream:
+```java
+Stream<String> stream = Stream.of("1", "23", "456");
+int i = stream.
+	reduce(0,
+		(Integer sum, String str)->sum+str.length(),
+		(Integer sum1, Integer sum2)->sum1+sum2);
+// ^^ returns 6
+
+Stream words = Stream.of("Hello","World","!");
+words.reduce("",
+	(String s1, String s2)->s1+s2);
+// ^^ returns "HelloWorld!"
+```
+
+
+7) 📟 `collect()` 📟
+* This method IS a reduction⚠️⚠️⚠️
 ```java
 R collect(Collector);
 ```
 
-2) `forEach()` 
-* While `forEach()` is not a reduction, it IS a terminal operation!!!
 
-1) `reduce()`
 
 ### ⭐ Intermediate Operations
 
