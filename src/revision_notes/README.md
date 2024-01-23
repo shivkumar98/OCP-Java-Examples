@@ -591,12 +591,12 @@ int i = stream.
 	reduce(0,
 		(Integer sum, String str)->sum+str.length(),
 		(Integer sum1, Integer sum2)->sum1+sum2);
-// ^^ returns 6
+// RESULT: 6
 
 Stream words = Stream.of("Hello","World","!");
 words.reduce("",
 	(String s1, String s2)->s1+s2);
-// ^^ returns "HelloWorld!"
+// RESULT: "HelloWorld!"
 ```
 * The `reduce()` method has one signature which returns an `Optional<T>`, this is the one parameter version:
 ```java
@@ -606,7 +606,7 @@ Optional<T> reduce(BinaryOperator<T>)
 ```java
 Stream<Integr> numbers = Stream.of(1,2,3,4);
 int product = numbers.reduce((a,b)->a*b);
-//  ^^^^^^^ returns 24
+//  RESULT: 24
 ```
 
 7) 📟 `collect()` 📟
@@ -637,7 +637,6 @@ TreeSet<String> set = stream.collect(
 )
 // RESULT: [f, l, o, w]
 ```
-
 
 ### ⭐ Intermediate Operations
 
