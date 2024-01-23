@@ -651,6 +651,7 @@ TreeSet<String> set = stream.collect(
 	- `flatMap(Function)`
 	- `sorted()`/`sorted(Comparator)`
 	- `peek(Consumer)`
+>>>>>>> Stashed changes
 
 ### ⭐ Printing a Stream
 
