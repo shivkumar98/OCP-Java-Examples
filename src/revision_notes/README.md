@@ -611,8 +611,14 @@ int product = numbers.reduce((a,b)->a*b);
 
 7) 📟 `collect()` 📟
 * This method IS a reduction⚠️⚠️⚠️
+* There are 2 signatures for this method:
 ```java
-R collect(Collector);
+R collect(Collector)
+R collect(Supplier, BiConsumer, BiConsumer)
+```
+* Here is an example of the first one:
+```java
+Stream<String> strings = Stream.of("I","hate","java","8");
 ```
 
 
