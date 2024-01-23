@@ -616,7 +616,6 @@ int product = numbers.reduce((a,b)->a*b);
 R collect(Collector)
 R collect(Supplier, BiConsumer, BiConsumer)
 ```
-
 * Here is an example of the first one:
 ```java
 Stream<String> strings = Stream.of("I","hate","java","8");
@@ -628,7 +627,6 @@ Map<Integer, String> map =
 	);
 // RESULT: {1=i8, 4=hatejava}
 ```
-
 * Here is an example of the 3 argument one:
 ```java
 Stream<String> stream = Stream.of("w","o","l","f");
@@ -683,8 +681,6 @@ peek: xx
 peek: www
 peek: zzzz
 ```
-
-### ⭐ Printing a Stream
 
 ## 🟥 4.4 Primitive Streams
 
