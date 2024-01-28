@@ -748,6 +748,17 @@ Double emptyStreamAvg = emptyStram.average().orElseGet(()->Double.NaN);
 
 * Calling `.sum()` on a primitive stream will NOT return an Optional!!!⚠️⚠️⚠️
 
+### ⭐ Summarising Statistics
+* Summary Statistics mean you can collect multiple statistics on your stream without it terminating early!!!
+```java
+IntStream i = IntStream.of(1,2,3,4);
+IntSummaryStatistics summary = i.summaryStatistics();
+System.out.println(summary.getAverage()); // 2.5
+System.out.println(summary.getMax()); // 4
+System.out.println(summary.getMin()); // 1	
+```
+
+* We can use summary statistics on an empty stream, the getters will always return a value but may not be what we expect!⚠️⚠️⚠️
 
 # ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
 ## 🟥 6.1 Reviewing Exceptions
