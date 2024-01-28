@@ -126,7 +126,7 @@ System.out.println(b1 + " "+ b2);
 * C - false, they can return boolean, objects, collections
 * D - false
 * E - false, this is an intermediate operation
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 5
@@ -147,7 +147,7 @@ System.out.println(b1 + " "+ b2);
 * D - false, this is an intermediate operation
 * E - false, intermediate
 * F - false, this is not a method available to stream class!
-* **A,B**
+* **A,B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 6:
@@ -174,7 +174,7 @@ System.out.println(match);
 * D - false, this method does not take a parameter
 * E - false, this will print true
 * F - false
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 
@@ -224,7 +224,7 @@ return list.stream()
 * The stream class has a sorted method which takes a comparator
 * E is false as you need to provide a collector
 * F is true
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 
@@ -243,7 +243,7 @@ return list.stream()
 * `.average()` returns an OptionalDouble
 * `is.findAny()` returns an OptionalInt
 * `is.sum()` returns an int
-* **D,E**
+* **D,E**✅✅✅✅
 <hr>
 
 
