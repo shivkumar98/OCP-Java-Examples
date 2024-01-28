@@ -291,7 +291,11 @@ O:  .peek(System.out::println)
 * G. `N, O` <br>
 
 ### My Answer:
-
+* Anything with L will be wrong
+* We need N
+* F - true
+* G - false, peek is intermediate
+* **F**
 <hr>
 
 ## 🟧 Question 11
@@ -309,7 +313,11 @@ Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
 * F. None of the above. The code already prints "12345" <br>
 
 ### My Answer:
- 
+ * The joining needs a parameter of ""
+ * We need C
+ * We need to convert the number to a string so we need B
+ * We need E
+ * **B,C,E**
 <hr>
 
 
@@ -333,7 +341,10 @@ Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
 * H. `UnaryOperator<String, String>`  <br>
 
 ### My Answer:
- 
+* x is a supplier so F is true
+* y is a consumer with 2 arguments applied, so A
+* z is a Function or UnaryOperator, so its H
+* **A,F,H**
 <hr>
 
 
