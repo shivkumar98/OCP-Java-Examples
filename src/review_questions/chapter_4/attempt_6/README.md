@@ -5,7 +5,7 @@
 ## Results:
 
 Date:  <br>
-Score: 11/12 <br>
+Score: 18/20 (90%) <br>
 ❌✅
 | Question # | Correct |
 | ---------- | ------- |
@@ -21,14 +21,14 @@ Score: 11/12 <br>
 | 10         | ✅        |
 | 11         | ✅        |
 | 12         | ❌        |
-| 13         |         |
-| 14         |         |
-| 15         |         |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 13         | ✅        |
+| 14         | ✅        |
+| 15         | ✅        |
+| 16         | ✅        |
+| 17         | ✅        |
+| 18         | ✅        |
+| 19         | ✅        |
+| 20         | ❌        |
 
 
 <hr>
@@ -442,7 +442,7 @@ System.out.println(p + " " + g);
 * F. An exception is thrown
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 17
@@ -461,7 +461,7 @@ UnaryOperator<Integer> u = x -> x * x;
 * F. None of these above
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 18
@@ -483,7 +483,7 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 
 ### My Answer:
 * 1.2 and 2.4 will come through
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 19
@@ -498,7 +498,7 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 * F. `StringSupplier`
 
 ### My Answer:
-* **A,C,E**
+* **A,C,E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 20
@@ -532,5 +532,6 @@ IntStream.range(1,6)
 ### My Answer:
 * The range is not closed so A and B are false
 * C is correct
-* **C**
+* **C**❌❌❌❌
+* I misread the question, B is the simplest!
 <hr>
