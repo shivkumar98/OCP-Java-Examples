@@ -375,7 +375,7 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 
 ### My Answer:
 * The map does not compile so F
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 14: 
@@ -401,7 +401,7 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 
 ### My Answer:
 * Line 7 does not compile
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 15 
@@ -417,7 +417,7 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 
 ### My Answer:
 * Only D and E look right
-* **D,E**
+* **D,E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 16 
