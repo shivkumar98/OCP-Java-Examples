@@ -5,22 +5,22 @@
 ## Results:
 
 Date:  <br>
-Score: /20 <br>
+Score: 11/12 <br>
 ❌✅
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |         |
-| 2          |         |
-| 3          |         |
-| 4          |         |
-| 5          |         |
-| 6          |         |
-| 7          |         |
-| 8          |         |
-| 9          |         |
-| 10         |         |
-| 11         |         |
-| 12         |         |
+| 1          | ✅        |
+| 2          | ✅        |
+| 3          | ✅        |
+| 4          | ✅        |
+| 5          | ✅        |
+| 6          | ✅        |
+| 7          | ✅        |
+| 8          | ✅        |
+| 9          | ✅        |
+| 10         | ✅        |
+| 11         | ✅        |
+| 12         | ❌        |
 | 13         |         |
 | 14         |         |
 | 15         |         |
@@ -264,7 +264,12 @@ return list.stream()
 * F. None of these; line 5 throws an exception <br>
 
 ### My Answer:
-
+* ls = [1,2,3]
+* ls = [10,20,30]
+* ls = []
+* B - true
+* D - true
+* **B,D**✅✅✅✅
 <hr>
 
 
@@ -294,7 +299,7 @@ O:  .peek(System.out::println)
 * We need N
 * F - true
 * G - false, peek is intermediate
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 11
@@ -316,7 +321,7 @@ Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
  * We need C
  * We need to convert the number to a string so we need B
  * We need E
- * **B,C,E**
+ * **B,C,E**✅✅✅✅
 <hr>
 
 
@@ -343,7 +348,8 @@ Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
 * x is a supplier so F is true
 * y is a consumer with 2 arguments applied, so A
 * z is a Function or UnaryOperator, so its H
-* **A,F,H**
+* **A,F,H**❌❌❌❌
+* UnaryOperator does not have 2 generic types!!!
 <hr>
 
 
