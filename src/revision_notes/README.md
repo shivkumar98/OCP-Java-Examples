@@ -760,8 +760,58 @@ System.out.println(summary.getMin()); // 1
 
 * We can use summary statistics on an empty stream, the getters will always return a value but may not be what we expect!⚠️⚠️⚠️
 
+## 🟥 4.5 Advanced Stream Pipeline Concepts
+### ⭐ Lazy Evaluation
+* Streams are lazily evaluated, meaning if we call a terminal operation, the stream will be initialised at that point!
+```java
+List<String> animes = Arrays.asList("Death note", "Future Diary");
+Stream<String> stream = animes.stream();
+animes.add("Attack on Titan");
+System.out.println(stream.count());
+// PRINTS 3!!! ^^^^
+```
 
+### ⭐ Collecting Results
+* We can collect a stream into a single result using `.collect()`
+* We can use `Collectors.joining()` to construct a String from the stream:
+```java
+Stream str = Stream.of("lions","tigers","bears");
+String result = str.collect(Collectors.joining(","));
+// ^^^^ lions,bears,bears
+```
 
+* We have `Collectors.averagingInt(ToIntFunction)` to get an average of a Stream:
+```java
+Stream<String> str = Stream.of("1","333","7777777");
+ToIntFunction<String> getLengths = s -> s.length();
+Double averageLength = lengths.collect(Collectors.averagingInt(getLengths))
+// 3.666666666666665
+``` 
+
+* We have `Collectors.toCollection(Supplier)`:
+```java
+Stream<String> alphabet = Stream.of("d","c","a","b","e");
+Supplier<TreeSet<String>> supplier = TreeSet::new;
+alphabet.collect(Collectors.toCollection(supplier));
+// [a, b, c, d, e]
+```
+
+### ⭐ Collecting into Maps
+* We have `Collectors.toMap(keyMapper, valueMapper)`:
+```java
+public class Employee {
+	int id; String name;
+	// constructor + toString
+}
+// MAIN METHOD:
+Stream<Employee> employees = Stream.of(new Employee(1, "Shiv"),
+		new Employee(2,"Kumar"));
+
+Function<Employee, Employee> valueMapper = e->e;
+Map<Integer, Employee> map = employees.collect(
+	Collectors.toMap(e->e.id,e->e));
+// {1=[id=1, name=Shiv], 2=[id=2, name=Kumar]}
+```
 <hr>
 
 # ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
