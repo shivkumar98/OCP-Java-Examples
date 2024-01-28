@@ -456,7 +456,7 @@ UnaryOperator<Integer> u = x -> x * x;
 * F. None of these above
 
 ### My Answer:
- 
+* **E**
 <hr>
 
 ## 🟧 Question 18
@@ -477,7 +477,8 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 * G. An exception is thrown
 
 ### My Answer:
- 
+* 1.2 and 2.4 will come through
+* **D**
 <hr>
 
 ## 🟧 Question 19
@@ -492,7 +493,7 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 * F. `StringSupplier`
 
 ### My Answer:
- 
+* **A,C,E**
 <hr>
 
 ## 🟧 Question 20
@@ -524,5 +525,7 @@ IntStream.range(1,6)
 * E. The provided code does not compile
 
 ### My Answer:
- 
+* The range is not closed so A and B are false
+* C is correct
+* **C**
 <hr>
