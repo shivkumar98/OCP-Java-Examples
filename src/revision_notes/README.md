@@ -681,6 +681,8 @@ peek: xx
 peek: www
 peek: zzzz
 ```
+<br>
+
 
 ## 🟥 4.4 Primitive Streams
 ### ⭐ Creating Primitive Streams
@@ -725,6 +727,27 @@ IntStream pizzaSlices = pizzas.mapToInt(p->p.length());
 2. `.mapToObj`
 3. `.mapToInt`
 4. `.mapToLong`
+
+### ⭐ Optionals with Primitive Streams
+* Some of the methods for the primitive streams return Optional. And instead of a regular Optional, it is specifically a PRIMITIVE OPTIONAL
+* E.g. when we call average on IntStream, LongStream, DoubleStream, we get an `OptionalDouble`:
+```java
+IntStream intStream = IntStream.of(1,2,3);
+OptionalDouble intStreamAvg = intStream.average();
+Double avg = intStreamAvg.getAsDouble(); // 2.0
+
+IntStream emptyStream = IntStream.empty();
+Double emptyStreamAvg = emptyStram.average().orElseGet(()->Double.NaN);
+// ^^^^^^^^^^^^^^^^^ NaN
+```
+
+* If we call `.max()` on:
+1. IntStream => `OptionalInt`
+2. LongStream => `OptionalLong`
+3. DoubleStream => `DoubleStream`
+
+* Calling `.sum()` on a primitive stream will NOT return an Optional!!!⚠️⚠️⚠️
+
 
 # ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
 ## 🟥 6.1 Reviewing Exceptions

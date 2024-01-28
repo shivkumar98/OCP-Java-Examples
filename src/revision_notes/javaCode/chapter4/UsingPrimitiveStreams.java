@@ -1,6 +1,7 @@
 package revision_notes.javaCode.chapter4;
 
 import java.util.ArrayList;
+import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -23,7 +24,8 @@ public class UsingPrimitiveStreams {
 		// creates range from 1 to 3
 		
 		Stream<String> pizzas = Stream.of("1","22","333");
-		IntStream pizzaSizes = pizzas.mapToInt(p->p.length()); // [1,2,3]
+		ToIntFunction<String> f = s->s.length();
+		IntStream pizzaSizes = pizzas.mapToInt(f); // [1,2,3]
 		System.out.println(pizzaSizes.collect(ArrayList::new, ArrayList::add, ArrayList::addAll));
 	}
 	
