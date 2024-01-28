@@ -683,9 +683,48 @@ peek: zzzz
 ```
 
 ## 🟥 4.4 Primitive Streams
+### ⭐ Creating Primitive Streams
+* While we can use Streams and generics, the primitive streams offer methods which are useful specifically for primitives
+* There are 3 types of primitive streams:
+1. `IntStream` - char, short, byte, int, and booleans
+2. `LongStream` - longs
+3. `DoubleStream` - floats and double
 
+* We can create primitive streams using the same methods from the Stream class like `.of()`, `.empty()`, `.generate()`, `.iterate()`
 
+* The `IntStream` class has methods to specify an open and closed range:
+```java
+IntStream openRange = IntStream.range(1,3); // {1,2}
+IntStream closedRange = IntStream.rangeClosed(1,3); // {1,2,3}
+```
 
+* We can convert a regular stream to a primitive stream using `mapToInt()`:
+```java
+Stream<String> pizzas = Stream.of("1","22","333");
+IntStream pizzaSlices = pizzas.mapToInt(p->p.length()); 
+// ^^ [1,2,3]
+```
+
+* The Stream class has the following methods:
+1. `.map()`
+2. `.mapToInt()`
+3. `.mapToDouble()`
+4. `.mapToLong()`
+* The IntStream class has the following methods:
+1. `.map()`
+2. `.mapToObj`
+3. `.mapToLong`
+4. `.mapToDouble`
+* The LongStream class has the following methods:
+1. `.map()`
+2. `.mapToObj`
+3. `.mapToInt`
+4. `.mapToDouble`
+* The DoubleStream class has the following methods:
+1. `.map()`
+2. `.mapToObj`
+3. `.mapToInt`
+4. `.mapToLong`
 
 # ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
 ## 🟥 6.1 Reviewing Exceptions
