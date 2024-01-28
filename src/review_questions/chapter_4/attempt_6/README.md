@@ -364,12 +364,13 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 * B. The code compiles and prints `234567` <br>
 * C. The code compiles but does not print anything <br>
 * D. The code compiles but prints stream references <br>
-* E.  The code runs infinitely <br>
+* E. The code runs infinitely <br>
 * F. The code does not compile <br>
 * G. The code throws an exception <br>
 
 ### My Answer:
- 
+* The map does not compile so F
+* **F**
 <hr>
 
 ## 🟧 Question 14: 
@@ -394,7 +395,8 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 * G. The code compiles and prints 1. <br>
 
 ### My Answer:
- 
+* Line 7 does not compile
+* **D**
 <hr>
 
 ## 🟧 Question 15 
@@ -409,7 +411,8 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 * F. None of the above <br>
 
 ### My Answer:
- 
+* Only D and E look right
+* **D,E**
 <hr>
 
 ## 🟧 Question 16 
@@ -434,7 +437,7 @@ System.out.println(p + " " + g);
 * F. An exception is thrown
 
 ### My Answer:
- 
+* **C**
 <hr>
 
 ## 🟧 Question 17
