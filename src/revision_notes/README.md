@@ -760,6 +760,10 @@ System.out.println(summary.getMin()); // 1
 
 * We can use summary statistics on an empty stream, the getters will always return a value but may not be what we expect!⚠️⚠️⚠️
 
+
+
+<hr>
+
 # ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
 ## 🟥 6.1 Reviewing Exceptions
 ### 🟡 Terminology
