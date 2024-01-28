@@ -45,7 +45,7 @@
 | 15/07/2023 | [No. 3](/src/review_questions/chapter_4/attempt_3/)  | 16 /20   | 80% | 5,8,10,11 |
 | 26/09/2023 | [No. 4](/src/review_questions/chapter_4/attempt_4/)  | 8 / 20   | 40% | 2,3,5,6,7,8,10,11,12,13,14,18 |
 | 21/01/2024 | [No. 5](/src/review_questions/chapter_4/attempt_5/)  | 12 / 20  | 60% | 3,5,7,11,12,14,18,19 |
-
+| 28/01/2024 | [No. 6](/src/review_questions/chapter_4/attempt_6/)  | 18 / 20  | 90% | 12,20 |
 
 <hr>
 
