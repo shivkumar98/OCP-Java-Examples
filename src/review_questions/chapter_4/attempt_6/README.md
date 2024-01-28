@@ -54,7 +54,7 @@ G. The code hangs <br>
 * stream = ["", "1"]
 * stream = "["2", "12"]
 * Printing a stream will give you a memory reference
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 2:
@@ -82,7 +82,7 @@ System.out.println(b1 + " "+ b2);
 * stream1 = ["growl!", "growl!",...]
 * b1 is true as the first element matches
 * b2 will hang as it will look at all elements to see if they begin with g
-* **D**
+* **F**✅✅✅✅
 <hr>
 
 
@@ -107,13 +107,12 @@ System.out.println(b1 + " "+ b2);
 ### My Answer:
 * b1 will be false
 * b2 will throw an exception as you are calling a terminal operation twice on the same stream
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 4:
 
 ❓Which are true statements about terminal operations in a stream?
-
 * A. At most one terminal operation can exist in a stream pipeline <br>
 * B. Terminal operations are a required part of the stream pipeline in order to get a result <br>
 * C. Terminal operations must have `Stream` as the return type. <br>
