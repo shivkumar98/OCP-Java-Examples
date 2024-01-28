@@ -142,7 +142,13 @@ System.out.println(b1 + " "+ b2);
 * F. sum() <br>
 
 ### My Answer:
-
+* A - true
+* B - true
+* C - false
+* D - false, this is an intermediate operation
+* E - false, intermediate
+* F - false, this is not a method available to stream class!
+* **A,B**
 <hr>
 
 ## 🟧 Question 6:
@@ -163,12 +169,17 @@ System.out.println(match);
 * F. None of the above <br>
 
 ### My Answer:
-
+* A - true, this will print false
+* B - false, this will hang
+* C - false, this can not take a parameter I THINK
+* D - false, this method does not take a parameter
+* E - false, this will print true
+* F - false
+* **A**
 <hr>
 
 
 ## 🟧 Question 7
-
 ❓We have a method that returns a sorted list without changing the original. Which of the following can replace the method implementation to do the same with streams?
 
 ```java
@@ -211,7 +222,10 @@ return list.stream()
 ```
 
 ### My Answer:
-
+* The stream class has a sorted method which takes a comparator
+* E is false as you need to provide a collector
+* F is true
+* **F**
 <hr>
 
 
@@ -227,7 +241,10 @@ return list.stream()
 * F. `is.sum()` returns the type `OptionalInt` <br>
 
 ### My Answer:
-
+* `.average()` returns an OptionalDouble
+* `is.findAny()` returns an OptionalInt
+* `is.sum()` returns an int
+* **D,E**
 <hr>
 
 
