@@ -812,6 +812,9 @@ Map<Integer, Employee> map = employees.collect(
 	Collectors.toMap(e->e.id,e->e));
 // {1=[id=1, name=Shiv], 2=[id=2, name=Kumar]}
 ```
+
+
+
 <hr>
 
 # ⚠️ Chapter 6 - Exceptions and Assertions ⚠️
