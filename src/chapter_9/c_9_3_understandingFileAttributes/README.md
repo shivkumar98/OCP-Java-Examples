@@ -112,6 +112,30 @@ try {
 | PosixFileAttributes | PosixFileAttributeView | Attributes supported by POSIX systems likek UNIX, Linux, Mac, and so on |
 
 ### ⭐ Reading Attributes ⭐
+* NIO.2 API provides a `Files.readAttributes(Path,Class<A>)` which returns a read-only file view. 
+* All attribute classes extend `BasicFileAttributes`
+* Here is a code sample of reading attributes:
+```java
+public class BasicFileAttributesSamples {
+    public static void main() throws IOException {
+        Path path = Paths.get("/turtles/sea.txt");
+        BasicFileAttributes data =
+            Files.readAttributes(path, BasicFileAttributes.class);
+        
+        System.out.println("Is path a directory: "+data.isDirectory());
+        System.out.println("Is path a file: "+data.isFile());
+        System.out.println("Is path a symbolic link: "+data.isSymbolicLink());
+        System.out.println("Path not a file, directory not symbolic link: "+data.isOther());
+
+        System.out.println("Size in bytes: "+data.size());
+
+        System.out.println("Creation Datetime: "+data.creationTime());
+        System.out.println("Modified Datetime: "+data.lastModifiedTime());
+        System.out.println("Last accessed time: "+data.lastAccessTime());
+        System.out.println("Unique file identifier: "+data.f
+    }
+}
+```
 
 ### ⭐ Modifying Attributes ⭐
 
