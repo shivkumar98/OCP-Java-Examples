@@ -138,5 +138,27 @@ public class BasicFileAttributesSamples {
 ```
 
 ### ⭐ Modifying Attributes ⭐
+* NIO.2 provides us with `Files.getAttributeView(Path,Class<V>)` which returns a view object to update the file attributes (which depend on operating system)
+
+* `BasicFileAttributeView` is used to modify a file's set of date/time values.
+* In general, we can not modify the other attributtes directly (like size or type without modifying the file itself)
+* Here is a sample program which reads a file's attributes and increments the last modified datetime by 10 seconds:
+```java
+public class BasicFileAttributeViewSample {
+    public static void main(String[] args) throws IOException {
+        Path path = Paths.get("/turtles/sea.txt");
+
+        BasicFileAttributeView view 
+            = Files.getFileAttributeView(path,BasicFileAttributeView.class);
+        BasicFileAttributes data = view.readAttributes();
+
+        FileTime lastModifiedTime = FileTime.fromMillis(
+            data.lastModifiedTime().toMillis()+10_000
+        );
+        view.setTimes(lastModifiedTime,null,null);
+    }
+}
+```
+
 
 <hr>
