@@ -1,6 +1,6 @@
 <link href="../../styles.css" rel="stylesheet"></link>
 
-# 🧠 9.3
+# 🧠 9.3 Understanding File Attributes
 
 * In the prior section we reviewed methods which could create, modify, read or delete a file or directory
 * **File attributes** are file and directory metadata
