@@ -67,3 +67,27 @@ try {
 /zoo/ducks/weight.txt
 ```
 ## 🟥 9.4.5 Printing File Contents
+* We saw `Files.readAllLines()` and commented that it could result to an `OutOfMemoryError` problem
+* The `Files.lines(Path)` does not suffer the same issue
+* The contents of the file are read and processed lazily
+* Here is an example:
+```java
+Path path = Paths.get("/fish/sharks.log");
+try {
+    Files.lines(path).forEach(System.out::println);
+} catch (IOException e) {
+    // handle file IO exception
+}
+```
+* Here is another program:
+```java
+Path path = Paths.get("/fish/sharks.log");
+try {
+    System.out.println(Files.lines(path)
+        .filter(s->s.startsWith("WARN "))
+        .map(s->s.substring(5))
+        .collect(Collectors.toList()));
+} catch (IOException e) {
+    // handle file I/O exception
+}
+```
