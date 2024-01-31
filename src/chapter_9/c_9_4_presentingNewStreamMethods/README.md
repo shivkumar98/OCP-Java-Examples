@@ -31,6 +31,17 @@ try {
 * By default, the `walk()` method will not traverse symbolic links
 
 ## 🟥 9.4.3 Searching a Directory
+* We used a stream filter to filter the results of the directory walk. `Files.find(Path,int,BiPredicate)` method. The BiPredicate takes Path and BasicFileAttributes as parameters.
+* Here is an example:
+```java
+Path path = Paths.get("/bigcats");
+long dateFilter = 14200700000l;
+try {
+    Stream<Path> stream = Files.find(path, 10,
+        (p,a)->p.toString().endsWith(".java")
+        && a.lastModifiedTime.toMillis()>dateFilter);
+}
+```
 
 ## 🟥 9.4.4 Listing Directory Content
 
