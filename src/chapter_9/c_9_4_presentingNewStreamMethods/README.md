@@ -40,9 +40,30 @@ try {
     Stream<Path> stream = Files.find(path, 10,
         (p,a)->p.toString().endsWith(".java")
         && a.lastModifiedTime.toMillis()>dateFilter);
+    stream.forEach(Exception e) {
+        // handle file i/o exception
+    }
 }
 ```
 
 ## 🟥 9.4.4 Listing Directory Content
-
+* The File class has a `listFiles()` which represents the contents of the directory provided.
+* Here is an example program which prints the contents of a `/zoo` directory:
+```java
+try {
+    Path path = Paths.get("ducks");
+    Files.list(path)
+        .filter(p->!Files.isDirectory(p))
+        .map(p -> p.toAbsolutePath())
+        .forEach(System.out::println);
+} catch (IOException e) {
+    // handle file io exception
+}
+```
+* The output of this program will look something like:
+```
+/zoo/ducks/food.txt
+/zoo/ducks/food-backup.txt
+/zoo/ducks/weight.txt
+```
 ## 🟥 9.4.5 Printing File Contents
