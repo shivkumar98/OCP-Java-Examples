@@ -6,12 +6,10 @@
 * SQL book recommendation: SQL For Dummies by Allen G. Taylor (Wiley, 2013)
 * Database java programming bookk recommendation: Practical
 Database Programming with Java by Ying Bai 
+<br>
 
+* A relational database is data which is organised into tables.
+* There are 2 ways of accessing a relational DB from java
+1. JDBC - accessed data as rows and columns
+2. JPA - accessed data through Java objects (not in the exam)
 
-<hr>
-
-## 🟥 10.1.1 Introducing Path
-
-### ⭐ H3 ⭐
-
-<hr>
