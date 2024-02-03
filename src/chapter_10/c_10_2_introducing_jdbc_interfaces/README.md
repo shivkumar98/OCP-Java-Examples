@@ -14,18 +14,26 @@
 * Here is an example of using JDBC akin to what you would see in the exam:
 
 ```java
-public class MyFirstDatabaseConnection {
-    public static void main(String[] args) throws SQLException {
-        String url = "jdbc:derby:zoo";
-        try (
-            Connection conn = Drivermanager.getConnection(url);
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select name from animal")) {
-
-            while (rs.next()) 
-                System.out.println(rs.getString(1));
-
+public static void main(String[] args) throws SQLException {
+    String url = "jdbc:derby:zoo";
+    try (Connection conn = DriverManager.getConnection(url);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("select name from animal")) {
+        
+        while(rs.next()) {
+            System.out.println(rs.getString(1));
         }
     }
 }
 ```
+* This program will print the following:
+```
+Elsa
+Zelda
+Ester
+Eddie
+Zoe
+```
+* If the URL was using `FooDriver`, the `DriverManager` would return an instance of `FooConnection`
+* The `conn.createStatement()` returns an instance of `FooStatement`
+* The `stmt.executeQuery()` returns an instance of `FooResultSet`
