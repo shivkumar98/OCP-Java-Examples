@@ -17,8 +17,26 @@
   * `jdbc:oracle:thin:@123.123.123.123:1521:zoo`
   * `jdbc:mysql://localhost:3306/zoo?profileSQL=true` 
 
-### ⭐ H3 ⭐
 
 ## 🟥 10.3.2 Getting a Database Connection
-
+* There are two ways of obtaining a connection to the db: `DriverManager` or `DataSource`
+* The DriverManager is the one which will be used in code but should not be used in practice as DataSource provides more features like pooling connections or store the db connection info outside the application
+* `DriverManager` uses factory pattern enabling you to statically obtain a connectionL `DriverManager.getConnection("jdbc:derby:zoo")`
+* Here is an example of getting a connection from the embedded database:
+```java
+public class TestConnect {
+	public static void main(String[] args) throws SQLException {
+		Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+		System.out.println(conn);
+		// org.apache.derby.impl.jdbc.EmbedConnection@98826337 (XID = 266),
+        // (SESSIONID = 1), (DATABASE = zoo), (DRDAID = null) 
+	}
+}
+```
+* You also can obtain a connection by specifying the username and password in `.getConnection()`. E.g.:
+```java
+Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ocp-book",
+"username",
+"password");
+```
 ### ⭐ H3 ⭐
