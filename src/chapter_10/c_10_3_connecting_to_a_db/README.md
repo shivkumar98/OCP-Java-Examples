@@ -17,6 +17,7 @@
   * `jdbc:oracle:thin:@123.123.123.123:1521:zoo`
   * `jdbc:mysql://localhost:3306/zoo?profileSQL=true` 
 
+<hr>
 
 ## 🟥 10.3.2 Getting a Database Connection
 * There are two ways of obtaining a connection to the db: `DriverManager` or `DataSource`
