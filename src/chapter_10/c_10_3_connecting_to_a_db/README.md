@@ -40,4 +40,3 @@ Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/
 "username",
 "password");
 ```
-### ⭐ H3 ⭐
