@@ -20,5 +20,8 @@ Statement stmt = conn.createStatement(
   * `TYPE_SCROLL_INSENSITIVE` gives you a static view of the data returned when it was query
 <hr>
 
-## 🟥 10.4.2 Choose
+## 🟥 10.4.2 Choosing a ResultSet Concurrency Mode
+* The default ResultSet mode is `CONCUR_READ_ONLY` - you can NOT update the result set.
+  * Most of the time you will use an insert/update/delete method anyway
+* `CONCUR_UPDATABLE` mode lets you modify the db THROUGH the result set - not supported by all Drivers
 ### ⭐ H3 ⭐
