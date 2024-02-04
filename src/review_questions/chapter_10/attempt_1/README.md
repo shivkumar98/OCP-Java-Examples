@@ -57,95 +57,87 @@ F. Statement's implementation <br>
 
 ## 🟧 Question 2:
 
-❓ What is the output of:
+❓ Which are required parts of a JDBC URL (Choose all that apply)
 
-```java
-Predicate<? super String> predicate = s -> s.startsWith("g");
-Stream<String> stream1 = Stream.generate(() -> "growl! ");
-Stream<String> stream2 = Stream.generate(() -> "growl! ");
-boolean b1 = stream1.anyMatch(predicate);
-boolean b2 = stream2.allMatch(predicate);
-System.out.println(b1 + " "+ b2);
-```
-
-* A. `true` `false` <br>
-* B. `true` `true` <br>
-* C. `java.util.stream.ReferencePipeline$3@4517d9a3` <br>
-* D. The code does not compile <br>
-* E. An exception is thrown <br>
-* F. The code hangs <br>
+* A. Connection parameters <br>
+* B. Database name <br>
+* C. `jdbc` <br>
+* D. Location of database <br>
+* E. Port <br>
+* F. Password <br>
+  
 ❓
 
 ### My Answer:
-* stream1 = ["growl!", "growl!",...]
-* b1 is true as the first element matches
-* b2 will hang as it will look at all elements to see if they begin with g
-* **F**✅✅✅✅
+* A - true
+* B - true
+* C - true
+* D - true
+* E - false, port number is optional
+* F - false, password may not be needed
+* **A,B,C,D**
 <hr>
 
 
 ## 🟧 Question 3
 
-❓What is the output of the following:
-```java
-Predicate<? super String> predicate = s -> s.length() > 3;
-Stream<String> stream = Stream.iterate("-", (s)->s+s);
-boolean b1 = stream.noneMatch(predicate);
-boolean b2 = stream.anyMatch(predicate);
-System.out.println(b1 + " "+ b2);
-```
-* A. `false true` <br>
-* B. `false false` <br>
-* C. `java.util.stream.ReferencePipeline$3@4517d9a3` <br>
-* D. The code does not compile <br>
-* E. An exception is thrown <br>
-* F. The code hangs <br>
+❓ Which of the following is a valid JDBC URL?
+
+* A. `jdbc:sybase:localhost:1234/db` <br>
+* B. `jdbc::sybase::localhost::/db` <br>
+* C. `jdbc::sybase:localhost::1234/db` <br>
+* D. `sybase:localhost:1234/db` <br>
+* E. `sybase::localhost::/db` <br>
+* F. `sybase:localhost::1234/db` <br>
+  
 ❓
 
 ### My Answer:
-* b1 will be false
-* b2 will throw an exception as you are calling a terminal operation twice on the same stream
-* **E**✅✅✅✅
+* D, E and F are false as they are missing the protocol
+* A is the correct answer
+* **A**
 <hr>
 
 ## 🟧 Question 4:
 
-❓Which are true statements about terminal operations in a stream?
-* A. At most one terminal operation can exist in a stream pipeline <br>
-* B. Terminal operations are a required part of the stream pipeline in order to get a result <br>
-* C. Terminal operations must have `Stream` as the return type. <br>
-* D. The referenced `Stream` may be used after the calling a terminal operation <br>
-* E. The `peek()` method is an example of a terminal operation <br>
+❓ What file is required inside a JDBC 4.0+ driver JAR
+
+* A. `java.sql.Driver` <br>
+* B. `META-INF/java.sql.Driver` <br>
+* C. `META-INF/db/java.sql.Driver` <br>
+* D. `META-INF/database/java.sql.Driver` <br>
+* E. `META-INF/service/java.sql.Driver` <br>
+  
 ❓
 
 ### My Answer:
-* A - true
-* B - true
-* C - false, they can return boolean, objects, collections
-* D - false
-* E - false, this is an intermediate operation
-* **A,B**✅✅✅✅
+* I don't think any of these are valid!
 <hr>
 
 ## 🟧 Question 5
 
-❓ Which terminal operations on the `Stream` class are reductions?❓
+❓ Suppose that you have a table named `animal`  with two rows. What is the result of the following code?
 
-* A. collect() <br>
-* B. count() <br>
-* C. findFirst() <br>
-* D. map() <br>
-* E. peek() <br>
-* F. sum() <br>
+```java
+6:   Connection conn = new Connection(url, userName, password);
+7:   Statement stmt = conn.createStatement();
+8:   ResultSet rs = stmt.executeQuery("select count(*) from animal");
+9:   if (rs.next()) System.out.println(rs.getInt(1));
+```
+
+* A. 0 <br>
+* B. 2 <br>
+* C. There is a compiler error on line 6 <br>
+* D. There is a compiler error on line 9 <br>
+* E. There is a compiler error on another line <br>
+* F. A runtime exception <br>
+
+❓
 
 ### My Answer:
-* A - true
-* B - true
-* C - false
-* D - false, this is an intermediate operation
-* E - false, intermediate
-* F - false, this is not a method available to stream class!
-* **A,B**✅✅✅✅
+* I don't THINK line 6 compiles
+* If it did compile, line 9 WOULD compile
+* **C**
 <hr>
 
 ## 🟧 Question 6:
