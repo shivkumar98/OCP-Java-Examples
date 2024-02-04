@@ -39,7 +39,52 @@ if (rs.next())
 <hr>
 
 ## 🟥 10.6.2 Getting Data for a Column
+* The ResultSet interface has countless methods, here are the one I need to know for the exam:
+  - getBoolean: returns `boolean`
+  - getDate: returns `java.sql.Date`
+  - getDouble: returns `double`
+  - getInt: returns `int`
+  - getLong: returns `long`
+  - getObject: returns `Object`
+  - getTime: returns `java.sql.Time`
+  - getTimestamp: returns `java.sql.Timestamp`
 
+<br>
+
+* Suppose our database had a `date_born` column, here is hows we would get the data:
+```java
+ResultSet rs = stmt.executeQuery("SELECT date_born FROM animal WHERE name = `Elsa`");
+if (rs.next()) {
+  java.sql.Date sqlDate = rs.getDate(1);
+  LocalDate localDate = sqlDate.toLocalDate();
+  System.out.println(localDate); // 2001-05-06
+}
+```
+* Here is we would get the time:
+```java
+if(rs.next()) {
+  java.sql.Time sqlTime = rs.getTime(1);
+  LocalTime localTime = sqlTime.toLocalTime();
+  System.out.println(localDate); // 02:15
+}
+```
+* Here is how we would get both date AND time:
+```java
+if(rs.next()) {
+  java.sql.Timestamp sqlTimeStamp = rs.getTimestamp(1);
+  LocalDateTime localDateTime = sqlTimeStamp.toLocalDateTime();
+  System.out.println(localDateTime); // 2001-05-06T02:15
+}
+```
+* Here is an example of using `getObject()`:
+```java
+ResultSet rs = stmt.executeQuery("SELECT id, name FROM species")
+while(rs.next()) {
+  Object idField = rs.getObject("id");
+  Object nameField = rs.getObject("name");
+  // you can cast the above to int and String respectively
+}
+```
 <hr>
 
 ## 🟥 10.6.3 Scrolling ResultSet
