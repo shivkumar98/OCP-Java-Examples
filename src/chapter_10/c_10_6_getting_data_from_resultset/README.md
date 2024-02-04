@@ -88,6 +88,53 @@ while(rs.next()) {
 <hr>
 
 ## 🟥 10.6.3 Scrolling ResultSet
+* A scrollable ResultSet lets you position the cursor at any row
+* You can use `.pevious()` to obtain the previous record
+* `.first()` and `.last()` methods give you the first and last rows.
+* `.beforeFirst()` and `.afterLast()` position cursor before and after the rows beginning and end
+* Here is an example in play:
 
+```java
+String url = "jdbc:derby:zoo";
+String sqlQuery = "SELECT id FROM species"
+  + " ORDER BY id";
+try (Connection conn = DriverManager.getConnection(url);
+     Statement stmt = conn.createStatement(
+        ResultSet.TYPE_SCROLL_INSENSITIVE,
+        ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs = stmt.executeQuery(sqlQuery)) 
+    {
+  rs.afterLast();
 
+  System.out.println(rs.previous()); // true
+  System.out.println(rs.getInt(1)); // 2
+  
+  System.out.println(rs.previous()); // true
+  System.out.println(rs.getInt(1)); // 1
+
+  System.out.println(rs.previous()); // false
+  /* this will throw SqlException:
+  rs.getInt(1);
+  */
+
+  System.out.println(rs.next()); // true
+  System.out.println(rs.getInt(1)); // 1
+}
+```
+
+<br>
+
+* Another method I must be aware of is `.absolute(int)` - takes the absolute index of a row which you want to move the cursor to
+* The method returns whether you can get data from the row:
+```java
+System.out.println(rs.absolute(0)); // false
+System.out.println(rs.next()); // true
+System.out.println(rs.getInt(1)); // 1
+```
+* The absolute index of 2 rows begin with 0 for beforeFirst, and 3 for afterLast
+* We also have negative indices. -1 represents the last row and -3 would be the beforeFirst row
+<br>
+
+* There is also a `.relative(int)` method which moves the cursor forwards or backwards by the amount specified
+* 
 ### ⭐ H3 ⭐

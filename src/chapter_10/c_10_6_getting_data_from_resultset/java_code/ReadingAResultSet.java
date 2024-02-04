@@ -17,8 +17,8 @@ public class ReadingAResultSet {
 			ResultSet rs = stmt.executeQuery("select id, name from animal")) {
 			Map<Integer, String> idToNameMap = new HashMap<>();
 			while(rs.next()) {
-				int id = rs.getInt(1);
-				String name = rs.getString(2);
+				int id = rs.getInt("id"); // rs.getInt(1) gives same result
+				String name = rs.getString("name"); // rs.getString(2) gives same result
 				System.out.println( id + " " + name);
 				idToNameMap.put(id, name);
 			}
