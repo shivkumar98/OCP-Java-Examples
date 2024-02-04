@@ -136,5 +136,3 @@ System.out.println(rs.getInt(1)); // 1
 <br>
 
 * There is also a `.relative(int)` method which moves the cursor forwards or backwards by the amount specified
-* 
-### ⭐ H3 ⭐
