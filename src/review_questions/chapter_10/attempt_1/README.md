@@ -142,81 +142,45 @@ F. Statement's implementation <br>
 
 ## 🟧 Question 6:
 
-❓Which of the following can fill in the blank so that the code prints out `false`❓
+❓Which of the following are true (Choose all that apply) 
 
-```java
-Stream<String> s = Stream.generate(()->"meow");
-boolean match = s._______(String::isEmpty);
-System.out.println(match);
-```
+* A. Calling `Class.forName()` is mandatory for JDBC 4.0 <br>
+* B. `Class.forName()` throws a `ClassNotFoundException` if the driver class is not found <br>
+* C. `Class.forName()` throws an SQLException if the driver class is not found <br>
+* D. `DriverManager.getConnection()` throws a `ClassNotFoundException` if the driver class is not found <br>
+* E. `DriverManager.getConnection()` throws a `SQLException` if the driver class is not found <br>
 
-* A. `allMatch` <br>
-* B. `anyMatch` <br>
-* C. `findAny` <br>
-* D. `findFirst` <br>
-* E. `noneMatch` <br>
-* F. None of the above <br>
+❓
 
 ### My Answer:
-* A - true, this will print false
-* B - false, this will hang
-* C - false, this can not take a parameter I THINK
-* D - false, this method does not take a parameter
-* E - false, this will print true
-* F - false
-* **A**✅✅✅✅
+* A - false, this method is not necessary
+* I THINK `Class.forName()` throws a ClassNotFoundException
+* I think `DriverManager.getConnection()` throws SQLException as this was needed to be declared in the code I wrote for this chapter
+* **B,E**
 <hr>
 
 
 ## 🟧 Question 7
-❓We have a method that returns a sorted list without changing the original. Which of the following can replace the method implementation to do the same with streams?
+❓ Which of the following can fill in the blank? (Choose all that apply)
 
 ```java
-private static List<String> sort(List<String> list) {
-    List<String> copy = new ArrayList<>(list);
-    Collections.sort(copy, (a,b)->b.compareTo(a));
-    return copy;
+public void stmt(Connection conn, int b) throws SQLException {
+    Statement stmt =  conn.createStatement(________, b);
 }
 ```
+❓
 
-* A. 
-```java
-return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
-```
-* B. 
-```java
-return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
-```
-* D. 
-```java
-return list.stream()
-    .compareTo((a,b)->b.compareTo(a))
-    .sort();
-```
-* E. 
-```java
-return list.stream()
-    .sorted((a,b)-> b.compareTo(a))
-    .collect();
-```
-* F. 
-```java
-return list.stream()
-    .sorted((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
-```
+* A. `ResultSet.CONCUR_READ_ONLY` <br>
+* B. `ResultSet.CONCUR_UPDATABLE` <br>
+* C. `ResultSet.TYPE_FORWARD_ONLY` <br>
+* D. `ResultSet.TYPE_REVERSE_ONLY` <br>
+* E. `ResultSet.TYPE_SCROLL_INSESNTIVE` <br>
+* F. `ResultSet.TYPE_SCROLL_SENSITIVE` <br>
 
 ### My Answer:
-* The stream class has a sorted method which takes a comparator
-* E is false as you need to provide a collector
-* F is true
-* **F**✅✅✅✅
+* So the first argument of the createStatement method determines the scrollability of the ResultSet
+* **C,E,F**
 <hr>
-
 
 ## 🟧 Question 8:
 
