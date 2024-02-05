@@ -206,29 +206,27 @@ conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE
 
 ## 🟧 Question 9
 
-❓Which of the following can we add line 5 for the code to run without error and not produce any output? (Choose all that apply)❓
+❓ Which of the options can fill in the blanks in order to make the code compile?
 
 ```java
-4:  LongStream ls = LongStream.of(1,2,3);                           
-5:  OptionalLong opt = ls.map(n -> n * 10).filter(n -> n < 5).findFirst();  
+boolean bool = stmt.______(sql);
+int num = stmt.________ (sql); 
+ResultSet rs = stmt._____(sql);
 ```
 
-* A. `if (opt.isPresent()) System.out.println(opt.get());` <br>
-* B. `if (opt.isPresent()) System.out.println(opt.getAsLong());` <br>
-* C. `opt.ifPresent(System.out.println);` <br>
-* D. `opt.ifPresent(System.out::println)` <br>
-* E. None of these; the code does not compile <br>
-* F. None of these; line 5 throws an exception <br>
+* A. `execute, executeQuery, executeUpdate` <br>
+* B. `execute, executeUpdate, executeQuery` <br>
+* C. `executeQuery, execute, executeUpdate` <br>
+* D. `executeQuery, executeUpdate, execute` <br>
+* E. `executeUpdate, execute, executeQuery` <br>
+* F. `executeUpdate, executeQuery, execute` <br>
 
 ### My Answer:
-* ls = [1,2,3]
-* ls = [10,20,30]
-* ls = []
-* B - true
-* D - true
-* **B,D**✅✅✅✅
+* The first blank is definitely execute, which returns whether a result set is returned or not
+* The second is executeUpdate which returns number of rows updated
+* The third is executeQuery which returns a result set
+* **B**
 <hr>
-
 
 ## 🟧 Question 10
 
