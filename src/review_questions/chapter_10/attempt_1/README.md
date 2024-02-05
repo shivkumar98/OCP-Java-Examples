@@ -230,36 +230,33 @@ ResultSet rs = stmt._____(sql);
 
 ## 🟧 Question 10
 
-❓ Select from the following statements and indicate the order in which they would appear to output 10 lines:❓
+❓ Suppose that the table `animal` has 5 rows and this SQL statement updates all of them. What is the result of this code?
 
 ```java
-Stream.generate(()-> "");
-L:  .filter(x -> x.length() > 1)  
-M:  .forEach(System.out::println)
-N:  .limit(10)                    
-O:  .peek(System.out::println)
-;
+public static void main(String[] args) throws SQLException {
+    Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+    Statement stmt = conn.createStatement();
+    int result = stmt.executeUpdate("update animal set name = name");
+    System.out.println(result);
+}
 ```
 
-* A. `L, N` <br>
-* B. `L, N, O` <br>
-* C. `L, N, M` <br>
-* D. `L, N, M, O` <br>
-* E. `L, O, M` <br>
-* F. `N, M` <br>
-* G. `N, O` <br>
+* A. `0` <br>
+* B. `1` <br>
+* C. `5` <br>
+* D. The code does not compile <br>
+* E. A `SQLException` is thrown <br>
+* F. A different exception is thrown <br>
 
 ### My Answer:
-* Anything with L will be wrong
-* We need N
-* F - true
-* G - false, peek is intermediate
-* **F**✅✅✅✅
+* The code looks all good to me
+* It will update all 5 rows
+* **C**
 <hr>
 
 ## 🟧 Question 11
 
-❓What changes need to be made for this code to print the string `12345` (choose all that apply)❓
+❓ Suppose that the table `food` ❓
 ```java
 Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
 ```
