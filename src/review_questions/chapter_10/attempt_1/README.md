@@ -184,20 +184,23 @@ public void stmt(Connection conn, int b) throws SQLException {
 
 ## 🟧 Question 8:
 
-❓Which of the following are true given the declaration `IntStream is = IntStream.empty()` (Choose all that apply)❓
+❓ Given a valid `conn` object of type Connection, what will happen if you run this code when the requested mode is not supported?
 
-* A. `is.average()` returns the type `int` <br>
-* B. `is.average()` returns the type `OptionalInt` <br>
-* C. `is.findAny()` returns the type `int` <br>
-* D. `is.findAny()` returns the type `OptionalInt` <br>
-* E. `is.sum()` returns the type `int` <br>
-* F. `is.sum()` returns the type `OptionalInt` <br>
+```java
+conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+```
+
+* A. A `ClassNotFoundException` is thrown <br>
+* B. A `NoSuchTypeException` is thrown <br>
+* C. A `SQLException` is thrown <br>
+* D. A `TypeNoutFoundException` is thrown <br>
+* E. The code will run without throwing an exception <br>
+* F. None of the abopve. The code will not compile <br>
 
 ### My Answer:
-* `.average()` returns an OptionalDouble
-* `is.findAny()` returns an OptionalInt
-* `is.sum()` returns an int
-* **D,E**✅✅✅✅
+* There will not be any compilation issues
+* I do believe the code will still run without exception throwing as the modes will fallback to a supported mode
+* **E**
 <hr>
 
 
