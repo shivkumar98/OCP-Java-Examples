@@ -296,56 +296,55 @@ public static void main(String[] args) {
 * **D**
 <hr>
 
-
 ## 🟧 Question 13
 
-❓Which of the following is true❓
+❓ There are currently 100 rows in the table `species` before inserting a new row. What is the output of the following code?
 
 ```java
-List<Integer> l1 = Arrays.asList(1,2,3);
-List<Integer> l2 = Arrays.asList(4,5,6);
-List<Integer> l3 = Arrays.asList();
-Stream.of(l1, l2, l3).map(x -> x+1)
-    .flatMap(x -> x.stream()).forEach(System.out::println);
+try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+     Statement stmt = conn.createStatement()) {
+  ResultSet rs = stmt.executeQuery("select count(*) from species");
+  int num = stmt.executeQuery("INSERT INTO species VALUES (3, 'Ant', .05)");
+  rs.next();
+  System.out.println(rs.getInt(1));
+}
 ```
 
-* A. The code compiles and prints `123456` <br>
-* B. The code compiles and prints `234567` <br>
-* C. The code compiles but does not print anything <br>
-* D. The code compiles but prints stream references <br>
-* E. The code runs infinitely <br>
-* F. The code does not compile <br>
-* G. The code throws an exception <br>
+* A. 100 <br>
+* B. 101 <br>
+* C. The code does not compile <br>
+* D. A `SQLException` is thrown <br>
+* E. A different exception is thrown <br>
 
 ### My Answer:
-* The map does not compile so F
-* **F**✅✅✅✅
+* The statement is using the default read only mode for the result set
+* So when printing the result, we get 100
+* **A**
 <hr>
 
 ## 🟧 Question 14: 
 
-❓Which of the following is true❓
+❓ Which of the following can fill in the blank correctly? (Choose all that apply)
 
 ```java
-4: Stream<Integer> s = Stream.of(1);
-5: IntStream is = s.mapToInt(x -> x);
-6: DoubleStream ds = is.mapToDouble(x -> x);
-7: Stream<Iteger> s2 = ds.mapToInt(x -> x);
-8: s2.forEach(System.out::print);
+ResultSet rs = stmt.executeQuery(sql);
+if (rs.next()) {
+_______________________________
+}
 ```
-(The book has a typo!!!)
 
-* A. Line 4 does not compile <br>
-* B. Line 5 does not compile <br>
-* C. Line 6 does not compile <br>
-* D. Line 7 does not compile <br>
-* E. Line 8 does not compile <br>
-* F. The code throws an exception <br>
-* G. The code compiles and prints 1. <br>
+* A. `String s = rs.getString(0);` <br>
+* B. `String s = rs.getString(1);` <br>
+* C. `String s = rs.getObject(0);` <br>
+* D. `String s = rs.getObject(1);` <br>
+* E. `Object s = rs.getObject(0);` <br>
+* F. `Object s = rs.getObject(1);` <br>
 
 ### My Answer:
-* Line 7 does not compile
-* **D**✅✅✅✅
+* C and D do not compile as the `getObject()` method returns Object
+* B is valid, F is valid
+* A and E are invalid
+* **B,F**
 <hr>
 
 ## 🟧 Question 15 
