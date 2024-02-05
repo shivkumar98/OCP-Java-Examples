@@ -256,52 +256,44 @@ public static void main(String[] args) throws SQLException {
 
 ## 🟧 Question 11
 
-❓ Suppose that the table `food` ❓
+❓ Suppose that the table `food` has five rows and this SQL statement updates all of them. What is the result of this code?
+
 ```java
-Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
+public static void main(String[] args) {
+    Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+    Statement stmt = conn.createStatement();
+    int result = stmt.executeUpdate("update food set amount = amount + 1");
+    System.out.println(result);
+}
 ```
 
-* A. Change `Collectors.joining()` to `Collectors.joining("")` <br>
-* B. Change `map(x -> x)` to `map(x -> "" + x)` <br>
-* C. change `x -> x++` to `x -> ++x` <br>
-* D. Add `forEach(System.out::print)` after the call to `collect()` <br>
-* E. Wrap the entire line in a `System.out.print` statement <br>
-* F. None of the above. The code already prints "12345" <br>
+* A. 0 <br>
+* B. 1 <br>
+* C. 5 <br>
+* D. The code does not compile <br>
+* E. A `SQLException` is thrown <br>
+* F. A different exception is thrown <br>
 
 ### My Answer:
- * The joining needs a parameter of ""
- * We need C
- * We need to convert the number to a string so we need B
- * We need E
- * **B,C,E**✅✅✅✅
+* I believe the code does compile and returns 5
+* **C**
 <hr>
 
 
 ## 🟧 Question 12:
 
-❓What functional interfaces complete the following code? (Choose all that apply)❓
+❓ Which is the correct order in which to close database resources?
 
-```java
-6: ______ x = String::new; 
-7: ______ y = (a,b) -> System.out.println();
-8: ______ z = a -> a+a;
-```
-
-* A. `BiConsumer<String, String>` <br>
-* B. `BiFunction<String, String>` <br>
-* C. `BinaryConsumer<String, String>` <br>
-* D. `BinaryFunction<String, String>` <br>
-* E. `Consumer<String>` <br>
-* F. `Supplier<String>` <br>
-* G. `UnaryOperator<String>` <br>
-* H. `UnaryOperator<String, String>`  <br>
+* A. `Connection,ResultSet,Statement` <br>
+* B. `Connection,Statement,ResultSet` <br>
+* C. `ResultSet,Connection,Statement` <br>
+* D. `ResultSet,Statement,Connection` <br>
+* E. `Statement,Connection,ResultSet` <br>
+* F. `Statement,ResultSet,Connection` <br>
 
 ### My Answer:
-* x is a supplier so F is true
-* y is a consumer with 2 arguments applied, so A
-* z is a Function or UnaryOperator, so its H
-* **A,F,H**❌❌❌❌
-* UnaryOperator does not have 2 generic types!!!
+* The resources shall be closed in the reverse order they were created. So the Connection is first connected, then Statement, and finally ResultSet
+* **D**
 <hr>
 
 
