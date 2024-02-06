@@ -399,91 +399,104 @@ So the answer will be Betty
 
 ## 🟧 Question 17
 
-❓Which of the following is equivalent to this code❓
+❓ Which of the following methods move the cursor without returning a boolean?
 
-```java
-UnaryOperator<Integer> u = x -> x * x;
-```
-
-* A. `BiFunction<Integer> f = x -> x*x;`
-* B. `BiFunction<Integer, Integer> f = x -> x*x;`
-* C. `BinaryOperator<Interger, Integer> f = x -> x*x;`
-* D. `Function<Integer> f = x -> x*x;`
-* E. `Function<Integer, Integer> f = x -> x*x;`
-* F. None of these above
+* A. `absolute()`
+* B. `afterFirst()`
+* C. `afterLast()`
+* D. `beforeFirst()`
+* E. `beforeLast()`
+* F. `previous()`
 
 ### My Answer:
-* **E**✅✅✅✅
+* I don't think beforeLast or afterFirst are actually methods so B and E are false
+* previous and next do return booleans, so F is out
+* I dont think beforeFirst or afterLast return booleans so C and D seem right
+* I don't think absolute returns a boolean neither so A
+* **A,C,D**
 <hr>
 
 ## 🟧 Question 18
 
-❓What is the result of the following❓
+❓ Suppose that you have a table `animal` with three rows. The names in these rows are Anna, Betty and Cat. What does the following output
 
 ```java
-DoubleStream s = DoubleStream.of(1.2, 2.4);
-s.peek(System.out.::println).filter(x -> x > 2).count();
+String sql = "select name from animal order by id";
+try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+     Statement stmt = conn.createStatement();
+     ResultSet rs = stmt.executeQuery(sql)) {
+  rs.absolute(0);
+  rs.next();
+  System.out.println(rs.getString(1));
+}
 ```
 
-* A. 1
-* B. 2
-* C. 2.4
-* D. 1.2 and 2.4
-* E. There is no output
-* F. The code does not compile
-* G. An exception is thrown
+* A. Anna
+* B. Betty
+* C. Cat
+* D. The code does not compile
+* E. A SQLException is thrown
 
 ### My Answer:
-* 1.2 and 2.4 will come through
-* **D**✅✅✅✅
+ * I think it will print the first row
+ * **A**
 <hr>
 
 ## 🟧 Question 19
 
-❓Which of the following return primitives❓
+❓ In a table `animal` with 10 rows, how many times does `true` get output by the following? (Choose all that apply)
 
-* A. `BooleanSupplier`
-* B. `CharSupplier`
-* C. `DoubleSupplier`
-* D. `FloatSupplier`
-* E. `IntSupplier`
-* F. `StringSupplier`
+```java
+String sql = "select * from animal";
+try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+     Statement stmt = conn.createStatement(
+        ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+     ResultSet rs = stmt.executeQuery(sql)) {
+  System.out.println(rs.absolute(0));
+  System.out.println(rs.absolute(5));
+  System.out.println(rs.previous());
+  System.out.println(rs.relative(-2));
+  System.out.println(rs.relative(-100));
+}
+```
+
+* A. One
+* B. Two
+* C. Three
+* D. Four
+* E. Five
+* F. The code does not compile
+* G. A `SQLException` is thrown
 
 ### My Answer:
-* **A,C,E**✅✅✅✅
+* **F**
 <hr>
 
 ## 🟧 Question 20
 
-❓What is the simplest way of rewriting this code❓
+❓ In the table `animal` with 10 rows, how many times does `true` get output by the following (Choose all that apply)
 
 ```java
-List<Integer> l = IntStream.range(1,6)
-    .mapToObj(i -> i).collect(Collectors.toList());
-l.forEach(System.out::println);
+String sql = "select * from animal";
+try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+     Statement stmt = conn.createStatement(
+        ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+     ResultSet rs = stmt.executeQuery(sql)) {
+  System.out.println(rs.beforeFirst());
+  System.out.println(rs.absolute(5));
+  System.out.println(rs.previous());
+  System.out.println(rs.relative(-2));
+  System.out.println(rs.afterLast());
+}
 ```
-
-* A. 
-```java
-IntStream.range(1,6);
-```
-* B. 
-```java
-IntStream.range(1,6)
-    .forEach(System.out::println);`
-```
-* C. 
-```java
-IntStream.range(1,6)
-    .mapToObj(i->i)
-    .forEach(System.out::println);
-```
-* D. None of the above is equivalent
-* E. The provided code does not compile
+* A. One
+* B. Two
+* C. Three
+* D. Four
+* E. Five
+* F. The code does not compile
+* G. A `SQLException` is thrown
 
 ### My Answer:
-* The range is not closed so A and B are false
-* C is correct
-* **C**❌❌❌❌
-* I misread the question, B is the simplest!
+* **F**
 <hr>
