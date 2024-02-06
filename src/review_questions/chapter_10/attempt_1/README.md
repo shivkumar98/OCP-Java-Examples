@@ -349,43 +349,52 @@ _______________________________
 
 ## 🟧 Question 15 
 
-❓The `partitioningBy()` collector creates a `Map<Boolean, List<String>>` when passed to `collect()` by default. When specific parameters are passed to `partioningBy()`, which return types can be created? (Choose all that apply)❓
+❓ Which of the following can fill in the blank to print the month,date,year,hour,minute and second? ❓
 
-* A. `Map<boolean, List<String>>` <br>
-* B. `Map<Boolean, Map<String>>` <br>
-* C. `Map<Long, TreeSet<String>>` <br>
-* D. `Map<Boolean, List<String>>` <br>
-* E. `Map<Boolean, Set<String>>` <br>
-* F. None of the above <br>
+* A. `rs.getDate("d");`
+* B. `rs.getLocalDate("d");`
+* C. `rs.getLocalDateTime("d");`
+* D. `rs.getLocalTime("d");`
+* E. `rs.getTime("d");`
+* F. `rs.getTimeStamp("d");`
 
 ### My Answer:
-* Only D and E look right
-* **D,E**✅✅✅✅
+* I cheated and looked at the answers because I didn't understand the question
+* B,C,D are not valid options
+* Only A and F seem right
+* **A,F**
 <hr>
 
 ## 🟧 Question 16 
 
-❓What is the output of the following❓
+❓ Suppose you have a table with three rows. The names in the rows are Anna, Betty and Cat. What does the following output?
 
 ```java
-Stream<String> s = Stream.empty();
-Stream<String> s2 = Stream.empty();
-Map<Boolean, List<String>> p = s.collect(
-    Collectors.partitionBy(b -> b.startsWith("c")));
-Map<Boolean, List<String>> g = s.collect(
-    Collectors.groupBy(b -> b.startsWith("c")));
-System.out.println(p + " " + g);
+String sql = "select name from animal";
+try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+     Statement stmt = conn.createStatement();
+     ResultSet rs = stmt.executeQuery(sql)) {
+  rs.next();
+  rs.previous();
+  rs.previous();
+  rs.next();
+  rs.next();
+  rs.absolute(2);
+  System.out.println(rs.getString(1));
+}
 ```
 
-* A. `{} {}`
-* B. `{} {false=[], true=[]}`
-* C. `{false=[], true=[]} {}`
-* D. `{false=[], true=[]} {false=[], true=[]}`
-* E. The code does not compile
-* F. An exception is thrown
+* A. Anna
+* B. Betty
+* C. Cat
+* D. The code does not compile
+* E. A SQLException is thrown
 
 ### My Answer:
-* **C**✅✅✅✅
+* The cursor is orginally at index 0 
+* Then 1, then 0, still at 0, then at 1, then at 2, then at 2
+So the answer will be Betty
+* **B**
 <hr>
 
 ## 🟧 Question 17
