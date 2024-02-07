@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 07/02/2024 <br>
-Score: 11/20 <br>
+Score: 11/20 (55%) <br>
 
 | Question # | Correct |
 | ---------- | ------- |
