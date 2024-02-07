@@ -11,12 +11,12 @@ Score: <br>
 | ---------- | ------- |
 | 1          |  ❌      |
 | 2          |  ❌      |
-| 3          |        |
+| 3          |  ✅      |
 | 4          |  ❌      |
-| 5          |        |
-| 6          |        |
-| 7          |        |
-| 8          |        |
+| 5          |  ✅      |
+| 6          |  ✅      |
+| 7          |  ✅      |
+| 8          |  ✅      |
 | 9          |        |
 | 10         |        |
 | 11         |        |
@@ -129,7 +129,7 @@ F. Statement's implementation <br>
 
 ## 🟧 Question 5
 
-❓ Suppose that you have a table named `animal`  with two rows. What is the result of the following code?
+❓ Suppose that you have a table named `animal` with two rows. What is the result of the following code?
 
 ```java
 6:   Connection conn = new Connection(url, userName, password);
@@ -150,7 +150,8 @@ F. Statement's implementation <br>
 ### My Answer:
 * I don't THINK line 6 compiles
 * If it did compile, line 9 WOULD compile
-* **C**
+* **C**✅✅✅✅
+* Connection is not acquired through a constructor, it is statically acquired so C is correct
 <hr>
 
 ## 🟧 Question 6:
@@ -169,7 +170,7 @@ F. Statement's implementation <br>
 * A - false, this method is not necessary
 * I THINK `Class.forName()` throws a ClassNotFoundException
 * I think `DriverManager.getConnection()` throws SQLException as this was needed to be declared in the code I wrote for this chapter
-* **B,E**
+* **B,E**✅✅✅✅
 <hr>
 
 
@@ -192,7 +193,7 @@ public void stmt(Connection conn, int b) throws SQLException {
 
 ### My Answer:
 * So the first argument of the createStatement method determines the scrollability of the ResultSet
-* **C,E,F**
+* **C,E,F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 8:
@@ -213,7 +214,8 @@ conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE
 ### My Answer:
 * There will not be any compilation issues
 * I do believe the code will still run without exception throwing as the modes will fallback to a supported mode
-* **E**
+* **E**✅✅✅✅
+* The JDBC driver will automatically downgrade the mode to one which is supported
 <hr>
 
 
