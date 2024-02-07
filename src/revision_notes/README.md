@@ -1903,3 +1903,16 @@ Statement createStatement(int resultSetType, int resultSetConcurrency);
 2. `ResultSet.CONCUR_UPDATABLE` - enables you to update the table through the ResultSet
 
 * JDK will automatically downgrade a mode if the database does not support the mode😅
+
+
+## 🟥 10.4 Executing a Statement
+* INSERT/UPDATE/DELETE queries must be done using a `int executeUpdate(String)` method. Attempting to do a selection will throw an SQLException at runtime!😱
+* SELECT queries must be done using a `ResultSet executeQuery(String)` method. Attempting to modify the table will throw an SQLException at runtime!😱
+* We have a method which can do both select and update queries: `boolean execute(String)` which returns whether a ResultSet is returned:
+```java
+boolean isAResultSet = stmt.execute(sql);
+if (isAResultSet)
+	ResultSet rs = stmt.getResultSet();
+else
+	int numberOfRowsUpdated = stmt.getUpdateCount();
+```
