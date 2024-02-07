@@ -4,9 +4,9 @@
 
 ## Results:
 
-Date:  <br>
-Score: 9/16 <br>
-❌✅
+Date: 07/02/2024 <br>
+Score: 11/20 <br>
+
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ❌      |
@@ -25,10 +25,10 @@ Score: 9/16 <br>
 | 14         |  ✅      |
 | 15         |  ❌      |
 | 16         |  ❌      |
-| 17         |        |
-| 18         |        |
-| 19         |        |
-| 20         |         |
+| 17         |  ❌      |
+| 18         |  ✅      |
+| 19         |  ❌      |
+| 20         |  ✅      |
 
 
 <hr>
@@ -445,7 +445,10 @@ So the answer will be Betty
 * previous and next do return booleans, so F is out
 * I dont think beforeFirst or afterLast return booleans so C and D seem right
 * I don't think absolute returns a boolean neither so A
-* **A,C,D**
+* **A,C,D**❌❌❌❌
+
+* CORRECT ANSWER: **C,D**
+* Only `afterLast()` and `beforeFirst()` do not return booleans - which makes sense as these do not need there to be rows to be true
 <hr>
 
 ## 🟧 Question 18
@@ -471,7 +474,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 
 ### My Answer:
  * I think it will print the first row
- * **A**
+ * **A**✅✅✅✅
 <hr>
 
 ## 🟧 Question 19
@@ -501,7 +504,17 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * G. A `SQLException` is thrown
 
 ### My Answer:
-* **F**
+* **F**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **C**
+* The methods return whether the cursor is on a row or not
+* The first print is `false`
+* The second print is `true` as its on the fifth row
+* The third print is `true` as its on the 4th row
+* The fourth print is put on the second row so `true` is printed
+* The fifth print is put on the zeroth row so false is printed
+* So 3 trues are printed!!!
 <hr>
 
 ## 🟧 Question 20
@@ -530,5 +543,6 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * G. A `SQLException` is thrown
 
 ### My Answer:
-* **F**
+* **F**✅✅✅✅
+* `beforeFirst()` and `afterLast()` methods have void return and cannot be printed
 <hr>
