@@ -5,7 +5,7 @@
 ## Results:
 
 Date:  <br>
-Score: <br>
+Score: 9/16 <br>
 ❌✅
 | Question # | Correct |
 | ---------- | ------- |
@@ -17,14 +17,14 @@ Score: <br>
 | 6          |  ✅      |
 | 7          |  ✅      |
 | 8          |  ✅      |
-| 9          |        |
-| 10         |        |
-| 11         |        |
-| 12         |        |
-| 13         |        |
-| 14         |        |
-| 15         |        |
-| 16         |        |
+| 9          |  ✅      |
+| 10         |  ✅      |
+| 11         |  ❌      |
+| 12         |  ✅      |
+| 13         |  ❌      |
+| 14         |  ✅      |
+| 15         |  ❌      |
+| 16         |  ❌      |
 | 17         |        |
 | 18         |        |
 | 19         |        |
@@ -312,7 +312,7 @@ public static void main(String[] args) {
 
 ### My Answer:
 * The resources shall be closed in the reverse order they were created. So the Connection is first connected, then Statement, and finally ResultSet
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 13
@@ -338,7 +338,11 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 ### My Answer:
 * The statement is using the default read only mode for the result set
 * So when printing the result, we get 100
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **D**
+* Statement automatically closes the ResultSet when another SQL statement is ran. The `rs` throws an SQLException when trying to call `rs.getInt(1)`
 <hr>
 
 ## 🟧 Question 14: 
@@ -363,7 +367,7 @@ _______________________________
 * C and D do not compile as the `getObject()` method returns Object
 * B is valid, F is valid
 * A and E are invalid
-* **B,F**
+* **B,F**✅✅✅✅
 <hr>
 
 ## 🟧 Question 15 
@@ -381,7 +385,11 @@ _______________________________
 * I cheated and looked at the answers because I didn't understand the question
 * B,C,D are not valid options
 * Only A and F seem right
-* **A,F**
+* **A,F**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **F**
+* The `.getDate()` method only returns month, date and year!
 <hr>
 
 ## 🟧 Question 16 
@@ -413,7 +421,12 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * The cursor is orginally at index 0 
 * Then 1, then 0, still at 0, then at 1, then at 2, then at 2
 So the answer will be Betty
-* **B**
+* **B**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **E**
+* An SQLException is thrown as the ResultSet is not scrollable so we can't call `.previous()`
+
 <hr>
 
 ## 🟧 Question 17
