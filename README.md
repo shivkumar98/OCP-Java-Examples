@@ -21,6 +21,7 @@ I created this repo to go through the examples from the official study guide for
 1. [Chapter 7: Concurrency🧵](/src/chapter_7/)
 1. [Chapter 8: IO🖨️](/src/chapter_8/)
 1. [Chapter 9: NIO.22️⃣](/src/chapter_9/)
+1. [Chapter 10: JDBC💾](/src/chapter_10/)
 
 ## 📖 End of Chapter Review Questions
 * [Review Scores](/src/review_questions/)
