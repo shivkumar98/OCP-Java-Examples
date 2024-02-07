@@ -240,7 +240,7 @@ ResultSet rs = stmt._____(sql);
 * The first blank is definitely execute, which returns whether a result set is returned or not
 * The second is executeUpdate which returns number of rows updated
 * The third is executeQuery which returns a result set
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 10
@@ -266,7 +266,7 @@ public static void main(String[] args) throws SQLException {
 ### My Answer:
 * The code looks all good to me
 * It will update all 5 rows
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 11
@@ -291,7 +291,11 @@ public static void main(String[] args) {
 
 ### My Answer:
 * I believe the code does compile and returns 5
-* **C**
+* **C**❌❌❌❌
+<br>
+
+* CORRECT ANSWER: **D**
+* The code does not compile as `SQLException` is not declared or handled!
 <hr>
 
 
