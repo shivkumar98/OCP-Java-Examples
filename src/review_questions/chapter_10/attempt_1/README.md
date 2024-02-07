@@ -9,10 +9,10 @@ Score: <br>
 ❌✅
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |        |
-| 2          |        |
+| 1          |  ❌      |
+| 2          |  ❌      |
 | 3          |        |
-| 4          |        |
+| 4          |  ❌      |
 | 5          |        |
 | 6          |        |
 | 7          |        |
@@ -52,7 +52,12 @@ F. Statement's implementation <br>
 * D - true
 * E - false
 * F - true
-* **B,D,F**
+* **B,D,F**❌❌❌
+<br>
+
+* Correct answer: **B,F**
+* The interface and its concretion `DriverManager` is part of the JDK
+* Only Driver's and Statement's implementations are found in the database specific jar file
 <hr>
 
 ## 🟧 Question 2:
@@ -75,7 +80,11 @@ F. Statement's implementation <br>
 * D - true
 * E - false, port number is optional
 * F - false, password may not be needed
-* **A,B,C,D**
+* **A,B,C,D**❌❌❌❌
+
+* CORRECT ANSWER: **B,C**
+* The vendor name and the database name are the required components of the JDBC URL
+* The Connection paramaeters, IP address/location and port number are all optional
 <hr>
 
 
@@ -95,7 +104,7 @@ F. Statement's implementation <br>
 ### My Answer:
 * D, E and F are false as they are missing the protocol
 * A is the correct answer
-* **A**
+* **A**✅✅✅✅
 <hr>
 
 ## 🟧 Question 4:
@@ -111,7 +120,11 @@ F. Statement's implementation <br>
 ❓
 
 ### My Answer:
-* I don't think any of these are valid!
+* I don't think any of these are valid!❌❌❌❌
+
+<br>
+
+* As of JDBC 4.0, all driver implementations were required to provide the name of the class implementing `Driver` in a file names `java.sql.Driver` in a directory `META-INF/service`
 <hr>
 
 ## 🟧 Question 5
