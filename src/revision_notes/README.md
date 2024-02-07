@@ -1842,3 +1842,18 @@ console.printf("Hi, %s! Please enter some text:", "shiv");
 String input = console.readLine();
 console.writer().println("You typed: "+input);
 ```
+
+
+-------------------------------------------------------------
+
+# 💾 Chapter 10 - JDBC 💾
+
+## 🟥 10.1 Introducing the interfaces of JDBC
+* The four key interfaces of JDC are:
+1. Driver - knows how to obtain connection to the DB
+2. Connection - knows how to interact with DB
+3. Statement - knows how to run SQL
+4. ResultSet - knows what to return from a SELECT query
+* A database's JAR will have implementations with a name of `VendorName+Interface`, e.g. MySQLDriver
+
+### ⭐ 1. `T Supplier<T>`
