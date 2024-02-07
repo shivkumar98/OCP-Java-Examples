@@ -1882,3 +1882,24 @@ public static void main(String[] args) throws SQLException {
 <br>
 
 * Older code may load up a class using `Class.forName(String)` which throws a checkked ClassNotFoundException
+
+## 🟥 10.3 Obtaining a Statement
+* We can obtain a Statement easily from our connection:
+```java
+Statement stmt = conn.createStatement();
+```
+* This will use the default mode of `ResultSet.TYPE_FORWARD_ONLY` and a concurrency mode of `ResultSet.CONCUR_READ_ONLY`
+* There is an overload which lets us specify the scroll and concurrency modes:
+```java
+Statement createStatement(int resultSetType, int resultSetConcurrency);
+```
+* We have the following ResultSet types:
+1. `ResultSet.TYPE_FORWARD_ONLY` - rows can only be traversed forwards
+2. `ResultSet.TYPE_SCROLL_INSENSITIVE` - rows can be traversed both forwards and backwards but will NOT change if table is updated
+3. `ResultSet.TYPE_SCROLL_SENSITIVE` - forwards and backwards scrolling but DOES update if table is updated
+
+* We have the following concurrency modes:
+1. `ResultSet.CONCUR_READ_ONLY` - provides a read only view of the data
+2. `ResultSet.CONCUR_UPDATABLE` - enables you to update the table through the ResultSet
+
+* JDK will automatically downgrade a mode if the database does not support the mode😅
