@@ -1856,4 +1856,29 @@ console.writer().println("You typed: "+input);
 4. ResultSet - knows what to return from a SELECT query
 * A database's JAR will have implementations with a name of `VendorName+Interface`, e.g. MySQLDriver
 
-### ⭐ 1. `T Supplier<T>`
+## 🟥 10.2 Connecting to a DB
+
+### ⭐ JDBC URL ⭐
+* The URL consists of three required parts:
+1. `jdbc`
+2. Vendor name
+3. Database name
+* E.g. `jdbc:derby:zoo`
+* The location of the database, port number, connection parameters, password are all optional!💡
+
+### ⭐ Database Connection ⭐
+* DriverManager is one way to obtain a connection - it is contained in the JDK
+* This class implements the singleton pattern and has a `.getConnection(String jdbcUrl)` method:
+```java
+public static void main(String[] args) throws SQLException {
+	Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
+	System.out.println(conn);
+	// org.apache.derby.impl.jdbc.EmbedConnection40@1372082959...
+}
+```
+* The DriverManager class seeks the classpath for JARs which contain a `Driver`. 
+* JDBC 4 requires that a file called `java.sql.Driver` is contained a directory `META-INF/service` - the filename is fully qualified
+* There will also be files for Connection, Statement, and ResultSet
+<br>
+
+* Older code may load up a class using `Class.forName(String)` which throws a checkked ClassNotFoundException
