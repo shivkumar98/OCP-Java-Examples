@@ -1916,3 +1916,63 @@ if (isAResultSet)
 else
 	int numberOfRowsUpdated = stmt.getUpdateCount();
 ```
+
+
+## 🟥 10.5 Getting Data from a ResultSet
+### ⭐ Reading a ResultSet ⭐
+* For a type-forward-only ResultSet, we can look at the results using `next()` which returns whether the cursor is on a row:
+```java
+ResultSet rs = stmt.executeQuery("select id, name from species");
+while (rs.next()) {
+	int id = rs.getInt(1); // rs.getInt("id") also works
+	String name = rs.getInt(2); // rs.getString("name") also works
+	System.out.println(id+" "+name);
+	/* prints the following
+	   1 African Elphhant
+	   2 Zebra
+	*/
+}
+```
+* Attempting to obtain data from ResultSet without calling `next()` will throw a `SQLException`⚠️
+* Attempting to access a non-existent column with also throw a `SQLException`
+
+
+### ⭐ Getting Data for a Column ⭐
+* The ResultSet interface has many `getType()` methods.
+* There are two methods which return sql types:
+```java
+java.sql.Time getTime(); // for TIME
+java.sql.Date getDate(); // for TIMESTAMP
+java.sql.TimeStamp getTimeStamp(); // for TIMESTAMP
+```
+
+* We can use getTime() for a TIMESTAMP column, it will only return the time component
+```java
+ResultSet rs = stmt.executgeQuery("select dateborn from animal");
+if(rs.next()) {
+  java.sql.Date sqlDate = rs.getDate(1);
+  LocalDate date = sqlDate.toLocalDate(); // 2001-05-06
+  java.sql.Time sqlTime = rs.getTime(1);
+  LocalTime time = sqlTime.toLocalTime(); // 02:15
+  java.sql.TimeStamp sqlTimeStamp = rs.getTimeStamp(1);
+  LocalDateTime dateTime = sqlTimeStamp.toLocalDateTime(); // 2001―05―06T02:15
+}
+```
+
+### ⭐ Scrolling ResultSet ⭐
+* There are 2 modes which allow you scroll backwards and to any point of the result set:
+1. `TYPE_SCROLL_INSENSITIVE`
+2. `TYPE_SCROLL_SENSITIVE`
+
+* With these modes, we have the following methods for navigating a ResultSet:
+```java
+boolean next() // can be used for type-forward-only as well
+boolean previous()
+boolean first()
+boolean absolute(int) // giving a negative value will you row in reverse order
+boolean relative(int) // can move cursor back and fourth
+void afterLast()
+void beforeFirst()
+```
+
+* Attempting to use the above methods on type-forward-only will throw an SQLException
