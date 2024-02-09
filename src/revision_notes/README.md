@@ -1976,3 +1976,21 @@ void beforeFirst()
 ```
 
 * Attempting to use the above methods on type-forward-only will throw an SQLException
+
+
+## 🟥 10.6 Closing Database Resources
+* We can use try-with-resources syntax to automatically close Database Resources:
+```java
+public static void main(String[] args) throws SQLException {
+String url = "jdbc:derby:zoo";
+  try (Connection conn = DriverManager.getConnection(url);
+    Statement stmt = conn.createStatement();
+	ResultSet rs = stmt.executeQuery("select name from animal")) {
+	  while(rs.next()) 
+	    System.out.println(rs.getString(1));
+  }
+}
+```
+
+* The resources will close in reverse order which they are opened
+* But this isn't necessary as closing a Connection closes the Statement and ResultSet, and closing the Statement closes the ResultSet
