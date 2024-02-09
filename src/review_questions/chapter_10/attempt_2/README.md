@@ -325,7 +325,8 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * E. A different exception is thrown
 
 ### My Answer:
-
+* The ResultSet is closed after an update occurs, so an SQLException is thrown
+* **D**
 <br>
 
 <hr>
@@ -349,7 +350,8 @@ _______________________________
 * F. `Object s = rs.getObject(1);`
 
 ### My Answer:
-
+* B and F
+* **B,F**
 <br>
 
 <hr>
@@ -366,7 +368,7 @@ _______________________________
 * F. `rs.getTimeStamp("d");`
 
 ### My Answer:
-
+* **F**
 <br>
 
 <hr>
@@ -397,7 +399,8 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * E. A SQLException is thrown
 
 ### My Answer:
-
+* The Statement is not scrollable!
+* **E**
 <br>
 
 <hr>
