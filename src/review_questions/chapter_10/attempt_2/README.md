@@ -225,7 +225,8 @@ ResultSet rs = stmt._____(sql);
 * F. `executeUpdate, executeQuery, execute`
 
 ### My Answer:
-
+* Its execute, executeUpdate, executeQuery
+* **B**
 <br>
 
 <hr>
@@ -251,7 +252,7 @@ public static void main(String[] args) throws SQLException {
 * F. A different exception is thrown 
 
 ### My Answer:
-
+* **C**
 <br>
 
 <hr>
@@ -277,7 +278,8 @@ public static void main(String[] args) {
 * F. A different exception is thrown
 
 ### My Answer:
-
+* The SQLException is not handled!
+* **D**
 <br>
 
 <hr>
@@ -295,7 +297,9 @@ public static void main(String[] args) {
 * F. `Statement,ResultSet,Connection`
 
 ### My Answer:
-
+* It is in the reverse order in which they are created: Connection, Statement, ResultSet
+* So ResultSet, Statement, Connection
+* **D**
 <br>
 
 <hr>
