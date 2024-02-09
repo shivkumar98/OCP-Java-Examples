@@ -95,3 +95,4 @@
 | Date | Attempt| Score | % | Questions Wrong |
 | ---- |  ----- |------ | - | --------------- |
 | 07/02/2024 | [No. 1](/src/review_questions/chapter_10/attempt_1/) | 11 / 20 | 55% | 1,2,4,11,13,15,16,17,19 |
+| 09/02/2024 | [No. 2](/src/review_questions/chapter_10/attempt_1/) | 20 / 20 | 100% | NONE |
