@@ -417,7 +417,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * F. `previous()`
 
 ### My Answer:
-
+* **C,D**
 <br>
 
 <hr>
@@ -444,7 +444,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * E. A SQLException is thrown
 
 ### My Answer:
-
+* **A**
 <br>
 
 <hr>
@@ -476,7 +476,8 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * G. A `SQLException` is thrown
 
 ### My Answer:
-
+* First one prints false, then true, then true, then true, then false
+* **C**
 <br>
 
 <hr>
@@ -507,7 +508,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * G. A `SQLException` is thrown
 
 ### My Answer:
-
+* **F**
 <br>
 
 <hr>
