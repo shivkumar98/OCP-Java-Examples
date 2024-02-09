@@ -133,7 +133,8 @@ F. Statement's implementation
 ❓
 
 ### My Answer:
-
+* A connection is obtained via the DriverManager, so thhe code does not compile
+* **C**
 <br>
 
 <hr>
@@ -151,7 +152,10 @@ F. Statement's implementation
 ❓
 
 ### My Answer:
-
+* A - false
+* B - true
+* E - true
+* **B,E**
 <br>
 
 <hr>
@@ -174,7 +178,9 @@ public void stmt(Connection conn, int b) throws SQLException {
 * F. `ResultSet.TYPE_SCROLL_SENSITIVE`
 
 ### My Answer:
-
+* The first parameter is used to specify the scroll type
+* C,E,F are valid
+* **C,E,F**
 <br>
 
 <hr>
@@ -195,7 +201,7 @@ conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE
 * F. None of the abopve. The code will not compile
 
 ### My Answer:
-
+* **E**
 <br>
 
 <hr>
