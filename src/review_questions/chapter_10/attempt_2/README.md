@@ -5,30 +5,30 @@
 ## Results:
 
 Date: 09/02/2024 <br>
-Score:  <br>
-❌✅
+Score: 20/20 (100%) <br>
+
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |    |
-| 2          |    |
-| 3          |    |
-| 4          |    |
-| 5          |    |
-| 6          |    |
-| 7          |    |
-| 8          |    |
-| 9          |    |
-| 10         |    |
-| 11         |    |
-| 12         |    |
-| 13         |    |
-| 14         |    |
-| 15         |    |
-| 16         |    |
-| 17         |    |
-| 18         |    |
-| 19         |    |
-| 20         |    |
+| 1          | ✅     |
+| 2          | ✅     |
+| 3          | ✅     |
+| 4          | ✅     |
+| 5          | ✅     |
+| 6          | ✅     |
+| 7          | ✅     |
+| 8          | ✅     |
+| 9          | ✅     |
+| 10         | ✅     |
+| 11         | ✅     |
+| 12         | ✅     |
+| 13         | ✅     |
+| 14         | ✅     |
+| 15         | ✅     |
+| 16         | ✅     |
+| 17         | ✅     |
+| 18         | ✅     |
+| 19         | ✅     |
+| 20         | ✅     |
 
 
 <hr>
@@ -47,7 +47,7 @@ F. Statement's implementation
 ### My Answer:
 * A database-specific JAR contains implementations of Driver, Connection, Statement and ResultSet
 * The DriverManager and its implementation is part of the JDK
-* **B,E**
+* **B,F**✅✅✅✅
 <br>
 
 <hr>
@@ -68,7 +68,7 @@ F. Statement's implementation
 ### My Answer:
 * The required components of the JDBC URL is the protocol `jdbc`, the vendor name, and database name, everything else is optional
 * C - true, B - true
-* **B,C**
+* **B,C**✅✅✅✅
 <br>
 
 <hr>
@@ -88,7 +88,7 @@ F. Statement's implementation
 ❓
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -107,7 +107,7 @@ F. Statement's implementation
 
 ### My Answer:
 * It is META-INF/servic/java.sql.Driver
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -134,7 +134,7 @@ F. Statement's implementation
 
 ### My Answer:
 * A connection is obtained via the DriverManager, so thhe code does not compile
-* **C**
+* **C**✅✅✅✅
 <br>
 
 <hr>
@@ -155,7 +155,7 @@ F. Statement's implementation
 * A - false
 * B - true
 * E - true
-* **B,E**
+* **B,E**✅✅✅✅
 <br>
 
 <hr>
@@ -180,7 +180,7 @@ public void stmt(Connection conn, int b) throws SQLException {
 ### My Answer:
 * The first parameter is used to specify the scroll type
 * C,E,F are valid
-* **C,E,F**
+* **C,E,F**✅✅✅✅
 <br>
 
 <hr>
@@ -201,7 +201,7 @@ conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE
 * F. None of the abopve. The code will not compile
 
 ### My Answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -226,7 +226,7 @@ ResultSet rs = stmt._____(sql);
 
 ### My Answer:
 * Its execute, executeUpdate, executeQuery
-* **B**
+* **B**✅✅✅✅
 <br>
 
 <hr>
@@ -252,7 +252,7 @@ public static void main(String[] args) throws SQLException {
 * F. A different exception is thrown 
 
 ### My Answer:
-* **C**
+* **C**✅✅✅✅
 <br>
 
 <hr>
@@ -279,7 +279,7 @@ public static void main(String[] args) {
 
 ### My Answer:
 * The SQLException is not handled!
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -299,7 +299,7 @@ public static void main(String[] args) {
 ### My Answer:
 * It is in the reverse order in which they are created: Connection, Statement, ResultSet
 * So ResultSet, Statement, Connection
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -326,7 +326,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 
 ### My Answer:
 * The ResultSet is closed after an update occurs, so an SQLException is thrown
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -351,7 +351,7 @@ _______________________________
 
 ### My Answer:
 * B and F
-* **B,F**
+* **B,F**✅✅✅✅
 <br>
 
 <hr>
@@ -368,7 +368,7 @@ _______________________________
 * F. `rs.getTimeStamp("d");`
 
 ### My Answer:
-* **F**
+* **F**✅✅✅✅
 <br>
 
 <hr>
@@ -400,7 +400,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 
 ### My Answer:
 * The Statement is not scrollable!
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -417,7 +417,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * F. `previous()`
 
 ### My Answer:
-* **C,D**
+* **C,D**✅✅✅✅
 <br>
 
 <hr>
@@ -444,7 +444,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * E. A SQLException is thrown
 
 ### My Answer:
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -477,7 +477,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 
 ### My Answer:
 * First one prints false, then true, then true, then true, then false
-* **C**
+* **C**✅✅✅✅
 <br>
 
 <hr>
@@ -508,7 +508,7 @@ try (Connection conn = DriverManager.getConnection("jdbc:derby:zoo");
 * G. A `SQLException` is thrown
 
 ### My Answer:
-* **F**
+* **F**✅✅✅✅
 <br>
 
 <hr>
