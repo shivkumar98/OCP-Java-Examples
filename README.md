@@ -27,4 +27,10 @@ I created this repo to go through the examples from the official study guide for
 * [Review Scores](/src/review_questions/)
 
 ## ✍️ Revision Notes
-* [Revision Notes](/src/revision_notes/)
+* [Chapter 1](/src/revision_notes/chap01/)
+* [Chapter 2](/src/revision_notes/chap02/)
+* [Chapter 4](/src/revision_notes/chap04/)
+* [Chapter 6](/src/revision_notes/chap06/)
+* [Chapter 7](/src/revision_notes/chap07/)
+* [Chapter 8](/src/revision_notes/chap08/)
+* [Chapter 10](/src/revision_notes/chap10/)
