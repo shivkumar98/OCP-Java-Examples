@@ -17,6 +17,8 @@
 * Unlike the File class, the Path interface has support for symbolic linkks
 * We can get an instance of Path using the `Paths` factory class
 
+<hr>
+
 ## 🟥 9.1.2 Creating Paths
 
 
@@ -76,12 +78,22 @@ Path ftpPath = Paths.get(new URI("ftp://username:password@ftp.the-ftp-server.com
 
 * Constructing a URI instance throws a checkked `URISyntaxException`
 
-
-
 ### ⭐ Accessing the Underlying FileSystem Object ⭐
 * Whenever we are using `Path.getPath()` method, this is just a shorthand for the getPath() method from `java.nio.FileSystem`
 * We use tthe `FileSystems` factory class as shown:
 ```java
 Path p1 = FileSystems.getDefault()
   .getPath("pandas/cuddly.png");
+```
+
+### ⭐ Working with Legacy File Instances ⭐
+* Java 7 added `.toPath()` to the legacy `java.io.File` class:
+```java
+File file = new File("pandas/cuddly.png");
+Path path = file.toPath();
+```
+* You can also convert a path back to a file:
+```java
+Path path = Paths.get("pandas/cuddly.png");
+File file = path.toFile();
 ```
