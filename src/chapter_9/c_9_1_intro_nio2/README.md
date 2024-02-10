@@ -73,3 +73,15 @@ Path path1 = Paths.get(new URI("file://pandas/cuddly.png")); // throws runtime e
 Path webPath = Paths.get(new URI("http://www.wiley.com"));
 Path ftpPath = Paths.get(new URI("ftp://username:password@ftp.the-ftp-server.com"));
 ```
+
+* Constructing a URI instance throws a checkked `URISyntaxException`
+
+
+
+### ⭐ Accessing the Underlying FileSystem Object ⭐
+* Whenever we are using `Path.getPath()` method, this is just a shorthand for the getPath() method from `java.nio.FileSystem`
+* We use tthe `FileSystems` factory class as shown:
+```java
+Path p1 = FileSystems.getDefault()
+  .getPath("pandas/cuddly.png");
+```
