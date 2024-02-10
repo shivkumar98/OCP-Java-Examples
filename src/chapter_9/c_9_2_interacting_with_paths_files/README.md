@@ -33,19 +33,96 @@ Paths.get("/zoo/../home").getParent().normalize().toAbsolutePath();
 Path path = Paths.get("src/chapter_9/c_9_1_intro_nio2/javacode/file.txt");
 System.out.println(path.toString());
 ```
-<br>
-
+* `int Path.getNameCount()` - returns number of elements in path
 * `Path getName(int)` - returns an element of the path using an index beginning at 0:
 ```java
 Path path = Paths.get("src/chapter_9/c_9_1_intro_nio2/javacode/file.txt");
 for(int index=0;index<path.getNameCount();index++) {
   System.out.println(paths.getName(index));
 }
-/* prints src chapter_9 .... */
+/* prints 
+src
+chapter_9
+...
+*/
 ```
 * If the path has a root of `/`, this will be ignored:
 ```java
 Path pathWithRoot = Paths.get("/root/file.txt");
 pathWithRoot.getName(0); // root
 pathWithRoot.getName(1); // file.txt
+```
+
+### ⭐ Accessing Path Components with getFileName(), getParent(), and getRoot() ⭐
+* `Path getFileName()` - returns the element furthest away from root:
+```java
+Path pathWithRoot = Paths.get("/root/file.txt");
+pathWithRoot.getFileName(); // file.txt
+```
+* `Path getParent()` - returns parent element or null if not available
+```java
+Path path = Paths.get("/root/file.txt");
+Path parentPath = path.getParent(); // root
+parentPath.getParent(); // null
+```
+* This method will not traverse to outside the file-system!!!
+```java
+Path path = Paths.get("src/chapter_9/c_9_1_intro_nio2/javacode/file.txt");
+path.get(0).getParent(); // null
+```
+
+* `Path getRoot()` - returns the root element for a Path object, will return null for a relative path:
+```java
+Path relativePath = Paths
+  .get("src/chapter_9/c_9_1_intro_nio2/javacode/file.txt");
+relativePath.getRoot(); // null
+		
+ Path pathWithRoot = Paths
+  .get("/root/file.txt");
+pathWithRoot.getRoot(); // \
+		
+Path fullPath = Paths
+  .get("C:\\Users\\Shiv\\Documents\\GitHub");
+fullPath.getRoot(); // C:\
+```
+
+<br>
+
+* Here is a program which traverses absolute and relative path objects to show how it handles the root differently
+```java
+public class PathFilePathTest {
+  static void printPathInformation(Path path) {
+    System.out.println("Filename is: "+path.getFileName());
+    System.out.println("Root is: "+path.getRoot());
+
+    Path currentPath = path;
+    while((currentPath = currentPath.getParent()) != null) {
+      System.out.println("  Current parent is: "+currentPath);
+    }
+  }
+}
+```
+* Here we print a relative and absolute path:
+```java
+// MAIN METHOD:
+Path relativePath = Paths
+	.get("src/chapter_9/c_9_1_intro_nio2/javacode/file.txt");
+printInformation(relativePath);
+/* Filename is: file.txt
+  * Root is: null
+  *   Current parent is: src\chapter_9\c_9_1_intro_nio2\javacode
+  *   Current parent is: src\chapter_9\c_9_1_intro_nio2
+  *   Current parent is: src\chapter_9
+  *   Current parent is: src
+*/
+
+Path absolutePath = Paths.get("C:\\Users\\Shiv\\Documents\\GitHub");
+printInformation(absolutePath);
+/* Filename is: Github
+  * Root is: C:\
+  *   Current parent is: C:\Users\Shiv\Documents
+  *   Current parent is: C:\Users\Shiv
+  *   Current parent is: C:\Users
+  *   Current parent is: C:\
+*/
 ```
