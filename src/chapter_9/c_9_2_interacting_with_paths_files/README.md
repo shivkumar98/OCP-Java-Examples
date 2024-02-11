@@ -167,8 +167,33 @@ Path parentPathOfGitHub = Paths
 parentPathOfGitHub.normalize(); // \Users\Shiv\Documents
 ```
 
-
-### ⭐ Deriving a Path with Relativize ⭐
+### ⭐ Deriving a Path with relativize() ⭐
+* `Path relativize(Path anotherPath)` - returns a path to get to `anotherPath`
+* Here is an example using two absolute paths:
+```java
+Path absolutePath1 = Paths
+  .get("/Documents/pizza.txt");
+Path absolutePath2 = Paths
+  .get("Documents/Shiv/file.txt");
+absolutePath1.relativize(absolutePath2);
+// ../Shiv/file.txt
+absolutePath2.relativize(absolutePath1);
+// ../../pizza.txt
+```
+* If two relative paths are provided, they are computed as if they are in the same working directory:
+```java
+Path relPath1 = Paths
+  .get("pizza.txt");
+Path relPath2 = Paths
+  .get("poultry/chicken.txt");
+relPath1.relativize(relPath2); // ../poultry/chicken.txt
+relPath2.relativize(relPath1); // ../../pizza.txt
+```
+* If you try to mix a relative and absolute path, you will get an `IllegalArgumentException` at runtime:
+```java
+relPath1.relativize(absolutePath1); // THROWS EXCEPTION
+absolutePath1.relativize(relPath1); // THROWS EXCEPTION
+```
 
 ### ⭐ Joining Path Objects with resolve() ⭐
 
