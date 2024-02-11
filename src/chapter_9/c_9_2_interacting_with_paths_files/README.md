@@ -215,7 +215,43 @@ path2.resolve(path1).normalize(); // /panther
 ```
 
 ### ⭐ Checking for File Existence with toRealPath() ⭐
+* This method has the following signature:
+```java
+Path toRealPath(LinkOption... options) throws IOException;
+```
+* It will give the complete path of a relative or absolute path which EXISTS:
+```java
+Path relativePath = Paths
+  .get("src/chapter_9/c_9_1_intro_nio2/javacode/file.txt");
+Path absolutePath = Paths
+  .get("C:\\Users\\Shiv\\Documents\\GitHub");
+try {
+  relativePath.toRealPath();
+  /*
+   * C:\Users\Shiv\Documents
+   * \GitHub\OCP-Java-Examples
+   * \src\chapter_9\c_9_1_intro_nio2
+   * \javacode\file.txt
+  */
 
+  absolutePath.toRealPath();
+  /*
+   * C:\Users\Shiv\Documents\GitHub
+  */
+} catch (IOException e) {
+  // no exceptions thrown
+}
+```
+* This method throws `IOException` if the path does not point to real file/directory:
+```java
+Path fakePath = Paths.get("file-does-not-exist.txt");
+try {
+  System.out.println(fakePath.toRealPath());
+} catch (IOException e) {
+  System.out.println("path does not exist");
+  // prints the above!
+}
+```
 
 
 
