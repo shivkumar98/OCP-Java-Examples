@@ -126,3 +126,24 @@ printInformation(absolutePath);
   *   Current parent is: C:\
 */
 ```
+
+### ⭐ Checking Path Type with isAbsolute() and toAbsolutePath() ⭐
+* `boolean isAbsolute()` - checks if path is absolute or relative
+* `Path toAbsolute(Path)` - converts a relative path to an absolute path or returns a copy if an absolute path is provided
+```java
+Path relativePath = Paths
+      .get("src/chapter_9/c_9_1_intro_nio2/javacode/file.txt");
+relativePath.isAbsolute(); // false
+Path relativeToAbsolute = relativePath.toAbsolutePath();
+System.out.println(relativeToAbsolute);
+/* C:\Users\Shiv\Documents\GitHub\
+  *  OCP-Java-Examples\src\chapter_9\
+  *  c_9_1_intro_nio2\javacode\file.txt */
+
+Path absolutePath = Paths
+    .get("C:\\Users\\Shiv\\Documents\\GitHub");
+absolutePath.isAbsolute(); // true
+Path absoluteToAbsolutePath = absolutePath.toAbsolutePath();
+absoluteToAbsolutePath;
+// C:\Users\Shiv\Documents\GitHub
+```

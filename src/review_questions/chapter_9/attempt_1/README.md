@@ -63,7 +63,7 @@ System.out.println(path);
 * C is incorrect because you can not use BufferedWriter directly
 * E is incorrect as it can only take a InputStream and not an OutputStream
 * A is correct as the BufferedInputStream can be wrapped twice
-<hr>
+<hr>++
 
 ## 🟨 Question 2 🟨
 ❓ Why doews `Console.readPassword()` return a `char[]` instead of String object (Choose all that apply)❓
