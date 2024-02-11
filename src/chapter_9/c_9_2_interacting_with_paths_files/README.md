@@ -196,7 +196,13 @@ absolutePath1.relativize(relPath1); // THROWS EXCEPTION
 ```
 
 ### ⭐ Joining Path Objects with resolve() ⭐
-
+* `Path resolve(Path other)` - appends the other path to path it was invoked on.
+```java
+Path path1 = Paths.get("/cats/../panther");
+Path path2 = Paths.get("/food");
+path1.resolve(path2); // \food
+path2.resolve(path1); // \cats\..\panther
+```
 
 ### ⭐ Cleaning Up a Path with normalize() ⭐
 
