@@ -14,6 +14,13 @@ public class CreatingNewPathsWithSubpath {
 		System.out.println(absolutePath.subpath(0, 4)); // Users\Shiv\Documents\GitHub
 		System.out.println(absolutePath.subpath(0, 2)); // Users\Shiv
 		
+		Path parentPathOfGitHub = Paths
+				.get("\\Users\\Shiv\\Documents\\GitHub\\..");
+		System.out.println(parentPathOfGitHub.normalize());
+		// \Usersz\Shiv\Documents
+		
+		System.out.println(Paths.get("..").normalize());
+		
 
 		
 	}

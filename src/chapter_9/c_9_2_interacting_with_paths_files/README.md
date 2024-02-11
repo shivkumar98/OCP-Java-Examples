@@ -160,6 +160,13 @@ absolutePath.subpath(0,4); // Users/Shiv/Documents/GitHub
 ```
 
 ### ⭐ Using Path Symbols ⭐
+* We can use `.` for current directory and `..` for directory of parent of current directory
+```java
+Path parentPathOfGitHub = Paths
+				.get("\\Users\\Shiv\\Documents\\GitHub\\..");
+parentPathOfGitHub.normalize(); // \Users\Shiv\Documents
+```
+
 
 ### ⭐ Deriving a Path with Relativize ⭐
 
