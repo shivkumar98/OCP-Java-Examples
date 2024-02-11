@@ -147,3 +147,33 @@ Path absoluteToAbsolutePath = absolutePath.toAbsolutePath();
 absoluteToAbsolutePath;
 // C:\Users\Shiv\Documents\GitHub
 ```
+
+### ⭐ Creating a New Path with subpath() ⭐
+* `Path subpath(int, int)` - returns a relative path where the second parameter is exclusive of the elements
+```java
+Path absolutePath = Paths
+  .get("\\Users\\Shiv\\Documents\\GitHub")
+absolutePath.getNameCount(); // 4
+absolutePath.subpath(1,1); // throws exception
+absolutePath.subpath(0,1); // Users
+absolutePath.subpath(0,4); // Users/Shiv/Documents/GitHub
+```
+
+### ⭐ Using Path Symbols ⭐
+
+### ⭐ Deriving a Path with Relativize ⭐
+
+### ⭐ Joining Path Objects with resolve() ⭐
+
+
+### ⭐ Cleaning Up a Path with normalize() ⭐
+
+### ⭐ Checking for File Existence with toRealPath() ⭐
+
+
+
+
+<hr>
+
+
+## 🟥 9.2.3 Interacting With Files

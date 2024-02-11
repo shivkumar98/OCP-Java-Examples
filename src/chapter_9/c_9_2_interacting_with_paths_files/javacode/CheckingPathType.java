@@ -22,6 +22,8 @@ public class CheckingPathType {
 		System.out.println(absolutePath.isAbsolute()); // true
 		Path absoluteToAbsolutePath = absolutePath.toAbsolutePath();
 		System.out.println(absoluteToAbsolutePath);
+		// C:\Users\Shiv\Documents\GitHub
+
 		
  
 	}
