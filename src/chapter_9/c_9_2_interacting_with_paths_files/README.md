@@ -257,3 +257,25 @@ try {
 
 
 ## 🟥 9.2.3 Interacting With Files
+* We can use Path objects to interact with files! Many of the methods within `java.io.File` have a wrapper method in `java.nio.file.Path` via a helper class `java.nio.file.Files` which operate on Paths and not Files!!!
+* The `Files` helper class has static methods which take one or two Path objects
+
+
+### ⭐ Testing Path with exists() ⭐
+* `boolean Files.exists(Path)` returns true if and only if the referenced path exists in file systen
+
+### ⭐ Testing uniqueness with isSameFile() ⭐
+
+### ⭐ Using createDirectory() and createDirectories() ⭐
+
+
+### ⭐ Duplicating File Contents with copy() ⭐
+
+### ⭐ Changing File Location with move() ⭐
+
+### ⭐ Using delete() and deleteIfExists() ⭐
+
+### ⭐ Reading and Writing using newBufferedReader() and newBufferedWriter() ⭐
+
+
+### ⭐ Reading Files with readAllLines() ⭐
