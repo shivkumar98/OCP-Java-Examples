@@ -205,6 +205,14 @@ path2.resolve(path1); // \cats\..\panther
 ```
 
 ### ⭐ Cleaning Up a Path with normalize() ⭐
+* The `Path normalize()` method is used to clean up redundancies in paths which use `..`
+```java
+Path path1 = Paths.get("/cats/../panther");
+Path path2 = Paths.get("/food");
+
+path2.resolve(path1); // cats/../panther
+path2.resolve(path1).normalize(); // /panther
+```
 
 ### ⭐ Checking for File Existence with toRealPath() ⭐
 

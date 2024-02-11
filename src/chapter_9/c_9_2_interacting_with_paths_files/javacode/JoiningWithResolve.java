@@ -10,6 +10,6 @@ public class JoiningWithResolve {
 		
 		System.out.println(path1.resolve(path2)); // \cats\panther\food
 		System.out.println(path2.resolve(path1)); // \cats\panther
-		System.out.println(path1.resolve(path2));
+		System.out.println(path2.resolve(path1).normalize()); // \cats\panther
 	}
 }
