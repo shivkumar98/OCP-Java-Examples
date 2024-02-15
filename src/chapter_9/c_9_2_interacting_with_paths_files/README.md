@@ -255,7 +255,6 @@ try {
 
 <hr>
 
-
 ## 🟥 9.2.3 Interacting With Files
 * We can use Path objects to interact with files! Many of the methods within `java.io.File` have a wrapper method in `java.nio.file.Path` via a helper class `java.nio.file.Files` which operate on Paths and not Files!!!
 * The `Files` helper class has static methods which take one or two Path objects
@@ -304,7 +303,32 @@ try {
 
 
 ### ⭐ Using createDirectory() and createDirectories() ⭐
+* These methods will throw an IOException if directory cannot be created(e.g. already exists); otherwise it returns the Path of the director
+* Example of `Files.createDirectory()`:
+```java
+Path dirWhichAlreadyExists = Paths
+  .get("src/chapter_9/" + "c_9_2_interacting_with_paths_files"
+      + "/javacode/");
+try {
+  Files.createDirectory(dirWhichAlreadyExists);
+  System.out.println("never reaches here");
+} catch (IOException e) {
+  System.out.println("Exception is caught!!!");
+}
+```
+* Running the above did create a directory:
+![](screenshots/2024-02-15-12-22-05.png)
 
+* Attempting to make nested directories with `createDirectory()` will throw an exception:
+```java
+try {
+  Files.createDirectory(nestedDirectories);
+  System.out.println("Never reached");
+} catch (IOException e) {
+  System.out.println("Exception is caught!!!");
+}
+
+```
 
 ### ⭐ Duplicating File Contents with copy() ⭐
 
