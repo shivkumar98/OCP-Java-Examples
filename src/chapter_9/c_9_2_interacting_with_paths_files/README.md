@@ -327,10 +327,10 @@ try {
 } catch (IOException e) {
   System.out.println("Exception is caught!!!");
 }
-
 ```
 
 ### ⭐ Duplicating File Contents with copy() ⭐
+ 
 
 ### ⭐ Changing File Location with move() ⭐
 
