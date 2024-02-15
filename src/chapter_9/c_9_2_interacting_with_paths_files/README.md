@@ -277,7 +277,31 @@ Path fakeRelativePath = Paths
 Files.exists(fakeRelativePath); // true
 ```
 
-### ⭐ Testing uniqueness with isSameFile() ⭐
+### ⭐ Testing Uniqueness with isSameFile() ⭐
+* This method has the following signature:
+```java
+boolean isSameFile(Path,Path) throws IOExcetpion
+```
+* Returns true if both paths are equal in terms of `equal()`. If provided a non-existent file, then IOException is thrown
+* Here are some examples:
+```java
+Path relRealPath = Paths
+  .get("src/chapter_9/c_9_2_interacting_with_paths_files/javacode/file.txt");
+Path absoluteRealPath = Paths
+  .get("C:\\Users\\shiv.kumar\\Documents\\Github\\OCP-Java-Examples\\src\\chapter_9\\c_9_2_interacting_with_paths_files\\javacode\\file.txt");
+try {
+  Files.isSame(relRealPath, absoluteRealPath); // true!!!
+} catch (IOException e) {}
+
+
+try {
+  Path relFakePath = Paths.get("fake");
+  Files.isSameFile(relRealPath, relFakePath);
+} catch (IOException e) {
+  // exception is caught!
+}
+```
+
 
 ### ⭐ Using createDirectory() and createDirectories() ⭐
 
