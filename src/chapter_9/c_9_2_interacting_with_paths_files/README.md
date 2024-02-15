@@ -327,10 +327,44 @@ try {
 } catch (IOException e) {
   System.out.println("Exception is caught!!!");
 }
-
 ```
 
 ### ⭐ Duplicating File Contents with copy() ⭐
+* This method has the following signature:
+```java
+Path copy(Path source, Path target) throws IOException
+```
+* Here is an example of copying a file:
+```java
+Path sourceFilePath = Paths
+    .get("src//chapter_9//c_9_2_interacting_with_paths_files//javacode//file.txt");
+Path targetFilePath = Paths
+  .get("src//chapter_9//file.txt");
+try {
+  Files.copy(sourceFilePath, targetFilePath);
+} catch (IOException e) { /* handle */ }
+```
+![](2024-02-16-10-44-55.png)
+
+* This method takes SHALLOW copies of files⚠️
+* Here is an example of attempting to take a copy of my screenshots folder:
+```java
+Path screenshotsFolder = Paths
+	.get("src//chapter_9//c_9_2_interacting_with_paths_files//screenshots");
+Path targetFilePath = Paths
+  .get("src//chapter_9//output");
+try {
+  Files.copy(sourceFilePath, targetFilePath);
+} catch (IOException e) { /* handle */ }
+```
+![](2024-02-16-10-50-25.png)
+<br>
+
+* The `copy()` method can be overloaded with CopyOptions:
+  - `NOFOLLOW_LINKS`
+  - `REPLACE_EXISTING`
+  - `COPY_ATTRIBUTES`
+
 
 ### ⭐ Changing File Location with move() ⭐
 
@@ -340,3 +374,4 @@ try {
 
 
 ### ⭐ Reading Files with readAllLines() ⭐
+
