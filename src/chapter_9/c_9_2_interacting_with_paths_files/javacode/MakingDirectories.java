@@ -39,7 +39,7 @@ public class MakingDirectories {
 			Files.createDirectory(nestedDirectories);
 			System.out.println("test");
 		} catch (IOException e) {
-			System.out.println("exception caught 1!");
+			System.out.println("exception caught 1!"); // exception was thrown
 		}
 	}
 }
