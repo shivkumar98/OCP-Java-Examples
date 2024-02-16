@@ -15,16 +15,18 @@ public class DuplicatingFileContents {
 	
 	public static void main(String[] args) {
 		Path folderWithAFileAndSubFolder =
+
 				Paths.get("src//chapter_9//c_9_2_interacting_with_paths_files//screenshots");
 		Path targetPath =
 				Paths.get("src//chapter_9//output");
-		
 		try {
 			Files.copy(folderWithAFileAndSubFolder, targetPath, StandardCopyOption.REPLACE_EXISTING);
 			System.out.println("copy successful");
 		} catch (IOException e) {
 			// no exception thrown
 			System.out.println("copy unsucessful");
+
+
 		}
 	}
 	
