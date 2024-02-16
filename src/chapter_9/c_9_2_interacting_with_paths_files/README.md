@@ -301,7 +301,6 @@ try {
 }
 ```
 
-
 ### ⭐ Using createDirectory() and createDirectories() ⭐
 * These methods will throw an IOException if directory cannot be created(e.g. already exists); otherwise it returns the Path of the director
 * Example of `Files.createDirectory()`:
@@ -344,7 +343,7 @@ try {
   Files.copy(sourceFilePath, targetFilePath);
 } catch (IOException e) { /* handle */ }
 ```
-![](2024-02-16-10-44-55.png)
+![](screenshots/2024-02-16-10-44-55.png)
 
 * This method takes SHALLOW copies of files⚠️
 * Here is an example of attempting to take a copy of my screenshots folder:
@@ -357,7 +356,7 @@ try {
   Files.copy(sourceFilePath, targetFilePath);
 } catch (IOException e) { /* handle */ }
 ```
-![](2024-02-16-10-50-25.png)
+![](screenshots/2024-02-16-10-50-25.png)
 <br>
 
 * The `copy()` method can be overloaded with CopyOptions:
@@ -365,8 +364,45 @@ try {
   - `REPLACE_EXISTING`
   - `COPY_ATTRIBUTES`
 
-### ⭐ Changing File Location with move() ⭐
+#### 🌱 Copying Files with java.io and NIO.2 🌱
+* NIO.2 Files class has two overloads of the copy method:
+  - `copy(InputStream source, Path target)`
+  - `copy(Path source, OutputStream target)`
+* Here is an example of both methods:
+```java
+try (InputStream inputStr = new FileInputStream("source-data.txt");
+     OutputStream outputStr = new FileOutputStream("output-data.txt")) {
+  Files.copy(inputStr, Paths.get("C:\\mammals\\file.txt"));
+  Files.copy(Paths.get("C:\\fish\\file.txt"), outputStr);
+} catch (IOException e) {}
+```
 
+### ⭐ Changing File Location with move() ⭐
+* Method signature:
+```java
+Path move(Path source, Path destination) throws IOException
+```
+* This method will throw IOException if the file can not be found or cannot be moved
+* Here is an example:
+```java
+Path pathOfFile = Paths
+  .get("src//chapter_9//file.txt");
+Path targetPath = Paths
+  .get("src//chapter_9//output//file.txt");
+try {
+  Files.move(pathOfFile, targetPath);
+  System.out.println("move successful");
+} catch (IOException e) {
+  System.out.println("unsuccessful");
+}
+```
+![](screenshots/file-move.png)
+* By default, the move will follow links, throw exception if file already exists at target, and NOT do atomic move.
+* These can be overidden with:
+  - NOFOLLOW_LINKS
+  - REPLACE_EXISTING
+  - ATOMIC_MOVE (Will throw AtomicMoveNotSupported if OS does not support)
+  
 ### ⭐ Using delete() and deleteIfExists() ⭐
 
 ### ⭐ Reading and Writing using newBufferedReader() and newBufferedWriter() ⭐
