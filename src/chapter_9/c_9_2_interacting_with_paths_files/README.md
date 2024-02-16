@@ -397,6 +397,7 @@ try {
 }
 ```
 ![](screenshots/file-move.png)
+
 * By default, the move will follow links, throw exception if file already exists at target, and NOT do atomic move.
 * These can be overidden with:
   - NOFOLLOW_LINKS
