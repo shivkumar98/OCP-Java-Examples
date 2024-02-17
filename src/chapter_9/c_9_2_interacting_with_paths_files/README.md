@@ -423,8 +423,48 @@ try {
   System.out.println("success"); // prints success
 } catch (IOException e) { }
 ```
-### ⭐ Reading and Writing using newBufferedReader() and newBufferedWriter() ⭐
 
+### ⭐ Reading and Writing using newBufferedReader() and newBufferedWriter() ⭐
+* NIO.2 `Files` class has two methods for reading/writing file contents using classic java.io streams👴
+* Here is a method for reading file data using a path:
+```java
+BufferedReader newBufferedReader(Path,Charset) throws IOException
+```
+* And an example:
+```java
+Path fileToBeRead = Paths
+  .get("src//"
+    + "chapter_9//"
+    + "c_9_2_interacting_with_paths_files//"
+    + "javacode//"
+    + "file.txt");
+/* this file contains line1: \n line2: shiv \n line3: hello */
+try (BufferedReader reader = Files.newBufferedReader(fileToBeRead,Charset.defaultCharset())) {
+  String line = null
+  while ((line = reader.nextLine())!=null)
+    System.out.println(line); // prints the 3 lines from file
+} catch (IOException e) { }
+```
+<br>
+
+* We also have a method for obtaining a BufferedReader from a path:
+```java
+BufferedWriter newBufferedWriter(Path,Charset) throws IOException
+```
+* An example:
+```java
+Path destinationFile = Paths
+  .get("src//"
+      + "chapter_9//"
+      + "c_9_2_interacting_with_paths_files//"
+      + "javacode//"
+      + "destination-file.txt");
+try (BufferedWriter writer =
+    Files.newBufferedWriter(destinationFile, Charset.defaultCharset())) {
+  writer.write("Hello World!");
+  // a new file is created with the above text!!!
+} catch (IOException e) { }
+```
 
 ### ⭐ Reading Files with readAllLines() ⭐
 
