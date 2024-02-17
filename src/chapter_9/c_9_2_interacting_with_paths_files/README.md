@@ -405,7 +405,24 @@ try {
   - ATOMIC_MOVE (Will throw AtomicMoveNotSupported if OS does not support)
   
 ### ⭐ Using delete() and deleteIfExists() ⭐
-
+* Method signatures:
+```java
+void delete(Path) throws IOException
+void deleteIfExists(Path) throws IOException
+```
+* These delete/deleteIfExists will throw:
+  - `java.nio.DirectoryNonEmptyException` if path is non-empty folder
+* Only delete will throw:
+  - `java.nio.NoSuchFileException` if file does not exists
+* Example:
+```java
+Path file = Paths.get("src//chapter_9" + "//c_9_2_interacting_with_paths_files" +
+    "//javacode/file.txt");
+try {
+  Files.delete(file);
+  System.out.println("success"); // prints success
+} catch (IOException e) { }
+```
 ### ⭐ Reading and Writing using newBufferedReader() and newBufferedWriter() ⭐
 
 
