@@ -134,7 +134,35 @@ try {
 ```
 
 ### ⭐ Managing Ownership with getOwner() and setOwner() ⭐
-
+* Method signatures:
+```java
+UserPrincipal getOwner(Path) throws IOException
+Path setOwner(Path,UserPrincipal) throws IOException
+```
+* The `UserPrincipalLookupService` can be used to find a UserPrincipal record in the filesystem. This service can be obtained statically as shown:
+```java
+try {
+    UserPrincipalLookupService lookupService
+        = FileSystems.getDefault()
+            .getUserPrincipalLookupService();
+    UserPrincipal me = lookupService
+        .lookupPrincipalByName("Shiv");
+    // ^ DESKTOP-RSM8H8J\Shiv (User)
+}
+```
+* Example of getting the PrincipalUser:
+```java
+Path file = Paths.get("src//"
+    + "chapter_9//"
+    + "c_9_3_understanding_file_attributes//"
+    + "java//"
+    + "c_9_3_1//"
+    + "hidden-file.txt");
+try {
+    UserPrincipal owner = Files.getOwner(file);
+    // ^ DESKTOP-RSM8H8J\Shiv (User)
+}
+```
 <hr>
 
 ## 🟥 9.3.2 Improving Access With Views
