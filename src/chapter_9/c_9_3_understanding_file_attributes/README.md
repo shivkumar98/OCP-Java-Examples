@@ -101,6 +101,37 @@ try {
 ```
 
 ### ⭐ Managing File Modifications with getLastModifiedTime() and setLastModifiedTime() ⭐
+* Method signatures:
+```java
+FileTime getLastModifiedTime(Path) throws IOException
+Path setLastModifiedTime(Path, FileTime) throws IOException
+```
+* Majority of OS's support the ability to track the last modified date of a file
+* This can be used by applications to distinguish when a file needs processing when its contents have been modified - this is more efficient than loading the entire file!
+* Example:
+```java
+Path file = Paths
+        .get("src//"
+            + "chapter_9//"
+            + "c_9_3_understanding_file_attributes//"
+            + "java//"
+            + "c_9_3_1//"
+            + "ReadingFileLength.java");
+try {
+    FileTime fileTime = Files.getLastModifiedTime(file);
+    // ^ 2024-02-18T14:49:56.173496Z
+    long epochTime = fileTime.toMillis(); 
+    // ^ 1708267796173
+} catch (IOException e) { }
+
+try {
+    FileTime fileTimeNow =
+        FileTime.fromMillis(System.currentTimeMillis());
+    // ^ 2024-02-18T15:01:47.891Z
+    Files.setLastModifiedTime(file, fileTimeNow);
+    Files.getLastModifiedTime(file); // 2024-02-18T15:01:47.891Z
+} catch (IOException e) { }
+```
 
 ### ⭐ Managing Ownership with getOwner() and setOwner() ⭐
 
