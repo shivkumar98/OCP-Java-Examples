@@ -190,6 +190,35 @@ try {
 | `PosixFileAttributes`|`PosixFileAttributeView`|Attributes supported by POSIX systems (Linux/Mac)|
 
 * Only the first row is covered by the exam!
-### ⭐ Reading Attributes ⭐
 
+### ⭐ Reading Attributes ⭐
+* NIO.2 API provides a `Files.readAttributes(Path,Class<A>)` method which returns a read-only view of a file view
+
+#### 🌱 BasicFileAttributes 🌱
+* This class has attributes common to all file systems, including many of the single-line methods from the `Files` class
+```java
+Path file = Paths.get("src//"
+    + "chapter_9//"
+    + "README.md");
+BasicFileAttributes attributeData 
+    = Files.readAttributes(file, BasicFileAttributes.class);
+attributeData.isRegularFile(); // true
+attributeData.isDirectory(); // false
+attributeData.isSymbolicLink(); // false
+attributeData.isOther(); // false
+// ^ isOther() can be used to check if file is 
+// a resource or a device
+
+attributeData.size(); // 343
+
+FileTime x = attributeDate.creationTime();
+// 2024-01-06T08:42:35.6047179Z
+FileTime y = attributeData.lastModifiedTime();
+// 2024-01-06T08:46:37.0737933Z
+FileTime z = attributeData.lastAccessTime();
+// 2024-02-10T11:35:04.9077723Z
+Object w = attributeData.fileKey(); // null
+// returns unique identifier in OS
+// null if not supported
+```
 ### ⭐ Modifying Attributes ⭐
