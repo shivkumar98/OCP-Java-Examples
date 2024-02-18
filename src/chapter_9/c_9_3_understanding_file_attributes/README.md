@@ -36,6 +36,30 @@ Files.isDirectory(symbolicLink);
 Files.isSymbolicLink(symbolicLink); // true
 ```
 
+### ⭐ Checking File Visibility with isHidden() ⭐
+* Method signature:
+```java
+boolean isHidden(Path) throws IOException
+```
+* This method can throw a `NoSuchFileException` for example
+
+* In linux based systems, hidden files are denoted by the filename - starting with a `.` makes it hidden
+* In windows systems, you have to set a hidden attribute.
+* I create a hidden file:
+<img src="screenshots/hidden-file.png" width="200px">
+
+```java
+Path hiddenFile = Paths.get("src//"
+    + "chapter_9//"
+    + "c_9_3_understanding_file_attributes//"
+    + "java//"
+    + "c_9_3_1//"
+    + "hidden-file.txt");
+try {
+    boolean x = Files.isHidden(hiddenFile);
+    System.out.println(x); // prints true
+} catch (IOException e) { }
+```
 ## 🟥 9.3.2 Improving Access With Views
 
 ### ⭐ H3 ⭐
