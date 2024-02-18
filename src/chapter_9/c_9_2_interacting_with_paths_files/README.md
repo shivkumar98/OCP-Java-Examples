@@ -6,6 +6,8 @@
 * A Path object does not necessarily point to a file but instead represents a location in the file system
 * Some methods require for the file to exist, e.g. `Path.toRealPath()`, and will throw a checked exception if thhe file is not available.
 
+<hr>
+
 ## 🟥 9.2.1 Providing Optional Arguments
 * I am not required to memorize which of the NIO.2 methods have optional arguments but I do need to know what they do
 * Here are the common optional arguments in NIO.2:
