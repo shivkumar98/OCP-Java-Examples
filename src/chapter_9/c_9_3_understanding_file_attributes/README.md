@@ -81,6 +81,24 @@ Files.isExecutable(file); // true
 ```
 
 ### ⭐ Reading File Length with size() ⭐
+* Signature:
+```java
+long size(Path) throws IOException
+```
+* This method will throw a IOException if the file does not exist or the file information can not be accessed.
+```java
+Path file = Paths
+    .get("src//"
+        + "chapter_9//"
+        + "c_9_3_understanding_file_attributes//"
+        + "java//"
+        + "c_9_3_1//"
+        + "ReadingFileLength.java");
+try {
+    long size = Files.size(file);
+    System.out.println(size); // 845
+} catch (IOException e) { }
+```
 
 ### ⭐ Managing File Modifications with getLastModifiedTime() and setLastModifiedTime() ⭐
 
