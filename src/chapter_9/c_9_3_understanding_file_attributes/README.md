@@ -5,6 +5,8 @@
 * File attributes are metadata of files and directories - which is not stored in the contents of the file but rather the file system
 * Files class has methods for accessing file attributes
 
+<hr>
+
 ## 🟥 9.3.1 Discovering Basic File Attributes
 * We shall discuss methods DIRECTLY WITHIN the Files class for reading file attributes
 * These methods can be used in ANY operating system but may have limited information in some systems.
@@ -46,6 +48,7 @@ boolean isHidden(Path) throws IOException
 * In linux based systems, hidden files are denoted by the filename - starting with a `.` makes it hidden
 * In windows systems, you have to set a hidden attribute.
 * I create a hidden file:
+
 <img src="screenshots/hidden-file.png" width="200px">
 
 ```java
@@ -60,6 +63,35 @@ try {
     System.out.println(x); // prints true
 } catch (IOException e) { }
 ```
+
+### ⭐ Testing File Accessibility with isReadable() and isExecutable() ⭐
+* These methods do not throw a checked exception!
+* A file could be visibile to a user but not actually readable/executable
+* A file's extension does not determine if it is executable, a PNG or txt can both be executable
+```java
+Path file = Paths
+        .get("src//"
+            + "chapter_9//"
+            + "c_9_3_understanding_file_attributes//"
+            + "java//"
+            + "c_9_3_1//"
+            + "hidden-file.txt");
+Files.isReadable(file); // true
+Files.isExecutable(file); // true
+```
+
+### ⭐ Reading File Length with size() ⭐
+
+### ⭐ Managing File Modifications with getLastModifiedTime() and setLastModifiedTime() ⭐
+
+### ⭐ Managing Ownership with getOwner() and setOwner() ⭐
+
+<hr>
+
 ## 🟥 9.3.2 Improving Access With Views
 
-### ⭐ H3 ⭐
+### ⭐ Understanding Views ⭐
+
+### ⭐ Reading Attributes ⭐
+
+### ⭐ Modifying Attributes ⭐
