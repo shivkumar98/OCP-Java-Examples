@@ -467,4 +467,22 @@ try (BufferedWriter writer =
 ```
 
 ### ⭐ Reading Files with readAllLines() ⭐
-
+* This method has the following signature:
+```java
+List<String> readAllLines(Path) throws IOException
+```
+* This method will throw `NoSuchFileException` if the file does not exist
+* This method can also throw a `OutOfMemoryError` if the file is too large to store in memory
+* Here is an example:
+```java
+Path textFile = Paths.get("src//"
+  + "chapter_9//"
+  + "c_9_2_interacting_with_paths_files//"
+  + "javacode//"
+  + "file.txt");
+try {
+  List<String> lines = Files.readAllLines(textFile);
+  lines.forEach(System.out::println);
+  // ^ prints 3 lines from the file!
+} catch (IOException e) {  }
+```
