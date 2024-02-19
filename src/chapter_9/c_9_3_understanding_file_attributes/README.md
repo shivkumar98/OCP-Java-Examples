@@ -221,6 +221,7 @@ Object w = attributeData.fileKey(); // null
 // returns unique identifier in OS
 // null if not supported
 ```
+
 ### ⭐ Modifying Attributes ⭐
 * In order to modify attributes of a file we need to obtain a view
 * We have the `Files.getAttributeView()` method which lets us do this:

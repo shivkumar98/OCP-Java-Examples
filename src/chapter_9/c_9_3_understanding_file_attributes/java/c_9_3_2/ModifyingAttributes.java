@@ -20,6 +20,7 @@ public class ModifyingAttributes {
 	
 	// the BasicFileAttributeView class has a setTimes method:
 	/* void setTimes(lastModifiedTime, lastAccessTime, creationTime) throws IOException  */
+	// you supply FileTime parameters, null if you wish not to change it
 	
 	public static void main(String[] args) {
 		Path file = Paths
