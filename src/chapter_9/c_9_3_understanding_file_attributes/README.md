@@ -222,3 +222,25 @@ Object w = attributeData.fileKey(); // null
 // null if not supported
 ```
 ### ⭐ Modifying Attributes ⭐
+* In order to modify attributes of a file we need to obtain a view
+* We have the `Files.getAttributeView()` method which lets us do this:
+```java
+<V extends FileAttributeView> getFileAttributeView(Path,Class<V>)
+```
+* We can use this method to obtain a `BasicFileAttributeView`!
+* We can then call `setTimes(lastModified,lastAccess,creation)` to update FileTime data:
+```java
+Path file = Paths.get("src//"
+    + "chapter_9//"
+    + "README.md");
+BasicFileAttributeView view
+    = Files.getFileAttributeView(file, BasicFileAttributeView.class);
+try {
+    BasicFileAttributes data = view.readAttributes();
+    FileTime lastModified = data.lastModifiedTime();
+    // 2024-01-09T07:52:15.2344042Z
+
+    FileTime newLastModified = FileTime.fromMillis(lastModified.toMillis()+10_000);
+    view.setTimes(newLastModified, null, null); // null => do not update
+} catch (IOException e) {}
+```
