@@ -87,5 +87,23 @@ src\chapter_9\c_9_4_new_stream_methods\java\WalkingADirectory.java
 * This method also supports the `FOLLOW_LINKS` option
 
 ## 🟥 9.4.4 Listing Directory Contents
+* We have a `Files.list(Path)` method is equivalent to `listFiles()` from the `File` class
+* This will return files 1 level deep of a Path, which is also equivalent to using `Files.walk()` with a maxDepth value of 1
+* Example:
+```java
+Path chap9 = Paths.get("src//chapter_9");
+try {
+    Stream<Path> stream = Files.list(chap9);
+    stream.forEach(System.out::println);
+}
+```
+* This prints the following:
+```
+src\chapter_9\c_9_1_intro_nio2
+src\chapter_9\c_9_2_interacting_with_paths_files
+src\chapter_9\c_9_3_understanding_file_attributes
+src\chapter_9\c_9_4_new_stream_methods
+src\chapter_9\README.md
+```
 
 ## 🟥 9.4.5 Printing File Contents
