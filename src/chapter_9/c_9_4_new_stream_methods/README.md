@@ -62,6 +62,29 @@ src\chapter_9\c_9_2_interacting_with_paths_files\javacode\DuplicatingFileContent
 * If it detects a circular path, a `FileSystemLoopException` is thrown⚠️
 
 ## 🟥 9.4.3 Searching a Directory
+* We have a `find()` method in the Files class:
+```java
+Stream<Path> find(Path,int,BiPredicate<Path, BasicFileAttribute>)
+```
+* This allows us to to filter based both on the path and it's attributes:
+```java
+Path chap_9 = Paths.get("src//chapter_9");
+try {
+    BiPredicate<Path, BasicFileAttributes> biPred =
+        (p,basicFileAttr) -> path.toString().endsWith(".java")
+            && basicFileAttr.size() > 1234;
+    Stream<Path> stream = Files.walk(chap_9, 3, biPred);
+    stream.forEach(System.out::println);
+} catch (IOException e) { }
+/* this prints the following:
+src\chapter_9\c_9_2_interacting_with_paths_files\javacode\MakingDirectories.java
+src\chapter_9\c_9_2_interacting_with_paths_files\javacode\PathFilePathTest.java
+src\chapter_9\c_9_2_interacting_with_paths_files\javacode\UsingDeleteAndDeleteIfExists.java
+src\chapter_9\c_9_2_interacting_with_paths_files\javacode\UsingPathObjects.java
+src\chapter_9\c_9_4_new_stream_methods\java\WalkingADirectory.java
+*/
+```
+* This method also supports the `FOLLOW_LINKS` option
 
 ## 🟥 9.4.4 Listing Directory Contents
 
