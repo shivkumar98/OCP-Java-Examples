@@ -107,3 +107,12 @@ src\chapter_9\README.md
 ```
 
 ## 🟥 9.4.5 Printing File Contents
+* We saw the `List<String> Files.readAllLines(Path)` from before which has the oppurtunity to throw a `OutOfMemoryException`
+* We have a stream equivalent method: `Stream<String> Files.lines(Path)`
+```java
+Path  chap9ReadMe = Paths.get("src//chapter_9//README.md");
+try {
+    List<String> list = Files.readAllLines(chap9ReadMe); 
+    Stream<String> stream = Files.lines(chap9ReadMe);
+} catch (IOException e) { }
+```
