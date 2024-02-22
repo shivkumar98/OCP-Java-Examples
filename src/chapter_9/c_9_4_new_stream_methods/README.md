@@ -17,6 +17,8 @@
 2) **Breadth-first** will traverse down 1 depth level, look at all records at that level, and then go down another depth level. Result will be ordered by depth
 * For the exam, I need to know that the Streams API uses depth-first search, with a default maximum depth of `Integer.MAX_VALUE`
 
+<hr>
+
 ## 🟥 9.4.2 Walking a Directory
 * In chapter 4 we saw the methods which were available to us from the `Streams` API
 * The `File.walk(Path)` method is a newly added NIO.2 API method as part of Java 8 which aims to reduce the amount of code needed to walk a directory
@@ -61,6 +63,8 @@ src\chapter_9\c_9_2_interacting_with_paths_files\javacode\DuplicatingFileContent
 * Java can detect if an circular path has occured, by seeing if the path it is traversing has already been traversed
 * If it detects a circular path, a `FileSystemLoopException` is thrown⚠️
 
+<hr>
+
 ## 🟥 9.4.3 Searching a Directory
 * We have a `find()` method in the Files class:
 ```java
@@ -86,6 +90,8 @@ src\chapter_9\c_9_4_new_stream_methods\java\WalkingADirectory.java
 ```
 * This method also supports the `FOLLOW_LINKS` option
 
+<hr>
+
 ## 🟥 9.4.4 Listing Directory Contents
 * We have a `Files.list(Path)` method is equivalent to `listFiles()` from the `File` class
 * This will return files 1 level deep of a Path, which is also equivalent to using `Files.walk()` with a maxDepth value of 1
@@ -105,6 +111,8 @@ src\chapter_9\c_9_3_understanding_file_attributes
 src\chapter_9\c_9_4_new_stream_methods
 src\chapter_9\README.md
 ```
+
+<hr>
 
 ## 🟥 9.4.5 Printing File Contents
 * We saw the `List<String> Files.readAllLines(Path)` from before which has the oppurtunity to throw a `OutOfMemoryException`
