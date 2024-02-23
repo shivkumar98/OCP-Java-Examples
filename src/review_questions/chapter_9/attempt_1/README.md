@@ -84,18 +84,27 @@ if(Files.isDirectory(path))
 
 
 ## 🟨 Question 3 🟨
-❓ Which of the following are true (Choose all that apply)  ❓
+❓ What is the result of the following code (Choose all that apply)  ❓
 
-A. A new Console object is created every time `System.console()` is called <br>
-B. Console can only be used for reading input and not writing output <br>
-C. Console is obtained using the singleton pattern <br>
-D. When getting a `Console` object, it might be `null` <br>
-E. When getting a `Console` object, it willl never be `null`  <br>
+```java
+1: Path path = Paths.get("sloth.schedule")l
+2: BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
+3: if(attributes.size()>0 && attributes.creationTime().toMillis()>0) {
+4:     attributes.setTimes(null,null,null);
+5: }
+```
+
+* A. It compiles and runs without issue
+* B. The code will not compile because of line 2
+* C. The code will not compile because of line 3
+* D. The code will not compile because of line 4
+* E. The code compiles but throws an exception at runtime
 ❓
 
 ### My answer:
-* **C,D**✅✅✅✅✅
-* If the program runs without an environment, the console will be null!
+* I believe the method on line 2 obtains a read only view of the attributes
+* I'm not sure what occurs when attempting to set attributes, but I believe it would be fine
+* **A** 
 <hr>
 
 
