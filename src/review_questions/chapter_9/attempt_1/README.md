@@ -133,35 +133,30 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 
 
 ## 🟨 Question 5 🟨
-❓ What is the result of executing the following code? (Choose all that apply) ❓
+❓ Assuming `/kang` exists as a symbolic link to the directory `/mammal/kangaroo` within the file system. Which of the following statements are correct about thhis code snippet? (Choose all thhat apply)❓
 
 ```java
-String line;
-Console c = System.console();
-Writer w = c.writer();
-if ((line = c.readLine()) != null)
-    w.append(line);
-w.flush();
+Path path = Paths.get("/kang");
+if(Files.isDirectory(path) && Files.isSymbolicLink(path))
+    Files.createDirectory(path.resolve("joey"));
 ```
 
-A. The code runs without error but prints nothing <br>
-B. The code prints what was entered by the user <br>
-C. An ArrayIndexOutOfBoundsException might be thrown <br>
-D. A NullPointerException might be thrown <br>
-E. An IOException might be thrown <br>
-F. The code does not compile <br>
+* A. A new directory will always be created
+* B. A new directory will be created only if `/mammal/kangaroo` exists
+* C. If the code creates a directory, it will be reachable at `/kang/joey`
+* D. If the code creates a directory, it will be reachable at `/mammal/kangaroo/joey`
+* E. The code does not compile
+* F. The code will compile but always throws an exception at runtime
 ❓
 
 ### My answer:
-* I'm not entirely sure if this compiles or not
-* A - false
-* B - false
-* C - false, I don't think this is possible
-* D - higly likely as `line` is not initialised
-* E - false
-* F - false
-* **D**❌❌❌❌❌
-
+* Files.isDirectory(path) is true if the symbolic link points to a directory in the file system
+* Given that is true, the condition is true, so a directory is created
+* A - false, B - true
+* Whether C or D is true is what I am unsure of
+* D is true I think
+* E and F are false
+* **B,D**
 <br>
 
 * CORRECT ANSWER: **B,D,E**
