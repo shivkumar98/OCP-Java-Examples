@@ -30,9 +30,6 @@ Score: <br>
 | 18         |       |
 | 19         |       |
 | 20         |       |
-| 21         |       |
-| 22         |       |
-| 23         |       |
 
 <hr>
 
@@ -40,30 +37,28 @@ Score: <br>
 ❓ What is the output of the following code? ❓
 
 ```java
-Path path = Path.get("/user/.././root","../kodiacbear.txt");
+Path path = Paths.get("/user/.././root", "../kodiacbear.txt");
 path.normalize().relativize("/lion");
 System.out.println(path);
 ```
 
-* A. `/user/.././root/kodiacbear.txt` 
+* A. `/user/.././root/../kodiacbear.txt`
 * B. `/user/./root/kodiacbear.txt/lion`
-* C. `/kodiacbear.txt` 
+* C. `/kodiacbear.txt`
 * D. `kodiacbear.txt`
 * E. `../lion`
 * F. The code does not compile
 ❓
 
 ### My answer:
-* I don't know!
+* /user/.././root is equivalent to /root
+* so path is `/kodiacbear.txt` when normalised
+* I think it is E
+* **E**
+
 <br>
 
-* CORRECT ANSWER: **A,D**
-* The InputStream can accept only high-level input Streams
-* B is incorrect as FileInputStream is a low level class
-* C is incorrect because you can not use BufferedWriter directly
-* E is incorrect as it can only take a InputStream and not an OutputStream
-* A is correct as the BufferedInputStream can be wrapped twice
-<hr>++
+<hr>
 
 ## 🟨 Question 2 🟨
 ❓ Why doews `Console.readPassword()` return a `char[]` instead of String object (Choose all that apply)❓
