@@ -87,7 +87,7 @@ if(Files.isDirectory(path))
 ❓ What is the result of the following code (Choose all that apply)  ❓
 
 ```java
-1: Path path = Paths.get("sloth.schedule")l
+1: Path path = Paths.get("sloth.schedule");
 2: BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
 3: if(attributes.size()>0 && attributes.creationTime().toMillis()>0) {
 4:     attributes.setTimes(null,null,null);
@@ -187,17 +187,29 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 
 
 ## 🟨 Question 7 🟨
-❓ Fill in the blank: _________ is the topmost directory on a file system ❓
+❓ In the current directory is `\zoo`, and the path `\zoo\turkey` does not exist, then what is the result of executing the following code? (Choose all that apply) ❓
 
-A. Absolute <br>
-B. Directory <br>
-C. Parent <br>
-D. Root <br>
-E. Top <br>
-❓
+```java
+Path path = Paths.get("turkey");
+if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
+    Files.createDirectory(path.resolve("info")); // x2
+```
+
+* A. The code compiles and runs withhout issue, but it does not create any directories
+* B. The directory `/zoo/turkey` is created
+* C. The directory `/zoo/turkey/info` is created
+* D. The code will not compile because of line x1
+* E. The code will not compile because of line x2
+* F. It compiles but throws an exception at runtime
+
 
 ### My answer:
-* **D**✅✅✅✅✅
+* The only reason why I'd think this would not compile is that IOException is not being handled but the exception might be swallowed else where
+* x1 and x2 do compil
+* If the current directory is `\zoo` and a relative path is give, then the condition IS true
+* So a directory will be created
+* C SEEMS right
+* **C**
 <hr>
 
 
