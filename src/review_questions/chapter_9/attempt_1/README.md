@@ -240,25 +240,24 @@ System.out.println(path2.resolve(path1));
 
 
 ## 🟨 Question 9 🟨
-❓ What are the requirements for a class that you want to serialize with `ObjectOutputStream` (choose all that apply) ❓
-A. The class must implement the `Serializable` interface <br>
-B. The class must extend the `Serializable` class <br>
-C. The class must declare a static `serialVersionUID` variable <br>
-D. All instance members of the class must be `Serializable` <br>
-E. All instance members of the class must be marked `transient` <br>
-F. Any class can be serialized with `ObjectOutputStream` <br>
-❓
+❓ What are the advantages of using Files.lines() over Files.readAllLines()? (choose all that apply) ❓
+
+* A. It is often faster
+* B. It can be run on large files with very little memory available
+* C. It can be chained withh stream methods directly
+* D. It does not modify the contents of a file
+* E. It ensures the file is not read-locked by the file system
+* F. There are no differences, because one method is a pointer to the other.
 
 ### My answer:
-* A - true!
-* B - false! Serializable is an interface!
-* C - false! but considered good practice
-* D - false, not even possible
-* E - false, not a requirement
-* F - false! only those which implement the interface
-* **A**✅✅✅✅
+* F is false
+* D - false, neither can write to the file
+* A - this COULD be true as streams are efficient
+* B - true
+* C - true
+* E - false
+* **A,B,C**
 <hr>
-
 
 ## 🟨 Question 10 🟨
 ❓ The following method is designed to delete a directory tree recursively. Which of the following properties reflect the method definition (choose all that apply)❓
