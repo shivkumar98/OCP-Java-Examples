@@ -107,31 +107,28 @@ if(Files.isDirectory(path))
 * **A** 
 <hr>
 
-
 ## 🟨 Question 4 🟨
-❓ Which of the following can fill in the blank to make the code compile? (Choose all that apply) ❓
+❓ If the current work directory is `/user/home`, then what is the output of the following code ❓
 
 ```java
-Console c = System.console();
-String s = _________________;
+Path path = Paths.get("/zoo/animals/bear/koala/food.txt");
+System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 ```
 
-A. `c.input()` <br>
-B. `c.read()` <br>
-C. `c.readLine()` <br>
-D. `c.readPassword()` <br>
-E. `c.readString()` <br>
-F. None of the above <br>
+* A. `animals/bear`
+* B. `koala`
+* C. `/user/home/bear`
+* D. `/user/home/koala/koala`
+* E. `/user/home/food.txt`
+* F. `/user/home/koala/food.txt`
+* G. The code does not compile
 ❓
 
 ### My answer:
-* A - false
-* B - false, this returns byte data
-* C - true
-* D - false, returns `char[]`
-* E - false
-* F - false
-* **C**✅✅✅✅✅
+* path.subpath(1,3) will start at index 1 and finish at index 2: `/animals/bear`
+* getName(1) will return `/animals` i THINK
+* I am completely guessing its A
+* **A**
 <hr> 
 
 
