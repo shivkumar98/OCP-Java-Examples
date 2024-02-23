@@ -159,32 +159,30 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 * **B,D**
 <br>
 
-* CORRECT ANSWER: **B,D,E**
-* B is true! This will indeed take input from user and print it to the console
-* D is true because console could be nudd
-* E is true as the append() method throws an IOException
-
-
 <hr>
 
 
 ## 🟨 Question 6 🟨
-❓ Which of the following are true statements about serialisation in Java (Choose all that apply) ❓
-A. The process of converting serialised data back into memory is called deserialization <br>
-B. All non-thread classes should be marked `Serializable` <br>
-C. The `Serializable` interface requires implementing `serialize()` and `deserialize()` methods <br>
-D. The `Serializable` interface is marked final and cannot be extended <br>
-E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundException` even if the return object is not explicitly cast <br>
-❓
+❓ Given thhat `/animals` is a directory that exists and it is empty, what is the result of the following code? ❓
+
+```java
+Path path = Paths.get("/animals");
+boolean myBoolean = Files.walk(path)
+    .filter((p,a) -> a.isDirectory() && !path.equals(p)) // w1
+    .findFirst().isPresent(); // w2
+System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
+```
+
+* A. It prints `No Sub-directory`
+* B. It prints `Sub-directory`
+* C. The code will not compile because of line `w1`
+* D. The code will not compile because of line `w2`
+* E. The output cannot be determined.
+* F. It produces an infinite loop at runtime
 
 ### My answer:
-* A - true
-* B - false
-* C - false, the interface has zero methods
-* D - false
-* E - true
-* **A,E**✅✅✅✅✅
-* E is true as the exception can be thrown by `readObject()` regardless of whether there is casting"
+* The code does not compile because of line w1. A bi-predicate cannot be applied to a Stream
+* **C**
 <hr>
 
 
