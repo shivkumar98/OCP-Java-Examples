@@ -61,23 +61,25 @@ System.out.println(path);
 <hr>
 
 ## 🟨 Question 2 🟨
-❓ Why doews `Console.readPassword()` return a `char[]` instead of String object (Choose all that apply)❓
+❓ For which values of Path inserted on the blank line would it be possible for the following code to output `Success` (Choose all that apply)❓
 
-A. It improves performance <br>
-B. It is more secure <br>
-C. To encrypt the password data <br>
-D. To support all character encodings <br>
-E. Because Java puts all String values in a reusable pool <br>
-F. So that the value can be removed from memory immediately after use <br>
+```java
+Path path = ____________;
+if(Files.isDirectory(path))
+    System.out.println(Files.deleteIfExists(path) ? "Success": "Try Again");
+```
+
+* A. `path` refers to a regular file in the file system
+* B. `path` refers to a symbolic link in the file system
+* C. `path` regers to an empty directory in the file system
+* D. `path` refers to a directory with content in the file system
+* E. `path` does not refer to a record that exists within the file system
+* F. The code does not compile
 ❓
 
 ### My answer:
-* B - true, it is more secure as it is not echoed to the console
-* C - false, it does noencryption
-* E - true 
-+
-* F - true
-* **B,E,F**✅✅✅✅✅
+* I don't believe the code compiles because `Files.deleteIfExists(Path)` has a void return type
+* **F**
 <hr>
 
 
