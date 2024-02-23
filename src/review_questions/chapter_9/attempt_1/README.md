@@ -214,27 +214,27 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 
 
 ## 🟨 Question 8 🟨
-❓ Assuming / is the root directory, which of the following are true statements? (Choose all that apply) ❓
+❓ What is the output of the following code? ❓
 
-A. `/home/parrot` is an absolute path <br>
-B. `/home/parrot` is a directory <br>
-C. `/home/parrot` is a relative path <br>
-D. The path pointed to froma `File` object must exist <br>
-E. The parent of the path pointed to by a File object must exist <br>
-❓
+```java
+Path path1 = Paths.get("/pets/../cat.txt");
+Path path2 = Paths.get(".dog.txt");
+System.out.println(path1.resolve(path2));
+System.out.println(path2.resolve(path1));
+```
+
+* A. `/pets/../cat.txt/./dog.txt    /pets/../cat.txt`
+* B. `/pets/../cat.txt    ./dogs.txt/pets/../cat.txt`
+* C. `/cats.txt    /dog.txt`
+* D. `/cats.txt/dog.txt    /cat.txt`
+* E. It compiles but throws an exception at runtime
 
 ### My answer:
-* A - true
-* B - true
-* C - false. I think...
-* D - false
-* E - false, I think...
-* **A,B**❌❌❌❌
-
+* path2 is a relative path
+* So I think an exception is thrown at runtime!
+* **E**
 <br>
 
-* CORRECT ANSWER: **A**
-* It could be EITHER a directory or a file without an extension
 <hr>
 
 
