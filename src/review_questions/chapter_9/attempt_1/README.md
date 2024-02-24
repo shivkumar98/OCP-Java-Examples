@@ -377,24 +377,28 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 
 
 ## 🟨 Question 16 🟨
-❓ Why shouldn't every class be marked Serializable (Choose all that apply) ❓
-
-A. The compiler will throw an excepiton if certain classes are marked `Serializable` <br>
-B. Only final classes can be marked `Serializable` <br>
-C. Classes can implement only one interface, so marking them `Serializable` would prevent them from using any other interface <br>
-D. The data of some classes cannot be easily serialized, such as those managing threads or processes <br>
-E. Only concrete classes can be marked `Serializable` <br>
-F. Classes that store most of their data in static fields would not be easily serializable <br>
-❓
+❓ Assuming `/squid/food-schedule.csv` exists as a regular non-empty file that a program has access to read, what is correct about the following code snippet (Choose all that apply) ❓
+```java
+Path path = Paths.get("/squid/food-schedule.csv");
+Files.lines(path) // r1
+    .flatMap(p -> Stream.of(p.split(","))) // r2
+    .map(s -> s.toUpperCase()) // r3
+    .forEach(System.out::println);
+```
+* A. It compiles but may throw an exception at runtime
+* B. The code will not compile because of line `r1`
+* C. The code will not compile because of line `r2`
+* D. The code will not compile because of line `r3`
+* E. It may not print anything at runtime
+* F. If it prints anything, it will not include commas.
 
 ### My answer:
-* A - false, this is just an interface with no methods
-* B - false
-* C - false, multiple interface implementation is a thing
-* D - true
-* E - false
-* F - true, static variables are not easily serialized!
-* **D,F**✅✅✅✅✅
+* Files.lines(path) returns `Stream<String>`
+* `.flatMap(p -> Stream.of(p.split(",")))` will be a `Stream<String>` with the elements being the values between commas
+* The code does compile
+* E - false, as the file is non-empty
+* F - true
+* **F**
 <hr>
 
 
