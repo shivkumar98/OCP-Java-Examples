@@ -341,18 +341,16 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 
 
 ## 🟨 Question 14 🟨
-❓ Which of the following are not java.io classes? (Choose all that apply) ❓
-
-A. `BufferedReader` <br>
-B. `BufferedWriter` <br>
-C. `FileReader` <br>
-D. `FileWriter` <br>
-E. `PrintReader` <br>
-F. `PrintWriter` <br>
-❓
+❓ Which NIO.2 method is most similar to the legacy `java.io.File.listFiles()` method? ❓
+* A. `Path.listFiles()`
+* B. `Files.walk()`
+* C. `Files.find()`
+* D. `Files.files()`
+* E. `Files.list()`
+* F. `Files.lines()`
 
 ### My answer:
-* E - true, PrintReader is not a thing✅✅✅✅✅
+* **E**
 <hr>
 
 
