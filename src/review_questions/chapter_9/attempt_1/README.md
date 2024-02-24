@@ -355,33 +355,24 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 
 
 ## 🟨 Question 15 🟨
-❓ Assuming `zoo-data.txt` is a multiline text file, what is true of the following method? ❓
-```java
-private void echo() throws IOException {
-    try (FileReader fileReader = new FileReader("zoo-data.txt");
-      BufferedReader bufderedReader = new BufferedReader(fileReader)) {
-        System.out.println(bufferedReader.readLine());
-      }
-}
-```
-
-
-A. It prints the first line of the file to the console <br>
-B. It prints the entire contents of the file <br>
-C. The code does not compile because the reader is not closed <br>
-D. The code does compile, but the reader is not closed <br>
-E. The code does not compile for another reason <br>
-❓
+❓ What are some advantages of using NIO.2 views to read metadata rather than individually from `java.nio.Files` methods? (Choose all that apply) ❓
+* A. It can be used on both files and directories
+* B. For reading a single attribute, it is often more performant
+* C. It allows you to read symbolic links
+* D. It makes fewer rount-trips to the file system
+* E. It can be used to accss file system-dependent attributes
+* F. For reading multiple attributes, it is often more performant
 
 ### My answer:
-* I believe the code does compile, because the method correctly throws an `IOException`
-* A - true
-* D - true
-* **A,D**❌❌❌❌
+* A - false
+* B - false
+* C - false, I THINK
+* D - true, it CAN take less round trips
+* E - false, can only collect attributes which are used across sytems
+* F - true
+* **D,F**
 <br>
 
-* CORRECT ANSWER: **A**
-* The try-with-resources block will automatically close resources.
 <hr>
 
 
@@ -513,122 +504,3 @@ F. Multi-threading support <br>
 * They do not have built in serialization nor are considered as high level
 <hr>
 
-
-## 🟨 Question 21 🟨
-❓ Assuming the following class has proper public getter/setter methods for all of its private fields, which of the following fields will always be null after an instance of the class is serialized and then deserialized (Choose all that apply) ❓
-
-```java
-public class Zebra implements Serializable {
-    private static final long serialUID = 1L;
-    private transient String name = "George";
-    private static String birthPlace = "Africa";
-    private transient Integer age;
-    private java.util.List<Zebra> friends = new java.util.ArrayList<>();
-    private Object tail = null;
-    { age = 10; }
-    public Zebra() {
-        this.name = "Sophia";
-    }
-}
-```
-
-A. `name` <br>
-B. `tail` <br>
-C. `age` <br>
-D. `friends` <br>
-E. `birthPlace` <br>
-F. The code does not compile <br>
-G. The code compiles but throws an exception at runtime <br>
-❓
-
-### My answer:
-* A - false, this is initialised in the constructor
-* B - true
-* C - true, this is marked transient
-* D - false, this is initalised 
-* E - false, this is initialised
-* F - false
-* G - false
-* **B,C**❌❌❌❌❌
-<br>
-
-* CORRECT ANSWER: **A,C**
-* Upon deserialization, constructors and initializers are skipped
-<hr>
-
-## 🟨 Question 22 🟨
-❓ What is the value of `name` after an instance of Eaglle is serialized and deserialized? ❓
-
-```java
-public class Bird implements Serializable {
-    protected transient String name = "Bridget";
-    public void setName(String name) { this.name = name; }
-    public String getName() { return name; }
-    public Bird() {
-        this.name = "Matt";
-    }
-}
-public class Eagle extends Bird implements Serializable {
-    { this.name = "Janette"; }
-    public Eagle() {
-        this.name = "Daniel";
-    }
-}
-```
-
-A. `Bridget` <br>
-B. `Matt` <br>
-C. `Janette` <br>
-D. `Daniel` <br>
-E. `null` <br>
-F. The code does not compile <br>
-G. The code compiles but throws an exception at runtime <br>
-H. The value may not be known until runtime <br>
-❓
-
-### My answer:
-* **B**❌❌❌❌
-<br>
-
-* CORRECT ANSWER: **E**
-* The name is transient, meaning its skipped when serialized and deserialized
-<hr>
-
-## 🟨 Question 23 🟨
-❓ Assume that you have an `InputSream` whose next bytes are `XYZABC`. What is the result of calling the following method on the stream, using a `count` value of 3 ❓
-
-```java
-public static String pullBytes(InputStream is, int count) throws IOException {
-    is.mark(count);
-    final StringBuilder sb = new StringBuilder();
-    for(int i=0;i<count;i++)
-        sb.append((char)is.read());
-    is.reset();
-    is.skip(1);
-    sb.append((char)is.read());
-    return sb.toString();
-}
-```
-
-A. It will return a String value of `XYZ` <br>
-B. It will return a String value of `XYZA` <br>
-C. It will return a String value of `XYZX` <br>
-D. It will return a String value of `XYZB` <br>
-E. It will return a String value of `XYZY` <br>
-F. The code does not compile <br>
-G. The code compiles but throws an exception at runtime <br>
-H. The result cannot be determined with the information given <br>
-❓
-
-### My answer:
-* it marks 3 bytes ahead
-* It then appends `XYZ`
-* It then resets
-* `X` is skipped
-* `Y` is appended
-* **E**❌❌❌❌❌
-<br>
-
-* CORRECT ANSWEER: H
-* The code did not check if the stream supports mark.
-* If it did, then the answer would indeed be E
