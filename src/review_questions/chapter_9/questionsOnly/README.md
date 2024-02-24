@@ -63,7 +63,7 @@ if(Files.isDirectory(path))
 ```
 * A. `path` refers to a regular file in the file system
 * B. `path` refers to a symbolic link in the file system
-* C. `path` regers to an empty directory in the file system
+* C. `path` refers to an empty directory in the file system
 * D. `path` refers to a directory with content in the file system
 * E. `path` does not refer to a record that exists within the file system
 * F. The code does not compile

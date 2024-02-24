@@ -52,7 +52,7 @@ System.out.println(path);
 * /user/.././root is equivalent to /root
 * so path is `/kodiacbear.txt` when normalised
 * I think it is E
-* **E**❌❌❌❌❌❌
+* **E**❌❌❌❌
 <br>
 
 * CORRECT ANSWER: F - the code does not compile!
@@ -79,14 +79,22 @@ if(Files.isDirectory(path))
 ```
 * A. `path` refers to a regular file in the file system
 * B. `path` refers to a symbolic link in the file system
-* C. `path` regers to an empty directory in the file system
+* C. `path` refers to an empty directory in the file system
 * D. `path` refers to a directory with content in the file system
 * E. `path` does not refer to a record that exists within the file system
 * F. The code does not compile
 
 ### My answer:
 * I don't believe the code compiles because `Files.deleteIfExists(Path)` has a void return type
-* **F**
+* **F**❌❌❌❌
+<br>
+
+* The code DOES compile
+* A is false, if a regular file existed, the condition would be false
+* B is true because it could point to a directory
+* C is true, delete only works for empty directory
+* E is false, because if the directory does not exist, the condition is false
+* **CORRECT ANSWER: B,C**
 <hr>
 
 
@@ -109,7 +117,9 @@ if(Files.isDirectory(path))
 ### My answer:
 * I believe the method on line 2 obtains a read only view of the attributes
 * I'm not sure what occurs when attempting to set attributes, but I believe it would be fine
-* **A** 
+* **A** ❌❌❌❌
+<br>
+
 <hr>
 
 ## 🟨 Question 4 🟨
