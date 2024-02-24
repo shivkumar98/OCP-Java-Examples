@@ -36,7 +36,7 @@ Score: <br>
 ## 🟨 Question 1 🟨
 ❓ What is the output of the following code? ❓
 ```java
-Path path = Paths.get("/user/.././root", "../kodiacbear.txt");
+Path path = Path.get("/user/.././root", "../kodiacbear.txt");
 path.normalize().relativize("/lion");
 System.out.println(path);
 ```
@@ -52,10 +52,22 @@ System.out.println(path);
 * /user/.././root is equivalent to /root
 * so path is `/kodiacbear.txt` when normalised
 * I think it is E
-* **E**
-
+* **E**❌❌❌❌❌❌
 <br>
 
+* CORRECT ANSWER: F - the code does not compile!
+* The first line does not compile, it should be `Paths.get()`
+* The second line does not compile as relativize takes a path, not a string!
+* If there we no compiler errors, the answer would be A because `path` has not been reassigned and thus remains unchanged
+* Here is an example of a slightly different program:
+```java
+Path path = Paths.get("/user/.././root", "../kodiacbear.txtx");
+// /user/.././root/../kodiacbear.txt
+Path normalised = path.normalized();
+// /kodiacbear.txt
+Path relativised = normalized.relativized(Paths.get("/lion"));
+// ../lion
+```
 <hr>
 
 ## 🟨 Question 2 🟨
