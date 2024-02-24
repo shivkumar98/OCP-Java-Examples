@@ -429,35 +429,31 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 
 
 ## 🟨 Question 18 🟨
-❓ Which values when inserted into the blank would allow the code to compile? (Choose all that apply) ❓
-
+❓ Assuming the directories and files referenced here all exist and are accessible within the file system, what is the result of the following code? ❓
 ```java
-1: Console console = System.console();
-2: String color = console.readLine("What is your favorite color? ");
-3: Console.____________("Your favorite color is "+color);
-```
+Path path1 = Paths.get("/lizard/./").resolve(Paths.get("walking.txt"));
+Path path2 = Paths.get("/lizard/././actions/..walking.txt").toPath();
 
-A. `print` <br>
-B. `printf` <br>
-C. `println` <br>
-D. `format` <br>
-E. `writer().println` <br>
-F. `out` <br>
-❓
+System.out.print(Files.isSameFile(path1,path2));
+System.out.print(" "+path1.equals(path2));
+System.out.print(" "+path1.normalize().equals(path2.normalize()));
+```
+* A. `true true true`
+* B. `false false false`
+* C. `false true false`
+* D. `true false true`
+* E. `true false false`
+* F. The code does not compile 
 
 ### My answer:
-* A - true
-* B - false
-* C - true
-* D - true
-* E - true
-* F - false
-* **A,C,D,E**❌❌❌❌❌
+* path1 = /lizard/../walking
+* path2 = /lizard/actions/../walking
+* false is printed first
+* then false
+* So Its B
+* **B**
 <br>
 
-* CORRECT ANSWER: **B,D,E**
-* The console has two output methods: `format` and `printf`
-* You can also obtain the `PrintWriter` using `.writer` and then printing using `println`
 <hr>
 
 
