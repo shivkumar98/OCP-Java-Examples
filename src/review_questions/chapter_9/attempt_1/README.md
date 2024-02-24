@@ -458,22 +458,23 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 
 
 ## 🟨 Question 19 🟨
-❓ Suppose that you need to write data consists of int, double, boolean, and String values to a file that maintains the format of the original data. For performance reasons, you also want to buffer the data. Which three `java.io` classes can be chained together to best achieve this result? ❓
+❓ What are three advantages of the NIO.2 API over legacy `java.io.File` class fore working with files ❓
+* A. NIO.2 supports file system-dependent attributes
+* B. NIO.2 can be used to list all the files within a single directory
+* C. NIO.2 allows you to traverse a directory tree directly
+* D. NIO.2 can be used to delete files and non-empty directories
+* E. NIO.2 supports symbolic links
+* F. NIO.2 can be used to read the last-modified time
 
-A. `FileWriter` <br>
-B. `FileOutputStream` <br>
-C. `BufferedOutputStream` <br>
-D. `ObjectOutputStream` <br>
-E. `DirectoryStream` <br>
-F. `PrintWriter` <br>
-G. `PipedOutputStream` <br>
-❓
 
 ### My answer:
-* **B,C,D**✅✅✅✅
-
-* Since I need to write primitives and String values, only OutputStream classes are appropiate.
-* Data should be written to file using `FileOutputStream`, buffered using `BufferedOutputStream`, and serialized with `ObjectOutputStream`
+* A - maybe
+* B - false, file can do this
+* C - true
+* D - false, file can do this too
+* E - true
+* F - false, file can do this too
+* **A,C,E**
 <hr>
 
 
