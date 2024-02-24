@@ -309,26 +309,27 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 
 ## 🟨 Question 12 🟨
-❓ Suppose that the file `c:/book/java` exists. Which of the following lines of code creates an object that represents the file? (Choose all that apply) ❓
+❓ Which of the following methods *cannot* be used to obtain a Path instance? (Choose all that apply) ❓
 
-A. `new File("c:\book\java");` <br>
-B. `new File("c:\\book\\java");` <br>
-C. `new File("c:/book/java");` <br>
-D. `new File("c://book//java");` <br>
-E. None of the above <br>
-❓
+* A. `new Path("jaguar.txt")`
+* B. `FileSystems.getDefault().getPath("puma.txt")`
+* C. `Paths.get(new URI("cheetah.txt"))`
+* D. `Paths.get("cats","lynx.txt")`
+* E. `new java.io.File("tiger.txt").toPath()`
+* F. `new FileSystem().getPath("leopard")`
+* G. `Paths.getPath("ocelot.txt")`
 
 ### My answer:
-* A - false, uses incorrect seperator
-* B - false
-* C - true, forward slashes do not need to be escaped
-* D - false
-* E - false
-* **C**❌❌❌❌
+* A - invalid, paths are obtained via factory - TRUE
+* B - valid I THINK - FALSE
+* C - syntax valid, but unsure if it actually workds - FALSE
+* D - valid - FALSE
+* E - valid - FALSE
+* F - invalid I THINK - TRUE
+* G - invalid - TRUE
+* **A,F,G**
 <br>
 
-* CORRECT ANSWER: **B,C**
-* I disagree with this answer but oh well
 <hr>
 
 
