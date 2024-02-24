@@ -285,31 +285,25 @@ File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
 <hr>
 
 ## 🟨 Question 11 🟨
-❓ Which of the following are methods available to instances of the `java.io.File` class? (Choose all that apply) ❓
+❓ For the `copy()` method shown here, assume that the source exists as regular file and that the target does not. What is the result of the following code? ❓
+```java
+Path path1 = Paths.get("./goat.txt").normalize(); // k1
+Path path2 = Paths.get("mule.png");
+Files.copy(path1,path2,StandardCopyOption.COPY_ATTRIBUTES); // k2
+System.out.println(Files.isSameFile(path1,path2)); // k3
+```
 
-A. `mv()` <br>
-B. `createDirectory()` <br>
-C. `mkdirs()` <br>
-D. `move()` <br>
-E. `renameTo()` <br>
-F. `copy()` <br>
-G. `mkdir()` <br>
-❓
+* A. It will output `false`
+* B. It will output `true`  
+* C. It does not compile because of line k1
+* D. It does not compile because of line k2
+* E. It does not compile because of line k3
+* F. It compiles but throws an exception at runtime
+
 
 ### My answer:
-* A - possible
-* B - false
-* C - true
-* D - possible
-* E - true
-* F - true
-* G - true
-* **A,C,E,F,G**❌❌❌❌
+* **F**
 <br>
-
-* CORRECT ANSWER: **C,E,G**
-* The methods available are `mkdir()`/`mkdirs()`/`renameTo()`
-* There is no move type method, you need to use the renameTo() method
 
 <hr>
 
