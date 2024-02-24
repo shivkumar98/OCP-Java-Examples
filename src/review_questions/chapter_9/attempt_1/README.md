@@ -144,7 +144,22 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 * path.subpath(1,3) will start at index 1 and finish at index 2: `/animals/bear`
 * getName(1) will return `/animals` i THINK
 * I am completely guessing its A
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* **CORRECT ANSWER: C**
+* path.subpath(1,3) returns `animals/bear`
+* path.subpath(1,3).getName(1) returns `bear`
+* and the absolutePath methhod will return `user/home/bear`
+* Here is what occurs when running the code on my pc:
+```java
+Path path = Paths.get("/zoo/animals/bear/koala/food.txt");
+Path subPath = path.subpath(1, 3);
+System.out.println(subPath); // animals/bear
+Path name = subPath.getName(1);
+System.out.println(name.toAbsolutePath());
+// C:\Users\Shiv\Documents\GitHub\OCP-Java-Examples\bear	
+```
 <hr> 
 
 
