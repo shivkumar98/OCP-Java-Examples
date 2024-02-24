@@ -403,27 +403,27 @@ Files.lines(path) // r1
 
 
 ## 🟨 Question 17 🟨
-❓ Which of the following stream classes are high-level? (Choose all that apply) ❓
-
-A. `ObjectInputStream` <br>
-B. `PrintStream` <br>
-C. `FileWriter` <br>
-D. `PrintWriter` <br>
-E. `OutputStream` <br>
-F. `FileInputStream` <br>
-G. `ObjectOutputStream` <br>
-❓
+❓ Assuming the current directory is `/animals/cute`, which are possible results of executing the following code? (Choose all that apply)❓
+```java
+Files.walk(Paths.get("..").toRealPath().getParent()) // u1
+    .map(p -> p.toAbsolutePath().toString()) // u2
+    .filter(s -> s.endsWith(".java")) // u3
+    .collect(Collectors.toList())
+    .forEach(System.out::println);
+```
+* A. It compiles but may throw an exception at runtime 
+* B. The code will not compile because of line u1
+* C. The code will not compile because of line u2
+* D. The code will not compile because of line u3
+* E. It prints all `.java` files in the `/animals` directory tree
+* F. It prints all `.java` files in the `/animals/cute` directory tree
+* G. It prints all `.java` files in the root directory tree
 
 ### My answer:
-* A - true
-* D - true
-* **A,D**❌❌❌❌
+* Line u1 will walk the path of `/`, I do not know the depth
+* I think it will print files within `/animals`
+* **E**
 <br>
-
-* CORRECT ANSWER: **A,B,D,G**
-* ObjectInputStream and ObjectOutputStream are high level streams
-* PrintStream and PrintWriter are also high level streams which operate on files directly
-
 
 <hr>
 
