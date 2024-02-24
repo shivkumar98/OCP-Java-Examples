@@ -479,29 +479,27 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 
 
 ## 🟨 Question 20 🟨
-❓ What are some reasons to use a character stream, such as `Reader`/`Writer`, over a byte stream, such as `InputStream`/`OutputStream` (Choose all that apply) ❓
-
-A. More convient code syntax when working with String data <br>
-B. Improved performance <br>
-C. Automatic character encoding <br>
-D. Built-in serialization and deserialization <br>
-E. Character streams are high-level streams <br>
-F. Multi-threading support <br>
-❓
+❓ Assuming the current directory is `/seals/harp/food`, what is the result of executing the following code? ❓
+```java
+final Path path = Paths.get(".").normalize(); // h1
+int count = 0;
+for (int i=0; i<path.getNameCount(); ++i) {
+    count++;
+}
+System.out.println(count);
+```
+* A. 0
+* B. 1
+* C. 2
+* D. 3
+* E. 4
+* F. The code throws a runtime exception because of line `h1`
 
 ### My answer:
-* A - true
-* B - true, possibly
-* C - true
-* D - false
-* E - true
-* F - false
-* **A,B,C,E**❌❌❌❌
+* h1 is fine
+* there are 3 paths, but you have to include the root!
+* **E**
 <br>
 
-* CORRECT ANSWER: **A,C**
-* Character streams offer convience and not improvement in performance
-* They also automatically handle encoding
-* They do not have built in serialization nor are considered as high level
 <hr>
 
