@@ -35,20 +35,18 @@ Score: <br>
 
 ## 🟨 Question 1 🟨
 ❓ What is the output of the following code? ❓
-
 ```java
 Path path = Paths.get("/user/.././root", "../kodiacbear.txt");
 path.normalize().relativize("/lion");
 System.out.println(path);
 ```
-
 * A. `/user/.././root/../kodiacbear.txt`
 * B. `/user/./root/kodiacbear.txt/lion`
 * C. `/kodiacbear.txt`
 * D. `kodiacbear.txt`
 * E. `../lion`
 * F. The code does not compile
-❓
+
 
 ### My answer:
 * /user/.././root is equivalent to /root
@@ -62,20 +60,17 @@ System.out.println(path);
 
 ## 🟨 Question 2 🟨
 ❓ For which values of Path inserted on the blank line would it be possible for the following code to output `Success` (Choose all that apply)❓
-
 ```java
 Path path = ____________;
 if(Files.isDirectory(path))
     System.out.println(Files.deleteIfExists(path) ? "Success": "Try Again");
 ```
-
 * A. `path` refers to a regular file in the file system
 * B. `path` refers to a symbolic link in the file system
 * C. `path` regers to an empty directory in the file system
 * D. `path` refers to a directory with content in the file system
 * E. `path` does not refer to a record that exists within the file system
 * F. The code does not compile
-❓
 
 ### My answer:
 * I don't believe the code compiles because `Files.deleteIfExists(Path)` has a void return type
@@ -85,7 +80,6 @@ if(Files.isDirectory(path))
 
 ## 🟨 Question 3 🟨
 ❓ What is the result of the following code (Choose all that apply)  ❓
-
 ```java
 1: Path path = Paths.get("sloth.schedule");
 2: BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
@@ -93,13 +87,12 @@ if(Files.isDirectory(path))
 4:     attributes.setTimes(null,null,null);
 5: }
 ```
-
 * A. It compiles and runs without issue
 * B. The code will not compile because of line 2
 * C. The code will not compile because of line 3
 * D. The code will not compile because of line 4
 * E. The code compiles but throws an exception at runtime
-❓
+
 
 ### My answer:
 * I believe the method on line 2 obtains a read only view of the attributes
@@ -109,12 +102,10 @@ if(Files.isDirectory(path))
 
 ## 🟨 Question 4 🟨
 ❓ If the current work directory is `/user/home`, then what is the output of the following code ❓
-
 ```java
 Path path = Paths.get("/zoo/animals/bear/koala/food.txt");
 System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 ```
-
 * A. `animals/bear`
 * B. `koala`
 * C. `/user/home/bear`
@@ -122,7 +113,6 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 * E. `/user/home/food.txt`
 * F. `/user/home/koala/food.txt`
 * G. The code does not compile
-❓
 
 ### My answer:
 * path.subpath(1,3) will start at index 1 and finish at index 2: `/animals/bear`
@@ -134,20 +124,18 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 
 ## 🟨 Question 5 🟨
 ❓ Assuming `/kang` exists as a symbolic link to the directory `/mammal/kangaroo` within the file system. Which of the following statements are correct about thhis code snippet? (Choose all thhat apply)❓
-
 ```java
 Path path = Paths.get("/kang");
 if(Files.isDirectory(path) && Files.isSymbolicLink(path))
     Files.createDirectory(path.resolve("joey"));
 ```
-
 * A. A new directory will always be created
 * B. A new directory will be created only if `/mammal/kangaroo` exists
 * C. If the code creates a directory, it will be reachable at `/kang/joey`
 * D. If the code creates a directory, it will be reachable at `/mammal/kangaroo/joey`
 * E. The code does not compile
 * F. The code will compile but always throws an exception at runtime
-❓
+
 
 ### My answer:
 * Files.isDirectory(path) is true if the symbolic link points to a directory in the file system
@@ -164,7 +152,6 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 
 ## 🟨 Question 6 🟨
 ❓ Given thhat `/animals` is a directory that exists and it is empty, what is the result of the following code? ❓
-
 ```java
 Path path = Paths.get("/animals");
 boolean myBoolean = Files.walk(path)
@@ -172,7 +159,6 @@ boolean myBoolean = Files.walk(path)
     .findFirst().isPresent(); // w2
 System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 ```
-
 * A. It prints `No Sub-directory`
 * B. It prints `Sub-directory`
 * C. The code will not compile because of line `w1`
@@ -188,13 +174,11 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 
 ## 🟨 Question 7 🟨
 ❓ In the current directory is `\zoo`, and the path `\zoo\turkey` does not exist, then what is the result of executing the following code? (Choose all that apply) ❓
-
 ```java
 Path path = Paths.get("turkey");
 if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
     Files.createDirectory(path.resolve("info")); // x2
 ```
-
 * A. The code compiles and runs withhout issue, but it does not create any directories
 * B. The directory `/zoo/turkey` is created
 * C. The directory `/zoo/turkey/info` is created
@@ -215,14 +199,12 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 
 ## 🟨 Question 8 🟨
 ❓ What is the output of the following code? ❓
-
 ```java
 Path path1 = Paths.get("/pets/../cat.txt");
 Path path2 = Paths.get(".dog.txt");
 System.out.println(path1.resolve(path2));
 System.out.println(path2.resolve(path1));
 ```
-
 * A. `/pets/../cat.txt/./dog.txt    /pets/../cat.txt`
 * B. `/pets/../cat.txt    ./dogs.txt/pets/../cat.txt`
 * C. `/cats.txt    /dog.txt`
@@ -241,7 +223,6 @@ System.out.println(path2.resolve(path1));
 
 ## 🟨 Question 9 🟨
 ❓ What are the advantages of using Files.lines() over Files.readAllLines()? (choose all that apply) ❓
-
 * A. It is often faster
 * B. It can be run on large files with very little memory available
 * C. It can be chained withh stream methods directly
@@ -266,7 +247,6 @@ File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
     StandardCopyOption.ATOMIC_MOVE,
     LinkOption.NO_FOLLOWLINKS);
 ```
-
 * A. If `/animals` exists, it will be overwritten at runtime
 * B. If `monkey.txt` is a symbolic link, the file it points to will be moved at runtime
 * C. If another process is monitoring the file system, it will not see an incomplete file at runtime
@@ -310,7 +290,6 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 ## 🟨 Question 12 🟨
 ❓ Which of the following methods *cannot* be used to obtain a Path instance? (Choose all that apply) ❓
-
 * A. `new Path("jaguar.txt")`
 * B. `FileSystems.getDefault().getPath("puma.txt")`
 * C. `Paths.get(new URI("cheetah.txt"))`
@@ -334,24 +313,30 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 
 ## 🟨 Question 13 🟨
-❓ Which of the following are built-in streams in Java (Choose all that apply) ❓
-
-A. `System.err` <br>
-B. `System.error` <br>
-C. `System.in` <br>
-D. `System.input` <br>
-E. `System.out` <br>
-F. `System.ouput` <br>
-❓
+❓ Assume `/monkeys` exist as a regular directory containing multiple files, symbolic links, and subdirectories. What is true about the following code? (Choose all that apply) ❓
+```java
+Path path = Paths.get("/monkeys");
+Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
+    .collect(Collectors.toList())  // y2
+    .stream()  // y3
+    .filter(x -> x.toString().endsWith(".txt")) // y4
+    .forEach(System.out::println);
+```
+* A. It will print all symbolic links in the directory tree ending in `.txt`
+* B. It will print nothing
+* C. It does not compile because of line `y1`
+* D. It does not compile because of line `y2`
+* E. It does not compile because of line `y3`
+* F. It does not compile because of line `y4`
+* G. It compiles but throws an exception at runtime
 
 ### My answer:
+* Line y1 DOES compile!
+* Line y2 DOES compile
+* Line y3 DOES compile
+* Line y4 DOES compile
 * A - true
-* B - false, this does not exist
-* C - true
-* D - false, does not exist
-* E - true
-* F - false, does not exist
-* **A,C,E**✅✅✅✅
+* **A**
 <hr>
 
 
