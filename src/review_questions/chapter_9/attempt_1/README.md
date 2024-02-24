@@ -260,37 +260,29 @@ System.out.println(path2.resolve(path1));
 <hr>
 
 ## 🟨 Question 10 🟨
-❓ The following method is designed to delete a directory tree recursively. Which of the following properties reflect the method definition (choose all that apply)❓
+❓ What is correct about the following code snippet? (choose all that apply)❓
 ```java
-1: public static void deleteTree(File file) {
-2:     if(!file.isFile())
-3:         for(File entry: file.listFiles())
-4:             deleteTree(entry);
-5:     else file.delete();
-6: }
+File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
+    StandardCopyOption.ATOMIC_MOVE,
+    LinkOption.NO_FOLLOWLINKS);
 ```
 
-A. It can delete a directory that contains only files <br>
-B. It can delete a directory tree of arbritary length <br>
-C. It can delete a single file <br>
-D. The code will not compile because of line 2 <br>
-E. The code will not compile because of line 3 <br>
-F. It compiles but may throw an exception at runtime <br>
-❓
+* A. If `/animals` exists, it will be overwritten at runtime
+* B. If `monkey.txt` is a symbolic link, the file it points to will be moved at runtime
+* C. If another process is monitoring the file system, it will not see an incomplete file at runtime
+* D. The code will always throw an exception, since no filename is specified in the target folder path
+* E. The metadata of the `monkey.txt` will be moved along with the file
 
 ### My answer:
-* I think the code does compile! So that makes D and E false
-* A - I think this method can delete files within a directory, so true!
-* B - I'm not sure it can delete a directory tree, so false!
+* A - false, the replace existing option is not specified
+* B - true, I THINK
 * C - true
-* F - false
-* **A,C**❌❌❌❌❌
+* D - false, I THINK
+* E - false
+* **B,C**
 <br>
 
-* CORRECT ANSWER: **C,F**
-* F is true as methods from the `File` class can throw exceptions such as a directory not existing!
 <hr>
-
 
 ## 🟨 Question 11 🟨
 ❓ Which of the following are methods available to instances of the `java.io.File` class? (Choose all that apply) ❓
