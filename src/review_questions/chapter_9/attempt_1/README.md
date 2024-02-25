@@ -423,7 +423,27 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * Line y3 DOES compile
 * Line y4 DOES compile
 * A - true
-* **A**
+* **A**❌❌❌❌
+<br>
+
+* **CORRECT ANSWER: B**
+* I was correct that the code does compile.
+* However, nothing is printed because a depth of 0 is specified, meaning the only path traversed is the top level `/monkeys` directory
+* Here is an example in which java files are printed within a directory:
+```java
+Path path 
+    = Paths.get("src/chapter_9/c_9_4_new_stream_methods/java");
+Files.find(path, 1, (p,a) -> true) // prints nothing if 0
+    .map(p -> p.toString())
+    .collect(Collectors.toList())
+    .stream()
+    .filter(x -> x.toString().endsWith(".java"))
+    .forEach(System.out::println);
+/* prints:
+src\chapter_9\c_9_4_new_stream_methods...
+...
+*/
+```
 <hr>
 
 
