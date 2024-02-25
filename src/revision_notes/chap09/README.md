@@ -75,7 +75,15 @@ File pathToFile = path.toFile();
 <hr>
 
 ## 🟥 9.2 Interacting with Paths and Files
-
+### ⭐ Common Optional Arguments ⭐
+* Many methods within the NIO.2 API which interact with actual files and directories take additional option flags.
+* Here are the common optional arguments:
+1) `NOFOLLOW_LINKS` - symbolic links encountered will NOT be traversed.
+2) `FOLLOW_LINKS` - symbolic links WILL be traversed
+3) `COPY_ATTRIBUTES` - all metadata of the file being copied, will be copied with it
+4) `REPLACE_EXISTING` - if the target files exist, it will be replaced. If not provided, and the target file already exists then an exception will be thrown
+5) `ATOMIC_MOVE` - will ensure any prcoess will never see an incomplete record. Will throw an exception if not supported by thhe file systen
+* 
 <hr>
 
 ## 🟥 9.3 Understanding File Attributes
