@@ -327,8 +327,14 @@ File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
 * C - true
 * D - false, I THINK
 * E - false
-* **B,C**
+* **B,C**❌❌❌❌
 <br>
+
+* **CORRECT ANSWER: C,E**
+* I was right that processes will never see an incomplete file at runtime
+* I was not right that if a symbolic link pointing to a file, that file will be moved, `NO_FOLLOWLINKS` is enabled
+* I also incorrectly said metadata would not be followed
+* Moving files will ALWAYS copy attributes even without the `COPY_ATTRIBUTES` flag
 
 <hr>
 
