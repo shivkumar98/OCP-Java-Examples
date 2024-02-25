@@ -511,7 +511,7 @@ Files.lines(path) // r1
 * The code does compile
 * E - false, as the file is non-empty
 * F - true
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 
