@@ -15,7 +15,7 @@ Score: <br>
 | 3          |       |
 | 4          |       |
 | 5          |       |
-| 6          |       |
+| 6          |  ✅     |
 | 7          |       |
 | 8          |       |
 | 9          |       |
@@ -211,12 +211,12 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 
 ### My answer:
 * The code does not compile because of line w1. A bi-predicate cannot be applied to a Stream
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 
 ## 🟨 Question 7 🟨
-❓ In the current directory is `\zoo`, and the path `\zoo\turkey` does not exist, then what is the result of executing the following code? (Choose all that apply) ❓
+❓ If the current directory is `\zoo`, and the path `\zoo\turkey` does not exist, then what is the result of executing the following code? (Choose all that apply) ❓
 ```java
 Path path = Paths.get("turkey");
 if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
@@ -232,11 +232,20 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 
 ### My answer:
 * The only reason why I'd think this would not compile is that IOException is not being handled but the exception might be swallowed else where
-* x1 and x2 do compil
+* x1 and x2 do compile
 * If the current directory is `\zoo` and a relative path is give, then the condition IS true
 * So a directory will be created
 * C SEEMS right
-* **C**
+* **C**❌❌❌❌
+<br>
+
+* It compiles but throws an exception at runtime
+* `path` is a relative path while `Paths.get("/zoo/turkey")` is absolute
+* `isSameFile()` will return true without checking if the files exist, IF they are equal under `equals()`. E.g.:
+```java
+Path relFakePath1 = Paths.get("path/hello");
+Pathh
+```
 <hr>
 
 

@@ -156,7 +156,7 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 
 
 ## 🟨 Question 7 🟨
-❓ In the current directory is `\zoo`, and the path `\zoo\turkey` does not exist, then what is the result of executing the following code? (Choose all that apply) ❓
+❓ If the current directory is `\zoo`, and the path `\zoo\turkey` does not exist, then what is the result of executing the following code? (Choose all that apply) ❓
 ```java
 Path path = Paths.get("turkey");
 if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
