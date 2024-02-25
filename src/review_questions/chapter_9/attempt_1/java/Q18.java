@@ -21,5 +21,6 @@ public class Q18 {
 		System.out.println(normalized2);
 		// /lizard/walking.txt
 		System.out.println(normalized1.equals(normalized2));
+		// true
 	}
 }

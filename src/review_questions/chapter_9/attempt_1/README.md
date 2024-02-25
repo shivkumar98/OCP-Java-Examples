@@ -5,9 +5,8 @@
 ## Results:
 
 Date: 25/02/2024 <br>
-Score: 3/15 (20%) <br>
-❌
-✅
+Score: 5/20 (25%) <br>
+
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ❌     |
@@ -27,9 +26,9 @@ Score: 3/15 (20%) <br>
 | 15         |  ❌     |
 | 16         |  ✅     |
 | 17         |  ❌     |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 18         |  ❌     |
+| 19         |  ✅     |
+| 20         |  ❌     |
 
 <hr>
 
@@ -614,7 +613,7 @@ normalized1.equals(normalized2); // true
 * D - false, file can do this too
 * E - true
 * F - false, file can do this too
-* **A,C,E**
+* **A,C,E**✅✅✅✅
 <hr>
 
 
@@ -638,8 +637,11 @@ System.out.println(count);
 ### My answer:
 * h1 is fine
 * there are 3 paths, but you have to include the root!
-* **E**
+* **E**❌❌❌❌
 <br>
 
+* The normalized path is `.`
+* The name count is 1, for the root
+* **CORRECT ANSWER: B**
 <hr>
 
