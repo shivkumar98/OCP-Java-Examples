@@ -552,7 +552,7 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 ❓ Assuming the directories and files referenced here all exist and are accessible within the file system, what is the result of the following code? ❓
 ```java
 Path path1 = Paths.get("/lizard/./").resolve(Paths.get("walking.txt"));
-Path path2 = Paths.get("/lizard/././actions/..walking.txt").toPath();
+Path path2 = Paths.get("/lizard/././actions/../walking.txt").toPath();
 
 System.out.print(Files.isSameFile(path1,path2));
 System.out.print(" "+path1.equals(path2));
@@ -571,9 +571,29 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * false is printed first
 * then false
 * So Its B
-* **B**
+* **B**❌❌❌❌
 <br>
 
+* **CORRECT ANSWER: D**
+* path1 and path2 point to the same path
+* So true is printed first
+* Path.equals() does not evaluate the filesystem, so false is printed
+* The normalized paths will be the same:
+```java
+Path path1 = Paths.get("/lizard/./").resolve(Paths.get("walking.txt"));
+System.out.println(path1); 
+// /lizard/./walking.txt
+Path path2 = Paths.get("/lizard/././actions/../walking.txt");
+System.out.println(path2);
+// /lizard/././actions/../walking.txt
+path1.equals(path2); // false
+
+Path normalized1 = path1.normalize();
+// lizard/walking.txt
+Path normalized2 = path2.normalize();
+normalized1.equals(normalized2); // true
+
+```
 <hr>
 
 
