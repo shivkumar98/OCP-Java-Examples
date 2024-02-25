@@ -26,6 +26,12 @@ public class Q7 {
 		Path relFakePath = Paths.get("path/hello");
 		Path relFakePath2 = Paths.get("path/hello/");
 		System.out.println(Files.isSameFile(relFakePath, relFakePath2)); // true
+		// true because both paths are relative
+		// they can be checked in terms of equals()
+		
+		Path absFakePath1 = Paths.get("/root/shiv");
+		Path absFakePath2 = Paths.get("/root/shiv/");
+		System.out.println(Files.isSameFile(absFakePath1, absFakePath2));
 		
 	}
 }

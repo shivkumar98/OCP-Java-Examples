@@ -222,7 +222,7 @@ Path path = Paths.get("turkey");
 if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
     Files.createDirectory(path.resolve("info")); // x2
 ```
-* A. The code compiles and runs withhout issue, but it does not create any directories
+* A. The code compiles and runs without issue, but it does not create any directories
 * B. The directory `/zoo/turkey` is created
 * C. The directory `/zoo/turkey/info` is created
 * D. The code will not compile because of line x1
@@ -244,8 +244,14 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 * `isSameFile()` will return true without checking if the files exist, IF they are equal under `equals()`. E.g.:
 ```java
 Path relFakePath1 = Paths.get("path/hello");
-Pathh
+Path relFakePath2 = Paths.get("path/hello/");
+Files.isSameFile(relFakePath1, relFakePath2); // true
+
+Path relPath1 = Paths.get("path/hello/shiv/..");
+Path relPath2 = Paths.get("path/hello");
+Files.isSameFile(relPath1, relPath2); // THROWS NoSuchFileException
 ```
+* **The correct answer is F** - the code compiles but throws NoSuchFileException at runtime
 <hr>
 
 
