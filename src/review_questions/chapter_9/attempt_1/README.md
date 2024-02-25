@@ -356,9 +356,21 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 
 ### My answer:
-* **F**
+* **F**❌❌❌❌
 <br>
 
+* **CORRECT ANSWER: A**
+* The code does compile!
+* The file is copied
+* But line k3 is checking if the paths point to the same file, not that they have the same content!!
+* I ran the following code and got the same result:
+```java
+Path path1 = Paths.get("src/./goat.txt");
+Path path2 = paths.get("src/mule.png");
+Files.copy(path1,path2,StandardCopyOption.COPY_ATTRIBUTES);
+// The file was copied!
+File.isSameFile(path1,path2);
+```
 <hr>
 
 
