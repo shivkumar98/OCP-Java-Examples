@@ -185,9 +185,11 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 * Whether C or D is true is what I am unsure of
 * D is true I think
 * E and F are false
-* **B,D**
+* **B,D**❌❌❌❌
 <br>
 
+* My answer was mostly correct, I just did not realise that the directory would be accessible via `/kang/joey`
+* **CORRECT ANSWER: B,C,D**
 <hr>
 
 
