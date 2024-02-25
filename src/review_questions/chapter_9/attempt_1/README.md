@@ -4,21 +4,21 @@
 
 ## Results:
 
-Date: <br>
-Score: <br>
+Date: 25/02/2024 <br>
+Score: 1/9 <br>
 ❌
 ✅
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
+| 1          |  ❌     |
+| 2          |  ❌     |
+| 3          |  ❌     |
+| 4          |  ❌     |
+| 5          |  ❌     |
 | 6          |  ✅     |
-| 7          |       |
-| 8          |       |
-| 9          |       |
+| 7          |  ❌     |
+| 8          |  ❌     |
+| 9          |  ❌     |
 | 10         |       |
 | 11         |       |
 | 12         |       |
@@ -301,7 +301,11 @@ System.out.println(path2.resolve(path1));
 * B - true
 * C - true
 * E - false
-* **A,B,C**
+* **A,B,C**❌❌❌❌
+<br>
+
+* **Correct answer is B,C** 
+* A is false because performance concerns are an actual reason to choose ONE method over the other
 <hr>
 
 ## 🟨 Question 10 🟨
