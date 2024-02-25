@@ -261,7 +261,7 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 * D. `Paths.get("cats","lynx.txt")`
 * E. `new java.io.File("tiger.txt").toPath()`
 * F. `new FileSystem().getPath("leopard")`
-* G. `Paths.getPath("ocelot.txt")`
+* G. `Paths.get("ocelot.txt")` (BOOK HAS TYPO)
 
 ### My answer:
 

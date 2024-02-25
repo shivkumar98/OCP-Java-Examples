@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 25/02/2024 <br>
-Score: 1/9 <br>
+Score: 2/12 (17%) <br>
 ❌
 ✅
 | Question # | Correct |
@@ -19,9 +19,9 @@ Score: 1/9 <br>
 | 7          |  ❌     |
 | 8          |  ❌     |
 | 9          |  ❌     |
-| 10         |       |
-| 11         |       |
-| 12         |       |
+| 10         |  ❌     |
+| 11         |  ❌     |
+| 12         |  ✅     |
 | 13         |       |
 | 14         |       |
 | 15         |       |
@@ -392,9 +392,10 @@ File.isSameFile(path1,path2);
 * E - valid - FALSE
 * F - invalid I THINK - TRUE
 * G - invalid - TRUE
-* **A,F,G**
+* **A,F,G**✅✅✅✅
 <br>
 
+* Option G in the book has a typo, I checked the code myself and can see that it does not compile!!!!
 <hr>
 
 
