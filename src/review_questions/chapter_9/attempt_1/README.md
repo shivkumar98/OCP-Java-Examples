@@ -5,7 +5,7 @@
 ## Results:
 
 Date: 25/02/2024 <br>
-Score: 2/12 (17%) <br>
+Score: 3/15 (20%) <br>
 ❌
 ✅
 | Question # | Correct |
@@ -22,9 +22,9 @@ Score: 2/12 (17%) <br>
 | 10         |  ❌     |
 | 11         |  ❌     |
 | 12         |  ✅     |
-| 13         |       |
-| 14         |       |
-| 15         |       |
+| 13         |  ❌     |
+| 14         |  ✅     |
+| 15         |  ❌     |
 | 16         |       |
 | 17         |       |
 | 18         |       |
@@ -457,7 +457,7 @@ src\chapter_9\c_9_4_new_stream_methods...
 * F. `Files.lines()`
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <hr>
 
 
@@ -467,7 +467,7 @@ src\chapter_9\c_9_4_new_stream_methods...
 * B. For reading a single attribute, it is often more performant
 * C. It allows you to read symbolic links
 * D. It makes fewer rount-trips to the file system
-* E. It can be used to accss file system-dependent attributes
+* E. It can be used to access file system-dependent attributes
 * F. For reading multiple attributes, it is often more performant
 
 ### My answer:
@@ -477,8 +477,14 @@ src\chapter_9\c_9_4_new_stream_methods...
 * D - true, it CAN take less round trips
 * E - false, can only collect attributes which are used across sytems
 * F - true
-* **D,F**
+* **D,F**❌❌❌❌
 <br>
+
+* CORRECT ANSWER: **D,E,F**
+* I was correct that symbolic links are not relevant
+* I was correct that less trips are needed to the file system
+* And that it is more performant for multiple attributes
+* But I completely forgot that you can use views to get file-system specific attributes
 
 <hr>
 
