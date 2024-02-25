@@ -6,5 +6,6 @@ import java.nio.file.FileSystems;
 public class UsingFileSystem {
 	public static void main(String[] args) {
 		FileSystem defaultFS = FileSystems.getDefault();
+		
 	}
 }

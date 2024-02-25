@@ -83,16 +83,251 @@ File pathToFile = path.toFile();
 3) `COPY_ATTRIBUTES` - all metadata of the file being copied, will be copied with it
 4) `REPLACE_EXISTING` - if the target files exist, it will be replaced. If not provided, and the target file already exists then an exception will be thrown
 5) `ATOMIC_MOVE` - will ensure any prcoess will never see an incomplete record. Will throw an exception if not supported by thhe file systen
-* 
+* The options can be accessed via the enum `StandardCopyOption`
+
+<br>
+
+### ⭐ Path Object Methods ⭐
+#### 🌱 Name Methods 🌱
+* These methods are on the `Path` interface:
+1. `String toString()` - converts the Path to a String, i.e. it will return the String which is passed into the `Paths.get(String)`
+```java
+Paths.get("./").toString(); // .
+Paths.get("/.").toString(); // /.
+Paths.get("src/../").toString(); // src/..
+Paths.get("/home/zoo").toString(); // /home/zoo
+```
+2) `int getNameCount()` - returns number of names of the path
+3) `Path getName(int)` - returns the name component of a path (zero-indexed)
+```java
+Path path1 = Paths.get("./");
+Path absolutePath = Paths.get("/home/zoo");
+path1.getNameCount(); // 1
+path1.getName(0); // .
+path1.getName(1); // THROWS EXCEPTION
+absolutePath.getNameCount(); // 2
+absolutePath.getName(0); // home
+absolutePath.getName(1); // zoo
+```
+
+
+#### 🌱 Path Component Methods 🌱
+1. `Path getFileName()` - returns Path furthest away from the LHS
+```java
+Path absolutePath = Paths.get("home/zoo");
+absolutePath.getFileName(); // zoo
+Path relPath = Paths.get("src/main/chap9/file.txt");
+relPath.getFileName(); // file.txt
+```
+
+2) `Path getParent()` - returns parent path of a given path. I.e. everything to the left of the last name of the path. Will return null if a relative path is given with no enclosing directories
+```java
+Paths.get("relative-file.txt").getParent(); 
+// null as it can not go outside the file system
+Paths.get("/home/zoo/java/folder").getParent();
+// /home/zoo/java
+Paths.get("src/folder1/../folder2").getParent();
+// src/folder1/.. 
+// there is no awareness of what the path actually represents
+Paths.get("src/folder1/../../../../..").getParent();
+// src/folder1/../../../..
+```
+
+3) `Path getRoot()` - returns root of a path (furthest to left), null if given relative path
+```java
+Paths.get("relative").getRoot(); 
+// null - ALWAYS for relative paths
+Paths.get("/src/folder/random").getRoot();
+// /
+```
+
+#### 🌱 Using isAbsolute() and toAbsolutePath() 🌱
+* `boolean isAbsolute()` - true is path is absolute, regardless of whether the path actually exists
+```java
+Path fakeRelPath = Paths.get("fake/madeup");
+fakeRelPath.isAbsolute(); // FALSE
+Path fakeAbsPath = Paths.get("/home/zoo");
+fakeAbsPath.isAbsolute(); // TRUE
+```
+* NOTE: there is NO `isRelative()` method!!!
+
+* `Path toAbsolutePath()` - converts a relative path to an absolute path by appending the relative path to current directory. Will return same path, if path is already absolute. If an absolute path does not exist, it will append to the root directory
+```java
+Path fakeRelPath = Paths.get("fake/madeup");
+fakeRelPath.toAbsolutePath();
+//  C:\Users\Shiv\Documents\GitHub\OCP-Java-Examples\src\chapter_9
+
+Path realAbsPath = Paths
+	.get("C:/Users/Shiv/Documents/"
+	   + "GitHub/OCP-Java-Examples/src/"
+       + "chapter_9");
+realAbsPath.toAbsolutePath();
+// returns given path^
+
+Path fakeAbsPath = Paths.get("/home/zoo");
+fakeAbsPath.toAbsolutePath();
+// C:\User\home\zoo
+```
+#### 🌱 Using subpath() 🌱
+* `Path subpath(int,int)` returns a relative path of another path (either relative or absolute). It will throw an IllegalArgumentException for the following cases:
+  * Start index is same as end index
+  * Start index is more than end index
+  * index exceeds the name count
+* The end index is EXCLUSIVE⚠️
+```java
+Path path = Paths.get("/mammal/carnivore/racoon.image");
+path.getNameCount(); // 3
+path.getName(0); // mammal
+path.getName(2); // racoon.image
+path.subpath(0,3); // mammal/carnivore/racoon.image
+path.subpath(1,2); // carnivore
+path.subpath(1,1); // THROWS EXCEPTION
+```
+#### 🌱 Using relativize() 🌱
+* `Path relative(Path other)` let's you construct a relative path between two paths. The argument path must be the same type (absolute or relative) to the one its being called on⚠️
+```java
+Path relPath1 = Paths.get("pizza.txt");
+Path absPath1 = Paths.get("/food/pizza.txt");
+Path relPath2 = Paths.get("jeans.png");
+Path absPath2 = Paths.get("/clothes/jeans.png");
+
+relPath1.relativize(absPath1); // THROWS EXCEPTION
+// ^^^ types are incompatible
+
+relPath1.relativize(relPath1); // BLANK
+// ^^^ recognises paths are the same
+
+relPath1.relativize(relPath2); 
+// ../jeans.png
+
+absPath1.relativize(absPath2);
+// ../../clothes/jeans/png
+```
+
+#### 🌱 Using resolve() 🌱
+* The `Path resole(Path other)` simply appends the relative path (argument) to the path it is called on (can be either relative or absolute).
+* If the argument is absolute, then the argument is returned⚠️
+```java
+Path relPath1 = Paths.get("pizza.txt");
+Path absPath1 = Paths.get("/food/pizza.txt");
+Path relPath2 = Paths.get("jeans.png");
+
+relPath1.resolve(relPath2);
+// pizza.txt/jean.png
+relPath1.resolve(absPath1);
+// /food/pizza.txt
+absPath1.resolve(relPath1);
+// /food/pizza.txt/pizza.txt
+```
+
+#### 🌱 Using normalize() 🌱
+* `Path normalize()` eliminates redudancies of a given path. If called on a relative Path it will return a relative path as it has no awareness beyond the file system
+* This method does not check if the file actually exists
+```java
+Path relPath = Paths.get("home/../../..");
+relPath.normalize(); // ../..
+Path relPath2 = Paths.get("home/..");
+relPath2.normalize(); // BLANK
+
+Path absPath = Paths.get("/home/../home");
+absPath.normalize(); // /home
+Path absPath2 = Paths.get("/home/../../..");
+absPath2.normalize(); // /
+```
+
+#### 🌱 Using toRealPath() 🌱
+* `toRealPath()` - takes a relative path to an absolute one. If a real file does not exist, then a checked `IOException` is thrown
+* This method supports `NOFOLLOW_LINKS` option
+* This method IMPLICITLY calls `normalize()`💡
+```java
+Path nonExistentAbsPath = Paths.get("/home/zoo");
+try {
+	nonExistentAbsPath.toRealPath();
+} catch (IOException e) {
+	// EXCEPTION CAUGHT
+}
+
+Path nonExistentRelPath = Paths.get("fake");s
+try {
+	nonExistentRelPath.toRealPath();
+} catch (IOException e) {
+	// EXCEPTION CAUGHT
+}
+
+// this method CAN go beyond file system:
+Path currentDir = Paths.get(".");
+Path outsideCurrentDir = Paths.get("./..");
+try {
+	System.out.println(currentDir.toRealPath());
+	// C:/Users/Shiv/Documents/GitHub/OCP-Java-Examples
+	System.out.println(outsideCurrentDir.toRealPath());
+	// C:/Users/Shiv/Documents/GitHub
+}
+```
+
+
+<br>
+
+### ⭐ Files Path Methods ⭐
+* `Files` is the helper class for the `Path` interface
+* Most of the methods in `Files` WILL throw an exception if the path does not exist!!⚠️
+
+#### 🌱 Using Files.exists() 🌱
+* This method is true only if the file exists in file system
+* Will NOT throw any exception if file does not exist:
+```java
+Path existentRelPath = Paths.get("src/chapter_9");
+Files.exists(existentRelPath); // TRUE
+Path existentAbsPath = Paths.get("C:/Users/Shiv/Documents/GitHub");
+Files.exists(existentAbsPath); // TRUE
+Path nonExistentRelPath = Paths.get("fake/madeup");
+Files.exists(nonExistentRelPath); // FALSE
+Pathh nonExistentAbsPath = Paths.get("/home/zoo");
+Files.exists(nonExistentAbsPath); // FALSE
+```
+
+#### 🌱 Using Files.isSameFile() 🌱
+
+#### 🌱 Using Files.createDirectory() and createDirectories() 🌱
+
+#### 🌱 Using Files.copy() 🌱
+
+#### 🌱 Using Files.move() 🌱
+
+#### 🌱 Using Files.delete() and deleteIfExists() 🌱
+
+#### 🌱 Using Files.newBufferedReader() and newBufferedWriter() 🌱
+
+#### 🌱 Using Files.readAllLines() 🌱
+
+<br>
 <hr>
 
 ## 🟥 9.3 Understanding File Attributes
 
+### ⭐ Basic File Attributes ⭐
+#### 🌱 File Type Attributes 🌱
+#### 🌱 Using Files.isHidden() 🌱
+#### 🌱 Using Files.isReadable() and isExecutable() 🌱
+#### 🌱 Using Files.size() 🌱
+#### 🌱 Using Files.getLastModifiedTime() and setLastModifiedTime() 🌱
+#### 🌱 Using Files.getOwner() and setOwner() 🌱
+
+<br>
+
+### ⭐ File Attributes with Views ⭐
+#### 🌱 Reading with Files.readAttributes() 🌱
+#### 🌱 Modifying with Files.getFileAttributeView() 🌱
+<br>
 <hr>
 
 ## 🟥 9.4 Stream Methods
+### ⭐ Walking a Directory ⭐
+#### 🌱 Using Files.walk() 🌱
+#### 🌱 Using Files.find() 🌱
 
+### ⭐ Using Files.list() ⭐
 
-## 🟥 H2
-### ⭐ H3
-#### 🌱 H4
+### ⭐ Using Files.lines() ⭐
+
+## 🟥 9.5 Comparing Legacy Files and NIO.2 Methods
