@@ -25,8 +25,8 @@ Score: 3/15 (20%) <br>
 | 13         |  ❌     |
 | 14         |  ✅     |
 | 15         |  ❌     |
-| 16         |       |
-| 17         |       |
+| 16         |  ✅     |
+| 17         |  ❌     |
 | 18         |       |
 | 19         |       |
 | 20         |       |
@@ -535,8 +535,15 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 ### My answer:
 * Line u1 will walk the path of `/`, I do not know the depth
 * I think it will print files within `/animals`
-* **E**
+* **E**❌❌❌❌
 <br>
+
+* The current directory is `/animals/cute`
+* We are walking the root `\` directory
+* It will print all `.java` files in the root directory
+* The `walk()` method will traverse all paths of the given path!
+* Also theres a chance there is a file which can not be accessed, leading to an exception at runtime
+* **CORRECT ANSWER: A,G**
 
 <hr>
 
