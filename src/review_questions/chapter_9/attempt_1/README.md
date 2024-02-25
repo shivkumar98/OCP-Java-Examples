@@ -259,7 +259,7 @@ Files.isSameFile(relPath1, relPath2); // THROWS NoSuchFileException
 ❓ What is the output of the following code? ❓
 ```java
 Path path1 = Paths.get("/pets/../cat.txt");
-Path path2 = Paths.get(".dog.txt");
+Path path2 = Paths.get("./dog.txt");
 System.out.println(path1.resolve(path2));
 System.out.println(path2.resolve(path1));
 ```
@@ -272,8 +272,14 @@ System.out.println(path2.resolve(path1));
 ### My answer:
 * path2 is a relative path
 * So I think an exception is thrown at runtime!
-* **E**
+* **E**❌❌❌❌
 <br>
+
+* The code compiles fine and there is no exceptions thrown
+* So the first path is resolved as: `/pets/../cat.txt/./dog.txt`
+* The second path is resolved as `/pets/../cat.txt`
+* path2 is a relative path, so it is treated as if it is in the root directory
+* **CORRECT ANSWER: A**
 
 <hr>
 

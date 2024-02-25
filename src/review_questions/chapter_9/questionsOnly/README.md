@@ -179,7 +179,7 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 ❓ What is the output of the following code? ❓
 ```java
 Path path1 = Paths.get("/pets/../cat.txt");
-Path path2 = Paths.get(".dog.txt");
+Path path2 = Paths.get("./dog.txt");
 System.out.println(path1.resolve(path2));
 System.out.println(path2.resolve(path1));
 ```
