@@ -183,6 +183,7 @@ path.subpath(0,3); // mammal/carnivore/racoon.image
 path.subpath(1,2); // carnivore
 path.subpath(1,1); // THROWS EXCEPTION
 ```
+
 #### 🌱 Using relativize() 🌱
 * `Path relative(Path other)` let's you construct a relative path between two paths. The argument path must be the same type (absolute or relative) to the one its being called on⚠️
 ```java
@@ -335,6 +336,26 @@ try {
 * Trying to run the above code twice will throw an exception!
 
 #### 🌱 Using Files.copy() 🌱
+* This method takes a shallow copy of a file/directory!
+* This method WILL traverse symbolic links and will NOT copy attributes.
+* These behaviours can be overidden using the following options:
+  * `REPLACE_EXISTING`
+  * `COPY_ATTRIBUTES`
+  * `NOFOLLOW_LINKS`
+```java
+Path readMeFile = Paths
+	.get("src/revision_notes/README.md");
+Path targetFile = Paths
+	.get("src/revision_notes/chap09/new_folder/README.md");
+try {
+	Path copiedPath = Files
+			.copy(readMeFile, targetFile);
+	System.out.println("copy: "+copiedPath);
+} catch (IOException e) {
+	System.out.println("exception caught");
+}
+```
+* Running the above code TWICE will throw an exception
 
 #### 🌱 Using Files.move() 🌱
 
