@@ -286,6 +286,7 @@ Pathh nonExistentAbsPath = Paths.get("/home/zoo");
 Files.exists(nonExistentAbsPath); // FALSE
 ```
 
+
 #### 🌱 Using Files.isSameFile() 🌱
 
 #### 🌱 Using Files.createDirectory() and createDirectories() 🌱
