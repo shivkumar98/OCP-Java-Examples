@@ -398,7 +398,28 @@ try {
 ```
 
 #### 🌱 Using Files.delete() and deleteIfExists() 🌱
-
+* `void Files.delete(Path)` delete a file or empty directory. It will throw an exception if the file doesn't exist or the directory is not empty
+```java
+Path p1 = Paths
+	.get("src/revision_notes/chap09/new1/delete1.txt");
+try {
+	Files.delete(p1);
+	System.out.println("file deleted");
+} catch (IOException e) {
+	System.out.println("exception");
+}
+```
+* `boolean deleteIfExists(Path)` returns whether the file has been deleted or not:
+```java
+Path p1 = Paths
+	.get("src/revision_notes/chap09/new1/delete1.txt");
+try {
+	boolean deleted = Files.deleteIfExists(p1);
+	System.out.println(deleted); // FALSE
+} catch (IOException e) {
+	System.out.println("exception");
+}
+```
 #### 🌱 Using Files.newBufferedReader() and newBufferedWriter() 🌱
 
 #### 🌱 Using Files.readAllLines() 🌱

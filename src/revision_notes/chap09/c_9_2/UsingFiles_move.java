@@ -18,6 +18,7 @@ public class UsingFiles_move {
 			Path destination = Paths.get("src/revision_notes/chap09/new2/file.txt");
 			Path movedFile = Files.move(source, destination);
 			System.out.println(movedFile);
+			// src\revision_notes\chap09\new2\file.txt
 		} catch (IOException e) {
 			System.out.println("exception");
 		}
