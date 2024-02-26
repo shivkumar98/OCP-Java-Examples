@@ -421,6 +421,14 @@ try {
 }
 ```
 #### 🌱 Using Files.newBufferedReader() and newBufferedWriter() 🌱
+* The Files class also allows us to construct BufferedReaders and BufferedWriters using `Files.newBufferedReader(Path,Charset)`
+```java
+Path path = Paths.get("/animals/gopher.txt");
+try (BufferedReader reader = Files.newBufferedReader(path,
+			Charset.forName("US-ASCII"))) {
+	// read from stream
+} catch (IOException e) {}
+```
 
 #### 🌱 Using Files.readAllLines() 🌱
 
