@@ -376,6 +376,26 @@ try (InputStream is = new FileInputStream(location)) {
 ```
 
 #### 🌱 Using Files.move() 🌱
+* By default, this method will move/rename a file and:
+  * Throw an exception if target already exists
+  * No perform the move attomically
+  * Follow symbolic links
+* This behahviour can be overridden with the following options:
+  * `NOFOLLOW_LINKS`
+  * `REPLACE_EXISTING`
+  * `ATOMIC_MOVE` - will throw exception if not supported
+* Example
+```java
+try {
+	Path source = Paths.get("src/revision_notes/chap09/new1/file.txt");
+	Path destination = Paths.get("src/revision_notes/chap09/new2/file.txt");
+	Path movedFile = Files.move(source, destination);
+	System.out.println(movedFile);
+	// src\revision_notes\chap09\new2\file.txt
+} catch (IOException e) {
+	System.out.println("exception");
+}
+```
 
 #### 🌱 Using Files.delete() and deleteIfExists() 🌱
 
