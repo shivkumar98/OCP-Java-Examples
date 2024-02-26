@@ -286,8 +286,32 @@ Pathh nonExistentAbsPath = Paths.get("/home/zoo");
 Files.exists(nonExistentAbsPath); // FALSE
 ```
 
-
 #### 🌱 Using Files.isSameFile() 🌱
+* The `Files.isSameFile(Path,Path)` will follow symbolic links
+* The method checks if the Paths are equal under `equals()`, if so it will return true. 
+* If `equals()` returns false, then it will check if the files actually exist to see
+* This method will return false if the two paths are different even if the files have the same content and metadata⚠️
+```java
+Path realRelativePath = Paths.get("src");
+Path realAbsolutePath = Paths.get("C:/Users/Shiv/Documents/GitHub/OCP-Java-Examples/src");
+realRelativePath.equals(realAbsolutePath); // FALSE
+realRelativePath.isSameFile(realAbsolutePath); // TRUE
+
+// Here are two fake paths:
+Path fakeAbsolutePath = Paths.get("/home/zoo");
+Path fakeAbsolutePath2 = Paths.get("/home/zoo/");
+fakeAbsolutePath.equals(fakeAbsolutePath2);
+// TRUE
+Files.isSameFile(fakeAbsolutePath, fakeAbsolutePath2);
+// TRUE
+
+// two fake paths which are equal in terms of normalize:
+Path path1 = Paths.get("/home/zoo/../zoo");
+Path path2 = Paths.get("/home/zoo");
+path1.equals(path2); // FALSE
+path1.normalize().equals(path2.normalize()); // TRUE
+File.isSameFile(path1,path2); // THROWS EXCEPTION
+```
 
 #### 🌱 Using Files.createDirectory() and createDirectories() 🌱
 
