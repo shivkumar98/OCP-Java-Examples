@@ -363,17 +363,8 @@ try {
 Path copy(IntputStream, Path)
 Path copy(Path, OutputStream)
 ```
-* Here is an example
-```java
-String location = System.getProperty("user.dir")
-	+ "/src/revision_notes/chap09/README.md";
-try (InputStream is = new FileInputStream(location)) {
-	Path destination =
-	   Paths.get("src/revision_notes/chap09/c_9_1/copied.md");
-	long copied = Files.copy(is, destination);
-	// 1442
-} catch (IOException e) {}
-```
+* Here are examples:
+
 
 #### 🌱 Using Files.move() 🌱
 
