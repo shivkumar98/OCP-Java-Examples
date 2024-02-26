@@ -314,6 +314,25 @@ File.isSameFile(path1,path2); // THROWS EXCEPTION
 ```
 
 #### 🌱 Using Files.createDirectory() and createDirectories() 🌱
+* These methods are equivalent to `file.mkdir()` and `file.mkdirs()`.
+* These methods return the path which is being created!
+* This method will throw an exception e.g. if the folder already exists!
+* You CAN create a folder with an extension:
+```java
+try {
+	Path thisFolder = Paths.get("src/revision_notes/chap09");
+	Path newFolder = thisFolder.resolve(Paths.get("new_folder"));
+	Path createdPath = Files.createDirectory(newFolder);
+	System.out.println(createdPath);
+	// src\revision_notes\chap09\new_folder
+
+	Path newFolderWithExtension = thisFolder.resolve(Paths.get("new.txt"));
+	Path createdPath2 = Files.createDirectory(newFolderWithExtension);
+	System.out.println(createdPath2);
+	// src\revision_notes\chap09\new.txt
+} catch (IOException e) { }
+```
+* Trying to run the above code twice will throw an exception!
 
 #### 🌱 Using Files.copy() 🌱
 
