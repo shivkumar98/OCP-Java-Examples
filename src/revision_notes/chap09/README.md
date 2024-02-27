@@ -602,8 +602,22 @@ Object fileKey = attributes.fileKey();
 ```
 
 #### 🌱 Modifying with Files.getFileAttributeView() 🌱
+* In order to get a View to modify attributes, we use `Files.getAttributeView(Path,Class<A>)`
+* We can pass in `BasicFileAttributeView` which lets us obtain an instance of `BasicFileAttributes` using `view.readAttributes()`
+* This view has exactly one setter: `view.setTimes(lastModifiedTime, lastAccessTime, creationTime)`
+```java
+Path path = Paths.get("README.md");
+BasicFileAttributeView view = null;
+try {
+	view = Files.getFileAttributeView(path, BasicFileAttributeView.class);
+	BasicFileAttributes attributes = view.readAttributes();
 
-
+	FileTime newLastModified = FileTime.fromMillis(
+		data.lastModifiedTime().toMillis());
+	view.setTimes(newLastModified, null, null);
+} catch (IOException e) {}
+```
+* You specify null in setTimes if you do not want to modify that attribute!
 <br>
 <hr>
 
