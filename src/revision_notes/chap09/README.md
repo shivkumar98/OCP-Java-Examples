@@ -625,6 +625,18 @@ try {
 ## 🟥 9.4 Stream Methods
 ### ⭐ Walking a Directory ⭐
 #### 🌱 Using Files.walk() 🌱
+* `File.walk(Path)` can be overloaded an `int maxDepth` parameter, which specifies how deep the walk should be.
+* The default maxDepth value is `Integer.MAX_VALUE`
+```java
+Path path = Paths.get("src/revision_notes/chap09");
+try {
+	// this will not look into the path given:
+	Stream<Path> stream = Files.walk(0);
+	// src\revision_notes\chap09
+} catch (IOException e) { }
+```
+
+
 #### 🌱 Using Files.find() 🌱
 
 ### ⭐ Using Files.list() ⭐
