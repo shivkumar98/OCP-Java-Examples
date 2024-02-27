@@ -507,6 +507,25 @@ try {
 ```
 
 #### 🌱 Using Files.getLastModifiedTime() and setLastModifiedTime() 🌱
+* Checking last modified time is more efficient than tracking content changes
+* We can get and set the last-modified time of a file using `FileTime` which has both date and time!
+```java
+Path readMe = Paths.get("README.md");
+try {
+	FileTime fileTime = Files.getLastModifiedTime(readMe);
+	// 2024-02-09T16:15:38.5052394Z
+} catch (IOException e) { }
+
+try {
+	FileTime now = FileTime.fromMillis(System.currentTimeMillis());
+	// 2024-02-27T09:58:35.534Z
+	Path path = Files.setLastModifiedTime(readMe, now);
+	// README.md
+	System.out.println(Files.getLastModifiedTime(path));
+	// 2024-02-27T09:58:35.534Z
+} catch (IOException e) { }
+```
+
 #### 🌱 Using Files.getOwner() and setOwner() 🌱
 
 <br>
