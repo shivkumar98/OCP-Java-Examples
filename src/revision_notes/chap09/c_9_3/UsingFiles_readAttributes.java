@@ -16,6 +16,7 @@ public class UsingFiles_readAttributes {
 		try {
 			attributes = Files.readAttributes(readMe, BasicFileAttributes.class);
 		} catch (IOException e) { }
+
 		System.out.println(attributes);
 		System.out.println(attributes.isDirectory());
 		System.out.println(attributes.isRegularFile());
