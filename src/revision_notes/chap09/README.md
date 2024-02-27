@@ -556,8 +556,26 @@ try {
 <br>
 
 ### ⭐ File Attributes with Views ⭐
+* Rather than making singular calls to obtain multiple attributes, its more efficient to collect multiple attributes using a `View` which will lead to less round calls between Java and OS
+* Views also enable use `View` classes to collect system-dependent attributes.
+* The `BasicFileAttribute` class allows us to collect multiple system-independent attributes
+* Views can also give us writable attributes. The `BasicFileAttributeView` lets us modify attributes
 
 #### 🌱 Reading with Files.readAttributes() 🌱
+* The `Files.readAttributes(Path,Class<A>)` returns the type specified in the second parameter
+* We can pass in the `BasicFileAttributes` class which has the following methods
+* This INTERFACE has the following methods:
+```java
+boolean isDirectory()
+boolean isRegularFile()
+boolean isSymbolicLink()
+boolean isOther()
+long size()
+FileTime creationTime()
+FileTime lastModifiedTime()
+FileTime lastAccessTime()
+Object fileKey() // null if OS does not use
+```
 
 #### 🌱 Modifying with Files.getFileAttributeView() 🌱
 
