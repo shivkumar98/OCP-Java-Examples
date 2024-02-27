@@ -431,7 +431,18 @@ try (BufferedReader reader = Files.newBufferedReader(path,
 ```
 
 #### 🌱 Using Files.readAllLines() 🌱
-
+* You can use `List<String> readAllLines(Path)` to obtain all lines of a file
+* Using this method COULD lead to an `OutOfMemoryError` as all the contents will be stored in memory at once
+* Example:
+```java
+Path chap9RevNotes = Paths.get("src/revision_notes/chap09/README.md");
+try {
+	List<String> lines = Files.readAllLines(chap9RevNotes);
+	lines.forEach(System.out::println);
+} catch (IOException e) {
+	// TODO: handle exception
+}
+```
 <br>
 <hr>
 
