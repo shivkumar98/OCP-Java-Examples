@@ -494,6 +494,9 @@ try {
 ```
 
 #### 🌱 Using Files.isReadable() and isExecutable() 🌱
+* `Files.isReadable()` and `Files.isExecutable()` do not throw checked exceptions
+* They are used to see if a user can read the contents of a file, or run the file itself!!
+
 #### 🌱 Using Files.size() 🌱
 #### 🌱 Using Files.getLastModifiedTime() and setLastModifiedTime() 🌱
 #### 🌱 Using Files.getOwner() and setOwner() 🌱
