@@ -498,6 +498,14 @@ try {
 * They are used to see if a user can read the contents of a file, or run the file itself!!
 
 #### 🌱 Using Files.size() 🌱
+* This method DOES throw an exception if the file does not exist
+```java
+Path path = Paths.get("README");
+try {
+	long size = Files.size(path); // 1580
+} catch (IOException e) { }
+```
+
 #### 🌱 Using Files.getLastModifiedTime() and setLastModifiedTime() 🌱
 #### 🌱 Using Files.getOwner() and setOwner() 🌱
 
