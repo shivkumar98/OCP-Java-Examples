@@ -13,6 +13,7 @@ public class UsingFiles_getLastModifiedTime {
 			FileTime fileTime = Files.getLastModifiedTime(readMe);
 			System.out.println(fileTime); // 2024-02-09T16:15:38.5052394Z
 
+		} catch (IOException e) { }
 		
 		try {
 			FileTime now = FileTime.fromMillis(System.currentTimeMillis());

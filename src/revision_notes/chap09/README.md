@@ -527,7 +527,30 @@ try {
 ```
 
 #### 🌱 Using Files.getOwner() and setOwner() 🌱
+* You can get/set the owner of a Path using:
+```java
+UserPrincipal getOwner(Path) throws IOException
+Path setOwner(Path, UserPrincipal) throws IOException
+```
+* Example:
+```java
+Path path = Paths.get("README.md");
+try {
+	UserPrincipal owner = Files.getOwner(path);
+	// shiv.kumar
+} catch (IOException e) { }
+```
 
+* You can obtain a UserPrincipal using the `getUserPrincipalLookupService().lookupPrincipalByName(String)`
+method, which throws a checkked exception:
+```java
+UserPrincipalLookupService lookupService
+	= FileSystems.getDefault().getUserPrincipalLookupService();
+try {
+	UserPrincipal user = lookupService
+		.lookupPrincipalByName("Shiv");
+} catch (IOException e) { }
+```
 <br>
 
 ### ⭐ File Attributes with Views ⭐
