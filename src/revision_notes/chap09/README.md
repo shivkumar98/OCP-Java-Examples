@@ -556,8 +556,50 @@ try {
 <br>
 
 ### ⭐ File Attributes with Views ⭐
+* Rather than making singular calls to obtain multiple attributes, its more efficient to collect multiple attributes using a `View` which will lead to less round calls between Java and OS
+* Views also enable use `View` classes to collect system-dependent attributes.
+* The `BasicFileAttribute` class allows us to collect multiple system-independent attributes
+* Views can also give us writable attributes. The `BasicFileAttributeView` lets us modify attributes
 
 #### 🌱 Reading with Files.readAttributes() 🌱
+* The `Files.readAttributes(Path,Class<A>)` returns the type specified in the second parameter
+* We can pass in the `BasicFileAttributes` class which has the following methods
+* This INTERFACE has the following methods:
+```java
+boolean isDirectory()
+boolean isRegularFile()
+boolean isSymbolicLink()
+boolean isOther()
+long size()
+FileTime creationTime()
+FileTime lastModifiedTime()
+FileTime lastAccessTime()
+Object fileKey() // null if OS does not use
+```
+* There are NO Setters for this class!!!
+
+* Example:
+```java
+Path readMe = Paths.get("README.md");
+BasicFileAttributes attributes = null;
+try {
+	attributes = Files.readAttributes(readMe,
+		BasicFileAttributes.class);
+} catch (IOException e) { }
+attributes.isDirectory(); // FALSE	
+attributes.isRegularFile(); // TRUE
+attributes.isSymbolicLink(); // FALSE
+attributes.isOther(); // FALSE
+long size = attributes.size(); // 1580
+FileTime creationTime = attributes.creationTime();
+// 2023-06-12T14:14:38.4431714Z
+FileTime lastModifiedTime = attributes.lastModifiedTime();
+// 2024-02-27T09:58:35.534Z
+FileTime lastAccessTime = attributes.lastAccessTime();
+// 2024-02-27T12:57:51.8700587Z
+Object fileKey = attributes.fileKey();
+// NULL
+```
 
 #### 🌱 Modifying with Files.getFileAttributeView() 🌱
 
