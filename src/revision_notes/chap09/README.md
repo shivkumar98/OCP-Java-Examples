@@ -475,7 +475,24 @@ Files.isRegularFile(thisReadMe); // TRUE
 Files.isSymbolicLink(thisDirectory); // FALSE
 Files.isSymbolicLink(thisReadMe); // FALSE
 ```
+
 #### 🌱 Using Files.isHidden() 🌱
+* In windows, a file's visibility is determined via a property rather than metadata on the file itself
+* It will throw an IOException if the file does not exist
+```java
+Path fake = Paths.get("fake/madeup.txt");
+Path nonHidden = Paths.get("README.md");
+try {
+	Files.isHidden(fake);
+} catch (IOException e) {
+	// EXCEPTION CAUGHT!!!
+}
+try {
+	Files.isHidden(nonHidden);
+	// FALSE
+} catch (IOException e) {}
+```
+
 #### 🌱 Using Files.isReadable() and isExecutable() 🌱
 #### 🌱 Using Files.size() 🌱
 #### 🌱 Using Files.getLastModifiedTime() and setLastModifiedTime() 🌱
@@ -484,8 +501,11 @@ Files.isSymbolicLink(thisReadMe); // FALSE
 <br>
 
 ### ⭐ File Attributes with Views ⭐
+
 #### 🌱 Reading with Files.readAttributes() 🌱
+
 #### 🌱 Modifying with Files.getFileAttributeView() 🌱
+
 <br>
 <hr>
 
