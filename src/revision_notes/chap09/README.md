@@ -453,7 +453,7 @@ try {
 
 ### ⭐ Basic File Attributes ⭐
 #### 🌱 File Type Attributes 🌱
-* There are three methods defined within the Files class for determining type of a path. 
+* There are three methods defined within the Files class for determining typmende of a path. 
 * All of these return a boolean and do not throw checked exception:
 	- `Files.isDirectory(Path)` - true if path is a directory
 	- `Files.isRegularFile(Path)` - a regular file is defined as something which is NOT a directory, resource, or symbolic link
@@ -551,6 +551,8 @@ try {
 		.lookupPrincipalByName("Shiv");
 } catch (IOException e) { }
 ```
+
+
 <br>
 
 ### ⭐ File Attributes with Views ⭐
