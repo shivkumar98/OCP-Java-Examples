@@ -448,20 +448,117 @@ try {
 <hr>
 
 ## 🟥 9.3 Understanding File Attributes
+* We shall look at basic file attributes which can be obtained using the `Files` class
+* We will then look at using views which can enable us to obtain file-system dependent attributes, and improve performance
 
 ### ⭐ Basic File Attributes ⭐
 #### 🌱 File Type Attributes 🌱
-#### 🌱 Using Files.isHidden() 🌱
-#### 🌱 Using Files.isReadable() and isExecutable() 🌱
-#### 🌱 Using Files.size() 🌱
-#### 🌱 Using Files.getLastModifiedTime() and setLastModifiedTime() 🌱
-#### 🌱 Using Files.getOwner() and setOwner() 🌱
+* There are three methods defined within the Files class for determining type of a path. 
+* All of these return a boolean and do not throw checked exception:
+	- `Files.isDirectory(Path)` - true if path is a directory
+	- `Files.isRegularFile(Path)` - a regular file is defined as something which is NOT a directory, resource, or symbolic link
+	- `Files.isSymbolicLink(Path)`
+* The first two methods COULD be true for a symbolic link, depending on the path the link is pointing too
+* Example:
+```java
+Path thisDirectory = Paths
+	.get("src/revision_notes/chap09/c_9_3");
+Path thisReadMe = Paths
+	.get("src/revision_notes/chap09/README.md");
 
+Files.isDirectory(thisDirectory); // TRUE
+Files.isDirectory(thisReadMe); // FALSE
+
+Files.isRegularFile(thisDirectory); // FALSE
+Files.isRegularFile(thisReadMe); // TRUE
+
+Files.isSymbolicLink(thisDirectory); // FALSE
+Files.isSymbolicLink(thisReadMe); // FALSE
+```
+
+#### 🌱 Using Files.isHidden() 🌱
+* In windows, a file's visibility is determined via a property rather than metadata on the file itself
+* It will throw an IOException if the file does not exist
+```java
+Path fake = Paths.get("fake/madeup.txt");
+Path nonHidden = Paths.get("README.md");
+try {
+	Files.isHidden(fake);
+} catch (IOException e) {
+	// EXCEPTION CAUGHT!!!
+}
+try {
+	Files.isHidden(nonHidden);
+	// FALSE
+} catch (IOException e) {}
+```
+
+#### 🌱 Using Files.isReadable() and isExecutable() 🌱
+* `Files.isReadable()` and `Files.isExecutable()` do not throw checked exceptions
+* They are used to see if a user can read the contents of a file, or run the file itself!!
+
+#### 🌱 Using Files.size() 🌱
+* This method DOES throw an exception if the file does not exist
+```java
+Path path = Paths.get("README");
+try {
+	long size = Files.size(path); // 1580
+} catch (IOException e) { }
+```
+
+#### 🌱 Using Files.getLastModifiedTime() and setLastModifiedTime() 🌱
+* Checking last modified time is more efficient than tracking content changes
+* We can get and set the last-modified time of a file using `FileTime` which has both date and time!
+```java
+Path readMe = Paths.get("README.md");
+try {
+	FileTime fileTime = Files.getLastModifiedTime(readMe);
+	// 2024-02-09T16:15:38.5052394Z
+} catch (IOException e) { }
+
+try {
+	FileTime now = FileTime.fromMillis(System.currentTimeMillis());
+	// 2024-02-27T09:58:35.534Z
+	Path path = Files.setLastModifiedTime(readMe, now);
+	// README.md
+	System.out.println(Files.getLastModifiedTime(path));
+	// 2024-02-27T09:58:35.534Z
+} catch (IOException e) { }
+```
+
+#### 🌱 Using Files.getOwner() and setOwner() 🌱
+* You can get/set the owner of a Path using:
+```java
+UserPrincipal getOwner(Path) throws IOException
+Path setOwner(Path, UserPrincipal) throws IOException
+```
+* Example:
+```java
+Path path = Paths.get("README.md");
+try {
+	UserPrincipal owner = Files.getOwner(path);
+	// shiv.kumar
+} catch (IOException e) { }
+```
+
+* You can obtain a UserPrincipal using the `getUserPrincipalLookupService().lookupPrincipalByName(String)`
+method, which throws a checkked exception:
+```java
+UserPrincipalLookupService lookupService
+	= FileSystems.getDefault().getUserPrincipalLookupService();
+try {
+	UserPrincipal user = lookupService
+		.lookupPrincipalByName("Shiv");
+} catch (IOException e) { }
+```
 <br>
 
 ### ⭐ File Attributes with Views ⭐
+
 #### 🌱 Reading with Files.readAttributes() 🌱
+
 #### 🌱 Modifying with Files.getFileAttributeView() 🌱
+
 <br>
 <hr>
 
