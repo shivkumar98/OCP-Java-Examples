@@ -448,9 +448,33 @@ try {
 <hr>
 
 ## 🟥 9.3 Understanding File Attributes
+* We shall look at basic file attributes which can be obtained using the `Files` class
+* We will then look at using views which can enable us to obtain file-system dependent attributes, and improve performance
 
 ### ⭐ Basic File Attributes ⭐
 #### 🌱 File Type Attributes 🌱
+* There are three methods defined within the Files class for determining type of a path. 
+* All of these return a boolean and do not throw checked exception:
+	- `Files.isDirectory(Path)` - true if path is a directory
+	- `Files.isRegularFile(Path)` - a regular file is defined as something which is NOT a directory, resource, or symbolic link
+	- `Files.isSymbolicLink(Path)`
+* The first two methods COULD be true for a symbolic link, depending on the path the link is pointing too
+* Example:
+```java
+Path thisDirectory = Paths
+	.get("src/revision_notes/chap09/c_9_3");
+Path thisReadMe = Paths
+	.get("src/revision_notes/chap09/README.md");
+
+Files.isDirectory(thisDirectory); // TRUE
+Files.isDirectory(thisReadMe); // FALSE
+
+Files.isRegularFile(thisDirectory); // FALSE
+Files.isRegularFile(thisReadMe); // TRUE
+
+Files.isSymbolicLink(thisDirectory); // FALSE
+Files.isSymbolicLink(thisReadMe); // FALSE
+```
 #### 🌱 Using Files.isHidden() 🌱
 #### 🌱 Using Files.isReadable() and isExecutable() 🌱
 #### 🌱 Using Files.size() 🌱
