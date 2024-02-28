@@ -57,7 +57,9 @@ src\revision_notes\chap09\c_9_4\UsingFiles_walk.java
 			System.out.println("------------------");
 			Files.walk(path, 0)
 			.forEach(System.out::println);
-			// src\revision_notes\chap09
+/* src\revision_notes\chap09
+ * 
+ */
 			System.out.println("++++++++++++++++++");
 			
 			Files.walk(path, 1)

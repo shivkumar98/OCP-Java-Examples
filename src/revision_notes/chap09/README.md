@@ -553,6 +553,7 @@ try {
 ```
 
 
+
 <br>
 
 ### ⭐ File Attributes with Views ⭐
@@ -627,15 +628,38 @@ try {
 #### 🌱 Using Files.walk() 🌱
 * `File.walk(Path)` can be overloaded an `int maxDepth` parameter, which specifies how deep the walk should be.
 * The default maxDepth value is `Integer.MAX_VALUE`
+* Here is the structure of the below path:
+![](2024-02-28-08-33-36.png)
 ```java
 Path path = Paths.get("src/revision_notes/chap09");
 try {
 	// this will not look into the path given:
-	Stream<Path> stream = Files.walk(0);
+	Stream<Path> stream = Files.walk(path);
 	// src\revision_notes\chap09
 } catch (IOException e) { }
 ```
-
+* If I supply a maxDepth of 0, it will only look at the path itself:
+```java
+Files.walk(path, 0)
+	.forEach(System.out::println);
+/*
+src/revision_notes/chap09
+*/
+```
+* Here are the results with a maxDepth of 1:
+```java
+Files.walk(path,1)
+	.forEach(System.out::println);
+/*
+src/revision_notes/chap09
+src/revision_notes/chap09/README.md
+src/revision_notes/chap09/c_9_1
+src/revision_notes/chap09/c_9_2
+src/revision_notes/chap09/c_9_3
+src/revision_notes/chap09/c_9_4
+src/revision_notes/chap09/new1
+src/revision_notes/chap09/new2
+```
 
 #### 🌱 Using Files.find() 🌱
 
