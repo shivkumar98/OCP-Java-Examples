@@ -686,6 +686,30 @@ src\revision_notes\chap09\c_9_2\PathComponentMethods.java
 ```
 
 ### ⭐ Using Files.list() ⭐
+* We saw in chapter 8 that a `File` instance has a `listFiles()` method which returns dirs/files which are DIRECT CHILDREN of the file
+* This method returns `File[]`:
+```java
+String srcFolder = System.getProperty("user.dir") + "/src";
+File file = new File(srcFolder);
+File[] listFiles = file.listFiles();
+```
+* We have an equivalent method `Files.list(path)` which returns `Stream<Path>` of paths which are DIRECT CHILDREN of the given path:
+```java
+Path path = Paths.get("src");
+try {
+	Stream<Path> list = Files.list(path);
+}
+```
+* Both of these methods would print the following files/dirs:
+```
+src\.classpath
+src\.project
+src\.settings
+src\bin
+src\chapter_1
+src\chapter_10
+...s
+```
 
 ### ⭐ Using Files.lines() ⭐
 
