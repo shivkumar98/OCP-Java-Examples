@@ -662,7 +662,28 @@ src/revision_notes/chap09/new2
 ```
 
 #### 🌱 Using Files.find() 🌱
-
+* The `Files.find(Path,int,BiPredicate)` is similar to the `Files.walk()` method except it let's us explicitly filter the restults. 
+* The BiPredicate takes a path and attribute!
+* E.g. let's find all the files 2 levels deep which have been modified after 2024:
+```java
+Path path = Paths
+	.get("src/revision_notes/chap09/");
+long twentTwentyFourMillis = 1704067260000l;
+FileTime twentyTwentyFour = FileTime.fromMillis(twentTwentyFourMillis);
+// 2024-01-01T00:01:00Z
+try {
+	BiPredicate<Path, BasicFileAttributes> biPred 
+		= (p,a) -> p.toString().endsWith(".java")
+			&& a.lastModifiedTime.toMillis()>twentTwentyFourMillis;
+	Files.find(path, 2, biPred);
+} catch (IOException e) {}
+/* this prints the following:
+src\revision_notes\chap09\c_9_1\UsingFileSystem.java
+src\revision_notes\chap09\c_9_1\UsingPaths.java
+src\revision_notes\chap09\c_9_2\NameMethods.java
+src\revision_notes\chap09\c_9_2\PathComponentMethods.java
+...
+```
 ### ⭐ Using Files.list() ⭐
 
 ### ⭐ Using Files.lines() ⭐
