@@ -725,3 +725,20 @@ try {
 <br><hr>
 
 ## 🟥 9.5 Comparing Legacy Files and NIO.2 Methods
+* Here is a table which compares legacy File methods with NIOI.2 methods:
+| Legacy					| NIO.2						|
+| ------------------------- | ------------------------- |
+| file.exists()             | File.exists(path) 		|
+| file.getName()			| path.getFileName()		|
+| file.getAbsolutePath()	| path.toAbsolutePath()		|
+| file.isDirectory()		| Files.isDirectory(path) 	|
+| file.isFile()				| Files.isRegularFile(path) |
+| file.isHidden()			| Files.isHidden(path) 		|
+| file.length()				| Files.size(path)			|
+| file.lastModified()		| Files.getLastModifiedTime(path) |
+| file.setLastModifiedTime(time) | Files.setLastModifiedTime(path, fileTime) |
+| file.delete() 			| Files.delete(path) |
+| file.renameTo(otherFile)  | Files.move(path,otherPath) |
+| file.mkdir()				| Files.createDirectory(path)|
+| file.mkdirs()				| Files.createDirectories(path) |
+| file.listFiles()			| Files.list(path) |
