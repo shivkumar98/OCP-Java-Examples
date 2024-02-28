@@ -719,9 +719,9 @@ src\chapter_10*
 Path path = Paths.get("src");
 try {
 	Stream<String> stream = Files.lines(path);
-} catch (IOException e) {
-	e.printStackTrace();
-}
+} catch (IOException e) { }
 ```
+
+<br><hr>
 
 ## 🟥 9.5 Comparing Legacy Files and NIO.2 Methods
