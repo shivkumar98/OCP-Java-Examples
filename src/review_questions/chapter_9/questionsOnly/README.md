@@ -113,7 +113,7 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 
 
 ## 🟨 Question 5 🟨
-❓ Assuming `/kang` exists as a symbolic link to the directory `/mammal/kangaroo` within the file system. Which of the following statements are correct about thhis code snippet? (Choose all thhat apply)❓
+❓ Assuming `/kang` exists as a symbolic link to the directory `/mammal/kangaroo` within the file system. Which of the following statements are correct about this code snippet? (Choose all thhat apply)❓
 ```java
 Path path = Paths.get("/kang");
 if(Files.isDirectory(path) && Files.isSymbolicLink(path))
@@ -135,7 +135,7 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 
 
 ## 🟨 Question 6 🟨
-❓ Given thhat `/animals` is a directory that exists and it is empty, what is the result of the following code? ❓
+❓ Given that `/animals` is a directory that exists and it is empty, what is the result of the following code? ❓
 ```java
 Path path = Paths.get("/animals");
 boolean myBoolean = Files.walk(path)

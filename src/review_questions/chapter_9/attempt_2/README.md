@@ -102,6 +102,8 @@ if(Files.isDirectory(path))
 
 ### My answer:
 * `BasicFileAttributes` class does not have a `setTimes()` interface
+* Line 3 is fine
+* **D**
 <hr>
 
 ## 🟨 Question 4 🟨
@@ -119,12 +121,16 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 * G. The code does not compile
 
 ### My answer:
-
+* `path.subpath(1,3)` = `animals/bear`
+* `path.subpath(1,3).getName(1)` = `bear`
+* As `bear` is an relative path, it is treated as if we are in current directory
+* This gets converted, to an absolute path: `/user/home/bear` I THINK
+* **C**
 <hr> 
 
 
 ## 🟨 Question 5 🟨
-❓ Assuming `/kang` exists as a symbolic link to the directory `/mammal/kangaroo` within the file system. Which of the following statements are correct about thhis code snippet? (Choose all thhat apply)❓
+❓ Assuming `/kang` exists as a symbolic link to the directory `/mammal/kangaroo` within the file system. Which of the following statements are correct about this code snippet? (Choose all that apply)❓
 ```java
 Path path = Paths.get("/kang");
 if(Files.isDirectory(path) && Files.isSymbolicLink(path))
@@ -139,14 +145,22 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 
 
 ### My answer:
-
+* Since `/kanga` does point to an actual directory AND is a symbolic link, the condition is true
+* So a directory is created for the symbolic link
+* A - false
+* B - true
+* C - false
+* D - true
+* E - false
+* F - false
+* **B,D**
 <br>
 
 <hr>
 
 
 ## 🟨 Question 6 🟨
-❓ Given thhat `/animals` is a directory that exists and it is empty, what is the result of the following code? ❓
+❓ Given that `/animals` is a directory that exists and it is empty, what is the result of the following code? ❓
 ```java
 Path path = Paths.get("/animals");
 boolean myBoolean = Files.walk(path)
@@ -162,7 +176,9 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 * F. It produces an infinite loop at runtime
 
 ### My answer:
-
+* `Files.walk()` returns a `Stream<Path>`
+* You can not filter with a BiPredicate, so w1 does not compile
+* **C**
 <hr>
 
 
