@@ -684,6 +684,7 @@ src\revision_notes\chap09\c_9_2\NameMethods.java
 src\revision_notes\chap09\c_9_2\PathComponentMethods.java
 ...
 ```
+
 ### ⭐ Using Files.list() ⭐
 
 ### ⭐ Using Files.lines() ⭐
