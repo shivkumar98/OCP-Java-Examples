@@ -707,10 +707,21 @@ src\.project
 src\.settings
 src\bin
 src\chapter_1
-src\chapter_10
+src\chapter_10*
 ...s
 ```
+* The benefits of using this method over `file.listFiles()`
 
 ### ⭐ Using Files.lines() ⭐
+* We saw earlier that we could use `Files.readAllLines(Path)` which returns a `List<String>` which could lead to `OutOfMemoryError`
+* `Files.lines(Path)` can avoid this problem and also allow us to chain stream operations directly:
+```java
+Path path = Paths.get("src");
+try {
+	Stream<String> stream = Files.lines(path);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+```
 
 ## 🟥 9.5 Comparing Legacy Files and NIO.2 Methods
