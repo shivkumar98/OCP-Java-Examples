@@ -342,12 +342,8 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * G. It compiles but throws an exception at runtime
 
 ### My answer:
-* Line y1 DOES compile!
-* Line y2 DOES compile
-* Line y3 DOES compile
-* Line y4 DOES compile
-* A - true
-* **A**
+* It will not print anything!
+* **B**
 <hr>
 
 
@@ -361,7 +357,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. `Files.lines()`
 
 ### My answer:
-
+* **E**
 <br>
 
 <hr>
@@ -378,7 +374,13 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. For reading multiple attributes, it is often more performant
 
 ### My answer:
-
+* A - false, we have method in Files which can be used for symbolic links, files, dirs
+* B - false, views are less efficient for single attribute
+* C - false, see A
+* D - true
+* E - true
+* F - true
+* **D,E,F**
 <br>
 
 <hr>

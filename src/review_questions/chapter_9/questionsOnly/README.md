@@ -289,12 +289,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * G. It compiles but throws an exception at runtime
 
 ### My answer:
-* Line y1 DOES compile!
-* Line y2 DOES compile
-* Line y3 DOES compile
-* Line y4 DOES compile
-* A - true
-* **A**
+
 <hr>
 
 
