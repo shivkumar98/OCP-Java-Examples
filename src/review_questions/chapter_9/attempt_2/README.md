@@ -1,42 +1,41 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 9: Review Questions - Attempt #
+# Chapter 9: Review Questions - Attempt 2
 
 ## Results:
 
 Date: <br>
-Score: <br>
-❌
-✅
+Score: 14/20 (70%) <br>
+
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 1          |  ❌     |
+| 2          |  ✅     |
+| 3          |  ✅     |
+| 4          |  ✅     |
+| 5          |  ❌     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ❌     |
+| 9          |  ✅     |
+| 10         |  ❌     |
+| 11         |  ❌     |
+| 12         |  ✅     |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ✅     |
+| 17         |  ❌     |
+| 18         |  ✅     |
+| 19         |  ✅     |
+| 20         |  ✅     |
 
 <hr>
 
 ## 🟨 Question 1 🟨
 ❓ What is the output of the following code? ❓
 ```java
-Path path = Paths.get("/user/.././root", "../kodiacbear.txt");
+Path path = Path.get("/user/.././root", "../kodiacbear.txt");
 path.normalize().relativize("/lion");
 System.out.println(path);
 ```
@@ -54,9 +53,15 @@ System.out.println(path);
 * `../lion` is the relativized path
 * However, path has not been re-assigned, so path is just the normal path
 * `path` is `/user/.././root/../kodiacbear.txt`
-* **A**
+* **A**❌❌❌❌
+
+
 <br>
 
+* 💡💡**CORRECT ANSWER: F**💡💡
+* Path.get() is not correct, should be `Paths.get()`
+* The `relativize()` method takes a path not a string!!!
+* NOTE: I wrote the question wrong initially!!!
 <hr>
 
 ## 🟨 Question 2 🟨
@@ -80,7 +85,8 @@ if(Files.isDirectory(path))
 * D - false, this will print try again
 * E - false
 * F - false
-* **B,C**
+* **B,C**✅✅✅
+* If `path` was a symbolic link pointing to a directory, the symbolic link would be deleted 💡
 <hr>
 
 
@@ -103,7 +109,7 @@ if(Files.isDirectory(path))
 ### My answer:
 * `BasicFileAttributes` class does not have a `setTimes()` interface
 * Line 3 is fine
-* **D**
+* **D**✅✅✅
 <hr>
 
 ## 🟨 Question 4 🟨
@@ -125,7 +131,7 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 * `path.subpath(1,3).getName(1)` = `bear`
 * As `bear` is an relative path, it is treated as if we are in current directory
 * This gets converted, to an absolute path: `/user/home/bear` I THINK
-* **C**
+* **C**✅✅✅✅
 <hr> 
 
 
@@ -153,9 +159,12 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 * D - true
 * E - false
 * F - false
-* **B,D**
+* **B,D**❌❌❌❌
 <br>
 
+* **💡💡CORRECT ANSWER: B,C,D💡💡**
+* I was correct that a directory of `/mammal/kangaroo/joey` would be created
+* I forgot it would also be accessible via the symbolic link `/kang/joey`💡
 <hr>
 
 
@@ -178,7 +187,7 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 ### My answer:
 * `Files.walk()` returns a `Stream<Path>`
 * You can not filter with a BiPredicate, so w1 does not compile
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 
@@ -201,7 +210,7 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 * `path` is relative, while the argument is absolute
 * So `equals()` will return false, and it will check if the files actually exist
 * So the code will compile but throw an exception at runtime
-* **F**
+* **F**✅✅✅✅
 
 <hr>
 
@@ -226,7 +235,12 @@ System.out.println(path2.resolve(path1));
 
 * It will first print: `/pets/../cat.txt/./dog.txt`
 * But an exception is then thrown at runtime!!!
-* **E**
+* **E**❌❌❌❌
+<br>
+
+* 💡💡**CORRECT ANSWER: A**💡💡
+* While I was right about what the first result was, I was wrong about `p2.resolve(p1)`
+* If an ABSOLUTE PATH is provided to the resolve, THEN THE ARGUMMENT PROVIDED IS RETURNED!!! 💡
 <hr>
 
 
@@ -248,7 +262,7 @@ System.out.println(path2.resolve(path1));
 * D - false
 * E - false
 * F - false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## 🟨 Question 10 🟨
@@ -270,8 +284,13 @@ File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
 * C - true
 * D - false
 * E - true, metadata is copied by default I THINK
-* **B,C,E**
+* **B,C,E**❌❌❌❌
 <br>
+
+* 💡💡**CORRECT ANSWER: C,E**💡💡
+* Since NO_FOLLOWLINKS was provided, the symbolic link itself would be copied at not the file it points to
+* I was correct about `REPLACE_EXISTING` not being provided so A is false
+* I was also correct that metadata is copied even without the `COPY_ATTRIBUTES` option
 
 <hr>
 
@@ -293,9 +312,11 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 
 ### My answer:
-* **B**
+* **B**❌❌❌❌
 <br>
 
+* 💡💡**CORRECT ANSWER: A**💡💡
+* Even though the files are an exact copy, they are not the same file!!!
 <hr>
 
 
@@ -317,7 +338,7 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 * E - false
 * F - true
 * G - false
-* **A,F**
+* **A,F**✅✅✅✅
 <br>
 
 <hr>
@@ -343,7 +364,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 
 ### My answer:
 * It will not print anything!
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 
@@ -357,7 +378,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. `Files.lines()`
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -380,7 +401,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * D - true
 * E - true
 * F - true
-* **D,E,F**
+* **D,E,F**✅✅✅✅
 <br>
 
 <hr>
@@ -409,7 +430,7 @@ Files.lines(path) // r1
 * D - false
 * E - false
 * F - true
-* **F**
+* **F**✅✅✅✅
 <br>
 
 <hr>
@@ -438,8 +459,14 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 * E - true
 * F - true - no maxDepth parameter specified
 * G - false
-* **E,F**
+* **E,F**❌❌❌❌
 <br>
+
+* The files which would be walked are files in the root directory
+* The above code will print all files ending with `.java` from the root directory
+* So technically E,F and G are all correct
+* An exception could be thrown at runtime such as no permission to read the file
+* But **💡💡CORRECT ANSWER: A,G💡💡**
 
 <hr>
 
@@ -468,7 +495,7 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * So only B,D,E are possible
 * the first print is true
 * This third print is going to be true
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -490,7 +517,7 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * D - false, file can do this
 * E - true
 * F - false, file can do this
-* *A,C,E**
+* *A,C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -516,7 +543,13 @@ System.out.println(count);
 ### My answer:
 * path = `/./`
 * path.getNameCount() is 1
-* **B**
+* **B**✅✅✅✅
 <br>
 
+* The normalize() on the relative path, just returns an empty path. This path has a length of 1:
+```java
+Path path = Paths.get(".").normalize();
+System.out.println(path); // BLANK
+System.out.println(path.getNameCount()); // 1
+```
 <hr>

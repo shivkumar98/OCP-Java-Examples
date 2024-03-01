@@ -36,7 +36,7 @@ Score: <br>
 ## 🟨 Question 1 🟨
 ❓ What is the output of the following code? ❓
 ```java
-Path path = Paths.get("/user/.././root", "../kodiacbear.txt");
+Path path = Path.get("/user/.././root", "../kodiacbear.txt");
 path.normalize().relativize("/lion");
 System.out.println(path);
 ```
