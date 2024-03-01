@@ -6,13 +6,12 @@
 
 Date: <br>
 Score: <br>
-❌
-✅
+
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
+| 1          |  ❌     |
+| 2          |  ✅     |
+| 3          |  ✅     |
 | 4          |       |
 | 5          |       |
 | 6          |       |
@@ -36,7 +35,7 @@ Score: <br>
 ## 🟨 Question 1 🟨
 ❓ What is the output of the following code? ❓
 ```java
-Path path = Paths.get("/user/.././root", "../kodiacbear.txt");
+Path path = Path.get("/user/.././root", "../kodiacbear.txt");
 path.normalize().relativize("/lion");
 System.out.println(path);
 ```
@@ -54,9 +53,15 @@ System.out.println(path);
 * `../lion` is the relativized path
 * However, path has not been re-assigned, so path is just the normal path
 * `path` is `/user/.././root/../kodiacbear.txt`
-* **A**
+* **A**❌❌❌❌
+
+
 <br>
 
+* 💡💡**CORRECT ANSWER: F**💡💡
+* Path.get() is not correct, should be `Paths.get()`
+* The `relativize()` method takes a path not a string!!!
+* NOTE: I wrote the question wrong initially!!!
 <hr>
 
 ## 🟨 Question 2 🟨
@@ -80,7 +85,8 @@ if(Files.isDirectory(path))
 * D - false, this will print try again
 * E - false
 * F - false
-* **B,C**
+* **B,C**✅✅✅
+* If `path` was a symbolic link pointing to a directory, the symbolic link would be deleted 💡
 <hr>
 
 
@@ -103,7 +109,7 @@ if(Files.isDirectory(path))
 ### My answer:
 * `BasicFileAttributes` class does not have a `setTimes()` interface
 * Line 3 is fine
-* **D**
+* **D**✅✅✅
 <hr>
 
 ## 🟨 Question 4 🟨
