@@ -5,16 +5,16 @@
 ## Results:
 
 Date: <br>
-Score: <br>
+Score: 4/6 <br>
 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ❌     |
 | 2          |  ✅     |
 | 3          |  ✅     |
-| 4          |       |
-| 5          |       |
-| 6          |       |
+| 4          |  ✅     |
+| 5          |  ❌     |
+| 6          |  ✅     |
 | 7          |       |
 | 8          |       |
 | 9          |       |
@@ -131,7 +131,7 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 * `path.subpath(1,3).getName(1)` = `bear`
 * As `bear` is an relative path, it is treated as if we are in current directory
 * This gets converted, to an absolute path: `/user/home/bear` I THINK
-* **C**
+* **C**✅✅✅✅
 <hr> 
 
 
@@ -159,9 +159,12 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 * D - true
 * E - false
 * F - false
-* **B,D**
+* **B,D**❌❌❌❌
 <br>
 
+* **💡💡CORRECT ANSWER: B,C,D💡💡**
+* I was correct that a directory of `/mammal/kangaroo/joey` would be created
+* I forgot it would also be accessible via the symbolic link `/kang/joey`💡
 <hr>
 
 
@@ -184,7 +187,7 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 ### My answer:
 * `Files.walk()` returns a `Stream<Path>`
 * You can not filter with a BiPredicate, so w1 does not compile
-* **C**
+* **C**✅✅✅✅
 <hr>
 
 
