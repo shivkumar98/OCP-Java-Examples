@@ -474,7 +474,6 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 <hr>
 
 
-
 ## 🟨 Question 19 🟨
 ❓ What are three advantages of the NIO.2 API over legacy `java.io.File` class fore working with files ❓
 * A. NIO.2 supports file system-dependent attributes
@@ -485,7 +484,13 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * F. NIO.2 can be used to read the last-modified time
 
 ### My answer:
-
+* A - possible
+* B - false, file can do this
+* C - true
+* D - false, file can do this
+* E - true
+* F - false, file can do this
+* *A,C,E**
 <br>
 
 <hr>
@@ -509,7 +514,9 @@ System.out.println(count);
 * F. The code throws a runtime exception because of line `h1`
 
 ### My answer:
-
+* path = `/./`
+* path.getNameCount() is 1
+* **B**
 <br>
 
 <hr>
