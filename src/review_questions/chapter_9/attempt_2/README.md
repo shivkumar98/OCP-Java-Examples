@@ -5,7 +5,7 @@
 ## Results:
 
 Date: <br>
-Score: 4/6 <br>
+Score: 6/9 <br>
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -15,9 +15,9 @@ Score: 4/6 <br>
 | 4          |  ✅     |
 | 5          |  ❌     |
 | 6          |  ✅     |
-| 7          |       |
-| 8          |       |
-| 9          |       |
+| 7          |  ✅     |
+| 8          |  ❌     |
+| 9          |  ✅     |
 | 10         |       |
 | 11         |       |
 | 12         |       |
@@ -210,7 +210,7 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 * `path` is relative, while the argument is absolute
 * So `equals()` will return false, and it will check if the files actually exist
 * So the code will compile but throw an exception at runtime
-* **F**
+* **F**✅✅✅✅
 
 <hr>
 
@@ -235,7 +235,12 @@ System.out.println(path2.resolve(path1));
 
 * It will first print: `/pets/../cat.txt/./dog.txt`
 * But an exception is then thrown at runtime!!!
-* **E**
+* **E**❌❌❌❌
+<br>
+
+* 💡💡**CORRECT ANSWER: A**💡💡
+* While I was right about what the first result was, I was wrong about `p2.resolve(p1)`
+* If an ABSOLUTE PATH is provided to the resolve, THEN THE ARGUMMENT PROVIDED IS RETURNED!!! 💡
 <hr>
 
 
@@ -257,7 +262,7 @@ System.out.println(path2.resolve(path1));
 * D - false
 * E - false
 * F - false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## 🟨 Question 10 🟨
