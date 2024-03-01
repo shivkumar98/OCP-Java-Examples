@@ -198,6 +198,10 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 
 
 ### My answer:
+* `path` is relative, while the argument is absolute
+* So `equals()` will return false, and it will check if the files actually exist
+* So the code will compile but throw an exception at runtime
+* **F**
 
 <hr>
 
@@ -220,6 +224,9 @@ System.out.println(path2.resolve(path1));
 
 <br>
 
+* It will first print: `/pets/../cat.txt/./dog.txt`
+* But an exception is then thrown at runtime!!!
+* **E**
 <hr>
 
 
@@ -234,7 +241,14 @@ System.out.println(path2.resolve(path1));
 * F. There are no differences, because one method is a pointer to the other.
 
 ### My answer:
-
+* Files.readAllLines() returns a `List<String>` this can lead to memory issues if the file is too big
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* F - false
+* **B,C**
 <hr>
 
 ## 🟨 Question 10 🟨

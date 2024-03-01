@@ -59,6 +59,37 @@ public class UsingFiles_list {
 			list.forEach(System.out::println);
 		} catch (IOException e) {
 			e.printStackTrace();
+/* Files.list() returns the same number of results
+ * but in the form of a stream which can enable you to do
+ * stream operations directly!!!
+src\.classpath
+src\.project
+src\.settings
+src\bin
+src\chapter_1
+src\chapter_10
+src\chapter_2
+src\chapter_3
+src\chapter_4
+src\chapter_5
+src\chapter_6
+src\chapter_7
+src\chapter_8
+src\chapter_9
+src\Dolphins.properties
+src\Dolphins_en.properties
+src\Dolphins_fr.properties
+src\goat.txt
+src\mule.png
+src\pom.xml
+src\review_questions
+src\revision_notes
+src\styles.css
+src\target
+src\ZooJava_en.java
+src\Zoo_en.properties
+src\Zoo_fr.properties
+ */
 		}
 		
 		
