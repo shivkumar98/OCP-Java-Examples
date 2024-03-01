@@ -403,7 +403,13 @@ Files.lines(path) // r1
 * F. If it prints anything, it will not include commas.
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - false
+* E - false
+* F - true
+* **F**
 <br>
 
 <hr>
@@ -427,11 +433,15 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 * G. It prints all `.java` files in the root directory tree
 
 ### My answer:
-
+* A - false
+* No compilation issues
+* E - true
+* F - true - no maxDepth parameter specified
+* G - false
+* **E,F**
 <br>
 
 <hr>
-
 
 
 ## 🟨 Question 18 🟨
@@ -452,7 +462,13 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * F. The code does not compile 
 
 ### My answer:
-
+* `path1` = `/lizard/./walking.txt`
+* `path2` = `/lizard/././actions/../walking.txt`
+* the second print is definitely false
+* So only B,D,E are possible
+* the first print is true
+* This third print is going to be true
+* **D**
 <br>
 
 <hr>
