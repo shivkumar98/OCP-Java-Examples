@@ -32,36 +32,150 @@ File pathToFile = path.toFile();
 ## 🟥 9.2 Interacting with Paths and Files
 
 ### ⭐ Path Object Methods ⭐
-* `Path getFileName()` - returns a path representing the path furthest away from root
-* `Path getParent()` - returns the enclosing parent of a path. Returns null if there is no enclosing parent:
+1) `Path getFileName()` - returns a path representing the path furthest away from root
+2) `Path getParent()` - returns the enclosing parent of a path. Returns null if there is no enclosing parent:
 ```java
 Paths.get(".").getParent(); // NULL
 Paths.get("src/revision/random"); // src/revision
 ```
-* `Path getRoot()` - returns the root of a denoted path, will always return null for relative paths
+3) `Path getRoot()` - returns the root of a denoted path, will always return null for relative paths
 ```java
 Paths.get("src/revision/random").getRoot(); // NULL
 Paths.get("/home/zoo").getRoot(); // /
 ```
-* `Path toAbsolutePath()` - converts a relative path to an absolute one by appending it to the current working directory. 
+4) `Path toAbsolutePath()` - converts a relative path to an absolute one by appending it to the current working directory. 
 ```java
 Paths.get(".").toAbsolutePath(); //  C:/Users/Shiv/Documents/GitHub/OCP-Java-Examples/.
 ```
-* `Path relativize(other)` - returns a relative path between 2 paths of same type. Throws runtime exception if given incompatible types.
+5) `Path relativize(other)` - returns a relative path between 2 paths of same type. Throws runtime exception if given incompatible types.
 ```java
 Paths.get(".").relativize(Paths.get("src/revision"));
 // src/revision
 ```
-* `Path normalize()` - removes redundancies of a path but does NOT go beyond the file system
+6) `Path normalize()` - removes redundancies of a path but does NOT go beyond the file system
 ```java
 Paths.get("../../..").normalize(); // ../../..
 ```
-* `Path toRealPath()` - converts a path to a real one if it exists, otherwise throws a checked IOException:
+7) `Path toRealPath()` - converts a path to a real one if it exists, otherwise throws a checked IOException:
 ```java
 try {
 	Paths.get(".").toRealPath();
 	// C:/Users/Shiv/Documents/GitHub/OCP-Java-Examples
 } catch (IOException e) {}
+```
+
+### ⭐ Path File Methods ⭐
+* The `Files` class is a helper class for Path instances representing files
+* Here are some of the methods in this class:
+1) `boolean exists(Path)` - returns true if file actually exists in the file system
+```java
+File.exists(Paths.get("fake/madeup")); // FALSE
+File.exists(Paths.get("src")); // TRUE
+```
+
+2) `boolean isSameFile(Path,Path)` - returns true when two paths point to the same file in the file system. This methhod first calls `equals()`, if true it will return true otherwise it will check if the files actually exist:
+```java
+try {
+	Path relative = Paths.get("src");
+	Path absolute =	Paths.get("C:/Users/Shiv/Documents/GitHub/OCP-Java-Examples/src");
+	Files.isSameFile(relative,absolute); // TRUE
+
+	Path p1 = Paths.get("fake/madeup");
+	Path p2 = Paths.get("fake/madeup/");
+	p1.equals(p2); // TRUE
+	Files.isSameFile(p1, p2); // TRYE
+} catch (IOException e) { }
+```
+* If we try to call this method on two methods which are not `equal`, then an exception is thrown:
+```java
+Path relFakePath = Paths.get("home/zoo");
+Path absFakePath = Paths.get("/home/zoo");
+relFakePath.equals(absFakePath);
+try {
+	Files.isSameFile(relFakePath, absFakePath);
+} catch (IOException e) {
+	// EXCEPTION CAUGHT!!!	
+}
+```
+
+3) `Path createDirectory(Path)` - makes a single directory denoted by the path
+4) `Path createDirectories(Path)` - is able to construct non-existent folders denoted by the path
+* These methods can throw an IOException, e.g. if the folder already exists
+* If a symbolic link is provided, the file/dir it points to will be the one which is created
+```java
+Path newFolder = Paths
+	.get("src/revision_notes/chap09_v2/new_folder");
+try {
+	Path createdDir = Files.createDirectory(newFolder);
+	// prints the following if the folder does not exist
+	System.out.println(createdDir);
+	// src/revision_notes/chap09_v2/new_folder
+} catch (IOException e ) {
+	// exception thrown if folder already exists
+}
+```
+
+5) `Path copy(source, target)` - will copy the source to target
+* By default:
+  - Symbolic links ARE traversed
+  - Attributes are NOT copied
+  - Will NOT overwrite an existing file
+```java
+Path newFolder = Paths
+	.get("src/revision_notes/chap09_v2/new_folder");
+Path target = Paths
+	.get("src/revision_notes/chap09_v2/newfolderV2");
+
+try {
+	Path copied = Files.copy(source,target,REPLACE_EXISTING);
+	System.out.println(copied);
+	// src/revision_notes/chap09_v2/newfolderv2
+} catch (IOException e) { }
+```
+
+6) `Path move(source, destination)` - moves/renames a path
+* By default:
+  - Symbolic links ARE traversed
+  - Attributes ARE copied over
+  - Will NOT overwrite existing file
+* If `NO_FOLLOWLINKS` is flagged, then the symbolic link itself is moved, not the file it points to
+* `ATOMIC_MOVE` must be flagged to prevent processed seeing an incomplete file
+```java
+Path source = Paths
+	.get("src/revision_notes/chap09_v2/newfolderV2");
+Path destination = Paths
+	.get("src/revision_notes/chap09_v2/newfolderV3");
+try {
+	Path moved = Files.move(source, destination);
+	// prints the following if destination does not already exist
+	System.out.println(moved);
+	// src/revision_notes/chap09_v2/newfolderV3
+} catch (IOException e) {
+	// exception caught if already exists!
+}
+```
+
+7) `void delete(Path)`
+8) `boolean deleteIfExists(Path)`
+```java
+Path folderToBeDeleted = Paths
+		.get("src/revision_notes/chap09_v2/newfolderV3");
+try {
+	boolean isDeleted = Files.deleteIfExists(folderToBeDeleted);
+	System.out.println(isDeleted); // true
+} catch (IOException e) { }
+```
+
+9) `List<String> readAllLines(Path)`
+```java
+Path textFile = Paths
+	.get("src/revision_notes/chap09_v2/file.txt");
+try {
+	List<String> list = Files.readAllLines(textFile);
+	System.out.println(list);
+	// [line 1 , line 2]
+
+} catch (IOException e) { }
 ```
 
 <br><hr>

@@ -1,4 +1,4 @@
-package revision_notes.chap09_v2;
+package revision_notes.chap09_v2.java;
 
 import java.io.IOException;
 import java.nio.file.Path;
