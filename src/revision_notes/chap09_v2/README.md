@@ -55,7 +55,7 @@ Paths.get(".").relativize(Paths.get("src/revision"));
 6) `Path normalize()` - removes redundancies of a path but does NOT go beyond the file system
 ```java
 Paths.get("../../..").normalize(); // ../../..
-```
+```\
 7) `Path toRealPath()` - converts a path to a real one if it exists, otherwise throws a checked IOException:
 ```java
 try {
@@ -182,8 +182,66 @@ try {
 
 ## 🟥 9.3 Understanding File Attributes
 
+### ⭐ Basic File Attributes ⭐
+* The `Files` class has quite a few methods for evaluating basic file attributes which are not file system dependent.
+1) `boolean isSymbolicLink()`
+2) `boolean isDirectory()`
+3) `boolean isRegularFile()`
+* Most of the time, only one of the above 3 methods will return true
+* The exception is for symbolic links where at most 2 can be true depending on what file/directory the symbolic link points to in the file system
+```java
+Path regularFile = Paths.get("README.md");
+Files.isRegularFile(regularFile); // TRUE
+Files.isDirectory(regularFile); // FALSE
+Files.isSymbolicLink(regularFile); // FALSE
+```
 
+4) `boolean isHidden(Path) throws IOException`
+```java
+try {
+	boolean isHidden = Files.isHidden(regularFile);
+	// false
+} catch (IOException e) { }
+```
+5) `long size(Path) throws IOException`
 
+6) `UserPrincipal getOwner(Path) throws IOException`
+```java
+try {
+	UserPrincipalOwner owner =
+		Files.getOwner(regularFile);
+	// DESKTOP-RSM8H8J\Shiv (User)
+} catch (IOException e) { }
+```
+7) `Path setOwner(Path,UserPrincipal) throws IOException`
+* The `UserPrincipal` can be obtained via the `UserPrincipalLookupService`:
+```java
+try {
+	UserPrincipalLookupService lookup = FileSystems
+			.getDefault()
+			.getUserPrincipalLookupService();
+	UserPrincipal user = lookup.lookupPrincipalByName("Shiv");
+	// ^ can be used to set owner
+	System.out.println(user);
+	// DESKTOP-RSM8H8J\Shiv (User)
+} catch (IOException e) { }
+```
+
+8) `FileTime getLastModifiedTime(Path) throws IOException`
+9) `Path setLastModifiedTime(Path, FileTime) throws IOException`
+```java
+FileTime dateTime = Files
+	.getLastModifiedTime(regularFile);
+// 2024-02-10T10:58:40.7507014Z
+Path setTime = Files.setLastModifiedTime(regularFile, dateTime);
+```
+* FileTime can be converted to a long representing epoch time:
+```java
+FileTime dateTime = FileTime.fromMillis(System.currentMillis());
+long epochTime = dateTime.toMillis();
+```
+
+### ⭐ File Attributes with Views ⭐
 
 <br><hr>
 
