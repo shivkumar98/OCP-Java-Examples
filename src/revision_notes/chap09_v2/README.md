@@ -290,13 +290,71 @@ FileTime newLastAccessedTime =
 try {
 	view.setTimes(null, newLastAccessedTime, null);
 	// using null to not modify other times
-}
+} catch (IOException e) { }
 ```
 
 <br><hr>
 
 ## 🟥 9.4 Stream Methods
+* **Walking a directory** is where you iterate through the descendants of a directory until you meet a condition or there is no more to iterate over
+* `Files.walk(Path)` walks a directory in a DEPTH-FIRST and LAZY manner.
+* This method has an overload which specifed the maximum depth Java will go down a directory. If this overload is not specified, a default max limit is `Integer.MAX_VALUE`
+```java
+Path p = Paths.get("src/revision_notes/chap09_v2");
+try {
+	Stream<Path> stream = Files.walk(p);
+	stream.map(s->s.toString())
+	.forEach(System.out::println);
+	/* this prints the following:
+		* src/revision_notes/chap09_v2
+		* src/revision_notes/chap09_v2/file.txt
+		* src/revision_notes/chap09_v2/README.md
+		* src/revision_notes/chap09_v2/java
+		* src/revision_notes/chap09_v2/java/AttributesAndViews.java
+		* src/revision_notes/chap09_v2/java/BasicFileAttributes.java
+		* src/revision_notes/chap09_v2/java/NewStreamMethods.java
+		* src/revision_notes/chap09_v2/java/PathFileMethods.java
+		* src/revision_notes/chap09_v2/java/PathObjectMethods.java
+	*/
+} catch (IOException e) { }
 
+try {
+	Files.walk(p, 1)
+		.forEach(System.out::println);
+	/*
+		* src/revision_notes/chap09_v2
+		* src/revision_notes/chap09_v2/file.txt
+		* src/revision_notes/chap09_v2/java
+		* src/revision_notes/chap09_v2/README.md
+	*/
+	
+	Files.walk(p, 0)
+	.forEach(System.out::println);
+	// src/revision_notes/chap09_v2
+} catch (IOException e) { }
+```
+
+<br>
+
+* `Files.walk(Path,BiPredicate,Int)` is similar to the walk method above, except you can use a BiPredicate which takes a `Path` and `BasicFileAttributes` argument:
+```java
+try {
+	Stream<Path> stream = Files
+		.find(p, 2, (path,attr)->true);
+} catch (IOException e) { }
+```
+
+<br>
+
+* There is a method which reads the lines of a file `Files.readAllLines()`:
+```java
+try {
+	Stream<String> stream = Files.lines(Paths.get("README.md"));
+	System.out.println(stream.collect(Collectors.toList()));
+	// [, # ☕️ OCP Java Examples, , I started .... ]
+} catch (IOException e) { }
+```
+* This method can avoid OutOfMemoryError that Files.lines() is suspectable
 
 
 <br><hr>
