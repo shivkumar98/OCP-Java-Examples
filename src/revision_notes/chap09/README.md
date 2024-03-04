@@ -726,6 +726,7 @@ try {
 
 ## 🟥 9.5 Comparing Legacy Files and NIO.2 Methods
 * Here is a table which compares legacy File methods with NIOI.2 methods:
+  
 | Legacy					| NIO.2						|
 | ------------------------- | ------------------------- |
 | file.exists()             | File.exists(path) 		|

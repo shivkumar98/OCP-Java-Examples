@@ -1,11 +1,11 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 9: Review Questions - Attempt #
+# Chapter 9: Review Questions - Attempt 2
 
 ## Results:
 
-Date: <br>
-Score: 6/9 <br>
+Date: 02/03/2024 <br>
+Score: 14/20 (70%) <br>
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -18,17 +18,17 @@ Score: 6/9 <br>
 | 7          |  ✅     |
 | 8          |  ❌     |
 | 9          |  ✅     |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 10         |  ❌     |
+| 11         |  ❌     |
+| 12         |  ✅     |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ✅     |
+| 17         |  ❌     |
+| 18         |  ✅     |
+| 19         |  ✅     |
+| 20         |  ✅     |
 
 <hr>
 
@@ -284,8 +284,13 @@ File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
 * C - true
 * D - false
 * E - true, metadata is copied by default I THINK
-* **B,C,E**
+* **B,C,E**❌❌❌❌
 <br>
+
+* 💡💡**CORRECT ANSWER: C,E**💡💡
+* Since NO_FOLLOWLINKS was provided, the symbolic link itself would be copied at not the file it points to
+* I was correct about `REPLACE_EXISTING` not being provided so A is false
+* I was also correct that metadata is copied even without the `COPY_ATTRIBUTES` option
 
 <hr>
 
@@ -307,9 +312,11 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 
 ### My answer:
-* **B**
+* **B**❌❌❌❌
 <br>
 
+* 💡💡**CORRECT ANSWER: A**💡💡
+* Even though the files are an exact copy, they are not the same file!!!
 <hr>
 
 
@@ -331,7 +338,7 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 * E - false
 * F - true
 * G - false
-* **A,F**
+* **A,F**✅✅✅✅
 <br>
 
 <hr>
@@ -357,7 +364,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 
 ### My answer:
 * It will not print anything!
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 
@@ -371,7 +378,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. `Files.lines()`
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -394,7 +401,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * D - true
 * E - true
 * F - true
-* **D,E,F**
+* **D,E,F**✅✅✅✅
 <br>
 
 <hr>
@@ -423,7 +430,7 @@ Files.lines(path) // r1
 * D - false
 * E - false
 * F - true
-* **F**
+* **F**✅✅✅✅
 <br>
 
 <hr>
@@ -452,8 +459,14 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 * E - true
 * F - true - no maxDepth parameter specified
 * G - false
-* **E,F**
+* **E,F**❌❌❌❌
 <br>
+
+* The files which would be walked are files in the root directory
+* The above code will print all files ending with `.java` from the root directory
+* So technically E,F and G are all correct
+* An exception could be thrown at runtime such as no permission to read the file
+* But **💡💡CORRECT ANSWER: A,G💡💡**
 
 <hr>
 
@@ -482,7 +495,7 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * So only B,D,E are possible
 * the first print is true
 * This third print is going to be true
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -504,7 +517,7 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * D - false, file can do this
 * E - true
 * F - false, file can do this
-* *A,C,E**
+* *A,C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -530,7 +543,13 @@ System.out.println(count);
 ### My answer:
 * path = `/./`
 * path.getNameCount() is 1
-* **B**
+* **B**✅✅✅✅
 <br>
 
+* The normalize() on the relative path, just returns an empty path. This path has a length of 1:
+```java
+Path path = Paths.get(".").normalize();
+System.out.println(path); // BLANK
+System.out.println(path.getNameCount()); // 1
+```
 <hr>
