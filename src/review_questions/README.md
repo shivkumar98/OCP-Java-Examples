@@ -100,6 +100,7 @@
 | -----|---------|-------|---|--------------|
 | 25/02/2024  | [No. 1](/src/review_questions/chapter_9/attempt_1/) | 5 / 20  | 25% | 1,2,3,4,5,7,8,9,10,,11,13,15,17,18,20 |
 | 02/03/2024 | [No. 2](/src/review_questions/chapter_9/attempt_2/) | 14 / 20  | 70% | 1,5,8,10,11,17 |
+| 04/03/2024 | [No. 3](/src/review_questions/chapter_9/attempt_3/) | 20 / 20 | 100% | NONE |
 
 <hr>
 
