@@ -328,7 +328,8 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * G. It compiles but throws an exception at runtime
 
 ### My answer:
-
+* A depth of 0 is specified, it only looks at `/monkeys`
+* **B**
 <hr>
 
 
@@ -342,7 +343,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. `Files.lines()`
 
 ### My answer:
-
+* **E**
 <br>
 
 <hr>
@@ -359,7 +360,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. For reading multiple attributes, it is often more performant
 
 ### My answer:
-
+* **D,E,F**
 <br>
 
 <hr>
@@ -382,7 +383,7 @@ Files.lines(path) // r1
 * F. If it prints anything, it will not include commas.
 
 ### My answer:
-
+* **F**
 <br>
 
 <hr>
@@ -406,7 +407,9 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 * G. It prints all `.java` files in the root directory tree
 
 ### My answer:
-
+* G - true
+* A - true
+* **A,,G**
 <br>
 
 <hr>
@@ -431,7 +434,9 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * F. The code does not compile 
 
 ### My answer:
-
+* first print is true
+* second print is true
+* **D**
 <br>
 
 <hr>
