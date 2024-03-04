@@ -275,12 +275,21 @@ try {
 BasicFileAttribute view = Files
 	.getFileAttributeView(readMe, BasicFileAttributeView.class);
 ```
-* This class only has one setter!:
+* This class has a `readAttributes()` method:
+```java
+try {
+	BasicFileAttributes attributes = 
+		view.readAttributes();
+} catchh (IOException e) { }
+```
+
+* This class only has one setter: `setTimes(lastModified, lastAccessed, creation)`
 ```java
 FileTime newLastAccessedTime = 
 	FileTime.fromMillis(System.currentTimeMillis());
 try {
-	view.setTimes(null, newLastAccessedTime)
+	view.setTimes(null, newLastAccessedTime, null);
+	// using null to not modify other times
 }
 ```
 
