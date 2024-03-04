@@ -453,7 +453,7 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * F. NIO.2 can be used to read the last-modified time
 
 ### My answer:
-
+* **A,C,E**
 <br>
 
 <hr>
@@ -477,7 +477,7 @@ System.out.println(count);
 * F. The code throws a runtime exception because of line `h1`
 
 ### My answer:
-
+* **B**
 <br>
 
 <hr>
