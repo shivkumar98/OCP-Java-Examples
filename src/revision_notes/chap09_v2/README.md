@@ -360,3 +360,18 @@ try {
 <br><hr>
 
 ## 🟥 9.5 Comparing Legacy Files and NIO.2 Methods
+
+| Legacy						| NIO.2						|
+|-------------------------------|---------------------------|
+| file.exists()					| Files.exists(path)		|
+| file.getName()				| paths.getFileName()		|
+| file.getAbsolutePath()		| path.toAbsolutePath()		|
+| file.isDirectory()			| Files.isDirectory(path)   |
+| file.isFile()					| Files.isRegularFile(path)	|
+| file.isHidden()				| Files.isHidden(path)		|
+| file.length()					| Files.size(path)			|
+| file.lastModified()			| Files.getLastModifiedTime(path) |
+| file.setLastModified(time)	| Files.setLastModifiedTime(path, fileTime) |
+| file.delete()					| Files.delete(path)/Files.deleteIfExists(path) |
+| file.mkdir()/file.mkkdirs()	| Files.createDirectory(path)/Files.createDirectories(path) |
+| file.listFiles()				| Files.list(path) |
