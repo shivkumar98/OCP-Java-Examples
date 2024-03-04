@@ -1,35 +1,34 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 9: Review Questions - Attempt #
+# Chapter 9: Review Questions - Attempt 3
 
 ## Results:
 
-Date: <br>
-Score: <br>
-❌
-✅
+Date: 04/03/2024 <br>
+Score: 20/20 <br>
+
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 1          |   ✅   |
+| 2          |   ✅   |
+| 3          |   ✅   |
+| 4          |   ✅   |
+| 5          |   ✅   |
+| 6          |   ✅   |
+| 7          |   ✅   |
+| 8          |   ✅   |
+| 9          |   ✅   |
+| 10         |   ✅   |
+| 11         |   ✅   |
+| 12         |   ✅   |
+| 13         |   ✅   |
+| 14         |   ✅   |
+| 15         |   ✅   |
+| 16         |   ✅   |
+| 17         |   ✅   |
+| 18         |   ✅   |
+| 19         |   ✅   |
+| 20         |   ✅   |
 
 <hr>
 
@@ -50,7 +49,7 @@ System.out.println(path);
 
 ### My answer:
 * The code does not compile! The first and second lines are invalid!!
-* **F**
+* **F**✅✅✅✅
 
 <br>
 
@@ -77,7 +76,7 @@ if(Files.isDirectory(path))
 * D - false, a non-empty ditrctory can not be deleted
 * E - false
 * F - false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 
@@ -101,7 +100,7 @@ if(Files.isDirectory(path))
 * Line 2 DOES compile!
 * Line 3 DOES compile!
 * Line 4 does NOT compile!
-* **D**
+* **D**✅✅✅✅
 <hr>
 
 ## 🟨 Question 4 🟨
@@ -120,7 +119,7 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 
 ### My answer:
 * The toAbsolutePath will append to current directory
-* **C**
+* **C**✅✅✅✅
 
 <hr> 
 
@@ -145,7 +144,7 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 * B is true
 * C is true
 * D is true
-* **B,C,D**
+* **B,C,D**✅✅✅✅
 <br>
 
 <hr>
@@ -169,7 +168,7 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 
 ### My answer:
 * The code does not compile at w1
-* **C**
+* **C**✅✅✅✅
 
 <hr>
 
@@ -191,7 +190,7 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 ### My answer:
 * Since the turkkey folder does not exist, and path is relative, it will throw an exception at runtime
 * no compilation issues
-* **F**
+* **F**✅✅✅✅
 <hr>
 
 
@@ -211,7 +210,7 @@ System.out.println(path2.resolve(path1));
 
 ### My answer:
 * path1 is absolute, so path2.resolve(path1) returns path1
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -234,7 +233,7 @@ System.out.println(path2.resolve(path1));
 * D - false
 * E - false
 * F - false
-* **B,C**
+* **B,C**✅✅✅✅
 <hr>
 
 ## 🟨 Question 10 🟨
@@ -256,7 +255,7 @@ File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
 * C - true
 * D - false
 * E - true, move does copy metadata
-* **C,E**
+* **C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -279,7 +278,7 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 
 ### My answer:
-* **A**
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -303,7 +302,7 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 * E - false
 * F - true
 * G - false
-* **A,F**
+* **A,F**✅✅✅✅
 <br>
 
 <hr>
@@ -329,7 +328,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 
 ### My answer:
 * A depth of 0 is specified, it only looks at `/monkeys`
-* **B**
+* **B**✅✅✅✅
 <hr>
 
 
@@ -343,7 +342,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. `Files.lines()`
 
 ### My answer:
-* **E**
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -360,7 +359,7 @@ Files.find(path, 0, (p,a) -> a.isSymbolicLink()).map(p -> p.toString()) // y1
 * F. For reading multiple attributes, it is often more performant
 
 ### My answer:
-* **D,E,F**
+* **D,E,F**✅✅✅✅
 <br>
 
 <hr>
@@ -383,7 +382,7 @@ Files.lines(path) // r1
 * F. If it prints anything, it will not include commas.
 
 ### My answer:
-* **F**
+* **F**✅✅✅✅
 <br>
 
 <hr>
@@ -409,7 +408,7 @@ Files.walk(Paths.get("..").toRealPath().getParent()) // u1
 ### My answer:
 * G - true
 * A - true
-* **A,,G**
+* **A,,G**✅✅✅✅
 <br>
 
 <hr>
@@ -436,7 +435,7 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 ### My answer:
 * first print is true
 * second print is true
-* **D**
+* **D**✅✅✅✅
 <br>
 
 <hr>
@@ -453,7 +452,7 @@ System.out.print(" "+path1.normalize().equals(path2.normalize()));
 * F. NIO.2 can be used to read the last-modified time
 
 ### My answer:
-* **A,C,E**
+* **A,C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -477,7 +476,7 @@ System.out.println(count);
 * F. The code throws a runtime exception because of line `h1`
 
 ### My answer:
-* **B**
+* **B**✅✅✅✅
 <br>
 
 <hr>
