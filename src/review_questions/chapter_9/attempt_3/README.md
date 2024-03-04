@@ -119,6 +119,8 @@ System.out.println(path.subpath(1,3).getName(1).toAbsolutePath());
 * G. The code does not compile
 
 ### My answer:
+* The toAbsolutePath will append to current directory
+* **C**
 
 <hr> 
 
@@ -139,7 +141,11 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 
 
 ### My answer:
-
+* It will create a directory `/mammal/kangaroo/joey`
+* B is true
+* C is true
+* D is true
+* **B,C,D**
 <br>
 
 <hr>
@@ -162,6 +168,8 @@ System.out.println(myBoolean ? "No Sub-directory": "Has Sub-directory");
 * F. It produces an infinite loop at runtime
 
 ### My answer:
+* The code does not compile at w1
+* **C**
 
 <hr>
 
