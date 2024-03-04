@@ -242,6 +242,47 @@ long epochTime = dateTime.toMillis();
 ```
 
 ### ⭐ File Attributes with Views ⭐
+* A **View** is a group of related attributes for a specific file system
+* Views offer performance enhancements over querying for singular attributes as less round trips are necessary between java and OS.
+
+* There are attributes and views classes. 
+* The attributes class which I need to be aware of for the exam is the `BasicFileAttributes` 
+* We can obtain an instance from a view, or directly from a path 
+* We used `Files.readAttributes(Path,Class<A>)` to obtain it directly:
+```java
+Path path = Paths.get("README.md");
+BasicFileAttributes attributes = null;
+try {
+	attributes = Files.readAttributes(path, BasicFileAttributes.class);
+}
+// attributes can ONLY be used for reading attributes, NOT WRITING!
+// attribute.setTimes() // COMPILER ERROR
+```
+* This class has the following methods:
+	- `isRegularFile()`
+	- `isDirectory()`
+	- `isSymbolicLink()`
+	- `isOther()`
+	- `size()`
+	- `fileKey()`
+
+<br>
+
+* The view class is used for WRITING attributes!
+* The only view class I need to know is `BasicFileAttributeView`
+* This can be obtained via the `Files.getAttributeView(Path,Class<<A>)`:
+```java
+BasicFileAttribute view = Files
+	.getFileAttributeView(readMe, BasicFileAttributeView.class);
+```
+* This class only has one setter!:
+```java
+FileTime newLastAccessedTime = 
+	FileTime.fromMillis(System.currentTimeMillis());
+try {
+	view.setTimes(null, newLastAccessedTime)
+}
+```
 
 <br><hr>
 
