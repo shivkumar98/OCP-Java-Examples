@@ -188,9 +188,10 @@ if(Files.isSameFile(path,Paths.get("/zoo/turkey"))) // x1
 * E. The code will not compile because of line x2
 * F. It compiles but throws an exception at runtime
 
-
 ### My answer:
-
+* Since the turkkey folder does not exist, and path is relative, it will throw an exception at runtime
+* no compilation issues
+* **F**
 <hr>
 
 
@@ -209,7 +210,8 @@ System.out.println(path2.resolve(path1));
 * E. It compiles but throws an exception at runtime
 
 ### My answer:
-
+* path1 is absolute, so path2.resolve(path1) returns path1
+* **A**
 <br>
 
 <hr>
@@ -226,7 +228,13 @@ System.out.println(path2.resolve(path1));
 * F. There are no differences, because one method is a pointer to the other.
 
 ### My answer:
-
+* A - not relevant
+* B - true
+* C - true
+* D - false
+* E - false
+* F - false
+* **B,C**
 <hr>
 
 ## 🟨 Question 10 🟨
