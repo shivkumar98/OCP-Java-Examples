@@ -251,7 +251,12 @@ File.move(Paths.get("monkey.txt"), Paths.get("/animals"),
 * E. The metadata of the `monkey.txt` will be moved along with the file
 
 ### My answer:
-
+* A - false, it does not overwrite by default
+* B - false, NO_FOLLOWLINKS is specified
+* C - true
+* D - false
+* E - true, move does copy metadata
+* **C,E**
 <br>
 
 <hr>
@@ -274,7 +279,7 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 
 
 ### My answer:
-
+* **A**
 <br>
 
 <hr>
@@ -291,7 +296,14 @@ System.out.println(Files.isSameFile(path1,path2)); // k3
 * G. `Paths.get("ocelot.txt")` (BOOK HAS TYPO)
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* F - true
+* G - false
+* **A,F**
 <br>
 
 <hr>
