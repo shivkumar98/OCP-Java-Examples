@@ -6,7 +6,7 @@
 - [🧠 8.2 Introducing Streams](/src/chapter_8/c_8_2_introducingStreams/)
 - [🧠 8.3 Workking With Streams](/src/chapter_8/c_8_3_workinWithStreams/)
 - [🧠 8.4 Interacting with Users](/src/chapter_8/c_8_4_interactingWithUsers/)
-- [📝Revision Notes](/src/chapter_8/revisionNotes)
+- [📝 Revision Notes](/src/revision_notes/chap08/)
 - [✅ Review Questions](/src/review_questions/chapter_8/)
 
 <hr>

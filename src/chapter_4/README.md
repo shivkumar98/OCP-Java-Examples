@@ -11,7 +11,7 @@
 - [🧠 4.5: Working with Primitives](/src/chapter_4/c_4_4_streams/)
 - [🧠 4.6: Working with Advanced Pipeline Concepts](/src/chapter_4/c_4_6_working_advanced_stream_pipeline_concepts/)
 - [🧠 4.7 Summary](/src/chapter_4/c_4_7_summary/)
-- [📝 Revision Notes](/src/chapter_4/revision_notes_v2/)
+- [📝 Revision Notes](/src/revision_notes/chap04/)
 - [✅ Review Questions](/src/review_questions/chapter_4/)
 
 <hr>

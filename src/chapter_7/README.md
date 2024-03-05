@@ -9,7 +9,7 @@
 - [🧠 7.5 Working with Parallel Streams](/src/chapter_7/c_7_5_workingWithParallelStreams/)
 - [🧠 7.6 Managing Concurrent Processes](/src/chapter_7/c_7_6_managingConcurrentProcesses/)
 - [🧠 7.7 Identifying Thread Problems](/src/chapter_7/c_7_7_identifyingThreadingProblems/)
-- [📝Revision Notes](/src/chapter_7/revisionNotes/)
+- [📝Revision Notes](/src/revision_notes/chap07/)
 - [✅ Review Questions](/src/review_questions/chapter_7/)
 
 
