@@ -10,7 +10,7 @@
 
 <hr>
 
-## 📚 Notes
+## 📚 Chapters
 1. [Chapter 1: Advanced Class Design🧑‍🎨](/src/chapter_1/)
 1. [Chapter 2: Design Patterns and Principles🌀](/src/chapter_2/)
 1. [Chapter 3: Generics and Collections📚](/src/chapter_3/)
@@ -22,10 +22,10 @@
 1. [Chapter 9: NIO.22️⃣](/src/chapter_9/)
 1. [Chapter 10: JDBC💾](/src/chapter_10/)
 
-## 📖 End of Chapter Review Questions
+## ✅ End of Chapter Review Questions
 * [Review Questions](/src/review_questions/)
 
-## ✍️ Revision Notes
+## 📝 Revision Notes
 * [Chapter 1](/src/revision_notes/chap01/)
 * [Chapter 2](/src/revision_notes/chap02/)
 * [Chapter 4](/src/revision_notes/chap04/)

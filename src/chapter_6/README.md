@@ -9,7 +9,7 @@
 - [🧠 6.4 Using Try-With-Resources](/src/chapter_6/c_6_4_usingTryWithResources/)
 - [🧠 6.5 Rethrowing Exceptions](/src/chapter_6/c_6_5_rethrowingExceptions/)
 - [🧠 6.6 Working With Assertions](/src/chapter_6/c_6_6_workingWithAssertions/)
-- [📝Revision Notes](/src/chapter_6/revisionNotes/)
+- [📝Revision Notes](/src/revision_notes/chap06/)
 - [✅ Review Questions](/src/review_questions/chapter_6/)
 
 

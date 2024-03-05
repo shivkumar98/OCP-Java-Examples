@@ -10,7 +10,7 @@
 - [🧠 3.4: Comparator vs Comparable](/src/chapter_3/chapter_3_4_comparator_vs_comparable/)
 - [🧠 3.5: Searching and Sorting](/src/chapter_3/chapter_3_5_searching_and_sorting/)
 - [🧠 3.6: Additions in Java 8](/src/chapter_3/chapter_3_6_additions_in_java_8/)
-- [📝 Revision Notes](/src/chapter_3/revision_notes_v2/)
+- 📝 Revision Notes (NOT DONE YET)
 - [✅ Review Questions](/src/review_questions/chapter_3/)
 
 <hr>
