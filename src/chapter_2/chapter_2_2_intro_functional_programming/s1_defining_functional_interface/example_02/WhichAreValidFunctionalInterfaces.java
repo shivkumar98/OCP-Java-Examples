@@ -1,7 +1,6 @@
 package chapter_2.chapter_2_2_intro_functional_programming.s1_defining_functional_interface.example_02;
 
 import chapter_2.chapter_2_1_designing_an_interface.example03.Animal;
-import chapter_2.chapter_2_2_intro_functional_programming.s1_defining_functional_interface.example01.Sprint;
 
 /* Sprint interface definition:
 	@FunctionalInterface
@@ -16,16 +15,16 @@ public class WhichAreValidFunctionalInterfaces {}
 /* QUESTION: Which of the following 3 are valid functional interfaces?*/
 
 // interface 1:
-interface Run extends Sprint{}
+//interface Run extends Sprint{}
 // interface 2:
-interface SprintFaster extends Sprint{
-	public void sprint(Animal animal);
-}
+//interface SprintFaster extends Sprint{
+//	public void sprint(Animal animal);
+//}
 // interface 3
-interface Skip extends Sprint{
-	public default int getHopCount(Kangaroo kangaroo) {	return 10; }
-	public static void skip(int speed) {}
-}
+//interface Skip extends Sprint{
+//	public default int getHopCount(Kangaroo kangaroo) {	return 10; }
+//	public static void skip(int speed) {}
+//}
 
 /* ANSWER: All 3 of them!
 *  interface 1 extends sprint so it inherits a single abstract method

@@ -11,7 +11,7 @@ public class OuterClass {
 				OuterClass outer = new OuterClass();
 				System.out.println(outer.x); // outer
 				System.out.println(x); // inner
-				System.out.println(localInt); // compiler error
+//				System.out.println(localInt); // compiler error
 			}
 		}
 		Inner inner = new Inner();

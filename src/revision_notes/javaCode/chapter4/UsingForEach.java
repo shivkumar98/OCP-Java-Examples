@@ -3,7 +3,6 @@ package revision_notes.javaCode.chapter4;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-import chapter_3.revision_notes.MapInterface;
 
 public class UsingForEach {
 

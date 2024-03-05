@@ -11,8 +11,8 @@ public class Q3 {
 		Path path = Paths.get("sloth.schedule");
 		BasicFileAttributes attributes
 			= Files.readAttributes(path, BasicFileAttributes.class);
-		if (attributes.size()>0 && attributes.creationTime().toMillis()>0)) {
-			attributes.set(null,null,null); // COMPILER ERROR
+		if (attributes.size()>0 && attributes.creationTime().toMillis()>0) {
+//			attributes.set(null,null,null); // COMPILER ERROR
 		}
 	}
 }

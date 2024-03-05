@@ -24,7 +24,7 @@ class Lion implements Run{
 }
 
 /* An interface cannot extend a class: */
-interface Sleep extends Lion {} // does not compile
+//interface Sleep extends Lion {} // does not compile
 
 /* class cannot extend an interface, even an abstract one */
-class Jog extends Run {} // does not compile
+//class Jog extends Run {} // does not compile

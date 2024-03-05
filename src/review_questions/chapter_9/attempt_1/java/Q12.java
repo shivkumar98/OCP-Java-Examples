@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 
 public class Q12 {
 	public static void main(String[] args) {
-		Paths.getPath("ocelot.txt"); // DOES NOT COMPILE
+//		Paths.getPath("ocelot.txt"); // DOES NOT COMPILE
 		// BOOK IS WRONG!!!!
 	}
 }

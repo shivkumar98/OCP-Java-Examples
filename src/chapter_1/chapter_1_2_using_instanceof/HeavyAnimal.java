@@ -22,7 +22,7 @@ public class HeavyAnimal {
 		System.out.println(nullHippo instanceof Object); // false
 		
 		Hippo hip = new Hippo();
-		boolean b = hip instanceof Elephant;
+//		boolean b = hip instanceof Elephant; // COMPILER ERROR
 	}
 	
 }

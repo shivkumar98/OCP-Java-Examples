@@ -7,11 +7,11 @@ public class Phone {
 }
 
 class iPhone extends Phone {
-	@Override
-	public static void staticMethod() {} // COMPILER ERROR
+//	@Override
+//	public static void staticMethod() {} // COMPILER ERROR
 	
-	@Override
-	public void privateMethod() {} // CAN NOT SEE Phone's privateMethod
+//	@Override
+//	public void privateMethod() {} // CAN NOT SEE Phone's privateMethod
 	
 	@Override
 	public void regMethod() {} // WORKS FINE

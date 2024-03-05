@@ -1,4 +1,4 @@
-package chapter_1.chapter_1_7.creating_nested_classes;
+package chapter_1.chapter_1_7_creating_nested_classes;
 
 /*
  * What is a nested class?

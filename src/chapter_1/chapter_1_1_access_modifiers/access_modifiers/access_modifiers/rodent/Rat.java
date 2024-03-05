@@ -6,8 +6,8 @@ public class Rat {
 	
 	public static void main(String[] args) {
 		 String w = BigCat.publicVar;
-		 String x = BigCat.protectedVar; // not accessible from random class
-		 boolean y = BigCat.defaultVar; // not accessible from seperate package
+//		 String x = BigCat.protectedVar; // not accessible from random class
+//		 boolean y = BigCat.defaultVar; // not accessible from seperate package
 	}
 
 }
