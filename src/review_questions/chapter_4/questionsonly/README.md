@@ -2,8 +2,6 @@
 
 # Chapter 4: Review Questions - Attempt #
 
-## Results:
-
 Date:  <br>
 Score: /20 <br>
 ❌✅
@@ -41,13 +39,13 @@ Stream<String> stream = Stream.iterate("", (s)->s+"1"));
 System.out.println(stream.limit(2).map(x->x+"2"));
 ```
 
-A. 12112 <br>
-B. 212 <br>
-C. 212112 <br>
-D. java.util.stream.ReferencePipeline$3@4517d9a3 <br>
-E. The code does not compile <br>
-F. An exception is thrown <br>
-G. The code hangs <br>
+* A. 12112 
+* B. 212 
+* C. 212112 
+* D. java.util.stream.ReferencePipeline$3@4517d9a3 
+* E. The code does not compile 
+* F. An exception is thrown 
+* G. The code hangs 
 
 ### My Answer:
 
@@ -168,26 +166,32 @@ private static List<String> sort(List<String> list) {
 * A. 
 ```java
 return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
+   .compare((a,b)->b.compareTo(a))
+   .collect(Collectors.toList());
 ```
 * B. 
 ```java
 return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
+   .compare((a,b)->b.compareTo(a))
+   .sort();
+```
+* C.
+```java
+return list.stream()
+   .compareTo((a, b) -> b.compareTo(a))
+   .collect(Collectors.toList());
 ```
 * D. 
 ```java
 return list.stream()
-    .compareTo((a,b)->b.compareTo(a))
-    .sort();
+   .compareTo((a,b)->b.compareTo(a))
+   .sort();
 ```
 * E. 
 ```java
 return list.stream()
-    .sorted((a,b)-> b.compareTo(a))
-    .collect();
+   .sorted((a,b)-> b.compareTo(a))
+   .collect();
 ```
 * F. 
 ```java
@@ -219,7 +223,7 @@ return list.stream()
 
 ## 🟧 Question 9
 
-❓Which of the following can we add line 5 for the code to run without error and not produce any output? (Choose all that apply)❓
+❓Which of the following can we add after line 5 for the code to run without error and not produce any output? (Choose all that apply)❓
 
 ```java
 4:  LongStream ls = LongStream.of(1,2,3);                           

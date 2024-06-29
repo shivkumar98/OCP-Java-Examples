@@ -1,34 +1,32 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 4: Review Questions - Attempt 6
+# Chapter 4: Review Questions - Attempt 7
 
-## Results:
-
-Date:  <br>
-Score: 18/20 (90%) <br>
+* Date: 29/06/2024
+* Score: 14/20 (70%) <br>
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          | ✅        |
-| 2          | ✅        |
-| 3          | ✅        |
-| 4          | ✅        |
-| 5          | ✅        |
-| 6          | ✅        |
-| 7          | ✅        |
-| 8          | ✅        |
-| 9          | ✅        |
-| 10         | ✅        |
-| 11         | ✅        |
-| 12         | ❌        |
-| 13         | ✅        |
-| 14         | ✅        |
-| 15         | ✅        |
-| 16         | ✅        |
-| 17         | ✅        |
-| 18         | ✅        |
-| 19         | ✅        |
-| 20         | ❌        |
+| 1          |  ✅       |
+| 2          |  ✅       |
+| 3          |  ❌       |
+| 4          |  ✅       |
+| 5          |  ❌       |
+| 6          |  ✅       |
+| 7          |  ❌       |
+| 8          |  ✅       |
+| 9          |  ✅       |
+| 10         |  ✅       |
+| 11         |  ❌       |
+| 12         |  ✅       |
+| 13         |  ✅       |
+| 14         |  ✅       |
+| 15         |  ✅       |
+| 16         |  ✅       |
+| 17         |  ✅       |
+| 18         |  ❌       |
+| 19         |  ❌       |
+| 20         |  ✅       |
 
 
 <hr>
@@ -41,19 +39,15 @@ Stream<String> stream = Stream.iterate("", (s)->s+"1"));
 System.out.println(stream.limit(2).map(x->x+"2"));
 ```
 
-A. 12112 <br>
-B. 212 <br>
-C. 212112 <br>
-D. java.util.stream.ReferencePipeline$3@4517d9a3 <br>
-E. The code does not compile <br>
-F. An exception is thrown <br>
-G. The code hangs <br>
+* A. 12112 
+* B. 212 
+* C. 212112 
+* D. java.util.stream.ReferencePipeline$3@4517d9a3 
+* E. The code does not compile 
+* F. An exception is thrown 
+* G. The code hangs 
 
 ### My Answer:
-* stream = ["", "1", "11", "111", ...]
-* stream = ["", "1"]
-* stream = "["2", "12"]
-* Printing a stream will give you a memory reference
 * **D**✅✅✅✅
 <hr>
 
@@ -79,9 +73,8 @@ System.out.println(b1 + " "+ b2);
 ❓
 
 ### My Answer:
-* stream1 = ["growl!", "growl!",...]
-* b1 is true as the first element matches
-* b2 will hang as it will look at all elements to see if they begin with g
+* b1 returbs trye
+* b2 causes code to hang
 * **F**✅✅✅✅
 <hr>
 
@@ -105,14 +98,16 @@ System.out.println(b1 + " "+ b2);
 ❓
 
 ### My Answer:
-* b1 will be false
-* b2 will throw an exception as you are calling a terminal operation twice on the same stream
-* **E**✅✅✅✅
+* b1 returns false and short circuits
+* b2 returns true
+* **A**❌❌❌❌
+* **CORRECT ANSWER: E**
 <hr>
 
 ## 🟧 Question 4:
 
 ❓Which are true statements about terminal operations in a stream?
+
 * A. At most one terminal operation can exist in a stream pipeline <br>
 * B. Terminal operations are a required part of the stream pipeline in order to get a result <br>
 * C. Terminal operations must have `Stream` as the return type. <br>
@@ -123,9 +118,9 @@ System.out.println(b1 + " "+ b2);
 ### My Answer:
 * A - true
 * B - true
-* C - false, they can return boolean, objects, collections
+* C - false
 * D - false
-* E - false, this is an intermediate operation
+* E - false
 * **A,B**✅✅✅✅
 <hr>
 
@@ -141,13 +136,9 @@ System.out.println(b1 + " "+ b2);
 * F. sum() <br>
 
 ### My Answer:
-* A - true
-* B - true
-* C - false
-* D - false, this is an intermediate operation
-* E - false, intermediate
-* F - false, this is not a method available to stream class!
-* **A,B**✅✅✅✅
+* **A,B,F**❌❌❌❌
+* **CORRECT ANSWER: A,B**
+* `.sum()` is available to primitive streams!!!
 <hr>
 
 ## 🟧 Question 6:
@@ -168,17 +159,18 @@ System.out.println(match);
 * F. None of the above <br>
 
 ### My Answer:
-* A - true, this will print false
-* B - false, this will hang
-* C - false, this can not take a parameter I THINK
-* D - false, this method does not take a parameter
-* E - false, this will print true
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
 * F - false
 * **A**✅✅✅✅
 <hr>
 
 
 ## 🟧 Question 7
+
 ❓We have a method that returns a sorted list without changing the original. Which of the following can replace the method implementation to do the same with streams?
 
 ```java
@@ -192,26 +184,32 @@ private static List<String> sort(List<String> list) {
 * A. 
 ```java
 return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
+   .compare((a,b)->b.compareTo(a))
+   .collect(Collectors.toList());
 ```
 * B. 
 ```java
 return list.stream()
-    .compare((a,b)->b.compareTo(a))
-    .collect(Collectors.toList());
+   .compare((a,b)->b.compareTo(a))
+   .sort();
+```
+* C.
+```java
+return list.stream()
+   .compareTo((a, b) -> b.compareTo(a))
+   .collect(Collectors.toList());
 ```
 * D. 
 ```java
 return list.stream()
-    .compareTo((a,b)->b.compareTo(a))
-    .sort();
+   .compareTo((a,b)->b.compareTo(a))
+   .sort();
 ```
 * E. 
 ```java
 return list.stream()
-    .sorted((a,b)-> b.compareTo(a))
-    .collect();
+   .sorted((a,b)-> b.compareTo(a))
+   .collect();
 ```
 * F. 
 ```java
@@ -221,10 +219,10 @@ return list.stream()
 ```
 
 ### My Answer:
-* The stream class has a sorted method which takes a comparator
-* E is false as you need to provide a collector
-* F is true
-* **F**✅✅✅✅
+* The methhod is compare which takes a comparator
+* So it's A
+* **A**❌❌❌❌
+* **CORRECT ANSWER: F**
 <hr>
 
 
@@ -240,16 +238,17 @@ return list.stream()
 * F. `is.sum()` returns the type `OptionalInt` <br>
 
 ### My Answer:
-* `.average()` returns an OptionalDouble
-* `is.findAny()` returns an OptionalInt
-* `is.sum()` returns an int
+* average returns double
+* findAny returns OptionalInt
+* sum returns int
 * **D,E**✅✅✅✅
+
 <hr>
 
 
 ## 🟧 Question 9
 
-❓Which of the following can we add line 5 for the code to run without error and not produce any output? (Choose all that apply)❓
+❓Which of the following can we add after line 5 for the code to run without error and not produce any output? (Choose all that apply)❓
 
 ```java
 4:  LongStream ls = LongStream.of(1,2,3);                           
@@ -264,10 +263,10 @@ return list.stream()
 * F. None of these; line 5 throws an exception <br>
 
 ### My Answer:
-* ls = [1,2,3]
-* ls = [10,20,30]
-* ls = []
+* opt is Optional.empty
+* A - false
 * B - true
+* C - false
 * D - true
 * **B,D**✅✅✅✅
 <hr>
@@ -295,10 +294,13 @@ O:  .peek(System.out::println)
 * G. `N, O` <br>
 
 ### My Answer:
-* Anything with L will be wrong
-* We need N
+* A - false
+* B - false
+* C - false
+* D - false
+* E - false
 * F - true
-* G - false, peek is intermediate
+* G - false
 * **F**✅✅✅✅
 <hr>
 
@@ -317,11 +319,14 @@ Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
 * F. None of the above. The code already prints "12345" <br>
 
 ### My Answer:
- * The joining needs a parameter of ""
- * We need C
- * We need to convert the number to a string so we need B
- * We need E
- * **B,C,E**✅✅✅✅
+* B is needed
+* C is NOT needed I think
+* A is needed,
+* E is needed
+* **A,B,E**❌❌❌❌
+* The `Collectors.joining()` method does NOT require a blank string so A is false
+* C is needed otherwise it prints only 11111
+* **CORRECT ANSWER: B,C,E**
 <hr>
 
 
@@ -345,11 +350,11 @@ Stream.iterate(1, x->x++).limit(5).map(x -> x).collect(Collectors.joining());
 * H. `UnaryOperator<String, String>`  <br>
 
 ### My Answer:
-* x is a supplier so F is true
-* y is a consumer with 2 arguments applied, so A
-* z is a Function or UnaryOperator, so its H
-* **A,F,H**❌❌❌❌
-* UnaryOperator does not have 2 generic types!!!
+* x is supplier
+* y is BiConsumer
+* z is UnaryOperator
+* **F,A,G**
+* **A,F,G**✅✅✅✅
 <hr>
 
 
@@ -369,13 +374,13 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 * B. The code compiles and prints `234567` <br>
 * C. The code compiles but does not print anything <br>
 * D. The code compiles but prints stream references <br>
-* E. The code runs infinitely <br>
+* E.  The code runs infinitely <br>
 * F. The code does not compile <br>
 * G. The code throws an exception <br>
 
 ### My Answer:
-* The map does not compile so F
-* **F**✅✅✅✅
+* Does not compile on map
+* **F** ✅✅✅✅
 <hr>
 
 ## 🟧 Question 14: 
@@ -400,7 +405,11 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 * G. The code compiles and prints 1. <br>
 
 ### My Answer:
-* Line 7 does not compile
+* line 4 is fine
+* line 5 is fine
+* line 6 is fine
+* 7 does not compile
+* line 8 is fine
 * **D**✅✅✅✅
 <hr>
 
@@ -416,7 +425,6 @@ Stream.of(l1, l2, l3).map(x -> x+1)
 * F. None of the above <br>
 
 ### My Answer:
-* Only D and E look right
 * **D,E**✅✅✅✅
 <hr>
 
@@ -461,7 +469,7 @@ UnaryOperator<Integer> u = x -> x * x;
 * F. None of these above
 
 ### My Answer:
-* **E**✅✅✅✅
+* **E** ✅✅✅✅
 <hr>
 
 ## 🟧 Question 18
@@ -482,8 +490,9 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 * G. An exception is thrown
 
 ### My Answer:
-* 1.2 and 2.4 will come through
-* **D**✅✅✅✅
+* The result is 1
+* **A**❌❌❌❌
+* **CORRECT ANSWER: D**
 <hr>
 
 ## 🟧 Question 19
@@ -498,7 +507,8 @@ s.peek(System.out.::println).filter(x -> x > 2).count();
 * F. `StringSupplier`
 
 ### My Answer:
-* **A,C,E**✅✅✅✅
+* **A,B,E**❌❌❌❌
+* **CORRECT ANSWER: A,D,E**
 <hr>
 
 ## 🟧 Question 20
@@ -530,8 +540,5 @@ IntStream.range(1,6)
 * E. The provided code does not compile
 
 ### My Answer:
-* The range is not closed so A and B are false
-* C is correct
-* **C**❌❌❌❌
-* I misread the question, B is the simplest!
+* **B**✅✅✅✅
 <hr>
