@@ -1,28 +1,28 @@
-# Chapter 3 - Review Questions Attempt 7
+# Chapter 3 - Review Questions Attempt 8
 
 Date: 29/06/2024
-Score: 18/25 (72%)
+Score: 23/25 (92%)
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          | ❌      |
-| 2          | ✅      |
+| 1          | ✅      |
+| 2          | ❌      |
 | 3          | ✅      |
 | 4          | ✅      |
 | 5          | ✅      |
 | 6          | ✅      |
 | 7          | ✅      |
-| 8          | ❌      |
+| 8          | ✅      |
 | 9          | ❌      |
 | 10         | ✅      |
 | 11         | ✅      |
-| 12         | ❌      |
-| 13         | ❌      |
-| 14         | ❌      |
+| 12         | ✅      |
+| 13         | ✅      |
+| 14         | ✅      |
 | 15         | ✅      |
 | 16         | ✅      |
 | 17         | ✅      |
-| 18         | ❌      |
+| 18         | ✅      |
 | 19         | ✅      |
 | 20         | ✅      |
 | 21         | ✅      |
@@ -44,11 +44,7 @@ D. HashSet
 E. LinkedList 
 
 ### My Answer:
-* ArrayList
-* HashMap
-* **A,C**❌❌❌❌
-* **CORRECT ANSWER: B**
-* Array is not in java.util
+* **B**✅✅✅✅
 <br>
 
 <hr>
@@ -68,7 +64,8 @@ Which of the following collections classes in the `java.util` package best suit 
 * F. Vector 
 
 ### My Answer:
-* **D**✅✅✅✅
+* **B**❌❌❌❌
+* **CORRECT ANSWER: D**
 <br>
 
 <hr>
@@ -118,8 +115,6 @@ Which of the following collections classes in the `java.util` package best suit 
 * G. An exception is thrown 
 
 ### My Answer:
-* greetings = [ola, hi, hello]
-* hi hello is printed
 * **E**✅✅✅✅
 <br>
 
@@ -136,12 +131,6 @@ Which of the following collections classes in the `java.util` package best suit 
 * F. `Map<String, ? extends Number> hm = new HashMap<String, Integer>();`
 
 ### My Answer:
-* A - false
-* B - true
-* C - true
-* D - false, HashSet is not a List
-* E - false, cannot have wildcards on RHS
-* F - true
 * **B,C,F**✅✅✅✅
 <br>
 
@@ -186,7 +175,7 @@ Which of the following collections classes in the `java.util` package best suit 
 8:  numbers.add(309L);
 9:  Iterator iter = numbers.iterator(); 
 10: while (iter.hasNext())
-11:    System.out.print(iter.next());   
+11:     System.out.print(iter.next());   
 ```
 
 * A. The code compiles successfully
@@ -198,8 +187,9 @@ Which of the following collections classes in the `java.util` package best suit 
 * G. An exception is thrown
 
 ### My Answer:
-* order cannot be determmined with HashSet
 * **A,D**✅✅✅✅
+<br>
+
 <hr>
 
 ## Question 8:
@@ -220,10 +210,7 @@ System.out.println(tree.ceiling("On"));
 * F. An exception is thrown
 
 ### My Answer:
-* ceiling checks for smallest element which is greater than `On`
-* **D**❌❌❌❌
-* **CORRECT ANSWER:C**
-* I think I made a typo when putting down my answer
+* **C**✅✅✅✅
 <br>
 
 <hr>
@@ -240,11 +227,8 @@ Map<String, Double> map = new HashMap<>();
 * E. None of the above 🎃
 
 ### My Answer:
-* A valid, B valid, C valid, D invalid I think
-* **A,B,C**❌❌❌❌
+* **A,C**❌❌❌❌
 * **CORRECT ANSWER: E**
-* The Map interface has no `add` method only `put()`
-* If it used put then the answer would be A,C
 <br>
 
 <hr>
@@ -276,8 +260,6 @@ public class MyComparator implements Comparator<String> {
 * F. A runtime exception is thrown
 
 ### My Answer:
-* will order in reverse order ignoring case
-* [123, aab, Abb] reversed is pprinted
 * **A**✅✅✅✅
 <br>
 
@@ -325,14 +307,7 @@ public class Helper {
 * E. `Helper.printException(new Throwable("E"))`
 
 ### My Answer:
-* A - valid
-* B - valid
-* C - not valid
-* D - valid
-* E - valid
-* **A,B,D,E**❌❌❌❌
-* **CORRECT ANSWER: A,B,D**
-* Throwable does not extend Exception!!!
+* **A,B,D**✅✅✅✅
 <br>
 
 <hr>
@@ -362,15 +337,7 @@ public class WildCard {
 * F. None of the above
 
 ### My Answer:
-* A - valid, I think
-* B - valid
-* C - invalid
-* D - invalid
-* E - valid
-* F - false
-***A,B,E**❌❌❌❌
-* **CORRECT ANSWER: B,E**
-* ArrayDeque is NOT a List!!!
+* **B,E**✅✅✅✅
 <br>
 
 <hr>
@@ -409,14 +376,7 @@ public class Sorted implements Comparable<Sorted>, Comparator<Sorted> {
 * F. A runtime exception is thrown 
 
 ### My Answer:
-* t1 is sorted naturally by keys
-* so t1 = `[55 88]`
-* t2 is sorted by comparator which compares text
-* so t2 = `[88,55]`
-* **B**❌❌❌❌
-* **CORRECT ANSWER: C**
-* I failed to realise that the TreeSet is of type Sorted, so it is ordered by the natural ordering of Sorted which is descending in the num
-* Also didn't realise that the compare method is in descending order
+* **C**✅✅✅✅
 <br>
 
 <hr>
@@ -438,8 +398,6 @@ System.out.println(Collections.binarySearch(list, 1))
 * F. A runtime exception is thrown 
 
 ### My Answer:
-* list is sorted in descending order
-* binary search does not work
 * **D**✅✅✅✅
 <br>
 
@@ -457,10 +415,6 @@ System.out.println(Collections.binarySearch(list, 1))
 * F. `compare()` takes two method parameters
 
 ### My Answer:
-* Comparable is in `java.lang`
-* B is true
-* D is true
-* F is true
 * **B,D,F**✅✅✅✅
 <br>
 
@@ -473,8 +427,8 @@ System.out.println(Collections.binarySearch(list, 1))
 ```java
 1: public class Generic_____ {                     
 2:    public static void main(String[] args){
-3:       Generic<String> g = new Generic_____(); 
-4:       Generic<Object> g2 = new Generic();
+3:        Generic<String> g = new Generic_____(); 
+4:        Generic<Object> g2 = new Generic();
 5:    }
 6: }
 ```
@@ -487,8 +441,6 @@ System.out.println(Collections.binarySearch(list, 1))
 * F. Fill Line 3 with `<?>`
 
 ### My Answer:
-* B is valid
-* D is valid
 * **B,D**✅✅✅✅
 <br>
 
@@ -500,7 +452,7 @@ System.out.println(Collections.binarySearch(list, 1))
 ```java
 class A {}
 class B extends A {}
-class C extends B {}
+class C extends C {}
 
 class D<C> {
    // INSERT CODE HERE
@@ -515,15 +467,7 @@ class D<C> {
 * F. `C c1 = new C();`
 
 ### My Answer:
-* A - valid
-* B - valid
-* C - valid
-* D - invalid
-* E - invalid
-* F - invalid
-* **A,B,C**❌❌❌❌
-* **CORRECT ANSWER: A,B**
-* C cannot be instantiated
+* **A,B**✅✅✅✅
 <br>
 
 <hr>
@@ -547,8 +491,6 @@ class D<C> {
 * F. A runtime exception is thrown
 
 ### My Answer:
-* A - true
-* D - true
 * **A,D**✅✅✅✅
 <br>
 
@@ -572,12 +514,10 @@ class D<C> {
 * F. A runtime exception is thrown 
 
 ### My Answer:
-* Compiler error on line 7
 * **E**✅✅✅✅
 <br>
 
 <hr>
-
 
 ##  Question 21:
 
@@ -625,6 +565,8 @@ public static T identity(T t){
 
 <hr>
 
+
+
 ## Question 23:
 
 ❓ Which of the answer make sense to implement with lambda (choose all which apply) ❓
@@ -636,11 +578,6 @@ public static T identity(T t){
 * E. removeIf() method on a Collection
 
 ### My Answer:
-* A - false
-* B - true
-* C - false
-* D - false
-* E - true
 * **B,E**✅✅✅✅
 <br>
 
@@ -666,12 +603,6 @@ s.forEach(________);
 * F. `System.out::println`
 
 ### My Answer:
-* A - invalid
-* B - invalid
-* C - invalid
-* D - invalid
-* E - invalid
-* F - valid
 * **F**✅✅✅✅
 <br>
 
