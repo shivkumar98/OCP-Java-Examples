@@ -56,3 +56,7 @@ interface CanRun {
 public interface invalidInterface extends CanWalk, CanRun { // COMPILER ERROR
 }
 ```
+
+## Chapter 3 Generics and Collections
+* The ArrayDeque has a pop method which removes and returns the start of the List, peek method only returns start of List
+* The `List` interface has a `remove(index)` method, while `Queue` has `remove(T object)` method
