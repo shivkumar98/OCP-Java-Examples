@@ -29,3 +29,30 @@ class Outer {
 Inner inner = new Inner(); // COMPILER ERROR
 Inner inner = new Outer().new Innner(); // WORKS!
 ```
+
+## Chapter 2: Design Patterns and Principles
+* If you are using the return keyword in lambda, it MUST be in curly braces
+```java
+() -> return 0; // COMPILER ERROR
+```
+* Singleton classes have the following properties:
+   - Instance is private and static
+   - Ensures only one instance is kept in memory
+   - Instance is accessed via public static method which returns a copy of the reference
+   - Synchnrozing the Singleton class is not essential but does improve Singleton pattern
+* Immutable classes have the folloiwing properties:
+   - private final variables
+   - If a member is a list, it should not give direct reference in getter, and constructor should take a copy to set fields
+   - No setters
+* Interfaces can extend abstract classes or interfaces, NOT concrete classes!
+* Interface can not implement mmultiple interfaces if it inherits two default methods of same signature
+```java
+interface CanWalk {
+   void walk() { System.out.println("walk"); }
+}
+interface CanRun {
+   void walk() { System.out.println("walk"); }
+}
+public interface invalidInterface extends CanWalk, CanRun { // COMPILER ERROR
+}
+```

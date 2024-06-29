@@ -1,32 +1,30 @@
-# Chapter 2 - Review Questions Attemp #
+# Chapter 2 - Review Questions Attempt 6
 
-## Results:
-
-Date: 
-Score: 
+Date: 29/06/2024
+Score: 14/20 (70%)
 
 | Question # | Correct  |
 | ---------- | -------  |
 | 1          | ✅      |
-| 2          | ❌      |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
+| 2          | ✅      |
+| 3          | ❌      |
+| 4          | ❌      |
+| 5          | ✅      |
+| 6          | ✅      |
+| 7          | ❌      |
+| 8          | ✅      |
+| 9          | ✅      |
+| 10         | ❌      |
+| 11         | ✅      |
+| 12         | ✅      |
+| 13         | ❌      |
+| 14         | ✅      |
+| 15         | ✅      |
+| 16         | ✅      |
+| 17         | ✅      |
+| 18         | ❌      |
+| 19         | ✅      |
+| 20         | ✅      |
 
 ## 🟧 Question 1
 
@@ -40,6 +38,10 @@ Score:
 
 ### My Answer:
 
+* A principle is a generalised idea
+* Patterns are for commonly occuring issues
+* A - false, B - false, C - true, D - false, E - true
+* **C,E**✅✅✅✅
 <br>
 
 <hr>
@@ -69,7 +71,11 @@ Score:
 * F. It compiles but throws exception at runtime <br>
 
 ### My Answer:
-
+* line 2 is fine
+* line 4 is fine
+* line 5 is fine
+* line 8 is not fine
+* **E**✅✅✅✅
 <br>
 
 <hr>
@@ -99,7 +105,13 @@ public interface MountainClimb extends Climb {}
 * E. None of these are valid functional interfaces <br>
 
 ### My Answer:
-
+* Climb is functional
+* Swim is functional
+* MountainClimb is functional
+* ArticMountainClimb is not functional
+* **A,B,D**❌❌❌❌
+* **CORRECT ANSWER: A,D**
+* Swim is abstract so can not be implemented using lambda
 <br>
 
 <hr>
@@ -109,16 +121,19 @@ public interface MountainClimb extends Climb {}
 
 ❓Which of the following are valid lambda expressions (choose all that apply)❓
 
-* A. `() -> ""` <br>
-* B. `x,y -> x+y` <br>
+* A. `() -> ""` 
+* B. `x,y -> x+y`
 * C. `(Coyote y) -> return 0;` 
-* D. `(Camel c) -> {return; }`
-* E. `Wolf w -> 39` <br>
-* F. `() ->` <br>
-* G. `(Animal z, m)-> a` <br>
+* D. `(Camel c) -> {return; }` 
+* E. `Wolf w -> 39` 
+* F. `() ->` 
+* G. `(Animal z, m)-> a` 
 
 ### My Answer:
-
+* A - valid, B - invalid, C - valid, D - valid, E - invlaid, F - invalid I THINK, G - invalid
+* **A,C,D**❌❌❌❌
+* **CORRECT ANSWER: A,D**
+* curly braces are necessary
 <br>
 
 <hr>
@@ -137,6 +152,13 @@ public interface MountainClimb extends Climb {}
 
 ### My Answer:
 
+* A - false
+* B - true
+* C - false
+* D - false
+* E - true
+* F - true
+* **B,E,F**✅✅✅✅
 <br>
 
 <hr>
@@ -170,7 +192,7 @@ public class Panda {
 * F. `A runtime exception is thrown`🎃
 
 ### My Answer:
-
+* **A**✅✅✅✅
 <br>
 
 <hr>
@@ -205,10 +227,18 @@ public class Seal {
 
 ### My Answer:
 
+* A - false
+* B - false
+* C - true
+* D - false
+* E - trye
+* F - false
+* G - true
+* **C,E,G**❌❌❌❌
+* **CORRECT ANSWER: C,E,G,H**
 <br>
 
 <hr>
-
 
 ## 🟧 Question 8
 
@@ -223,6 +253,13 @@ public class Seal {
 
 ### My Answer:
 
+* A - false, they can only extend abstract classes or interfaces
+* B - false
+* C - true
+* D - false
+* E - false
+* F - true
+* **C,F**✅✅✅✅
 <br>
 
 <hr>
@@ -252,7 +289,14 @@ public class CheetahManager {
 * F. Add synchronized to `getCheetahManager()` <br>
 
 ### My Answer:
-
+* cheetahMManager needs to be private
+* A - false
+* B - false
+* C - false
+* D - true
+* E - false
+* F - true
+* **D,F**✅✅✅✅
 <br>
 
 <hr>
@@ -282,7 +326,12 @@ public class CheetahManager {
 * E. The code will not compile because of line 9 <br>
 
 ### My Answer:
-
+* line 6 is fine
+* line 8 is fine
+* line 9 is fine, interface methods are public
+* **A**❌❌❌❌
+* **CORRECT ANSWER: D**
+* Interface can not implement mmultiple interfaces if it inherits two default methods of same signature
 <br>
 
 <hr>
@@ -311,7 +360,9 @@ public class MySecret implements Secret {
 * F. `caller((e) -> { String f = ""; return "Poof"; });` <br>
 
 ### My Answer:
-
+* A - valid
+* F - valid
+* **A,F**✅✅✅✅
 <br>
 
 <hr>
@@ -345,7 +396,7 @@ public class Climber {
 * F. A runtime exception is thrown. <br>
 
 ### My Answer:
-
+* **C**✅✅✅✅
 <br>
 
 <hr>
@@ -364,6 +415,8 @@ public class Climber {
 
 ### My Answer:
 
+* **B,E**❌❌❌❌
+* **CORRECT ANSWER: B,C,E**
 <br>
 
 <hr>
@@ -391,7 +444,8 @@ public class TurtleFrog extends Frog {}
 * F. Long <br>
 
 ### My Answer:
-
+* Frog, CanHop, Object
+* **A,B,D,E**✅✅✅✅
 <br>
 
 <hr>
@@ -407,7 +461,12 @@ public class TurtleFrog extends Frog {}
 * E. By defining public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime <br>
 
 ### My Answer:
-
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* **B,C**✅✅✅✅
 <br>
 
 <hr>
@@ -418,7 +477,7 @@ public class TurtleFrog extends Frog {}
 
 ```java
 1: public interface Herbivore {
-2:    int amount = 10;
+2:   0; int amount = 1
 3:    public static void eatGrass();
 4:    public int chew() {
 5:       return 13;
@@ -434,7 +493,10 @@ public class TurtleFrog extends Frog {}
 * F. The code will not compile because of line 3 and 4 <br>
 
 ### My Answer:
-
+* line 2 is fine
+* line 3 is not fine
+* line 4 is not fine
+* **F**✅✅✅✅
 <br>
 
 <hr>
@@ -452,7 +514,7 @@ public class TurtleFrog extends Frog {}
 * F. The first letter of the any getter/setter, after the `get`, `set`, or `is` prefix, must be upper case <br>
 
 ### My Answer:
-
+* **B,C,F**✅✅✅✅
 <br>
 
 <hr>
@@ -470,7 +532,9 @@ public class TurtleFrog extends Frog {}
 * F. Object composition is always preferred to inheritance. <br>
 
 ### My Answer:
-
+* A - true, B - false, C - false, D - true, E - false, protected can also be access, F - false
+* **A,D**❌❌❌❌
+* **CORRECT ANSWER: B,C**
 <br>
 
 <hr>
@@ -488,7 +552,9 @@ public class TurtleFrog extends Frog {}
 * F. Allow multiple instances of a static object to be managed in memory <br>
 
 ### My Answer:
-
+* A - true, B - true, C - false, D -true,, E - true, E - false
+* best benefits are B, D, E
+* **B,D,E**✅✅✅✅
 <br>
 
 <hr>
@@ -516,7 +582,7 @@ public class TurtleFrog extends Frog {}
 * F. The code will not compile because of class Falcon does not implement the interface methods <br>
 
 ### My Answer:
-
+* **A**✅✅✅✅
 <br>
 
 <hr>
