@@ -1,33 +1,33 @@
-# Chapter 1 - Review Questions Attempt #
+# Chapter 1 - Review Questions Attempt 7
 
 ## Results:
 
-Date: 
-Score: /21
+Date: 29/06/2024
+Score: 21/21 (100%)
 
 | Question # | Correct  |
 | ---------- | -------  |
-| 1          |          |
-| 2          |          |
-| 3          |          |
-| 4          |          |
-| 5          |          |
-| 6          |          |
-| 7          |          |
-| 8          |          |
-| 9          |          |
-| 10         |          |
-| 11         |          |
-| 12         |          |
-| 13         |          |
-| 14         |          |
-| 15         |          |
-| 16         |          |
-| 17         |          |
-| 18         |          |
-| 19         |          |
-| 20         |          |
-| 21         |          |
+| 1          |   ✅       |
+| 2          |   ✅       |
+| 3          |   ✅       |
+| 4          |   ✅       |
+| 5          |   ✅       |
+| 6          |   ✅       |
+| 7          |   ✅       |
+| 8          |   ✅       |
+| 9          |   ✅       |
+| 10         |   ✅       |
+| 11         |   ✅       |
+| 12         |   ✅       |
+| 13         |   ✅       |
+| 14         |   ✅       |
+| 15         |   ✅       |
+| 16         |   ✅       |
+| 17         |   ✅       |
+| 18         |   ✅       |
+| 19         |   ✅       |
+| 20         |   ✅       |
+| 21         |   ✅       |
 
 ## 🟧 Question 1
 
@@ -63,7 +63,7 @@ public class Employee {
 * F. A runtime exception is thrown🎃
 
 ### My Answer:
-
+* **A**✅✅✅✅
 <hr>
 
 ## 🟧 Question 2
@@ -96,7 +96,7 @@ public class Book {
 * F. The code does not compile for another reason🎃
 
 ### My Answer:
-
+* **A**✅✅✅✅
 <hr>
 
 ## 🟧 Question 3
@@ -118,7 +118,7 @@ if (s1.equals(s2)) System.out.println("s1.equals(s2)");
 * F. The code throws a runtime exception🎃
 
 ### My Answer:
-
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 4
@@ -147,7 +147,7 @@ public class BaseballTeam {
 * D. The class compiles but has proper equals() and hashCode() methods🎃
 
 ### My Answer:
-
+* **C**✅✅✅✅
 <hr>
 
 
@@ -161,7 +161,7 @@ public class BaseballTeam {
 * D. if a.equals(b) is false, a.hashCode() == b.hashCode() can sometimes be true🎃
  
 ### My Answer:
-
+* **A,D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 6
@@ -187,7 +187,7 @@ public class FlavorsEnum {
 * F. The code does not compile for a different reason 🎃
 
 ### My Answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 7
@@ -220,7 +220,7 @@ public class IceCream {
 * F. An exception is thrown 🎃
 
 ### My Answer:
-
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 8
@@ -252,7 +252,7 @@ public class IceCream {
 ### My Answer:
 
 * Line 4 has compilation error since a nested member class can not have static variables
-
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 9
@@ -286,7 +286,7 @@ public class IceCream {
 * F. An exception is thrown🎃
 
 ### My Answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 10
@@ -309,7 +309,7 @@ public class IceCream {
 * E. A compiler error occurs on line 5 🎃
     
 ### My Answer:
-
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 11
@@ -337,7 +337,7 @@ public class FootballGame {
 * G. static import my.sports.Football;
 
 ### My Answer:
-
+* **D**✅✅✅✅
 <hr>
 
 ## 🟧 Question 12
@@ -376,7 +376,7 @@ public class Browsers {
 * E. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 13
@@ -409,7 +409,7 @@ public class IsItFurry {
 * F. null instanceof Chipmunk does not compile🎃
 
 ### My Answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## 🟧 Question 14
@@ -443,7 +443,7 @@ public class IsItFurry {
 ### My Answer:
 * Compilation error for `l instanceof Chipmunk`
 * It's references is a concrete class with no relationship to Chipmunk
-
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 15
@@ -458,7 +458,7 @@ public class IsItFurry {
 * F. If equals() is passed the wrong type, the method should return true 🎃
 
 ### My Answer:
-
+* **B,E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 16
@@ -483,7 +483,7 @@ public class Outer {
 * F. Outer.Inner in = Outer.new Inner(); 🎃
 
 ### My Answer:
-
+* **E**✅✅✅✅
 <hr>
 
 ## 🟧 Question 17
@@ -515,7 +515,7 @@ public class Outer {
 * G. The code compiles successfully 🎃
 
 ### My Answer:
-
+* **B,C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 18
@@ -548,7 +548,7 @@ public class Swimmer {
 * G. The code does not compile
 
 ### My Answer:
-
+* **G**✅✅✅✅
 <hr>
 
 ## 🟧 Question 19
@@ -572,7 +572,7 @@ public class LearnToWalk {
 * F. `public void toddle(boolean fall)` 🎃
 
 ### My Answer:
-
+* **A,C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 20
@@ -601,7 +601,7 @@ public class FourLegged {
 * F. A runtime exception is thrown 🎃
 
 ### My Answer:
-
+* **C**✅✅✅✅
 <hr>
 
 ## 🟧 Question 21
@@ -626,4 +626,5 @@ class RiverOtter implements Otter {
 
 ### My Answer:
 
+* **A,C,E**✅✅✅✅
 <hr>
