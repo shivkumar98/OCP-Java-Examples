@@ -2,11 +2,9 @@
 
 # Chapter 7: Review Questions - Attempt 4
 
-## Results:
+* Date: 27/12/23
+* Score: 20/22 (91%)
 
-Date: 27/12/23
-Score: 20/22 (91%)
-✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |   ✅    |

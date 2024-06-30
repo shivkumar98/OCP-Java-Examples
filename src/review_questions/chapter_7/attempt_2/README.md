@@ -2,11 +2,9 @@
 
 # Chapter 7: Review Questions - Attempt 2
 
-## Results:
+* Date: 12/12/2023
+* Score: 13/22
 
-Date: 12/12/2023
-Score: 13/22
-✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅     |

@@ -93,3 +93,17 @@ try {
 ```
 * You can not reassign the caught exception from multi-catch block, but you CAN rethrow it!!!
 * AutoCloseable's close method throws Exception, while Closeable throws only IOException => Closeable's close() method can NOT throw Exception!!!
+
+## 🧠 Chapter 7 Concurrency
+* The `Callable` interface returns a generic type and has no parameters:
+```java
+V call() throws Exception;
+```
+* The `Runnable` interface has no return and throws no exception
+```java
+run();
+```
+* The ScheduledExecutorService, a sub-interface of ExecutorService, has methods which only accept `Runnable` implementations!!!
+* Race Conditions are when 2 or more threads try to complete a task at the same time!
+* `CopyOnWriteArrayList` avoids concurrent modifications when modifiying the collection while looping through it
+* `.reduce(U identity, BiFunction<U, T> accumulator, BinaryOperator<U>)`

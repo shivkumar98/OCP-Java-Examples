@@ -1,34 +1,34 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 7: Review Questions - Attempt #
+# Chapter 7: Review Questions - Attempt 5
 
-* Date: 
-* Score:
+* Date: 01/07/2024
+* Score: 11/20 (55%)
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
+| 1          |  ✅     |
+| 2          |  ❌     |
+| 3          |  ❌     |
+| 4          |  ✅     |
+| 5          |  ❌     |
+| 6          |  ❌     |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ❌     |
+| 10         |  ❌     |
+| 11         |  ✅     |
+| 12         |  ❌     |
+| 13         |  ❌     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ❌     |
+| 17         |  ✅     |
+| 18         |  ✅     |
+| 19         |  ✅     |
+| 20         |  ❌     |
+| 21         |  ✅     |
+| 22         |  ❌     |
 
 <hr>
 
@@ -44,7 +44,13 @@
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - true
+* E - false
+* F - true
+* **D,F**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -60,8 +66,28 @@
 ❓
 
 ### My answer:
-
-
+* call throws a checked exception
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* F - true
+* G - false
+* **A,B,F**❌❌❌❌
+* **CORRECT ANSWER: A,C,D,F**
+* Callable has the following method:
+```java
+V call() throws Exception 
+```
+* Runnable has the following method:
+```java
+void run()
+```
+* Both can throw unchecked exceptions, so A is true
+* Callable can throw a checked exception, so C is true
+* Both can be implemented via lambda so D is true
+* F is true
 <hr>
 
 ## Question 3
@@ -86,8 +112,13 @@ System.out.println(result.get()); // w4
 ❓
 
 ### My answer:
-
-
+* A schedule cannot have a return
+* so w2 needs to be changed
+* w3 and w4 are fine
+* **C**❌❌❌❌
+* **CORRECT ANSWER: B,C**
+* The ScheduledExecutorService is referenced as `ExecutorService`, and from this interface the `.newSingleThreadScheduleExecutor()` method is not available, so w1 is a compiler error
+* The scheduled executor only takes Runnable implementations, so the return on w2 is invalid, so w2 is compiler error
 <hr>
 
 ## Question 4:
@@ -111,7 +142,7 @@ System.out.println(value1+"  "+value2[0])
 ❓
 
 ### My answer:
-
+* **C**✅✅✅✅
 <hr>
 
 ## Question 5
@@ -126,7 +157,9 @@ System.out.println(value1+"  "+value2[0])
 ❓
 
 ### My answer:
-
+* Livelock, Deadlock
+* **A**❌❌❌❌
+* **CORRECT ANSWER: D**
 <hr>
 
 ## Question 6
@@ -140,7 +173,14 @@ System.out.println(value1+"  "+value2[0])
 ❓
 
 ### My answer:
-
+* A - false
+* B - true
+* C - false
+* D - true
+* E - false
+* **B,D**❌❌❌❌
+* **CORRECT ANSWER: B**
+* Did not realise this was single option!!
 <hr>
 
 ## Question 7
@@ -164,11 +204,16 @@ System.out.println(l1.size()+" "+l2.side()+" "+s3.size());
 * E. It compiles but throws an exception at runtime on line x1
 * F. It compiles but throws an exception at runtime on line x2
 * G. It compiles but enters an infinite loop at runtime
-
 ❓
 
 ### My answer:
-
+* l1 size is 3
+* l2 size is 6
+* l3 is 4
+* **A**✅✅✅✅
+* `CopyOnWriteArrayList` avoids concurrent modifications when modifiying the collection while looping through it
+* the l2 list adds 3 `4`'s to the List
+* The Set only takes unique values, so 5 is only added once!
 <hr>
 
 ## Question 8:
@@ -197,7 +242,8 @@ synchronized(i1) { // y1
 ❓
 
 ### My answer:
-
+* i1 us 1
+* **G**✅✅✅✅
 <hr>
  
 ## Question 9
@@ -247,7 +293,15 @@ public class FindMin extends MyTask {
 ❓
 
 ### My answer:
-
+* A - true
+* Its a recursive task
+* D is true
+* E is false
+* F is false
+* **A,C,D**❌❌❌❌
+* **CORRECT ANSWER: A,C,E**
+* The `.join()` method is called straight after `.fork()`
+* So ForkJoinPool is not created
 
 <hr>
 
@@ -269,7 +323,12 @@ System.out.println(Arrays.asList("duck","chicken","flamingo","pelican")
 ❓
 
 ### My answer:
-
+* q1 is fine
+* q2 is fine
+* **A**❌❌❌❌
+* **CORRECT ANSWER: C**
+* The second argument of the `.reduce()` method is of type `BiFunction<Integer, String, Integer>`
+* So if it was `(c1,c2)->c1+c2.length()` it would be correct
 <hr>
 
 ## Question 11
@@ -302,7 +361,7 @@ f2.get();
 ❓
 
 ### My answer:
-
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -340,7 +399,10 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* A is true
+* **A**❌❌❌❌
+* **CORRECT ANSWER: F**
+* The base case is unreachable
 <hr>
 
 ## Question 13
@@ -365,7 +427,12 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* true = leopard, lynx, oceolot, grizzly,
+* false = puma, panda, polar
+* It will print **B**❌❌❌❌
+* **CORRECT ANSWER: B,G**
+* I thought true was printed first which was my mistake
+* Since `flatMap()` is used, the grouping is done in a single-threaded fashion as there is no longer a stream
 <hr>
 
 ## Question 14:
@@ -390,7 +457,11 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* I do not think this compiles
+* **D**✅✅✅✅
+* The `offer()` methods adds an element to the end of BlockingQueue
+* `offerFirst()` add element to start, `offerLast()` adds element to end
+* If the code did compile, by declaring the `InterruptedException`, it would print 20 then 85
 <hr>
 
 ## Question 15
@@ -406,7 +477,15 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - true
+* D - false, semi-colon missing
+* E - true
+* F - false
+* G - true
+* **C,E,G**
+* D does not compile, but if the semi-colon was present it would be valid!!
 <hr>
 
 ## Question 16
@@ -436,7 +515,9 @@ public class PrintConstants {
 ❓
 
 ### My answer:
-             
+* **F**❌❌❌❌
+* **CORRECT ANSWER: F,H**
+* It waits forever since shutdown is not called!             
 <hr>   
 
 ## Question 17
@@ -474,7 +555,9 @@ public class SheepManager {
 ❓
 
 ### My answer:
-
+* It's single threaded
+* So it will print 100 100
+* **B**✅✅✅✅
 <hr>
 
 ## Question 18
@@ -506,7 +589,7 @@ public class StockRoomTracker {
 ❓
 
 ### My answer:
-
+* **F**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -540,7 +623,7 @@ public class TicketManager {
 ❓
 
 ### My answer:
-
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -554,7 +637,14 @@ public class TicketManager {
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* **A**❌❌❌❌
+* Resource heavy (RAM) tasks benefit from concurrency over CPU-heavy ones
+* **CORRECT ANSWER: A,D**
 
 <hr>
 
@@ -599,7 +689,13 @@ public class CountZooAnimals {
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - true
+* D - treu
+* E - true
+* F - false
+* **A,C,D,E**✅✅✅✅
 
 <hr>
 
@@ -637,5 +733,8 @@ public class PrintCounter {
 ❓
 
 ### My answer:
-
+* **A**❌❌❌❌
+* **CORRECT ANSWER: F**
+* Code does not compile because `service.execute(Callable)` has void return
+* Only the `.submit()` method returns `Future<T>`
 <hr>
