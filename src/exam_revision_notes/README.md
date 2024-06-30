@@ -1,6 +1,6 @@
-# Revision Notes
+# 📜 Revision Notes 📜
 
-## Chapter 1: Advanced Class Design
+## 🧠 Chapter 1: Advanced Class Design
 * A Nested class cannot have static variables because a nested class always has to be instantiated⚠️
 * A nested class can access its enclosing class using the following syntax: `enclosingClassName.this.variableName`. E.g.:
 ```java
@@ -30,7 +30,7 @@ Inner inner = new Inner(); // COMPILER ERROR
 Inner inner = new Outer().new Innner(); // WORKS!
 ```
 
-## Chapter 2: Design Patterns and Principles
+## 🧠 Chapter 2: Design Patterns and Principles
 * If you are using the return keyword in lambda, it MUST be in curly braces
 ```java
 () -> return 0; // COMPILER ERROR
@@ -57,7 +57,7 @@ public interface invalidInterface extends CanWalk, CanRun { // COMPILER ERROR
 }
 ```
 
-## Chapter 3 Generics and Collections
+## 🧠 Chapter 3 Generics and Collections
 * The ArrayDeque has a pop method which removes and returns the start of the List, peek method only returns start of List
 * The `List` interface has a `remove(index)` method, while `Queue` has `remove(T object)` method
 
@@ -83,3 +83,13 @@ public interface invalidInterface extends CanWalk, CanRun { // COMPILER ERROR
    1. `.get(key)`
    2. `.getProperty(key)`
    3. `.getProperty(key, defaultValue)`
+
+## 🧠 Chapter 6 Exceptions and Assertions
+* Multi-catch is used to catch multiple UNRELATED exceptions
+* You will get compiler erro if you attempt to catch related types:
+```java
+try {
+} catch (IOException | FileNotFoundException e) {} // COMPILER ERROR
+```
+* You can not reassign the caught exception from multi-catch block, but you CAN rethrow it!!!
+* AutoCloseable's close method throws Exception, while Closeable throws only IOException => Closeable's close() method can NOT throw Exception!!!
