@@ -2,11 +2,9 @@
 
 # Chapter 6: Review Questions - Attempt 3
 
-## Results:
+* Date: 28/12/2023
+* Score: 13/20 (65%) 
 
-Date: 28/12/2023 <br>
-Score: 13/20 (65%) 
-✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅     |

@@ -1,32 +1,32 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 6: Review Questions - Attempt 5
+# Chapter 6: Review Questions - Attempt 6
 
 * Date: 30/06/2024
-* Score: 14/20 (70%)
+* Score: 19/20 (95%)
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |  ✅     |
-| 2          |  ✅     |
-| 3          |  ❌     |
-| 4          |  ✅     |
-| 5          |  ✅     |
-| 6          |  ✅     |
-| 7          |  ✅     |
-| 8          |  ✅     |
-| 9          |  ✅     |
-| 10         |  ✅     |
-| 11         |  ❌     |
-| 12         |  ❌     |
-| 13         |  ❌     |
-| 14         |  ✅     |
-| 15         |  ✅     |
-| 16         |  ✅     |
-| 17         |  ✅     |
-| 18         |  ❌     |
-| 19         |  ❌     |
-| 20         |  ✅     |
+| 1          | ✅      |
+| 2          | ✅      |
+| 3          | ✅      |
+| 4          | ✅      |
+| 5          | ✅      |
+| 6          | ✅      |
+| 7          | ✅      |
+| 8          | ✅      |
+| 9          | ✅      |
+| 10         | ✅      |
+| 11         | ✅      |
+| 12         | ❌      |
+| 13         | ✅      |
+| 14         | ✅      |
+| 15         | ✅      |
+| 16         | ✅      |
+| 17         | ✅      |
+| 18         | ✅      |
+| 19         | ✅      |
+| 20         | ✅      |
 
 
 <hr>
@@ -49,7 +49,6 @@
 ❓
 
 ### My answer:
-* throws then throw
 * **C**✅✅✅✅
 <hr>
 
@@ -78,13 +77,12 @@
 ❓
 
 ### My answer:
-* It needs to catch exception or declare it in the main signature
+* Needs to catch exception
 * A - false
 * B - true
 * C - true
 * D - false
 * E - false
-* F - false
 * **B,C**✅✅✅✅
 <hr>
 
@@ -108,16 +106,12 @@ public static void main(String[] args) {
 ❓
 
 ### My answer:
-* A - valid
-* B - invalid
-* C - valid
-* D - invalid
-* E - valid
-* F - invalid
-* **A,C,E**❌❌❌❌
-* Multi-catch cannot be applied to related exceptions so A does not compile
-* C does not compile as IOException is not being caught by `FileNotFoundException`
-* **CORRECT ANSWER: E**
+* A - false
+* B - false
+* C - false, FileNotFound is not thrown
+* D - false
+* E - true
+* **E**✅✅✅✅
 <hr>
 
 ## Question 4:
@@ -131,9 +125,9 @@ public static void main(String[] args) {
 * F. A try-with-resources statement with only one statement can omit the {}
 
 ### My answer:
-* A is true
-* B is true
-* C is false
+* A - true
+* B - true
+* C - false
 * D - false
 * E - false
 * F - false
@@ -177,10 +171,6 @@ public class AutocloseableFlow {
 ❓
 
 ### My answer:
-* It prints T W runtime exception is thrown but supressed D is printed
-* E is print
-* F is printed
-* TWDEF
 * **C**✅✅✅✅
 <hr>
 
@@ -264,7 +254,7 @@ public class On {
 * E. The code does not compile <br>
 
 ### My answer:
-* B and C
+* B - true, C - true
 * **B,C**✅✅✅✅
 <hr>
 
@@ -278,9 +268,9 @@ public class On {
 * E. `assert(n < 0, "OhNo");`
 
 ### My answer:
-* Is this a trick question if n ie negative none of the asserts would fail
-* A - valid
-* D valid
+* A - true
+* C - false
+* D - true
 * **A,D**✅✅✅✅
 <hr>
 
@@ -302,15 +292,8 @@ public class On {
 * E. Line 7 is an appropiate use of an assertion 
 
 ### My answer:
-* line 5 does not compile as its using keyword
-* line 6 does compile
-* line 7 does compile
-* E is true
-* D is false
-* A - true
-* B - false
-* C - false
-* E - true
+* line 5 does not compile 
+* only line 7 is appropiate
 * **A,E**✅✅✅✅
 <hr>
 
@@ -324,15 +307,7 @@ public class On {
 * F. `SQLException` 
 
 ### My answer:
-* A - false
-* B - true
-* C - false, this is a checked exception
-* D - false
-* E - true
-* F - false, checked
-* **B,E**❌❌❌❌
-* **CORRECT ANSWER: B,D,E**
-* MissingResourceException is not checked!!!
+* **B,D,E**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -359,10 +334,14 @@ public class AhChoo {
 * F. None of the above; the code does not compile. 
 
 ### My answer:
-* D and E are valid I think
-* **D,E**❌❌❌❌
+* A - valid
+* B - invalid
+* C - invalid
+* D - valid
+* E - invalid
+* **A,D**❌❌❌❌
+* You can throw a sub class of caught exception!!!
 * **CORRECT ANSWER: A,D,E**
-* I failed to realise blank line is valid
 <hr>
 
 ## Question 13
@@ -388,8 +367,7 @@ public class AhChoo {
 * F. None of the above; the code does not compile. 
 
 ### My answer:
-* You can not reassign e
-* **F**❌❌❌❌
+* **A**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -415,7 +393,6 @@ public class AhChoo {
 
 ### My answer:
 * **F**✅✅✅✅
-* The code does not compile as multicatch is catching related types!!!!
 <hr>
 
 ## Question 15
@@ -437,15 +414,8 @@ class Six extends Three{}
 * F. `Six` 
 
 ### My answer:
-* Checked exceptions extends Exception but not RuntimeException
-* A - false
-* B - true
-* C - false
-* D - false
-* E - true
-* F - false
+* Two, Five are valid
 * **B,E**✅✅✅✅
-
 <hr>
 
 ## Question 16
@@ -475,10 +445,6 @@ public class SnowStorm {
 * F. The code does not compile 
 
 ### My answer:
-* runtime exception is thrown but supressed
-* snow is thrown but supressed
-* snow is thrown but supressed
-* rain is printed and 2 is printed
 * **C**✅✅✅✅
 <hr>
 
@@ -506,12 +472,9 @@ public class SnowStorm {
 * F. IOException, Closeable
 
 ### My answer:
-* If a class implements Closeable then it CAN throw illegal exception
-* If a class implements AutoCloseable then it  can not throw an Exception
-* **A**❌❌❌❌
-* AutoCloseable throws Exception, Closeable throws IOException
-* So Closeable cannot throw Exception
-* **CORRECT ANSWER: B**
+* CloseAbleClass can not throw Exception
+* IllegalStateException is RuntimeException
+* **B**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -534,19 +497,12 @@ public void readFromDatabase() throws SQLException { }
 * E. `SQLException | RuntimeException` 
 
 ### My answer:
-* A - true
-* B - false
-* C - false
-* D - true
-* E - true
-* **A,D,E**❌❌❌❌
-* Just like regular catches, you cannot catch an exception which is not being thrown
-* A is valid, so false
-* B is valid, the SQLException is declared in signature so not required to be caught, so false
-* C is valid, so false
-* D is not valid as IOException is not thrown anywhere, so true
-* E is valid, so false
-* **CORRECT ANSWER: D**
+* A - valid
+* B - valid
+* C - valid
+* D - invalid, IOException is not thrown
+* E - valid
+* **D**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -559,9 +515,5 @@ public void readFromDatabase() throws SQLException { }
 * E. None of the above
 
 ### My answer:
-* A - false
-* B - false
-* C - false
-* D - false
 * **E**✅✅✅✅
 <hr>

@@ -2,11 +2,9 @@
 
 # Chapter 6: Review Questions - Attempt 2
 
-## Results:
+* Date: 03/10/23
+* Score: 18/20
 
-Date: 03/10/23
-Score: 18/20
-✅  ❌ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅    |

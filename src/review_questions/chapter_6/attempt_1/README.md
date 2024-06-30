@@ -2,10 +2,8 @@
 
 # Chapter 6: Review Questions - Attempt 1
 
-## Results:
-
-Date: 30/09/2023
-Score: 12/20
+* Date: 30/09/2023
+* Score: 12/20
 
 | Question # | Correct |
 | ---------- | ------- |

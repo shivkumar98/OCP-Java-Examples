@@ -2,11 +2,9 @@
 
 # Chapter 6: Review Questions - Attempt 4
 
-## Results:
-
-Date: 28/12/2023
-Score: 20/20 (100%)
-✅  ❌ 
+* Date: 28/12/2023
+* Score: 20/20 (100%)
+ 
 | Question # | Correct |
 | ---------- | ------- |
 | 1          |  ✅    |
