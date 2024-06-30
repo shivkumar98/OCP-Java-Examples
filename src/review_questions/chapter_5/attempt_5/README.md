@@ -1,32 +1,32 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 5: Review Questions - Attempt #
+# Chapter 5: Review Questions - Attempt 5
 
-* Date: 
-* Score:
+* Date: 30/06/2024
+* Score: 19/20 (95%)
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |         |
-| 2          |         |
-| 3          |         |
-| 4          |         |
-| 5          |         |
-| 6          |         |
-| 7          |         |
-| 8          |         |
-| 9          |         |
-| 10         |         |
-| 11         |         |
-| 12         |         |
-| 13         |         |
-| 14         |         |
-| 15         |         |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 1          |   ✅      |
+| 2          |   ✅      |
+| 3          |   ✅      |
+| 4          |   ✅      |
+| 5          |   ✅      |
+| 6          |   ✅      |
+| 7          |   ✅      |
+| 8          |   ✅      |
+| 9          |   ✅      |
+| 10         |   ✅      |
+| 11         |   ✅      |
+| 12         |   ✅      |
+| 13         |   ✅      |
+| 14         |   ✅      |
+| 15         |   ✅      |
+| 16         |   ✅      |
+| 17         |   ✅      |
+| 18         |   ✅      |
+| 19         |   ✅      |
+| 20         |   ❌      |
 
 
 <hr>
@@ -45,6 +45,7 @@
 <hr>
 
 ### My answer:
+* **A,B**✅✅✅✅
 
 ## Question 2:
 
@@ -58,7 +59,7 @@
 ❓
 
 ### My answer:
-
+* **C,D,E**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -72,7 +73,12 @@
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - true
+* D - true
+* E - false
+* **C,D**✅✅✅✅
 <hr>
 
 ## Question 4:
@@ -90,7 +96,7 @@
 * F. The code does not compile
 
 ### My answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## Question 5
@@ -124,7 +130,7 @@ name=Dolly
 ❓
 
 ### My answer:
-
+* **D**✅✅✅✅
 <hr>
 
 ## Question 6:
@@ -146,7 +152,7 @@ public class StartOfSummer {
 * F. `LocaleDate.of(2014, Month.JUNE, 21);`
 
 ### My answer:
-
+* **D,F**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -167,7 +173,7 @@ System.out.println(date.getYear() + " "
 * E. A runtime exception is thrown
 
 ### My answer:
-
+* **D**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -185,7 +191,7 @@ System.out.println(date.getYear() + " " + date.getMonth()
 * F. A runtime exception is thrown
 
 ### My answer:
-
+* **F**✅✅✅✅
 <hr>
 
 ## Question 9
@@ -206,7 +212,7 @@ System.out.println(date.getYear() + " "
 * G. A runtime exception is thrown
 
 ### My answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## Question 10
@@ -216,7 +222,7 @@ LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
 Period p = Period.of(1, 2, 3);
 d = d.minus(p);
 DateTimeFormatter f = DateTimeFormatter.
-    ofLocalizedTime(FormatStyle.SHORT);
+   ofLocalizedTime(FormatStyle.SHORT);
 System.out.println(d.format(f));
 ```
 * A. `7/3/14 11:22 AM`
@@ -228,7 +234,7 @@ System.out.println(d.format(f));
 * G. A runtime exception is thrown
 
 ### My answer:
-
+* **E**✅✅✅✅
 <hr>
 
 ## Question 11
@@ -249,7 +255,7 @@ System.out.println(d.format(f));
 * F. A runtime exception is thrown.
 
 ### My answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -266,7 +272,7 @@ System.out.println(d.format(f));
 * E. The date/times are 6 hours apart
 
 ### My answer:
-
+* **A,E**✅✅✅✅
 <hr>
 
 ## Question 13
@@ -292,7 +298,7 @@ System.out.println(hours, "," + clock1 + clock2);
 <hr>
 
 ### My answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -312,7 +318,12 @@ ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
 * E. LocalDate.of(2017, 2, 29);
 
 ### My answer:
-
+* A - true
+* B - false
+* C - true
+* D - true
+* E - false
+* **A,C,D**✅✅✅✅
 <hr>
 
 ## Question 15
@@ -334,7 +345,12 @@ System.out.println(_______);
 * E. d.equals(p)
 
 ### My answer:
-
+* a - FALSE
+* b - TRUE
+* c - true
+* D - false
+* E - false
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -356,7 +372,7 @@ Instant instant = ___________________;
 * F. `zonedDateTime.toInstant()`
 
 ### My answer:
-
+* **A,B,F**✅✅✅✅
 <hr>
 
 ## Question 17
@@ -375,7 +391,7 @@ private static void print(Properties props) {
 * F. A runtime exception is thrown
 
 ### My answer:
-
+* **E**✅✅✅✅
 <hr>
 
 ## Question 18
@@ -410,7 +426,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 ```
 
 ### My answer:
-
+* **D**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -423,7 +439,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 * F. Second
 
 ### My answer:
-
+* **A,B,C**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -435,5 +451,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 * E. ZonedDateTime
 
 ### My answer:
-
+* **A,E**❌❌❌❌
+* Instant does not contain a timezone!!!
+* **CORRECT ANSWER: E**
 <hr>

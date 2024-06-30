@@ -3,7 +3,7 @@
 # Chapter 5: Review Questions - Attempt 4
 
 * Date: 30/06/2024
-* Score: 12/20 (60%)
+* Score: 11/20 (55%)
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -13,7 +13,7 @@
 | 4          |  ❌       |
 | 5          |  ❌       |
 | 6          |  ✅       |
-| 7          |  ✅       |
+| 7          |  ❌       |
 | 8          |  ✅       |
 | 9          |  ❌       |
 | 10         |  ❌       |
@@ -199,7 +199,8 @@ System.out.println(date.getYear() + " "
 * E. A runtime exception is thrown
 
 ### My answer:
-* **B**✅✅✅✅
+* **B**❌❌❌❌
+* **CORRECT ANSWER: D**
 * The LocalDate class does not have a `plusHours()` method
 * If the plusHours method was not present, it would print B
 <hr>
@@ -241,7 +242,7 @@ System.out.println(date.getYear() + " "
 
 ### My answer:
 * **G**❌❌❌❌❌
-* **CORRECT ANSWER: E**
+* **CORRECT ANSWER: B**
 * I thought April only had 29 days
 <hr>
 
