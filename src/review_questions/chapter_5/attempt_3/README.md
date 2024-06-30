@@ -2,10 +2,8 @@
 
 # Chapter 5: Review Questions - Attempt 3
 
-## Results:
-
-Date: 27/09/2023
-Score: 
+* Date: 27/09/2023
+* Score: 19/20 (95%)
 
 | Question # | Correct |
 | ---------- | ------- |

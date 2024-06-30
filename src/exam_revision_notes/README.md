@@ -1,7 +1,7 @@
 # Revision Notes
 
 ## Chapter 1: Advanced Class Design
-* A Nested class cannot have static variables because a nested class always has to be instantiated
+* A Nested class cannot have static variables because a nested class always has to be instantiated⚠️
 * A nested class can access its enclosing class using the following syntax: `enclosingClassName.this.variableName`. E.g.:
 ```java
 class Outer {
@@ -11,7 +11,7 @@ class Outer {
    }
 }
 ```
-* A member nested class can NOT have static variables
+* A member nested class can NOT have static variables⚠️
 ```java
 class Outer {
    class Inner {
@@ -61,5 +61,25 @@ public interface invalidInterface extends CanWalk, CanRun { // COMPILER ERROR
 * The ArrayDeque has a pop method which removes and returns the start of the List, peek method only returns start of List
 * The `List` interface has a `remove(index)` method, while `Queue` has `remove(T object)` method
 
-## Chapter 4
+## Chapter 4 Functional Programming
 * The stream has `.sorted(Comparator)` method
+
+## Chapter 5 Dates, Strings and Localization
+* You can create Locales which follow the standard naming convention in 2 ways:
+   1. `new Locale("language");`
+   2. `new Locale("language", "COUNTRY");`
+* When java will look for properties file, it will first look for a java file then a properties file
+* We can format Date/Time objects using `DateTimeFormatter` which has the following methods:
+  - `.ofLocalizedDate(FormatStyle)`
+  - `.ofLocalizedTime(FormatStyle)`
+  - `.ofLocalizedDateTime(FormatStyle)`
+* The FormatStyle class is an enum with the following options:
+  - `SHORT`
+  - `MEDIUM`
+  - `LONG`
+  - `FULL`
+* You can NOT chain Period methods, only the last method will apply!⚠️
+* The `Properties` class has the following methods for getting values from the resource bundle:
+   1. `.get(key)`
+   2. `.getProperty(key)`
+   3. `.getProperty(key, defaultValue)`

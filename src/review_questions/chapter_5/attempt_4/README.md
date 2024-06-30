@@ -1,32 +1,32 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 5: Review Questions - Attempt #
+# Chapter 5: Review Questions - Attempt 4
 
-* Date: 
-* Score:
+* Date: 30/06/2024
+* Score: 12/20 (60%)
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |         |
-| 2          |         |
-| 3          |         |
-| 4          |         |
-| 5          |         |
-| 6          |         |
-| 7          |         |
-| 8          |         |
-| 9          |         |
-| 10         |         |
-| 11         |         |
-| 12         |         |
-| 13         |         |
-| 14         |         |
-| 15         |         |
-| 16         |         |
-| 17         |         |
-| 18         |         |
-| 19         |         |
-| 20         |         |
+| 1          |  ❌       |
+| 2          |  ✅       |
+| 3          |  ❌       |
+| 4          |  ❌       |
+| 5          |  ❌       |
+| 6          |  ✅       |
+| 7          |  ✅       |
+| 8          |  ✅       |
+| 9          |  ❌       |
+| 10         |  ❌       |
+| 11         |  ❌       |
+| 12         |  ✅       |
+| 13         |  ✅       |
+| 14         |  ✅       |
+| 15         |  ✅       |
+| 16         |  ✅       |
+| 17         |  ❌       |
+| 18         |  ✅       |
+| 19         |  ✅       |
+| 20         |  ✅       |
 
 
 <hr>
@@ -45,6 +45,15 @@
 <hr>
 
 ### My answer:
+* A - false
+* B - true
+* C - false
+* D - false
+* E - false
+* F - false
+* **B**❌❌❌❌
+* **CORRECT ANSWER: A,B**
+* A is also valid, it defines a locale with language of hindi
 
 ## Question 2:
 
@@ -58,7 +67,8 @@
 ❓
 
 ### My answer:
-
+* A - false, B - false, C - true, D true, E true, F false
+* **C,D,E**✅✅✅✅
 <hr>
 
 ## Question 3
@@ -66,13 +76,21 @@
 ❓Which of the following are true (Choose all that apply)
 * A. All keys must be in the same resource bundle file to be used
 * B. All resource bundles are defined as Java classes can be expressed using the property file format instead
-* C. All resource bundles defined as porperty files can be expressed using the Java class list bundle format instead
+* C. All resource bundles defined as prpperty files can be expressed using the Java class list bundle format instead
 * D. Changing the default locale lasts for only a single run of the program
 * E. It is forbidden to have both Props_en.java and Props_en.properties in the class-path of an application
 ❓
 
 ### My answer:
-
+* B - false
+* C - true
+* D - false
+* E - false
+* A - true
+* **A,C**❌❌❌❌
+* **CORRECT ANSWER: C,D**
+* You can have multiple resource bundle files
+* Changing default locale only lasts for one run because locale is only changed in memory
 <hr>
 
 ## Question 4:
@@ -90,7 +108,11 @@
 * F. The code does not compile
 
 ### My answer:
-
+* Total guess it's C
+* **C**❌❌❌❌
+* **CORRECT ANSWER: B**
+* * Java will first look for `Dophin_en_US.java`, then `Dolphin_en_US.properties`, then `Dolphin_en.java`
+* Sice `Dolphin_en.java` is present, it does not bother look for `Dolphin_en.properties`
 <hr>
 
 ## Question 5
@@ -124,7 +146,11 @@ name=Dolly
 ❓
 
 ### My answer:
-
+* **B**❌❌❌❌
+*  Line 7 will use `Dolphins_fr.properties`
+*  line 8 looks for name in `Dolphins_fr.properties`
+*  line 9 tries to look for age but it is not present, so it uses `Dolphins.properties`
+*  **CORRECT ANSWER: D**
 <hr>
 
 ## Question 6:
@@ -146,7 +172,13 @@ public class StartOfSummer {
 * F. `LocaleDate.of(2014, Month.JUNE, 21);`
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - true
+* E - false
+* F - true
+* **D,F** ✅✅✅✅
 <hr>
 
 ## Question 7
@@ -167,7 +199,9 @@ System.out.println(date.getYear() + " "
 * E. A runtime exception is thrown
 
 ### My answer:
-
+* **B**✅✅✅✅
+* The LocalDate class does not have a `plusHours()` method
+* If the plusHours method was not present, it would print B
 <hr>
 
 ## Question 8:
@@ -185,7 +219,7 @@ System.out.println(date.getYear() + " " + date.getMonth()
 * F. A runtime exception is thrown
 
 ### My answer:
-
+* **F**✅✅✅✅
 <hr>
 
 ## Question 9
@@ -206,7 +240,9 @@ System.out.println(date.getYear() + " "
 * G. A runtime exception is thrown
 
 ### My answer:
-
+* **G**❌❌❌❌❌
+* **CORRECT ANSWER: E**
+* I thought April only had 29 days
 <hr>
 
 ## Question 10
@@ -216,7 +252,7 @@ LocalDateTime d = LocalDateTime.of(2015, 5, 10, 11, 22, 33);
 Period p = Period.of(1, 2, 3);
 d = d.minus(p);
 DateTimeFormatter f = DateTimeFormatter.
-    ofLocalizedTime(FormatStyle.SHORT);
+   ofLocalizedTime(FormatStyle.SHORT);
 System.out.println(d.format(f));
 ```
 * A. `7/3/14 11:22 AM`
@@ -228,7 +264,13 @@ System.out.println(d.format(f));
 * G. A runtime exception is thrown
 
 ### My answer:
-
+* p = 1 year 2 months 3 days
+* d = 2015-05-10-11:22:33
+* d.minus(p) = 2014-04-7 11:22:33
+* Total guess its A
+* **A**❌❌❌❌
+* **CORRECT ANSWER: E**
+* A would be correct if it was `DateTimeFormatter.ofLocalizedTime`
 <hr>
 
 ## Question 11
@@ -249,7 +291,9 @@ System.out.println(d.format(f));
 * F. A runtime exception is thrown.
 
 ### My answer:
-
+* **A**❌❌❌❌
+* **CORRECT ANSWER: B**
+* Period methods cannot be chained, if attempted only the last method will apply
 <hr>
 
 ## Question 12:
@@ -266,7 +310,9 @@ System.out.println(d.format(f));
 * E. The date/times are 6 hours apart
 
 ### My answer:
-
+* A - true
+* E - true
+* **A,E**✅✅✅✅
 <hr>
 
 ## Question 13
@@ -292,7 +338,10 @@ System.out.println(hours, "," + clock1 + clock2);
 <hr>
 
 ### My answer:
-
+* hours is 1
+* clock1 is 1
+* clock2 is 3
+* **B**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -312,7 +361,12 @@ ZonedDateTime a = ZonedDateTime.of(date, time1, zone);
 * E. LocalDate.of(2017, 2, 29);
 
 ### My answer:
-
+* A - true
+* B - false
+* C - true
+* D - true
+* E - false
+* **A,C,D**✅✅✅✅
 <hr>
 
 ## Question 15
@@ -334,7 +388,12 @@ System.out.println(_______);
 * E. d.equals(p)
 
 ### My answer:
-
+* A - false
+* B - true
+* C - true
+* D - false
+* E - false
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -356,7 +415,13 @@ Instant instant = ___________________;
 * F. `zonedDateTime.toInstant()`
 
 ### My answer:
-
+* A - true
+* B - true
+* C - false
+* D - false
+* E - false
+* F - true
+* **A,B,F**✅✅✅✅
 <hr>
 
 ## Question 17
@@ -375,7 +440,10 @@ private static void print(Properties props) {
 * F. A runtime exception is thrown
 
 ### My answer:
-
+* brontosaurus and none is printed
+* **A**❌❌❌❌
+* The Properties `get()` method does not have an overload!!!
+* **CORRECT ANSWER: E**
 <hr>
 
 ## Question 18
@@ -409,7 +477,7 @@ props.stream().map(k -> k) .forEach(System.out::println);
 ```
 
 ### My answer:
-
+* **D**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -422,7 +490,8 @@ props.stream().map(k -> k) .forEach(System.out::println);
 * F. Second
 
 ### My answer:
-
+* Year month days
+* **A,B,C**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -434,5 +503,5 @@ props.stream().map(k -> k) .forEach(System.out::println);
 * E. ZonedDateTime
 
 ### My answer:
-
+* **E**✅✅✅✅
 <hr>
