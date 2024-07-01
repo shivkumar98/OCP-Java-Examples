@@ -1,11 +1,11 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 8: Review Questions - Attempt #
+# Chapter 8: Review Questions - Attempt 5
 
 ## Results:
 
-Date:
-Score: 
+* Date:
+* Score: 
 
 | Question # | Correct |
 | ---------- | ------- |
@@ -51,13 +51,19 @@ F. `BufferedReader` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false, too low level
+* C - false, this is for OutputStream
+* D - true
+* E - false
+* F - true
+* **A,D,F**
 <br>
 
 <hr>
 
 ## 🟨 Question 2 🟨
-❓ Why doews `Console.readPassword()` return a `char[]` instead of String object (Choose all that apply)❓
+❓ Why does `Console.readPassword()` return a `char[]` instead of String object (Choose all that apply)❓
 
 A. It improves performance <br>
 B. It is more secure <br>
@@ -68,7 +74,13 @@ F. So that the value can be removed from memory immediately after use <br>
 ❓
 
 ### My answer:
-
+* So it is not kept in memory in string pool
+* B - true
+* C - false
+* D - false
+* E - false
+* F - true
+* **B,F**
 <br>
 
 <hr>
@@ -85,7 +97,12 @@ E. When getting a `Console` object, it willl never be `null`  <br>
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - true
+* D - true
+* E - false
+* **C,D**
 <br>
 
 <hr>
@@ -107,7 +124,7 @@ F. None of the above <br>
 ❓
 
 ### My answer:
-
+* **Cs**
 <br>
 
 <hr>
@@ -133,7 +150,7 @@ F. The code does not compile <br>
 ❓
 
 ### My answer:
-
+* **A**
 <br>
 
 <hr>
@@ -148,7 +165,12 @@ E. The `readObject()` method of `ObjectInputStream` may throw a `ClassNotFoundEx
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - true
+* **A,E**
 <br>
 
 <hr>
@@ -164,7 +186,7 @@ E. Top <br>
 ❓
 
 ### My answer:
-
+* **D**
 <br>
 
 <hr>
@@ -180,7 +202,12 @@ E. The parent of the path pointed to by a File object must exist <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false, could be a file
+* C - false
+* D - false
+* E - false
+* **A**
 <br>
 
 <hr>
@@ -196,7 +223,13 @@ F. Any class can be serialized with `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - false
+* E - false
+* F - false
+* **A**
 <br>
 
 <hr>
@@ -221,7 +254,7 @@ F. It compiles but may throw an exception at runtime <br>
 ❓
 
 ### My answer:
-
+* **B**
 <br>
 
 <hr>
@@ -239,7 +272,14 @@ G. `mkdir()` <br>
 ❓
 
 ### My answer:
-
+* A - i dont think so
+* B - false
+* C - true
+* D - false
+* E - false
+* F - true
+* G - true
+* **C,F,G**
 <br>
 
 <hr>
@@ -255,7 +295,8 @@ E. None of the above <br>
 ❓
 
 ### My answer:
-
+* forward slash dows not need to be escaped
+* **C**
 <br>
 
 <hr>
@@ -272,7 +313,7 @@ F. `System.ouput` <br>
 ❓
 
 ### My answer:
-
+* **A,C,E**
 <br>
 
 <hr>
@@ -289,7 +330,7 @@ F. `PrintWriter` <br>
 ❓
 
 ### My answer:
-
+* **E,F**
 <br>
 
 <hr>
@@ -313,7 +354,7 @@ E. The code does not compile for another reason <br>
 ❓
 
 ### My answer:
-
+* **A**
 <br>
 
 <hr>
@@ -330,7 +371,13 @@ F. Classes that store most of their data in static fields would not be easily se
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - true
+* E - false
+* F - true
+* **D,F**
 <br>
 
 <hr>
@@ -348,7 +395,14 @@ G. `ObjectOutputStream` <br>
 ❓
 
 ### My answer:
-
+* A - true
+* B - idk
+* C - false
+* D - idk
+* E - false
+* F - galse
+* G - false
+* **A**
 <br>
 
 <hr>
@@ -371,7 +425,7 @@ F. `out` <br>
 ❓
 
 ### My answer:
-
+* **A,D**
 <br>
 
 <hr>
@@ -389,7 +443,7 @@ G. `PipedOutputStream` <br>
 ❓
 
 ### My answer:
-
+* **A,C,D**
 <br>
 
 <hr>
@@ -406,7 +460,7 @@ F. Multi-threading support <br>
 ❓
 
 ### My answer:
-
+* **A,C,D**
 <br>
 
 <hr>
