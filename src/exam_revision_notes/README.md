@@ -107,3 +107,11 @@ run();
 * Race Conditions are when 2 or more threads try to complete a task at the same time!
 * `CopyOnWriteArrayList` avoids concurrent modifications when modifiying the collection while looping through it
 * `.reduce(U identity, BiFunction<U, T> accumulator, BinaryOperator<U>)`
+
+## 🧠 Chapter 9 NIO.2
+* `Files.deleteIfExists(Path)` method can only delete empty directories
+* `Files.isDirectory(Path)` AND `Files.deleteIfExists(Path)` methods support symbolic links!!
+* The `Files.readAttributes()` method is intended for only reading attributes, we can not write them!
+* The `Path.toAbsolutePath()` converts a relative path to absolute path by appending it to current work directory.
+* The `Files.walk(Path)` method returns `Stream<Path>`
+* When `Files.isSameFile(path1, path2)` is called, if the paths are different in type (one relative, one absolute), then it will check that the files actually exist
