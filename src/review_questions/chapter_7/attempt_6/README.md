@@ -1,34 +1,34 @@
 <link href="../../../styles.css" rel="stylesheet"></link>
 
-# Chapter 7: Review Questions - Attempt #
+# Chapter 7: Review Questions - Attempt 6
 
-* Date: 
-* Score:
+* Date: 01/07/2024
+* Score: 21/22 (95%)
 
 | Question # | Correct |
 | ---------- | ------- |
-| 1          |       |
-| 2          |       |
-| 3          |       |
-| 4          |       |
-| 5          |       |
-| 6          |       |
-| 7          |       |
-| 8          |       |
-| 9          |       |
-| 10         |       |
-| 11         |       |
-| 12         |       |
-| 13         |       |
-| 14         |       |
-| 15         |       |
-| 16         |       |
-| 17         |       |
-| 18         |       |
-| 19         |       |
-| 20         |       |
-| 21         |       |
-| 22         |       |
+| 1          |  ✅     |
+| 2          |  ✅     |
+| 3          |  ✅     |
+| 4          |  ✅     |
+| 5          |  ✅     |
+| 6          |  ✅     |
+| 7          |  ✅     |
+| 8          |  ✅     |
+| 9          |  ✅     |
+| 10         |  ✅     |
+| 11         |  ✅     |
+| 12         |  ✅     |
+| 13         |  ✅     |
+| 14         |  ✅     |
+| 15         |  ✅     |
+| 16         |  ❌     |
+| 17         |  ✅     |
+| 18         |  ✅     |
+| 19         |  ✅     |
+| 20         |  ✅     |
+| 21         |  ✅     |
+| 22         |  ✅     |
 
 <hr>
 
@@ -44,7 +44,13 @@
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - false
+* D - true
+* E - false
+* F - true
+* **D,F**✅✅✅✅
 <hr>
 
 ## Question 2:
@@ -60,7 +66,14 @@
 ❓
 
 ### My answer:
-
+* A - true
+* B - false, it takes no arguments
+* C - true
+* D - true
+* E - false
+* F - true
+* G - false
+* **A,C,D,F**✅✅✅✅
 
 <hr>
 
@@ -86,8 +99,9 @@ System.out.println(result.get()); // w4
 ❓
 
 ### My answer:
-
-
+* Scheduled executors do not support Callable
+* The `.newSingleThreadScheduleExecutor()` method is not visible to the `ExecutorService` interface
+* **B,C**✅✅✅✅
 <hr>
 
 ## Question 4:
@@ -111,7 +125,8 @@ System.out.println(value1+"  "+value2[0])
 ❓
 
 ### My answer:
-
+* the value of value2 cannot be determined ahead of time
+* **C**✅✅✅✅
 <hr>
 
 ## Question 5
@@ -126,7 +141,8 @@ System.out.println(value1+"  "+value2[0])
 ❓
 
 ### My answer:
-
+* Livelock, Race conditions
+* **D**✅✅✅✅
 <hr>
 
 ## Question 6
@@ -140,7 +156,7 @@ System.out.println(value1+"  "+value2[0])
 ❓
 
 ### My answer:
-
+* **B**✅✅✅✅
 <hr>
 
 ## Question 7
@@ -168,7 +184,10 @@ System.out.println(l1.size()+" "+l2.size()+" "+s3.size());
 ❓
 
 ### My answer:
-
+* CopyOnWriteArrayList avoids concurrent modifications when modifiying the collection while looping through it
+* The l2 list adds 3 4's to the List
+* The Set only takes unique values, so 5 is only added once!
+* **A**✅✅✅✅
 <hr>
 
 ## Question 8:
@@ -197,7 +216,9 @@ synchronized(i1) { // y1
 ❓
 
 ### My answer:
-
+* I think its G but dont know why
+* **G**✅✅✅✅
+* Even though the stream is sorted after calling `.parallelStream()`. The `findAny()` will return the first element from the first thread which recieves a record
 <hr>
  
 ## Question 9
@@ -247,7 +268,10 @@ public class FindMin extends MyTask {
 ❓
 
 ### My answer:
-
+* A is true
+* Its a RecursiveTask
+* It produces single-threaded performancce
+* **A,C,E**✅✅✅✅
 
 <hr>
 
@@ -269,7 +293,9 @@ System.out.println(Arrays.asList("duck","chicken","flamingo","pelican")
 ❓
 
 ### My answer:
-
+* The `reduce()` methods second argument is `BiFunction<U, T, U>` (I think)
+* So q2 does not compile!
+* **C**✅✅✅✅
 <hr>
 
 ## Question 11
@@ -302,7 +328,9 @@ f2.get();
 ❓
 
 ### My answer:
-
+* This may produce deadlock
+* And order canot be determined
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 12:
@@ -340,7 +368,8 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* Base case is never reached 
+* **F**✅✅✅✅
 <hr>
 
 ## Question 13
@@ -365,7 +394,9 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* The false size is 4 and true size is 3
+* Since flatMap is used, the parallelStream is not being used in concurrent manner
+* **B,G**✅✅✅✅
 <hr>
 
 ## Question 14:
@@ -390,7 +421,8 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* InterruptedException is not handled
+* **D**✅✅✅✅
 <hr>
 
 ## Question 15
@@ -406,7 +438,14 @@ public class CountNumbers extends RecursiveAction {
 ❓
 
 ### My answer:
-
+* A - false
+* B - false
+* C - true
+* D - false, does not compile due to missing semi-colon
+* E - true
+* F - false
+* G - true
+* **C,E,G**✅✅✅✅
 <hr>
 
 ## Question 16
@@ -436,7 +475,11 @@ public class PrintConstants {
 ❓
 
 ### My answer:
-             
+* b1 is valid
+* b2 is valid
+* **F**❌❌❌❌             
+* **CORRECT ANSWER: F,H**
+* shutdown is not called, so H is correct!
 <hr>   
 
 ## Question 17
@@ -474,7 +517,8 @@ public class SheepManager {
 ❓
 
 ### My answer:
-
+* Single threaded so no thread-safety issues
+* **B**✅✅✅✅
 <hr>
 
 ## Question 18
@@ -506,7 +550,7 @@ public class StockRoomTracker {
 ❓
 
 ### My answer:
-
+* **F**✅✅✅✅
 <hr>
 
 ## Question 19
@@ -540,7 +584,7 @@ public class TicketManager {
 ❓
 
 ### My answer:
-
+* **A,F**✅✅✅✅
 <hr>
 
 ## Question 20
@@ -554,7 +598,12 @@ public class TicketManager {
 ❓
 
 ### My answer:
-
+* A - true
+* B - false
+* C - false
+* D - true
+* E - false
+* **A,D**✅✅✅✅
 
 <hr>
 
@@ -599,10 +648,9 @@ public class CountZooAnimals {
 ❓
 
 ### My answer:
-
+* **A,C,D,E**✅✅✅✅
 
 <hr>
-
 
 ## Question 22
 ❓ What is the resultg of executing the following program? ❓
@@ -637,5 +685,6 @@ public class PrintCounter {
 ❓
 
 ### My answer:
-
+* execute method does not support callable
+* **F**✅✅✅✅
 <hr>

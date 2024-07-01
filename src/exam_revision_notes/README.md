@@ -61,10 +61,10 @@ public interface invalidInterface extends CanWalk, CanRun { // COMPILER ERROR
 * The ArrayDeque has a pop method which removes and returns the start of the List, peek method only returns start of List
 * The `List` interface has a `remove(index)` method, while `Queue` has `remove(T object)` method
 
-## Chapter 4 Functional Programming
+## 🧠 Chapter 4 Functional Programming
 * The stream has `.sorted(Comparator)` method
 
-## Chapter 5 Dates, Strings and Localization
+## 🧠 Chapter 5 Dates, Strings and Localization
 * You can create Locales which follow the standard naming convention in 2 ways:
    1. `new Locale("language");`
    2. `new Locale("language", "COUNTRY");`
