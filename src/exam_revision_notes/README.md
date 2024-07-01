@@ -115,3 +115,22 @@ run();
 * The `Path.toAbsolutePath()` converts a relative path to absolute path by appending it to current work directory.
 * The `Files.walk(Path)` method returns `Stream<Path>`
 * When `Files.isSameFile(path1, path2)` is called, if the paths are different in type (one relative, one absolute), then it will check that the files actually exist
+
+## 🧠 Chapter 10 JDBC
+* For JDBC 4.0, vendors MUST provided implementations for Driver and Statement. Note: DriverManager is built into JDK
+* The only required components of the JDBC URL is name of database and the string `jdbc`
+* The components of jdbc URL is seperated by SINGLE colons and has the following format: `jdbc:database-name:database-specific-location-details`
+* In JDBC 4.0+, `DriverManager.getConnection()` throws a `SQLException` if the driver class is not found. In older versions we use `Class.forName()` which throws `ClassNotFoundException`
+* The `Connection.createStatement(int resultSetType, int resultSetConcurrency)` has parameters with constants defined in JDK:
+  * `ResultSet.TYPE_FORWARD_ONLY`
+  * `ResultSet.TYPE_SCROLL_INSENSITIVE`
+  * `ResultSet.TYPE_SCROLL_SENSITIVE`
+* The above method will NOT throw an exception if the mode parameters specified are not suppported by the database
+* The Statement class has 3 methods for executing queries:
+```java
+boolean execute(query);
+int executeUpdate(query);
+ResultSet executeQuery(query);
+```
+* The columns of `ResultSet` begin at an index of 1, attempting to access zeroth index will throw an exception
+* The ResultSet's `next()`/`previous()`/`absolute()` methods return a boolean of whether cursor is on row
