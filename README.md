@@ -1,10 +1,8 @@
 
 # ☕️ OCP Java Examples
-
-* This repo consists of all the small Java programs I have written while working through the official study guide for Java Programmer SE8 II exam.
-* I've also created chapter summary notes to help me tackle the end of chapter review questions.
-* I started preparing for the exam in 2022!
-**I passed Oracle's Java Programmer SE8 Exam I (1Z0-808) on the 17th Septemeber 2022 (see certification [here](https://catalog-education.oracle.com/pls/certview/sharebadge?id=EA07F7E87C58656C402C410B4210C568878D18157BE7312F361477BEF21C9D87)).**
+* ⭐**Certification achieved on 02/07/2024**⭐ (see certification [here](https://catalog-education.oracle.com/pls/certview/sharebadge?id=2C41C299B25363F20DA223E1B0A9FAEF60FE2A395B2E15011D1E7E3FFB29D87B))
+* This repo is for all my notes and revision for Oracle's Java 8 SE Professional Exam!
+* These notes are derived from **Oracle® Certified Professional Java® SE 8 Programmer II Study Guide** book by Jeanne Boyarsky
 
 <img src="Book Cover.jpg" width="150px">
 
